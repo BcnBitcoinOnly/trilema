@@ -19,6 +19,7 @@ wbm_fetch() {
         code=$(curl -sL -o "$out" -w '%{http_code}' "$url")
         case "$code" in
             200) return 0 ;;
+            000) info "connection failed, waiting 30s..."; sleep 30 ;;
             429) info "rate-limited, waiting 30s..."; sleep 30 ;;
             503|502|500) info "server error ($code), waiting 10s..."; sleep 10 ;;
             404) return 1 ;;
@@ -55,6 +56,19 @@ if s.get('available'):
 else:
     print('')
 " 2>/dev/null)
+
+    if [[ -z "$timestamp" ]]; then
+        info "availability API missed, trying CDX..."
+        sleep "$SLEEP_BETWEEN"
+        timestamp=$(curl -s "https://web.archive.org/cdx/search/cdx?url=trilema.com/$path&output=json&fl=timestamp,statuscode&filter=statuscode:200&limit=-1" \
+            | python3 -c "
+import sys, json
+try:
+    rows = json.load(sys.stdin)
+    if len(rows) > 1: print(rows[-1][0])
+except: pass
+" 2>/dev/null)
+    fi
 
     if [[ -z "$timestamp" ]]; then
         echo "MISS $path: not found on WBM"

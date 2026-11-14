@@ -15,6 +15,7 @@ wbm_fetch() {
         code=$(curl -sL -o "$out" -w '%{http_code}' "$url")
         case "$code" in
             200) return 0 ;;
+            000) info "connection failed, waiting 30s..."; sleep 30 ;;
             429) info "rate-limited, waiting 30s..."; sleep 30 ;;
             503|502|500) info "server error ($code), waiting 10s..."; sleep 10 ;;
             404) return 1 ;;
