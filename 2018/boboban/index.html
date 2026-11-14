@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_oct2018.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Boboban on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">The world’s greatest erotica writer.<br /><a href=/2019/i-own-erotica-like-zeus-owns-olympus/>By far</a>.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-78941"><div class="post" id="post-78941">                    <h1><a href="/2018/boboban/" rel="bookmark" title="Permanent Link to Boboban">Boboban</a></h1>                        <div class="date">                                     Monday, 09 April, Year 10 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p style="text-align: right;"><strong><a href="/forum-logs-for-09-apr-2018#2419425">Motto</a> </strong>: Ima fucking spec this.</p>
+<p>1. <strong>Map.</strong>
+<ul>
+	
+<li>The map is a a tiling of hexagonal spaces proceeding from a center. Thus a 3-map would consist of 19 hexes.
+<li>
+	
+<li>Every hex on the map may contain at most one object, and may have attached at most one hex property.
+<li>
+	
+<li>Hexes will be addressed via (a, b) where a denotes the radius (1 is the center square) and b denotes the radian angle [1,1] is the center hex, [1, 4] is the bottom-most hex in the 6-ring and so on).
+<li>
+	
+<li>The map defines the base damage for player spells and melee (either of which can be 0), the coin cost for each step taken as well as the base experience and coin drop for NPCs.</li>
+</ul>
+<p>2. <strong>Hex properties.</strong>
+<ul>
+	
+<li>Victory hex. When all victory hexen are occupied by victory objects, the player wins.
+<li>
+	
+<li>Grant hex. When player first steps on hex player is granted (item, spell, experience, health, coins).
+<li>
+	
+<li>Teleport hex. When player or NPC steps on hex, player or NPC is teleported to another hex.</li>
+</ul>
+<p>3. <strong>Map objects.</strong>
+<ul>
+	
+<li>Impassable object. "Rock".
+<li>
+	
+<li>Trap object. Passage damages passer.
+<li>
+	
+<li>Destructable object. Player can destroy it, like PCB in supaplex.
+<li>
+	
+<li>Victory Blocker object. Exactly identical to destructable object, but victory is impossible until it is destroyed.
+<li>
+	
+<li>Movable object. Player can push it, like crates in sokoban.
+<li>
+	
+<li>Victory object. Other than its victory magic, exactly identical to passable object. </li>
+</ul>
+<p>4. <strong>Items.</strong> All items will have at least one and at most three properties selected from the defined list (provided a slot-indicating property is always chosen), with an associated charge (from 1 to 100) that is decreased by 1 every time the item is used, arbitrarily divided in "common" (gray), "rare" (white), "mystic" (green), "epic" (blue) and "legendary" (orange) fifths. Once the charges of a property are drawn to 0, it is deleted. If the slot property is deleted, the item is destroyed.</p>
+<p>Available properties :
+<ul>
+	
+<li>"of the Tractor" (charges). When activated by player, a tractor item will pull whatever movable object drawing one charge per step.
+<li>
+	
+<li>"of Healing" (charges). Adds 1% of player HP to player on each step, drawing one charge.
+<li>
+	
+<li>"Cursed" (charges).  Substracts 1% of the player's coins (but not less than 1) each step and draws one charge. If player has no coins, one health is substracted instead.
+<li>
+	
+<li>"Spyked" (charges). Returns a tenth of melee damage to attacker.
+<li>
+	
+<li>"of Mirroring" (charges). Returns a tenth of magic (ranged) damage to attacker drawing one charge.
+<li>
+	
+<li>"Staff" (charges). Halves incoming melee damage, drawing one charge per hit. Right hand.
+<li>
+	
+<li>"Orb" (charges). Halves incoming magic damage, drawing one charge per cast. Left hand.
+<li>
+	
+<li>"Axe" (charges). Doubles player's melee damage, drawing one charge per cast. Right hand.
+<li>
+	
+<li>"Wand" (charges). Doubles player's magic damage, drawing one charge per cast. Left hand.
+<li>
+	
+<li>"Helmet" (charges). Substracts 6 from any melee damage incoming and draws one charge. Head.
+<li>
+	
+<li>"Mail" (charges). Substracts 13 from any melee damage incoming and draws one charge. Chest.
+<li>
+	
+<li>"Cuisses" (charges). Substracts 10 from any melee damage incoming and draws one charge. Legs.
+<li>
+	
+<li>"Hat" (charges). Substracts 6 from any magic damage incoming and draws one charge. Head.
+<li>
+	
+<li>"Robe" (charges). Substracts 13 from any magic damage incoming and draws one charge. Chest.
+<li>
+	
+<li>"Hosen" (charges). Substracts 10 from any magic damage incoming and draws one charge. Legs.</li>
+</ul>
+<p>5. <strong>Spells.</strong> All spells have 3 levels, Novice, Advanced, Master.
+<ul>
+	
+<li>Missile. Goes straight, delivering 1x / 2x / 3x damage to 1 / 2 / 3 enemies or objects in path.
+<li>
+	
+<li>Fireball. Goes straight, explodes once it hits something for 1 / 2 / 3 damage in a 1 / 2 / 3 radius and 1 / 2 / 3 burning damage for 1 / 2 / 3 turns.
+<li>
+	
+<li>Lightning. Hits closest enemy 1 / 2 / 3 hexes away for 1x / 2x / 3x damage and then jumps to closest enemy or object at a similar distance up to 1 / 2 / 3 times.
+<li>
+	
+<li>Ice Spray. Hits 1 / 4 / 9 adjacent hexes, reducing speed of enemies inside by 1 / 2 / 3 for 1 / 2 / 3 turns.
+<li>
+	
+<li>Jump. Moves player 1 / 2 / 3 hexes against gravity vector plus 1 hex in a random direction after that.
+<li>
+	
+<li>Teleport. Moves player 2 / 3 / 4 hexes in any direction, through any obstacles.</li>
+</ul>
+<p>6. <strong>Player.</strong> Player base health is 100, Player accrues experience for killing NPCs. Every 256 experience increases player level by 1, adding 1 skill point to be used for any skill of player's choice. Available player skills :
+<ul>
+	
+<li>"Bruiser". Increases player melee damage by 1 (in addition to map base).
+<li>
+	
+<li>"Wizard".  Increases player spell damage by 1 (in addition to map base).
+<li>
+	
+<li>"Tough". Increases player hitpoints by 1.</li>
+</ul>
+<p>7. <strong>NPCs.</strong> Map defined, must specify their name, skills, spells, items, hp, coin and experience drop as well as a movement / use model. Can be aligned with Player or not, and don't have to be aligned with each other.</p>
+<p>8. <strong>Campaign.</strong>
+<ul>
+	
+<li>Acyclic graph of however many maps, think v. Alternate routes are permitted.
+<li>
+	
+<li>Defines icons to be used for all objects / npcs etc inside all maps.
+<li>
+	
+<li>Defines whether health replenishes at beginning of map or not.
+<li>
+	
+<li>Defines whether shop is available in between maps and what it may contain.
+<li>
+	
+<li>Defines whether maps can be replayed or not, and what to do with the results (player keeps whole thing, or only delta from last run, if positive).
+<li>
+	
+<li>Defines gravity vector (6 possible directions, or no gravity).</ul>
+<p>Evidently, both classical Sokoban and classical Supaplex can be reimplemented as subsets of this design ; so my question is twofold : who wants to build the engine for this ? And, who wants to translate the two datasets for it ?</p>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2018/you-know-who-the-best-us-president-was-how-about-andrew-johnson/">You know who the best US president was ? How about Andrew Johnson ?</a></div>
+                <div class="alignright"><a href="/2018/iguanapost-i-guanapost-igu-an-apost-i-guan-a-post/">Iguanapost. I guanapost ? Igu an apost ? I guan a post!</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/smg/" title="View all posts in S.MG" rel="category tag">S.MG</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2018/boboban/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2018/boboban/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>9 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-125308" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro' class='url'>spyked</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-125308" title="">Tuesday, 10 April 2018</a>
+							</div>
+						<p>Hey, this is really cool! I'm still in the process of grokking the overall spec, so I might end up putting a bunch of questions in multiple comments.</p>
+<p>I'm a bit confused about the proposed addressing scheme for the hexagonal tiles. First off, I'm not sure I understood correctly, so I'll lay it out here: in general, a r-map is a hexagonal "circle" of radius r, centered around an origin. The surface would then be computed as: 1 + 6 * 1 + 6 * 2 + ... + 6 * (r - 1). Is this correct?</p>
+<p>Now, for the addressing scheme: it seems to me that this is an axial coordinate system (illustration <a href="http://archive.is/GjM9v#selection-5536.0-5536.1" >here</a>), but centering the origin in (1,1) seems a bit counterintuitive, since there'll be negative coordinates anyway. Say, for the 6-ring in the example, the *top*-most tile would be at (1,-2) -- which is in no way problematic, only the pedant mathematician would expect the origin to be centered in (0,0).</p>
+<p>Have I understood this correctly? If not, could you give out a more elaborate example?</p>
+						</li>
+
+										<li id="comment-125310" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-125310" title="">Tuesday, 10 April 2018</a>
+							</div>
+						<p>No, no, no. It's strictly positive, the first number counts rings and the 2nd number counts discrete angles. The "top-most" tile will always be (r, 1) and the bottom-most tile will always be (r, p/2). So your 2nd circle will go (3, 1) through (3, 18). That make sense or do I need to draw it ?</p>
+						</li>
+
+										<li id="comment-125311" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro' class='url'>spyked</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-125311" title="">Tuesday, 10 April 2018</a>
+							</div>
+						<p>I think I got it, but the numbers don't check out, so just to make sure, I'll give formalization another shot: a r-map comprises r concentric "rings", of length 1, 6, 6*2, ..., 6*(r-1), centered around the coordinate (1,1). The first ring has length 1, the second 6, the third 12, etc. (pen and paper drawing agrees on this), so in general: the first "ring" has one tile, while ring k (1 &lt; k</p>
+						</li>
+
+										<li id="comment-125312" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro' class='url'>spyked</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-125312" title="">Tuesday, 10 April 2018</a>
+							</div>
+						<p>Bah, this got cut off for some reason, lemme repost:</p>
+<p>I think I got it, but the numbers don't check out, so just to make sure, I'll give formalization another shot: a r-map comprises r concentric "rings", of length 1, 6, 6*2, ..., 6*(r-1), centered around the coordinate (1,1). The first ring has length 1, the second 6, the third 12, etc. (pen and paper drawing agrees on this), so in general: the first "ring" has one tile, while ring k (1 &lt; k</p>
+						</li>
+
+										<li id="comment-125313" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro' class='url'>spyked</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-125313" title="">Tuesday, 10 April 2018</a>
+							</div>
+						<p>Sorry for the annoying triple-post. wp parsed some of the input as tags, trying to wrap the math in preformatted tags:</p>
+<p>I think I got it, but the numbers don't check out, so just to make sure, I'll give formalization another shot: a r-map comprises r concentric "rings", of length 1, 6, 6*2, ..., 6*(r-1), centered around the coordinate (1,1). The first ring has length 1, the second 6, the third 12, etc. (pen and paper drawing agrees on this), so in general: the first "ring" has one tile, while ring k (1 &lt; k &lt; = r) has 6*(k-1) tiles.</p>
+<p>Then in general, for 1 &lt; k &lt; = r, coordinates can be represented as (k, i) where 1</p>
+						</li>
+
+										<li id="comment-125315" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro' class='url'>spyked</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-125315" title="">Tuesday, 10 April 2018</a>
+							</div>
+						<p>Quadderple posting this, with apologies for the noise and duplication:</p>
+<p>I think I got it, but the numbers don't check out, so just to make sure, I'll give formalization another shot: a r-map comprises r concentric "rings", of length 1, 6, 6*2, ..., 6*(r-1), centered around the coordinate (1,1). The first ring has length 1, the second 6, the third 12, etc. (pen and paper drawing agrees on this), so in general: the first "ring" has one tile, while ring k (1 &lt; k &lt;= r) has 6*(k-1) tiles.</p>
+<p>Then in general, for 1 &lt; k &lt;= r, coordinates can be represented as (k, i) where 1 &lt;= i &lt;= 6*(k-1). Then the first coordinate on the outermost ring (could be top-most by convention) is (r,1), the "last" coordinate is (r,6*(r-1)), while the "middle" (could be bottom-most by convention) is (r,6*(r-1)/2 + 1). I've verified this on a hand-drawn 3-map.</p>
+<p>Looking at it, I see two problems: 1. the degenerate r = 1 case is a bit annoying (but could be handled gracefully), and 2. I'm not sure what moves are available to the player. I guess it would make sense to preserve the directions as represented by the coordinates (away from/towards the center and forwards/backwards on the current ring), and it makes sense to make this explicit, since there's no such thing as up/down-left/right movement in this universe.</p>
+<p>I think I have a pretty clear image of how this should look now, I'll see if there's some easy way to arbitrarily draw these r-maps.</p>
+						</li>
+
+										<li id="comment-125316" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-125316" title="">Tuesday, 10 April 2018</a>
+							</div>
+						<p>There we go. I think you got it!</p>
+<p>What degenerate case, it's the map maker's job to make an interesting map/campaign. These map exactly on the concept of patch tree, so you know, only play those signed by people you trust.</p>
+<p>As to movement, player always moves to an adjacent square. Can be done with clicking, this item screams to be implemented in html5.</p>
+						</li>
+
+										<li id="comment-125319" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro' class='url'>spyked</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-125319" title="">Tuesday, 10 April 2018</a>
+							</div>
+						<p>Hey, take a look at <a href="http://lucian.mogosanu.ro/randomio/hex.html" >this</a>! (<a href="http://archive.is/neZj7" >archived</a>) I deliberately omitted the second ring, just to illustrate the flexibility of the generation process.</p>
+<p>One more question: is the game real-time or turn-based? One of the main differences between Sokoban and Supaplex is that the latter has a notion of time (IIRC there was even a time limit for gathering "victory blockers"). Also, some of the harder Supaplex levels relied a lot on avoiding/running from those bastard forks.</p>
+						</li>
+
+										<li id="comment-125322" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-125322" title="">Tuesday, 10 April 2018</a>
+							</div>
+						<p>Turn based. Each step is a turn.</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="author25acc28" id="author25acc28" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email25acc28" id="email25acc28" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="url25acc28" id="url25acc28" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="78941" /></p>
+				<input type="hidden" name="comment_post_time" value="1755324551-213.109.162.19" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2025 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-78941")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-78941");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-78941");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>
