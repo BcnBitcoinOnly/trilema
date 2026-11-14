@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_jul2019h.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>The Job Board on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">The world’s greatest erotica writer.<br /><a href=/2019/i-own-erotica-like-zeus-owns-olympus/>By far</a>.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-75122"><div class="post" id="post-75122">                    <h1><a href="/2017/the-job-board/" rel="bookmark" title="Permanent Link to The Job Board">The Job Board</a></h1>                        <div class="date">                                     Thursday, 19 October, Year 9 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p><a href="http://logs.minigame.biz/2017-10-19.log.html#t15:49:55">Here</a>'s the intro :</p>
+<blockquote><p><b>lobbes</b> relatedly, wasn't there a trilema job board posting for a Eulora trade bot? I remember weird details from the spec but can't find the thing these days<br />
+<b>mircea_popescu</b> lobbes there were two attempts, <A href=/2015/introducing-the-trilema-jobs-board/>the most recent</a> of which you might be remembering. the ancient one was the whole pankkake getting pissed off by himself<sup><a href="#footnote_0_75122" id="identifier_0_75122" class="footnote-link footnote-identifier-link" title="The matter was never clarified. It could have been really system-d that soured the Frenchie on the very early republic ; but I vaguely recall (and can't right now find in the logs) that there also was some complaint about my `not saying anything` for however many months about a project on which we were working together, in the sense that I attempted a specification and he was going to / did some work on. 
+Either way, it's a pity, I liked the guy. Then again (as you've possibly noticed from your own experience), not all that you like yourself like you back any. C'est la vie.">i</a></sup>. </p>
+<p><b>lobbes</b> aha okay<br />
+<b>mircea_popescu</b> anyway, the thing didn't go nowhere because of a fundamental problem of specification.</p>
+<p><b>lobbes</b> damn. I'm almost tempted to try something along those lines. Would be nice to plop a box up connected to eulora and have my invoices able to be settled automatically. of course, it would be eventually (tm)<br />
+<b>mircea_popescu</b> lobbes here's the problem : once you step away from the communion of the holy church and attempt to instead live under a roof you yourself built, you're suddenly very alone. how would you handle these, "write a complete requirement" ? rando will try to game the requirement. soon your administrative costs mount to exceed the actual cost of making the item. it's basically a dollar auction, you know how those work ? actually, i guess ima write an article for to detail. brb.</p></blockquote>
+<p>Before we can move into the discussion of this intro, there's some prerequiste reading to do :</p>
+<ul>
+<li>As far as the communion and the holy church etc is concerned, the relevant article is <a href="/2017/dupa-dealuri/">Dupa Dealuri</a> :<br />
+<blockquote><p>The secret young men do not know, and generally with their perdition find, is that the church as a body, in congregation and comunion, is protected by the Lord with immense, unspeakable power from the immense, unspeakable but ultimately not sufficient lures of the Enemy. For as long as he stands with the others, and in comunion with Christ's own bride, the young man is protected, and what's more, and what's infinitely worse -- feels powerful. Riding on a narrow plank atop a thin separation line between two fluid media the surfer thinks he feels "the power of the ocean". He doesn't, not really. The subdued ocean he feels is the subdued ocean he feels, not the ocean altogether.</p></blockquote>
+</li>
+<p>
+<li>As far as the weakness of contracts is concerned, the relevant article is the (awkwardly named) <a href="/2012/gpg-contracts/">GPG Contracts</a> article. No quote because integrally relevant.</li>
+<p>
+<li>"Exam-taking" refers to the practice of agents measured for a specific quality through a specified process to optimize their characteristics/behaviour/etcetera for the process rather than for the quality it nominally aims to measure. This is a fundamental cause of the failure of <a href="/2015/why-representative-democracy-doesnt-work-and-doesnt-make-sense/">would-be representative systems</a>, such as ourdemocracy or any other socialism.</li>
+<p>
+<li>A dollar auction is a deliberately constructed situation to extend the original objection of Buridan's ass into a more refined objection to <em>the possibility</em> -- not the actuality, you understand, but the very possibility -- of deliberately<sup><a href="#footnote_1_75122" id="identifier_1_75122" class="footnote-link footnote-identifier-link" title="There's an important difference between retroactively-rational and prospectively-rational activity. The latter is necessarily a superset of deliberately rational activity.
+In any case, the construction of retroactively-rational histories is in itself an arbitrary (which is to say, irrational) process, which is why Trilema keeps mocking the `just the facts` idiots.">ii</a></sup> rational activity. It goes like so : should someone auction a dollar on the condition that the top <em>two</em> bidders have to pay the amount they bid but only the top one gets the dollar, it would then be a rational move for a first player to bid one cent, and it would further be rational for a second player to bid two cents. At this juncture, it is rational for the first player to bid three cents, and for the second to bid four, and so continuing indefinitely until they're each bidding in excess of fifty cents, meaning the auction is now profitable for the auctioneer ; and then continue past each bidding a dollar, and two and twenty. Because the marginal cost of one extra cent is far exceeded by the marginal gain of one extra dollar.</li>
+</ul>
+<p>So equipped, let us proceed to the discussion of the item itself.</p>
+<p>The thing sought, such as for instance a script to make your computer beep randomly, or anything else, is the dollar.</p>
+<p>To obtain this dollar, you, the "employer", write out a spec describing what exactly it should do, at the cost to you of one penny. This seems like a great deal, to you.</p>
+<p>To obtain the counter-dollar, someone, the "employee", writes out an item which satisfies your spec, at the cost to them of two pennies. This seems like a great deal, to him.</p>
+<p>Discovering the difference between the dollar sought and the twopenny offered (at the cost of a penny), you find yourself forced to expend two further pennies to revise the spec ; and similarily, discovering the difference between the counter-dollar sought and the counter-spec offered in exchange (at the cost of... a penny), the someone finds itself similarily forced to expend three further pennies to revise the delivery.</p>
+<p>This game will continue, and "rationally" at that, long long after you've both expended in excess of the value of the dollar in your respective, rational but entirely useless and besides the point activities.</p>
+<p>It may seem, naively, that there should be a way out of this ; but leaving aside your intuitions to which you are more than welcome as ever was a coffin-liner-writer, there is ample experimental evidence to the very contrary. Indeed, if the whole edifice of contract and the society built upon it weren't fundamentally flawed and therefore untenable, what exactly would we be here and why would they be trading their daughters' maidenheads<sup><a href="#footnote_2_75122" id="identifier_2_75122" class="footnote-link footnote-identifier-link" title="Exactly in the manner the previous set of subhumans, vaguely known as `Indians`, traded theirs to the actually human if not very humane colonizers.">iii</a></sup> for our very valuable secret large numbers ?</p>
+<p>Yes, for as long as you live under the <em>irrational</em> mantle of the lordship as today it exists, supported by the steely infrastructure of the <a href="/2014/what-the-wot-is-for-how-it-works-and-how-to-use-it/">WoT</a> and the forum as they have been deliberately (but not necessarily rationally -- if you review the design process you'll probably agree the more correct descriptor is "inspirationally") designed there is a chance such problems may be avoided. But it is a chance not a guarantee, and there is indeed little that can be rationally said about the whole damned thing.</p>
+<p>This, then, is why I'm not actively pursuing this item. Until and unless I figure out some kind of way out of this, the "Job Board" category on Trilema lays derelict, and so following. What can you do ?</p>
+&mdash;&mdash;&mdash;<ol class="footnotes"><li id="footnote_0_75122" class="footnote">The matter was never clarified. It could have been really <a href=/forum-logs-for-03-sep-2014#1406868>system-d</a> that soured the Frenchie on the very early republic ; but I vaguely recall (and can't right now find in the logs) that there also was some complaint about my "not saying anything" for however many months about a project on which we were working together, in the sense that I attempted a specification and he was going to / did some work on. </p>
+<p>Either way, it's a pity, I liked the guy. Then again (as you've possibly noticed from your own experience), not all that you like yourself like you back any. C'est la vie. [<a href="#identifier_0_75122" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_1_75122" class="footnote">There's an important difference between <a href="/forum-logs-for-06-jul-2017#2304846">retroactively-rational</a> and prospectively-rational activity. The latter is necessarily a superset of deliberately rational activity.</p>
+<p>In any case, the construction of retroactively-rational histories is in itself an arbitrary (which is to say, irrational) process, which is why Trilema keeps mocking the "<a href="/2016/please-stop-using-dns-already-and-other-considerations/#selection-707.0-711.610">just the facts</a>" idiots. [<a href="#identifier_1_75122" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_2_75122" class="footnote">Exactly in the manner the previous set of subhumans, vaguely known as "Indians", traded theirs to the actually human if not very humane colonizers. [<a href="#identifier_2_75122" class="footnote-link footnote-back-link">&#8617;</a>]</li></ol>
+              <div>
+                <div class="alignleft">&laquo; <a href="/2017/the-mechanic-2/">The Mechanic</a></div>
+                <div class="alignright"><a href="/2017/the-story-of-the-little-shit/">The story of the little shit</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/bitcoin/" title="View all posts in Bitcoin" rel="category tag">Bitcoin</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2017/the-job-board/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2017/the-job-board/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>5 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-123225" class="commentbody"><div class="commenthead"><img alt='lobbes`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink">lobbes</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-123225" title="">Friday, 20 October 2017</a>
+							</div>
+						<p>I have read and digested, and I think I grok the causes for job board death: </p>
+<p>If 'employer' has an "open to all" job advertised he runs into both dollar-auction problem as well as mounting costs to enforce "old contracts" vs "gpg contracts" (as he'd be dealing with potential randos, aka non-wot entities).</p>
+<p>And if 'employer' restricts job advertised to just his wot, it still doesn't really solve dollar-auction problem. 'When is spec truly satisfied'? </p>
+<p>Seems like the best way to get shit done is still to either a) 'do it yourself' or b) pick someone you trust and work out the details. Sorta like how Birdman commisioned mike_c to build that poker-hand-something-script: <a href="http://btcbase.org/log/2017-08-18#1700030">http://btcbase.org/log/2017-08-18#1700030</a></p>
+						</li>
+
+										<li id="comment-123226" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-123226" title="">Friday, 20 October 2017</a>
+							</div>
+						<p>The second branch is subtler than that.</p>
+<p>In the first place "to restrict to just WoT" is not merely a label, but a substance. It means, quite specifically, to abandon "rationality" as pedestrianly represented by the pedestrians, and embrace "well tempered irrationality". What this means can't be put in finite form, but as an example : it means accepting that some jobs ~can't~ be given, for instance ; and more broadly it means adjusting the job to the doer as well.</p>
+<p>In the second place, if one were to apply the wot restriction correctly, one can no longer explain the difference between this supposed job board and the forum itself. In which case, what sense does it make to have "a site" (in whichever manner defined, mind, website or trilema category or any other kind of specified locus).</p>
+<p>I wouldn't in the slightest mind to be shown wrong on this score ; but best I can see at the moment, the notion of a job locus is entirely caused by psychogenic noise, and has no counterparty in actual reality.</p>
+						</li>
+
+										<li id="comment-123283" class="commentbody"><div class="commenthead"><img alt='Gord DUMONT`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink">Gord DUMONT</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-123283" title="">Monday, 23 October 2017</a>
+							</div>
+						<p>...trading their daughters' maidenheads iii   </p>
+<p>Exactly in the manner the previous set of </p>
+<p>subhumans, vaguely known as "Indians", traded </p>
+<p>theirs to the actually human if not very humane </p>
+<p>colonizers.<br />
+...actually, they weren't trading their </p>
+<p>daughters maidenheads - those were already taken </p>
+<p>by either the father, grandfather, uncle, </p>
+<p>brother or some "teepee crawler" in the middle </p>
+<p>of the night.  Incest and statutory rape are </p>
+<p>still considered "normal" behaviors by, at </p>
+<p>least, Canada's Indians.  (Oh yeah,  they like </p>
+<p>to call themselves 'First Nations' these days, </p>
+<p>and also blame "residential schools" for their </p>
+<p>incestuous  (and other criminal) behaviors</p>
+						</li>
+
+										<li id="comment-123284" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-123284" title="">Monday, 23 October 2017</a>
+							</div>
+						<p>> those were already taken</p>
+<p>Now <em>this</em> would be the problem. </p>
+<p>As the Nazis called it, Jewish impudence and arrogance. They misunderstood the source, of course. The utterly Luciferic tendency to think "I am all there is and what I understand is all that could be understood and this bowl of China really is a rock for me to throw" has absolutely nothing to do with Jews per se. It's entirely and positively the characteristic of poor people, and the very substance of their subhumanity. They share the trait with all the monkeys, which similarily never stop to think that "hey, maybe it's not my place to carry on in this manner before my betters", and of all the other inferior animals.</p>
+<p>In the historic perspective, it could be called a pity some of the northern primitives survived ; yet the Spanish did much better of a job erasing the guarani &#038; assorted tupis from the South than the French did in the North, and still to this day the South's inhabited by <a href=/2015/latino-perspectives/ >intolerable subhumans</a>. It's almost as if inheritance from the mother is the dominant part anyway, or something.</p>
+<p>As always, the problems of the world come back again and again and again to <a href=/2017/the-practical-costs-of-hallucinated-freedom/ >the costs of hallucinated freedom</a>.</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+				<li class="trackbody" id="comment-148095">
+					<div class='trackhead'>
+						<div class="commentcount">5</div>
+						<span class="authorlink"><a href='http://ossasepia.com/2020/03/27/a-review-of-the-bitcoin-category-on-trilemacom/?b=the%20problem%20&amp;e=ice.#select' class='url'>A Review of the Bitcoin Category on trilema.com &laquo; Ossa Sepia</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-148095" title="">Friday, 27 March 2020</a>
+					</div>
+					<p>[...] the problem of a job board given the interplay between the cost of specifying a job and the exam-taking practice. [...]</p>
+				</li>
+
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="author6e564a8" id="author6e564a8" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email6e564a8" id="email6e564a8" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="url6e564a8" id="url6e564a8" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="75122" /></p>
+				<input type="hidden" name="comment_post_time" value="1755878154-193.70.81.189" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2025 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-75122")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-75122");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-75122");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>
