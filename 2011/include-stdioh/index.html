@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_aug2018.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>#include &lt;stdio.h&gt; on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Moving targets for a fast crowd.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-27451"><div class="post" id="post-27451">                    <h1><a href="/2011/include-stdioh/" rel="bookmark" title="Permanent Link to #include &lt;stdio.h&gt;">#include &lt;stdio.h></a></h1>                        <div class="date">                                     Tuesday, 27 September, Year 3 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p>Pentru cititorii familiarizati cu limbajul de programare numit simplu C, titlul e o banalitate covirsitoare. Pentru cititorii nefamiliarizati cu acelasi apare probabil drept o chinezarie neinteligibila, da' nu-i dificil de explicat ce face. </p>
+<p>Sa explicam deci. C este un limbaj de programare, ceea ce inseamna practic vorbind ca-i un serviciu de traducere : dintr-un limbaj cvasi-uman in cod masina, direct executabil de catre un calculator. Automatul care indeplineste miracolul traducerii respective se numeste compilator, si procedeaza in felul urmator : ia textul de tradus, <em>il intelege intii</em>, in toata integrala lui totalitate, dupa care scrie <em>un echivalent exact</em> in cod masina. De preferinta optimizat, pentru ca limbajele cvasi-umane contin ambiguitati si gloseaza peste chestii care trebuie totusi rezolvate cumva in codul masina, dat fiind ca un calculator nu stie multe (cum probabil ati si observat - e pina la urma o simpla masina). </p>
+<p>Ca tot suntem la subiect, cealalta metoda de-a traduce din limbaj cvasi-uman in cod masina este indeplinita de un parser in loc de compilator. Acesta nu se preocupa cu a intelege textul in totalitatea lui, ci il traduce pur si simplu propozitie cu propozitie, cuvint cu cuvint, obiect si simbol cu obiect si simbol. Evident, textele scrise pentru a fi compilate vor fi structural diferite de textele scrise pentru a fi parsate, si aceasta imprejurare da si ocazia unei diferentieri de nomenclator : primele sunt programe, ultimele sunt scripturi. </p>
+<p>Ei si-acum, sa venim la #include. Principala problema a unui compilator (in mult mai mica masura a unui parser) este la ce te referi, dom'le ?! Nu este practic pentru compilator sa tina incarcate toate listele posibile si imaginabile de referinte la care ar putea apela mintea programatorului in nesfirsita ei complexitate. Ca atare, solutia corecta este sa nu tina nimic, si sa astepte din partea programatorului pustiul de bine de a-si incepe orice program cu niste instructiuni simple, aproximativ echivalente cu "In cadrul acestui text vom folosi concepte din Matematica - Statistica practica ; Istoria limbii franceze - Perioada medievala ; Sociologie generala si Antropologie fizica". Compilatorul da fuguta la librarie, ia volumele in discutie (marele avantaj al minunatei lumi a calculatoarelor este ca toate astea-s gata tratate, clar, unic si fara ambiguitati in cite-un singur, definitiv text) si este pregatit sa interpreteze corect si complet absolut orice concepte, referinte, implicatii si alte relatii i-ar putea propune programatorul. Concret, #include &lt;stdio.h> inseamna "Incarca libraria dedicata gestionarii intrarilor si iesirilor standard", adica tastatura, monitor, mouse, alea. </p>
+<p>Si-acum, dupa aceasta carnoasa introducere, sa venim la subiect. Cineva a scris ceva, altcineva a scris un comentariu la acel ceva. Legaturile concrete le puteti gasi <a href="//fain/literatura/creatorul-si-spectatorul-in-cuvintele-dianei/">pornind de pe fain</a>, acest nod gordian a tot ce conteaza in blogosfera, de unde vom si cita pasajul de-a pus in miscare poliloghia de fata : </p>
+<blockquote><p>Trecerea de la răspunsurile ei la analiza ta este atât de anevoioasă încât am nevoie de mai mult decât răsuflări să o înfăptuiesc. Cumva nu curge lin și consider că (deși analiza ta este foarte pertinentă) nu face o legătură foarte clară cu ce-i în grădina Cristinei. Și că tot vorbeai de dialog, cred că ar trebui să mai punctezi umpic la asta. Altfel, un demers demn de urmărit.</p></blockquote>
+<p>Cetateanul mydybride aka <a href="http://soseta-cu-povesti.com/2011/09/26/traiti-de-o-cutie/">Soseta cu povesti</a>, antropolog de meserie, percepe o problema de legatura intre cele doua, pe care o reprezinta in termeni de stil. De ce isi reprezinta el problema in termeni de stil ? Pai... poate pentru ceea ce se numeste "deformatie profesionala" : daca tu esti antropolog si ai deja gata incarcat stildio.h, e posibil sa fie mai ieftin, mai simplu si mai comod sa reprezinti cutare chestiune in termeni compatibili cu stildio.h decit sa te apuci sa incarci tgenrep.h<sup><a href="#footnote_0_27451" id="identifier_0_27451" class="footnote-link footnote-identifier-link" title="Teoria generala a reprezentarilor">i</a></sup>, de exemplu.</p>
+<p>Si eu percep o problema undeva pe-acolo, intre textul Cristinei si textul Dianei. Eu insa nu cred ca problema e de stil, eu cred ca problema e de seriozitate a compozitiei textului celei din urma. Anume, Diana scrie ca si cum ar fi mostenit o larga selectie de #include gata facute. Pentru cei care au suficienta familiaritate cu spatiul ei cognitiv<sup><a href="#footnote_1_27451" id="identifier_1_27451" class="footnote-link footnote-identifier-link" title="Apropo de care chestie, o referinta la articolul cu prostii online e obligatorie.">ii</a></sup>, textul e inteligibil si legaturile, rationamentele, referintele si asa mai departe sunt vizibile, se pot urmari si in general au sens. Pentru cei care au insa alte familiaritati, intregul ansamblu e pina la urma o constructie dura dar nelegata, ceea ce-i un alt fel de-a spune ca-i un obiect contondent. Ori capetele au in general oroare de obiecte contondente, si poate pe buna dreptate.</p>
+<p>Textul Dianei nu linkeaza<sup><a href="#footnote_2_27451" id="identifier_2_27451" class="footnote-link footnote-identifier-link" title="Nu-i interesanta coincidenta asta, nelegata adica... nu linkeaza ? Hm ?">iii</a></sup>, in termeni de specialitate, chiar daca privit teoretic e cod ca orice cod, fara probleme. </p>
+<p>Solutia bineinteles este rabdarea de-a scrie ce-am scris eu aici, adica o introducere imensa, stufoasa si obositoare. Solutia aceasta este si scumpa si dificila : nu doar ca nu oricine poate rezista s-o citeasca, dar <em>nu oricine poate s-o scrie</em>. Sigur ca la prima vedere poate parea ca marea problema e sa rezisti cu lectura cinci sute de cuvinte de introducere, dar in realitate marea problema e sa reusesti sa comprimi cinci sute de mii de cuvinte de teoria programarii masinilor numerice, teoria generala a reprezentarii, cunostiintele noastre despre functionarea cognitiei umane si alte citeva teme de aceeasi larga acoperire in cinci sute de cuvinte pentru uzul a cincizeci spre nouazeci si cinci la suta<sup><a href="#footnote_3_27451" id="identifier_3_27451" class="footnote-link footnote-identifier-link" title="Apropo de discutia daca merita sau nu merita sa traduci chestii.">iv</a></sup> din vorbitorii de limba romana<sup><a href="#footnote_4_27451" id="identifier_4_27451" class="footnote-link footnote-identifier-link" title="Problema mare, ca de obicei, este interoperabilitatea, `cross-platform compatibility` in limba engleza - cum scrii tu codul asta sa-l poata rula si un prajitor de piine si un PDP-10 si un desktop si un telefon ? Cum scrii asta s-o poata citi si intelege si un pustan de scoala ADD-ist si o babuta complet straina de masini numerice si un tehnician dentar si un jurist ?">v</a></sup>. In zece mii poate orice profesor de universitate, in cinci mii poate orice om care merita statuie. In cinci sute s-ar prea putea sa nu poata nimeni. </p>
+<p>Ca sa fiu cinstit, tot ce conteaza de fapt din paragraful anterior este ca "Solutia e bineinteles scumpa si dificila". Uneori merita, alteori nu merita, uneori se poate alteori nu este cu ce. </p>
+<p>Internetul, compus fiind din oameni doritori de totul pe nimic va selecta bineinteles pentru solutiile cele mai scumpe si cele mai dificile, daca exista cineva care sa le ofere. Cel putin teoretic, prin care <em>caveat</em> intelegem exact chestiunea referita in <a href="/2011/include-stdioh/#footnote_3_27451">nota iv</a> dinjos : oamenii vor prefera cele mai scumpe si dificile solutii <em>accesibile lor</em>, de unde rezulta un caz mai general tocmai celei de-a doua solutii pentru a conta pe internet, despre un caz particular al careia deja am mai vorbit<sup><a href="#footnote_5_27451" id="identifier_5_27451" class="footnote-link footnote-identifier-link" title="Avem o idee si pentru urite, grase si sfioase">vi</a></sup>.</p>
+&mdash;&mdash;&mdash;<ol class="footnotes"><li id="footnote_0_27451" class="footnote">Teoria generala a reprezentarilor [<a href="#identifier_0_27451" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_1_27451" class="footnote">Apropo de care chestie, o referinta la articolul cu <a href="/2010/nu-exista-prosti-online/">prostii online</a> e obligatorie. [<a href="#identifier_1_27451" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_2_27451" class="footnote">Nu-i interesanta coincidenta asta, nelegata adica... nu linkeaza ? Hm ? [<a href="#identifier_2_27451" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_3_27451" class="footnote">Apropo de discutia daca <a href="/2011/traductio-telegramae/#comment-61720">merita sau nu merita sa traduci chestii</a>. [<a href="#identifier_3_27451" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_4_27451" class="footnote">Problema mare, ca de obicei, este interoperabilitatea, "cross-platform compatibility" in limba engleza - cum scrii tu codul asta sa-l poata rula si un prajitor de piine si un PDP-10 si un desktop si un telefon ? Cum scrii asta s-o poata citi si intelege si un pustan de scoala ADD-ist si o babuta complet straina de masini numerice si un tehnician dentar si un jurist ? [<a href="#identifier_4_27451" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_5_27451" class="footnote"><a href="/2011/avem-o-idee-si-pentru-urite-grase-si-sfioase/">Avem o idee si pentru urite, grase si sfioase</a> [<a href="#identifier_5_27451" class="footnote-link footnote-back-link">&#8617;</a>]</li></ol>
+              <div>
+                <div class="alignleft">&laquo; <a href="/2011/buda-vama-si-chinezoaica-gravida/">Buda, vama si chinezoaica gravida</a></div>
+                <div class="alignright"><a href="/2011/testul-de-cultura-botanica-continua/">Testul de cultura botanica continua!</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/gandesc-deci-gandesc/" title="View all posts in Gandesc, deci gandesc" rel="category tag">Gandesc, deci gandesc</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2011/include-stdioh/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2011/include-stdioh/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>30 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-65164" class="commentbody"><div class="commenthead"><img alt='Freud`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink">Freud<img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65164" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>antropolog dala cu de ce a murit mortul sau negru' are capu' mic si desenea cu degetul in pestera?</p>
+						</li>
+
+										<li id="comment-65168" class="commentbody"><div class="commenthead"><img alt='Șoseta`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Șoseta</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65168" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>A-l percepe ca fiind un obiect contondent are tot implicații stilistice. Măcar că ne referim doar la neadaptarea discursului la condițiile de trafic...de informații. Am sesizat discrepanța - poate chiar pe bună dreptate - din defect profesional, din simplul motiv că pe axa (de la stânga la dreapta) cunoaștere comună-cunoaștere științifică, Diana este clar militant de extremă dreapta, iar în condiții de maxim empirism, extremismul (fie el stilistic sau de compoziție) aproape că nu are nicio valoare. Mai cu seamă, mă cutremur imaginându-mi un dialog față în față între scriitoarea Crista Bilciu și Diana Coman. </p>
+<p>@freud<br />
+pune mâna și mai citește și tu o carte, sau măcar citește-o pe diana coman, că-l faci de râs pe cel domn pentru care freud nu era doar un pseudonim.</p>
+						</li>
+
+										<li id="comment-65170" class="commentbody"><div class="commenthead"><img alt='Diana Coman`s avatar' src='http://dianacoman.com/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink"><a href='http://dianacoman.com/blog' class='url'>Diana Coman</a><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65170" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>"de unde rezulta un caz mai general tocmai celei de-a doua solutii pentru a conta pe internet" - mai degraba pe internetul strict de limba romana.</p>
+<p>Si din cauza acelui "se merita?" e posibil ca solutia sa fie mai degraba scrierea in limba engleza decat altceva. Pentru ca meritul la o adica pare a fi mai degraba in exercitiu decat in altceva la o adica, pentru ca ceea ce tu identifici drept problema aici functioneaza pana la urma si drept filtru, ceea ce nu-i musai un lucru rau pana la urma.</p>
+						</li>
+
+										<li id="comment-65171" class="commentbody"><div class="commenthead"><img alt='gheorghe`s avatar' src='http://animalantisocial.wordpress.com/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink"><a href='http://animalantisocial.wordpress.com' class='url'>gheorghe</a><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65171" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>require_once</p>
+						</li>
+
+										<li id="comment-65172" class="commentbody"><div class="commenthead"><img alt='Diana Coman`s avatar' src='http://dianacoman.com/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink"><a href='http://dianacoman.com/blog' class='url'>Diana Coman</a><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65172" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>Soseta, comentariul asta al tau mi-e mai clar decat toate de pe fain. Zici deci ca pentru a vorbi Cristei ar trebui sa virez spre maxima empirica (tot un extremism si ala, daca te uiti bine). O fi, ce-i drept. Dar dialogul atat de personal se intampla intr-adevar mai degraba fata in fata decat pe net - si acolo n-ai de ce te teme, ca eu stiu sa ascult bine de tot inainte de a vorbi -ajuta enorm :)</p>
+						</li>
+
+										<li id="comment-65173" class="commentbody"><div class="commenthead"><img alt='Freud`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink">Freud<img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65173" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>@soseta : ma, era o gluma pentru biolog sau social. in fine.</p>
+<p>sa stii ca la un moment dat am vrut sa-l citesc pe pisihanalizator si pe amicul lui junghi, da' erau al naibii de plictisitori. volume vechi, subtiri, in cat mai multe parti impartite posibil si limbaj vechi. m-am plictisit.</p>
+<p><del>am zis ca o sa ma reapuc candva, e mereu prin librarii colectia astuia, vreo 20 de carti asa.<br />
+daca devin ceva "miiar" peste noapte, sume cu 3 zerouri si etc, e posibil sa ma reapuc.</del></p>
+						</li>
+
+										<li id="comment-65175" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65175" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>@<b>Freud</b> Interesanta reprezentare a antropologiei ti-ai format tu. In realitate ea e pur si simplu studiul omului.</p>
+<p>@<b>Șoseta</b> Zici ? Eu cred ca s-ar intelege chiar bine, cel putin din experienta mea cu facut perechi din fete alea complet disjuncte ajung cele mai bune prietene, alea cu puncte centrale comune ajung cele mai bune inamice.</p>
+<p>In tot cazul, in postpost nimic nu mai are nici o valoare, asa ca...</p>
+<p>@<b>Diana Coman</b> Nu stiu zau de ce ar fi neaparat o chestiune de limba romana. Cre' ca-s prea multi la o adica acolo, si mai cred ca alegerile si ierarhiile de le propui sunt mai degraba colorate emotional decit extremism de dreapta cum te suspecteaza dinsus cineva.</p>
+<p>Ai si tu momentele tale :)</p>
+<p>@<b>gheorghe</b> Tehnic vorbind, da. Practic vorbind n-ai vazut multe programe in c fara #include cum n-ai vazut multe scripturi cu require. </p>
+<p>@<b>Freud</b> Cum e ala limbaj vechi ?</p>
+						</li>
+
+										<li id="comment-65178" class="commentbody"><div class="commenthead"><img alt='Freud`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink">Freud<img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65178" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>cu expresii care nu se mai folosesc. numai am cartea, nici nu era in romana.</p>
+<p>gen limbaj lolkorea versus curentkorea sau rominia versus romania. printate pe la vreo anii 70-80.</p>
+<p>@mp : pai stai ma, io stiam ca unu' se ocupa cu partea de anatomie si altu cu constructiile sociale.</p>
+<p>gen pseudologul si neurologul. sigur, oarecum se complementeaza, unul e pe partea de cultura, altul se uita la oase si etc.</p>
+						</li>
+
+										<li id="comment-65179" class="commentbody"><div class="commenthead"><img alt='Mihai B`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink">Mihai B<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65179" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>@MP @Freud 2</p>
+<p>ce intrebari ai si tu. pai nu e actual. pe vremea cand o fo' scris se calatorea cu caruta si omul zbura doar accidental tras de vreun zmeu ori vreun balon. :D</p>
+						</li>
+
+										<li id="comment-65180" class="commentbody"><div class="commenthead"><img alt='Freud`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">10</div>
+								<span class="authorlink">Freud<img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65180" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>*motivul pentru care invoc termeni dubiosi in gluma e pentru ca eu consider ca s-au inceput a dezvolta prin epoca darwinismului social, negru cu iq jos, negrul cu craniul mai mic si tot asa.<br />
+continuatorii astrologiei si fiziognomiei : psihologia si antropologia.</p>
+<p>meh.</p>
+						</li>
+
+										<li id="comment-65181" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">11</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65181" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>@<b>Freud</b> Expresiile "nu se mai folosesc" pentru ca <a href=/2011/ηλιθιοτητα-σωζει-ελλαδα/#comment-64962 >fiecare noua generatie de vitalusi</a> se naste <em>tabula rasa</em>, si asa au ei impresia ca "nu se mai folosesc" cuvintele limbii romane. Ele de fapt se folosesc bine mersi, doar ca de catre oamenii care conteaza, ceea ce nu doar ca nu-i include pe ei, ci de-a dreptul ii exclude.</p>
+<p>Dupa care mai trece niste timp, vreo zece ani asa, aia infim de putinii dintre vitalusii de mai an care ajung sa conteze folosesc si ei cuvintele care nu se mai foloseau, restul dispar in masa amorfa de gogi, si noua generatie de vitalusi incepe iarasi, "cuvinte care nu se <em>mai</em> folosesc".</p>
+<p>Dihotomia de-o propui tu e subtirica. Alte chestii care te-ar putea surprinde : exista istoria stiintei, istoria culturii, istoria filosofiei si iata ca deja-s trei. Nici astea nu merg intr-o schema binara. SOC SI GROAZA!</p>
+<p>@<b>Mihai B</b> Adica tehnologia ca sursa a limbajului ? Interesant concept.</p>
+						</li>
+
+										<li id="comment-65182" class="commentbody"><div class="commenthead"><img alt='Diana Coman`s avatar' src='http://dianacoman.com/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">12</div>
+								<span class="authorlink"><a href='http://dianacoman.com/blog' class='url'>Diana Coman</a><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65182" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>@Mircea Popescu </p>
+<p>"Cre’ ca-s prea multi la o adica acolo" - zici de Fain? Ca nu pricep altminteri, in legatura cu prima fraza, la ce s-ar referi.</p>
+<p>"Nu stiu zau de ce ar fi neaparat o chestiune de limba romana."<br />
+Doua explicatii. Cea "contondenta" tine de motive pur numerice: chiar pastrand proportia, vorbitorii de engleza (nu neaparat nativi) sunt cu ordine de marime mai multi decat cei de romana si deci daca aplici acelasi filtru, iti raman totusi mai multi parteneri de dialog.</p>
+<p>Cea "colorata emotional" e ca experienta mea cam asta este: mi-a fost intotdeauna dialogul mai usor in fapt cu strainii decat cu romanii. Basca faptul ca romanii cu care am dialogat usor se dovedesc in general vorbitori de limba engleza sau cel putin de o alta limba straina.</p>
+						</li>
+
+										<li id="comment-65183" class="commentbody"><div class="commenthead"><img alt='Lotus`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">13</div>
+								<span class="authorlink">Lotus</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65183" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>@<b>Mircea Popescu</b></p>
+<p>Dă-ţi foc la valiză că ai reuşit să comprimi în 500 de cuvinte zicala "ca nuca-n perete" şi vrei statuie pentru asta.</p>
+<p><em>Eu sunt <a href="/2011/trolul-perfect/" >o simpla fictiune</a>. Luati ce-am scris mai sus ca atare.</em></p>
+						</li>
+
+										<li id="comment-65184" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">14</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65184" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>@<b>Diana Coman</b><br />
+<blockquote>Pentru ca meritul <b>la o adica</b> pare a fi mai degraba in exercitiu decat in altceva <b>la o adica</b>, pentru ca ceea ce tu identifici drept problema aici functioneaza pana la urma si drept filtru, ceea ce nu-i musai un lucru rau pana la urma.</p></blockquote>
+<p>In limba engleza exista un miliard de cititori. In limba romana exista poate douazeci de milioane. Cauta bloguri de limba engleza cu sute de comentarii / articol. A, pardon. Pastrind proportiile, cu zece mii de comentarii per articol. De citeva ori in luna asta. Pe scurt, argumentul ala nu-i chiar asa solid daca-l iei la purecat.</p>
+<p>Cred ca toata lumea dialogheaza mai usor cu oricine decit cu romanii, atita timp cit incluzi in romani idioti precum de exemplu Lotus. Totusi, asa o abordare nu-i neaparat rationala, pe de-o parte idiotii n-au tara, si pe de cealalta francezii par sa considere ca integrarea tiganilor este obligatorie in cadrul uniunii europene, si anume nu de catre ei.</p>
+						</li>
+
+										<li id="comment-65185" class="commentbody"><div class="commenthead"><img alt='Freud`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">15</div>
+								<span class="authorlink">Freud<img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65185" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>@mp: io n-am turnat plozi cu tona dupa razboi care la randul lor s-au reprodus pana acuma.</p>
+<p>sigur, intre atatea cereri, s-au tot inventat diverse porcarii numite specializari, ca erau prea multi contabili, avocati, ingineri si doctori(si inca mai sunt). evident ca pe o porcarie de facultate dinasta urmeaza sa fii bugetar pe salariul minim pe economie, ca stii tu istoria teorii chibritului.<br />
+cum nu iti convine, te duci la supermarket sau ceva. si uite asa statul scapa de prosti. te angajezi doar cu liceu pe cv, caci cu facultate platesc aia prea multe impozite si etc.</p>
+<p>mai exista si alte porcarii de genul stiinte ale lumii contemporane prin vest.</p>
+<p>sincer sa fiu, niciodata nu mi-a placut stiinta, cea din scoli. pentru ca nu are partea aia de istorie care ar trebui sa fie unita, nu separata. o biografie ceva, un rand de cum era grecia antica, procese de gandire, etc.</p>
+<p>se obtin 2 "specialist" buni de nimic : unul face formule si nu stie sa exprime decat un buna ziua, ca nu a fost invatat comunicare, si ala cu istoria vorbeste ore in sir da' nu stie ce e ala radical.</p>
+						</li>
+
+										<li id="comment-65186" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">16</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65186" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>Tie niciodata nu ti-o placut nimic pentru motivul simplu ca esti pe de-o parte prea dezorganizat ca sa poti obtine rezultate reale si pe de cealalta prea las ca sa recunosti ca tu esti de vina. Altfel de muncitor ai putea fi cit sa-ti iasa ceva, da' te paralizeaza alelalte.</p>
+						</li>
+
+										<li id="comment-65187" class="commentbody"><div class="commenthead"><img alt='Freud`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">17</div>
+								<span class="authorlink">Freud<img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65187" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>cacat, tocmai cand terminasem de scris, mi-am inchis singur fereastra. firar mama ma-sii de laptop.</p>
+<p>nu. problema sunt piedicile.</p>
+<p>uite eram eu in clasa de biologie, prin a 6a cred, si puneam intrebari de partea cu reproducere. ce mama naibii imi rezolva mie asta cu euglena verde cand eu vreau sa stiu cum e cu mecanismul asta de am lemnu'-n pantaloni.</p>
+<p>evident ca-mi pierd interesul.</p>
+<p>sau chimia. uite copii ielemente, uite formuli, iote ieprubete. da' nu puneti mana pe ele.</p>
+<p>plm, cum vrei sa-mi imaginez eu ca o-ul ala cu cifre romane deasupra(care inca se mai preda si in ziua de azi, si e gresit de atunci, pentru ca a inlocuit iupac ideile lui stock) face ceva vrajeala, sau clor sau fier daca tu nu arati ce?</p>
+<p>cel mai hardcore experiment de laborator a fost ca o tipa a pus ceva albastru de metil intro epubreta si ne-a arat de la distanta cum e. la fel venele la o planta cu colorant in pahar.</p>
+<p>porcarii peste porcarii.</p>
+<p>sau dioptriile la fizica.</p>
+<p>aratati nene lentila aia curbata de vedere, nu poza aia obosita in ms paint din manual.</p>
+<p>adunat cu hai sa le dam note copiilor pentru ca raspund o chestie invatata mecanic din caiet cu ce a dictat profesoara poporului, nu tu opinie personala, nu tu nimic, evident ca e un esec chestia asta.</p>
+<p>se plangea azi teo-emologul asta de religie ca a dat si el un verset de analizat la o lucrare, sa scrie acolo unii parerea lor, si n-a scris nimeni.</p>
+<p>evident ca daca futem scoala pe teste grila si raspunsuri exacte asta e rezultatul.</p>
+						</li>
+
+										<li id="comment-65188" class="commentbody"><div class="commenthead"><img alt='Freud`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">18</div>
+								<span class="authorlink">Freud<img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65188" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>*am uitat sa adaug, pudica aia de biologie spunea ca "la anul". mda, lol.</p>
+<p>era mai simplu un film sincer.</p>
+						</li>
+
+										<li id="comment-65189" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">19</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65189" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>Povesti blyad.</p>
+						</li>
+
+										<li id="comment-65190" class="commentbody"><div class="commenthead"><img alt='Diana Coman`s avatar' src='http://dianacoman.com/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">20</div>
+								<span class="authorlink"><a href='http://dianacoman.com/blog' class='url'>Diana Coman</a><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65190" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>Ah, sunt si prea multi de "pana la urma" acolo, da. </p>
+<p>Cu restul sunt perfect de acord, dar chestiunea e pana la urma ce anume urmaresti cu blogul: sa ai influenta reala (ce masori tu acolo cu nr de comentarii si proportiile) ori pur si simplu sa gasesti un numar anume (care n-are a face cu proportiile) de parteneri de discutie.</p>
+						</li>
+
+										<li id="comment-65191" class="commentbody"><div class="commenthead"><img alt='Freud`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">21</div>
+								<span class="authorlink">Freud<img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65191" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>dura si hater</p>
+						</li>
+
+										<li id="comment-65192" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">22</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65192" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>@<b>Diana Coman</b> Implinisi un an de blogging ? Citi parteneri de discutie ai gasit ? O duzina ? Fa experienta cu un blog in limba engleza, vezi daca reusesti sa aduci un blog intr-un an pina la nivelul la care primeste 12 comentarii de la fiinte umane, in total. Unde prin fiinte umane intelegem chiar orice are puls, pustoaice de myspace si alte faune. </p>
+<p>Limba romana are avantajul ca-i mica si deci implicit avantajul ca-i proaspata. Limba engleza e un fel de bucuresti, toti tiganii se duc acolo ca e rost de ciordales. Cred ei.</p>
+						</li>
+
+										<li id="comment-65193" class="commentbody"><div class="commenthead"><img alt='Freud`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">23</div>
+								<span class="authorlink">Freud<img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65193" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>doar pentru ca pe tine te-au flodat chantarzii?</p>
+						</li>
+
+										<li id="comment-65194" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">24</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65194" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>Adica cine ? Sau la ce te referi ? </p>
+<p>Mei, citeste articolu' in plm, fix despre asta ie vorba, despre oameni care se trezesc vorbind da' de la jumatatea procesului rational incolo. Si lumea se uita la ei si nu pricepe, deci cum ?</p>
+						</li>
+
+										<li id="comment-65199" class="commentbody"><div class="commenthead"><img alt='Diana Coman`s avatar' src='http://dianacoman.com/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">25</div>
+								<span class="authorlink"><a href='http://dianacoman.com/blog' class='url'>Diana Coman</a><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65199" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>@Mircea Popescu Pai clar ca daca e pana acolo nu-i solutie mai buna decat de facut proba.</p>
+						</li>
+
+										<li id="comment-65200" class="commentbody"><div class="commenthead"><img alt='Freud`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">26</div>
+								<span class="authorlink">Freud<img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65200" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>@mp :<br />
+1. l-am citit<br />
+2. zenone stoici, fellow.com, encyclo dramatica; cu referire la faptul ca internetul in engleza e mesiness', nu merita, engleza e fumata deja, etc.</p>
+						</li>
+
+										<li id="comment-65203" class="commentbody"><div class="commenthead"><img alt='gheorghe`s avatar' src='http://animalantisocial.wordpress.com/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">27</div>
+								<span class="authorlink"><a href='http://animalantisocial.wordpress.com' class='url'>gheorghe</a><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65203" title="">Tuesday, 27 September 2011</a>
+							</div>
+						<p>@Mircea Popescu Nu prea e cine stie ce mai diferenta intre asa-size limbaje "scripting" interpretate si cele compilate. Rezultatul e acelasi doar ca performanta e mai proasta. Plus ca majoritatea limbajelor de "scripting" gen perl, ruby, python compileaza codul in bytecode.</p>
+						</li>
+
+										<li id="comment-65213" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">28</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65213" title="">Wednesday, 28 September 2011</a>
+							</div>
+						<p>@<b>Diana Coman</b> Idei sa fie, si timp sa ai.... da' ai grija sa il cheltui pin-ajungi in Rai.</p>
+<p>@<b>Freud</b> Mniezo stie ce zici.</p>
+<p>@<b>gheorghe</b> Apai nu-i chiar asa mare diferenta mai ales din motive de cross-over intre compilatoare si parsere, din fericire intr-o societate capitalista si intr-o lume libera nimeni nu-i suficient de purist incit sa se tina de simboluri lingvistice (chestie care se intimpla pentru ca banii ofera justificare rationala suficienta, nu mai e nevoie sa depinda indivizii de justificari notionale derivate din probleme lingvistice, cum era-n comunism - asta apropo de cit de clara si evidenta-i <a href=/2010/cele-doua-atot-esente/ >dualitatea esentelor</a>).</p>
+						</li>
+
+										<li id="comment-65660" class="commentbody"><div class="commenthead"><img alt='krossfire`s avatar' src='http://www.krossfire.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">29</div>
+								<span class="authorlink"><a href='http://www.krossfire.ro' class='url'>krossfire</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65660" title="">Saturday, 1 October 2011</a>
+							</div>
+						<p>In C++, pachetul stdio mai avea un rol de baza: Continea functia getch() (nu era singurul). Cel mai bun mod de a pune pauza unui program sau de a fenta un program de tip ''problema de liceu''.</p>
+						</li>
+
+										<li id="comment-65664" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">30</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65664" title="">Saturday, 1 October 2011</a>
+							</div>
+						<p>Mdap >D</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authorafb938c" id="authorafb938c" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emailafb938c" id="emailafb938c" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urlafb938c" id="urlafb938c" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="27451" /></p>
+				<input type="hidden" name="comment_post_time" value="1771420718-204.62.249.24" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2026 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-27451")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-27451");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-27451");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

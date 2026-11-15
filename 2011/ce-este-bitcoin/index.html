@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_jun2014-2.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Ce este bitcoin ? on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Evil broadly consists of people who<br />aren't very good and don't want to get any better.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-21685"><div class="post" id="post-21685">                    <h1><a href="/2011/ce-este-bitcoin/" rel="bookmark" title="Permanent Link to Ce este bitcoin ?">Ce este bitcoin ?</a></h1>                        <div class="date">                                     Saturday, 23 July, Year 3 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p>Pentru a intelege ce este bitcoin avem nevoie de un numar de notiuni de baza, pe care le vom sumariza dinjos.</p>
+<p><strong>I. Chei criptografice asimetrice</strong> Hai sa facem un exercitiu. Calculati factorii primi ai numarului 19957201. Aveti 60 de secunde.</p>
+<p>N-a mers chiar asa usor, este ? De fapt problema factorizarii e una dintre cele mai dificile in numerologia* moderna. Hai sa vedem ceva mai simplu atunci : calculati 17×19×137×451, tot in 60 de secunde. Asta sigur puteti face, probabil cu un calculator, dar de putut se poate, chiar si-n mai putin de un minut.</p>
+<p>Ei, cele doua entitati, anume "19957201" si "17×19×137×451" se gasesc intr-o relatie de egalitate. Prima se poate obtine relativ usor din a doua, dar a doua se obtine destul de dificil din prima. Chiar daca operatiile matematice considerate sunt ceva mai complexe decit egalitatea aritmetica si inmultirea aritmetica, tot se pot gasi entitati care sa se gaseasca in aceasta situatie, ba chiar amplificata.</p>
+<p>Si-acum : "17×19×137×451" este cheia privata. Din ea puteti obtine cheia publica foarte usor, si-o puteti de asemenea folosi pentru a decripta text ce-a fost criptat cu cheia publica. "19957201" e cheia publica. Ea poate fi folosita pentru a cripta chestii care nu vor putea fi citite decit de cel ce detine cheia privata.</p>
+<p>Asta-i toata povestea cu cheile asimetrice : o pereche de entitati matematice care au proprietatea ca prima se transforma usor in a doua, in timp ce a doua se transforma foarte dificil in prima. Dupa care textul criptat cu a doua nu poate fi decriptat decit de cel ce o detine pe prima. Va dati seama ca intr-o astfel de situatie cineva poate lasa mesajele criptate pe masa, si fiecare poate veni sa isi aleaga mesajul destinat lui, identificat dupa criteriul ca-l poate decripta. O solutie criptografica foarte eleganta, pina la urma, si ca rezultat cea mai folosita in practica (vezi si <a href="http://www.gnupg.org/">gpg</a>, apropo) </p>
+<p><strong>II. Baze de date.</strong> O baza de date e o structura aplicata informatiei. Asta-i tot, e foarte simplu si direct. Atita timp cit informatia se organizeaza cumva, avem o baza de date. In practica cel mai des folosite sunt bazele de date relationale, care structureaza informatia in baza unor similaritati ale datelor respective (spre exemplu, toate datele care reprezinta numele unei persoane intra la capitolul etichetat "nume de persoane"). </p>
+<p><strong>III. Peer to peer.</strong> Prescurtat frecvent p2p, peer to peer e un sistem care ingaduie participantilor sa recunoasca independent ce informatie au si ce informatie le lipseste dintr-un set arbitrar definit. In practica asta se realizeaza impartind o colectie de date in bucatele mititele dupa un criteriu anume. Toti utilizatorii au capacitatea de-a identifica ce bucatele au deja, ce bucatele le lipsesc, si in ce masura o bucatica propusa este chiar bucatica pe care o cauta. Dupa care se pot apuca de tranzactii intre ei, cautindu-si singuri si de capul lor bucatelele lipsa, fara a avea nici o nevoie de indrumare de la centru. </p>
+<p>Se descurca singuri, si din cauza ca se descurca singuri peer to peer este de departe cea mai importanta chestie de pe tot internetul, pentru cei care subscriu la o ideologie anticentralista, sau decentralista : e implementarea practica a garantiei certe ca nici un guvern n-are ce sa caute acolo.</p>
+<p><strong>IV. Anonimitatea.</strong> Sa facem un pas inainte pe baza celor discutate la I. dinsus. Daca cineva semneaza un mesaj cu cheia mea privata si-l pune pe o masa, acel ceva n-are cum sa afle <em>cine</em> a reusit sa-l decripteze dintre cei ce l-au citit. Astfel, destinatarul mesajului poate ramine anonim fata de trimitator. </p>
+<p>Totusi, cum putem sa identificam destinatarul anonim fara sa-i incalcam anonimitatea ? Da, suna absurd, dar intrebarea e perfect legitima : daca dorim de exemplu sa ne asiguram ca un eventual raspuns vine fix de la destinatarul scrisorii si nu de la cineva care pretinde ca este destinatarul scrisorii ? Cum verificam identitatea unei entitati anonime ? </p>
+<p>Pai... foarte simplu. Da, se poate! Deci : daca destinatarul anonim semneaza un mesaj folosind cheia lui privata, acel mesaj se va putea decripta folosind cheia lui publica, bineinteles, deci nu ofera nici o securitate. <em>Dar</em> ofera garantia identitatii : stim sigur ca un mesaj care se decripteaza cu cheia publica a entitatii X nu putea fi scris decit de entitatea X.</p>
+<p>Ei, in baza acestor ingenioase aplicatii matematice, putem deci avea un set de cetateni care-s anonimi unul fata de celalalt (sau mai propriu spus, pseudonimi, adica se recunosc sub un pseudonim derivat din cheia lor publica) si totusi se pot identifica in mod absolut ca "aceeasi persoana" ca si "persoana care a facut X". Mare chestie.</p>
+<p>Si-acum sa punem totul la un loc si sa facem bitcoin. Evident ca mesajele pe care ei si le trimit intre ei ar putea sa fie... bani. De ce nu ? Mesajele pot fi "trimite lui Y atitia bani", si gata povestea. Toata lumea poate verifica ca intr-adevar mesajul a fost trimis de X, pentru ca se decripteaza cu cheia lui publica. Tranzactia intra deci in hirtogaria publica, si nu mai poate fi anulata. De catre nimeni. </p>
+<p>Bitcoin este deci "<em>a peer to peer distributed database which holds public-key encripted money of pseudonymous participants</em>", adica o baza de date distribuita intr-o retea peer to peer care tine bani criptati cu cheile publice ale participantilor pseudonimi.</p>
+<p>Si este o mare chestie, dar despre asta vom discuta in episoadele urmatoare.</p>
+<p>---------<br />
+* Tehnica procesarii numerelor. E posibil sa mai existe si ceva tehnica de divinatie care isi aloca acelasi nume. Irelevanta ei o face perfect ignorabila.</p>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2011/educatia-tinerei-z-lxvi/">Educatia tinerei Z. - LXVI</a></div>
+                <div class="alignright"><a href="/2011/bitcoin-ce-este-un-miner-si-alte-consideratii/">Bitcoin - ce este un miner ? si alte consideratii</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/meta-psihoza/" title="View all posts in Meta psihoza" rel="category tag">Meta psihoza</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2011/ce-este-bitcoin/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2011/ce-este-bitcoin/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>48 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-55850" class="commentbody"><div class="commenthead"><img alt='Cos_ti`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink">Cos_ti</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-55850" title="">Saturday, 23 July 2011</a>
+							</div>
+						<p>Si unde este folosit sistemul asta?</p>
+						</li>
+
+										<li id="comment-55852" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-55852" title="">Saturday, 23 July 2011</a>
+							</div>
+						<p>De exemplu pe <a href=http://polimedia.us/fain/live_comments >fain</a> (care este intimplator si principalul mod in care un roman poate obtine btc). De alt exemplu, pentru platit hosting, ddns, ceasuri, diverse bunuri si servicii. Vezi aici : <a href="https://en.bitcoin.it/wiki/Trade">https://en.bitcoin.it/wiki/Trade</a></p>
+						</li>
+
+										<li id="comment-55857" class="commentbody"><div class="commenthead"><img alt='f`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink">f<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-55857" title="">Sunday, 24 July 2011</a>
+							</div>
+						<p>cat de interesant...</p>
+						</li>
+
+										<li id="comment-55860" class="commentbody"><div class="commenthead"><img alt='Hipsterilor`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink">Hipsterilor</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-55860" title="">Sunday, 24 July 2011</a>
+							</div>
+						<p>apropo de steluta, eu ma tot invart asa prin blogosfera de vreun 1-2, ocazional, de prin iarna anului trecut ceva frecvent, ma rog.</p>
+<p>si cam pe unde m-am invartit, n-am gasit si eu un blog de istorie. nu ma refer la cliseele astea de le stiu din grupa mica, da ba un dement asa dintro data fara explicatie a bagat niste tipi la abator(vreo 1-6 mil), culmea el era de aceeasi etnie cu ei punct</p>
+<p>---ma refer la un blog sau site decent in care sa scrie cum traia lumea acum 500, 1000, ceva gen. si cam ce se gandea la epoca respectiva.</p>
+<p>[spoiler]o fi acuma de ras astea gen astrologie, ghicit in cafea, geometrie sacra, etc etc, da' la vremea lor erau marele sens al vietii, cum e acum cre<del>s</del>tinism si etc.</p>
+<p>mi se pare ca atat grecii cat evreii aveau impresia ca d'le toata lumea asta se poate computa in numere, trebuie sa existe ceva formula magica pentru dumnezeu, cel mai recent exemplu de dilit dinasta e newton care o ardea non-stop in alchimie.[/spoiler]</p>
+<p>mdeci stie careva ceva?</p>
+						</li>
+
+										<li id="comment-55864" class="commentbody"><div class="commenthead"><img alt='Lotus`s avatar' src='/2011/ce-vindem-ce-cumparam/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink"><a href='/2011/ce-vindem-ce-cumparam/#comment-57409' class='url'>Lotus</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-55864" title="">Sunday, 24 July 2011</a>
+							</div>
+						<p>@<b>Mircea Popescu</b></p>
+<p>Vezi că ai tradus greşit ce-ai citit. În primul rând mecanismul descris la punctul I corespunde cheilor <b>asimetrice</b>, după cum şi numele sugerează. Cheile simetrice-s altceva. În al doilea rând, verbul românesc este "a cripta", de unde avem forma corectă <b>criptat</b> (şi nu "encriptat", "encriptată"). Azi-mâine o să începi să scrii "encodat" pe aici...</p>
+<p>Da-i bine când te-apuci să ţii cursuri pe subiecte pe care le-ai citit noaptea trecută.</p>
+						</li>
+
+										<li id="comment-55865" class="commentbody"><div class="commenthead"><img alt='Hipsterilor`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink">Hipsterilor</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-55865" title="">Sunday, 24 July 2011</a>
+							</div>
+						<p>stfu jew ca asta am zis si eu, ultima parte.</p>
+						</li>
+
+										<li id="comment-55866" class="commentbody"><div class="commenthead"><img alt='Mihai B`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink">Mihai B<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-55866" title="">Sunday, 24 July 2011</a>
+							</div>
+						<p>@Lotus</p>
+<p>a vrut sa demonstreze ca-i un nou einstein, pe acolo.</p>
+<p>@Hipsterilor</p>
+<p>nici vreun tratat de istorie a stiintei nu exista, ce sa vorbim de istoria antropologiei sau evolutia gandirii umane?! :D</p>
+						</li>
+
+										<li id="comment-55867" class="commentbody"><div class="commenthead"><img alt='Hipsterilor`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink">Hipsterilor</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-55867" title="">Sunday, 24 July 2011</a>
+							</div>
+						<p>hater</p>
+						</li>
+
+										<li id="comment-55871" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-55871" title="">Sunday, 24 July 2011</a>
+							</div>
+						<p>@<b>Hipsterilor</b> Din pacate nu exista. Blogosfera romaneasca e grav subdezvoltata, nu exista tot soiul de lucruri de-astea de bun simt. Theophyle se apropie intrucitva, sau se apropia intr-o vreme, da' uneori parca politica-l strica de cap.</p>
+<p>@<b>Lotus</b> They see me rollin', they hatin'...</p>
+<p>@<b>Mihai B</b> Bine zis.</p>
+						</li>
+
+										<li id="comment-55877" class="commentbody"><div class="commenthead"><img alt='Lotus`s avatar' src='/2011/ce-vindem-ce-cumparam/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">10</div>
+								<span class="authorlink"><a href='/2011/ce-vindem-ce-cumparam/#comment-57409' class='url'>Lotus</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-55877" title="">Sunday, 24 July 2011</a>
+							</div>
+						<p>@<b>Mircea Popescu</b></p>
+<p>Aşa, bun, ai corectat...  Fără UPDATE, ca să nu se prindă cineva c-ai scris greşit.</p>
+						</li>
+
+										<li id="comment-55878" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">11</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-55878" title="">Sunday, 24 July 2011</a>
+							</div>
+						<p>Pai cine-i interesat vede la comentarii buei.</p>
+						</li>
+
+										<li id="comment-55879" class="commentbody"><div class="commenthead"><img alt='Cos_ti`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">12</div>
+								<span class="authorlink">Cos_ti</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-55879" title="">Sunday, 24 July 2011</a>
+							</div>
+						<p>Nu am inteles si nici nu o sa inteleg vreodata hateri sau troli de pe un blog. De ce sa iti pierzi vremea sa comentezi aiurea. Mai bine iesi afara si respira aer curat!<br />
+Parca din ce in ce sunt mai multi oameni tristi..</p>
+						</li>
+
+										<li id="comment-55880" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">13</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-55880" title="">Sunday, 24 July 2011</a>
+							</div>
+						<p>Pai si daca traiesti intr-un oras poluat si nu este aer curat afara ce te faci ?</p>
+						</li>
+
+										<li id="comment-55882" class="commentbody"><div class="commenthead"><img alt='Hipsterilor`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">14</div>
+								<span class="authorlink">Hipsterilor</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-55882" title="">Sunday, 24 July 2011</a>
+							</div>
+						<p>lulz si shuper ca ma trimiti pe un blog privat, mda.</p>
+						</li>
+
+										<li id="comment-55889" class="commentbody"><div class="commenthead"><img alt='dAImon`s avatar' src='http://daimon.me/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">15</div>
+								<span class="authorlink"><a href='http://daimon.me/blog/' class='url'>dAImon</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-55889" title="">Monday, 25 July 2011</a>
+							</div>
+						<p>Hipsteru' e un fel de Critic pe steroizi, ain't it?</p>
+						</li>
+
+										<li id="comment-55898" class="commentbody"><div class="commenthead"><img alt='Cos_ti`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">16</div>
+								<span class="authorlink">Cos_ti</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-55898" title="">Monday, 25 July 2011</a>
+							</div>
+						<p>@Mircea Popescu: cresti niste plante in apartament.</p>
+						</li>
+
+										<li id="comment-55899" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">17</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-55899" title="">Monday, 25 July 2011</a>
+							</div>
+						<p>@<b>dAImon</b> Daca seamana, rasare. Chiar si-n aparament, vorba lu' Cos_</p>
+						</li>
+
+										<li id="comment-56003" class="commentbody"><div class="commenthead"><img alt='Hipsterilor`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">18</div>
+								<span class="authorlink">Hipsterilor</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-56003" title="">Tuesday, 26 July 2011</a>
+							</div>
+						<p>traiasca bitcoinu' shee toti sustinatorii !!!!!11ielevehn1!!!!</p>
+<p><a href="http://img543.imageshack.us/img543/1341/1311715445482.jpg">http://img543.imageshack.us/img543/1341/1311715445482.jpg</a></p>
+						</li>
+
+										<li id="comment-56007" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">19</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-56007" title="">Wednesday, 27 July 2011</a>
+							</div>
+						<p>Intr-adevar, very true, <a href=http://a3.twimg.com/profile_background_images/9854979/tweetar.jpg >very true</a>.</p>
+						</li>
+
+										<li id="comment-56016" class="commentbody"><div class="commenthead"><img alt='Hipsterilor`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">20</div>
+								<span class="authorlink">Hipsterilor</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-56016" title="">Wednesday, 27 July 2011</a>
+							</div>
+						<p>stai mey ashea ca tu nu esti anonymous aia e faza.</p>
+						</li>
+
+										<li id="comment-56018" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">21</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-56018" title="">Wednesday, 27 July 2011</a>
+							</div>
+						<p>A da ? Pai zi explicit sa se inteleaga.</p>
+						</li>
+
+										<li id="comment-81148" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">22</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-81148" title="">Wednesday, 28 March 2012</a>
+							</div>
+						<p>For posteriority : <a href="http://blog.p2pfoundation.net/why-the-p2p-foundation-is-paying-its-salaries-in-bitcoin/2012/03/28">http://blog.p2pfoundation.net/why-the-p2p-foundation-is-paying-its-salaries-in-bitcoin/2012/03/28</a></p>
+						</li>
+
+										<li id="comment-90848" class="commentbody"><div class="commenthead"><img alt='iulian`s avatar' src='http://a/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">23</div>
+								<span class="authorlink"><a href='http://a' class='url'>iulian</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-90848" title="">Thursday, 6 December 2012</a>
+							</div>
+						<p>daca se uita cineva pe aici am nevoie de un lock unde sa schimb bitcointul in euro/lei eut si sa ii transfer in <a href="https://www.paypal.com/">https://www.paypal.com/</a> daca stie cinva plz add id :iulica_11 si zicetimi si mie</p>
+						</li>
+
+										<li id="comment-90851" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">24</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-90851" title="">Thursday, 6 December 2012</a>
+							</div>
+						<p>Mei, de uitat se uita, da' vezi si tu ceva gen <a href=https://bitcointalk.org/index.php?topic=129461.0 >exchangeu' lu' davout</a>.</p>
+						</li>
+
+										<li id="comment-94653" class="commentbody"><div class="commenthead"><img alt='Anon`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">25</div>
+								<span class="authorlink">Anon<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-94653" title="">Sunday, 18 August 2013</a>
+							</div>
+						<p>peste doi ani te prind romanii din urma: <a href="http://www.capital.ro/detalii-articole/stiri/185476.html">http://www.capital.ro/detalii-articole/stiri/185476.html</a></p>
+						</li>
+
+										<li id="comment-94654" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">26</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-94654" title="">Sunday, 18 August 2013</a>
+							</div>
+						<p>Pai cind pot si ei.</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+				<li class="trackbody" id="comment-78663">
+					<div class='trackhead'>
+						<div class="commentcount">27</div>
+						<span class="authorlink">Închiderea library.nu &#8211; şi câteva idei | Mind Porn</span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-78663" title="">Saturday, 18 February 2012</a>
+					</div>
+					<p>[...] dat fiind că aveau şi adsense). Dacă respectivii proprietari acceptau donaţii în bitcoini, nimic nu s-ar fi întâmplat.  O discuţie pe subiect aici. O părere a cuiva din &#8216;lumea [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-88680">
+					<div class='trackhead'>
+						<div class="commentcount">28</div>
+						<span class="authorlink"><a href='http://polimedia.us/fain/story/48757' class='url'>polimedia.us/fain</a></span>&nbsp;(via Trackback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-88680" title="">Monday, 10 September 2012</a>
+					</div>
+					<p><strong>Ce este bitcoin - pe Trilema - Un blog de Mircea Popescu-...</strong></p>
+<p>Tot cauta lumea un articol sa explice bitcoin si tot nu gaseste. Ei cauta ca rezultat al anuntului ca trecem de pe Paypal, linku-i acolo... Mnoa....</p>
+				</li>
+
+				<li class="trackbody" id="comment-127189">
+					<div class='trackhead'>
+						<div class="commentcount">29</div>
+						<span class="authorlink"><a href='http://ossasepia.com/2018/12/10/my-talk-of-bitcoin-at-reading-uni/' class='url'>My Talk of Bitcoin at Reading Uni &laquo; Ossasepia</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-127189" title="">Tuesday, 11 December 2018</a>
+					</div>
+					<p>[...] (UK) about Bitcoin. Following the very useful advice from the forum, I centred my talk on "What Is Bitcoin?" and then I built on that with a discussion of actual innovation in Bitcoin (WoT, V, Deedbot) as [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-135252">
+					<div class='trackhead'>
+						<div class="commentcount">30</div>
+						<span class="authorlink"><a href='/2011/bitcoin-ce-este-un-miner-si-alte-consideratii?b=principiu%20si&amp;e=i%20si#select' class='url'>Bitcoin - ce este un miner ? si alte consideratii on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-135252" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] principiu sistemul discutat in articolul despre bitcoin nu trebuie neaparat sa se numeasca "bitcoin", tot asa cum o pereche de adidasi s-ar putea numi si [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-135279">
+					<div class='trackhead'>
+						<div class="commentcount">31</div>
+						<span class="authorlink"><a href='/2011/e-bula-au-nu-i-bula?b=mai%20frecvent&amp;e=atie#select' class='url'>E bula au nu-i bula ? on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-135279" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] mai frecvent argument auzit in discutiile despre bitcoin este ca respectiva valuta nu are nici un suport "real", ceea ce-o transforma intr-o speculatie [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-135438">
+					<div class='trackhead'>
+						<div class="commentcount">32</div>
+						<span class="authorlink"><a href='/2011/ce-articole-de-pe-trilema-s-au-citit-luna-asta?b=Ce%20este%20bitc&amp;e=in%20%3F#select' class='url'>Ce articole de pe Trilema s-au citit luna asta ? on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-135438" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] Ce este bitcoin ? [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-136142">
+					<div class='trackhead'>
+						<div class="commentcount">33</div>
+						<span class="authorlink"><a href='/2011/progresul-tehnologic-si-scaderea-calitatii-vietii?b=un%20motiv%20pen&amp;e=citi#select' class='url'>Progresul tehnologic si scaderea calitatii vietii on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-136142" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] un motiv pentru care toti oamenii sanatosi la cap sustin si toate statele fara exceptie se opun monezii deflationare. Va las sa-l ghiciti [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-136396">
+					<div class='trackhead'>
+						<div class="commentcount">34</div>
+						<span class="authorlink"><a href='/2011/dezagregarea-increderii?b=pe%20masa%20oric&amp;e=alus#select' class='url'>Dezagregarea increderii on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-136396" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] pe masa oricarui individ dispus sa-si incerce statutul de om, sa vada de i se potriveste sau nu, metoda de-a o face. Si-acum problema se pune foarte acut in fata fiecarui fost vitalus by default, actualmente vitalus [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-136475">
+					<div class='trackhead'>
+						<div class="commentcount">35</div>
+						<span class="authorlink"><a href='/2011/viitorul-si-alte-comentarii?b=Asa%20o%20aplica&amp;e=ins.#select' class='url'>Viitorul si alte comentarii on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-136475" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] Asa o aplicatie ar schimba fara indoiala lumea, si nu intimplator am dat link la articolul despre bitcoins. [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-136762">
+					<div class='trackhead'>
+						<div class="commentcount">36</div>
+						<span class="authorlink"><a href='/2012/doua-dificultati-mentale-cu-o-sursa-comuna?b=realitate%2C%20b&amp;e=mb%20a#select' class='url'>Doua dificultati mentale cu o sursa comuna on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-136762" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] realitate, bitcoin e pur si simplu o tehnologie superioara. Tot asa cum introducerea aurului ca mediu de schimb a [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-136796">
+					<div class='trackhead'>
+						<div class="commentcount">37</div>
+						<span class="authorlink"><a href='/2012/concurs-de-fictiune?b=karma%20se%20poa&amp;e=rsul#select' class='url'>Concurs de fictiune on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-136796" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] karma se poate transforma direct in bani, fie sub forma de euro via Paypal, fie sub forma de bitcoini la cursul [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-137388">
+					<div class='trackhead'>
+						<div class="commentcount">38</div>
+						<span class="authorlink"><a href='/2012/m-am-distrat-copios-da-copios-cu-astia-cu-bitcoinii?b=%3A%20BTC%20e%20ceva&amp;e=%20cit#select' class='url'>M-am distrat copios, da' copios, cu astia cu bitcoinii on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-137388" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] : BTC e ceva cu bani, cu economie, cu chestii de-astea. Ca rezultat toata lumea incearca sa faca faze cit [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-137524">
+					<div class='trackhead'>
+						<div class="commentcount">39</div>
+						<span class="authorlink"><a href='/2012/cum-sa-pastram-secrete-digitale?b=pe%20care%20se%20b&amp;e=tice#select' class='url'>Cum sa pastram secrete digitale ? on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-137524" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] pe care se bazeaza ea e tot criptografia cu chei asimetrice de care-am mai discutat cu ocazia bitcoinilor, asa ca nu mai revenim, ne focalizam pe chestii practice [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-137700">
+					<div class='trackhead'>
+						<div class="commentcount">40</div>
+						<span class="authorlink"><a href='/2012/de-ce-s-nesuferiti-tehnicienii?b=ce-i%20aia%20p2p&amp;e=oate#select' class='url'>De ce-s nesuferiti tehnicienii ? on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-137700" title="">Tuesday, 7 January 2020</a>
+					</div>
+					<p>[...] ce-i aia p2p, criptografie sau masa monetara eu v-am explicat corespunzator ce-s aia bitcoini ? V-am. Am strimbat eu din nas ca vai, dar nu stiti deja ceea ce tre' sa va explic deci nu vi se poate [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-137757">
+					<div class='trackhead'>
+						<div class="commentcount">41</div>
+						<span class="authorlink"><a href='/2012/posibil-cel-mai-important-efect-al-bitcoinilor?b=importanta%20t&amp;e=nte%2C#select' class='url'>Posibil cel mai important efect al bitcoinilor on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-137757" title="">Tuesday, 7 January 2020</a>
+					</div>
+					<p>[...] importanta tema a dreptului civil mi-a limpezit brusc in minte cel mai important efect disruptiv al bitcoinilor. Adica, aceasta tehnologie are multe si nenumarate efecte disruptive, toate amutitor de importante, [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-138543">
+					<div class='trackhead'>
+						<div class="commentcount">42</div>
+						<span class="authorlink"><a href='/2012/criza-socialismului?b=Sunt%20nule.%20E&amp;e=e%20cu#select' class='url'>Criza socialismului on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-138543" title="">Tuesday, 7 January 2020</a>
+					</div>
+					<p>[...] Sunt nule. Evident esenta cea nenumita s-a reincarnat in altceva. Banii sunt acum altceva. I zice Bitcoin acelui altceva, si evident "lumea" nu prea simte inca forta cataclismului. E ok, lumea simte cu [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-138636">
+					<div class='trackhead'>
+						<div class="commentcount">43</div>
+						<span class="authorlink"><a href='/2012/sa-va-arat-nemijlocit-si-direct-cum-fac-evreii-atit-bani-cit-si-orice-altceva?b=repejor%20si%20o&amp;e=etul#select' class='url'>Sa va arat nemijlocit si direct cum fac evreii, atit bani cit si orice altceva on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-138636" title="">Tuesday, 7 January 2020</a>
+					</div>
+					<p>[...] repejor si o evaluare : Fiecare actiune valora atunci 9085 satoshiii, deci intregul total 90`850 BTC, care la pretul pietei de-atunci (~5 USD/BTC) inseamnau un respectabil 454`250 USD care la pretul [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-138662">
+					<div class='trackhead'>
+						<div class="commentcount">44</div>
+						<span class="authorlink"><a href='/2012/ciuciu-bond?b=dintre%20chest&amp;e=ucea#select' class='url'>Ciuciu Bond on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-138662" title="">Tuesday, 7 January 2020</a>
+					</div>
+					<p>[...] dintre chestiile pe care le fac ei e Intersango, care-i teoretic o casa de schimb pentru Bitcoin, din si in dolari si alte valute. Acum vreo sase luni situatia se prezenta cam asa : MtGox ducea [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-138763">
+					<div class='trackhead'>
+						<div class="commentcount">45</div>
+						<span class="authorlink"><a href='/2012/doua-poze-mii-de-cuvinte-milioane-de-lei?b=Iar%20S.DICE%20a&amp;e=BTC.#select' class='url'>Doua poze, mii de cuvinte, milioane de lei. on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-138763" title="">Tuesday, 7 January 2020</a>
+					</div>
+					<p>[...] Iar S.DICE asta e simbolul companiei cunoscuta drept SatoshiDICE! si care se lauda ca genereaza majoritarea tranzactiilor care au loc pe BTC. [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-138828">
+					<div class='trackhead'>
+						<div class="commentcount">46</div>
+						<span class="authorlink"><a href='/2012/adio-paypal-trecem-pe-bitcoini?b=nu%20vi-e%20clar&amp;e=eaza#select' class='url'>Adio PayPal. Trecem pe bitcoini on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-138828" title="">Tuesday, 7 January 2020</a>
+					</div>
+					<p>[...] nu vi-e clar cam ce-s Bitcoin astia puteti incepe documentarea de exemplu de la articolul "Ce este Bitcoin". Pe scurt, si dintr-o perspectiva practica : va puteti fie descarca programul care genereaza [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-138895">
+					<div class='trackhead'>
+						<div class="commentcount">47</div>
+						<span class="authorlink"><a href='/2012/deci-piata-financiara-bine?b=ca%20iata%20noua&amp;e=tina#select' class='url'>Deci piata financiara, bine ? on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-138895" title="">Tuesday, 7 January 2020</a>
+					</div>
+					<p>[...] ca iata noua economie in toata splendoarea ei. Avem gpg deci putem semna, avem bitcoin deci putem tranzactiona. Astea doua elemente impreuna rezolva complet problema, si-s o solutie si mai simpla si mai ieftina [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-138903">
+					<div class='trackhead'>
+						<div class="commentcount">48</div>
+						<span class="authorlink"><a href='/2012/festivalul-sarah-silverman-de-glume-despre-viol?b=de%20milioane%20&amp;e=jos%2C#select' class='url'>Festivalul Sarah Silverman de Glume despre Viol on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-138903" title="">Tuesday, 7 January 2020</a>
+					</div>
+					<p>[...] de milioane de dolari de dat pe-asa ceva, da' ofer cite o suta de milioane de satoshi (vine fix un Bitcoin) fiecarui banc propus de cititori care-i acceptat ca fiind demn de acest maret festival. Dinjos, [...]</p>
+				</li>
+
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authord73b6bc" id="authord73b6bc" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emaild73b6bc" id="emaild73b6bc" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urld73b6bc" id="urld73b6bc" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="21685" /></p>
+				<input type="hidden" name="comment_post_time" value="1780776749-18.97.14.89" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2026 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-21685")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-21685");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-21685");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

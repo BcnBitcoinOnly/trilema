@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_apr2020.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Cine-o persecuta pe Sonia ? on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Heretiquarium.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-27409"><div class="post" id="post-27409">                    <h1><a href="/2011/cine-o-persecuta-pe-sonia/" rel="bookmark" title="Permanent Link to Cine-o persecuta pe Sonia ?">Cine-o persecuta pe Sonia ?</a></h1>                        <div class="date">                                     Monday, 26 September, Year 3 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p>Un utilizator vechi si popular pe fain s-a trezit aseara cu karma pe minus, chestie care <a href="//fain/muzica/i-was-born-to-love-you--dordedoi/#c68287">m-a pus pe ginduri</a>. Ce-o fi facut dom'le fata ?! </p>
+<p>M-am apucat sa sap in amanuntime (datorita infernalei complexitati a infernalei masinarii nu-i chiar trivial sa reconstitui ce s-a intimplat in cursul timpului chiar avind phpmysql in fata, va marturisesc cinstit). Am ajuns la rezultate, in sensul ca m-am lamurit eu pentru mine ca nu-i ceva gresala la mijloc, ci balaurul a socotit corect. Dar daca tot m-am uns cu vaselina de biti pina la coate, sa va ilustrez explicativ considerentele, ungindu-va astfel si pe voi. Deci :</p>
+<p>Problema Soniei este ca ea are o <a href="/2011/imbunatatiri-si-complicari-in-calcularea-karma/">divergenta</a> foarte mica (0.228571428571)<sup><a href="#footnote_0_27409" id="identifier_0_27409" class="footnote-link footnote-identifier-link" title="Divergenta este opusul zisei `convergente globale` din articolul citat, si-n termeni practici un numar mai mare decit 0 si mai mic decit 1.5">i</a></sup> rezultat al faptului ca introduce o varietate mica de domenii, si-n marea majoritate domenii deja bine cunoscute de fain. Ca atare, ea tre' sa munceasca pentru o karma cam de 4-5 ori mai mult decit altul, care are un factor de divergenta de 1. Sunt utilizatori care au si peste, cel mai mult au cristian4everyone (1.4), cristi8204 (1.39818181818), andreimituca, costache, Lilly si mydybride (1.375 fiecare),  redandblue (1.34). Eu am 1.16933962264. </p>
+<p>Deci un articol publicat care sa zicem ar aduce in principiu 100 de karma ii aduce lui cristian4everyone 140, mie 116.93etc iar Soniei 22,85etc. Si bineinteles sunt si sub ea, avem 5 oameni cu 0.166666666667 : cami, Dyo, ioanar, textconstruct si PatrascuCristian.</p>
+<p>Si-acum sa vedem o situatie de evolutie dinamica (numerele sunt fictive) : </p>
+<ul>
+Ziua 1 : Sonia are 3 articole publicate (300 karma), 5 introduse (100 karma), 100 votate (100 karma) si 25 votate si publicate (250 karma), in total 750 karma. Cele 5 introduse ii ofera o divergenta de 0.85 si sunt toate de pe domenii diferite, deci nu are - la karma de-acolo. Ramine 637.5 karma.</p>
+<p>Sonia vinde 300 karma, ramine cu 337.5</p>
+<p>Ziua 2 : Sonia mai introduce 2 articole, care-i aduc nominal 40 de karma. Cele doua articole introduse ii scad divergenta medie de la .85 la .65, dar sunt in continuare de pe domenii diferite, asa ca nu primeste - la karma. Cit va fi noua ei karma ? </ul>
+<p>Pai! (750 + 40) × 0.65 - 300 = 213. Rezulta ca a... scazut cu 120, in loc sa creasca cu 40. De ce ? Pentru ca sistemul a estimat ca cele doua articole introduse nu aduc cine stie ce plus de informatie. Tineti cont, deci, cind va construiti strategia : fain-ul doreste domenii noi si interesante. Este ok sa introduci <em>si</em> articole de pe domenii binecunoscute in fain, dar este riscant sa introduci exclusiv astfel de articole, pentru ca-ti va fi imposibil sa absorbi minusuri mai insemnate (rezultate ori din vinzari ori din penalizarea de repetitie). </p>
+<p>Si daca tot ne-am apucat, hai sa luam un exemplu inca si mai complex, sa ne lamurim cumsecade. </p>
+<ul>
+Ziua 1. Utilizatorul imaginar (UI) atinge 25 de karma, si se apuca sa introduca trei articole. Cum este nou pe fain, divergenta lui va fi 1.4 (ca nu cunoaste adica ce apare frecvent pe fain, si deci nu le introduce hapt pe alea).<br />
+<strong>Karma :</strong> (25 + 3 × 20) × 1.4 = 119.<br />
+<em>Observatii : Toti utilizatorii pornesc cu divergenta 1 din oficiu. Odata ce ating 25 karma si incep sa introduca articole divergenta lor cel mai probabil creste, din motivele explicate dinsus in paranteza. Ca atare, si cele 25 de karme vor primi un bonus, in exemplul nostru se transforma in 35.</em></p>
+<p>Ziua 2. UI mai adauga 5 articole, divergenta scazindu-i astfel la 1.3 (se mai intimpla).<br />
+<strong>Karma :</strong> (25 + 5 × 20)  × 1.3 = 162.5</p>
+<p>Ziua 3. Lui UI i se publica 3 articole, el altceva nu mai face deci divergenta ii ramine la 1.3.<br />
+<strong>Karma :</strong> (25 + 2 × 20 + 3 × 100) × 1.3 = 474.5<br />
+<em>Observatii : UI a muncit doua zile (1 si 2) obtinind cam 100 de karma. UI a lipsit o zi, a treia, obtinind 300 de karma, adica de trei ori mai mult decit in cele doua zile in care-a muncit. Valoarea contributiei lui UI e evaluata de catre <u>ceilalti utilizator</u>, nu explicit ci implicit, prin actiunile lor, si ca atare cel mai important factor in variatiile de karma ale fiecaruia <u>nu este el insusi</u>. Sunt ceilalti! Sigur, inactivitatea garanteaza ca karma va tinde spre 0, dar activitatea nu aduce <u>neaparat</u> beneficii. Depinde cit de benefica este ea pentru grup.</em></p>
+<p>Ziua 4. UI este foarte fericit sa observe ca a ajuns cu karma atit de sus, si vinde 200 din ea.<br />
+<strong>Karma :</strong> 474.5 - 200 = 274.5.</p>
+<p>Ziua 5 - ziua 30. UI nu mai are nici un fel de activitate pe fain.</p>
+<p>Ziua 31. Cele trei articole introduse in ziua 1 expira. Ca atare, UI pierde nu doar punctele datorate lor, ci si divergenta pe care ele i-o asigurau, ceea ce-l aduce la un factor de .95<br />
+<strong>Karma :</strong> (25 + 1 × 20 + 1 × 100) × 0.95 - 200 = -62.25.<br />
+<em>Observatii : Iata ca desi a avut o oarecare activitate, UI se gaseste pe minus : el a vindut karma la un moment la care contributia lui era evaluata la 474.5 karma, dar acum se regaseste in situatia in care contributia lui e evaluata la doar 137.75 karma. Acesta este si motivul pentru care nu se poate vinde mai mult de jumatate din karma acumulata la un moment dat.</em></p>
+<p>Ziua 32 - ziua 35. UI sade cuminte si asteapta sa-i expire minusurile, studiaza regulamentele si documentatia oferita in legatura cu modul in care se calculeaza karma si isi face el in capul lui o strategie pe viitor.<br />
+<strong>Karma :</strong> 0.</p>
+<p>Ziua 35. UI revine cu karma pe 0, si voteaza/comenteaza ajungind iarasi la 25.<br />
+<strong>Karma :</strong> 25.</p>
+<p>Ziua 36. UI introduce 18 articole dintr-o lista pe care si-o pregatise in timpul exilului. Ca rezultat noua lui divergenta este 1.16.<br />
+<strong>Karma :</strong> (25 + 18  × 20) × 1.16 = 446.6<br />
+<em>Observatii : deja a recuperat karma, intr-o singura zi ajungind unde-a ajuns la prima incercare in cinci. Experienta conteaza.</em></p>
+<p>Ziua 37. Incintat de bunele rezultate, UI mai introduce 12 domenii, dar face gresala sa introduca inca doua de pe un domeniu de pe care mai introdusese si cu o zi inainte 3 (intimplator chiar blogul propriu, s-au mai vazut cazuri). Noua divergenta este 0.88<br />
+<strong>Karma :</strong> (25 + 30  × 20) × 0.88 - 100 = 450</p>
+<p>Ziua 38. UI persista, introduce inca 6 articole, din care unul de pe domeniul lui propriu. Convergenta scade la 0.82.<br />
+<strong>Karma :</strong> (25 + 36  × 20) × 0.82 - 200 = 410.9</p>
+<p>Ziua 39. UI persista, introduce inca 6 articole, din care unul de pe domeniul lui propriu. Convergenta scade la 0.74. Patru articole dintre cele introduse deja i se publica.<br />
+<strong>Karma :</strong> (25 + 38  × 20 + 4 × 100) × 0.74 - 400 = 476.9</p>
+<p>Ziua 40. UI persista, introduce inca 6 articole, din care unul de pe domeniul lui propriu. Convergenta scade la .67. Sase dintre articolele introduse deja i se publica.<br />
+<strong>Karma :</strong> (25 + 38  × 20 + 10 × 100) × 0.67 - 800 = 395.95<br />
+<em>Observatii : Observati cum scorul pare sa se mentina relativ constat. In fapt UI pur si simplu isi compenseaza minusurile tot mai accentuate datorate introducerii de pe acelasi domeniu cu "activitate proprie". Initial e chiar vorba de activitatea lui proprie, dar spre final echilibrul aparent se datoreste de fapt publicarii de articole, care-i o chestie facuta de ceilalti si nu de UI.</em></p>
+<p>Ziua 41. UI persista, introduce inca 6 articole, din care unul de pe domeniul lui propriu. Convergenta scade la .62. Nici un articol nou nu i se mai publica azi.<br />
+<strong>Karma :</strong> (25 + 44  × 20 + 10 × 100) × 0.62 - 1600 = -418.9<br />
+<em><strong>Observatii :</strong> UI tocmai a muscat-o, si este improbabil sa mai poata reveni cu karma pozitiva pina in ziua 65-67 fara sa cumpere. Morala ar fi ca evolutia karmei poate sa fie foarte inselatoare pentru utilizatorul ingenuu fata de modul ei de functionare, pentru ca nu stie exact ce tensiuni zac acolo gata sa rabufneasca.</em></ul>
+<p>Notati ca exemplul de mai sus in toata complexitatea lui <em>este de fapt o simplificare grosiera</em>. In realitate, procentul de articole publicate din totalul de articole introduse joaca si el un rol, chiar foarte important, putind sa dubleze scorul. Anume, folosind tot bazele de 20 si 100 de pina acum, un utilizator cu 10 articole introduse si 0 publicate primeste 200 de puncte, dar un utilizator cu 10 articole introduse si 5 publicate primeste (5  × 20 + 5 × 100) × (1 + 5 / 10) = 900 puncte, si nu 600, iar un utilizator cu 10 introduse si toate publicate primeste 2000 de puncte, si nu 1000. </p>
+<p>De asemenea n-am luat in discutie deloc in exemplul nostru problema voturilor acordate. Aceasta simplificare este perfect justificata, dat fiind ca nu exista nici un mod de-a obtine minusuri votind. Totusi, impactul procentului de voturi date unor articole nepublicate la momentul votarii, dar care sunt publicate la momentul calcularii karmei din totalul de voturi acordate este foarte important. Cu exemple : </p>
+<ul>
+A. UI are 100 de voturi, toate acordate la articole nepublicate inca sau publicate deja.<br />
+<strong>Karma :</strong> 100 × 1 × 0.01 = 1</p>
+<p>B. UI are 100 de voturi, din care 10 acordate la articole nepublicate la momentul votarii, dar care intre timp au ajuns publicate.<br />
+<strong>Karma :</strong> (90 × 1 + 10 × 10) × 0.1 = 19<br />
+<em>Observatii : UI are in acest caz de 19 ori mai multa karma (+1800%) fata de cazul anterior.</em></p>
+<p>B. UI are 100 de voturi, din care 50 acordate la articole nepublicate la momentul votarii, dar care intre timp au ajuns publicate.<br />
+<strong>Karma :</strong> (50 × 1 + 50 × 10) × 0.5 = 275<br />
+<em>Observatii : UI are in acest caz de ~15 ori mai multa karma (+1347%) fata de cazul anterior, sau de 275 de ori mai multa karma decit in cazul A. </em></ul>
+<p>Precum probabil intuiti, chiar daca nu este un minus tehnic vorbind, totusi impactul expirarii unor voturi din categoria celor de 10 puncte poate fi destul de marcat. Ca sa intelegem, tot cu exemple :</p>
+<ul>
+Ziua 1. UI acorda 100 de voturi.<br />
+<strong>Karma :</strong> 100 × 1 × 0.01 = 1</p>
+<p>Ziua 2. UI acorda inca 100 de voturi. 10 articole dintre cele votate deja se publica.<br />
+<strong>Karma :</strong> (190 × 1 + 10 × 10) × 0.05 = 14.5</p>
+<p>Ziua 3. UI acorda inca 100 de voturi. 10 articole dintre cele votate deja se publica.<br />
+<strong>Karma :</strong> (290 × 1 + 20 × 10) × 0.06 = 29.4</p>
+<p>Ziua 4. UI acorda inca 100 de voturi. 20 articole dintre cele votate deja se publica.<br />
+<strong>Karma :</strong> (390 × 1 + 40 × 10) × 0.1 = 79</p>
+<p>Zilele 5 - 31. UI acorda un total de 5000 de voturi. Nici un singur articol votat de el nu se mai publica.<br />
+<strong>Karma :</strong> (5390 × 1 + 40 × 10) × 0.007 = 40.5</p>
+<p>Ziua 32. UI acorda inca 100 de voturi. 10 articole dintre cele deja publicate expira.<br />
+<strong>Karma :</strong> (5390 × 1 + 30 × 10) × 0.005 = 28.45<br />
+<em>Observatii : datorita expirarii celor 10 articole votate care se si publicasera, un infim 0.18% din totalul celor votate, karma cade cam cu o treime.</em></p>
+<p>Ziua 33. UI acorda inca 100 de voturi. 10 articole dintre cele deja publicate expira.<br />
+<strong>Karma :</strong> (5390 × 1 + 20 × 10) × 0.003 = 16.77<br />
+<em>Observatii : datorita expirarii a inca 10 articole votate care se si publicasera, karma cade cu aproape jumatate.</em></p>
+<p>Ziua 34.  UI acorda inca 100 de voturi. 10 articole dintre cele deja publicate expira.<br />
+<strong>Karma :</strong> (5390 × 1 + 10 × 10) × 0.001 = 5.49</ul>
+<p>Evident, exemplul este semnificativ agravat prin rotunjiri (fain foloseste unsprezece zecimale in notatia interna, si ca atare diferenta de factor intre ziua 33 si ziua 34 nu va fi de la 0.003 la 0.001, dar cred ca ideea transpare destul de  lamurit.</p>
+<p>Cam asta ar fi povestea, sper ca va aflati de-acum intr-o pozitie mult mai buna pentru a va evalua propria evolutie pe fain, si sper c-am lamurit un numar de intrebari care poate siciiau. Pentru orice alte nelamuriri sau neclaritati casuta de comentarii va sta bineinteles la dispozitie.</p>
+&mdash;&mdash;&mdash;<ol class="footnotes"><li id="footnote_0_27409" class="footnote">Divergenta este opusul zisei "convergente globale" din articolul citat, si-n termeni practici un numar mai mare decit 0 si mai mic decit 1.5 [<a href="#identifier_0_27409" class="footnote-link footnote-back-link">&#8617;</a>]</li></ol>
+              <div>
+                <div class="alignleft">&laquo; <a href="/2011/modificarile-masinariei-de-mestesugit-topuri/">Modificarile masinariei de mestesugit topuri</a></div>
+                <div class="alignright"><a href="/2011/nsfw-gradina-edenului/">NSFW Gradina Edenului</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/meta-psihoza/" title="View all posts in Meta psihoza" rel="category tag">Meta psihoza</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2011/cine-o-persecuta-pe-sonia/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2011/cine-o-persecuta-pe-sonia/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>14 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-64982" class="commentbody"><div class="commenthead"><img alt='sonia rauss`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink">sonia rauss</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-64982" title="">Monday, 26 September 2011</a>
+							</div>
+						<p>Buna dimineata, Mircea.<br />
+Inainte de orice, multumesc pentru analiza minutioasa pe care ai facut-o.<br />
+Karma e ca in viata. Sunt mai veche pe Fain si populara cat nu m-as fi asteptat vreodata, dar sunt cam nepriceputa. Dovada e oscilatia karmei mele. Si sa explic, cu vorbele mele.<br />
+Nu ma simt deloc, dar deloc persecutata. Mi-am zis, asta e. S-a mai intamplat. Stiu ca atunci cand propun articole nu prea imi sta mie mintea la regulament, sunt cam subiectiva, fiindca atunci cand citesc ceva ce imi place mult, il buric repede pe Fain. Undeva recunosteam repezeala mea nativa. Recunosc, am uzat si de autopromovare. Masinaria isi face treaba si cand ma prinde la inghesuiala, ma taxeaza. Nu-i bai! Ma supar asa de greu incat multi cunoscuti imi zic ca-s extraterestra.<br />
+Ce ma necajeste e ca trebuie sa " tac" cand sunt pe minus.<br />
+Iar in ultima luna accesul meu la internet, inainte de inetrventia salvatoare a Mitzei si a Fainilor, a fost cam limitat, spre zero.<br />
+Va doresc la toti o saptamana reusita, calda si plina de tot ce va doriti.</p>
+						</li>
+
+										<li id="comment-64984" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-64984" title="">Monday, 26 September 2011</a>
+							</div>
+						<p>Ei, mie mi-a parut rau sa vad ca te-a scos pe minus, iti spun sincer.</p>
+						</li>
+
+										<li id="comment-64988" class="commentbody"><div class="commenthead"><img alt='Lilly`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink">Lilly<img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-64988" title="">Monday, 26 September 2011</a>
+							</div>
+						<p>Uuu, apar si eu in articol.. Ce onoare!</p>
+						</li>
+
+										<li id="comment-64989" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-64989" title="">Monday, 26 September 2011</a>
+							</div>
+						<p>Daca esti in topu' divergentelor ?</p>
+						</li>
+
+										<li id="comment-64990" class="commentbody"><div class="commenthead"><img alt='Lilly`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink">Lilly<img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-64990" title="">Monday, 26 September 2011</a>
+							</div>
+						<p>Pai tocmai, ce onoare! Sunt si top user la karma B-)</p>
+						</li>
+
+										<li id="comment-64993" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-64993" title="">Monday, 26 September 2011</a>
+							</div>
+						<p>Sa-ti traiasca, zic.</p>
+						</li>
+
+										<li id="comment-65004" class="commentbody"><div class="commenthead"><img alt='Freud`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink">Freud<img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65004" title="">Monday, 26 September 2011</a>
+							</div>
+						<p>ahahah. cantitativ &gt; calitativ. irony of knowledge.</p>
+						</li>
+
+										<li id="comment-65006" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65006" title="">Monday, 26 September 2011</a>
+							</div>
+						<p>Deci cum ?</p>
+						</li>
+
+										<li id="comment-65008" class="commentbody"><div class="commenthead"><img alt='Lilly`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink">Lilly<img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65008" title="">Monday, 26 September 2011</a>
+							</div>
+						<p>Pai aprecierea calitatii se face prin vot, respectiv publicare daca e cazul, froid</p>
+						</li>
+
+										<li id="comment-65057" class="commentbody"><div class="commenthead"><img alt='Eldur`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">10</div>
+								<span class="authorlink">Eldur</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65057" title="">Monday, 26 September 2011</a>
+							</div>
+						<p>Eu am următoarele întrebări:</p>
+<p>1. Dacă există urcate pe fain 10 articole de pe blogul X în ultima lună, dar nu de către mine, iar eu urc al 11-lea articol (dar care în lista mea de articole este primul de pe blogul X), sunt penalizat? Sau îmi scade convergenţa? Sau are vreun efect negativ ?</p>
+<p>2. Domeniile noi, adică cele care măresc convergenţa, se socotesc doar comparând cu domeniile urcate în ultimele 30 de zile?</p>
+<p>3. Dacă un articol urcat acum 31 de zile de mine pe fain se publică astăzi, îmi mai măreşte asta karma? Şi care e diferenţa faţă de situaţia în care ar fi fost urcat acum 15 zile să zicem? Sau e la fel?</p>
+						</li>
+
+										<li id="comment-65066" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">11</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-65066" title="">Monday, 26 September 2011</a>
+							</div>
+						<p>@<b>Eldur</b> 1. Nu esti penalizat, dar iti scade divergenta. Ca ala e indicele, de divergenta. Convergenta e rea, divergenta e buna, cum ar veni.</p>
+<p>2. Domeniile noi se considera in raport cu cele urcate in ultimele 30  de zile, da.</p>
+<p>3. Da. E la fel.</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+				<li class="trackbody" id="comment-64972">
+					<div class='trackhead'>
+						<div class="commentcount">12</div>
+						<span class="authorlink"><a href='http://polimedia.us/fain/story/35423' class='url'>polimedia.us/fain/</a></span>&nbsp;(via Trackback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-64972" title="">Monday, 26 September 2011</a>
+					</div>
+					<p><strong>Cine-o persecuta pe Sonia - pe Trilema - Un blog de Mircea Popescu-...</strong></p>
+<p>Exemple concrete de calculat karma. Probabil contine raspunsul unui numar de intrebari pe care vi le-ati pus pe tema....</p>
+				</li>
+
+				<li class="trackbody" id="comment-65353">
+					<div class='trackhead'>
+						<div class="commentcount">13</div>
+						<span class="authorlink">Povestea Soniei &laquo; dordedoi</span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-65353" title="">Wednesday, 28 September 2011</a>
+					</div>
+					<p>[...] Sonia au scris zilele acestea doi titani ai blogging-ului. Mai intai Mircea, apoi [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-138564">
+					<div class='trackhead'>
+						<div class="commentcount">14</div>
+						<span class="authorlink"><a href='/2012/cum-se-calculeaza-karma-pe-fain?b=poveste%20a%20ac&amp;e=tori#select' class='url'>Cum se calculeaza karma pe fain ? on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-138564" title="">Tuesday, 7 January 2020</a>
+					</div>
+					<p>[...] poveste a acestei fete fara nume, sau daca nu infinit mai putin trista poveste a Soniei pe care-o cheama Irina sunt, cred eu, edificatoare pe tema : atunci cind intervin mai multi factori [...]</p>
+				</li>
+
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="author5107c12" id="author5107c12" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email5107c12" id="email5107c12" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="url5107c12" id="url5107c12" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="27409" /></p>
+				<input type="hidden" name="comment_post_time" value="1786336393-3.41.188.35" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2026 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-27409")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-27409");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-27409");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

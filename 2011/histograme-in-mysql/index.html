@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_oct2016.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Histograme in MySQL on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Mediocrity is not a lack of intelligence.<br />Mediocrity is intelligence entirely dedicated to self-preservation.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-21400"><div class="post" id="post-21400">                    <h1><a href="/2011/histograme-in-mysql/" rel="bookmark" title="Permanent Link to Histograme in MySQL">Histograme in MySQL</a></h1>                        <div class="date">                                     Sunday, 10 July, Year 3 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p>Sa zicem ca dorim sa construim histograme pe un set de valori, ca de exemplu pe notele medii ale celor ~1400 de licee din Romania, calculate de <a href="http://www.dianacoman.com/blog/2011/07/10/topul-liceelor-la-bacalaureat-2011/">Diana Coman</a>. Cum procedam ? </p>
+<p>O metoda ar fi sa folosim excel. De data asta, fiind vorba de o mie si nu de o suta de mii de linii, excel are sanse sa chiar functioneze. Spre deosebire de <a href="/2011/open-office-uber-alles/">data trecuta</a>. Aceasta metoda are dezavantajul ca-i lenta, si pe deasupra ca tre' sa ne introducem de mina binarele, intr-un set de celule, si sa tot selectam si sa apasam shift-control-nustiuce, de parca suntem maimute. Pai suntem ?!</p>
+<p>O alta metoda ar fi sa folosim R, sau alt program dedicat chestiunilor serioase. Dezavantajul acestei alte metode este ca noi n-am auzit de R, si nici n-avem habar de chestii de-astea, ca suntem programatori, nu statisticieni. </p>
+<p>Metoda pe care v-o propun eu se bazeaza in totalitate pe MySQL, dat fiind ca orice server oricit de prapadit tot ruleaza un LAMP acolo. Deci, creati o tabela la repezeala sa va tina datele, importati din CSV, dupa care : </p>
+<blockquote><p>SELECT count( round( nota *2 ) ) FROM bac GROUP BY round( nota *2 ) </p></blockquote>
+<p>Care-i ideea ? Pai, poruncim serverului sa numere toate notele dupa ce le-a inmultit cu doi si a rotunjit rezultatele. Intrucit notele sunt de la 0 la 10, inmultindu-le cu 2 si rotunjind rezultatele iese un set de la 0 la 20, pe care se apuca sa-l numere. Acest set este in fapt echivalent cu histograma publicata de Diana in prima imagine, adica notele considerate din .50 in .50. </p>
+<p>Rezultatele ? </p>
+<blockquote><p>3, 9, 27, 54, 121, 164, 163, 123, 157, 158, 161, 136, 107, 65, 17</p></blockquote>
+<p>Mbun. Hai sa incercam sa-i replicam al treilea grafic, cel ce socoteste la zecimi. Cum procedam ? Pai, in loc sa inmultim cu 2... inmultim cu 10. Rezultatele ? </p>
+<blockquote><p>1, 1, 1, 1, 3, 2, 3, 2, 3, 6, 8, 8, 14, 8, 10, 18, 4, 13, 30, 27, 19, 32, 24, 34, 32, 43, 31, 31, 41, 32, 23, 36, 22, 36, 18, 28, 19, 38, 26, 31, 26, 36, 20, 39, 32, 39, 28, 26, 35, 33, 27, 40, 25, 33, 31, 32, 15, 22, 25, 29, 10, 21, 11, 12, 17, 16, 9, 11, 3, 2, 1</p></blockquote>
+<p>Sa facem si-un grafic! </p>
+<p><a href="/wp-content/uploads/2011/07/distrib_notemedii_licee-2011-1.jpg"><img src="/wp-content/uploads/2011/07/distrib_notemedii_licee-2011-1.jpg" alt="distrib_notemedii_licee-2011-1" title="distrib_notemedii_licee-2011-1" width="560" height="320" class="aligncenter size-full wp-image-21401" /></a></p>
+<p>Uite la el ce cinas si dragutel arata! Parca am fi oameni de stiinta si mai multe nu! (Diferentele fata de graficul echivalent produs de Diana survin in urma rotunjirilor, pe care le tratam in mod diferit : ea truncheaza, noi rotunjim). </p>
+<p>Ziceam tura trecuta, in baza graficului celui de .50 <a href="/2011/despre-bacalaureat-cu-cifrele-pe-masa/">ceva despre doua Romanii</a>, ca intr-adevar, asa se si vadeste, ca ar fi doua. Insa acum, daca am crescut precizia (scazind granularitatea) parca cele doua de fapt... sunt trei. Adica, Romania saracilor (cu duhul, vorbim) exista in continuare clara si vizibila, o curba Gauss ingusta in jur de 4 si-un pic, da' parca in rest, Romaniile bogatilor nu-s una singura, ci doua, mai vagi. </p>
+<p>Hai, asa de curiozitate, sa-i scoatem pe saraci din grafic. Nu se poate ? Ba sigur ca se poate. Le modelam prin simetrie fata de primul maxim prezenta, si harsti. Practic asta revine la a scadea din datele de mai sus setul interpolat</p>
+<blockquote><p>1, 1, 1, 1, 3, 2, 3, 2, 3, 6, 8, 8, 14, 8, 10, 18, 4, 13, 30, 27, 19, 32, 24, 34, 32, 43, 32, 34, 24, 32, 19, 27, 30, 13, 4, 18, 10, 8, 14, 8, 8, 6, 3, 2, 3, 2, 3, 1, 1, 1, 1</p></blockquote>
+<p>Normalizind asa taraneste (adica notind cu 0 toate valorile negative), rezulta un set mai ingust, si anume : </p>
+<p><a href="/wp-content/uploads/2011/07/distrib_notemedii_licee-2011-1-tr.jpg"><img src="/wp-content/uploads/2011/07/distrib_notemedii_licee-2011-1-tr.jpg" alt="distrib_notemedii_licee-2011-1-tr" title="distrib_notemedii_licee-2011-1-tr" width="560" height="395" class="aligncenter size-full wp-image-21405" /></a></p>
+<p>Mnoa, iata cum arata Romania fara saraci. Este ca-i Gauss ? Mnoa. </p>
+<p>PS. Daca n-am fi normalizat taraneste, ci reflectam minusurile-n vecini iesea o curba mult mai "corecta" pe partea stinga. Da' daca ne-o fo' lene...</p>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2011/despre-bacalaureat-cu-cifrele-pe-masa/">Despre Bacalaureat, cu cifrele pe masa.</a></div>
+                <div class="alignright"><a href="/2011/note-medii-pe-judete-discipline-umaniste-partea-i/">Note medii pe judete, discipline umaniste, partea I</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/gandesc-deci-gandesc/" title="View all posts in Gandesc, deci gandesc" rel="category tag">Gandesc, deci gandesc</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2011/histograme-in-mysql/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2011/histograme-in-mysql/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>26 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-54808" class="commentbody"><div class="commenthead"><img alt='Mihai B`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink">Mihai B<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54808" title="">Sunday, 10 July 2011</a>
+							</div>
+						<p>mno drept ii ca de r nu am auzit. :D da' ce zici, statisticianule, oare cu spss se poate construi vreo histograma din asta cu 1000+ linii? :D</p>
+<p>oricum interesanta moda asta cu prelucrari de date. macar asa am auzit si eu de awk ala. si am tras niste orielly-uri sa vad despre ce-i vorba.</p>
+						</li>
+
+										<li id="comment-54812" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54812" title="">Monday, 11 July 2011</a>
+							</div>
+						<p>Apai ar trebui sa se poata, ighen. </p>
+<p>Stai pe-aproape, ca urmeaza sa torn un set cu judete/specialiari mintenas, e in lucru.</p>
+						</li>
+
+										<li id="comment-54821" class="commentbody"><div class="commenthead"><img alt='Diana Coman`s avatar' src='http://dianacoman.com/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink"><a href='http://dianacoman.com/blog' class='url'>Diana Coman</a><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54821" title="">Monday, 11 July 2011</a>
+							</div>
+						<p>Sigur se poate si cu SPSS. De altfel imi pare ca R a fost facut ulterior, in esenta pentru a fi mai flexibil si accesibil (R e open-source).</p>
+						</li>
+
+										<li id="comment-54822" class="commentbody"><div class="commenthead"><img alt='Diana Coman`s avatar' src='http://dianacoman.com/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink"><a href='http://dianacoman.com/blog' class='url'>Diana Coman</a><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54822" title="">Monday, 11 July 2011</a>
+							</div>
+						<p>Asta ar mai fi de facut pe datele astea, de calculat cele doua (sau trei) potentiale distributii si evidentiate separat. In principiu s-ar putea prin medie si abaterea standard, n-ar trebui sa fie chiar ingrozitor de calculat.</p>
+						</li>
+
+										<li id="comment-54834" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54834" title="">Monday, 11 July 2011</a>
+							</div>
+						<p>Dap, ar cam fi cazul.</p>
+						</li>
+
+										<li id="comment-54842" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54842" title="">Monday, 11 July 2011</a>
+							</div>
+						<p>Adaug că mai toate limbajele de programare serioase, de la C la Python la Haskell au într-un fel sau altul binding-uri pentru gnuplot, sau pot genera fișiere sursă și fișierele de date.<br />
+Sigur că în cazul ăsta, dacă avem stocate rezultatele într-o bază de date e mai convenabil lucrul direct cu MySQL, dar sigur merge o parsare rapidă și direct din CSV.</p>
+						</li>
+
+										<li id="comment-54846" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54846" title="">Monday, 11 July 2011</a>
+							</div>
+						<p>Ia sa vedem ce poti face practic ?</p>
+						</li>
+
+										<li id="comment-54847" class="commentbody"><div class="commenthead"><img alt='gheorghe`s avatar' src='http://animalantisocial.wordpress.com/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink"><a href='http://animalantisocial.wordpress.com' class='url'>gheorghe</a><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54847" title="">Monday, 11 July 2011</a>
+							</div>
+						<p>@Mircea Popescu Cu ce-i generat graficul ala?</p>
+						</li>
+
+										<li id="comment-54849" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54849" title="">Monday, 11 July 2011</a>
+							</div>
+						<p><a href="http://www.gnuplot.info/docs_4.0/gnuplot.html#set_datafile_separator">http://www.gnuplot.info/docs_4.0/gnuplot.html#set_datafile_separator</a></p>
+<p>There, solved. Dacă vrei pot pune aici un paste la un exemplu de histogramă în gnuplot, câteva linii de cod.</p>
+						</li>
+
+										<li id="comment-54853" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">10</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54853" title="">Monday, 11 July 2011</a>
+							</div>
+						<p>@<b>gheorghe</b> Open office. </p>
+<p>@<b>spyked</b> Mnu, eu ziceam, ce poti face practic cu datele disponibile, in sensu' de ce grafice.</p>
+						</li>
+
+										<li id="comment-54854" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">11</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54854" title="">Monday, 11 July 2011</a>
+							</div>
+						<p>Păi gnuplot știe cam orice fel e grafic științific, deci cam tot înafară de piechart-uri and co. Da' poate face bar chart-uri/histograme, curbe și mai tot ce ar fi util în general. În rest harvesting-ul pe date (medii, abateri și alte asemenea) le faci tu cu ce vrei. Eu aș folosi Haskell de exemplu, că pot face parsări de csv în una-două linii cu el. Dar asta zic, că la urma urmei lucrezi cu ce-ți e mai la îndemână.</p>
+						</li>
+
+										<li id="comment-54857" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">12</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54857" title="">Monday, 11 July 2011</a>
+							</div>
+						<p>Pai baga mare mei!</p>
+						</li>
+
+										<li id="comment-54870" class="commentbody"><div class="commenthead"><img alt='Cristian`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">13</div>
+								<span class="authorlink">Cristian</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54870" title="">Monday, 11 July 2011</a>
+							</div>
+						<p>Ce păcat că mi-a luat gheorghe vorba din gură. Tare aș mai fi vrut să aflu cum poate MySQL să deseneze grafice :-)</p>
+						</li>
+
+										<li id="comment-54871" class="commentbody"><div class="commenthead"><img alt='Cristian`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">14</div>
+								<span class="authorlink">Cristian</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54871" title="">Monday, 11 July 2011</a>
+							</div>
+						<p>P.S. Dacă tot aplaudai gestul Dianei de a publica datele și spuneai că mulți au comentat aiurea, n-ar fi o treabă dacă ai face accesul gratuit la paginile referitoare la bac?</p>
+						</li>
+
+										<li id="comment-54872" class="commentbody"><div class="commenthead"><img alt='pletzalcoatl`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">15</div>
+								<span class="authorlink">pletzalcoatl<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54872" title="">Monday, 11 July 2011</a>
+							</div>
+						<p>@Cristian N-ar fi o treaba daca ai face gratuit accesul la tine in frigider? Cred ca sunt ceva homeless si la tine pe strada gen.</p>
+						</li>
+
+										<li id="comment-54880" class="commentbody"><div class="commenthead"><img alt='Cristian`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">16</div>
+								<span class="authorlink">Cristian</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54880" title="">Monday, 11 July 2011</a>
+							</div>
+						<p>@pletzalcoatl: hai să nu exagerăm și să facem analogii forțate. Nu de alta, dar el dădea de înțeles că a publicat datele pentru Alba-Iulia (dacă nu mă-nșel) din marea lui bunăvoință. Și tot el se dădea nițel mai rotund ca cei de la minister și siveco. Dacă oamenii nu au acces la paginile alea chiar nu văd nicio șmecherie în tot demersul ăsta.</p>
+						</li>
+
+										<li id="comment-54889" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">17</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54889" title="">Monday, 11 July 2011</a>
+							</div>
+						<p>@<b>Cristian</b> E, sa deseneze grafice nu poate.</p>
+<p>Orice utilizator poate citi (gratuit) cite trei articole diferite in fiecare zi. Daca-i utilizator nou poate citi inca patru in plus. Cu alte cuvinte, doleanta ta se inscrie undeva intre redundant si specios.</p>
+<p>@<b>pletzalcoatl</b> The real world is a relatively new thing in Romania. Patience is kinda required.</p>
+						</li>
+
+										<li id="comment-54916" class="commentbody"><div class="commenthead"><img alt='Cristian`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">18</div>
+								<span class="authorlink">Cristian</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54916" title="">Tuesday, 12 July 2011</a>
+							</div>
+						<p>@Mircea Popescu: afirmația (doleanța) mea pornea de la limita de 3 articole. Habar n-aveam de cele 4 articole suplimentare. De altfel dacă am înțeles eu bine descrierea sistemului de taxare, nu beneficiezi de acel bonus decât dacă intri cu un IP virgin. Nu mai vorbesc de cazul în care omul dă click din curiozitate sau greșeală pe link-uri care duc la alte subiecte și când vrea să mai citească ceva pe tema bacului se pomenește ca nu poate.</p>
+<p>Aici nu era vorba de lumea reală, imaginară sau cea a lui Harap-Alb, ci de cum mi s-ar fi părut mie frumos să fie lucrurile. Deci e vorba doar de o părere personală, nu de vreo axiomă. În fond e blogul tău și faci ce vrei cu el, sunt 100% de acord cu asta. De aia există pe lumea asta și <em>expert sex change</em> și <em>stack exchange</em>. Eu unul îl prefer pe cel din urmă.</p>
+						</li>
+
+										<li id="comment-54917" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">19</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54917" title="">Tuesday, 12 July 2011</a>
+							</div>
+						<p>N-am chiar priceput ultima chestie, cum n-am prea priceput ideea din capul locului. Da' vorba ceea, timp este.</p>
+						</li>
+
+										<li id="comment-54955" class="commentbody"><div class="commenthead"><img alt='Cristian`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">20</div>
+								<span class="authorlink">Cristian</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54955" title="">Tuesday, 12 July 2011</a>
+							</div>
+						<p>Una e să ai tot felul de bariere și alta e să ai un sistem deschis. Asta era ideea, nu știu ce era așa de greu de înțeles când am dat și două exemple concrete din lumea „reală”.</p>
+						</li>
+
+										<li id="comment-54964" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">21</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54964" title="">Tuesday, 12 July 2011</a>
+							</div>
+						<p>Tu esti aproximativ in situatia cuiva caruia i-am spus sa mearga la mine linistit, ca-i usa deschisa, el incearca sa intre pe geam, cade in tufa de trandafiri si se hartaneste tot, dupa care ma da in judecata ca de fapt "n-o fost deschis".</p>
+<p>In lumea reala, lucrurile sunt deschise asa cum sunt deschise ele, nu asa cum iti inchipui tu. Din motivul simplu ca singurul lucru care-i deschis din orice punct posibil sau imaginabil de vedere este acel lucru care nu exista. Observatie care de altfel se leaga destul de bine de troglodeala generala a Romaniei, fiind ea plina de diversi care abordeaza "deschiderea" cum ii duce pe ei capul, adica asa, ca si tine - chestie care-ti explica si schimbul cu pletz.</p>
+						</li>
+
+										<li id="comment-55014" class="commentbody"><div class="commenthead"><img alt='Cristian`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">22</div>
+								<span class="authorlink">Cristian</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-55014" title="">Wednesday, 13 July 2011</a>
+							</div>
+						<p>Ți se pare că te dau în judecată? De intratul pe geam nu mai vorbesc, poate doar prin proxy :-) Repet, din partea mea poți proceda cum consideri tu de cuvință, dar asta nu înseamnă că trebuie neapărat să-mi și placă sau să fiu de acord cu asta.</p>
+<p>Cred ca înțeleg ce vrei să spui cu lucrul care nu există, dar asta nu înseamnă că nu pot fi sisteme mai mult sau mai puțin deschise. De asta am și oferit două exemple ca să nu se creadă că aș cere marea cu sarea. Apropo, dintre alea două ce crezi că preferă străinii? Să nu-mi spui că Polimedia :-)</p>
+						</li>
+
+										<li id="comment-55015" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">23</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-55015" title="">Wednesday, 13 July 2011</a>
+							</div>
+						<p>Apai daca nu vrei sa pricepi, n-o sa pricepi, ca de-aia educatia astora destepti de jumatate e exponential mai scumpa decit educatia alora prosti cu totul.</p>
+<p>Deci : exista doua clase de utilizatori pentru setul ala de date. Clasa #1, probabil mai numeroasa, sunt cetatenii care vor sa vaza ce-or facut ei, vecina de palier, Tincuta de peste drum, colega de banca si eventual varu' Sandel la Bac. Clasa #2, probabil mai putin numeroasa, sunt cetatenii care vor sa vaza datele in totul lor.</p>
+<p>Pe baza acestei analize de piata, plus modelari statistice a stakeholderilor in proiect scl, factorii de decizie au hotarit sa construiasca o interfata modulara, si anume : A) datele in intregul lor, in format text/csv (adica, cel mai portabil format posibil pentru asa ceva) vor fi puse la dispozitie pe un server, suspectat ca ar fi mai subtirel. 8Mb intr-o arhiva x Clasa #2 (mai putini) ; B) datele impartite pe judete, in format html (adica, cel mai accesibil format, pentru utilizatorul nesofisticat) vor fi puse la dispozitie pe un alt server, suspectat ca ar fi ceva mai tare. 2-3Mb per pagina x 50 de pagini x Clasa #1 (mai multi).</p>
+<p>Ca rezultat, aia care doresc datele pot lua datele. Aia care nu doresc datele, ci pur si simplu vor sa stie ce-o facut la Bac ei si diverse cunostiinte pot sa priveasca, simplu si direct (fara, de exemplu, sa aiba nevoie sa incarce un ditai fisier intr-un program specializat, ca de exemplu-n excel nu merge, admitind ca ar fi platit ei licenta de excel). </p>
+<p>Da, e adevarat ca serveru' <a href=/2011/cum-ne-curatam-baza-de-date/ >ala care trage Gbps fara probleme</a> nu este in acelasi timp si gratis. Da, e adevarat ca asta ar putea afecta utilizatoru' care nu are nici sofisticarea de-a folosi un CVS, da' are si neamuri si alte persoane de interes raspindite in mai mult de sapte judete. </p>
+<p>Si da, e adevarat ca se vor gasi diversi care sa ciriie in fata perfectiunii gindite sa fie perfecta si aplicate perfect ca "nu ie bine", pentru ca nu se muleaza pe <a href=/2011/clasificarea-liceelor-romanesti-dupa-mediile-de-la-bac-2011/#comment-54978 >reprezentarile defectuoase pe care si le facusera ei</a> in capsorul lor cel aproximativ mobilat. Da' trage tu linie si vezi cam cit conteaza asta.</p>
+<p>Exemplele-s facute de cineva care intelege mai multe decit tine ca sa te ajute sa intelegi ceva ce tu nu reusesti sa intelegi de capul tau. Daca tu le abordezi pornind de la parerea complet eronata ca "de fapt tu stii", sigur ca poti aduce obiectii, da' trage linie si vezi cam cit conteaza si asta. Ca de inteles mai mult sigur nu ti-o iesit.</p>
+<p>Vezi cum zic ?</p>
+						</li>
+
+										<li id="comment-55041" class="commentbody"><div class="commenthead"><img alt='Cristian`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">24</div>
+								<span class="authorlink">Cristian</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-55041" title="">Wednesday, 13 July 2011</a>
+							</div>
+						<p>Tu chiar crezi că eu aveam impresia că super-serverul ăla e moca? Dar dacă faci ceva pe bani, barem recunoaște asta clar și răspicat și nu te mai da salvatorul bacului românesc - omul care a aprins lumina acolo unde alții au stins-o. Nu de alta, dar ești precum companiile petroliere care mai plantează doi, trei copaci și se dau verzi după aia. De semi-SEO spam nici nu mai vorbesc.</p>
+<p>P.S. Apropo de cârâit, nu la fel cârâi și tu în fața perfecțiunii gândite de Bill Gates și anume Windows și Excel?</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+				<li class="trackbody" id="comment-135203">
+					<div class='trackhead'>
+						<div class="commentcount">25</div>
+						<span class="authorlink"><a href='/2011/blogosfera-organica-blogosfera-anorganica?b=la%20alte%20disc&amp;e=%20mai#select' class='url'>Blogosfera organica ; blogosfera anorganica on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-135203" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] la alte discutii aici, despre Cele doua Romanii, precum si la diverse alte ilustratii si discutii (cum folosim MySQL, Note medii per judete, Topul liceelor din perspectiva elevului etc). Chestie care-a facut mai [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-135425">
+					<div class='trackhead'>
+						<div class="commentcount">26</div>
+						<span class="authorlink"><a href='/2011/ce-articole-de-pe-trilema-s-au-citit-luna-asta?b=Histograme%20i&amp;e=ySQL#select' class='url'>Ce articole de pe Trilema s-au citit luna asta ? on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-135425" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] Histograme in MySQL [...]</p>
+				</li>
+
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="author59b850f" id="author59b850f" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email59b850f" id="email59b850f" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="url59b850f" id="url59b850f" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="21400" /></p>
+				<input type="hidden" name="comment_post_time" value="1778335800-18.97.14.87" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2026 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-21400")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-21400");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-21400");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>
