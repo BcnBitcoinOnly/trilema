@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_mar2019e.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Adserver.polimedia.us on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Aici este pragul cel de sus,<br />unde v-o zis tati ca'ti da cu capul.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-1222"><div class="post" id="post-1222">                    <h1><a href="/2009/adserverpolimediaus/" rel="bookmark" title="Permanent Link to Adserver.polimedia.us">Adserver.polimedia.us</a></h1>                        <div class="date">                                     Saturday, 02 May, Year 1 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p>Multa lume s-a plans de faptul ca e foarte greu pentru blogerii mici si medii sa devina cunoscuti. Invariabil, degetele aratau spre blogerii perceputi drept "mari", care ajuta sau nu ajuta, prea putin sau prea neuniform, etc. Raspunsul acestora din urma, de altfel logic, se axeaza pe cateva directii previzibile : ajutam cat putem ; ne e greu sa citim 10,000 de bloguri pentru a alege poate 10 care sa merite ; 99,990 nu merita ; etc.</p>
+<p>Daca stam drept si judecam tot drept, problema oamenilor este relativ simpla. Exista doua calitati fundamentale care descriu un blog : calitatea scriiturii si volumul de trafic. La varful piramidei, raportul dintre cele doua este relativ fix, sau cel putin evolueaza intr-o plaja mai restransa. La baza piramidei exista insa un dezechilibru semnificativ, in sensul in care multe bloguri cu o calitate buna au un volum disproportionat de mic de cititori.</p>
+<p>Problema asta e legitima, si afecteaza atat scriitorii mici, care nu sunt cititi, desi si-ar dori, cat si cititorii, care nu ajung la bloguri de buna calitate, desi si-ar dori.</p>
+<p>Din nefericire, solutia imediat vizibila (adica, sa faca blogerii mari ceva) este si cea mai proasta, in primul rand pentru ca cere unui tert sa rezolve problema altor oameni, si in al doilea rand pentru ca blogerii "mari" nu sunt neaparat mai bine echipati pentru a rezolva dezechilibrul decat este si cititorul mediu. </p>
+<p>Sigur, rationamentul de bun simt merge pe linia minimei rezistente, ce dorim ? Trafic. Cine are trafic ? Astia. Noa, so pa ei. Totusi, rationamentul asta, cat o parea el de bun simt, este o prostie, nu doar pentru motivele aratate mai inainte, ci si pentru ca se bazeaza pe o asumptie fundamental gresita.</p>
+<p>Blogerii "mari" nu au mai mult trafic, net, decat blogerii mici. Nici pe departe. Se intampla ca au trafic mai concentrat, dar asta inseamna relativ putin. Daca sunt 8,000 de bloguri care au postat ceva in ultima saptamana, si fiecare dintre ele are 10-20-30 unici zilnici, asta vine deja mult peste suma primilor 20-50-100 blogeri din zelist. </p>
+<p>Daca vorbim de unici reali intr-o luna de exemplu, si nu pur si simplu suma de unici zilnici, situatia e si mai aspra, pentru ca blogerii "mari" au foarte mult trafic in comun, si deci in total nu ating atat de multi oameni diferiti precum blogerii mici.</p>
+<p>Solutia rationala ar fi atunci sa existe un sistem prin care blogerii mici sa se sustina reciproc, si asa s-a nascut adserver.polimedia.us.</p>
+<p>Ideea este simpla : Fie un url, de exemplu http://adserver.polimedia.us/index.php care redirectioneaza traficul. Fie un ref=blabla care permite scriptului sa identifice de unde intra fiecare click. Fie o baza de date in care sunt inscrise bloguri.</p>
+<p>Ionel isi pune in blogroll un link, de exemplu "Blog Aleator" sau "Cititi ceva nou" sau asa ceva, care duce la http://adserver.polimedia.us/index.php?ref=Ionel. Scriptul trimite cititorul pe blogul lui Costel, si noteaza ca Ionel a trimis pe cineva. Mai apoi, cand blogul Ioanei trimite un cititor, scriptul noteaza si asta, si-l redirectioneaza spre Ionel, care ajunge astfel la 0.</p>
+<p>In acest mod simplu, toti blogerii castiga trafic, si cititorii au ocazia sa vada mai multe bloguri, pe care altfel nu le-ar fi gasit probabil niciodata. </p>
+<p>Bineinteles, valoarea intregii idei sta in a proteja sistemul de idioti. Asa incat, inregistrarea se poate face numai pe baza de invitatie, pe care, daca nu v-am oferit-o, este posibil sa o puteti obtine la cerere, dupa blog review. Poate (daca v-am facut user aici, nu va sfiiti, cereti si vi se va da). Din capul locului nu se accepta bloguri prost scrise, fara continut original, cu imagini furate, cu greseli de gramatica, facute de dragul publicitatii etc.</p>
+<p>De asemenea, doar click-urile unice sunt luate in considerare, si tentativele de frauda vor atrage asa o pleazna cu banhammeru', de se va auzi din Patagonia.</p>
+<p>Ma gandesc ca urmeaza si niste bannere, puteti aduce si contributii (ori ca dimensiuni preferate, ori de-a dreptul bannerul).</p>
+<p><em>PS : Ideea mi-a venit cam pe <a href="/Mircea_Popescu/status/1678884501" rel="nofollow">la 6pm,</a> acum este <a href="/Mircea_Popescu/status/1679669578" rel="nofollow">ora 8,</a> si iata ca tot proiectul, from scratch pana la faza de beta sunt gata (mai trebuie adaugat un pachet de stats si ceva design mai uman). Asta da echipa de skunkworks. Brava baieti.</em></p>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2009/orasul-boston-in-incapacitate-de-plata/">Orasul Boston, in incapacitate de plata.</a></div>
+                <div class="alignright"><a href="/2009/pericole-si-isterie/">Pericole si isterie</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/meta-psihoza/" title="View all posts in Meta psihoza" rel="category tag">Meta psihoza</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2009/adserverpolimediaus/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2009/adserverpolimediaus/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>159 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-3612" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3612" title="">Saturday, 2 May 2009</a>
+							</div>
+						<p>I'm in. :D</p>
+						</li>
+
+										<li id="comment-3613" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3613" title="">Saturday, 2 May 2009</a>
+							</div>
+						<p>Ti-am dat pe mail.</p>
+<p>Dau si vre-o suta de click-uri bonus, fiind el in beta.</p>
+						</li>
+
+										<li id="comment-3614" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3614" title="">Saturday, 2 May 2009</a>
+							</div>
+						<p>Instalat, testat. :D<br />
+Deocamdata am pus in blogroll. O sa pun banner-ul un pic mai incolo.</p>
+						</li>
+
+										<li id="comment-3615" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3615" title="">Saturday, 2 May 2009</a>
+							</div>
+						<p>Pune ceva care sa mearga cat de bine cu tema, sa nu fie agresiv.</p>
+						</li>
+
+										<li id="comment-3616" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3616" title="">Saturday, 2 May 2009</a>
+							</div>
+						<p>Pai cred ca bannerul pe care l-ai pus tu e ok.</p>
+						</li>
+
+										<li id="comment-3617" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3617" title="">Saturday, 2 May 2009</a>
+							</div>
+						<p>Pai e cu margini albe, stai sa-ti fac cu margini de cacao.</p>
+						</li>
+
+										<li id="comment-3618" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3618" title="">Saturday, 2 May 2009</a>
+							</div>
+						<p>Poftim : <a href="http://img211.imageshack.us/img211/6008/catalin.jpg">http://img211.imageshack.us/img211/6008/catalin.jpg</a></p>
+						</li>
+
+										<li id="comment-3619" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3619" title="">Saturday, 2 May 2009</a>
+							</div>
+						<p>O, how thoughtful. Thanks. :)</p>
+						</li>
+
+										<li id="comment-3620" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3620" title="">Saturday, 2 May 2009</a>
+							</div>
+						<p>Merci de clickurile bonus. Dar cand dau click (de pe reinvented.ro) ajung tot la mine. Ar trebui sa ajung pe blogul tau (sau pe altul, in momentul in care se vor mai inscrie alte bloguri).</p>
+						</li>
+
+										<li id="comment-3621" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">10</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3621" title="">Saturday, 2 May 2009</a>
+							</div>
+						<p>Pai stiu ce zici, dar uite care-i faza : index.php tre sa faca redirectul super-fast, 0.01 secunde gen. Daca mai adaug cod sa verific sa nu fie identice, mai pierd tick-uri. </p>
+<p>Pe de cealalta parte, cu cat vor fi mai multi va fi mai improbabil sa aiba loc situatia, si cand se intampla, tu iei un click + si un click -, deci pentru tine e efect 0.</p>
+<p>Deocamdata sta asa la masuratori, daca vad ca merge destul de repede, mai schimb. De-aia-i beta, gen.</p>
+						</li>
+
+										<li id="comment-3622" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">11</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3622" title="">Saturday, 2 May 2009</a>
+							</div>
+						<p>Atunci, avem nevoie de mai multa lume. O sa dau sfoara-n tara. :)</p>
+						</li>
+
+										<li id="comment-3624" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">12</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3624" title="">Saturday, 2 May 2009</a>
+							</div>
+						<p>Intre timp s-a descoperit o metoda ieftina de-a evita situatia :) Da-i un test.</p>
+						</li>
+
+										<li id="comment-3626" class="commentbody"><div class="commenthead"><img alt='urangutanita`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">13</div>
+								<span class="authorlink">urangutanita</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3626" title="">Saturday, 2 May 2009</a>
+							</div>
+						<p>e un fel de webring din cate mi se pare (http://en.wikipedia.org/wiki/Webring)</p>
+<p>Mie mi s-ar parea mai interesant ca in loc de banner (banner blindness, stii?) sa apara ultimul sau ultimele titluri din RSS-ul blogului, ca sa stiu ce voi citi dupa clic - e un plugin care face asta pentru blogroll.</p>
+						</li>
+
+										<li id="comment-3627" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">14</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3627" title="">Saturday, 2 May 2009</a>
+							</div>
+						<p>Pai e un plugin care face pentru blogroll/comentarii (comment luv), dar logic, la o lista intreaga de bloguri, daca scoti si numai ultimul din rss, ocupa o groaza de spatiu. Iar daca alegi una aleator, deja ai ales, nu mai conteaza ce scrie acolo sa-si aleaga omul.</p>
+						</li>
+
+										<li id="comment-3628" class="commentbody"><div class="commenthead"><img alt='dAImon`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">15</div>
+								<span class="authorlink">dAImon<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3628" title="">Saturday, 2 May 2009</a>
+							</div>
+						<p>Bun, suna interesant, momentan nu ma bag. Ca o curiozitate tehnica, presupunand ca Y are karma -3 (a primit vizitatori insa ai lui is porci si nu dau clic pe banner), este scos din lista? Cat de aleatorie e alegerea aia? Faci o pondere pentru sansele de random, sau e pur si simplu o cifra?</p>
+<p>Legat de preambul: blogging is about social media; de asta bloggerii "mari" sunt acolo - nu pentru ca scriu bine neaparat, ci pentru ca pot sa mentina o comunitate, pot sa se adreseze unui segment bine definit de oameni. Zoso e "ala vigilent pe interneti", Arhi e "ala grasun si funneh cu idei decente", Dono e "ala cu texte lungi, siropoase si faine", etc etc. Tu poti sa scrii cat de dejtept vrei tu, despre economie sau preoti, tot aia e, nu ti-ai format nisa.</p>
+						</li>
+
+										<li id="comment-3629" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">16</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3629" title="">Saturday, 2 May 2009</a>
+							</div>
+						<p>"ORDER BY volume DESC", deci care-o trimis cel mai mult primeste click-uri si i se scade karma pana ajunge #2, la care moment fostul #2 primeste si tot asa pana ajunge toata lumea la 0. Uite un model cu 3 oameni :</p>
+<p>7,5,3<br />
+6,5,3<br />
+5,5,3<br />
+4,5,3<br />
+4,4,3<br />
+3,4,3<br />
+3,3,3<br />
+2,3,3<br />
+2,2,3<br />
+2,2,2</p>
+<p>etc</p>
+<p>Eu unul nu cred nici in nise nici in intelegerea asta post hoc ergo propter hoc a comunitatii.</p>
+						</li>
+
+										<li id="comment-3630" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">17</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3630" title="">Saturday, 2 May 2009</a>
+							</div>
+						<p>Banuiesc ca nu exista karma negativa.<br />
+Apropo, ar trebui incurajate si blogurile cu mai putine clickuri pe linkul/bannerul respectiv. Deci trebuie definita o reteta.. ceva de genul:<br />
+25% din clickuri duc la un blog aleator (indiferent daca are karma sau nu)<br />
+75% dupa algoritmul curent.</p>
+						</li>
+
+										<li id="comment-3631" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">18</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3631" title="">Saturday, 2 May 2009</a>
+							</div>
+						<p>Pai vezi tu, clickurile se conserva. Daca 11 oameni baga in total 20 de clickuri, 1 din ei 10 si celilalti fiecare cate 1, toti aia cu 1 vor primi click (ca ala cu 10 nu-si poate da click el siesi).</p>
+<p>Nu exista sa nu scoti cat ai bagat, indiferent cat bagi.</p>
+						</li>
+
+										<li id="comment-3632" class="commentbody"><div class="commenthead"><img alt='romania inedit`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">19</div>
+								<span class="authorlink">romania inedit</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3632" title="">Saturday, 2 May 2009</a>
+							</div>
+						<p>Vreau si eu , dar nu stiu cum sa fac !  :(</p>
+						</li>
+
+										<li id="comment-3641" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">20</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3641" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>O idee ar fi sa recrutam "talente" in afara comunitatilor noastre. Asta ca sa functioneze cu adevarat, altfel n-ar insemna decat sa ne descoperim intre noi. :)</p>
+						</li>
+
+										<li id="comment-3642" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">21</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3642" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Ar fi o idee foarte buna, tocmai asta-i problema, cum ajungi la astia micii.</p>
+						</li>
+
+										<li id="comment-3643" class="commentbody"><div class="commenthead"><img alt='Blog de Romania`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">22</div>
+								<span class="authorlink">Blog de Romania</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3643" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Vreau si eu. Multumesc</p>
+						</li>
+
+										<li id="comment-3644" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">23</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3644" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Nu.</p>
+<p>Un articol bazat pe Capital, o traducere dupa <a href="http://www.jokes.com/funny/whatever/the-reason-why-i-fired-my-secretary">http://www.jokes.com/funny/whatever/the-reason-why-i-fired-my-secretary</a> (haioasa, dar tot traducere), un review aiurea la Android, doua-trei posturi din doua-trei linii despre mondenitati, asta-i chiar definitia blogului MFA.</p>
+<p>Scrie serios, creativ, interesant, si poate-poate.</p>
+						</li>
+
+										<li id="comment-3645" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">24</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3645" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Acum scriu un articol, dar poate o sa ma uit mai pe seara prin reader si o sa vin cu niste sugestii. Si apoi, daca ma ambitionez, iau zelist-ul la puricat (si urc si canapeaua). :D</p>
+						</li>
+
+										<li id="comment-3646" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">25</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3646" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Hai sa ne impartim munca, eu puric zelistul, tu purica trafic.ro/bloguri.</p>
+<p>Ia asa dinspre coada, si unde vezi om inteligent, scris bine etc, pune toate url-urile intr-o lista si baga un comentariu aici.</p>
+						</li>
+
+										<li id="comment-3655" class="commentbody"><div class="commenthead"><img alt='Bogdan`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">26</div>
+								<span class="authorlink">Bogdan</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3655" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Mai primiti oameni in sistem? Mersi anticipat :P</p>
+						</li>
+
+										<li id="comment-3656" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">27</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3656" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Deocamdata cateva din reader:<br />
+1. <a href="http://cathy-cathysnotes.blogspot.com/">http://cathy-cathysnotes.blogspot.com/</a><br />
+2. <a href="http://www.angles.ro/">http://www.angles.ro/</a><br />
+3. <a href="http://alphablog.ro/">http://alphablog.ro/</a><br />
+4. <a href="http://eeeeva.wordpress.com/">http://eeeeva.wordpress.com/</a><br />
+5. <a href="http://madelainepourtoujours.blogspot.com/">http://madelainepourtoujours.blogspot.com/</a><br />
+6. <a href="http://luckydreamers.wordpress.com/">http://luckydreamers.wordpress.com/</a> - Are doar 18 ani, scrie binisor.<br />
+7. <a href="http://www.mademoisellealle.blogspot.com/">http://www.mademoisellealle.blogspot.com/</a> - She's 14. :)<br />
+8. <a href="http://sabinavarga.com/">http://sabinavarga.com/</a><br />
+9. <a href="http://moretta.wordpress.com/">http://moretta.wordpress.com/</a><br />
+(Sabina si Moretta scriu mai rar lately, dar o sa revina in forta) :)<br />
+10. <a href="http://aadryanaa.info/">http://aadryanaa.info/</a><br />
+11. <a href="http://brunetteattitude.blogspot.com/">http://brunetteattitude.blogspot.com/</a><br />
+12. <a href="http://leahlusch.blogspot.com/">http://leahlusch.blogspot.com/</a><br />
+13. <a href="http://denisa-vs-franta.blogspot.com/2009/04/inapoi-pe-banci.html">http://denisa-vs-franta.blogspot.com/2009/04/inapoi-pe-banci.html</a><br />
+14. <a href="http://sakuraame.wordpress.com/">http://sakuraame.wordpress.com/</a></p>
+<p>Banuiesc ca o sa revii cu lista blogurilor acceptate. In cazul ala le voi contacta eu (o parte din persoanele din lista le am pe messenger). Evident, nu le-am intrebat daca vor sa se inscrie in program. </p>
+<p>Legat de trafic.ro - nu prea ma atrage ideea. Acolo nu cumva sunt inscrise doar site-uri care platesc 10 euro? Mai bine da-mi un range pe zelist. Sau daca vrei.. eu iau paginile impare, tu cele pare.</p>
+						</li>
+
+										<li id="comment-3658" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">28</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3658" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>@Bogdan Vezi in mail.</p>
+<p>@Catalin Se accepta toate. Ti-am trimis invite-uri pe mail.</p>
+<p>Bun chapeau are Madelaine :D</p>
+						</li>
+
+										<li id="comment-3666" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">29</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3666" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>La Madelaine si la eeeva nu merge:<br />
+"Sorry, but you are not allowed to register without a valid invite.<br />
+If you think you should have one, try and get a hold of Mircea and argue the point."</p>
+<p>Nu-s bune linkurile, I guess.</p>
+						</li>
+
+										<li id="comment-3668" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">30</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3668" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Madelaine vad ca s-o inregistrat, eeeva avea o eroare ti-am retrimis.</p>
+						</li>
+
+										<li id="comment-3669" class="commentbody"><div class="commenthead"><img alt='Madelaine`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">31</div>
+								<span class="authorlink">Madelaine</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3669" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Dupa completarea celor 3 campuri, nu s-a generat niciun link, era blank page; am dat refresh si am primit mesajul ala minunat cu sorry bla bla... So ce facui gresit? Si ce tre sa mai fac? Iluminati-ma :)</p>
+						</li>
+
+										<li id="comment-3670" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">32</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3670" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Ok, iti dau link-ul pe mail si pun la teste scriptul de inregistrare.</p>
+						</li>
+
+										<li id="comment-3671" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">33</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3671" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Mircea, da-mi te rog un invite pentru <a href="http://test864.wordpress.com">http://test864.wordpress.com</a> . Imi ia foarte mult sa vorbesc cu fiecare persoana in parte. Cred ca o sa fac un filmulet cu toti pasii, ca sa fie mai simplu.<br />
+(Unless you wanna do it.. nu sunt bun la prezentari) :P</p>
+						</li>
+
+										<li id="comment-3672" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">34</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3672" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Je urasc filmuleteala. Vine linku'.</p>
+						</li>
+
+										<li id="comment-3674" class="commentbody"><div class="commenthead"><img alt='făniţă`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">35</div>
+								<span class="authorlink">făniţă<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3674" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>o să citesc mai atent să văd despre ce e vorba şi posibil să intru şi eu de n-o fi cu bănat!</p>
+						</li>
+
+										<li id="comment-3679" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">36</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3679" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Nu-i, hai ca-ti dau un invite.</p>
+						</li>
+
+										<li id="comment-3683" class="commentbody"><div class="commenthead"><img alt='urangutanita`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">37</div>
+								<span class="authorlink">urangutanita</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3683" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Dono are o rubrica periodica in care prezinta bloguri 'mici' si are pareri destul de pertinente si de bun simt. </p>
+<p>uite iti propun si cateva personaje originale pe care nu prea le-am vazut prin blogroalle. O sa mai adaug</p>
+<p><a href="http://pheideas.blogspot.com/">http://pheideas.blogspot.com/</a></p>
+<p><a href="http://drinas.blogspot.com/">http://drinas.blogspot.com/</a> </p>
+<p><a href="http://joaca.wordpress.com/">http://joaca.wordpress.com/</a></p>
+<p><a href="http://dorinlazar.wordpress.com">http://dorinlazar.wordpress.com</a></p>
+						</li>
+
+										<li id="comment-3684" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">38</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3684" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Pai e o buna ocazie pentru tine sa intrii in discutii cu ei :) Vezi daca vor.</p>
+<p>E foarte fain ce face Dono, eu apreciez ca are rabdare.</p>
+						</li>
+
+										<li id="comment-3685" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">39</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3685" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Erm, I hate my voice.<br />
+<a href="http://www.youtube.com/watch?v=0PORc7tCw4c">http://www.youtube.com/watch?v=0PORc7tCw4c</a><br />
+Also, did I mention that I hate my voice? :-s<br />
+O sa pun maine un articol cu filmuletul pentru cititorii mei (ca sa nu fie nevoie sa vorbesc cu fiecare in parte).</p>
+						</li>
+
+										<li id="comment-3686" class="commentbody"><div class="commenthead"><img alt='urangutanita`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">40</div>
+								<span class="authorlink">urangutanita</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3686" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>bun, hai ca o sa intreb oamenii, poate nu vor neaparat</p>
+<p>unde tragi linia intre mici si mari?</p>
+						</li>
+
+										<li id="comment-3688" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">41</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3688" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>@<b>Catalin</b> Wow fain tutorial ai facut! Brava!</p>
+<p>(In caz ca se intreaba lumea, motivul pentru care ambele click-uri in filmul tau duc aici pe Trilema este ca un blog nu-si poate trimite link singur. Pentru ca Trilema trimite comparativ foarte mult trafic, care ajunge pe alte bloguri, cea mai mare parte din traficul trimis de celelalte bloguri ajunge inapoi aici pe Trilema. Situatia e si mai mult agravata de faptul ca blogurile noi primesc niste click-uri bonus la intrare, ceea ce creaza implicit un credit pentru Trilema - ca de-aici vin.)</p>
+<p>@<b>urangutanita</b> Nu este o linie intre mici si mari, poate intra oricine pofteste, singura linie este intre calitate si lipsa ei.</p>
+						</li>
+
+										<li id="comment-3689" class="commentbody"><div class="commenthead"><img alt='llama lana`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">42</div>
+								<span class="authorlink">llama lana</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3689" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Catalin - De ce nu-ti place vocea ta? E sexy....</p>
+						</li>
+
+										<li id="comment-3690" class="commentbody"><div class="commenthead"><img alt='crocoditza`s avatar' src='http://crocoditza.wordpress.com/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">43</div>
+								<span class="authorlink"><a href='http://crocoditza.wordpress.com' class='url'>crocoditza</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3690" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p><a href="http://crocoditza.wordpress.com">http://crocoditza.wordpress.com</a></p>
+						</li>
+
+										<li id="comment-3691" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">44</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3691" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>@<b>Catalin</b> Noa vezi de unde sare socializingu mei ? </p>
+<p>@<b>crocoditza</b> Fiat. Pe mail.</p>
+						</li>
+
+										<li id="comment-3692" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">45</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3692" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Merci.. trebuia sa mentionez acolo ca e in beta, dar, dupa cum am zis, nu-s bun la prezentari. (nu uita sa scoti test864 din lista) :)</p>
+						</li>
+
+										<li id="comment-3693" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">46</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3693" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>L-am ras cam acu juma de ceas.</p>
+<p>Da, faptu ca-i in beta, chit ca omu vede clar postu si poate veni aici sa citeasca.  Desi..astia cu video is mai lenesi asa. Poate nu strica nici o explicatie mai pe larg a ce se doreste, etc.</p>
+<p>In fine, si orgasmu' se poate critica daca te-apuci cu osardie. Vorba-i ca este ce.</p>
+						</li>
+
+										<li id="comment-3696" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">47</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3696" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>@llama lana.. blink blink ;;)<br />
+@Mircea.. pssst! confirma-mi daca "llama lana" e tipa, dupa mail. :D</p>
+						</li>
+
+										<li id="comment-3698" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">48</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3698" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>E tipa, o cunosc, daca sapi ii gasesti si decolteul intr-o poza mai demult.</p>
+						</li>
+
+										<li id="comment-3699" class="commentbody"><div class="commenthead"><img alt='esk`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">49</div>
+								<span class="authorlink">esk</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3699" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Mna sara, oameni buni, si multam ca m-ati primit si pe mine. Numa ca am o nedumerire: îi normal ca trei oameni diferiti sa dea clic pe linkul ala random si sa fie condusi aici? Daca aveti timp, explicati-mi ca la babe ca nu ma pricep, saru-mana.</p>
+						</li>
+
+										<li id="comment-3701" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">50</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3701" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Damn it.. bine ca mi-ai luat-o tu inainte. &gt;:P</p>
+						</li>
+
+										<li id="comment-3702" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">51</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3702" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>@<b>esk</b>E o explicatie acolo in paranteza : </p>
+<p><a href="/2009/adserverpolimediaus/comment-page-1/#comment-3688">/2009/adserverpolimediaus/comment-page-1/#comment-3688</a></p>
+<p>@<b>Cristian</b> Pai tu poti s-o iei inapoi :D</p>
+						</li>
+
+										<li id="comment-3703" class="commentbody"><div class="commenthead"><img alt='esk`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">52</div>
+								<span class="authorlink">esk</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3703" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Eu n-am facut nimic, calul e de vina :D</p>
+						</li>
+
+										<li id="comment-3705" class="commentbody"><div class="commenthead"><img alt='esk`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">53</div>
+								<span class="authorlink">esk</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3705" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>@Mircea: stiu, dar eu nu ma pricep la chestii d-astea dificile, algoritmi, clicuri, trafic, etîcî, asa ca n-am inteles nimica... :"&gt;</p>
+						</li>
+
+										<li id="comment-3706" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">54</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3706" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Iar ma confunzi? :D<br />
+Legat de observatia eskai.. nu prea e kosher ce se intampla acuma. :)<br />
+Tre' sa sacrifici un pic din trafic (nu stiu.. sa fie chior-aleatoare treaba in prima faza) pana se stabilizeaza algoritmul sau sa rafinezi algoritmul.</p>
+						</li>
+
+										<li id="comment-3707" class="commentbody"><div class="commenthead"><img alt='romania inedit`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">55</div>
+								<span class="authorlink">romania inedit</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3707" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Pe mine nu m-a invitat nimeni !   :(<br />
+Eu sunt romania inedit , de la <a href="http://contact.romania-inedit.ro/">http://contact.romania-inedit.ro/</a> .</p>
+						</li>
+
+										<li id="comment-3708" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">56</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3708" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Pai kosher nu-i, dar invers decat zici tu lol. Hai sa privim putin chestia.</p>
+<p>Click-urile se conserva, adica, ele nu pot fi produse. Deci, daca site-ul X trimite 1 click, rl tre sa primeasca inapoi 1 click, ala-i dreptul lui.</p>
+<p>Acum, daca un site trimite sa zic 10 click-uri, si alte 10 site-uri trimit cate 1 click fiecare, ce se poate intampla ?</p>
+<p>Pai, scriptul ar putea face asa ca cele 10 site-uri cu cate 1 sa-si trimita click-uri ele intre ele. Cine va trimite aluia de 10 ? Cei de 1 nu mai au, si el siesi nu-si poate trimite.</p>
+<p>Scriptul ar putea de asemenea sa faca asa ca cel de 10 sa trimita cate 1 la fiecare dintre cei de 1, si ei sa-i trimita lui inapoi, cate 1 fiecare, in total 10. In felul asta, cei de 1 dau 1 si primesc 1, si cel de 10 da 10 si primeste 10.</p>
+<p>Afacerea nu-i foarte avantajoasa pentru ala mare, cum reiese daca privim din punctul de vedere al unui utilizator : Omul X da click pe trilema si ajunge pe blogul a. E socotit ca click unic de pe trilema, si trilema primeste 1 click credit.</p>
+<p>Acum de pe a da click iara, si ajunge inapoi pe trilema. E click unic pentru a, si deci a primeste un credit. De pe trilema, daca da click iara, si ajunge sa zic pe c, pentru trilema el nu mai e utilizator unic, si trilema nu primeste nici un credit. In schimb c, daca omu' mai da un click, primeste credit, ca pentru c, X ii tot unic.</p>
+<p>Asta-i dezavantajul implicit pentru site-ul mai mare intr-un asa sistem, si noa, n-ai ce-i face, ca nu exista o infinitate de unici pe lume.</p>
+<p>Eu nu insist totusi sa fie si Trilema inclusa, am pus-o de la inceput ca sa sustin cu outbound traffic toata povestea, ca mi s-o parut ca pentru bloger e mai important sa obtina trafic, decat sa nu dea link catre Trilema.</p>
+<p>Dar daca voi ziceti c-ar fi mai bine sa o scot, pana se echilibreaza/extinde reteaua, pot si s-o scot. Problema e ca nu vad cum se va extinde o retea daca n-are macar un motor s-o traga.</p>
+						</li>
+
+										<li id="comment-3709" class="commentbody"><div class="commenthead"><img alt='romania inedit`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">57</div>
+								<span class="authorlink">romania inedit</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3709" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Eu cred ca problema e ca nu vad cum se va extinde o retea daca n-are macar un motor s-o impinga , nu s-o traga.</p>
+						</li>
+
+										<li id="comment-3710" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">58</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3710" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>No bun, acuma m-ai lamurit pe mine.<br />
+Din perspectiva unui simplu user care da clickuri.. e mai ciudat.<br />
+Nu tre' sa scoti trilema din sistem. E ideea ta si trebuie sa culegi roadele.<br />
+Poate daca aveam codul in fata imi dadeam si eu cu parerea. :)</p>
+						</li>
+
+										<li id="comment-3711" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">59</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3711" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Mai, codul care distribuie click-uri uite-l (ma rog, pseudocod pe jumate, ca sa fie totusi inteligibil azi) :</p>
+<p>$query = 'SELECT hashname FROM cache ORDER BY volume DESC';<br />
+$record=mysql_query($query);<br />
+$row = mysql_fetch_array($record, MYSQL_NUM);<br />
+$dest_hash = $row[0];</p>
+<p>if ($dest_hash == $hash) {<br />
+$row = mysql_fetch_array($record, MYSQL_NUM);<br />
+$dest_hash = $row[0];<br />
+}</p>
+<p>Dupa care obtine url-ul asociat $dest_hash si-i da header (Location : ) pe el. Cache e o tabela care tine evidenta totalurilor click-urilor si e actualizata periodic de un script separat, din mai multe motive.</p>
+<p>Deci, practic, site-ul cu cel mai mare credit primeste click-ul, i se scade creditul, daca site-ul cu cel mai mare credit e cel de pe care origineaza click-ul, se ia al doilea cel mai mare.</p>
+<p>Practic daca privesti problema in termeni de grafuri (nu stiu cat ti-o placut tie ele), volumul formeaza/decide legaturile.</p>
+						</li>
+
+										<li id="comment-3712" class="commentbody"><div class="commenthead"><img alt='urangutanita`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">60</div>
+								<span class="authorlink">urangutanita</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3712" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>eh, nici nu s-au adunat suficiente bloguri ca sa vedeti cum functioneaza si ii si cereti sa schimbe.<br />
+Mircea, dar daca pui cateva clicuri bonus la toti noii veniti, macar sa nu ramana cu impresia ca e un simplu linkback? </p>
+<p>Mai insist si pe ideea cu titlul, chiar daca a ales aleator linkul, eu ca cititor pot alege sa intru pe el sau nu. Daca e doar banner, doar in cazuri de plictiseala crunta as intra (presupunand ca nu stiu ideea din spate), daca vad titlul interesant, ma bag, daca nu, sa scrie un titlu mai interesant data viitoare si poate da....<br />
+Poate e de vina si stilul meu de a vedea blogurile: de la articol spre om si nu invers, mai des descopar un articol bun decat un blog bun.</p>
+						</li>
+
+										<li id="comment-3713" class="commentbody"><div class="commenthead"><img alt='romania inedit`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">61</div>
+								<span class="authorlink">romania inedit</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3713" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Eu cred ca este musai sa apara ultimul articol scris pe blog , altfel nu ar exista interes sa dea vizitatorii click pe link .<br />
+Sa apara cate un articol aleator , ca sa creasca interesul vizitatorilor .</p>
+						</li>
+
+										<li id="comment-3714" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">62</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3714" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Ce se intampla daca se face o distributie proportionala?<br />
+Ca o loterie in care un credit = un bilet?</p>
+<p>(din pacate ma duc la culcare acum, o sa intru maine)</p>
+						</li>
+
+										<li id="comment-3715" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">63</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3715" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>@<b>urangutanita</b> La ora actuala e setat force pentru noii veniti cam 100 de click-uri, asta inseamna ca primesc 100 indiferent cat au trimis (sau incep cu 100 credite, nu 0, cu alte cuvinte). </p>
+<p>Asta-i si motivul pentru care Trilema si are asa de mult credit, ca toti noii veniti primesc click-uri de la ea.</p>
+<p>Ce nu intelegi pe chestia cu titlul e asa : Link-urile se scriu intr-o pagina la momentul la care ea este incarcata. Sa zicem el este t. La un moment ulterior, t+k, cineva face click pe acel link. La ora actuala, la acest moment t+k script-ul decide unde sa fie omul trimis. Scriptul nu are cum sa stie dinainte, la momentul t, asa fel ca sa dea titlul corespunzator pentru a fi utilizat in pagina.</p>
+<p>Daca in loc sa fie decisa la momentul t+k, destinatia ar fi decisa la momentul t, nu ar exista nici un mijloc simplu de a evita urmatoarea situatie : cineva pune browserul pe refresh, si isi aduna o groaza de credite.</p>
+<p>S-ar putea face, cu iframe-uri, sau cu inca un hash pe link throwaway, dar problema ar deveni asa un monstru computational ca mi-ar trebui server dedicat, si-alea-s de la 3-4-500$ pe luna.</p>
+<p>@<b>romania inedit</b> Poate asta cu articole aleatorii n-ar fi asa de rau... adica, ori scriptul sa citeasca din blog random, sau poate si mai bine, blogerul sa-si poata seta cateva, 5-10 articole pe care sa fie trimis random. Asta chiar ar fi o idee buna, sa vedem ce zic baietii. N-ar trebui sa fie prea greu.</p>
+<p>@<b>Catalin</b> Pai acu nu-i proportional mei ?</p>
+						</li>
+
+										<li id="comment-3716" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">64</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3716" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>@urangutanita + romania inedit.. nu e musai sa apara titlul ultimului articol. Ar fi mult mai ineficient, ar presupune un sistem mai complicat si ar fi cu totul alta idee. Aicea ideea e de aleator.. sa descoperi ceva nou.</p>
+						</li>
+
+										<li id="comment-3717" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">65</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3717" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Aia am vrut sa zic si eu, daca-i pana acolo, te intereseaza o tema anumita, ai google, n-ai nevoie sa stai si sa citesti pe link-ul meu doar doar se nimereste sa zica ceva ce sa te intereseze.</p>
+						</li>
+
+										<li id="comment-3718" class="commentbody"><div class="commenthead"><img alt='urangutanita`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">66</div>
+								<span class="authorlink">urangutanita</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3718" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>right, am inteles cu t si t+k, credeam ca hashul decide destinatia in momentul in care e scris in pagina.<br />
+Ma mai gandeam la o posibila problema de usability: sunt in pagina x, dau clic si ma duc la y, la y dau clic si ma duce cumva inapoi la x, de unde am venit?</p>
+						</li>
+
+										<li id="comment-3719" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">67</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3719" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Ba da, dar nu ofera diversitate. Ma refeream.. in momentul in care se alege blogul.. sa nu se aleaga cel cu scor cel mai mare. Ci sa aiba si celelalte o sansa.</p>
+<p>De exemplu, daca avem 3 bloguri (x, y, z).<br />
+Blogul x are credit 50<br />
+Blogul y are credit 25<br />
+Blogul z are credit 5</p>
+<p>Iar serverul sa aleaga un blog din cele 3, astfel:<br />
+x are 50 de sanse din 80<br />
+y are 25 din 80<br />
+z are 5 din 80</p>
+						</li>
+
+										<li id="comment-3721" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">68</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3721" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>@<b>Urangutanita</b> Uneori, da.</p>
+<p>@<b>Catalin</b> Chestia cu diversitatea (cred eu) e o falsa problema. Uite de ce :</p>
+<p>Fie userul X al site-ului (mic) a. El este foarte putin probabil sa fie identic cu user-ul Y al site-ului b, si la fel cu Z sau Q. Toti acesti useri afla de existenta Trilema, pe care posibil s-o cunoasca sau nu, si prin Trilema, de un alt blog, poate d sau f.</p>
+<p>Fie userii u1,u2,un ai Trilema. Este foarte improbabil ca ei sa cunoasca a,b,d sau f. </p>
+<p>Acum, in principiu, este improbabil ca cineva sa dea mai mult de 2-3 clickuri pe link/banner asta cu random, la rand. Daca se opreste la 2, va afla de fix 2 bloguri distincte. Daca da 3, va vedea tot 2, si daca da 4 va vedea necesar 3.</p>
+<p>Practic, suprapunerea e sa zicem, 0% x 50 + 33% x 30 + 25% x 20 / 100 = 15%. Nu-i chiar asa de groaznica problema (am zis ca 50% din oameni dau 2, 30% dau 3 si 20% 4 clickuri).</p>
+<p>Acum, sigur, dintr-o anumita perspectiva, unii oameni sunt siliti sa dea 2 clickuri in loc de 1 ca sa gaseasca bloguri noi. Nu prea vad ce se poate face.</p>
+<p>Solutia ta cu probabilitatea are urmatoarea problema : in loc de 1 select, de la care iau 1 rezultat, tre sa iau tot array-ul, sa-i fac suma, sa calculez probabilitatile, sa fac un random. E prea multe, si redirectul tre sa fie rapid. Asta-i problema #1.</p>
+<p>Problema #2 e ca nu da rezultate diferite de metoda actuala, incearca o simulare statistica.</p>
+						</li>
+
+										<li id="comment-3722" class="commentbody"><div class="commenthead"><img alt='romania inedit`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">69</div>
+								<span class="authorlink">romania inedit</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3722" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Si eu cum ma inscriu ?</p>
+						</li>
+
+										<li id="comment-3723" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">70</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3723" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Ai pe undeva un blog pe bune ? Ca ala din link nu ma prea inspira.</p>
+						</li>
+
+										<li id="comment-3724" class="commentbody"><div class="commenthead"><img alt='urangutanita`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">71</div>
+								<span class="authorlink">urangutanita</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3724" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>eh, toate se vor rezolva odata ce vin mai multi useri in sistem.<br />
+Repeti schema cu pingback ca sa faci putina publicitate? :)</p>
+<p> noapte buna !</p>
+						</li>
+
+										<li id="comment-3726" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">72</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3726" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Nah, chestia aia am facut-o ca sa-i demonstrez unui individ ca nu-i nici greu de facut, nici cine stie ce utila.</p>
+<p>Si somn usor.</p>
+						</li>
+
+										<li id="comment-3727" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">73</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3727" title="">Sunday, 3 May 2009</a>
+							</div>
+						<p>Suma poate fi tinuta intr-o singura variabila si e constanta, din ce-am inteles. Trebuie updatata doar cand se adauga un blog nou.</p>
+						</li>
+
+										<li id="comment-3729" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">74</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3729" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Care suma ?</p>
+<p>"volume", adica totalul de click-uri trimise de un blog anume, se updateaza periodic, si sta intr-o tabela speciala, optimizata pentru viteza.</p>
+<p>Acum, la chestia cu distributia click-urilor, se mai poate lucra putin la granularitate dupa timp, care poate nu-i optima inca, dar nici nu ma apuc s-o optimizez pana nu am un minim de date care sa-mi ingaduie niste asumptii cat de cat rationale.</p>
+						</li>
+
+										<li id="comment-3730" class="commentbody"><div class="commenthead"><img alt='alphadog`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">75</div>
+								<span class="authorlink">alphadog</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3730" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Măi, vreau şi eu bannerul. Că am "ratat linku'" ăla, din greşeală! :-P<br />
+Mi-s mai blond(ă) de felul meu.</p>
+<p>Help!</p>
+						</li>
+
+										<li id="comment-3731" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">76</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3731" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Link-ul tau e :<br />
+<a href="http://adserver.polimedia.us/index.php?58bfab733c4a344bdee356ba6dd9d270">http://adserver.polimedia.us/index.php?58bfab733c4a344bdee356ba6dd9d270</a></p>
+<p>Se foloseste si la text si la banner, acelasi link.</p>
+						</li>
+
+										<li id="comment-3732" class="commentbody"><div class="commenthead"><img alt='lexy229`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">77</div>
+								<span class="authorlink">lexy229</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3732" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Auzi, dar in zelist de ce nu apare postul asta?</p>
+<p>Ze bestest pe bloguri avem, pentru 3 - 4 mai:</p>
+<p>morar.catavencu.ro  - 3 mai 2009<br />
+Crin da repetentia la intors!<br />
+comentarii: peste 100<br />
+1 reactie : patrasconiu.blog.cotidianul.ro </p>
+<p>ciutacu.ro  - 3 mai 2009<br />
+Calatorie de 1 Mai prin land of choice (I)<br />
+comentarii: peste 70</p>
+<p>jeg.ro  - 3 mai 2009<br />
+Validarea increderii de sine e sa-ncerci sa te minti singur si sa te crezi<br />
+comentarii: peste 40</p>
+<p>patrasconiu.blog.cotidianul.ro  - 3 mai 2009<br />
+Crin Antonescu recunoaste ca a fost repetent<br />
+comentarii: peste 40</p>
+<p>adriangeorgescu.ro  - 3 mai 2009<br />
+In recreatie<br />
+comentarii: peste 40</p>
+<p>chris39.bloggerul.ro  - 3 mai 2009<br />
+Gand trimis catre tine...<br />
+comentarii: peste 30</p>
+<p>moscalifar.eu  - 3 mai 2009<br />
+Gigi Becali : falimentul suprem<br />
+comentarii: peste 20</p>
+<p>mihaibendeac.wordpress.com  - 4 mai 2009<br />
+Bani sau constiinta?<br />
+comentarii: peste 20</p>
+<p>tolo.ro  - 3 mai 2009<br />
+Inainte de excludere<br />
+comentarii: peste 20</p>
+<p>etc</p>
+<p>Mi se pare mie, sau 76 e peste 70, care e peste 50 si 30 si chiar si 20? Nu ar trebui sa fii si tu acolo, un #2 ceva?</p>
+						</li>
+
+										<li id="comment-3733" class="commentbody"><div class="commenthead"><img alt='Gigel`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">78</div>
+								<span class="authorlink">Gigel</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3733" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Dacă nu i-o zis mă-sa Tolo...</p>
+						</li>
+
+										<li id="comment-3734" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">79</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3734" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Lol just. Sau macar Bendeac, ceva acolo.</p>
+<p>Zelistul e foarte relevant, doar ca pentru alti oameni, cum ar veni.</p>
+						</li>
+
+										<li id="comment-3735" class="commentbody"><div class="commenthead"><img alt='Ş`s avatar' src='http://www.laptopisetul.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">80</div>
+								<span class="authorlink"><a href='http://www.laptopisetul.ro' class='url'>Ş</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3735" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Salut,</p>
+<p>Hai că încerc şi eu jucăria.<br />
+Merci anticipat.</p>
+						</li>
+
+										<li id="comment-3736" class="commentbody"><div class="commenthead"><img alt='făniţă`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">81</div>
+								<span class="authorlink">făniţă<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3736" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>merci pentru invitaţie, azi sau mâine îmi fac şi eu un widget!</p>
+						</li>
+
+										<li id="comment-3740" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">82</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3740" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>@S Asa sa fie.</p>
+<p>@fanita Baga mare.</p>
+						</li>
+
+										<li id="comment-3743" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">83</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3743" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Nu am mai avut timp sa scriu de azi noapte. Fara sa mai intram in discutii teoretice despre algoritmi si statistici: in forma asta, campania nu face bine bloggerilor mici. Face bine blogului Trilema. Pentru ca:<br />
+1. Nu exista blogger care sa dea click pe link/banner si sa nu afle de Trilema. (pentru ca fie da click de pe blogul lui si ajunge pe Trilema, fie este deja pe Trilema) Astfel Trilema capata notorietate printre toti bloggerii participanti.<br />
+2. Pentru un cititor de bloguri, Trilema va fi blogul cel mai vizibil (din acelasi motiv ca la punctul 1). Celelalte bloguri au sanse mult mai mici sa fie vizionate. Nici nu stiu daca chiar exista un avantaj pentru ele. Mai stii? Poate unii cititori renunta complet la un blog si migreaza spre Trilema.<br />
+3. Daca totusi un cititor/blogger e dispus sa descopere (in continuare) bloguri, trebuie sa dea clickuri de pe Trilema. More credits for Trilema.<br />
+4. De aceea sintagma "descopera un blog nou/aleator" nu mai are niciun sens cand dai click de pe alte bloguri.<br />
+5. Insusi sistemul este impotriva ideii care il sustine. De ce sa fie mai dezavantajat un blog obscur, care nu are credite? Nu asta era ideea, sa-l descopere mai multa lume, sa aiba si el o sansa?<br />
+6. Nemultumire personala - in contextul punctelor de mai sus, a promova in continuare campania, dauneaza imaginii mele fata de persoanele pe care le bag in joc. Esk nu e singura persoana care a fost nemultumita de modul de functionare.<br />
+7. Acuma, nu zic ca blogurile care genereaza mai multe clickuri nu ar trebui sa fie avantajate, deci propun urmatorul algoritm:</p>
+<p>20% din clickuri sa functioneze dupa algoritmul prezent (adica blogurile cu mai multe credite sunt avantajate)<br />
+80% din clickuri sa fie complet aleatorii (si sa nu se scada credite nimanui; ramane de stabilit doar daca se mai adauga sau nu 1 credit blogului de pe care s-a dat click)<br />
+Chiar daca blogul cu cel mai mare scor va fi mai putin avantajat (dar va fi avantajat in continuare), acest lucru va fi compensat cu un volum mai mare de clickuri, pentru ca un user de pe un blog oarecare va fi incurajat sa incerce de mai multe ori butonul de "random blog" stiind ca e cu adevarat (sau in fine, pe acolo) random. :)</p>
+<p>Sunt dispus sa promovez in continuare campania si sa scriu si pe blog despre ea daca se trece la sistemul asta. Cred ca asa ar avea de castigat toata lumea. Daca nu, nu e nicio suparare. Doar ca eu m-am entuziasmat la inceput crezand ca o sa fnctioneze intr-un fel si s-a indepartat de ideea initiala. E pacat. :|</p>
+						</li>
+
+										<li id="comment-3744" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">84</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3744" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Hm.</p>
+<p>Noa, bun, pai atunci scoatem Trilema for now, si vedem cum merge treaba astfel.</p>
+						</li>
+
+										<li id="comment-3747" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">85</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3747" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Ooof. Pai nu-mi doream asta..<br />
+Acum va fi avantajat urmatorul blog. :|<br />
+Chiar nu ti se pare ok varianta mea? Nu mi se pare atat de solicitanta. Iar daca e.. majoritatea chestiilor random se pot pregenera (cred :).</p>
+						</li>
+
+										<li id="comment-3748" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">86</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3748" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Lol va fi avantajat. Tie nu ti se pare logic cine da mai mult sa ia mai mult ? Asa, ca principiu ? </p>
+<p>Eu unul nu-s dispus sa construiesc comunismul, n-am fost nici offline, nu-s nici online. Un sistem de tipul "de la fiecare dupa posibilitati, fiecaruia in mod egal" va trebui sa construiasca altcineva.</p>
+<p>Si asa, si altminteri, tre sa intelegi o chestie simpla : intr-o cutie din care fiecare ia in mod egal, si fiecare pune cat doreste, nu va pune nimeni niciodata nimic. La scos, va fi, evident, coada.</p>
+						</li>
+
+										<li id="comment-3749" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">87</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3749" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>De-asta am propus un sistem mixt. :-s<br />
+Nu mi se pare buna analogia cu comunismul.<br />
+Am observat ca acuma majoritatea clickurilor vin la mine. Now that's irony. :(</p>
+						</li>
+
+										<li id="comment-3750" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">88</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3750" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Stii vorba aia cu o sticla de vin si-o picatura de apa de canal.</p>
+<p>Problema principala e ca acum oamenii noi intrati in sistem primesc cam nimic, si ma gandesc ca nu vor face multi purici.</p>
+						</li>
+
+										<li id="comment-3751" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">89</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3751" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Nevertheless, in limita timpului, o sa incerc sa promovez campania in urmatoarele zile, chiar daca as fi preferat alt algoritm. Dar ideea mi se pare foarte buna. Nu e corect ca unii sa se zbata in anonimitate doar pentru ca nu stiu sa se promoveze. Si m-am saturat sa vad ca singura modalitate ca un blogger sa creasca rapid e aceea de a fi promovat de un blogger din top (si probabil favorurile astea nu sunt gratis in multe cazuri).</p>
+						</li>
+
+										<li id="comment-3753" class="commentbody"><div class="commenthead"><img alt='urangutanita`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">90</div>
+								<span class="authorlink">urangutanita</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3753" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>exista metode fair pentru a obtine mai multe clicuri: scrii ceva sub banner sau faci un link mai explicit cum a pus Catalin, "un blog bun (aleator)". </p>
+<p>Vad ca cei noi nici macar nu au pus bannerul, semn ca nu au inteles sistemul, asa ca.... ce dau, aia primesc</p>
+<p>Eu zic ca sistemul se poate echilibra dupa un timp, cand vor fi si alte puncte de intrare in el, nu doar pagina asta si reinvented.ro. As opta pentru un sistem mixt in scop de marketing: primele x saptamani random, apoi cand aduni lume, bagi algoritmul dupa ranking.</p>
+						</li>
+
+										<li id="comment-3754" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">91</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3754" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Eu ziceam ca se conserva, in sensul de, in cadrul scriptului. adserver.polimedia.us/index.php nu poate trimite mai multe click-uri decat primeste.</p>
+<p>N-au pus bannerul, si in fond de ce l-ar pune, bere gratis frate. Nici nu dura mult lol.</p>
+<p>Logic nu-i sa schimbi legile la jumatatea drumului, ori legile de la inceput erau bune, si atunci te tii de ele, ori erau proaste, si atunci incepi cu alea bune.</p>
+						</li>
+
+										<li id="comment-3755" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">92</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3755" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>"Logic nu-i sa schimbi legile la jumatatea drumului, ori legile de la inceput erau bune, si atunci te tii de ele, ori erau proaste, si atunci incepi cu alea bune." - Oh come on.. vorbim de un sistem care e in beta si care a fost implementat in 2 ore. :P<br />
+Daca e in beta, se poate schimba pe parcurs. :)</p>
+						</li>
+
+										<li id="comment-3756" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">93</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3756" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>A, nu de aia zic, eu ziceam in principiu, facem asa x luni, pe urma facem invers.</p>
+<p>Pai daca-i bine invers, sa facem de la inceput, si daca nu-i, de ce sa schimbam ?</p>
+						</li>
+
+										<li id="comment-3757" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">94</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3757" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Eu o sa te mai bat la cap cu sistemul mixt. :)<br />
+I'm a lousy programmer, but I trust my gut instinct on this one.</p>
+						</li>
+
+										<li id="comment-3758" class="commentbody"><div class="commenthead"><img alt='micutultau`s avatar' src='http://www.micutultau.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">95</div>
+								<span class="authorlink"><a href='http://www.micutultau.ro/' class='url'>micutultau</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3758" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Vreau si eu sa ma inscriu daca vi se pare ok <a href="http://www.micutultau.ro">http://www.micutultau.ro</a></p>
+						</li>
+
+										<li id="comment-3760" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">96</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3760" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>@<b>Catalin</b> Inca o data, nu disput nici un moment ca "ar fi mai avantajos". Sigur ca ar fi. Pana la urma, eu refuz oferte de euroi cu mai multe cifre pentru un banner acolo, evident a da euroii aia pe gratis ar fi "mai avantajos" decat a-i da pentru o performanta oarecare.</p>
+<p>In fond, si Fanita putea spune zilele trecute, stii ce, da tu reincarcarile alea gratis, c-ar fi mai avantajos decat sa ma pui sa umblu prin facultati si aiureli.</p>
+<p>Ramane deschisa problema asta, cum faci oamenii sa chiar puna bannerele, cand ce dau ei n-are treaba cu ce primesc. De inscris, sigur ca s-or inscrie, dar cam atat. Probabil niste rugaciuni in biserica ar fi bune, aud ca Dumnezeu are cate click-uri vrea.</p>
+<p>Pana la urma, invatatura pentru mine e ca blogerii mici sunt mici mai ales pentru ca gandesc mic, si asteapta sa fie facuti mari (lucru care, sa fie clar, nu-l vor accepta chiar asa, in orice conditii). Eu, nefiind Dumnezeu, nu pot decat sa ridic din umeri, asa, de pe margine. Si sincer sa fiu, nici dac-as fi nu cred c-as face altceva.</p>
+<p>@<b>micutultau</b> Da. Primesti pe mail.</p>
+						</li>
+
+										<li id="comment-3763" class="commentbody"><div class="commenthead"><img alt='Promoter`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">97</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Promoter</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3763" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Poate trebuia sa fim mai elitisti si sa impunem si regula cu bannerul?<br />
+(Da, mi-am schimbat nickul)</p>
+						</li>
+
+										<li id="comment-3764" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">98</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3764" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Hehehehe mai pe mine sincer iti spun, ma fascineaza cum merge mintea omului.</p>
+<p>Deci, fi atent. Statul socialist multilateral dezvoltat nu reuseste sa genereze aceeasi productie de cereale ca si guvernul imperialisto-mosieresc de trista amintire. Ce fac ei ? Pai, sunt principiali si confisca si cat bruma de cereale s-o facut, ca sa fie siguri, da 100%, ca la anu' nu se mai face nimic.</p>
+<p>Tu nu ii zici "principial", tu ii zici "elitist", dar vrei sa scoti interesul, si sa pui in loc reguli. Bravo. Cine sta pe urma sa-i pazeasca, facem un script police.php care citeste toate paginile sa vada daca ii au nu-i banneru ? Si pe urma ei fac display intr-un div cu zindex -5 si noi schimbam scriptu si ei schimba iara si tot asa ?</p>
+<p>Cum zice vorba aia, oamenii vor incerca solutiile rationale de indata ce toate alternativele vor fi epuizate.</p>
+						</li>
+
+										<li id="comment-3765" class="commentbody"><div class="commenthead"><img alt='Promoter`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">99</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Promoter</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3765" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Erau doua chestii separate.<br />
+Faza cu elitismul se referea la o analiza mai atenta a blogurilor inainte sa fie primite in campanie, ca sa ne dam seama cat de seriosi sunt proprietarii (in afara de scrisul in sine). Dar deja aberez, era prea mult de munca si nici nu suntem (cel putin eu) psihologi. :P<br />
+Cat despre faza bannerul.. aicea era de asteptat sa nu puna toata lumea. Trebuie discutat cu fiecare in parte.<br />
+Eh, cat despre "pazit".. e prea mare deranjul cu scriptul. Pot fi raportate de alti useri. :)</p>
+						</li>
+
+										<li id="comment-3766" class="commentbody"><div class="commenthead"><img alt='boiu`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">100</div>
+								<span class="authorlink">boiu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3766" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Lol am râs şi cu curu...<br />
+"A, ne dai trafic?Bun. O, şi noi tre să dăm link înapoi?Na, nu-i kosher"<br />
+Parcă ziceai că ai cititori/comentatori inteligenţi băi Popăscule.<br />
+Hai, noroc prin blogosferă băi băieti</p>
+						</li>
+
+										<li id="comment-3767" class="commentbody"><div class="commenthead"><img alt='Promoter`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">101</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Promoter</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3767" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>@boiu.. bine ca esti tu destept. :)</p>
+						</li>
+
+										<li id="comment-3768" class="commentbody"><div class="commenthead"><img alt='urangutanita`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">102</div>
+								<span class="authorlink">urangutanita</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3768" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>micutultau e un site dragut si util, dar parca nu e blog, in afara de platforma wp</p>
+						</li>
+
+										<li id="comment-3770" class="commentbody"><div class="commenthead"><img alt='urangutanita`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">103</div>
+								<span class="authorlink">urangutanita</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3770" title="">Monday, 4 May 2009</a>
+							</div>
+						<p><a href="http://adserver.polimedia.us/">http://adserver.polimedia.us/</a>  ce e de presupus ca ar trebui sa arate? (hash=NULL?)</p>
+						</li>
+
+										<li id="comment-3771" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">104</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3771" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Lol aho aho copii si frati, stati putin si nu va luati. </p>
+<p>Hai pe rand :</p>
+<p>@<b>Promoter</b> Lol mai, clar, aia urma, sa facem Securitatea, paharu pe zid sa vedem cine gateste cu carne. </p>
+<p>@<b>boiu</b> Vorba lu' promoteru : QED ;)</p>
+<p>@<b>urangutanita</b> Pai bun, si cam dupa ce criteriu pot eu decide ca ceva nu-i blog ? Daca are continut original, scris cat de cat bine, nu-i facut din agregatoare etc, nu-i acoperit in adsuri, nu vad problema.<br />
+La al doilea : unul dintre blogurile din sistem.</p>
+						</li>
+
+										<li id="comment-3772" class="commentbody"><div class="commenthead"><img alt='Promoter`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">105</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Promoter</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3772" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Iar faci analogii unfair. Nu ma mai joc. :|</p>
+						</li>
+
+										<li id="comment-3773" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">106</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3773" title="">Monday, 4 May 2009</a>
+							</div>
+						<p>Lol noa sa-mi explici tu mie asa, frumusel si pe indelete, de ce cand iti construiesti tu un sistem ce se bazeaza pe oameni care sa se toare unu' pe altu', ii bine, da' cand o face Secu ii cu TOTUL SI CU TOTUL altceva.</p>
+						</li>
+
+										<li id="comment-3774" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">107</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3774" title="">Tuesday, 5 May 2009</a>
+							</div>
+						<p>N-a zis nimeni ca tre' sa stam unii cu ochii pe altii si ca tre' sa ne uitam <strong>special</strong> dupa nereguli.</p>
+						</li>
+
+										<li id="comment-3776" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">108</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3776" title="">Tuesday, 5 May 2009</a>
+							</div>
+						<p>In masura in care ei raporteaza doar neregulile, si la inreguli n-au, logic vorbind, ce raporta, pana la urma de facto devine sistemul unul in care ne uitam special, vezi ce vreau sa zic ?</p>
+						</li>
+
+										<li id="comment-3779" class="commentbody"><div class="commenthead"><img alt='Bogdan`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">109</div>
+								<span class="authorlink">Bogdan</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3779" title="">Tuesday, 5 May 2009</a>
+							</div>
+						<p>Iti mai recomand si eu cateva bloguri interesante:</p>
+<p><a href="http://www.laptopisetz.ro/">http://www.laptopisetz.ro/</a></p>
+<p><a href="http://alinagadoiu.wordpress.com/">http://alinagadoiu.wordpress.com/</a></p>
+<p><a href="http://iuliagus.blogspot.com/">http://iuliagus.blogspot.com/</a></p>
+<p><a href="http://acsaproductions.blogspot.com/">http://acsaproductions.blogspot.com/</a></p>
+<p><a href="http://underredfeelings.blogspot.com/">http://underredfeelings.blogspot.com/</a></p>
+<p><a href="http://yeti.albascout.ro/blog/">http://yeti.albascout.ro/blog/</a></p>
+						</li>
+
+										<li id="comment-3783" class="commentbody"><div class="commenthead"><img alt='Ciolanus`s avatar' src='http://www.blogopinia.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">110</div>
+								<span class="authorlink"><a href='http://www.blogopinia.ro/' class='url'>Ciolanus</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3783" title="">Tuesday, 5 May 2009</a>
+							</div>
+						<p>Mama ce de comenturi!<br />
+Sa vedem ce iese :D</p>
+						</li>
+
+										<li id="comment-3784" class="commentbody"><div class="commenthead"><img alt='făniţă`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">111</div>
+								<span class="authorlink">făniţă<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3784" title="">Tuesday, 5 May 2009</a>
+							</div>
+						<p>no, am băgat linkul ce mi-ai dat şi când am dat click pe el ca să văd dacă merge, îmi apare ceva formular de înregistrare!</p>
+						</li>
+
+										<li id="comment-3790" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">112</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3790" title="">Tuesday, 5 May 2009</a>
+							</div>
+						<p>No ?! Stai sa vaz ?</p>
+						</li>
+
+										<li id="comment-3791" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">113</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3791" title="">Tuesday, 5 May 2009</a>
+							</div>
+						<p>A lol. Pai ma! Te duci tu acolo si te inregistrezi si-ti da linku, nu pui linku de invite pe web de nebun ?! Ce pana mea!</p>
+						</li>
+
+										<li id="comment-3794" class="commentbody"><div class="commenthead"><img alt='făniţă`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">114</div>
+								<span class="authorlink">făniţă<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3794" title="">Tuesday, 5 May 2009</a>
+							</div>
+						<p>rolf, am văzut eu că scrie register şi din ălea, dar când am dat click pe link apăruse ceva de genul "you need an invite, send an email to mircea...". formularul mi-a apărut numai după ce am intrat pe link pe blog. no, în fine, am rezolvat.</p>
+<p>am văzut că vă certaserăţi un pic pe aici :shocked: revin şi eu mâine cu păreri! noapte bună tuturor!</p>
+						</li>
+
+										<li id="comment-3795" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">115</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3795" title="">Tuesday, 5 May 2009</a>
+							</div>
+						<p>E, nu-i cearta, am discutat si noi, schimbat pareri, asa progreseaza societatea.</p>
+						</li>
+
+										<li id="comment-3817" class="commentbody"><div class="commenthead"><img alt='Promoter`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">116</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Promoter</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3817" title="">Wednesday, 6 May 2009</a>
+							</div>
+						<p>Da, n-a fost cearta. :)<br />
+Imi pare rau, totusi, ca nu am reusit sa-l conving pe Mircea sa implementeze un sistem mixt. :(<br />
+E drept ca sistemul lui are un avantaj de necontestat: faptul ca nu tre' sa verifici daca cineva tine link (sau cat de vizibil e acel link), pentru ca la un moment dat isi va consuma creditele, daca nu vor intra clickuri de la el.</p>
+						</li>
+
+										<li id="comment-3818" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">117</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3818" title="">Wednesday, 6 May 2009</a>
+							</div>
+						<p>[Iar ultimul comentariu trebuia sa fie cu Catalin, nu Promoter] :|</p>
+						</li>
+
+										<li id="comment-3819" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">118</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3819" title="">Wednesday, 6 May 2009</a>
+							</div>
+						<p>Care-i faza cu promoter pana la urma ?</p>
+						</li>
+
+										<li id="comment-3820" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">119</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3820" title="">Wednesday, 6 May 2009</a>
+							</div>
+						<p>Pai am scris in penultimul articol.<br />
+Vreau sa pun accentul pe promovarea altor bloguri si aveam nevoie de un nume de scena. Doar ca mi-am dat seama ca suna prea impersonal (vezi schimbul de comentarii de la articol + ultimele comentarii de la "ask me anything"). </p>
+<p>Cand m-am lansat pe domeniu propriu, am vrut sa iau promoter.ro (dar era deja rezervat). Acum ma bucur ca nu era disponibil, imi place mai mult reinveted.ro (si mi-a modelat stilul intr-un mod pozitiv, zic eu). Anyway, am zis ca dupa ce voi fi relativ cunoscut, voi adopta nickul Promoter, deci era planuita de mult treaba.</p>
+<p>PS. adica nu ma citesti zilnic? [-(</p>
+						</li>
+
+										<li id="comment-3821" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">120</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3821" title="">Wednesday, 6 May 2009</a>
+							</div>
+						<p>Nu in sensul asta, care-i faza, ci in sensul urmator : De ce sa-ti inlocui numele cu un nick, si de ce sa-ti schimbi firma ? Nu inteleg rationamentul.</p>
+<p>Ca promovezi bloguri. Bine. Si eu beau Zaraza. Sa-mi zic Zaraza de-acu-ncolo ? Am fost intr-un bar, pe chelnerita o chema Dana. Sa-i zic Sticla de-acu-ncolo ?</p>
+<p>Si mai ai si-un conflict, promoter e ala ce promoveaza un spectacol, ceva. Daca tu incerci sa-ti iei nick-ul asta, ai o competitie insemnata de la tot felul de oameni care nu-s in nisa ta. Daca tu vrei sa-ti faci brand de ciocolata, n-are rost sa-i zici Moca-Cola. Ca n-are. Veci pururi n-ai sa confisti tu brandul ala pentru ciocolata ta.</p>
+						</li>
+
+										<li id="comment-3822" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">121</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3822" title="">Wednesday, 6 May 2009</a>
+							</div>
+						<p>Eh, pentru mine promoter inseamna (si) om care promoveaza bloguri.<br />
+Cat despre observatie: pai daca vrei sa atragi o nisa a oamenilor care beau Zaraza, why not? Conteaza mult si nick-ul. Nu zic ca nu e ok Catalin (apropo, al doilea motiv era ca sunt prea multi Catalini care comenteaza pe bloguri), dar un nick poate avea un impact mai puternic. </p>
+<p>De exemplu: "Alexandra Adam" (who?? I had to google that :P) are un impact mai mic decat "Lily Star", care are un impact mai mic decat "eleva porno".</p>
+						</li>
+
+										<li id="comment-3829" class="commentbody"><div class="commenthead"><img alt='Constantin`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">122</div>
+								<span class="authorlink">Constantin</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3829" title="">Thursday, 7 May 2009</a>
+							</div>
+						<p>mai, vreau sa va spun multumesc. :)</p>
+<p>am mers din blog in blog facand click, o super calatorie.<br />
+am citit oameni interesanti. calitate la nivel ridicat. </p>
+<p>excelenta ideea, felicitari voua.</p>
+						</li>
+
+										<li id="comment-3830" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">123</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3830" title="">Thursday, 7 May 2009</a>
+							</div>
+						<p>Noa taci ca-i bine!</p>
+						</li>
+
+										<li id="comment-3832" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">124</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3832" title="">Thursday, 7 May 2009</a>
+							</div>
+						<p>Constantin, spread the word. :)</p>
+						</li>
+
+										<li id="comment-3839" class="commentbody"><div class="commenthead"><img alt='Constantin`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">125</div>
+								<span class="authorlink">Constantin</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3839" title="">Thursday, 7 May 2009</a>
+							</div>
+						<p>sigur ca da. </p>
+<p>ce e bun trebuie recunoscut si intarit.</p>
+						</li>
+
+										<li id="comment-3897" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">126</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3897" title="">Saturday, 9 May 2009</a>
+							</div>
+						<p>Bon, in ultimele 5 zile, adica de cand am scos Trilema, au trecut prin sistem vre-o 40 de click-uri, si nu s-a inscris aproape nimeni (1 persoana).</p>
+<p>Eu unul cel putin sunt convins ca daca lucrurile raman asa, se duce de rapa povestea.</p>
+<p>Asa incat, revenim la situatia initiala. Decat sa ne prefacem ca facem, mai bine sa chiar facem.</p>
+<p>Inteleg ca vor exista nemultumiti. Imi pare rau, dar imi asum ca nimic nu va multumi pe toata lumea. Este un sistem deschis, si un internet liber, sunt convins ca fiecare isi va gasi undeva ceva care sa-i convina.</p>
+						</li>
+
+										<li id="comment-3899" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">127</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3899" title="">Saturday, 9 May 2009</a>
+							</div>
+						<p>Eu am promis ca o sa promovez proiectul, din pacate nu am avut timp. Dar o sa ma tin de cuvant si o sa incerc zilele astea sa fac ceva. Nu trebuia sa scoti banner-ul, nu asta iti cerusem atunci. Oricum, nu te mai bat la cap cu algoritmul ala. :)</p>
+						</li>
+
+										<li id="comment-3900" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">128</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3900" title="">Saturday, 9 May 2009</a>
+							</div>
+						<p>Am inceput si eu un pic de promovare, deja avem 20 de oameni inscrisi, din care 7 in ultimele 2 ore.</p>
+<p>Vivat.</p>
+						</li>
+
+										<li id="comment-3908" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">129</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3908" title="">Saturday, 9 May 2009</a>
+							</div>
+						<p>20 and counting. Moarte de om.</p>
+						</li>
+
+										<li id="comment-3916" class="commentbody"><div class="commenthead"><img alt='eugen`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">130</div>
+								<span class="authorlink">eugen</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3916" title="">Sunday, 10 May 2009</a>
+							</div>
+						<p>am primit invitatia de la dvs si nu merge sa ma inregistrez.<br />
+Numai bine si astept un raspuns.</p>
+						</li>
+
+										<li id="comment-3918" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">131</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3918" title="">Sunday, 10 May 2009</a>
+							</div>
+						<p>Zice Simona ca tocmai ti-a trimis-o corectata.</p>
+						</li>
+
+										<li id="comment-3919" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">132</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3919" title="">Sunday, 10 May 2009</a>
+							</div>
+						<p>Am scris articolul. A venit pingback?<br />
+Mai, nu vreau sa crezi ca-s carcotas, dar credeam ca o sa fii mai selectiv in alegerea blogurilor. Fara suparare pentru Eugen, dar eu n-as intra ever pe blogul lui. Are sufocant de multe reclame, text original din parti (doar filmulete de pe youtube) si cand am dat click pe background mi-a sarit un pop-up. Cred ca ne indepartam de ideea initiala daca cobori standardele. :(</p>
+						</li>
+
+										<li id="comment-3920" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">133</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3920" title="">Sunday, 10 May 2009</a>
+							</div>
+						<p>Pai ei sunt un post independent de radio, sau eu asa am inteles ? Pop-up n-am vazut, dar poate ca l-a blocat, ia sa vedem.</p>
+						</li>
+
+										<li id="comment-3921" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">134</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3921" title="">Sunday, 10 May 2009</a>
+							</div>
+						<p>Grrr.. imi sarise un pop-up. Nu mai stiu cum. Stiu ca nu am dat click pe niciun link. Acum nu-mi mai iese..</p>
+						</li>
+
+										<li id="comment-3922" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">135</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-3922" title="">Sunday, 10 May 2009</a>
+							</div>
+						<p>Acu, vom mai filtra din ei, ce vreau sa-ti zic e ca intr-un sens, lucrurile se filtreaza si automat, dupa creditul initial, un blog de rahat nu va avea cum sa primeasca multa atentie.</p>
+						</li>
+
+										<li id="comment-4010" class="commentbody"><div class="commenthead"><img alt='CJ`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">136</div>
+								<span class="authorlink">CJ</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-4010" title="">Tuesday, 12 May 2009</a>
+							</div>
+						<p>Salut,<br />
+Am gasit un e-mail cu o invitatie. Imi ziceti si mie despre ce este vorba?</p>
+						</li>
+
+										<li id="comment-4015" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">137</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-4015" title="">Tuesday, 12 May 2009</a>
+							</div>
+						<p>Salut. Dupa cum poti citi si din post, facuram o metoda pentru ca blogerii mici/la inceput sa se poata sustine reciproc si sa obtina niste trafic.</p>
+						</li>
+
+										<li id="comment-4017" class="commentbody"><div class="commenthead"><img alt='Sweaque`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">138</div>
+								<span class="authorlink">Sweaque</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-4017" title="">Tuesday, 12 May 2009</a>
+							</div>
+						<p>Se poate sa primesc si eu o invitatie? :)</p>
+						</li>
+
+										<li id="comment-4018" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">139</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-4018" title="">Tuesday, 12 May 2009</a>
+							</div>
+						<p>Asa sa fie.</p>
+						</li>
+
+										<li id="comment-4300" class="commentbody"><div class="commenthead"><img alt='mugur`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">140</div>
+								<span class="authorlink">mugur</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-4300" title="">Thursday, 21 May 2009</a>
+							</div>
+						<p>Salut,</p>
+<p>mugur sunt, M-am bagat si eu, dar am o problema.<br />
+N-am citit tot ce-ati scris despre cum functioneaza sistemul, dar am inteles ca la click pe o pagina, poti sa mergi oriunde, aleator, catre un nr de blog-uri.<br />
+ba chiar un tip spunea ca a mers din curiozitate catre mai multe bloguri si i-a placut ce-a vazut..<br />
+Ceea ce nu se intampla, de la mine poti sa mergi doar catre un blog cu sfaturi pentru copii.<br />
+Mai merge acest sistem? sau a fost abandonat, ca sa stiu stiu daca mai tin bannerul ..</p>
+						</li>
+
+										<li id="comment-4302" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">141</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-4302" title="">Thursday, 21 May 2009</a>
+							</div>
+						<p>Mugur draga, tocmai ce-si dadu obstescul sfarsit, ieri. Vezi acolo jos, ultimul track-back, cel care zice "post mortem".</p>
+						</li>
+
+										<li id="comment-66704" class="commentbody"><div class="commenthead"><img alt='bogemi`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">142</div>
+								<span class="authorlink">bogemi</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-66704" title="">Thursday, 6 October 2011</a>
+							</div>
+						<p>ro/anunturi/casa-si-gradina/instalatii-sanitare-si-accesorii/sibiu.html - sibiu</p>
+						</li>
+
+										<li id="comment-66705" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">143</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-66705" title="">Thursday, 6 October 2011</a>
+							</div>
+						<p>Vai, dar ce pacat ca dintr-o regretabila eroare de tipar domeniul s-a pierdut. Cite informatii interesante cautam eu chiar la subiectul asta multumesc petnru link ce pacat ca e inutil. Vai, vai.</p>
+						</li>
+
+										<li id="comment-79983" class="commentbody"><div class="commenthead"><img alt='A`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">144</div>
+								<span class="authorlink">A<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79983" title="">Wednesday, 14 March 2012</a>
+							</div>
+						<p>Server not found</p>
+<p>          Firefox can't find the server at adserver.polimedia.us.</p>
+<p>  Check the address for typing errors such as<br />
+    ww.example.com instead of<br />
+    <a href="http://www.example.com">http://www.example.com</a><br />
+  If you are unable to load any pages, check your computer's network<br />
+    connection.<br />
+  If your computer or network is protected by a firewall or proxy, make sure<br />
+    that Firefox is permitted to access the Web.</p>
+						</li>
+
+										<li id="comment-79984" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">145</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79984" title="">Wednesday, 14 March 2012</a>
+							</div>
+						<p>Daca citesti prin trackbace este si-un post mortem pe undeva.</p>
+						</li>
+
+										<li id="comment-79985" class="commentbody"><div class="commenthead"><img alt='Cristian`s avatar' src='http://ciupicri.github.io/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">146</div>
+								<span class="authorlink"><a href='http://ciupicri.github.io/' class='url'>Cristian</a><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79985" title="">Thursday, 15 March 2012</a>
+							</div>
+						<p>Dacă tot e vechi articolul ăsta, n-ai putea să-l faci și tu disponibil în mod gratuit? Întreb și eu, nu dau cu parul.</p>
+						</li>
+
+										<li id="comment-79987" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">147</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79987" title="">Thursday, 15 March 2012</a>
+							</div>
+						<p>E o intrebare stupida. E la fel de scris de mine ca si toate celelalte.</p>
+<p>Daca tot ma citesti de luni de zile, nu poti face si tu rost de cinci euro de undeva ? Eventual daca de altceva nu esti bun cinta cu o cana in fata la o raspintie, tot stringi douazeci de lei pina seara.</p>
+						</li>
+
+										<li id="comment-79991" class="commentbody"><div class="commenthead"><img alt='Cristian`s avatar' src='http://ciupicri.github.io/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">148</div>
+								<span class="authorlink"><a href='http://ciupicri.github.io/' class='url'>Cristian</a><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79991" title="">Thursday, 15 March 2012</a>
+							</div>
+						<p>Ahhhhh... am fost eu prea laconic. Am vrut să spun că din moment ce e de dinaintea sistemului cu credite, ar putea să rămână gratuit așa cum a fost de la început. N-am vrut să neg faptul că e creația ta și că poți cere până la urmă oricât pentru el. Respect dreptul de autor.</p>
+<p>Mi-e teamă că n-am talent la cântat. În cel mai fericit caz aș primi bani ca să nu mai cânt. Plus că banii n-aduc fericirea :-)</p>
+						</li>
+
+										<li id="comment-79995" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">149</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79995" title="">Thursday, 15 March 2012</a>
+							</div>
+						<p>Apai depinde cum ti-o definesti.</p>
+						</li>
+
+										<li id="comment-79997" class="commentbody"><div class="commenthead"><img alt='Cristian`s avatar' src='http://ciupicri.github.io/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">150</div>
+								<span class="authorlink"><a href='http://ciupicri.github.io/' class='url'>Cristian</a><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79997" title="">Thursday, 15 March 2012</a>
+							</div>
+						<p>Îl las pe Lotus să răspundă la asta că el e specialist în definiții (sau redefiniții) din câte am auzit :-)</p>
+						</li>
+
+										<li id="comment-80028" class="commentbody"><div class="commenthead"><img alt='Cristian`s avatar' src='http://ciupicri.github.io/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">151</div>
+								<span class="authorlink"><a href='http://ciupicri.github.io/' class='url'>Cristian</a><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-80028" title="">Thursday, 15 March 2012</a>
+							</div>
+						<p>Hai că l-am citit și trebuie să recunosc că e cel puțin drăguță ideea, dacă nu chiar utilă.</p>
+						</li>
+
+										<li id="comment-131017" class="commentbody"><div class="commenthead"><img alt='Елена`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">152</div>
+								<span class="authorlink">Елена</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-131017" title="">Monday, 19 August 2019</a>
+							</div>
+						<p>С уважением,<br />
+Старший менеджер Кривонос Елена Ильевна</p>
+						</li>
+
+										<li id="comment-131020" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">153</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-131020" title="">Monday, 19 August 2019</a>
+							</div>
+						<p>Yes ?</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+				<li class="trackbody" id="comment-3778">
+					<div class='trackhead'>
+						<div class="commentcount">154</div>
+						<span class="authorlink">Cocktail post cu umbreluţă-promo | alphablog.ro</span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-3778" title="">Tuesday, 5 May 2009</a>
+					</div>
+					<p>[...] mai notat iniţiativa lui Mircea Popescu, care ne propune un mijloc de promovare a blogurilor mici (cu trafic mai mic). [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-3840">
+					<div class='trackhead'>
+						<div class="commentcount">155</div>
+						<span class="authorlink">Adserver.polimedia.us - sustin aceast proiect | constantin</span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-3840" title="">Thursday, 7 May 2009</a>
+					</div>
+					<p>[...] Adserver.polimedia.us - sustin aceast proiect Published under recomand. Tags: bine facute, bunavointa, dezvoltare personala, educatie.  Adserver.polimedia.us [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-49947">
+					<div class='trackhead'>
+						<div class="commentcount">156</div>
+						<span class="authorlink">Un blog de poveste &raquo; Blog Archive &raquo; &#8220;Vertical sau orizontal, peste chept ori peste şale&#8221; cu Mircea Popescu</span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-49947" title="">Saturday, 28 May 2011</a>
+					</div>
+					<p>[...]  [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-132889">
+					<div class='trackhead'>
+						<div class="commentcount">157</div>
+						<span class="authorlink"><a href='/2009/sistemul-adserverpolimediaus-mai-pe-larg?b=cum%20poate%20st&amp;e=i%20pe#select' class='url'>Sistemul adserver.polimedia.us mai pe larg. on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-132889" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] cum poate stiti, am introdus un sistem de promovare reciproca pentru bloggeri mici, da' buni. Hai sa discutam chestiunea un pic mai pe [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-132892">
+					<div class='trackhead'>
+						<div class="commentcount">158</div>
+						<span class="authorlink"><a href='/2009/adserverpolimediaus-post-mortem?b=inceput%2C%20cum&amp;e=trei#select' class='url'>adserver.polimedia.us, post mortem. on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-132892" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] inceput, cum poate stiti, un proiect care intentiona sa ajute blogeri mai putin cunoscuti sa devina mai cunoscuti, cu doua-trei [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-133175">
+					<div class='trackhead'>
+						<div class="commentcount">159</div>
+						<span class="authorlink"><a href='/2009/irelevanta-zelist?b=am%20luat-o%20de&amp;e=este#select' class='url'>Irelevanta zelist on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-133175" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] am luat-o deja de la capat de cel putin 5 ori. Trilema are posturi cu cate 180 comentarii, cu cate 145 comentarii, cu cate 77 si asa mai departe ad nauseam, sunt duzini peste [...]</p>
+				</li>
+
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authorfee1548" id="authorfee1548" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emailfee1548" id="emailfee1548" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urlfee1548" id="urlfee1548" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="1222" /></p>
+				<input type="hidden" name="comment_post_time" value="1773285785-204.62.248.89" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2026 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-1222")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-1222");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-1222");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_may2019b.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Trilema anti-spam. on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Mentula cum doleat imperio, tibi, lector, culus.<br />Non sum diuinus, sed scio quid facias.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-1452"><div class="post" id="post-1452">                    <h1><a href="/2009/trilema-anti-spam/" rel="bookmark" title="Permanent Link to Trilema anti-spam.">Trilema anti-spam.</a></h1>                        <div class="date">                                     Sunday, 24 May, Year 1 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p>Chiar daca nu foloseste akismet, Trilema primeste destul de putin spam, in cinci luni s-au strans 377 spamuri la 4000+ comentarii. Niste rezultate destul de bune, la care am ajuns in felul urmator :</p>
+<p>1. Scotand toate tagurile care identifica blogul ca ruland pe platforma Wordpress. Asa cum am mai spus, </p>
+<blockquote><p>Stiu ca lumea e de parere ca nu-i frumos. Nici nu-i.</p>
+<p>Pe de cealalta parte, scoaterea semnaturilor WordPress dintr-un blog nou, anume, footerele, tagul meta, etc, reduce spam-ul pe un blog nou in proportie de 90% in primele 6 luni. Pe masurate si pe verificate. Daca incepeti un blog nou, n-aveti decat sa faceti incercarea si sa va convingeti. </p>
+<p>Daca preferati o explicatie teoretica, robotii de WP spam au si ei spideri sau daca nu, folosesc un serviciu de cautare. Cum pot ei sa identifice o pagina web ca fiind un blog WordPress ? Cauta pe fiecare pagina niste semnaturi anumite. Ei. Scoateti-le.</p></blockquote>
+<p>2. Niste minime filtrari in .htaccess, ca de exemplu</p>
+<blockquote><p>RewriteEngine On<br />
+RewriteBase /trilema/<br />
+RewriteCond %{REQUEST_METHOD} POST<br />
+RewriteCond %{REQUEST_URI} .wp-comments-post\.php*<br />
+RewriteCond %{HTTP_REFERER} .t-1813 [OR]<br />
+RewriteCond %{HTTP_REFERER} .t-2389<br />
+RewriteRule (.*) http://%{REMOTE_ADDR}/$ [R=301]</p></blockquote>
+<p>Asta pentru ca singurul bot mai rasarit care se prinsese ca Trilema totusi exista, folosea niste referinte care includeau respectivele posturi.</p>
+<p>Ei, protectia asigurata de 1 incepe sa scartaie, si azi am fost pleznit de 10 bucati spam in 5 minute. De data asta, facute profi, n-aveam ce filtra la ele, IP-uri diferite, cerere pe root intai, pe post a doua, pe wp-comments.php a treia. Referer impecabil. Agent comun. Treaba facuta brici. Evident, de rusi.</p>
+<p>Din fericire, stiam ca va urma, si am solutia gata de luni de zile, asa ca implementarea mi-a luat 2 minute. Filosofia mea in legatura cu anti-spamul (mai pe larg <a href="/2009/spam-si-anti-spam/">aici</a>) este ca solutiile trebuie sa fie intotdeauna indreptate impotriva economiilor de scala pe care se bazeaza spamul.</p>
+<p>Sa luam ca exemplu concret solutia pe care am implementat-o azi. Priviti putin page-source la orice pagina ce include un form pentru comentarii. Vedeti cum la name="author" scrie de fapt name="authorblabla" ? Si la comment la fel ? Tot ce se cere e o mica modificare in wp-comments-post.php, </p>
+<blockquote><p>$suffix = substr(md5(date('Y-m-d')."salt.no,rly.salt."),0,6);</p>
+<p>$comment_author       = ( isset( $_POST[ 'author'.$suffix ]) )  ? trim( strip_tags( $_POST [ 'author'.$suffix ] ) ) : null;
+</p></blockquote>
+<p>si respectiv in comments.php a temei, </p>
+<blockquote><p>&lt;p>&lt;input type="text" name="author&lt;?<br />
+$suffix = substr(md5(date('Y-m-d')."salt.no,rly.salt."),0,6);<br />
+echo $suffix;?>" id="author" value="&lt;?php echo $comment_author; ?>" size="22" tabindex="1" /></p></blockquote>
+<p>si gata ciocolata (atentie la ghilimele).</p>
+<p>Evident, nimic nu va impiedica sa adaugati ce mai poftiti pe-acolo pe la salt, numele dusmanilor, hai Steaua, chiar numele postului etc. </p>
+<p>Se poate intampla ca un comentator ghinionist sa nimereasca o schimbare de zi de cand primeste form-ul si pana cand il trimite completat, in care caz probabil il pierde, ceea ce ar putea fi destul de neplacut, si inca evaluez solutia din acest punct de vedere (avantajul de a folosi data e ca astfel cheile expira periodic, ceea ce poate fi o precautie exagerata). Solutii ar exista, oricum. </p>
+<p>Si cu asta ma gandesc c-am sfarsit-o cu spamul pe blog macar inca 5-6 luni. Noi sa fim sanatosi.</p>
+<p>Update, 12 decembrie : Pentru ca acum avem primul utilizator declarat al sistemului Trilema Antispam, sa mai dam niste date :<br />
+In ~12 luni de existenta (fara 19 zile), am primit 11,416 commentarii din care 10,270 ham si 1,146 spam, adica un spam ratio de 10.03% (fata de ~9.4% calculat pe datele din mai). Eu zic ca e bine.</p>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2009/intreprinzatori-mancati-as/">Intreprinzatori, mancati-as</a></div>
+                <div class="alignright"><a href="/2009/scrieti-mi-un-catren/">Scrieti-mi un catren.</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/3-ani-experienta/" title="View all posts in 3 ani experienta" rel="category tag">3 ani experienta</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2009/trilema-anti-spam/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2009/trilema-anti-spam/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>32 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-4484" class="commentbody"><div class="commenthead"><img alt='krossfire`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink">krossfire<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-4484" title="">Sunday, 24 May 2009</a>
+							</div>
+						<p>Eu am primit vreo 12 de la rusi azi si ieri seara...a trecut numai unul, restul au fost prinse fie de akismet fie de filtrele de pe blog (word filters + mici modificari  - le arunca la moderate).</p>
+<p>Oricum, asta nu e nimic...in 2007 a fost odata un val de spam dupa care m-am trezit cu 20 de spamuri intrate pe blog (cautat si ras manual) + vreo 100 si ceva in moderate in 2 zile.</p>
+						</li>
+
+										<li id="comment-4485" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-4485" title="">Sunday, 24 May 2009</a>
+							</div>
+						<p>La mine pot zice ca n-o trecut niciodata un spam pe blog, si nici nu cred ca va trece vre-odata. Asta-i ca sa protejam lista de moderare.</p>
+						</li>
+
+										<li id="comment-4486" class="commentbody"><div class="commenthead"><img alt='krossfire`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink">krossfire<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-4486" title="">Sunday, 24 May 2009</a>
+							</div>
+						<p>Cred ca la mine a fost si un comment de la romania inedit care facuse o gluma in rusa. Odata aprobat ala, wordpressul nu stiu ce mai putea crede.</p>
+						</li>
+
+										<li id="comment-4487" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-4487" title="">Sunday, 24 May 2009</a>
+							</div>
+						<p>Tu ai renuntat sa-ti mai pui link ? Sau ti=l belesc eu ?</p>
+						</li>
+
+										<li id="comment-4489" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-4489" title="">Sunday, 24 May 2009</a>
+							</div>
+						<p>Mda. Reparat. Sorry.</p>
+						</li>
+
+										<li id="comment-4493" class="commentbody"><div class="commenthead"><img alt='Cristian Lisandru`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink">Cristian Lisandru</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-4493" title="">Sunday, 24 May 2009</a>
+							</div>
+						<p>Nu e zi să nu primesc vreo 30-40... Aproape că m-am obinuit cu ele, mai durează un pic până le spun şi "bine aţi venit"!</p>
+						</li>
+
+										<li id="comment-4495" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-4495" title="">Sunday, 24 May 2009</a>
+							</div>
+						<p>Fa-ti modificarile si scapi.</p>
+						</li>
+
+										<li id="comment-4520" class="commentbody"><div class="commenthead"><img alt='romania inedit`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink">romania inedit</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-4520" title="">Sunday, 24 May 2009</a>
+							</div>
+						<p>@ krossfire , am scris ceva in rusa , fara sa-mi dau seama ca ce aparuse mai inainte era un spam , cu toate ca-l tradusai sa vad ce scrie .<br />
+La mine akismetul face treaba buna , chiar daca mi-a bagat un comentariu al lui Mircea Popescu la spam !</p>
+						</li>
+
+										<li id="comment-11129" class="commentbody"><div class="commenthead"><img alt='Dr.A`s avatar' src='http://blog.adrian.mihalcioiu.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink"><a href='http://blog.adrian.mihalcioiu.ro' class='url'>Dr.A</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11129" title="">Sunday, 6 December 2009</a>
+							</div>
+						<p>implementat solutia 3. cred ca rebuie sa fie oarecare lipsuri:<br />
+- ai un  care nu se inchide,<br />
+- apar niste litere ciudate la autor comentarii.</p>
+						</li>
+
+										<li id="comment-11130" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">10</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11130" title="">Sunday, 6 December 2009</a>
+							</div>
+						<p>Neah, inseamna ca n-ai pus tu unde trebe.</p>
+						</li>
+
+										<li id="comment-11131" class="commentbody"><div class="commenthead"><img alt='Dr.A`s avatar' src='http://blog.adrian.mihalcioiu.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">11</div>
+								<span class="authorlink"><a href='http://blog.adrian.mihalcioiu.ro' class='url'>Dr.A</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11131" title="">Sunday, 6 December 2009</a>
+							</div>
+						<p>pai lamureste si tu chestiunea ca sa nu isi prinda lumea urechile. :D</p>
+						</li>
+
+										<li id="comment-11133" class="commentbody"><div class="commenthead"><img alt='Dr.A`s avatar' src='http://blog.adrian.mihalcioiu.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">12</div>
+								<span class="authorlink"><a href='http://blog.adrian.mihalcioiu.ro' class='url'>Dr.A</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11133" title="">Sunday, 6 December 2009</a>
+							</div>
+						<p>ok. faza e ca toate gilimele tale erau doar aparent ghilimele. le-am inlocuit cu din alea adevarate si acuma merge. </p>
+<p>da tu tot ai un  in plus la cod</p>
+						</li>
+
+										<li id="comment-11134" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">13</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11134" title="">Sunday, 6 December 2009</a>
+							</div>
+						<p>Un ce ?</p>
+						</li>
+
+										<li id="comment-11135" class="commentbody"><div class="commenthead"><img alt='Dr.A`s avatar' src='http://blog.adrian.mihalcioiu.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">14</div>
+								<span class="authorlink"><a href='http://blog.adrian.mihalcioiu.ro' class='url'>Dr.A</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11135" title="">Sunday, 6 December 2009</a>
+							</div>
+						<p>un p de la paragraf la comments</p>
+						</li>
+
+										<li id="comment-11136" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">15</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11136" title="">Sunday, 6 December 2009</a>
+							</div>
+						<p>Pai ala depinde de tema mei. Unele au altele n-au.</p>
+						</li>
+
+										<li id="comment-11137" class="commentbody"><div class="commenthead"><img alt='Dr.A`s avatar' src='http://blog.adrian.mihalcioiu.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">16</div>
+								<span class="authorlink"><a href='http://blog.adrian.mihalcioiu.ro' class='url'>Dr.A</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11137" title="">Sunday, 6 December 2009</a>
+							</div>
+						<p>verifica ce ai pus in post. ai un p tag in deschidere dar ai uitat sa il pui in coada.</p>
+						</li>
+
+										<li id="comment-11148" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">17</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11148" title="">Monday, 7 December 2009</a>
+							</div>
+						<p>Turcule, dupa fragmentul citat de mine mai urmeaza<br />
+&lt;label for="author" etc etc</p>
+<p>Deci, p nu se inchide inca, daca tema il are. Sigur, daca tema  n-are, atunci nu il adaugi nici tu.</p>
+						</li>
+
+										<li id="comment-11949" class="commentbody"><div class="commenthead"><img alt='Dr.A`s avatar' src='http://blog.adrian.mihalcioiu.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">18</div>
+								<span class="authorlink"><a href='http://blog.adrian.mihalcioiu.ro' class='url'>Dr.A</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11949" title="">Friday, 25 December 2009</a>
+							</div>
+						<p>si mai e o chestie. Cand faci update la Wordpress trebuie sa rescrii in wp-comments-post.php. Idem daca faci update la tema.</p>
+						</li>
+
+										<li id="comment-11952" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">19</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11952" title="">Saturday, 26 December 2009</a>
+							</div>
+						<p>Pai daca ai chef, apuca-te si rescrie-o ca un widget/plugin sometime.</p>
+						</li>
+
+										<li id="comment-47874" class="commentbody"><div class="commenthead"><img alt='Cristian`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">20</div>
+								<span class="authorlink">Cristian</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-47874" title="">Tuesday, 26 April 2011</a>
+							</div>
+						<p>HMAC + MD5 &gt; MD5 + salt</p>
+						</li>
+
+										<li id="comment-47876" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">21</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-47876" title="">Tuesday, 26 April 2011</a>
+							</div>
+						<p>Daca e nevoie de asa ceva, se poate implementa, fara discutie. Deocamdata nu prea a ajuns sofisticarea inamicului cit sa necesitam cefalosporina asta, asa ca sa nu-i sarim o etapa, zic.</p>
+						</li>
+
+										<li id="comment-47899" class="commentbody"><div class="commenthead"><img alt='Cristian`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">22</div>
+								<span class="authorlink">Cristian</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-47899" title="">Tuesday, 26 April 2011</a>
+							</div>
+						<p>Am impresia că nu ar trebui să fie cu mult mai complicat:</p>
+<p><code>substr(hash_hmac('md5', date(’Y-m-d’), ”siecriet”), 0, 6)</code></p>
+						</li>
+
+										<li id="comment-47901" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">23</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-47901" title="">Tuesday, 26 April 2011</a>
+							</div>
+						<p>Nu-i complicat, eu ziceam privind din punctul de vedere potrivnic. Lasa-i pe oameni sa se chinuie sa colideze md5-uri, zic :D</p>
+						</li>
+
+										<li id="comment-92794" class="commentbody"><div class="commenthead"><img alt='Lawrence`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">24</div>
+								<span class="authorlink">Lawrence</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-92794" title="">Wednesday, 17 April 2013</a>
+							</div>
+						<p>Hey there! This is kind of off topic but I need some advice from an established blog. Is it hard to set up your own blog? I’m not very techincal but I can figure things out pretty quick. I’m thinking about making my own but I’m not sure where to start. Do you have any tips or suggestions?  Thank you</p>
+						</li>
+
+										<li id="comment-92795" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">25</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-92795" title="">Wednesday, 17 April 2013</a>
+							</div>
+						<p>It is extremely difficult and dangerous. Nothing anyone should attempt. Quoth the classics : </p>
+<blockquote><p>The punk rolled up his big blue eyes and said to the blogger , “Sandy,<br />
+I’ve typed and typed and published too, but I ain’t seen any candy.<br />
+I’ve typed and typed till my feet are sore and I’ll be damned if I type any more<br />
+To be buggered sore like a blogger’s whore In the Big Rock Candy Mountains.”</p></blockquote>
+<p>Take heed.</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+				<li class="trackbody" id="comment-11165">
+					<div class='trackhead'>
+						<div class="commentcount">26</div>
+						<span class="authorlink"><a href='http://blog.adrian.mihalcioiu.ro/2009/12/spam-clasic-vs-random.html' class='url'>Spam clasic vs. random - Dr.A&#39;s Canapé</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-11165" title="">Monday, 7 December 2009</a>
+					</div>
+					<p>[...] 2006   powered by Trilema Antispam      [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-11955">
+					<div class='trackhead'>
+						<div class="commentcount">27</div>
+						<span class="authorlink"><a href='http://blog.adrian.mihalcioiu.ro/2009/12/changelog.html' class='url'>Changelog - Dr.A&#39;s Canapé</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-11955" title="">Saturday, 26 December 2009</a>
+					</div>
+					<p>[...] dofollow blog using Trilema Antispam      [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-100712">
+					<div class='trackhead'>
+						<div class="commentcount">28</div>
+						<span class="authorlink"><a href='http://www.sabinacornovac.ro/cum-scap-de-spam/' class='url'>Cum scap de spam? | Sabina Cornovac Blog</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-100712" title="">Wednesday, 4 June 2014</a>
+					</div>
+					<p>[...] <a href="http://polimedia.us/trilema/2009/trilema-anti-spam/">http://polimedia.us/trilema/2009/trilema-anti-spam/</a> Sub 5% spam in 14k [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-132921">
+					<div class='trackhead'>
+						<div class="commentcount">29</div>
+						<span class="authorlink"><a href='/2009/punctul-critic?b=fara%20mare%20ef&amp;e=atii#select' class='url'>Punctul critic on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-132921" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] fara mare efort sau dificultati. N-as mai reveni asupra discutiilor pe tema, le puteti citi aici si aici de exemplu, cu tot cu aplicatii [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-134170">
+					<div class='trackhead'>
+						<div class="commentcount">30</div>
+						<span class="authorlink"><a href='/2010/trilema-antispam-redux?b=spamuri%20%3F%20Mn&amp;e=a%20de#select' class='url'>Trilema antispam redux on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-134170" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] spamuri ? Mnoa, ce frumos, iata ca dupa lupte seculare care au durat un an si sase luni, adica din 24 Mai 2009, cind am scris articolul precedent pe acasta tema, spamerii au reusit in cele din urma sa treaca de [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-138532">
+					<div class='trackhead'>
+						<div class="commentcount">31</div>
+						<span class="authorlink"><a href='/2012/deci-am-ris-azi-de-dimineata?b=The%20plot%20thi&amp;e=%2C%20or#select' class='url'>Deci am ris azi de dimineata on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-138532" title="">Tuesday, 7 January 2020</a>
+					</div>
+					<p>[...] The plot thickens. &mdash;&mdash;&mdash;Folosesc in schimb metode creatie proprie. [&#8617;]   Category: Meta psihoza     Comments feed : RSS 2.0. Leave your own comment below, or [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-140179">
+					<div class='trackhead'>
+						<div class="commentcount">32</div>
+						<span class="authorlink"><a href='/2014/moar-haxxing-moar-haxxing-have-a-look-an-here-we-go?b=but%20the%20sele&amp;e=e%20by#select' class='url'>Moar haxxing, moar haxxing, have a look an' here we go... on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-140179" title="">Tuesday, 7 January 2020</a>
+					</div>
+					<p>[...] but the selection of articles (a few random hits, a lot of repeats) as well as the almighty Trilema antispam filters pretty much guarantee this was done by [...]</p>
+				</li>
+
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="author57e4a93" id="author57e4a93" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email57e4a93" id="email57e4a93" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="url57e4a93" id="url57e4a93" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="1452" /></p>
+				<input type="hidden" name="comment_post_time" value="1781255055-18.97.14.91" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2026 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-1452")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-1452");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-1452");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>
