@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_nob2018b.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Programatorii Adevarati on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Mediocrity is not a lack of intelligence.<br />Mediocrity is intelligence entirely dedicated to self-preservation.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-9086"><div class="post" id="post-9086">                    <h1><a href="/2010/programatorii-adevarati/" rel="bookmark" title="Permanent Link to Programatorii Adevarati">Programatorii Adevarati</a></h1>                        <div class="date">                                     Friday, 02 July, Year 2 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p>Daca tot discutam subtilitati de teoria programarii masinilor numerice sub acoperirea unor <a href="/2010/lectia-de-programare/">intamplari absolut banale</a> - acoperire care spre incantarea mea n-a impiedicat cititorii sa urmareasca firul discutiei - hai sa spunem doua vorbe despre Programatorii Adevarati. Si anume, repetand vorbele lui utastro!nather din 1983, pe care uite ca usenet-ul le-a pastrat pana-n zilele noastre. Deci :</p>
+<ul>
+Un articol recent devotat partii "macho" a programarii facea fara ezitare afirmatia trufasa ca "Programatorii Adevarati nu scriu in FORTRAN".<br />
+<br />
+Poate ca astazi scriu,<br />
+in aceasta era decadenta<br />
+a berii light si calculatoarelor de mana si programelor "user-friendly"<br />
+dar in Zilele de Demult<br />
+pe cand cuvantul "software" suna ciudat<br />
+si Computerele Adevarate erau facute din role de memorie si tuburi de vid<br />
+Programatorii Adevarati scriau cod masina<br />
+Nu FORTRAN. Nu RATFOR. Nici macar asamblare.<br />
+Cod masina.<br />
+Brut, nedecorat, inscrutabil : numere hexadecimale.<br />
+Direct.</p>
+<p>De teama ca o intreaga generatie de programatori<br />
+va creste in ignoranta fata de acest trecut glorios<br />
+simt ca-i de datoria mea sa descriu<br />
+asa cum pot, peste prapastia dintre generatii,<br />
+cum scrie cod un Programator Adevarat.<br />
+Il voi numi Mel,<br />
+pentru ca asa-l chema.</p>
+<p>L-am intalnit prima oara pe Mel cand m-am angajat la Royal McBee Computer Corp.,<br />
+o subsidiara de-acum defuncta a producatorului de masini de batut.<br />
+Firma producea LGP-30,<br />
+un mic, ieftin (dupa standardele de-atunci)<br />
+computer cu memorie pe rola<br />
+Integratele costau prea mult<br />
+si oricum n-aveau nici un viitor<br />
+(De-asta n-ati auzit nici de companie<br />
+nici de computer)</p>
+<p>Fusesem angajat sa scriu un compilator de FORTRAN<br />
+pentru aceasta minune a tehnicii, si Mel imi era ghidul in splendorile ei<br />
+Mel nu era de acord cu compilatoarele.</p>
+<p>"Daca un program nu-si poate rescrie codul",<br />
+m-a intrebat, "la ce foloseste ?"</p>
+<p>Mel scrisese,<br />
+in hex<br />
+cel mai popular program pe care-l avea compania<br />
+rula pe LGP-30<br />
+si juca blackjack cu eventualii clienti<br />
+la trade-show-uri<br />
+Efectul era intotdeauna dramatic<br />
+Standul LGP-30 era intotdeauna plin la fiecare show<br />
+si vanzatorii IBM stateau imprejur<br />
+povestind intre ei.<br />
+Daca asta chiar vindea computere<br />
+nu s-a discutat niciodata.</p>
+<p>Sarcina lui Mel era sa rescrie<br />
+programul de blackjack pentru RPC-4000<br />
+(A porta ? Ce-i aia ?)<br />
+Acest computer nou avea o schema de adresare<br />
+unu-plus-unu,<br />
+in care fiecare instructiune masina<br />
+pe langa codul operatiei<br />
+si adresa operandului<br />
+avea inca o adresa care indica unde, pe rola in rotatie,<br />
+se gaseste noua instructiune.</p>
+<p>In vorbele moderne,<br />
+fiecare instructiune era urmata de un GO TO!<br />
+Puneti asta in pipa Pascal-ului si fumati-o.</p>
+<p>Mel iubea RPC-4000-ul<br />
+pentru ca putea sa-si optimizeze codul :<br />
+asta inseamna, sa localizeze instructiunile pe rola<br />
+asa incat pe masura ce una isi termina treaba,<br />
+urmatoarea tocmai ce ajungea la capul de citire<br />
+si putea fi executata imediat.<br />
+Exista un program care sa faca treaba asta,<br />
+un "assembler cu optimizare"<br />
+dar Mel refuza sa-l foloseasca.</p>
+<p>"Nu stii niciodata unde va pune chestiile"<br />
+a explicat, "asa incat ai fi silit sa folosesti constante separate".</p>
+<p>A trecut mult timp pan-am priceput ce vroia sa zica.<br />
+Deoarece Mel cunostea valoarea numerica<br />
+a fiecarei instructiuni<br />
+si isi aloca singur adresele<br />
+fiecare instructiune pe care-o scria putea de asemenea sa fie<br />
+o constanta numerica<br />
+Putea sa aghete o adunare anterioara, de exemplu<br />
+si sa inmulteasca cu ea<br />
+daca avea valoarea numerica corecta.<br />
+Codul scris de el nu era usor de modificat pentru altii.</p>
+<p>Am comparat programele optimizate de mana lui Mel<br />
+cu aceleasi prelucrate de assembler-ul cu optimizare,<br />
+si programele lui Mel intotdeauna rulau mai repede.<br />
+Asta pentru ca design-ul de sus in jos nu fusese inventat inca<br />
+oricum Mel nu l-ar fi folosit.<br />
+Isi scria rutinele cele mai adanci intai,<br />
+asa incat sa le poata plasa cat mai convenabil<br />
+pe adresele optime de pe rola.<br />
+Optimizatorul nu era suficient de inteligent sa faca acelasi lucru.</p>
+<p>Mel nu scria niciodata bucle de intarziere,<br />
+chiar si cand greoiul Flexowriter<br />
+necesita o pauza intre caracterele trimise pentru a functiona corect.<br />
+El pur si simplu localiza instructiunile pe rola<br />
+asa incat fiecare tocmai trecuse de capul de citire<br />
+cand ii venea randul ;<br />
+Rola trebuia atunci sa execute o revolutie completa<br />
+ca sa-si gaseasca instructiunea urmatoare.<br />
+A inventat un termen de neuitat pentru acest procedeu.<br />
+Desi "optim" e un superlativ absolut,<br />
+ca si "unic", devenise practica lingvistica comuna<br />
+sa fie tratat drept relativ :<br />
+"nu chiar optim" sau "mai putin optim"<br />
+sau "nu prea optim".<br />
+Mel numea localizarile cu intarziere maxima<br />
+"cel mai pessimum".</p>
+<p>Dupa ce si-a terminat programul de blackjack<br />
+si l-a pornit<br />
+("Pana si initializatorul e optimizat"<br />
+a spus cu mandrie)<br />
+a primit o Cerere de Modificare din partea departamentului de vanzari.<br />
+Programul folosea un elegant (si optimizat)<br />
+generator de numere aleatoare<br />
+pentru a amesteca "cartile" si-a distribui mainile<br />
+iar unii dintre vanzatori erau de parere ca-i prea cinstit,<br />
+deoarece uneori clientii pierdeau.<br />
+Vroiau ca Mel sa modifice programul<br />
+asa fel incat la apasarea unui buton pe consola<br />
+sa poata modifica sansele si sa permita clientilor sa castige.</p>
+<p>Mel s-a opus.<br />
+I se parea ca asa ceva e pur si simplu necinstit,<br />
+ceea ce era adevarat,<br />
+si ca aducea atingere integritatii lui personale, ca programator,<br />
+ceea ce era adevarat,<br />
+asa incat a refuzat sa faca modificarea.<br />
+Seful departamentului de vanzari a vorbit cu Mel,<br />
+asa cum a vorbit si Seful Mare, si, la rugamintea lui,<br />
+cativa alti Colegi Programatori.<br />
+In cele din urma Mel a cedat si-a modificat programul,<br />
+dar l-a nimerit pe dos,<br />
+asa incat, cand butonul era apasat,<br />
+programul trisa, castigand intotdeauna.<br />
+Mel a fost incantat de rezultat,<br />
+declarand ca subconstientul lui era in mod necontrolabil etic<br />
+si a refuzat cu hotarare sa repare problema.</p>
+<p>Dupa ce Mel a parasit firma plecand spre pajisti mai inver$ite<br />
+Seful cel Mare m-a rugat sa ma uit la program,<br />
+si sa vad daca pot gasi testul sa-l inversez.<br />
+Oarecum ezitant, am fost de acord sa incerc.<br />
+A urmari codul lui Mel era o adevarata aventura.</p>
+<p>De multe ori mi-a parut ca programarea calculatoarelor este o arta,<br />
+a carei adevarata frumusete poate fi apreciata<br />
+doar de un altul priceput in aceeasi arcana ;<br />
+exista nestemate stralucitoare si lovituri de maestru<br />
+ascunse de ochii si admiratia oamenilor, uneori pentru totdeauna,<br />
+de chiar natura procesului.<br />
+Poti afla multe despre un individ<br />
+doar citindu-i codul,<br />
+chiar si in hex.<br />
+Mel era, cred, un geniu necunoscut.</p>
+<p>Probabil cel mai mare soc l-am suferit<br />
+cand am gasit o bucla inocenta care n-avea nici un test.<br />
+Nici un test. Nici unul.<br />
+Cel mai elementar bun simt indica c-ar fi trebuit sa ramana o bucla inchisa,<br />
+in care programul si-ar petrece, in cercuri, eternitatea, pentru totdeauna.<br />
+Executia curgea fara probleme prin ea totusi,<br />
+si iesea in siguranta de partea cealalta.<br />
+Mi-a luat doua saptamani sa ma prind.</p>
+<p>RPC-4000-ul avea o facilitate cu adevarat moderna,<br />
+numita un registru index.<br />
+El permitea programatorului sa scrie o bucla<br />
+care folosea o instructiune indexata de-acolo;<br />
+de fiecare data,<br />
+numarul din registrul index<br />
+era adaugat adresei instructiunii,<br />
+asa incat referinta<br />
+trecea la urmatoarea data intr-o serie.<br />
+Tot ce-avea de facut era sa incrementeze registrul<br />
+de fiecare data.<br />
+Mel nu-l folosea niciodata.</p>
+<p>In loc, incarca instructiunile intr-un registru masina<br />
+adauga unu la adresa<br />
+si-o salva la loc<br />
+Executa apoi instructiunea modificata<br />
+direct din registru.<br />
+Bucla era scrisa asa fel incat acest timp aditional de executie<br />
+era luat in considerare -<br />
+chiar pe cand instructiunea termina, urmatoarea era fix sub capul de citire<br />
+gata de executie.<br />
+Dar bucla n-avea nici un test in ea.</p>
+<p>Am remarcat indiciul crucial cand am observat<br />
+ca bitul indexului registru<br />
+bitul care se afla intre adresa si codul masina in cuvantul-instructiune<br />
+era aprins -<br />
+si totusi, Mel nu folosea niciodata indexul registru,<br />
+lasandu-l mereu 0.<br />
+Cand s-a aprins lumina aproape ca m-a orbit.</p>
+<p>Pozitionase datele pe care lucra<br />
+aproape de varful memoriei -<br />
+cele mai mari locatii pe care instructiunile le puteau adresa<br />
+asa incat, dupa ce ultima data era gestionata,<br />
+incrementarea adresei instructiunii<br />
+ducea la overflow.<br />
+Carry-bit-ul adauga unu la<br />
+instructiunea masina, transformand-o in urmatoarea din set :<br />
+un jump.<br />
+Asa cum v-ati astepta, urmatoarea instructiune era la adresa 0<br />
+si programul isi continuna fericit poteca.</p>
+<p>N-am tinut legatura cu Mel,<br />
+si nu stiu daca a cedat sau nu deluviului de<br />
+schimbari care-au curs peste tehnicile de programare<br />
+din acele zile demult trecute si pana astazi.<br />
+Imi place sa cred ca n-a cedat.<br />
+In tot cazul,<br />
+am fost suficient de impresionat incat am renuntat la a cauta<br />
+testul in discutie<br />
+spunandu-i Sefului Mare ca nu l-am putut gasi.<br />
+N-a parut surprins.</p>
+<p>Cand am parasit firma,<br />
+programul de blackjack inca trisa<br />
+daca-i apasai butonul de pe consola<br />
+si cred ca asa si trebuia sa fie.<br />
+Eu unul nu m-am simtit pregatit<br />
+sa hacui codul unui Programator Adevarat.</ul>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2010/o-suta-de-cuvinte-xxxix/">O suta de cuvinte - XXXIX</a></div>
+                <div class="alignright"><a href="/2010/o-suta-de-cuvinte-xl/">O suta de cuvinte - XL</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/3-ani-experienta/" title="View all posts in 3 ani experienta" rel="category tag">3 ani experienta</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2010/programatorii-adevarati/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2010/programatorii-adevarati/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>21 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-27062" class="commentbody"><div class="commenthead"><img alt='dAImon`s avatar' src='http://daimon.me/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink"><a href='http://daimon.me/blog/' class='url'>dAImon</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27062" title="">Friday, 2 July 2010</a>
+							</div>
+						<p>Nu suna la fel de bine in romana.</p>
+						</li>
+
+										<li id="comment-27064" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27064" title="">Friday, 2 July 2010</a>
+							</div>
+						<p>Pai si cine-i de vina ? </p>
+<p>:p</p>
+						</li>
+
+										<li id="comment-27067" class="commentbody"><div class="commenthead"><img alt='F`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink">F<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27067" title="">Saturday, 3 July 2010</a>
+							</div>
+						<p>eminescu! cel mai mare haxor de limba romana. :D</p>
+						</li>
+
+										<li id="comment-27069" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27069" title="">Saturday, 3 July 2010</a>
+							</div>
+						<p>Lol</p>
+						</li>
+
+										<li id="comment-27070" class="commentbody"><div class="commenthead"><img alt='krossfire`s avatar' src='http://www.krossfire.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink"><a href='http://www.krossfire.ro' class='url'>krossfire</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27070" title="">Saturday, 3 July 2010</a>
+							</div>
+						<p>Un programator bun si un basist bun...cele mai greu de gasit lucruri :D</p>
+						</li>
+
+										<li id="comment-27071" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27071" title="">Saturday, 3 July 2010</a>
+							</div>
+						<p>Si-un barbat educabil.</p>
+						</li>
+
+										<li id="comment-27094" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27094" title="">Saturday, 3 July 2010</a>
+							</div>
+						<p>Mai sus e vorba de versuri sau de folosirea necorespunzatoare a functiei copy/paste ?</p>
+						</li>
+
+										<li id="comment-27096" class="commentbody"><div class="commenthead"><img alt='dAImon`s avatar' src='http://daimon.me/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink"><a href='http://daimon.me/' class='url'>dAImon</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27096" title="">Saturday, 3 July 2010</a>
+							</div>
+						<p>La origine a fost scris in paragrafe uzuale, insa pe masura ce a calatorit pe internete cineva i-a dat forma versificata. Traducerea respecta versiunea populara.</p>
+						</li>
+
+										<li id="comment-27097" class="commentbody"><div class="commenthead"><img alt='dAImon`s avatar' src='http://daimon.me/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink"><a href='http://daimon.me/' class='url'>dAImon</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27097" title="">Saturday, 3 July 2010</a>
+							</div>
+						<p>by the way, "put that in your pipe and smoke it" ar veni "baga la capatana si las-o sa dea un clocot". Nu-mi prea dau seama cum s-ar putea translata sensul in jurul lui Pascal .. "Gandeste-te acum la Pascal si las-o (lasa ideea) sa dea un clocot"?</p>
+						</li>
+
+										<li id="comment-27106" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">10</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27106" title="">Saturday, 3 July 2010</a>
+							</div>
+						<p>@<b>dAImon</b> "So basically usenet hacked the story of Mel. We think this is somehow appropriate."</p>
+<p>E mai dur de-atat, put X in your pipe and smoke it implica ca tragi cocaina la pipa de sticla, adica metaforic ca traiesti intr-un univers paralel, sau mai bine zis ortogonal realitatii. Am preferat sa traduc pedestru pentru ca orice vorbitor de engleza sa inteleaga de la ce referinta originala am pornit, avand in vedere ca limba romana, incantata cum este sa ingaduie oamenilor sa traiasca fara greturi in universuri ortogonale realitatii (vezi cazul Marian) nu detine o expresie de-aceeasi tarie.</p>
+						</li>
+
+										<li id="comment-27208" class="commentbody"><div class="commenthead"><img alt='Mari`s avatar' src='http://www.fuckoffimbusy.com/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">11</div>
+								<span class="authorlink"><a href='http://www.fuckoffimbusy.com/' class='url'>Mari</a><img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27208" title="">Monday, 5 July 2010</a>
+							</div>
+						<p>Să înțelegem că programatorii care își neglijează latura umană/afectivă sunt contrafăcuți?  :D</p>
+						</li>
+
+										<li id="comment-27213" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">12</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27213" title="">Monday, 5 July 2010</a>
+							</div>
+						<p>Asa sa intelegem!</p>
+						</li>
+
+										<li id="comment-27789" class="commentbody"><div class="commenthead"><img alt='Cata`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">13</div>
+								<span class="authorlink">Cata</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27789" title="">Wednesday, 14 July 2010</a>
+							</div>
+						<p>Imi aduc si eu aminte ca primul meu contact cu computerul a fost cu unul pe cartele cu gauri, si cum se tineau cartelele in sertare, si cum un var de al meu care lucra in asa ceva imi citea cartoanele uitanduse la ele, eu nu intelegeam nicmi, nu vedeam decat niste gauri puse haotic pe niste hartii, ei bine eram si un pusti pe atunci.<br />
+Primul meu computer a fosit un HP2000 si am facut cateva programe atunci in basic si nu imi mergea si tot acel amic mi-a facut el un moc program care nu facea mult, facea cateva calcule si muta o minge pe ecran in cod masina, mi sa parut ca e un geniu nebun care nu inteleg cumpoate tine minte asa ceva.<br />
+Si anul trecut am avut o experienta cu cineva care mi-a programat casa de marcat de la firma direct in cod masina, zicea ca dureaza mai putin ca a ainvatat toate comenzile in cof masina si pe calea celalata prin care o conecta la PC puteau aparea de multe ori erori, eu nu inteleg cum aparea erori mai putin, eu unul care gresesc mereu cate un caracter</p>
+						</li>
+
+										<li id="comment-27800" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">14</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27800" title="">Wednesday, 14 July 2010</a>
+							</div>
+						<p>Pai ai fi bun de chirurg :D</p>
+						</li>
+
+										<li id="comment-57901" class="commentbody"><div class="commenthead"><img alt='Cristian`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">15</div>
+								<span class="authorlink">Cristian</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-57901" title="">Saturday, 13 August 2011</a>
+							</div>
+						<p>Fain, dar la capitolul mentenanță lasă de dorit :-)</p>
+						</li>
+
+										<li id="comment-57908" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">16</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-57908" title="">Saturday, 13 August 2011</a>
+							</div>
+						<p>Mentenanta ? Ce e aia ? </p>
+<p>Un program bine facut e bine facut. Pentru totdeauna. Restul nu merita rulate.</p>
+						</li>
+
+										<li id="comment-57910" class="commentbody"><div class="commenthead"><img alt='Freud`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">17</div>
+								<span class="authorlink">Freud<img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-57910" title="">Saturday, 13 August 2011</a>
+							</div>
+						<p>lol mirshea comunistul</p>
+						</li>
+
+										<li id="comment-57930" class="commentbody"><div class="commenthead"><img alt='gheorghe`s avatar' src='http://animalantisocial.wordpress.com/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">18</div>
+								<span class="authorlink"><a href='http://animalantisocial.wordpress.com' class='url'>gheorghe</a><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-57930" title="">Saturday, 13 August 2011</a>
+							</div>
+						<p>Acum e cu Agile, chestii de-astea. In mediul asta, cam cel mai important lucru e sa poti modifica aplicatia cat mai rapid si cat mai sigur. In ultimii 10 ani la asta s-a lucrat la capitolul software engineering.</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+				<li class="trackbody" id="comment-51275">
+					<div class='trackhead'>
+						<div class="commentcount">19</div>
+						<span class="authorlink"><a href='http://polimedia.us/fain/story/32193' class='url'>polimedia.us/fain/</a></span>&nbsp;(via Trackback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-51275" title="">Sunday, 12 June 2011</a>
+					</div>
+					<p><strong>Programatorii Adevarati pe Trilema - Un blog de Mircea Popescu-...</strong></p>
+<p>Tradusa de catre je, mai demult. Despre calculatoare....</p>
+				</li>
+
+				<li class="trackbody" id="comment-135370">
+					<div class='trackhead'>
+						<div class="commentcount">20</div>
+						<span class="authorlink"><a href='/2011/ce-articole-de-pe-trilema-s-au-citit-luna-asta?b=Programatori&amp;e=rati#select' class='url'>Ce articole de pe Trilema s-au citit luna asta ? on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-135370" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] Programatorii Adevarati [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-148040">
+					<div class='trackhead'>
+						<div class="commentcount">21</div>
+						<span class="authorlink"><a href='/2020/check-out-the-entreprising-russki-boisalone-holy-shit/?b=have%20ever%20ho&amp;e=ould#select' class='url'>Check out the entreprising russki boisalone, holy shit. on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-148040" title="">Thursday, 26 March 2020</a>
+					</div>
+					<p>[...] have ever hoped to set eyes upon the inside of a program was through sufficiently impressing the actual men in the world ? If he could never do any own-bedroom self-stroking, if none of you ever could, would [...]</p>
+				</li>
+
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="author7e6b243" id="author7e6b243" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email7e6b243" id="email7e6b243" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="url7e6b243" id="url7e6b243" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="9086" /></p>
+				<input type="hidden" name="comment_post_time" value="1783704761-18.97.14.89" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2026 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-9086")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-9086");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-9086");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_dec2016.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Securitate si naivitate on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Lucruri fine pentru oameni subtiri.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-14562"><div class="post" id="post-14562">                    <h1><a href="/2010/securitate-si-naivitate/" rel="bookmark" title="Permanent Link to Securitate si naivitate">Securitate si naivitate</a></h1>                        <div class="date">                                     Friday, 10 December, Year 2 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p>Sa pornim la drum inarmati cu un exemplu. Daca dumneavoastra sunteti ceva spion/mafiot/individ psihotic care v-ati luat n-spe masuri de precautie pentru a nu fi cunoscut si a trai in anonimat, si locuiti intr-o casa pe o fundatura undeva, e perfect posibil pentru un vecin care face ditamai nunta sa va blocheze accesul cu masina.</p>
+<p>El nu o face anume in contra dumneavoastra, nu stie cine sunteti si nu are un interes particular apropo de persoana dumneavoastra, dar fapt e ca vreo doua sute de prieteni i-au venit toti acasa cu masina si nu mai e loc sa arunci un ac. Asa ca v-a blocat. </p>
+<p>Recentele atacuri care au scos din functiune serverele de procesat plati (deci nu site-urile de internet, ci serverele care proceseaza platile bancare, la bancomate, la comerciantii acceptanti, serverele cu care discuta POS-urile ori de cite ori incercati dumneavoastra sa platiti cu cardul, cele care spun "transaction accepted") ale Visa si MasterCard au functionat datorita unei greseli copilaresti in design-ul securitatii informatice pentru companiile respective. Sigur, nimeni afara de ele nu stia chestia asta, cel putin teoretic, fiind atit de stupida incit mai nimeni nu s-ar fi gindit sa incerce asa ceva pe post de atac. Sau cel putin eu nu m-as fi gindit si generalizez, dar in tot cazul, e la nivelul de a te astepta ca o trupa de hoti profesionisti de diamante sa-si fi lasat buletinul la intrare, chestii de-astea.</p>
+<p>Practic vorbind, serverele care tineau site-urile respective, raspunzindu-le pe porturile 80 ca orice servere de web comunicau cu internetul pe aceeasi infrastructura informatica (routere si cablaje) ca si serverele care procesau plati (comunicind doar cu anumiti clienti selectati, si pe alte porturi dupa alte sisteme de codificare decit http). Rezultatul net al unei imense cantitati de informatie-nonsens livrate pe infrastructura respectiva a fost, ca si in exemplul cu nunta, incapacitatea informatiei legitime de-a ajunge la serverele procesatoare de plati. Spionul s-a trezit tintuit in loc si a ratat cine stie ce mare operatiune de-a lui pentru ca vecinul tinea nunta si i-a blocat masina.</p>
+<p>E la mintea cocosului lucrator in domeniu, admitind ca exista pe undeva un cocos care lucreaza in securitate (si nu m-ar mira sa existe pe la rusi) ca cele doua servicii trebuie separate si fizic, <em>pentru ca sunt separate conceptual</em>. A consolida fizic entitati separate conceptual ale aceleiasi entitati conceptuale e echivalent cu a asuma un risc, si anume riscul de ricoseu. Actualizarea acestui risc ati avut ocazia s-o constatati zilele astea, cu servere de procesat plati inaccesibile o zi intreaga pentru ca niste pustani atacau niste servere de web. </p>
+<p>Costul actualizarii acestui risc e doar in ce priveste spezele un 0.3% din veniturile pe anul curent ale celor doua companii, ceea ce poate usor sa insemne o zecime din profituri daca ei au o rata a profitului de 3%. Nu am mai pus la socoteala impactul negativ asupra brandului si bunavointei in piata, avind in vedere de-un exemplu ca pentru prima oara in douazeci de ani se discuta serios in cercuri guvernamentale si de afaceri ca-i cazul sa se sparga duopolul celor doua companii. Pe scurt, Visa si MasterCard se prea poate sa fi pierdut <em>tot</em>, absolut tot, in zilele astea. Eu am <a href="/2010/de-ce-british-petroleum-nu-va-putea-evita-falimentul/">un track record destul de prost</a> aici pe blog cu evaluarile astea, asa ca priviti-le cu un gram de sare, dar in tot cazul, posibilitatea exista.</p>
+<p>Daca cele doua aveau inteligenta sa tina cele doua clase de servere pe infrastructuri diferite, puteau fara greturi abandona serverul de web (care oricum nu-i in practica defensibil in contra unui atac de anvergura si natura celui in discutie) si-si puteau vedea in continuare de afacerile lor, care nu puteau fi atacate in acelasi mod (pentru ca serverele procesatoare de plati nu discuta cu internetul in general, ci strict cu anumiti clienti, si deci un atac ddos e imposibil in contra lor). De fapt, dupa toate aparentele atit ofiterii celor doua firme (mintile care se ocupa de strategie, adica) cit si departamentele de comunicare pareau a se afla sub impresia ca intr-adevar separatia exista in practica, si am impresia ca au suferit o surpriza din partea departamentului de IT (care, sa fiu eu CEO pe-acolo, se lasa cu niste concedieri disciplinare).</p>
+<p>Arhitectura nu era corect construita cel mai probabil pentru ca atunci companiile ar fi trebuit sa plateasca costul suplimentar al unor securizari la comunicarea intre cele doua clase de servere. Cu alte cuvinte, daca tinem si webserverul si PPS-ul in aceeasi zona nu avem a le securiza separat, si a securiza apoi comunicarile dintre ele, le putem lasa sa comunice din zona de incredere in care ambele se gasesc. Aceasta economie la tarite a expus doua firme la niste spectaculoase distributii de faina in riu.</p>
+<p>Merita observat ca ambele firme din duopolul procesarii platilor <em>au facut aceeasi gresala strategica</em>. E binecunoscuta tendinta companiilor care activeaza in pietele comodizate de a lupta contra inovatiei, si a incerca sa se asigure prin apelul la familiar (uneori manifestat de-a dreptul ca tinere cu dintii de familiar). Aceasta situatie imi pare o ilustratie excelenta a viciilor acestei abordari totusi atit de raspindite : daca-i intrebai, dintr-o pozitie de autoritate, ca secretar de stat in finante, sau ca sef al securitatii statului, ambii CEO ti-ar fi raspuns fara indoiala ca aplica "cele mai s<em>tate of the art</em> tehnologii, la nivelul de <em>best practices in the market</em>". Corect. Intimplarea face ca "best practices in the market" ala erau de fapt niste practici ingrozitor de proaste, amanunt care nu pare sa fi interesat pe nimeni. </p>
+<p>Asta si nimic altceva e motivul pentru care companiile merita cu atit mai putina incredere cu cit sunt mai mari, mai solid asezate si mai bine ancorate : se lenevesc si incep sa taie din craca de sub picioare, cu superioritatea emfatica a creatorilor de standarde (uitind convenabil ca ei cei ce au creat cu ghearele si dintii piata respectiva sunt totusi alti "ei" decit ei cei de azi). Acelasi fenomen a prabusit si bancile, si acelasi fenomen va continua sa prabuseasca tot ce-i mare : sentimentul acut al indispensabilitatii fiintei proprii.</p>
+<p>Un sentiment de altfel fals. Si oarecum naiv.</p>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2010/farmacia-in-romania/">Farmacia in Romania</a></div>
+                <div class="alignright"><a href="/2010/redirect-marca-wordpress/">Redirect marca Wordpress</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/3-ani-experienta/" title="View all posts in 3 ani experienta" rel="category tag">3 ani experienta</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2010/securitate-si-naivitate/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2010/securitate-si-naivitate/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>12 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-37302" class="commentbody"><div class="commenthead"><img alt='dAImon`s avatar' src='http://daimon.me/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink"><a href='http://daimon.me/blog/' class='url'>dAImon</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-37302" title="">Friday, 10 December 2010</a>
+							</div>
+						<p>Da' şi dacă separau infrastructura, serverul de plăţi e în continuare vulnerabil dacă i se trimite bogus data; ba chiar cred că Anon l-ar fi forjat mai puternic având în vedere că ăsta are în spate nişte databases care-s prin definiţie mai încete decât un server ce serveşte statice ca html &amp; teh likes.</p>
+<p>Of course, I might be horribly wrong, da' tot ce ştiu e că un sistem conectat la interneţ' e prin definiţie atacabil cumva.</p>
+						</li>
+
+										<li id="comment-37304" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-37304" title="">Friday, 10 December 2010</a>
+							</div>
+						<p>Nu aveau cum sa atinga serverul de plati, dat fiind ca dinsul nu discuta decit cu merchants. Afara de cazul ca merchants s-ar fi apucat de atac, in care caz nu mai erau deloc anonimi, ci chiar contrariul.</p>
+						</li>
+
+										<li id="comment-37323" class="commentbody"><div class="commenthead"><img alt='F`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink">F<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-37323" title="">Friday, 10 December 2010</a>
+							</div>
+						<p>pai si bre, ce facem: nu mai lasam firmele sa creasca peste o anumita limita? :D</p>
+						</li>
+
+										<li id="comment-37324" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-37324" title="">Friday, 10 December 2010</a>
+							</div>
+						<p>De ce sa nu le lasam ? Piata in mod evident e capabila sa se regleze singura.</p>
+<p>Ce ar fi de facut e sa intelegem ca 1) mare nu inseamna solid si 2) mare nu inseamna inteligent si 3) mare nu inseamna de incredere. Nu exista "too big to fail", chestiile mari sunt neaparat sortite esecului. Ar putea sa existe "too small to fail", dar si asta e probabil prea mult. </p>
+<p>Daca reusim sa ne impacam cu aste trei observatii simple (si banale, orice copil privitor de desene animate stie ca al' mai mare dintre obiectele miscatoare de pe ecran va sfirsi prost) nici nu ne va merge asa rau.</p>
+						</li>
+
+										<li id="comment-37399" class="commentbody"><div class="commenthead"><img alt='gheorghe`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink">gheorghe<img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-37399" title="">Saturday, 11 December 2010</a>
+							</div>
+						<p>Nu cred ca problema au fost serverele, ci conexiunea la internet. Daca serviciile foloseau macar clase IP diferite, treaba se rezolva relativ simplu, nu mai anuntai clasa de IP a site-urilor web. Naspa, dar macar mergeau platile. Asta daca nu se apuca lumea sa-ti floodeze abolut toate clasele tale IP, care-s cam informatie publica, nu prea ai cum sa le ascunzi, adica poti sa incerci, le inregistrezi pe alta firma, dar daca cineva vrea neaparat, le afla, de ex, cati anon dinastia crezi ca lucreaza in IT, la ISP, la registre, etc.</p>
+<p>Singura solutie ar fi fost ca ISPii respectivilor sa filtreze floodurile, dar cine stie de ce n-au facut-o, probabil ca contractul nu includea si serviciul asta si cand sa-l puna in functiune nu erau pregatiti, ori ca filtrarile lor nu prea au mers, ori ca au stat aia de la mastercard sa se gandeasca daca merita sa plateasca factura pentru chestia respectiva, etc.</p>
+<p>Spre exemplu, Amazon a putut sa apere wikileaks de DDOS, dar ei au ditamai infrastructura si se confrunta cu problema asta zilnic, din moment ce tin site-urile oricarui dubios de pe planeta.</p>
+<p>Eu unul nu cred ca o sa dea faliment, de fapt, cred ca au si uitat de incident si nici nu le pasa ca maraie oamenii la ei. Sa nu-mi spui ca-ti anulezi toate cardurile tale Mastercard... si Visa, care probabil ca sunt, hmm... toate. Haha.</p>
+						</li>
+
+										<li id="comment-37411" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-37411" title="">Saturday, 11 December 2010</a>
+							</div>
+						<p>Mei, tu citisi ce scrie acolo ? Ca nimeni nu zice ca problema au fost serverele, ci localizarea lor, precum si alte chestii.</p>
+<p>Nu orice flood se poate filtra, depinde de niste parametri. Amazon a putut sa apere wikileaks pentru ca au fost atacati destul de lihozit. Si Polimedia poate sa apere Trilema de prapadelile astora de pe la noi.</p>
+<p>Eu nu folosesc carduri pentru plati la comercianti.</p>
+						</li>
+
+										<li id="comment-37414" class="commentbody"><div class="commenthead"><img alt='gheorghe`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink">gheorghe<img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-37414" title="">Saturday, 11 December 2010</a>
+							</div>
+						<p>Ce localizare mey, ca din interneti le dai flood oriunde ar fi si oricate ar fi si in oricate locuri ar fi. Atata timp cat tu comunici cu acei comercianti prin internet si nu prin sarme fizice sau circuite dedicate, ti-o iei.</p>
+						</li>
+
+										<li id="comment-37415" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-37415" title="">Saturday, 11 December 2010</a>
+							</div>
+						<p>Hai sa-ti citez din articol : </p>
+<blockquote><p>Practic vorbind, serverele care tineau site-urile respective, raspunzindu-le pe porturile 80 ca orice servere de web comunicau cu internetul pe aceeasi infrastructura informatica (routere si cablaje) ca si serverele care procesau plati (comunicind doar cu anumiti clienti selectati, si pe alte porturi dupa alte sisteme de codificare decit http).<br />
+[...]<br />
+E la mintea cocosului lucrator in domeniu, admitind ca exista pe undeva un cocos care lucreaza in securitate (si nu m-ar mira sa existe pe la rusi) ca cele doua servicii trebuie separate si fizic, pentru ca sunt separate conceptual. A consolida fizic entitati separate conceptual ale aceleiasi entitati conceptuale e echivalent cu a asuma un risc, si anume riscul de ricoseu.
+</p></blockquote>
+						</li>
+
+										<li id="comment-37421" class="commentbody"><div class="commenthead"><img alt='gheorghe`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink">gheorghe<img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-37421" title="">Saturday, 11 December 2010</a>
+							</div>
+						<p>Da, pe aceeasi infrastructura de retea, cam asa se face treaba. Ei fiind mari smecheri, probabil au propriile lor datacentere, adica spatiul lor intr-o cladire sau chiar o cladire intreaga. Acolo isi trag niste circuite de date, in functie de nevoile lor de trafic de la 2 sau mai multi ISP, si folosesc acele circuite pentru toate serviciile pe care le servers serverele din acea locatie.</p>
+<p>Acum, ce-ar fi putut ei sa faca? Sa-si ia circuite cu capacitate de 10 ori mai mare? eventual cat sa treaca tot internetul prin ele, sau sa-si ia un set separat de circuite pentru absolut fiecare cacat de serviciu pe care-l ruleaza ei acolo? Care servicii probabil sunt de ordinul sutelor sau miilor, si asta in ideea ca domle, daca ne floodeaza niste pusti site-ul, sa nu ne pice si serviciul de procesare a platilor, cand pustii aia ar putea sa floodeze si serviciul respectiv daca chiar aveau chef si poate chiar au si facut asta. Asta e asa, security by obscurity, chiar nici macar obscuritate, ca nu ascunzi nimic, zici doar ca poate nu se gandeste nimeni la asta.</p>
+<p>Nici macar nu-ti trebuie circuite separate, cum ziceam in primul comment, scoti anuntul clasei IP care deserveste site-urile web din BGP, si asta e, site-ul este inchis, ghinion.</p>
+<p>Acum nimeni nu poate spune exact ce s-a intamplat, deoarece nimeni nu cunoaste ce-au ei acolo, singura greseala arhitecturala grava pe care puteau s-o faca ar fi ca aceleasi servere web care deservesc site-ul sa deserveasca si serviciul de procesare de plati, dar este improbabil.</p>
+						</li>
+
+										<li id="comment-37422" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">10</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-37422" title="">Saturday, 11 December 2010</a>
+							</div>
+						<p>Puteau sa-si delocalizeze serverul de web, in colocatie intr-un hub mai important. Aia era chestia logica si rationala de facut. Pentru ca serverul de plati e una, si serverul de web te pisi pe el si-i dai foc, la o adica.</p>
+<p>Pustii nu au cum sa flodeze serviciul de procesare, ca ala nu e un serviciu public. El nu discuta cu oricine, ci doar cu merchants, care-s autorizati ca atare.</p>
+<p>Au incercat paleativul sugerat de tine, nu a functionat. Atita timp cit internetul iti ruteaza pachete inspre interfata ta, poti tu seta ce doresti pe dinsa, ca nu apuca sa le arunce suficient de repede.</p>
+						</li>
+
+										<li id="comment-37427" class="commentbody"><div class="commenthead"><img alt='gheorghe`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">11</div>
+								<span class="authorlink">gheorghe<img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-37427" title="">Saturday, 11 December 2010</a>
+							</div>
+						<p>Daca tu nu mai anunti clasa aia, traficul nu mai ajunge in interfata ta, se opreste cel mult la vreun ISP de-al tau, sau na, daca chiar nu merge faza, le zici ISP-ilor sa filtreze clasa, deci traficul nu mai trece prin circuitul tau ci se opreste in reteaua ISP-ului, sau in loc sa o filtreze nici nu o mai anunta la randul lui, de ce sa isi umple reteaua de floodul tau...</p>
+<p>Pustii au cum sa floodeze orice e pe internet, trimit aiurea pachete catre clasele tale si-ti satureaza circuitele oriunde le-ai avea, chiar daca tu ai firewalluri si nu raspunzi la traficul ala, el tot ajunge la tine. Acum tipul asta de atac e mai usor de filtrat, dar filtrarea asta trebuie sa fie la nivelul ISP-ului.</p>
+<p>Eu zic ca pur si simplu s-au cacat pe ei si n-au stiut cum sa reactioneze intr-o situatie de criza.</p>
+						</li>
+
+										<li id="comment-37428" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">12</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-37428" title="">Saturday, 11 December 2010</a>
+							</div>
+						<p>Chestia cu anuntatul functioneaza intr-o oarecare masura, dar daca schimbi in timpul atacului, mnoa, tot o iei o vreme, datorita latentelor. Cel mai bine e sa le tii separate de la inceput.</p>
+<p>In principiu ce zici tu in al doilea paragraf e corect, teoretic vorbind, atita doar ca adresare arbitrara nu se poate oricum si oricind, una este sa downloadeze oricine LOIC si alta este sa ai nevoie de ditamai magaoaia. Nu intru in detalii din motive de securitate, da' enfin, intelegi tu ma gindesc.</p>
+<p>E posibil ce zici tu, sigur ca orice e posibil, dar eu nu prea cred.</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authore8e1dd8" id="authore8e1dd8" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emaile8e1dd8" id="emaile8e1dd8" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urle8e1dd8" id="urle8e1dd8" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="14562" /></p>
+				<input type="hidden" name="comment_post_time" value="1735341139-152.53.39.118" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2024 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-14562")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-14562");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-14562");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

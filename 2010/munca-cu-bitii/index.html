@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_jul2019d.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Munca cu bitii on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">024776FFD3CBD21C872ECCD26AD078C5<br />BA0586E2E57CF68515E3C4828A673A6E
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-11685"><div class="post" id="post-11685">                    <h1><a href="/2010/munca-cu-bitii/" rel="bookmark" title="Permanent Link to Munca cu bitii">Munca cu bitii</a></h1>                        <div class="date">                                     Friday, 17 September, Year 2 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p>Spre deosebire de munca cu oamenii, munca cu bitii aduce o paleta ingusta de satisfactii profunde (munca cu oamenii aduce o paleta larga de satisfactii superficiale, da' sa trecem).</p>
+<p>Oarecari probleme apar atunci cind avem a scrie interfata intre unii si altii. De problemele ocazionate de trecerea dinspre biti inspre oameni <a href="/2009/trilema-despre-design/">am mai vorbit</a>, si-am si ilustrat, cu fiecare succes produs de Polimedia (despre care diversi docti explicau ca n-are nici o sansa ca "designu' nu-i profi" etc, pentru a se vadi mai apoi ca dimpotriva, asta ajuta). In ultima vreme au cam cedat nervos si ori s-au spinzurat ori s-au convertit, asa incit principiile mele cele incorectele si "neprofi" de-acum 2 ani au devenit intre timp trendul central. Aceeasi evolutie ca si-n cazul chestiei cu lungimea articolelor, precum si-a tuturor chestiilor pe care-am pus mina in online.ro. C-asa-i viata asta, grea.</p>
+<p>Dimpotriva, problemele ocazionate de trecerea dinspre oameni inspre biti nu tin de aspect, cit de securitate. Prima lectie care se preda la orice scoala de programare este ca "<strong>you must sanitize all user provided data whatsoever, no exceptions.</strong>" Este in limba engleza si nu in limba romana fie pentru ca in limba romana nu se face scoala de programare de-adevaratelea, fie pentru ca scoala care se face nu conteaza, fie pentru ca bozgorii si cu jidanii conspira impotriva noastra, va alegeti singuri ce explicatie va convine. Motivul real este ca in propozitia englezeasca se vorbeste despre html forms, php si mysql, iara nu de chestii generale despre masini programabile si MUX-uri, ca la Poli.</p>
+<p>Deci, nu e voie sa introduci nimic obtinut de la utilizatori, absolut nimic, in baza de date fara a "sanitiza" intii chestia. Cum se face asta ? Pai, fie rulezi un regedit si pastrezi doar caracterele permise (chestie care prezinta dezavantajul ca unele caractere sunt permise in unele contexte dar nu si in altele), fie imparti obiectul in bucatele dupa schema la care ar trebui sa-i adere si apoi il reconstruiesti (folosind de exemplu pentru un url parse_url(), validind separat bucatile si recompunind obiectul la final), fie folosesti identificari exacte (daca utilizatorul a spus == "asta" atunci facem asta, daca a spus == "aia" atunci facem aia si in rest nimic). </p>
+<p>Fie, daca esti lenes, folosesti un script pre-scris, ceva precum mysql_real_escape_string(). Problema cu mysql_real_escape_string este ca </p>
+<blockquote><p>If magic_quotes_gpc is enabled, first apply stripslashes() to the data. Using this function on data which has already been escaped will escape the data twice.</p>
+<p>mysql_real_escape_string() does not escape % and _. These are wildcards in MySQL if combined with LIKE, GRANT, or REVOKE.</p></blockquote>
+<p>Si diverse alte probleme de aceeasi natura. Plus ca </p>
+<blockquote><p>Warning: mysql_escape_string() [function.mysql-real-escape-string]: This function is deprecated; use mysql_real_escape_string() instead</p></blockquote>
+<p>De ce s-a deprecat mysql_escape_string() ? Pai pentru ca nu functiona. Si de ce ii zice "real" escape string la asta noua ? Pai ca cica functioneaza, calumea, de data asta. Oare ?</p>
+<p>Eu am, bineinteles, o solutie alternativa, care este de altfel si principiu de programare pentru mine, cu obligativitate de aplicare la mine-n firma. Si anume, tot ce se duce in baza de date venind de la utilizator este fie hash fie base64encode. Simplu si pe inteles (merita citit <a href="http://en.wikipedia.org/wiki/Base64" rel="nofollow">articolul din wikipedia</a> daca nu stiti ce-i aia, e unul din putinele exemple de articole bine scrise acolo). Daca-i parola sau alte asemenea, atunci hash. Daca nu-i parola si nici alte asemenea, atunci base64.</p>
+<p>In acest mod simplu avem garantia ca:</p>
+<ul>
+<li>Toate caracterele, in toate limbile si toate caracterele speciale, in toate formatele, sunt salvate corect si pastrate indiferent in toate bazele de date, si pot fi mutate din una in alta fara nici un fel de riscuri, indiferent de considerente precum schema scl.</li>
+<li>De asemenea bazele de date pot fi comunicate in conditii de siguranta peste absolut orice legaturi functionale, fara verificari necesare de compatibilitate.</li>
+<li>Baza de date poate tine, fara nici un fel de riscuri, orice succesiuni de caractere, inclusiv combinatii dureroase precum '-- ; " OR 1 pe care alte sisteme ori le sterg ori sucomba.</li>
+<li>Nu exista nici un fel de riscuri si nu sunt necesare nici un fel de verificari de securitate pentru a sanitiza datele originate de la utilizatori, ceea ce reduce semnificativ costurile cu scrierea si mentinerea codului.</li>
+</ul>
+<p>Da, este adevarat ca acest sistem are dezavantajul de-a adauga 33% la lungimea oricaror date, si nu este neaparat o solutie buna pentru sisteme foarte mari (si anume, sisteme pentru care costul unei cresteri cu 33% a volumului datelor primite de la utilizatori depaseste costul unor programatori competenti care sa asigure codul). In practica, acest dezavantaj conteaza mai rar, din motive stufoase in care nu vom intra aici.</p>
+<p>Avantajele in schimb, in ce priveste siguranta, portabilitatea codului si portabilitatea datelor sparie mintea. </p>
+<p>Nu-i nevoie sa-mi multumiti. Spor.</p>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2010/mascarada/">Mascarada</a></div>
+                <div class="alignright"><a href="/2010/o-mica-discutie/">O mica discutie</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/3-ani-experienta/" title="View all posts in 3 ani experienta" rel="category tag">3 ani experienta</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2010/munca-cu-bitii/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2010/munca-cu-bitii/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>26 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-31642" class="commentbody"><div class="commenthead"><img alt='gheorghe`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink">gheorghe<img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31642" title="">Friday, 17 September 2010</a>
+							</div>
+						<p>Mda, dar, spre exemplu, cand vrei sa cauti prin acea baza de date? Dai un select in base64? :)</p>
+						</li>
+
+										<li id="comment-31644" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31644" title="">Friday, 17 September 2010</a>
+							</div>
+						<p>Care-i problema ? Doar e transparent.</p>
+						</li>
+
+										<li id="comment-31650" class="commentbody"><div class="commenthead"><img alt='gheorghe`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink">gheorghe<img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31650" title="">Friday, 17 September 2010</a>
+							</div>
+						<p>Pai este transparent, dar ai niste limitari, daca inteleg eu bine schema:<br />
+ - nu poti sa faci cautari genul LIKE %whatever%<br />
+ - nu poti sa cauti dupa data din sql, daca encodezi si data<br />
+ - perfomanta nu va fi prea buna deoarece nu poti sa folosesti indecsi</p>
+<p>Si in plus, asta nu-ti rezolva toate problemele. Daca sa zicem ca aplicatia e una web, un user ar putea sa bage niste cod javascript in baza de date, care ulterior e posibil sa fie executat de useri, deci oricum mai trebuie sa bagi o gramada de sanitizari, pe langa care sql injection este una dintre cele mai simple de rezolvat.</p>
+<p>E o solutie, dar mi se pare prea inflexibila ca sa fie practica si nu cred ca merita dezavantajele doar pentru a te apara de sql injection. Sa zicem ca ai o aplicatie micuta, pentru care solutia asta functioneaza, dar cu timpul, aplicatia devine mai maricica. Ar trebui sa o modifici si sa o securizezi prin solutia clasica. Sau cazul in care aplicatia e pe interneti, deja se presupune ca tre sa poata sa intre milioane de oameni pe ea ca sa ai sansa de a face un ban de-o ciunga.</p>
+						</li>
+
+										<li id="comment-31653" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31653" title="">Friday, 17 September 2010</a>
+							</div>
+						<p>E adevarat ca nu poti face LIKE %%, da' pe de alta parte hai sa fim seriosi, nici nu vrei sa faci asa ceva. Sau cu alte cuvinte, daca vrei sa faci asa ceva e o dovada ca ti-ai facut prost planificarea si tre' sa reconstruiesti oricum. </p>
+<p>Data nefiind introdusa de utilizator, ci de MySQL nu intra in discutie.</p>
+<p>Clar ca poti folosi indecsi, de ce sa nu poti ?</p>
+<p>Dimpotriva, sanitizarea contra injectiilor de html/js se rezolva foarte usor, distrugind < la output (un alt aspect al programarii care nu-i indeobste bine tratat de mai nimeni, inclusiv de wordpress. Nu-i corect sa cureti tagurile la INTRARE, e corect sa inlocui < cu &#038;lt ; la IESIRE.</p>
+<p>Acu tie ti s-o fi parind cum doresti sa ti se para, da io-ti spun din experienta ca nu-i, ci chiar dimpotriva. Si nu, faptul ca aplicatia e pe internet nu presupune ce presupui tu. Cind zic</p>
+<blockquote><p>si anume, sisteme pentru care costul unei cresteri cu 33% a volumului datelor primite de la utilizatori depaseste costul unor programatori competenti care sa asigure codul</p>
+<p>ma refer la chestii semnificativ mai complexe decit orice exista pe internet.ro la ora actuala (absolut orice).</p>
+						</li>
+
+										<li id="comment-31654" class="commentbody"><div class="commenthead"><img alt='gheorghe`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink">gheorghe<img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31654" title="">Friday, 17 September 2010</a>
+							</div>
+						<p>Pai nu inteleg cum poti sa folosesti indecsi si cautari si alte minuni de baze de date cand tu ai in tabele niste hashuri. Cum faci sa-mi gasesti toti userii al caror nume contine Gigel si care s-au nascut intre 3 ian 1970 si 21 dec 2012?</p>
+<p>Eu ma gandesc ca ar trebui sa scoti tot tabelul din baza de date, il bagi in memorie, faci base64 decode la tot si apoi cauti, dar asta e cam ineficient, nu?</p>
+						</li>
+
+										<li id="comment-31655" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31655" title="">Friday, 17 September 2010</a>
+							</div>
+						<p>Deci tocmai am descoperit un bizar bug in wordpress. Exista in textul comentariului un &lt;/blockquote> inainte de ultimul paragraf, dar in html n-ajunge.</p>
+						</li>
+
+										<li id="comment-31656" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31656" title="">Friday, 17 September 2010</a>
+							</div>
+						<p>@<b>Gheorghe</b> Nu. "Select from table where nume =". base64_encode ("Gigel") &#038;& < DATE < etc.</p>
+						</li>
+
+										<li id="comment-31658" class="commentbody"><div class="commenthead"><img alt='gheorghe`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink">gheorghe<img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31658" title="">Friday, 17 September 2010</a>
+							</div>
+						<p>Pai da, dar am zis contine, ori daca ai fi avut un user Gigelina, ai fi ratat-o, si cu data tot nu am inteles. Ca sa poti cauta dupa date din baza de date, ar trebui sa ai o coloana de tip date, datetime, etc. care nu poate stoca hashuri base64 :)</p>
+						</li>
+
+										<li id="comment-31659" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31659" title="">Friday, 17 September 2010</a>
+							</div>
+						<p>Tu esti turc ? Ia vezi ca raspunsuri la aste doo nelamuriri se gasesc deja date in #4. </p>
+<p>Daca tu intrebi ceva si io-ti raspund nu poti continua tot pe ideea ta, ca de-aia ti-am raspuns, sa te lamuresc.</p>
+						</li>
+
+										<li id="comment-31660" class="commentbody"><div class="commenthead"><img alt='gheorghe`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">10</div>
+								<span class="authorlink">gheorghe<img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31660" title="">Friday, 17 September 2010</a>
+							</div>
+						<p>Da, scuze, mi-a scapat aia cu data. Data e introdusa de mysql doar in cazuri simpliste in care iei doar data curenta sau ceva, daca iei data dintr-un formular, este introdusa de user, si deci poate fi introdus un sql inject pe-acolo.</p>
+						</li>
+
+										<li id="comment-31662" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">11</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31662" title="">Friday, 17 September 2010</a>
+							</div>
+						<p>E, eu inca n-am pomenit de caz concret in care sa trebuiasca sa-ti introduca userul data cu minutele lui. Tu cind ai introdus ultima oara o data intr-un formular pe web ?</p>
+						</li>
+
+										<li id="comment-31663" class="commentbody"><div class="commenthead"><img alt='gheorghe`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">12</div>
+								<span class="authorlink">gheorghe<img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31663" title="">Friday, 17 September 2010</a>
+							</div>
+						<p>Cand imi cere yahoo data de nastere sa vada daca sunt sau nu minor spre ex.</p>
+						</li>
+
+										<li id="comment-31664" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">13</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31664" title="">Friday, 17 September 2010</a>
+							</div>
+						<p>Eu prefer sa rezolv chestia aia printr-un clickbox, "I was born on or before 16th of September 1992". E o solutie mai buna din punctul de vedere al uzabilitatii, si incet incet incepe sa fie tot mai folosita.</p>
+<p>Alt exemplu ?</p>
+						</li>
+
+										<li id="comment-31665" class="commentbody"><div class="commenthead"><img alt='gheorghe`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">14</div>
+								<span class="authorlink">gheorghe<img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31665" title="">Friday, 17 September 2010</a>
+							</div>
+						<p>Asta da, dar nu poti sa te limitezi la asa ceva. Daca faci urmatorul facebook si vrei sa stii cati ani au luserii, sa stii daca sa le vinzi sex toys sau scutece pentru batrani. Sau faci aplicatii care gestioneaza identitati de persoane, date de expirare ale cardurilor, si o gramada de alte chestii.</p>
+						</li>
+
+										<li id="comment-31667" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">15</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31667" title="">Friday, 17 September 2010</a>
+							</div>
+						<p>O gramada de chestii teoretice. </p>
+<p>In practica ramane cum iti zic.</p>
+						</li>
+
+										<li id="comment-31671" class="commentbody"><div class="commenthead"><img alt='gheorghe`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">16</div>
+								<span class="authorlink">gheorghe<img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31671" title="">Friday, 17 September 2010</a>
+							</div>
+						<p>Haha, ok, daca tu zici ca n-o sa faci vreodata o aplicatie in care ceri o data unui user, te cred pe cuvant. Ideea e ca, nu mai suntem in anii 90, orice programator cu o oarecare bruma de competenta stie cum sa se apere de sql inject. </p>
+<p>Problema cea mai mare acum e in browsere,  javascripturi, etc. E atat de complex incat nici cineva care cerceteaza non-stop vulnerabilitati in aplicatii web nu poate sa scrie cod 100% secure. Poate sa scrie din greseala cod cu vulnerabilitati bine cunoscute de el fara sa-si dea seama. Nu exista inca solutii absolute, un sistem infailibil de a scrie cod, deci din punctul asta de vedere, nu poti inlocui competenta unui programator. Macar unul sa ai mai rasarit, daca chiar te intereseaza subiectul securitatii.</p>
+						</li>
+
+										<li id="comment-31672" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">17</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31672" title="">Friday, 17 September 2010</a>
+							</div>
+						<p>Mda. </p>
+<p>Problema principala as zice c-o constituie pustii care dau din ei adevaruri universale pe baza chestiilor pe care le-au mai citit saptamana trecuta pe net, daca ma-ntelegi.</p>
+						</li>
+
+										<li id="comment-31680" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">18</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31680" title="">Friday, 17 September 2010</a>
+							</div>
+						<p>Semne bune anul are. In curind vedem si polimedia in IE. Se lucreaza.</p>
+						</li>
+
+										<li id="comment-31711" class="commentbody"><div class="commenthead"><img alt='dAImon`s avatar' src='http://daimon.me/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">19</div>
+								<span class="authorlink"><a href='http://daimon.me/blog/' class='url'>dAImon</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31711" title="">Saturday, 18 September 2010</a>
+							</div>
+						<p>Parca marianul nu mai trecea pe aici?</p>
+<p>In alta ordine de idei, data o poti construi din diverse dropdown boxuri sau si dac-o introduce omul cu manurile lui poti sa faci o verificare cu php inainte de a o baga in DB, si-i bistos treaba. Injectii sql in asa ceva inca n-am vazut.</p>
+						</li>
+
+										<li id="comment-31712" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">20</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31712" title="">Saturday, 18 September 2010</a>
+							</div>
+						<p>Aia e compunerea dupa structura de care vorbeam. </p>
+<p>Normal ca verifici, dar ai la dispozitie isnumeric() ceea ce te ajuta mult. Da' de verificat tre' sa verifici, ca si dropdownu-i numa' un form, n-are securitate.</p>
+						</li>
+
+										<li id="comment-31769" class="commentbody"><div class="commenthead"><img alt='gheorghe`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">21</div>
+								<span class="authorlink">gheorghe<img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31769" title="">Monday, 20 September 2010</a>
+							</div>
+						<p>Tu prin schema asta ti-ai redus capacitatea de a face cautari prin baza de date, si pentru ce? Ca sa eviti probabil cea mai bine cunoscuta si cea mai bine documentata vulnerabilitate din toate timpurile. Ca aia care-au facut php-ul au fost idioti si n-au fost in stare sa faca o functie care escape-uieste niste caractere, asta e partea a doua, iar magic quotes a fost o idee stupida de la inceput. Daca n-ai incredere in competenta lor, fa-ti tu o functie, citeste codul sursa al parserului sql al lui mysql, sa fii sigur ca nu ascund developerii un caracter special ca backdoor sau ceva, etc.</p>
+<p>Sau hai inca 2 alternative: parametrized queries si proceduri stocate. Cred ca daca nu te deranjeaza sa ai 2/3 din baza de date hashuri base64 nu te deranjeaza nici sa tii codul sql in proceduri stocate.</p>
+						</li>
+
+										<li id="comment-31771" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">22</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31771" title="">Monday, 20 September 2010</a>
+							</div>
+						<p>Inca o data mei, base64 nu reduce nimic deloc nicicum. Ca ti-e tie inconfortabil mental nu inseamna ca e inconfortabil masinii, din punctul ei de vedere nu exista nici un fel de problema, absolut, deloc. Acest text e la fel de descifrabil sau indescifrabil, procesabil sau neprocesabil pentru masina cum este si echivalentul lui in base64, cum este si echivalentul lui scris in baza 34, cum este si orice alt echivalent numeric. </p>
+<p>Motivul principal pentru care te-am tratat dismisiv la #17 este tocmai acest soi de privire subiectiva asupra aparatului, care denota in principiu o slaba culturalizare la nivelul fundamental. Calculatorul nu-i calul tau credincios din povestile cu Vestul Salbatic, calculatorul e o simpla si banala masina de calcul numerica.</p>
+<p>Alternativele din final se adreseaza altui nivel de programare. Eu discut aici de nevoile teoretice ale programatorilor de ordinul sutelor, nu miilor de dolari pe ora.</p>
+<p>Trecind peste astea, faptul ca-i cea mai bine documentata vulnerabilitate din toate timpurile nu spune neaparat ceva despre cit de usor de evitat este ea, cum pari sa sugerezi tu. Mariajul e si el cea mai bine documentata alegere gresita din toate timpurile, si cui serveste documentarea asta ? </p>
+<p>In fine, abordarea reductionista (cind afirmi ca eu fac X pentru Y, desi eu ti-am spus de 2 ori deja ca-i pentru Y, Z si K) dovedeste ca nu citesti cu prea multa atentie, sau daca nu, ca citesti pentru a-ti confirma presupozitiile mai degraba decit pentru a te informa. </p>
+<p>Ambele aceste doua defecte te descalifica de la a fi luat in serios, chiar daca altminteri tu probabil ai merita sa fii.</p>
+						</li>
+
+										<li id="comment-31773" class="commentbody"><div class="commenthead"><img alt='gheorghe`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">23</div>
+								<span class="authorlink">gheorghe<img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31773" title="">Monday, 20 September 2010</a>
+							</div>
+						<p>Tot ce zic eu e ca lui mysql ii este incomfortabil sa caute text in hashuri base64. Atat am avut de zis, poti sa pui asta la dezavantaje :)</p>
+						</li>
+
+										<li id="comment-31774" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">24</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31774" title="">Monday, 20 September 2010</a>
+							</div>
+						<p>base64 nu este un hash. Ca sa nu mai mentionez ca principala utilitate a unui hash este sa reduca timpii de cautare prin tabele, fie ele mysql sau altceva. </p>
+<p>Pune mina pe o carte. Pe bune, si spre binele tau iti zic.</p>
+						</li>
+
+										<li id="comment-31779" class="commentbody"><div class="commenthead"><img alt='gheorghe`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">25</div>
+								<span class="authorlink">gheorghe<img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31779" title="">Monday, 20 September 2010</a>
+							</div>
+						<p>Ok, solutia ta e perfecta, ar trebui sa o bage default in toate enginurile de baze de date.</p>
+						</li>
+
+										<li id="comment-31780" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">26</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31780" title="">Monday, 20 September 2010</a>
+							</div>
+						<p>Lmao aia ne-ar mai lipsi.</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="author1e03919" id="author1e03919" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email1e03919" id="email1e03919" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="url1e03919" id="url1e03919" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="11685" /></p>
+				<input type="hidden" name="comment_post_time" value="1770845458-18.97.9.172" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2026 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-11685")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-11685");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-11685");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_aug2018.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Pure virtual function call on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">If "waifu" is "wife"<br />should "kung-fu" be "knife" ?
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-14956"><div class="post" id="post-14956">                    <h1><a href="/2010/pure-virtual-function-call/" rel="bookmark" title="Permanent Link to Pure virtual function call">Pure virtual function call</a></h1>                        <div class="date">                                     Sunday, 19 December, Year 2 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p style="text-align: right;">(<em>Daca va intereseaza chestiunea directa, aveti un articol explicativ excelent <a href="http://www.artima.com/cppsource/pure_virtual.html">aici</a>,<br />
+altminteri titlul este o metafora in raport cu textul articolului</em>)</p>
+<p>Dati-mi voie sa va citez, integral, o postare de pe un <a href="http://www.ospatarescu.eu/despre-secrete-fara-perdea">blog cu retard usor</a> :</p>
+<blockquote><p><strong>Despre Secrete….. Fara Perdea</strong></p>
+<p><em>Posted on Sunday, 19th December 2010 by ospatarescu</em></p>
+<p>Mda…… Asa cum zice titlul am de gand sa spun totul despre mine pana la Partea a zecea . Astazi  voi face prima dezvaluire despre Mine . Am 22 de ani  lucrez ca , ospatar in incinta Facultati Nationale de Muzica (Conservatorul de Muzica) .Primul meu sarut  a fost la Varsta de 14 ani si m-a invatat  o fata cu 8 ani mai mare decat mine  (22 de ani ) .  Am incheiat Primul Articol din</p>
+<p>” Despre Secrete … Fara Perdea “</p>
+<p>Tags: 22 de ani, ospatar, perdea, secrete<br />
+Posted in D'ale Mele | Comments (0)</p></blockquote>
+<p>Acum, sa ne intelegem, eu cred ca-i foarte bine ca un ospatar de 22 de ani care lucreaza intr-o incinta, fie ea a Conservatorului de Muzica sau a Conservatorului de Pictura Abstracta (apropo, ca nu ma pot abtine : Conservatorul de Fundul Gol cum Era la Douazeci de Ani pare, cel putin prin prisma experientei, un Conservator mult mai util decit ce se practica in mod obisnuit la ora actuala) scrie si pe blog. E un exercitiu important, desteleneste mintea, deznodureaza degetele, sigur ca primele incercari vor fi ridicole si rizibile (il mai tineti minte pe <a href="/2009/intrebari-cata-frunza-si-cata-iarba/">Cirstea Florin</a>, apropo ?). De-aia n-am scris <em>bloger</em> cu retard usor, daca-i pina acolo. Bun ?</p>
+<p>Totusi, dincolo de problema spatiului-inainte-de-punct, chestie care daca-i foarte bizara macar e folosita uniform (era sa zic <em>consistent</em>), dincolo de greseli de tehnica pina la urma explicabile prin noutatea subiectiva a mediului (precum link pe Mine catre... blogul pe care citim), dincolo de virgula intre ca si ospatar si de spatierea adeseori mai abundenta decit se obisnuieste, ramin niste probleme mai grave.</p>
+<p>Prima, si cea mai putin severa este ca aparent notiunea de "articol" poate fi extinsa pina la a acoperi o simpla fraza. Chestia ne face mai capabili sa apreciem atit efortul supraomenesc cit si realizarile remarcabile ale altor ospatari, precum de exemplu <a href="/2010/i-am-very-smart/">Vali Petcu</a>. Gindindu-ne cam care este nivelul de la care a pornit si care i-ar fi de fapt mediul proxim putem intelege de ce s-ar simti mindru ca reuseste sa scrie uneori chiar si cinci fraze la rind, uneori chiar si fara greseli ortoepice (mai rar). </p>
+<p>A doua, si mult mai severa este... ca acest articol nu inseamna nimic. Este irelevanta pura, nu aduce absolut, dar absolut nici un fel de informatie cititorului. Afirmatiile pe tiparul X a facut Y nu pot avea sens in conditiile in care X este un obiect virtual, si ospatarescul  Robert Avacov este fix un astfel de obiect virtual. </p>
+<p>Cineva s-a sarutat cu altcineva, la un moment dat, in trecut. Cine ? Nu stim. Cu cine ? Nu stim. Ce aflam din aceasta comunicare ? Participantii fiind virtuali, tot ce ni se comunica este ceva ce intr-adevar, realizam si noi : ca e posibil ca cineva sa se pupe cu altcineva in Romania. Nu-i chiar certitudine, cel putin pentru o parte din cititorii fara buletin, dar e destul de aproape cit sa nu mai conteze practic.</p>
+<p>Observatie care imi pare utila intr-un mod mai general. Exista logic vorbind doua tipuri de cititori ai oricarui blog (deci receptori de informatie, da ?) : in primul rind, si [probabil] mai putin numerosi, cei care-l cunosc personal pe autor. Colegii de serviciu, iubita, mama, ospatarul-sef. In al doilea rind, cititorii care-si formeaza o reprezentare mentala a autorului pe baza celor scrise de el. Pentru acesti [probabil mai numerosi] cititori, autorul este de fapt un personaj literar, exact asa cum si Dr. Watson sau Batman sunt personaje literare. </p>
+<p>In raport cu aceasta a doua categorie, sigur ca in principiu si cit ce-i priveste pe cititori autorul-personaj poate sa faca absolut orice, blogul este pina la urma literatura. Limita (asa cum <a href="/2010/maek-monis-on-autopilot/">am mai discutat</a>) este data de credibilitate, care este intr-un sens tocmai o masura a virtualitatii personajului (de-aia se si numeste "realism"). Daca Batman da peste niste violatori si se apuca sa chinuie si el victima cot la cot cu ei acest comportament paradoxal (<em>out-of-character</em>) creeaza o disonanta cognitiva care slabeste, per total, credibilitatea personajului, il virtualizeaza. Pe de cealalta parte, consecventa devirtualizeaza personajul, ceea ce peste o anumita limita e nociv : daca realitatea n-ar fi plicticoasa, oamenii nu s-ar obosi sa citeasca fictiune.</p>
+<p>Amicul Avacov eludeaza aceasta paradigma, el fiind complet virtual pentru cea de-a doua categorie de cititori. De-aici presupunerea necesara pentru a nu distruge complet obiectul este ca o fi avind concretete absoluta pentru prima categorie de cititori, si deci nu avem in fata, de fapt, un blog. Eu n-o creditez. Din punctul meu de vedere, ospatarescu s-a dus la plimbare pe un pointer fara referinta, si practic singura lui existenta virtuala in spatiul weburilor este, la ora actuala, interactiunea cu mine de-aici de la mine de pe blog.</p>
+<p>Ceea ce gasesc ca-i totusi destul de amuzant. </p>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2010/proiecte-speciale-pe-fain/">Proiecte speciale pe fain</a></div>
+                <div class="alignright"><a href="/2010/misoginie-policromie-si-simonie/">Misoginie, policromie si simonie.</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/meta-psihoza/" title="View all posts in Meta psihoza" rel="category tag">Meta psihoza</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2010/pure-virtual-function-call/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2010/pure-virtual-function-call/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>14 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-37997" class="commentbody"><div class="commenthead"><img alt='Anonimosu`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink">Anonimosu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-37997" title="">Sunday, 19 December 2010</a>
+							</div>
+						<p>E si fan Raluxa <a href="http://www.ospatarescu.eu/blogosfera-ascunsa">http://www.ospatarescu.eu/blogosfera-ascunsa</a></p>
+						</li>
+
+										<li id="comment-38001" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-38001" title="">Monday, 20 December 2010</a>
+							</div>
+						<p>Umm. Stai. Raluxa nu-i proasta de-al carei nume se leaga ingrozitor de incompetenta moderare pe intre timp decedatul cum ii zicea, ftw ? Care acum, in decembrie 2010, descopera ca ba da, exista o blogosfera cam cu un ordin de marime (de fapt doua) mai mare decit zoso-arhi-restul-trupei-de-bitangi in care incerca ea cu atita avint sa-si croiasca un loc ? Dar vai. Dar hahahahaha.</p>
+<p>E bine.</p>
+						</li>
+
+										<li id="comment-38004" class="commentbody"><div class="commenthead"><img alt='P Diddy`s avatar' src='http://www.wwwdotcom.com/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink"><a href='http://www.wwwdotcom.com/' class='url'>P Diddy</a><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-38004" title="">Monday, 20 December 2010</a>
+							</div>
+						<p>Cladesti un intreg castel fofoloncozofic avand ca fundatie ca informatia adusa de "baiatu" ala ar fi irelevanta. (Practic, iar <i>proiectezi</i>, dar sa nu divagam.) Informatia este insa mult mai interesanta (cancan, gen) decat articolul tau cu muiste de pilda in aceea ca descrie practic un <i>statutory rape</i> feminin.</p>
+<p>Iarta-ma ca folosesc un cuvant englezesc pe care tu nu-l poti intelege pentru ca-i respingi sensul, dar n-am avut de unde alege.</p>
+						</li>
+
+										<li id="comment-38005" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-38005" title="">Monday, 20 December 2010</a>
+							</div>
+						<p>Hahaha mei, dar cam sari spatiile. </p>
+<p>Una la mina ca <em>statutory rape</em>, ca si orice alt <em>malum prohibitum</em> e o notiune de teoria dreptului, intelegerea ei nu reclama altceva decit o anumita cultura juridica. Tu presupui ca daca discut utilitatea, eficacitatea ori eficienta in practica a implementarilor unor concepte teoretice inseamna ca nu pot intelege conceptele ? Pai asta-i proces cognitiv sau ce facem aici ?! Similar rationind, am ajunge la concluzia ca tu nu poti intelege ideea de zbor pentru ca n-ai bani sa-ti cumperi avion. </p>
+<p>A doua la mina ca te impiedici in presupozitii. Cind spui ca "informatia adusa de baiatu'" deja vorbesti pe nas : tocmai asta-i obiectul disputei, ca daca exista sau nu exista o informatie. Sigur ca tu poti sa presupui, in pofida evidentei, ca ea de fapt exista, dupa care sa duci oistea-n gard in legea ta, da' totusi, nu despre aia e vorba. Daca informatia ar exista, ea poate ar fi interesanta, cancan, alea. Problema este ca ea nu exista. </p>
+<p>Si-ar mai fi, dar in general cam pe acelasi tipar : ori n-ai abilitatea intelectuala de-a identifica gaurile, ori ai impresia ca lumea nu se prinde si merge si asa. La prima banui ca-i a doua explicatie valida, da' la a doua gaurice sunt destul de convins ca fix prima explicatie se aplica.</p>
+						</li>
+
+										<li id="comment-38024" class="commentbody"><div class="commenthead"><img alt='Cristi`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink">Cristi</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-38024" title="">Monday, 20 December 2010</a>
+							</div>
+						<p>Unde-i freud sa ne vada.<br />
+Iote ca baietul a spus ca vrea sa devina "personaj literar" si tu ii tai craca inca de la titlu.</p>
+						</li>
+
+										<li id="comment-38026" class="commentbody"><div class="commenthead"><img alt='P Diddy`s avatar' src='http://www.wwwdotcom.com/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink"><a href='http://www.wwwdotcom.com/' class='url'>P Diddy</a><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-38026" title="">Monday, 20 December 2010</a>
+							</div>
+						<p>Zau dac-am intalnit cineva sa aburizeze mai barbar ca tine.</p>
+<p>In sumar: tu intelegi un cuvant pen'ca il folosesti in niste constructii (i)logice sforaitoare. Si totusi, in a doua la mana, eu sunt -chipurile, gaurile- cel care se-mpiedica intr-un argument circular.</p>
+<p>Logica ta e o curva de centura pe care-o futi cu prisosinta in toate gaurile. Cand mi-o prezinti mie ca fiind contesa inimii tale iar eu remarc in treacat ca n-a avut timp sa se rujeze, dat fiind ca-i curge sperma din nas si urechi, tu-mi spui ca n-am abilitatea intelectuala de-a identifica gaurile.</p>
+<p>Gauramus igitur.</p>
+						</li>
+
+										<li id="comment-38029" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-38029" title="">Monday, 20 December 2010</a>
+							</div>
+						<p>@<b>Cristi</b> Freud e baiat bine crescut si pune palma la ochi.</p>
+<p>@<b>P Diddy</b> Thou jarring common-kissing popinjay! Your mother was a hampster and your father smelt... of elderberries! Thou art by no means valiant, for thou dost fear the soft and tender fork of a poor worm. Thou paunchy toad-spotted strumpet! Etc etc scl samd.</p>
+<p>Ti-am mai zis ca semeni cu zoso ? Parca ti-am mai zis. E prost obiceiul asta, sa te apuci de epitete cind te simti depasit de situatie.</p>
+						</li>
+
+										<li id="comment-38032" class="commentbody"><div class="commenthead"><img alt='P Diddy`s avatar' src='http://www.wwwdotcom.com/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink"><a href='http://www.wwwdotcom.com/' class='url'>P Diddy</a><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-38032" title="">Monday, 20 December 2010</a>
+							</div>
+						<p>Voi lua "hamPster" ca licenta poetica :D <a href="http://www.urbandictionary.com/define.php?term=hampster">http://www.urbandictionary.com/define.php?term=hampster</a></p>
+<p>Chiar nu prinzi ce se-ntampla? Tu-mi spui ca ai dreptate pentru ca eu n-am dreptate. Si-atat.</p>
+						</li>
+
+										<li id="comment-38035" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-38035" title="">Monday, 20 December 2010</a>
+							</div>
+						<p>Buei, la cit esti de lenes cu referintele, puteai sa te faci jurnalist. <a href=http://www.youtube.com/watch?v=9V7zbWNznbs >Hampster</a>. Now go boil your bottoms etc.</p>
+						</li>
+
+										<li id="comment-38041" class="commentbody"><div class="commenthead"><img alt='P Diddy`s avatar' src='http://www.wwwdotcom.com/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">10</div>
+								<span class="authorlink"><a href='http://www.wwwdotcom.com/' class='url'>P Diddy</a><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-38041" title="">Monday, 20 December 2010</a>
+							</div>
+						<p>Ai consumat prima data Monty in versiune scholastica, cu bule de text ca-n benzile desenate, ca eu nu vaz P acolo?</p>
+						</li>
+
+										<li id="comment-38050" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">11</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-38050" title="">Monday, 20 December 2010</a>
+							</div>
+						<p>Pai ma gindeam ca dupa niste luni traite intre vorbitori nativi ti s-o fi desfundat urechile. Da' nu-i graba, timp ai.</p>
+						</li>
+
+										<li id="comment-38208" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">12</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-38208" title="">Wednesday, 22 December 2010</a>
+							</div>
+						<blockquote><p>Din punctul meu de vedere, ospatarescu s-a dus la plimbare pe un pointer fara referinta, [...]</p></blockquote>
+<p>Deci să înțeleg că articolul de față e un handler pentru excepție?</p>
+						</li>
+
+										<li id="comment-38209" class="commentbody"><div class="commenthead"><img alt='dAImon`s avatar' src='http://daimon.me/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">13</div>
+								<span class="authorlink"><a href='http://daimon.me/blog/' class='url'>dAImon</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-38209" title="">Wednesday, 22 December 2010</a>
+							</div>
+						<p>geek!</p>
+						</li>
+
+										<li id="comment-38217" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">14</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-38217" title="">Wednesday, 22 December 2010</a>
+							</div>
+						<p>Cam asa ceva.</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="author8766162" id="author8766162" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email8766162" id="email8766162" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="url8766162" id="url8766162" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="14956" /></p>
+				<input type="hidden" name="comment_post_time" value="1766286559-207.241.225.114" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2025 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-14956")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-14956");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-14956");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

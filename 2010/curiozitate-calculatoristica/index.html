@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_ian2009.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Curiozitate calculatoristica on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">If "waifu" is "wife"<br />should "kung-fu" be "knife" ?
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-10969"><div class="post" id="post-10969">                    <h1><a href="/2010/curiozitate-calculatoristica/" rel="bookmark" title="Permanent Link to Curiozitate calculatoristica">Curiozitate calculatoristica</a></h1>                        <div class="date">                                     Thursday, 26 August, Year 2 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p>Am un server pe care ruleaza a-patchy-server, pe care probabil ca-l cunoasteti sub numele mai recent de Apache. Langa el, un alt server ruleaza MySql. Sistemul este eficient, cele doua traiesc vesele impreuna si fac misteau de incercarile anemice ale diverselor nulitati online.ro de-a denial-of-service frumusete de website. Sau ma rog, faceau, ca dupa sirul neintrerupt de umilinte din 2009 prapaditii respectivi si-au cam acceptat irelevanta.</p>
+<p>Mi se pare ca aranjamentul asta e o solutie cvasi-perfecta, un fel de celula de baza a societatii informationale, servere de Apache si servere de MySql perechi-perechi, mana in mana la infinit. Functioneaza foarte bine si mai e si poetic.</p>
+<p>Serverul care ruleaza MySql nu mai ruleaza altceva decit MySql. Nu ruleaza, de exemplu, Gnome. Nu are, de exemplu, jocuri. Tot ce face el, 100% din timp este sa execute database queries, cat de repede poate. Idem si la fel, serverul care ruleaza Apache nu mai ruleaza altceva decit Apache. (Sigur, afirmatiile astea nu-s exact corecte, sigur ca mai ruleaza logd si tot felul de chestii strict legate de functionarea respectivelor pachete, dar pe moment putem ignora problema).</p>
+<p>Sa examinam putin structura unui astfel de server. In primul rand, pe placa de baza se afla un procesor, care-i legat printr-un bus de memorie, prin alt bus de porturi si harduri. Procesorul foloseste o arhitectura programabila care ingaduie niste operatii de baza. Deasupra lui, in software, se gaseste kernel-ul Linux, care transforma niste operatii in instructiuni masina interpretabile de catre procesor. Deasupra kernel-ului se gaseste compilatorul de C, care transforma instructiuni C in binare executabile de catre kernel. Deasupra lui se gaseste codul Apache, sau Mysql, care a fost deci compilat pentru a rezulta niste binare care sa poata fi interpretate de Linux intr-o succesiune de operatii pe care procesorul sa le poata executa.</p>
+<p>Totusi, compilatorul de C nu compileaza optimizat pentru a produce un server Apache sau MySql. El compileaza in general, pentru a produce <em>absolut orice</em>, si-i optimizat pentru a se descurca bine intr-o multitudine de situatii posibile. Pe de cealalta parte kernelul de Linux nu-i gandit pentru a executa un anumit set de binarii, ci pentru a executa <em>orice</em>. Si procesorul nu-i gandit pentru a rula anumite programe, ci orice programe, daca formatam hardurile si instalam Windows 95 procesorul va rula fara probleme (ma rog, teoretic vorbind) windows 95, singur in tot datacenter-ul.</p>
+<p>De ce se intampla asa ? Pentru ca-i mai ieftin, atunci cind produci ceva, sa produci pentru massa decit pentru nisa. De exemplu, atunci cind faci masini e bine sa faci un singur model de masina care poate fi apoi folosit de oamenii de orice inaltime, in loc sa faci un model strict pentru cei de 1 metru 50, alt model pentru cei de 1 metru 60 si tot asa pina la doi metri. One size fits all, cum ii zice englezul. E mai bine sa produci niste procesoare care pot rula orice decit sa produci cate-un procesor pentru fiecare sarcina. De ce-i mai bine ? Pai, dragii mosului, pentru ca pretul de-a produce un procesor e acelasi oricat de multe vinzi, da' castigul e fix o functie de cate vinzi. </p>
+<p>Totusi, parca nu-i foarte convenabil sa cumparam haine facute pe teoria lui "aceeasi masura pentru toti", ca nu ne dorim sa umblam mereu in capoate. Pantofii ce sa mai vorbesc, si slapii mult iubiti de bucuresteni au 2-3 marimi diferite, darmite pantofii oamenilor civilizati, cate zece sau douasprazece si pentru barbati si pentru femei.</p>
+<p>Adevarul este, privind din partea cealalta, ca exista calculatoare care nu vor rula niciodata altceva decit MySql. Niciodata. Uite de exemplu asta al meu va fi aruncat la cos pentru ca-i prea vechi fara sa fi rulat niciodata alt cod decit mysqld. Asa ca el mai exista sute, mii, milioane de procesoare dedicate, zumzaind in datacentere in intreaga lume.</p>
+<p>Pe masura ce posibilitatea de-a imbunatati viteza procesoarelor micsorandu-le tranzistoarele scade, presiunea de-a produce cipuri mai performante va aduce probabil aceasta chestiune in discutie : de ce sa facem noi procesoare "universale", peste care utilizatorul sa instaleze linux si apoi mysql, cind putem face procesoare direct de mysql, neprogramabile, complet optimizate pentru a rula aceasta singura sarcina direct din constructia tranzistoarelor lor ? </p>
+<p>Sigur, n-ar putea fi foarte usor "updatate", adica daca vrem sa schimbam codul am rupt-o-n fericire, ca ne revine sa schimbam pastilele de siliciu. Dar pe de alta parte, procesoarele oricum se schimba odata la cativa ani, si inca mai important, intre a da o suta de dolari pe-un procesor universal dar mai lent, si-a da aceeasi suta de dolari pe-un procesor dedicat dar mai rapid, cred ca mi-e destul de clar ca multa lume va cumpara si din a doua categorie. Pur si simplu nu-i posibil ca un datacenter sa n-aiba ce face cu o suta, o mie de procesoare de mysql : intotdeauna vor exista servere dedicate.</p>
+<p>Sigur, e vorba de niste costuri imense de cercetare-dezvoltare. Dar, la cum evolueaza tehnica de calcul, mie unul imi pare ca vor deveni inevitabile.</p>
+<p>Intrebarea care ma framanta este deci <em>cand</em> credeti ca vom avea primul procesor dedicat MySql, incapabil sa ruleze altceva, sau sa incarce un sistem de operare ?</p>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2010/nesuferitii/">Nesuferitii</a></div>
+                <div class="alignright"><a href="/2010/o-suta-de-cuvinte-lxxii/">O suta de cuvinte - LXXII</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/aicmf/" title="View all posts in AICMF" rel="category tag">AICMF</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2010/curiozitate-calculatoristica/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2010/curiozitate-calculatoristica/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>47 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-30342" class="commentbody"><div class="commenthead"><img alt='Mihai Pintilie`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink">Mihai Pintilie</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30342" title="">Thursday, 26 August 2010</a>
+							</div>
+						<p>Uite postul acesta ramas pentru posteritate va confirma daca ai avut sau nu dreptate.  Rima pe procesoare sau procesoare pt rima? Ar putea aparea.. caci volum pare sa fie dupa cum ai descris situatia. 10-15 ani sa se schimbe generatiile de researceri si delevopari de la Intel si AMD.</p>
+						</li>
+
+										<li id="comment-30343" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30343" title="">Thursday, 26 August 2010</a>
+							</div>
+						<p>Pai cam de-aia l-am si scris, is curios.</p>
+						</li>
+
+										<li id="comment-30344" class="commentbody"><div class="commenthead"><img alt='F`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink">F<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30344" title="">Thursday, 26 August 2010</a>
+							</div>
+						<p>deci, sa lamurim zic: (cred)<br />
+- Intel ca sper ca-s de la el procesoarele face niste procesoare, one-size-fits-all. =&gt; pentru Intel nu renteaza sa faca o linie de procesoare sa zicem custom-built pt a rula MySQL pe el. De ce? pentru ca renteaza mai mult ca o echipa de programatori sa stea sa scrie in Assembler un MySQL customizat pentru procesoarele Intel (alea de server). De ce nu s-o facut atunci un MySQL super-optimizat pentru anumite linii de procesoare? Pentru ca poate nu renteaza. Nu stiu asta... zic si io. Asa sa nu tac.<br />
+BTW  nu mai folosi Apache... pune alt server de web... nginx sau lighttpd am auzit ca cica ar fi mai misto. si foloseste memcache. si alte prostii de-astea.</p>
+						</li>
+
+										<li id="comment-30345" class="commentbody"><div class="commenthead"><img alt='Dr.A`s avatar' src='http://blog.adrian.mihalcioiu.ro/2010/koichi-toyama.html/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink"><a href='http://blog.adrian.mihalcioiu.ro/2010/koichi-toyama.html' class='url'>Dr.A</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30345" title="">Thursday, 26 August 2010</a>
+							</div>
+						<p>Vezi cu Steve poate face Apple un iApache si-un iMySQL :D<br />
+Oracle avand Sun poate (sigur) ca incearca/are asa ceva. </p>
+<p>Eu nu-ti pot spune concret de ce e o idee nefezabila dar bunul simt si experienta altora imi indica o seama de riscuri majore:<br />
+- Cine mai scrie azi compilatoare si cum faci sa-i recrutezi pe cei mai buni pt asa un proiect?<br />
+- Un compilator diferit ar, cel mai probabil, rupe multe aplicații existente.<br />
+- la numarul de patente existente, probabil un "producator" nou s-ar trezi cu gramezi de procese</p>
+						</li>
+
+										<li id="comment-30346" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30346" title="">Thursday, 26 August 2010</a>
+							</div>
+						<p>În treacăt fie spus, kernel-ul nu are rolul, citez: </p>
+<blockquote><p>Deasupra lui, in software, se gaseste kernel-ul Linux, care transforma niste operatii in instructiuni masina interpretabile de catre procesor.</p></blockquote>
+<p>Instrucțiunile sunt deja în cod mașină (dacă nu sunt scrise într-un limbaj gen java, python etc, deși aici intrăm într-o discuție mai amplă) și sunt interpretate direct de către procesor. Printre sarcinile executate de un nucleu de sistem de operare se află:</p>
+<p>- Decide cine și când execută, uneori și ce face (în special în problemele de securitate) cod. „Cine” este de obicei un proces, „când” este o cuantă de timp ce i se alocă (tipic unui mediu multitasking), „ce” este o altă entitate din sistem, gen un fișier, un socket (care-i tot fișier) sau o zonă de memorie. Bineînțeles, „cine” rămâne în mare parte la latitudinea utilizatorului, prin încărcarea executabilului.</p>
+<p>- Oferă modalități de abstractizare - cum sunt cele deja menționate, adică fișierul și procesul - pentru lucrul facil cu hardware-ul. În felul ăsta, în cele mai multe cazuri programatorul de sistem, sau chiar și cel de drivere, nu va lucra direct cu hardware-ul, ci cu niște interfețe generice (gen cea de intrare-ieșire, care-i aceeași la USB, SATA, tastatură și așa mai departe - Linux vede și dispozitivele periferice drept fișiere).</p>
+<p>- Gestionează memoria. Lucru mai important decât pare la prima vedere, având în vedere că o mare parte din operațiile de gestiune (adică translatarea adreselor) au fost trecute direct în hardware pe toate arhitecturile respectabile.</p>
+<p>Sunt două variante la ceea ce spui tu:</p>
+<p>- Folosirea MySQL drept firmware, vezi discuția de pe twitter. Problema e că dacă elimini sistemul de operare, nu mai are cine să mai facă toate chestiile de mai sus. MySQL e făcut în C, deci folosește biblioteca standard C (plus multe altele, care la rândul lor folosesc libc), care la rândul ei se folosește de sistemul de operare. Poți să compilezi cod C direct pentru o anumită mașină (C compilează în asamblare), trecând peste sistemul de operare (și se face asta pentru chestii embedded mai simple), dar asta te cam lasă în fundul gol, să te descurci singur în a comunica cu hardware-ul. Și de ce să lași MySQL să facă asta când există deja o unealtă specializată pentru așa ceva, adică kernel-ul. El nu-i bottleneck-ul, ci dimpotrivă, face ceea ce știe mai bine, adică comunică eficient cu hardware-ul.</p>
+<p>- Folosirea MySQL direct ca dispozitiv hardware.</p>
+<p>A doua e chiar mai costisitoare și mai ineficientă decât prima, deoarece la apariția unei noi versiuni de MySQL ar însemna să vinzi un nou procesor. Potențialii cumpărători ar trece înapoi la software imediat în condițiile astea.</p>
+<p>Soluția pe care o văd eu este următoarea: atunci când ai un proces pe care vrei să îl forjezi la maxim, îi dai prioritate în <a href="http://en.wikipedia.org/wiki/Real-time_operating_system" >timp real</a> și ai rezolvat problema. O mare parte din performanță este pierdută în timpul scheduling-ului, iar problema asta se rezolvă complet când ai suport pentru planificare în timp real în kernel. De asemenea, aplicațiile de baze de date se pot optimiza prin plasarea bazei de date direct într-un sistem de fișiere raw, având în vedere că o mare parte din overhead-ul de performanță de acolo vine.</p>
+<p>Motivul pentru care nu se mai recurge la programare direct în firmware sau în hardware e acela că modelul ăsta nu mai scalează de câțiva ani încoace. Până și o aplicație gen MySQL ar fi o durere de cap de implementat direct pe hardware (fie neprogramabil, fie cu instrucțiuni generice dar programat direct), așa că modularitatea, și implicit flexibilitatea, sistemului actual face ca el să fie viabil (inclusiv economic) pe termen lung.</p>
+<p>În paranteză fie spus, dacă ai puterea financiară poți face ceea ce vor să facă și cei de la Facebook: iei o groază de procesoare ARM și pui un procesor să servească un client la un moment dat, în timp real. Cred că o să le iasă experimentul, iar sistemul s-ar putea să scaleze mult mai bine și să fie extrem de performant în comparație cu soluția actuală, bazată pe x86. E ca un fel de mini supercomputer, doar că mult mai ieftin, mai specializat (rulează probabil un kernel Linux minimal în spate) și consumă mai puțină putere. Asta ultima a sunat a marketing, dar toate săgețile mele inginerești chiar arată către „ăștia vor să facă o chestie foarte tare”.</p>
+						</li>
+
+										<li id="comment-30348" class="commentbody"><div class="commenthead"><img alt='Diana Coman`s avatar' src='http://dianacoman.com/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink"><a href='http://dianacoman.com/blog' class='url'>Diana Coman</a><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30348" title="">Thursday, 26 August 2010</a>
+							</div>
+						<p>Imi pare ca pur si simplu nu se merita (deocamdata cel putin). Intai ca or fi procesoarele schimbate odata la cativa ani, dar update-urile la soft vin mai repede de atat. Apoi ca nu e clar cu cat ar fi performantele mai mari si mai ales daca sunt destui dispusi sa plateasca suplimentar pentru imbunatatirea cu pricina. Plus ceea ce as numi un fel de problema Toyota: daca se descopera o eroare in soft, se face un patch si se distribuie, dar daca e o eroare in hardware, atunci retragi, inghiti galusca si dai altul bun.</p>
+<p>Plus ce spune Dr. A, evident, in special ultimele doua puncte (compilatoristi buni exista si de recrutat ii recrutezi daca problema e suficient de interesanta - asta e o alta discutie intreaga). </p>
+<p>Ah, si ca chestie, tin minte ca in laboratoarele de la Poli erau intr-o vreme niste statii hardware dedicat pentru grafica (OpenGL imi pare). Initial ne-am varat de curiozitate nasul prin ele, dar cam aia a fost totul, ca n-au convins. Ma cam indoiesc ca macar la unii care lucreaza mai serios/intensiv cu grafica (gen producatorii de jocuri video?) se foloseste hardware specializat.</p>
+						</li>
+
+										<li id="comment-30350" class="commentbody"><div class="commenthead"><img alt='dAImon`s avatar' src='http://daimon.me/blog/2010-05-12/panteon-truda-sub-ochii-zeilor/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink"><a href='http://daimon.me/blog/2010-05-12/panteon-truda-sub-ochii-zeilor/' class='url'>dAImon</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30350" title="">Thursday, 26 August 2010</a>
+							</div>
+						<p>Problema nu-i ciclul de viaţă al hardware, ci cel software: cât de des un software este modificat fie şi cu minor bugfixes? Then again, ar putea fi rezolvată problema parţial prin eepromuri reprogramabile. Cred.</p>
+						</li>
+
+										<li id="comment-30355" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30355" title="">Friday, 27 August 2010</a>
+							</div>
+						<p>@<b>F</b> Chestia asta cu "nu renteaza" e foarte alunecoasa, experienta ne invata. Nu m-as risca, orice poate ajunge sa renteze.</p>
+<p>Vorba e ca acum arhitectura procesoarelor e gandita intr-un anume fel. Pe modelul propus de mine ea ar fi regandita cu totul, de la instructionset si pana la plasare. Daca tranzistorul ce executa comparatia logica X e la alt capat de pastila decat tranzistorul ce executa comparatia logica Y, dar astea amandoua se executa doar impreuna (particularitate a codului) asa ca ele ar trebui sa fie alaturate ?<br />
+Exemplu fantezist, dar ca sa intelegi cam la ce nivel vorbesc. Nu-i vorba de scris in assembler, e vorba de creat un nou assembler, special si dedicat.</p>
+<p>Am auzit si eu auzenii de-astea. Avem o relatie veche, sunt multumit, mai asteptam.</p>
+<p>@<b>Dr.A</b> Hehehe, mei, eu n-am zis ca-i bine sau ca-i rau, eu am zis ca probabil in curand pe ecrane. E probabil ca Oracle va muta primul pe-acolo, ce-i drept. Sigur asta nu-i genul de chestie care sa poata fi open-source. Eventual Sony poate sa miste, domnu-i stie cat amar de foundries si alte chestii au ei acolo in Niponia. Plus chestia cu IP-ul de care zici, care iarasi limiteaza tot catre un gigant.</p>
+<p>S-ar putea sa fie o posibilitate deschisa de programarea automata, poate ca nici nu se va folosi un compilator, ci se va scrie direct cod masina prin ceva procedura-n lisp. Clar ca va rupe multe aplicatii existente : le va rupe pe toate. Asta-i si scopul, sa nu mearga nimic decat X pe el.</p>
+<p>@<b>Diana Coman</b> Deocamdata clar nu se merita, absolut de acord. Dar mie mi se pare ca intr-acolo bate, inspre a se merita. Procesoare la 10 Ghz n-ai sa vezi veci. </p>
+<p>Cat despre update-uri, depinde de updateuri. Cand ai facut ultima oara un update la GCC ? La TeX ? Unele bucati de cod sunt mature, cred ca vom ajunge curand la maturitate in ce priveste serverele de db, si curand dupa aceea in ce priveste serverele de http (desi, sincer sa fiu, cred ca inainte de aia se va schimba protocolul, da' aia-i alta imensa discutie). Oricum, depinde cum si cat mai evolueaza flash-chipurile, deja au ajuns foarte departe, poti poate sa-i schimbi bios-ul, cel putin pentru unele chestii.</p>
+<p>Nu ar plati insa nimeni suplimentar : ar plati tot atat. Doar ca pentru altceva, mai adecvat unei anumite sarcini. Practic ce propun eu e sa facem tractor, special pentru munca campului, si lumea zice ca lasa ca merge tras plugul si cu Volga. Pai merge, cat merge. Da' un tractor ar avea rotile tractoare mai mari.</p>
+<p>Din cate stiu eu producatorii de jocuri din Vale folosesc in marea majoritate Mac-uri.</p>
+<p>@<b>dAImon</b> Cum ziceam si catre Diana.</p>
+						</li>
+
+										<li id="comment-30356" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30356" title="">Friday, 27 August 2010</a>
+							</div>
+						<p>@<b>spyked</b> Bun, in incercarea mea de-a simplifica am ajuns sa spun prostii. E adevarat ca-i oarecum inexact citatul si mai aproape de realitate e ce zici tu, da' mnoa acu', bun destul de ce cui s-acata, zice ardeleanu'.</p>
+<p>Ideea nu-i sa faci niste modificari de software, ideea e sa faci bare metal dedicat si anume optimizat sa ruleze un anumit software, deci a doua. </p>
+<p>Sa-ti atrag atentia ca la ora actuala producatorii de hardware se STRADUIESC sa limiteze timpul de viata al produselor lor, deci dezavantajul pe care-l gasesti tu ar putea fi foarte bine de fapt un avantaj, functie de frecventa in timp. Plus vezi discutia cu Diana si Alex.</p>
+<p>Din cate stiu eu toata baza de date asta concreta de la care am pornit discutia traieste intr-un virtual disk in RAM, oricum. Problema nu-i acolo, ci la procesor.</p>
+<p>Apropo de chestia cu scalatul, vezi discutia cu programarea asistata, in raspuns la Adrian.</p>
+<p>Eu cred ca Facebook va urma calea Realitatea Media in mai putin timp decat o clipa, la scara timpului la care purtam noi discutia asta. Uita-te la burn rate, uita-te la ce finantare au luat deja si ma-ntelegi. Mai au cativa ani, ca nu se mai gasesc Time Warneri in piata sa faca tampenii de zeci de miliarde. Pe scurt, eu zic ca vor sa faca fail.</p>
+						</li>
+
+										<li id="comment-30364" class="commentbody"><div class="commenthead"><img alt='F`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">10</div>
+								<span class="authorlink">F<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30364" title="">Friday, 27 August 2010</a>
+							</div>
+						<p>Da, dar e infinit mai usor sa scrii cod (chiar si assembler) decat sa proiectezi si sa realizezi un procesor (ca design si ca realizare fizica, materiala).  Pai doar optimizarea schemei unui procesor si testarea lui implica mai multa munca decat scrierea de cod. O fabrica de-astea de procesoare are un cost de ordinul miliardelor, de la 1 in sus.</p>
+						</li>
+
+										<li id="comment-30365" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">11</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30365" title="">Friday, 27 August 2010</a>
+							</div>
+						<p>Clar. Pe de cealalta parte, un miliard e fix pix la nivelul discutiei. Sau altfel spus, orice merita facut are costuri de la un miliard in sus.</p>
+						</li>
+
+										<li id="comment-30366" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">12</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30366" title="">Friday, 27 August 2010</a>
+							</div>
+						<p>Quote @F: </p>
+<blockquote><p>Da, dar e infinit mai usor sa scrii cod (chiar si assembler) decat sa proiectezi si sa realizezi un procesor (ca design si ca realizare fizica, materiala)</p></blockquote>
+<p>Problema nu-i asta, există deja limbaje high level pentru descriere hardware. Să nu ne ancorăm în ideea că-s high level și-s ineficiente (ca java), ci dimpotrivă, sunt mapate exact pe proiectarea de integrate specializate, optimizate pentru viteză sau număr de tranzistori pe suprafață. În plus, tehnologia FPGA (care exact asta oferă, hardware programabil la bare metal) permite testarea fără costuri prea mari a unui astfel de hardware.</p>
+<p>Problema lor e că nu scalează peste nivel de arhitectură cu set generic de instrucțiuni. Sigur, merge să proiectezi un modul de criptare, altul de decodare mp3 sau alte aplicații simple direct în hardware. Teoretic merge și un MySQL, da' care-s costurile? Eu unul văd un fail în chestia asta, fiindcă-i așa multă bătaie de cap încât și cea mai bună echipă de ingineri în domeniu ar putea să o facă lată.</p>
+<p>@Mircea Popescu:<br />
+Chestia cu maturitatea nu-i de ajuns. O să ai mereu update-uri de securitate, mai ales la servere web și baze de date, unde ea e esențială.</p>
+<p>În plus: ca să faci hardware optimizat să ruleze un anumit software *trebuie* să modifici, în esență, software-ul respectiv, adică să îl portezi în limbajul în care faci proiectarea (fie el și proiectare logică pură). Chestie care am zis și mai sus, nu scalează, implică portarea inclusiv a bucăți din biblioteca standard C și alte chestii care înainte se ocupau de alocarea memoriei și așa mai departe, sau rescrierea de la zero a programului, chestie care nu diferă cu mult ca bătaie de cap. Asta m-a îndemnat acum două paragrafe să zic că nu scalează. Și în continuare cred asta, Oracle sunt o companie care vor să scoată bani, nu să îi risipească pe chestii care ar putea să nu meargă.</p>
+<blockquote><p>Sa-ti atrag atentia ca la ora actuala producatorii de hardware se STRADUIESC sa limiteze timpul de viata al produselor lor, deci dezavantajul pe care-l gasesti tu ar putea fi foarte bine de fapt un avantaj, functie de frecventa in timp.</p></blockquote>
+<p>Motiv pentru care n-o să îl cumpere nimeni. E prea riscant până și pentru producător să scoată așa ceva pe piață. Îmi vine în minte întâmplarea cu bug-ul cu împărțirea în virgulă mobilă de pe procesoarele Intel, care i-a costat o groază și s-au învățat să nu-l mai facă a doua oară. Dar pentru un program mai mare care poate avea bug-uri unde nu te aștepți? Scenariul e: prima dată se vinde procesorul în draci, apare un bug, clienții trec înapoi pe soluția software, firma care a vândut chestiile alea dă faliment. Dacă m-ar angaja consultant, eu asta le-aș spune și acum, pe riscul meu de a fi dat afară.</p>
+<p>Asta a și dat naștere discuției legată de <a href="http://www.dianacoman.com/blog/?p=313" >complexitatea ingineriei software</a> prin comunitățile de specialiști.</p>
+<p>Toată lumea preferă portarea pe ARM astăzi. Dacă iei un televizor, cel mai probabil ăla o să aibă MIPS sau ARM în spate, un router la fel (cu sistem de operare pe el; uite, și ei aveau opțiunea să facă altfel, și și la ei performanța contează la fel de mult dar au preferat să pună OS-uri și alte firmware-uri până și pe switch-uri, mă gândesc la Cisco). Smartphone-urile au mai toate arhitecturi ARM în spate. Direcția în care s-a tot mers a fost tocmai dezvoltarea unui hardware destul de mic și în același timp destul de puternic încât să se poată pune un kernel drept firmware, nu văd de ce s-ar renunța la asta acum.</p>
+<p>Astfel că se respectă filosofia unix, do one thing, do one thing well: optimizările instrucțiunilor se fac la nivel hardware, optimizarea interfațării cu hardware-ul la nivel de sistem de operare, optimizarea complexității la nivel de algoritmică și în final, optimizarea fluxului de instrucțiuni (al codului) - și nu numai - la nivelul compilatorului și eventual al programatorului (asta în high-performance computing). În final, se trece pe arhitecturi distribuite, fiindcă astea se ocupă mai bine de probleme de dimensiuni mari (aici includem și bazele de date) și se fac optimizări pe baza unui profiling detaliat, adică la nivel de asamblare. Aici prefer să mă iau după creierul celor din mediul universitar, care au ajuns la petaflops cu abordarea asta.</p>
+<p>Despre treaba cu Facebook, nu știu, om trăi și om vedea, orice e posibil.</p>
+						</li>
+
+										<li id="comment-30370" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">13</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30370" title="">Friday, 27 August 2010</a>
+							</div>
+						<p>Din experienta mea in managementul proiectelor de cercetare (care nu-i nici intr-un caz imensa, da' totusi exista) dificultatea e rareori criteriul dupa care sa poti prevede care proiecte vor reusi si care nu. Eventual e un predictor invers, proiectele dificile reusesc mai des decat cele banale. </p>
+<p>De ce "o sa ai mereu" updateuri ? Un update e de fapt un antibug. Cate buguri pot exista intr-o aplicatie ? Un numar cu necesitate finit (nu discutam de produsele Microsoft).</p>
+<p>In principiu orice produs inovator e prea riscant pentru a fi scos pe piata, de catre producator, si prea riscant pentru a fi cumparat, de catre cumparator. O singura referinta :<br />
+<blockquote>The firm manufactured the LGP-30, a small, cheap (by the standards of the day) drum-memory computer, and had just started to manufacture the RPC-4000, a much-improved, bigger, better, faster -- drum-memory computer. Cores cost too much, and weren't here to stay, anyway. (That's why you haven't heard of the company, or the computer.)</p></blockquote>
+<p>E solida obiectia ca trendul e dimpotriva, inspre kernelizare, da' simplul fapt ca asa merge trendul nu descalifica neaparat ideea. Uite de exemplu trendul acuma e spre curvie. Zici ca asta demonstreaza ca o manastire nu poate avea succes ?</p>
+<p>Acuma sa nu ma impusti, pot fi de acord ca filosofic vorbind (ca filosofie a computabilitatii lol) sistemele distribuite sunt probabil o solutie mai buna decat integrarea pe care-o descriu eu. Dar sunt convins ca nu-s o solutie universala, si sunt destul de convins ca sunt supra-reprezentate in discurs deja. Cam ca si trenurile, care era vorba ca vor rezolva toate problemele umanitatii prin 1800 si uite c-au fost de fapt un fad.</p>
+						</li>
+
+										<li id="comment-30371" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">14</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30371" title="">Friday, 27 August 2010</a>
+							</div>
+						<blockquote><p>[...] dificultatea e rareori criteriul dupa care sa poti prevede care proiecte vor reusi si care nu.</p></blockquote>
+<p>Asta clar, dar aici nu vorbesc neapărat de dificultate, ci de felul în care un anumit proiect se mapează pe sculele folosite. Că poți face un avion doar din lemn și cuie, cu un ciocan și un fierăstrău dacă ai geniul necesar, doar că avionul ăla va fi un iad de testat și menținut „în formă” (bine, în cazul avionului o să mai și moară unul, doi, zece oameni, asta-i altă poveste), costuri care nu prea justifică rezultatele.</p>
+<p>La fel și în cazul ăsta: în VHDL poți face design-uri hardware foarte tari, iar VHDL-ul poate fi supra-utilizat la chestia asta fără probleme, doar că rezultatul final s-ar putea să fie atât de complex încât nici să nu ruleze în realitate (cum frecvența are o limită, la fel și spațiul se încadrează în limite stricte, din cauza efectului de linie lungă), sau să ruleze dar să consume prea multă putere. Fiindcă nu mai respectă principiile unei arhitecturi de calcul, acela de a avea un set de instrucțiuni simplu pe care să dezvolți - iar pentru task-uri complexe, principiul ăsta oferă mult mai multă putere de calcul decât specializarea hardware-ului. Iar dacă ai totuși un set de instrucțiuni, atunci acel set va reprezenta exact baza software-ului, chiar dacă softul va fi hardcodat în cip. Deci ne întoarcem de unde am plecat.</p>
+<p>Dacă te hotărăști apoi să folosești un set de instrucțiuni, ori generice ori specializate pe MySQL - să ținem cont că nici instrucțiunile x86 nu sunt simple: un mov din memorie în registru e compus de fapt din mai multe microinstrucțiuni -, te lovești apoi de tot restul problemelor hardware de care s-au lovit sistemele de operare din anii '70 încoace: gestiune a memoriei principale, gestiune a memoriei secundare (presupunând că ai o bază de date care scalează la ordinul TB, n-o să o ții direct în RAM), interfațare cu dispozitiv de rețea sau alt tip de interconect, într-un cuvânt, exact ceea ce face un sistem de operare astăzi și o face bine. Până la urmă o să ajungi să ai tot un kernel drept firmware, unul care rulează un singur proces, adică MySQL. Iar ne întoarcem de unde am plecat.</p>
+<p>Eu unul mă gândesc așa: chiar dacă reușești să treci peste toate problemele de mai sus, costul de a transpune zeci sau sute de mii de linii de cod în hardware e mult mai mare decât a-l lăsa în software. Hardware-ul, siliciul, piesele, astea costă, în timp ce software se poate face în limita spațiului de memorie, iar spațiu avem.</p>
+<blockquote><p>Acuma sa nu ma impusti, pot fi de acord ca filosofic vorbind (ca filosofie a computabilitatii lol) sistemele distribuite sunt probabil o solutie mai buna decat integrarea pe care-o descriu eu. Dar sunt convins ca nu-s o solutie universala, si sunt destul de convins ca sunt supra-reprezentate in discurs deja.</p></blockquote>
+<p>Nu-i vorba de asta. Sistemele distribuite, clustere, grid-uri etc., (sau „cloud”, cum le zic ei în marketing), merg pe exact aceleași principii ca și circuitele electronice: bucăți mici, specializate, interconectate - în diverse topologii: paralel, serie, stea, cascadă, arbore etc. în funcție de problemă -, din care rezultă sisteme ce execută task-uri complexe. Atâta doar că principiile astea sunt aplicate la un nivel mai înalt și pentru probleme de dimensiuni mult mai mari.</p>
+<p>Acum deh, eu s-ar putea foarte bine să nu am dreptate, la fel cum nici Bill Gates nu a avut dreptate cu cei 640k și nici Kelvin când a spus prostia referitoare la avioane. Faptul că am sau n-am dreptate e prea puțin important, iar dacă industria merge-n altă direcție decât cred eu, mergem și noi cu ea.</p>
+						</li>
+
+										<li id="comment-30373" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">15</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30373" title="">Friday, 27 August 2010</a>
+							</div>
+						<p>In principiu ai dreptate, pe de cealalta parte Traian vuia.</p>
+<p>De intors nu ne intoarcem neaparat : poate ca vei avea un <em>alt</em> set de instructiuni, dedicate. Asa o situatie satisface cerintele mele din text de exemplu.</p>
+<p>Cat despre cine are dreptate : nici nu putem avea dreptate pe niste afirmatii care discuta viitorul decat atunci, ori dreptatea aia de-atunci nu mai e la discutia asta de-acum, ci la o alta discutie. </p>
+<p>Da' io sincer iti spun ca-s curios.</p>
+						</li>
+
+										<li id="comment-30374" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">16</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30374" title="">Friday, 27 August 2010</a>
+							</div>
+						<blockquote><p>De intors nu ne intoarcem neaparat : poate ca vei avea un alt set de instructiuni, dedicate. Asa o situatie satisface cerintele mele din text de exemplu.</p></blockquote>
+<p>Așa ar suna interesant o mașină care să aibă select, update, create table șamd implementate în hardware, în stilul mașinilor Lisp (care tot aveau instrucțiuni de assembly mult mai scârboase, dar erau optimizate pentru procesare de expresii Lisp). Pe de altă parte, mașinile Lisp sunt un exemplu de afacere eșuată, una care poate ar fi mers doar dacă nu existau PC-urile.</p>
+<p>Dar vorba aia, mai vedem ce-o fi, și eu sunt curios.</p>
+						</li>
+
+										<li id="comment-30406" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">17</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30406" title="">Saturday, 28 August 2010</a>
+							</div>
+						<p>Eu unul mă gândesc așa: chiar dacă reușești să treci peste toate problemele de mai sus, costul de a transpune zeci sau sute de mii de linii de cod în hardware e mult mai mare decât a-l lăsa în software. Hardware-ul, siliciul, piesele, astea costă, în timp ce software se poate face în limita spațiului de memorie, iar spațiu avem.</p>
+<p>Am citat din spyked, baiat foarte inteligent si cunoscator in domeniu, dupa cite vad eu. Da-mi voie totusi sa te contrazic pe ici, pe colo. Si am sa incerc sa vorbesc pe limba tuturor, fara prea multi termeni tehnici.</p>
+<p>Acum destul de multi ani un televizor cu ``lampi`` costa vreo 3-4000 de lei, la un salariu de maxim 2000. Daca se strica dracovenia dadeai fuga la depanator si scoteai niste bani din buzunar fiindca nu-ti permiteai sa-l inlocuiesti cu una, cu doua. Si eu am facut bani din asta pe vremuri - cei care nu au habar ce e aia PL500 le arat eu una !<br />
+Evolutia tehnologiei a permis scaderea continua a costurilor de fabricatie in paralel cu cresterea performantei. Astazi chiar si mie imi vine mai usor sa-mi iau televizor nou decit sa-l repar pe cel vechi, desi stiu sa fac acest lucru.<br />
+Problema e valabila in orice domeniu, de la masini la calculatoare.</p>
+<p>Si acum sa ne intoarcem la oile noastre. Eu zic ca lucrurile vor merge in paralel inca multa vreme de acum incolo. Asta fiindca oamenii inventeaza ceva, incearca acel ceva pe arhitecturi universale si apoi le transpun in rezolvari hardware atunci cind costurile devin mai mici. Am sa incerc sa va conving prin exemple.<br />
+Poti sa iei un PC mediu sau ditamai scula de pus in rack, sa instalezi pe el un mediu LAMP si sa faci un server. Ce e acela un server ? Ei bine, contrar majoritatii opiniilor, un server nu e un DEVICE, e o functie !!! Care poate fi implementata si altfel. Sa zicem ca serverul tau are functii de rutare. Poti sa tii in priza ditamai scula sau poti sa-ti iei un D-Link din Real cu 59 de lei (ultimul pret vazut de mine). In cutiuta aia cit 2 pachete de tigari niste neni au bagat hardware si software dedicat iar cutiuta face, pentru doar 59 de lei, urmatoarele: routing, NAT, firewall, port forwarding, access point (adica trece in sistem radio-internet wwirelles, stiti si voi ce zic) si inca multe altele.<br />
+Daca vrei alt router cu alte performante ce faci, platesti cu mii de euro un programator, bagi ditamai scula in rack si astepti minunea ? Sau mai dai vreo suta de lei si iei altul ? Pai daca merge doi ani, cit e garantia, e de-a dreptul beeeton. Sa traim noi doi ani si sa vedem, stiti vorba aia.<br />
+V-am dat un exemplu dar puteti sa va ganditi la mai multe. Prin anul 2000 era la moda o dracovenie numita modem AMR. Am avut si eu; era vorba de o simpla interfatza cu o linie telefonica, pentru a crea un modem dial-up, iar restul muncii il facea procesorul principal. Din fericire prostia nu a tinut prea mult, astazi placile de retea care fac ``totul`` au devenit banale, nici nu le mai bagam in seama. Sau placile video, cit lucra inainte procesorul principal si cit lucreaza azi procesorul dedicat ? Apropo, in telefonul mobil e tot un procesor, dar e DEDICAT, bietul de el. Si asta pentru ca, dupa ce au pus la punct programe si instructiuni, inginerii au transpus totul pe hardware dedicat. Cum ne-ar fi stat cu ditamai calculatorul la ureche, loool ?!!</p>
+<p>In concluzie, dragul meu Lucian (spyked) astazi siliciul costa mult mai putin iar materia cenusie din ce in ce mai mult. (Daca ai - si tu o ai - foloseste-o cu schepsis si nu te vinde ieftin, dar acesta este un subiect demn de o alta discutie). Dupa umila mea parere, de amator care a invatat compulatoristica exact ca lautarul, noi si noi programe se vor dezvolta pe arhitecturi generale iar apoi vor fi transpuse in arhitecturi hardware dedicate. Totul tine de raportul cost/performanta, ca de-aia suntem in economia de la piata.<br />
+Atunci cind va fi mai ieftin sa faci un procesor dedicat pentru MySQL sa fiti siguri ca el va aparea. Va fi o dracovenie mica dupa care te vei uita mult pe placa de baza, eventual ``plug-and-play`` pe o interfata PCI serial !</p>
+<p>Iar in ziua aceea cineva va crea si va produce o dracie mititica si ieftina care, culmea, stiti ce va face ? Va incarca un ditamai site-ul din memoriile flash in RAM si il va livra celor care il cer. La naiba cu HDD-urile si toate celelalte ! In ziua aceea dom` Popescu n-o sa se mai uite la mine ca pisica la calendar atunci cind o sa auda de ideea de a livra un site direct din RAM. Apropo, dom` Popescu, ti s-a intimplat vreodata sa ai o idee nebuneasca si apoi sa vezi ca nu esti singurul ? Ei bine, in ultimul timp am facut sapaturi. In maxim doi ani o sa iei din supermarket o dracie mititica, buna de bagat in priza si care o sa faca pe serverul de hosting. In ziua aceea o sa ne intilnim si ar trebui sa-ti fac: sic, sic ! Dar ma abtin, ca nu esti tu singurul care m-a privit circumspect in timp ce niste cercetatori lucreaza de zor la EXACT ceea ce am zis eu acum vreo luna. Dar aia sunt cercetatori, nu incuiati la cap acre au pretentia ca le stiu pe toate.</p>
+<p>No, numai bine va urez si spor la compulatoristica.</p>
+						</li>
+
+										<li id="comment-30408" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">18</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30408" title="">Saturday, 28 August 2010</a>
+							</div>
+						<p>@<b>spyked</b> Intr-un sens si linux-ul e un exemplu de afacere esuata.</p>
+<p>@<b>Marian S</b> Poti folosi &lt;blockquote> daca vrei sa citezi apropo.</p>
+<p>In rest, nu zici tu rau ce zici, in mare. </p>
+<p>Cat despre chestiunea cu RAM-ul, care vaz ca inca te arde, problema in discutia respectiva n-a fost principiul, ci modul in care te-ai apucat sa-i descrii implementarea (cam prea lautaresc pentru gustul unora dintre cititori, moi y compris). Altfel, ca principiu, ceea ce zici tu se face deja, demult, nu-i vorba de niste cercetatori.</p>
+						</li>
+
+										<li id="comment-30409" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">19</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30409" title="">Saturday, 28 August 2010</a>
+							</div>
+						<p>Corectie: incuiati la cap acre = incuiati la cap CARE ...</p>
+						</li>
+
+										<li id="comment-30410" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">20</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30410" title="">Saturday, 28 August 2010</a>
+							</div>
+						<p>Aoelu, dom` Popescu, atunci imi ziceai ca bat campii iar acum spui ca se face deja ????? Da, recunosc, esti bun de politica.</p>
+						</li>
+
+										<li id="comment-30411" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">21</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30411" title="">Saturday, 28 August 2010</a>
+							</div>
+						<p>Ce spuneam eu :</p>
+<blockquote><p>
+N-ai mai mari sanse sa concurezi furnizorii [reali] de hosting din apartamentul tau la bloc decat sa ai sa concurezi producatorii de sateliti sau reactoare nucleare. Din punct de vedere comercial, ideea ta e o traznaie creata.
+</p></blockquote>
+<blockquote><p>Problemele nu sunt nici intr-un caz RAM caching, dimensiunea hdd-ului etc.</p></blockquote>
+<blockquote><p>La chestiunea tehnica : linux iti permite sa creezi volume in orice mediu de stocare doresti. Deci poti declara un drive virtual in memorie, si instalezi si rulezi de-acolo. Problema este ca nu-ti va oferi nici un fel de imbunatatire de performanta, linux DEJA face asta, da’ mnoa, daca tu te incapatanezi sa nu te apuci de ce ti-am spus si sa te dai cu capu’ de pereti, asta-i problema ta.</p></blockquote>
+<p>Winning by losing, you are doing it rite.</p>
+						</li>
+
+										<li id="comment-30414" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">22</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30414" title="">Saturday, 28 August 2010</a>
+							</div>
+						<p>@Marian S:</p>
+<blockquote><p>Ei bine, contrar majoritatii opiniilor, un server nu e un DEVICE, e o functie !!! Care poate fi implementata si altfel. Sa zicem ca serverul tau are functii de rutare. Poti sa tii in priza ditamai scula sau poti sa-ti iei un D-Link din Real cu 59 de lei (ultimul pret vazut de mine). In cutiuta aia cit 2 pachete de tigari niste neni au bagat hardware si software dedicat iar cutiuta face, pentru doar 59 de lei, urmatoarele: routing, NAT, firewall, port forwarding, access point (adica trece in sistem radio-internet wwirelles, stiti si voi ce zic) si inca multe altele.</p></blockquote>
+<blockquote><p>Apropo, in telefonul mobil e tot un procesor, dar e DEDICAT, bietul de el.</p></blockquote>
+<p>Nu și nu. Routerele sunt arhitecturi MIPS (set general de instrucțiuni) cu Linux pe ele, mobilele au fost dedicate (deși puteau fi reprogramate în software), acum cele mai multe au ARM, care-i tot set general de instrucțiuni. Ce înseamnă asta? Poți folosi la fel de bine un router drept mobil (da' de ce nu?) sau mobil drept router. Sigur, n-o să obții aceleași performanțe cum ai obține cu device-ul dedicat (dar asta din considerente pur tehnice: de exemplu router-ul consumă mai multă putere decât un mobil), dar hardware-ul din spate e același, cu caps, hai că subliniez cu caps, deși e urât: hardware-ul din spate e fix ACELAȘI.</p>
+<p>Deci nu, server-ul (obiectul fizic „server”) nu e o funcție, ci un device. Care poate fi programat să facă ce vrei tu. Dacă ai un cuptor cu microunde mai deștept, îl poți programa să fie server web, asta fiindcă arhitecturile hardware au un design cât mai simplu cu putință, tocmai pentru a permite dezvoltarea unui spectru cât mai mare de device-uri.</p>
+<p>Am încercat pe cât posibil să nu intru în detalii tehnice cu chestia asta (nu am vorbit despre seturi de instrucțiuni RISC și CISC - asta apropo de ce x86 nu prea merge pe device-uri embedded), dă un search pe google după ARM și MIPS și o să te convingi.</p>
+<blockquote><p>In maxim doi ani o sa iei din supermarket o dracie mititica, buna de bagat in priza si care o sa faca pe serverul de hosting.</p></blockquote>
+<p><a href="http://www.linuxfordevices.com/c/a/News/100-Linux-wallwart-launches/" >Există deja</a>, rulează Linux. :P</p>
+						</li>
+
+										<li id="comment-30415" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">23</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30415" title="">Saturday, 28 August 2010</a>
+							</div>
+						<p>Tu vorbesti de cum ii in lumea noastra sau in lumea lui ?</p>
+						</li>
+
+										<li id="comment-30416" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">24</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30416" title="">Saturday, 28 August 2010</a>
+							</div>
+						<p>Ei, acum eu cred că nu diferă așa de mult lumile astea. Fiecare privește din punctul lui de vedere situația.</p>
+<p>M-a surprins cât de bloated poți să faci să fie un router din ăsta (și unele vin așa din fabrică). Pe lângă faptul că multe din ele vin cu package manager (ceva gen Apt), poți să le faci inclusiv servere de Quake dacă vrei. Și zici că nu prea merge, dar constați că până la urmă poți scoate ceva unt din el. Cam la fel cum e și cu plăcile grafice, despre care nimeni nu se gândea acum 15-20 de ani că o să concureze cu supercomputerele la probleme mari.</p>
+<p>Uitasem să dau reply la chestia cu Linux-ul ca afacere eșuată. Diferența e că Linux se folosește peste tot în ziua de azi, pe când mașinile Lisp au rămas doar nostalgicilor de prin universități. Iar Lisp-ul modern surpriză, tot pe x86 compilează cel mai performant cod. :D</p>
+						</li>
+
+										<li id="comment-30417" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">25</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30417" title="">Saturday, 28 August 2010</a>
+							</div>
+						<p>E, pai bine, da' <em>afacere</em> :p</p>
+						</li>
+
+										<li id="comment-30418" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">26</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30418" title="">Saturday, 28 August 2010</a>
+							</div>
+						<p>Afacere nu o să fie niciodată (deși ăia de la RedHat ar râde de mine, iar eu aș râde de ei, că ăla nu-i numa Linux, ci și tot restul de soft care vine peste); doar soluție pentru anumite afaceri. Dar din afacerile alea reușește să supraviețuiască și el, că din investițiile în kernel sunt plătiți și programatorii care lucrează la el. Așa toată lumea-i fericită.</p>
+						</li>
+
+										<li id="comment-30423" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">27</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30423" title="">Saturday, 28 August 2010</a>
+							</div>
+						<p>Of, Luciane, vezi daca nu te-a batut taica-tau cind erai mic ? Acum nu te mai luai de bietii mosnegi care au invatat compulatoristica pe genunchi, tocmai fiindca la scoala lor nu s-a predat asta.<br />
+Nu vreau sa te contrazic in ceea ce ai spus la nr. 22, ca tu ai invatat la scoala si stii mai bine. Dar reciteste cu atentie ce am scris eu: am zis sa nu intram in prea multe amanunte tehnice.<br />
+Revin si insist: oamenii creeaza mai intii o FUNCTIE, un  PROCES de care au nevoie. Pentru inceput e simulata pe aparatura generala, hai sa-i zicem PC. In momentul in care se constata ca e mai ieftin functia aia trece intr-un DEVICE de sine statator.<br />
+Aaaaa, cum se face asta ? Da, stiu ce vrei sa spui. Pe limba oamenilor obisnuiti e cam asa: s-a trecut de la generalizare la particularizare iar apoi s-a constatat ca cel mai bun e drumul de mijloc. Adica nici PC cu hardware cam la fel si particularizari in soft, nici procesoare ultra-dedicate. Desi exista si multe din acestea. Paleta e foarte larga, implementarile sunt multe iar discutia despre cum e mai bine poate sa tina si o luna.<br />
+Sau, interpetind altfel ce ai zis tu, aia cu telefonul si routerul: acum `jde mii de ani unul zis Packard s-a gandit sa faca un razboi de tesut automat. Razboaiele erau la fel, se schimba cartela si pac ! se schimba si modelul. Da, aici sunt de acord cu tine. Insa intr-un fel arata razboiul (de tesut) pentru ciorapi si altfel cel pentru covoare de 6x8 metri, aici ar fi bine sa fii si tu de acord cu mine !<br />
+Si apropo de routere, na, ca ma faci sa spun tot: nu v-am mai tinut la curent cu incercarile mele de acum doua luni. Ei bine, da, am reusit si noi sa schimbam niste pagini html dintr-un router astfel incit, atunci cind a introdus http 192 etc si se astepta sa gaseasca pagina de administrare un amic de-al nostru a avut surpriza sa gaseasca o pagina pe care scria ceva de genul: Bine ai venit, pe acest router nu se umbla, boule ! E gata setat din fabrica si mai du-te in ... ca nu te lasam sa schimbi nimic !<br />
+Bun, a fost o gluma, mai buna sau mai putin buna, dar noi am incercat sa facem ceva: sa infigem niste pagini html intr-un asemenea device. Si merge, da, dar server de Quake sa faci tu din el, draga spyked !</p>
+<p>Cit priveste pe dom` Popescu care, iata, a facut cercetari prin arhiva ca sa-mi dea mie in cap cu citate din intelepciunea domniei sale, repet: Am vrut sa fac asa ceva ca sa obtin hosting intr-un device mic, usor, linistit, de care sa uit pe unde l-am pus prin casa, eventual. Care sa consume putin, extrem de putin curent electric. Gazduirea in RAM intr-un mic laptop era o solutie, variantele de rezolvare gen routere integrate - alta solutie. NU viteza de livrare si alte bazaconii cautam eu, intelegi odata, dom` Popescu ? Ca m-am saturat sa vad sute de metri patrati de dulapuri (si crede-ma ca ma invirt des printre ele), de dulapuri imense, zic, in care urla niste mastodonti care consuma kilowati. Din fiecare kilowatt consumat vreo 400 sunt utili, restul e caldura disipata degeaba si ventilatoare care sa rezolve caldura aia creata degeaba.<br />
+Viitorul e al device-urilor mici de care vorbesc, inclusiv genul aratat de spyked in link-ul acela (pentru care ii multumesc). Mai multa lume lucreaza la asta, unii pe idei cit de cit ca a mea, altii pe drumuri paralele.<br />
+Aia ti-am zis eu ca te faci ca nu intelegi, dom` Popescule, obsnuit sa mergi numai pe drumuri batatorite. Degeaba o dai acum la intors ca un adevarat politician ce esti, pacaleste tu pe cine vrei. </p>
+<p>Desi, daca stau sa ma gandesc bine, chiar acest articol imi demonstreaza ca esti pe drumul cel bun. Na, bine ca am avut rabdare, stiam eu ca o sa te trezesti pina la urma.</p>
+						</li>
+
+										<li id="comment-30434" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">28</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30434" title="">Saturday, 28 August 2010</a>
+							</div>
+						<p>@Marian S:<br />
+Văleu, dar nu o lua personal, eu nu dau cu parul în cap nimănui, îmi cer scuze dacă pare așa. Și doamne ferește, nu te-am contrazis întru totul, doar acolo unde am simțit că-i nevoie (iar citatele le-am dat mai pe larg pentru a nu scoate din context nimic).</p>
+<p>@Mircea Popescu:<br />
+Cum pe fain nu pot să comentez că n-am karma, o să fac epic fail-ul de a răspunde aici: post-ul ăla îi despre masochism, măi, chiar tu să nu îți dai seama de asta? Of, ce emo, ducă-se. :D</p>
+						</li>
+
+										<li id="comment-30435" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">29</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30435" title="">Saturday, 28 August 2010</a>
+							</div>
+						<p>Hehehe. Intentia autorului e una, receptia publicului e alta mei, tu n-ai stiut ? </p>
+<p>:D</p>
+						</li>
+
+										<li id="comment-30437" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">30</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30437" title="">Saturday, 28 August 2010</a>
+							</div>
+						<p>Până acum n-aveam nimic cu săracii copii, da' acum ar trebui să-i înjur, fiindcă există.</p>
+<p>Acum asta e, dacă cititorii vor emo, emo să fie.</p>
+						</li>
+
+										<li id="comment-30438" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">31</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30438" title="">Saturday, 28 August 2010</a>
+							</div>
+						<p>Nu-s copilele supt autor, ci dimpotriva, autoru-i supt copile.</p>
+<p>C'est la vie.</p>
+						</li>
+
+										<li id="comment-30458" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">32</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-30458" title="">Sunday, 29 August 2010</a>
+							</div>
+						<p>@ spyked: Mai copchile, mai uita-te si tu la televizor (desi nu prea recomand). Ce, n-ai vazut reclama aia in care un tip se face ca lasa berea pe masa iar apoi striga: stai, ba, ca am glumit ?</p>
+						</li>
+
+										<li id="comment-31592" class="commentbody"><div class="commenthead"><img alt='Cristian`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">33</div>
+								<span class="authorlink">Cristian</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31592" title="">Thursday, 16 September 2010</a>
+							</div>
+						<p>Nu cred că procesorul dedicat pentru MySQL va exista prea curând. E un program mult prea complicat pentru așa ceva. Cel mult va avea câteva instrucțiuni care să ajute, de exemplu să zicem o funcție de calculat hash (funcție rezumat :-P) sau una de căutare binară. În niciun caz nu se va ajunge la nivelul de complexitate pe care am impresia că-l spui tu. Nici mașinile alea LISP nu erau 100% dedicate LISP, erau doar optimizate pentru el. Oricum complexitatea unui interpretor simplu de LISP nu se compară cu cea a MySQL-ului (există interpretoare scrise în câteva mii de linii de cod).</p>
+<p>@Diana Coman: <a href="http://en.wikipedia.org/wiki/SGI_O2" >SGI O2</a> aveam în Politehnică. Stațiile grafice au cam murit de pe la sfârșitul anilor '90 - începutul anilor 2000, dar la vremea lor au fost bune. Fără ele nu s-ar fi făcut dinozaurii din Jurassic Park :-)</p>
+<p><cite>For eight consecutive years (1995-2002), all films nominated for an Academy Award® for Distinguished Achievement in Visual Effects were created on Silicon Graphics computer systems.</cite></p>
+<p>Pe lângă stațiile alea mai exista încă un supercalculator la catedra de Electrotehnică la Tuduce. Dacă nu mă înșel era un <a href="http://www.mce.com/shop/browse?category_id=1921" >SGI Onyx 2</a>.</p>
+						</li>
+
+										<li id="comment-31595" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">34</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-31595" title="">Thursday, 16 September 2010</a>
+							</div>
+						<p>@<b>Cristian</b> Ai mare dreptate in ce priveste complexitatea si comparatiile pe care le faci se sustin. Da' mnoa, mai visam si noi.</p>
+						</li>
+
+										<li id="comment-35423" class="commentbody"><div class="commenthead"><img alt='Cristian`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">35</div>
+								<span class="authorlink">Cristian</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-35423" title="">Friday, 12 November 2010</a>
+							</div>
+						<p>Nu e chiar ce vrei tu, dar e pe aproape: <a href="http://www.schoonerinfotech.com/products/mysql_appliance">http://www.schoonerinfotech.com/products/mysql_appliance</a> și e <a href="http://webpulp.tv/post/573991716/37signals-mark-imbriaco" >folosit de 37signals</a>.</p>
+						</li>
+
+										<li id="comment-35432" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">36</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-35432" title="">Friday, 12 November 2010</a>
+							</div>
+						<p>Whoa!</p>
+<p>Deci whoa!</p>
+<p>Tare! Se pare ca lucrurile se miscau deja in directia aia mult dinainte sa-mi trazneasca mie prin cap. Nu ma mir, ca pina la urma asa-i in tenis.</p>
+						</li>
+
+										<li id="comment-35452" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">37</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-35452" title="">Friday, 12 November 2010</a>
+							</div>
+						<p>... şi are linux pe el, heh.</p>
+<p>Un pas mic, dar important,  cãtre periuţa de dinţi cu linux.</p>
+						</li>
+
+										<li id="comment-35453" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">38</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-35453" title="">Friday, 12 November 2010</a>
+							</div>
+						<p>Eu astept vibratorul cu linux.</p>
+						</li>
+
+										<li id="comment-35458" class="commentbody"><div class="commenthead"><img alt='gheorghe`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">39</div>
+								<span class="authorlink">gheorghe<img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-35458" title="">Friday, 12 November 2010</a>
+							</div>
+						<p>Applicance-urile sunt "all the rage" acum. Ca oamenii de IT e lenesi si n-au ei chef sa stea sa configureze, cumpara si ei o conserva de-aia si asta e. Cel mai mare avantaj e ca vine la pachet si nu trebuie sa dai decat cateva clickuri, da problema e ca cam pierzi din flexibilitate.</p>
+<p>Alt avantaj e ca cutiile astea de conserva sunt oarecum mai usor de justificat managementului. Una e cand ii zici ca-ti trebuie un server cu aia, aia, ailalta, ca sa fie totul bine, si manageru te intreaba, da pe un desktop de-asta nu merge? Alta e cand vii si-i zici, uite, tre sa cumparam cutia asta, ca face tot ce ne trebuie, chiar daca cutia poate costa mai mult decat serverul cu toate cele, probabilitatea ca managerul sa o aprobe e mai mare.</p>
+<p>Pot sa spun ca sunt oarecum de acord cu appliance-urile, nu atat cu forma lor cat cu standardizarea pe care o impun oarecum fortat.</p>
+<p>Iar cat despre procesorul hardware de mysql, nu cred ca o sa se intample. In primul rand, tre sa-ti pui intrebarea daca chiar procesorul este bottleneck-ul, si daca la capabilitatile subsistemelor de I/O disponibile astazi chiar te-ar ajuta un procesor mai rapid, sau daca n-ar fi mai ieftin pur si simplu sa bagi mai multe core-uri sau in cel mai rau caz sa-i implementezi cateva operatii mai costisitoare pe niste chipuri separate.</p>
+						</li>
+
+										<li id="comment-43105" class="commentbody"><div class="commenthead"><img alt='Bogdan Vlad`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">40</div>
+								<span class="authorlink">Bogdan Vlad</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-43105" title="">Tuesday, 1 March 2011</a>
+							</div>
+						<p>Pai si ce ai face daca MS SQL va inlocui definitiv si irevocabil mySQL?! Ce-i cu hardware is vor cam pierde toata investitia...</p>
+						</li>
+
+										<li id="comment-43108" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">41</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-43108" title="">Tuesday, 1 March 2011</a>
+							</div>
+						<p>Cum poate sa inlocuiasca "definitiv si irevocabil", in conditiile in care tu ai o bucata de hardware care functioneaza la specificatii ? Ti se pare tie ca isteria cu iphone-urile ma impiedica pe mine sa-mi folosesc stravechiul Nokia ? Nu ma impiedica. Nici ca-mi pasa. Asa ca poti socoti printre alte avantaje si asta : te izoleaza de timpeniile pietei, cum ar fi de exemplu eventualitatea ca ms.</p>
+						</li>
+
+										<li id="comment-43111" class="commentbody"><div class="commenthead"><img alt='Bogdan Vlad`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">42</div>
+								<span class="authorlink">Bogdan Vlad</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-43111" title="">Tuesday, 1 March 2011</a>
+							</div>
+						<p>Ideea pe care am vrut eu sa o transmit e legata de flexibilitate. Asa cum zici tu procesorul respectiv va executa doar sarcina mySQL-ului. Daca modul in care se implementeaza aceasta functie se dovedeste a fi defectuos? Daca prinzi chestia asta in hardware, atunci nu tu update-uri sau fixarea unor probleme legate de securitate. Si mai e problema competitiei. Ar fi o investitie mult prea mare si riscanta in conditiile in care vor exista multi care vor vrea o solutie software.</p>
+						</li>
+
+										<li id="comment-43115" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">43</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-43115" title="">Tuesday, 1 March 2011</a>
+							</div>
+						<p>@Bogdan Vlad: Cei de la Intel au simțit-o de câteva ori pe pielea proprie. Presupun că o testare minuțioasă ar acoperi majoritatea problemelor, însă asta ziceam și eu, e destul de greu să testezi un hardware de complexitatea software-ului, fiindcă hardware-ul l-ai făcut o dată și îl ai acolo (cam în câteva luni, să zicem), pe când software-ul îl poți modifica și recompilează în altă oră, dacă e destul de mare. Dar, există un mare dar aici.</p>
+<p>Există ceea ce se numesc soft procesoare, ca <a href="http://www.xilinx.com/tools/microblaze.htm" >acesta</a>, care sunt implementate în software și programate în hardware care conține porți logice programabile (tehnologii cum e și FPGA). Sunt mai puțin performante decât un circuit turnat direct în mască de siliciu, dar se programează în timp de maxim ore (incluzând compilarea software-ului), ceea ce facilitează atât testarea cât și distribuția. Practic, ai ajunge la ceva în genul patch-urilor pentru BIOS, doar că acolo-i cu totul altă poveste.</p>
+<p>Acum, e clar că un server MySQL întreg n-ai cum să pui în hardware, fiindcă MySQL a fost făcut să adere la niște standarde de sistem de operare și dacă schimbi asta n-o să mai fie MySQL. Poate un alt motor de baze de date (făcut de la zero, eventual să păstreze o parte din sintaxa MySQL) ar putea fi făcut direct în hardware, deși nu-s sigur că ar ieși.</p>
+<p>În fine, în direcția în care cred eu că merg lucrurile, mi s-ar părea foarte ușor ca modulele performance-critical dintr-un server de BD să fie mutate în hardware. Care-s alea e mai greu de zis. Interpretorul e unul din ele, practic făcut în hardware și replicat (pentru paralelism) ar produce instantaneu cereri pentru baza de date. Alte părți ar fi cea de autentificare, care cu ocazia asta ar spori și securitatea.</p>
+<p>În felul ăsta s-ar ajunge la un fel de arhitectură dedicată SQL, cu un procesor general-purpose (ARM/MIPS, oricum low-power, fiindcă e clar că Intel pierd enorm la partea asta cu cuptoarele lor) și unul sau mai multe procesoare pe lângă, care să se ocupe de funcții distincte din motorul unei baze de date. Firma care o să vină prima cu implementarea (implicit cu banii să producă hardware-ul, bani care nu-s deloc puțini) s-ar putea să dea lovitura. Poate chiar există ideea, dar nu a fost încă produsă la scară largă, din varii motive.</p>
+						</li>
+
+										<li id="comment-43132" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">44</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-43132" title="">Tuesday, 1 March 2011</a>
+							</div>
+						<p>@<b>Bogdan Vlad</b> Mei, ce zici tu acolo s-o cam discutat, vezi dinsus. In tot cazul "Flexibilitate" nu-i egal cu "scriem cod prost ca oricum nu conteaza, facem update". Uite eu de exmeplu nu fac niciodata update, la nimic. PE de alta parte, uite ca procesoarele x86 nu sufera de ce descrii tu acolo, e drept c-or fost niste Pentium I retrase pe motiv de proasta implementare a impartirii acum zece ani, da' totusi... In tot cazul procesorul nu poate avea probleme de securitate, nu inteleg exact cum gindesti ca sa ajungi la ciudatenia asta, totusi. </p>
+<p>@<b>spyked</b> Nu te roada grija, doara ti-l testeaza userii, cit de greu o fi sa descoperi ca se corupe baza de date ? Buna observatia cu FPGA apropo, si ca o paranteza, cred ca tehnologia siliciu e pe moarte, cu dezvoltarea tehnologiilor de stare solida vom ajunge sa spargem bariera aia, si vom avea software de doua feluri, in loc de soft si hard.</p>
+<p>Ce cred eu ca va intra cu adevarat in hardware va fi probabil masina de storage. Deci, hard-drive speical cu procesor de BD, care executa cereri scirere/citire normale si, pe cod extins, cereri de store/update. Ala-i principala problema a bazei de date, ca blochezi coloane cit faci update la ele, daca le face [cvasi]instantaneu mediul de stocare cistigi un ordin de marime la performanta, minim. Zic si eu.</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+				<li class="trackbody" id="comment-133971">
+					<div class='trackhead'>
+						<div class="commentcount">45</div>
+						<span class="authorlink"><a href='/2010/marian-stavaroiu-cel-mai-prost-dintre-paminteni?b=si%20modestia%20&amp;e=titi#select' class='url'>Marian Stavaroiu, cel mai prost dintre paminteni on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-133971" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] si modestia geek-ului adevarat, dar tot cu aceleasi rezultate nule. Ce intelege ghiolbanu' ? Pai, sa vedeti... Iar in ziua aceea cineva va crea si va produce o dracie mititica si ieftina care, culmea, stiti [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-137656">
+					<div class='trackhead'>
+						<div class="commentcount">46</div>
+						<span class="authorlink"><a href='/2012/de-unde-vine-valoarea-inovatiei?b=fel%20de%20ASIC%20&amp;e=timp#select' class='url'>De unde vine valoarea inovatiei ? on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-137656" title="">Tuesday, 7 January 2020</a>
+					</div>
+					<p>[...] fel de ASIC - Application-Specific Integrated Circuit, despre care am discutat de exemplu cu ocazia cipului dedicat pentru MySql. Ala ar fi fost un ASIC. Faptul ca nimeni nu l-a facut desi uite cit de folosit este MySql in timp [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-138893">
+					<div class='trackhead'>
+						<div class="commentcount">47</div>
+						<span class="authorlink"><a href='/2012/deci-piata-financiara-bine?b=procesoare%20s&amp;e=ment#select' class='url'>Deci piata financiara, bine ? on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-138893" title="">Tuesday, 7 January 2020</a>
+					</div>
+					<p>[...] procesoare speciale. Genu' de scula de care se discuta in articolul despre mysql. [&#8617;]   Category: Actiuni si Optiuni     Comments feed : RSS 2.0. Leave your own comment [...]</p>
+				</li>
+
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="author9b67295" id="author9b67295" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email9b67295" id="email9b67295" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="url9b67295" id="url9b67295" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="10969" /></p>
+				<input type="hidden" name="comment_post_time" value="1759838137-135.181.214.38" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2025 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-10969")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-10969");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-10969");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>
