@@ -1,0 +1,3438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_dec2016.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Forum logs for 05 Apr 2015 on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Joe Bidden Reales<br />La Al Paispcelea Congres!
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-90337"><div class="post" id="post-90337">                    <h1><a href="/2019/forum-logs-for-05-apr-2015/" rel="bookmark" title="Permanent Link to Forum logs for 05 Apr 2015">Forum logs for 05 Apr 2015</a></h1>                        <div class="date">                                     Sunday, 24 November, Year 11 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<table style="font-size:1em;width:580px;">
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">easy enough to try no ? recipe published. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683403" href="/2019/forum-logs-for-05-apr-2015#1683403">00:01</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">so i used BCP to strip out all of the boost shit that's not needed for bitcoind </td>
+<td><span style="color:#d3d3d3;">[<a id="1683404" href="/2019/forum-logs-for-05-apr-2015#1683404">00:02</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">got up to this point: http://pastebin.com/raw.php?i=E8S0bNRy </td>
+<td><span style="color:#d3d3d3;">[<a id="1683405" href="/2019/forum-logs-for-05-apr-2015#1683405">00:02</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">... ( http://bit.ly/1MRzDaw ) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683406" href="/2019/forum-logs-for-05-apr-2015#1683406">00:02</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">this is cross-compiling for pogo </td>
+<td><span style="color:#d3d3d3;">[<a id="1683407" href="/2019/forum-logs-for-05-apr-2015#1683407">00:02</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">seems libcrypto's broken ? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683408" href="/2019/forum-logs-for-05-apr-2015#1683408">00:06</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">do you have libcrypto.so ? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683409" href="/2019/forum-logs-for-05-apr-2015#1683409">00:08</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 30003 @ 0.00027049 = 8.1155 BTC [-] {2} </td>
+<td><span style="color:#d3d3d3;">[<a id="1683410" href="/2019/forum-logs-for-05-apr-2015#1683410">00:12</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">.so would be the shared lib, .a is static -- looks like libcrypto.a is complaining </td>
+<td><span style="color:#d3d3d3;">[<a id="1683411" href="/2019/forum-logs-for-05-apr-2015#1683411">00:18</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">/home/nubs/dev/bitcoin-v0_5_3_1/ourlibs/lib/libcrypto.a(dso_dlfcn.o): undefined reference to symbol 'dlerror' </td>
+<td><span style="color:#d3d3d3;">[<a id="1683412" href="/2019/forum-logs-for-05-apr-2015#1683412">00:18</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">anyway this is farther than before. actually cleared out an enormous amount of boost libs </td>
+<td><span style="color:#d3d3d3;">[<a id="1683413" href="/2019/forum-logs-for-05-apr-2015#1683413">00:18</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">if you get bcp compiled, you can just do the following to spit out a custom subset of boost, tailored for your project: </td>
+<td><span style="color:#d3d3d3;">[<a id="1683414" href="/2019/forum-logs-for-05-apr-2015#1683414">00:19</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">./bcp --scan --boost=~/dev/bitcoin-v0_5_3_1/boost_1_52_0 ~/dev/bitcoin-v0_5_3_1/bitcoin/src/&ast;.cpp ~/dev/myboost/ </td>
+<td><span style="color:#d3d3d3;">[<a id="1683415" href="/2019/forum-logs-for-05-apr-2015#1683415">00:21</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">no sense compiling e.g. a ton of boost python libs </td>
+<td><span style="color:#d3d3d3;">[<a id="1683416" href="/2019/forum-logs-for-05-apr-2015#1683416">00:21</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">bcp is included in the boost download, cd $BOOST_ROOT; ./bootstrap.sh; ./bjam tools/bcp </td>
+<td><span style="color:#d3d3d3;">[<a id="1683417" href="/2019/forum-logs-for-05-apr-2015#1683417">00:23</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">executable is in dist/bin </td>
+<td><span style="color:#d3d3d3;">[<a id="1683418" href="/2019/forum-logs-for-05-apr-2015#1683418">00:23</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">right. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683419" href="/2019/forum-logs-for-05-apr-2015#1683419">00:25</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">decimation has quit () </td>
+<td><span style="color:#d3d3d3;">[<a id="1683420" href="/2019/forum-logs-for-05-apr-2015#1683420">00:31</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">groan/facepalm </td>
+<td><span style="color:#d3d3d3;">[<a id="1683421" href="/2019/forum-logs-for-05-apr-2015#1683421">00:42</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">undefined reference to symbol 'dlerror' <<< dlerror returns last DYNAMIC LINKING ERROR </td>
+<td><span style="color:#d3d3d3;">[<a id="1683422" href="/2019/forum-logs-for-05-apr-2015#1683422">00:42</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">felipelalli has quit (Ping timeout: 245 seconds) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683423" href="/2019/forum-logs-for-05-apr-2015#1683423">00:44</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">heh </td>
+<td><span style="color:#d3d3d3;">[<a id="1683424" href="/2019/forum-logs-for-05-apr-2015#1683424">00:48</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">ascii_modem (~asciilife@79.sub-70-208-136.myvzw.com) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683425" href="/2019/forum-logs-for-05-apr-2015#1683425">00:55</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">whaack has quit (Ping timeout: 246 seconds) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683426" href="/2019/forum-logs-for-05-apr-2015#1683426">00:57</a>]</span></td>
+</tr>
+<tr>
+<td><b>BingoBoingo</b></td>
+<td class="breakup">!up ascii_modem </td>
+<td><span style="color:#d3d3d3;">[<a id="1683427" href="/2019/forum-logs-for-05-apr-2015#1683427">00:58</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot gives voice to ascii_modem </td>
+<td><span style="color:#d3d3d3;">[<a id="1683428" href="/2019/forum-logs-for-05-apr-2015#1683428">00:58</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">anyone read the mem stats? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683429" href="/2019/forum-logs-for-05-apr-2015#1683429">00:59</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">surreal moment. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683430" href="/2019/forum-logs-for-05-apr-2015#1683430">00:59</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">ben_vulpes: congrats re: gentoo </td>
+<td><span style="color:#d3d3d3;">[<a id="1683431" href="/2019/forum-logs-for-05-apr-2015#1683431">01:01</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 11820 @ 0.00027 = 3.1914 BTC [-] </td>
+<td><span style="color:#d3d3d3;">[<a id="1683432" href="/2019/forum-logs-for-05-apr-2015#1683432">01:02</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">be aware that, like the rest of opensourcedom, it is in a fairly advanced state of ... declapse (tm) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683433" href="/2019/forum-logs-for-05-apr-2015#1683433">01:02</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">(decay that inevitably leads to collapse) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683434" href="/2019/forum-logs-for-05-apr-2015#1683434">01:02</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">sounds better than collay </td>
+<td><span style="color:#d3d3d3;">[<a id="1683435" href="/2019/forum-logs-for-05-apr-2015#1683435">01:03</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">colline. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683436" href="/2019/forum-logs-for-05-apr-2015#1683436">01:03</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">incrementally closer to portatronic pogotron. it's now complaining about libcrypto referencing a libdl component </td>
+<td><span style="color:#d3d3d3;">[<a id="1683437" href="/2019/forum-logs-for-05-apr-2015#1683437">01:03</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">libdl?!!!!! </td>
+<td><span style="color:#d3d3d3;">[<a id="1683438" href="/2019/forum-logs-for-05-apr-2015#1683438">01:04</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">yeah. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683439" href="/2019/forum-logs-for-05-apr-2015#1683439">01:04</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">which leads me to believe the openssl compile might need to be looked at. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683440" href="/2019/forum-logs-for-05-apr-2015#1683440">01:04</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">you know what libdl is </td>
+<td><span style="color:#d3d3d3;">[<a id="1683441" href="/2019/forum-logs-for-05-apr-2015#1683441">01:04</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">yep. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683442" href="/2019/forum-logs-for-05-apr-2015#1683442">01:04</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">and it's BANANAS TOWN that it's popping up here </td>
+<td><span style="color:#d3d3d3;">[<a id="1683443" href="/2019/forum-logs-for-05-apr-2015#1683443">01:04</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">here's a perverse idea </td>
+<td><span style="color:#d3d3d3;">[<a id="1683444" href="/2019/forum-logs-for-05-apr-2015#1683444">01:06</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">dynamically link all the things? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683445" href="/2019/forum-logs-for-05-apr-2015#1683445">01:06</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">openwatcom/linux. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683446" href="/2019/forum-logs-for-05-apr-2015#1683446">01:06</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">eeeeh </td>
+<td><span style="color:#d3d3d3;">[<a id="1683447" href="/2019/forum-logs-for-05-apr-2015#1683447">01:07</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">it exists. beloved classic compiler used by almost all msdos games outfits in '90s </td>
+<td><span style="color:#d3d3d3;">[<a id="1683448" href="/2019/forum-logs-for-05-apr-2015#1683448">01:07</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">opensourced about a decade ago </td>
+<td><span style="color:#d3d3d3;">[<a id="1683449" href="/2019/forum-logs-for-05-apr-2015#1683449">01:08</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">mostly frozen in time. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683450" href="/2019/forum-logs-for-05-apr-2015#1683450">01:08</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">betcha it staticlinks... </td>
+<td><span style="color:#d3d3d3;">[<a id="1683451" href="/2019/forum-logs-for-05-apr-2015#1683451">01:08</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">/home/nubs/dev/bitcoin-v0_5_3_1/ourlibs/lib/libcrypto.a(dso_dlfcn.o): undefined reference to symbol 'dlerror' </td>
+<td><span style="color:#d3d3d3;">[<a id="1683452" href="/2019/forum-logs-for-05-apr-2015#1683452">01:09</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">well. some context: http://pastebin.com/raw.php?i=E8S0bNRy </td>
+<td><span style="color:#d3d3d3;">[<a id="1683453" href="/2019/forum-logs-for-05-apr-2015#1683453">01:10</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">... ( http://bit.ly/1yMNX8q ) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683454" href="/2019/forum-logs-for-05-apr-2015#1683454">01:10</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">and before mircea_popescu asks - no i dont have rigorous proof of equivalence of watcom to gcc </td>
+<td><span style="color:#d3d3d3;">[<a id="1683455" href="/2019/forum-logs-for-05-apr-2015#1683455">01:10</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">Or! of his gcc to mine to yours to ... rms's ! </td>
+<td><span style="color:#d3d3d3;">[<a id="1683456" href="/2019/forum-logs-for-05-apr-2015#1683456">01:10</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">rmscc </td>
+<td><span style="color:#d3d3d3;">[<a id="1683457" href="/2019/forum-logs-for-05-apr-2015#1683457">01:11</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">eventually we -will- find that the whole tower was mortarred together with old snot. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683458" href="/2019/forum-logs-for-05-apr-2015#1683458">01:11</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">https://bitcointalk.org/index.php?topic=1011340.msg10985645#msg10985645 </td>
+<td><span style="color:#d3d3d3;">[<a id="1683459" href="/2019/forum-logs-for-05-apr-2015#1683459">01:12</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[2015-04-03] The 5,000Btc hidden treasure, and the key to finding it. ... ( http://bit.ly/1IfAO03 ) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683460" href="/2019/forum-logs-for-05-apr-2015#1683460">01:12</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">"He did post it. Not only was he banned from this forum that day (he unbanned himself with an exploit), but ALL of the videos on his youtube were reported and removed for copyright infringement, including the ones showing detail work because there was music playing on the radio in the background. In short he already went out of his way to prove his innocence to a bunch of stalker idiots here just to have his accounts shut down and was tired </td>
+<td><span style="color:#d3d3d3;">[<a id="1683461" href="/2019/forum-logs-for-05-apr-2015#1683461">01:13</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">of playing games. Use your own eyeballs/brain instead of listening to the mob of neckbeards who harassed/negged him. " </td>
+<td><span style="color:#d3d3d3;">[<a id="1683462" href="/2019/forum-logs-for-05-apr-2015#1683462">01:13</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">he unbanned himself with an exploit :0 </td>
+<td><span style="color:#d3d3d3;">[<a id="1683463" href="/2019/forum-logs-for-05-apr-2015#1683463">01:13</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">wut </td>
+<td><span style="color:#d3d3d3;">[<a id="1683464" href="/2019/forum-logs-for-05-apr-2015#1683464">01:14</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">i think there's something in the forum's water supply </td>
+<td><span style="color:#d3d3d3;">[<a id="1683465" href="/2019/forum-logs-for-05-apr-2015#1683465">01:15</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">this is the $10mn/year master carver he's talking about, that's using 0day exploits to unban himself from the forum </td>
+<td><span style="color:#d3d3d3;">[<a id="1683466" href="/2019/forum-logs-for-05-apr-2015#1683466">01:16</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">so that he may deliver his piece de resistance: a 500btc scavenger hunt that can only be solved by purchasing all of his old laser-engraved coins from the various sock accounts that "bought" them </td>
+<td><span style="color:#d3d3d3;">[<a id="1683467" href="/2019/forum-logs-for-05-apr-2015#1683467">01:16</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">it's like the usms thing but on the forum </td>
+<td><span style="color:#d3d3d3;">[<a id="1683468" href="/2019/forum-logs-for-05-apr-2015#1683468">01:17</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">as someone who only ever knew about it from #b-a links - i thought it was a kinda nature preserve just for folks like woodman </td>
+<td><span style="color:#d3d3d3;">[<a id="1683469" href="/2019/forum-logs-for-05-apr-2015#1683469">01:17</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">oh, sorry, 5000 btc. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683470" href="/2019/forum-logs-for-05-apr-2015#1683470">01:17</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">why not 50000? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683471" href="/2019/forum-logs-for-05-apr-2015#1683471">01:18</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">not sure. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683472" href="/2019/forum-logs-for-05-apr-2015#1683472">01:18</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">he says he buried it in a capsule somewhere </td>
+<td><span style="color:#d3d3d3;">[<a id="1683473" href="/2019/forum-logs-for-05-apr-2015#1683473">01:18</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">how do these folks decide how many zeroes </td>
+<td><span style="color:#d3d3d3;">[<a id="1683474" href="/2019/forum-logs-for-05-apr-2015#1683474">01:18</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">oh, wait, it was a thousand "bronze bitcoins" or smth with 5btc on each </td>
+<td><span style="color:#d3d3d3;">[<a id="1683475" href="/2019/forum-logs-for-05-apr-2015#1683475">01:18</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">i think they have zero dice </td>
+<td><span style="color:#d3d3d3;">[<a id="1683476" href="/2019/forum-logs-for-05-apr-2015#1683476">01:18</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">roll a few, count the naughts </td>
+<td><span style="color:#d3d3d3;">[<a id="1683477" href="/2019/forum-logs-for-05-apr-2015#1683477">01:19</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">star product concept </td>
+<td><span style="color:#d3d3d3;">[<a id="1683478" href="/2019/forum-logs-for-05-apr-2015#1683478">01:19</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">aughts? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683479" href="/2019/forum-logs-for-05-apr-2015#1683479">01:19</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">handcarveit </td>
+<td><span style="color:#d3d3d3;">[<a id="1683480" href="/2019/forum-logs-for-05-apr-2015#1683480">01:19</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">goose eggs </td>
+<td><span style="color:#d3d3d3;">[<a id="1683481" href="/2019/forum-logs-for-05-apr-2015#1683481">01:19</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">"Not only was he banned from this forum that day (he unbanned himself with an exploit)" </td>
+<td><span style="color:#d3d3d3;">[<a id="1683482" href="/2019/forum-logs-for-05-apr-2015#1683482">01:19</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">ah, goodness </td>
+<td><span style="color:#d3d3d3;">[<a id="1683483" href="/2019/forum-logs-for-05-apr-2015#1683483">01:19</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">did anyone ever actually buy from this nitwit ? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683484" href="/2019/forum-logs-for-05-apr-2015#1683484">01:20</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">decimation (~bit_nugge@unaffiliated/decimation) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683485" href="/2019/forum-logs-for-05-apr-2015#1683485">01:20</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot gives voice to decimation </td>
+<td><span style="color:#d3d3d3;">[<a id="1683486" href="/2019/forum-logs-for-05-apr-2015#1683486">01:21</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">ascii_modem: I thought we went over the libdl/openssl thing </td>
+<td><span style="color:#d3d3d3;">[<a id="1683487" href="/2019/forum-logs-for-05-apr-2015#1683487">01:22</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">from what i can figure, he buys accounts </td>
+<td><span style="color:#d3d3d3;">[<a id="1683488" href="/2019/forum-logs-for-05-apr-2015#1683488">01:22</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">and uses the bought accounts to "buy" his coins </td>
+<td><span style="color:#d3d3d3;">[<a id="1683489" href="/2019/forum-logs-for-05-apr-2015#1683489">01:22</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">odyjm (~tradeX@modemcable102.136-177-173.mc.videotron.ca) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683490" href="/2019/forum-logs-for-05-apr-2015#1683490">01:22</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">with the exception of one or two rubes </td>
+<td><span style="color:#d3d3d3;">[<a id="1683491" href="/2019/forum-logs-for-05-apr-2015#1683491">01:22</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">http://log.bitcoin-assets.com/?date=12-03-2015#1049840 </td>
+<td><span style="color:#d3d3d3;">[<a id="1683492" href="/2019/forum-logs-for-05-apr-2015#1683492">01:22</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Logged on 12-03-2015 04:37:31; decimation: mod6: try modding the openssl 'configure' stuff to use 'no-dso' </td>
+<td><span style="color:#d3d3d3;">[<a id="1683493" href="/2019/forum-logs-for-05-apr-2015#1683493">01:22</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">ohhhhhh </td>
+<td><span style="color:#d3d3d3;">[<a id="1683494" href="/2019/forum-logs-for-05-apr-2015#1683494">01:22</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">nice </td>
+<td><span style="color:#d3d3d3;">[<a id="1683495" href="/2019/forum-logs-for-05-apr-2015#1683495">01:22</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">wait, hold on </td>
+<td><span style="color:#d3d3d3;">[<a id="1683496" href="/2019/forum-logs-for-05-apr-2015#1683496">01:22</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">I thought he put that in the script </td>
+<td><span style="color:#d3d3d3;">[<a id="1683497" href="/2019/forum-logs-for-05-apr-2015#1683497">01:22</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">did anyone try this? i forget </td>
+<td><span style="color:#d3d3d3;">[<a id="1683498" href="/2019/forum-logs-for-05-apr-2015#1683498">01:22</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">I did, on my own </td>
+<td><span style="color:#d3d3d3;">[<a id="1683499" href="/2019/forum-logs-for-05-apr-2015#1683499">01:23</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">works? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683500" href="/2019/forum-logs-for-05-apr-2015#1683500">01:23</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">sorry </td>
+<td><span style="color:#d3d3d3;">[<a id="1683501" href="/2019/forum-logs-for-05-apr-2015#1683501">01:23</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">well, it compiled anyway </td>
+<td><span style="color:#d3d3d3;">[<a id="1683502" href="/2019/forum-logs-for-05-apr-2015#1683502">01:23</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">it's in 0.5.3.1 auto.sh, not portatronic </td>
+<td><span style="color:#d3d3d3;">[<a id="1683503" href="/2019/forum-logs-for-05-apr-2015#1683503">01:23</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">one sec </td>
+<td><span style="color:#d3d3d3;">[<a id="1683504" href="/2019/forum-logs-for-05-apr-2015#1683504">01:23</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">I didn't run it to full sync </td>
+<td><span style="color:#d3d3d3;">[<a id="1683505" href="/2019/forum-logs-for-05-apr-2015#1683505">01:23</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">lel the roomie and his friend are watching "death of a fuckin salesman" </td>
+<td><span style="color:#d3d3d3;">[<a id="1683506" href="/2019/forum-logs-for-05-apr-2015#1683506">01:26</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot removes voice from ascii_modem </td>
+<td><span style="color:#d3d3d3;">[<a id="1683507" href="/2019/forum-logs-for-05-apr-2015#1683507">01:28</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">!up ascii_modem </td>
+<td><span style="color:#d3d3d3;">[<a id="1683508" href="/2019/forum-logs-for-05-apr-2015#1683508">01:28</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot gives voice to ascii_modem </td>
+<td><span style="color:#d3d3d3;">[<a id="1683509" href="/2019/forum-logs-for-05-apr-2015#1683509">01:28</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">when will we read 'death of a sp4mz0r' ? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683510" href="/2019/forum-logs-for-05-apr-2015#1683510">01:28</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">glengarry glen spam </td>
+<td><span style="color:#d3d3d3;">[<a id="1683511" href="/2019/forum-logs-for-05-apr-2015#1683511">01:29</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">the shouting is starting to get really good now </td>
+<td><span style="color:#d3d3d3;">[<a id="1683512" href="/2019/forum-logs-for-05-apr-2015#1683512">01:29</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">ascii_modem: did you see the earlier note about glibc compiled statically </td>
+<td><span style="color:#d3d3d3;">[<a id="1683513" href="/2019/forum-logs-for-05-apr-2015#1683513">01:29</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">decimation: ? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683514" href="/2019/forum-logs-for-05-apr-2015#1683514">01:30</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">well, redhat provides a static libc </td>
+<td><span style="color:#d3d3d3;">[<a id="1683515" href="/2019/forum-logs-for-05-apr-2015#1683515">01:30</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">the libnss symbols are present therein </td>
+<td><span style="color:#d3d3d3;">[<a id="1683516" href="/2019/forum-logs-for-05-apr-2015#1683516">01:30</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 15319 @ 0.00027266 = 4.1769 BTC [+] </td>
+<td><span style="color:#d3d3d3;">[<a id="1683517" href="/2019/forum-logs-for-05-apr-2015#1683517">01:30</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">AusBitBank (~adam@unaffiliated/ausbitbank) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683518" href="/2019/forum-logs-for-05-apr-2015#1683518">01:30</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">!up AusBitBank </td>
+<td><span style="color:#d3d3d3;">[<a id="1683519" href="/2019/forum-logs-for-05-apr-2015#1683519">01:30</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot gives voice to AusBitBank </td>
+<td><span style="color:#d3d3d3;">[<a id="1683520" href="/2019/forum-logs-for-05-apr-2015#1683520">01:30</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">if i can't replicate it with my existing toolchain - it doesnt exist </td>
+<td><span style="color:#d3d3d3;">[<a id="1683521" href="/2019/forum-logs-for-05-apr-2015#1683521">01:31</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">ah you are using uclibc for pogo </td>
+<td><span style="color:#d3d3d3;">[<a id="1683522" href="/2019/forum-logs-for-05-apr-2015#1683522">01:33</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">i am </td>
+<td><span style="color:#d3d3d3;">[<a id="1683523" href="/2019/forum-logs-for-05-apr-2015#1683523">01:34</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">same </td>
+<td><span style="color:#d3d3d3;">[<a id="1683524" href="/2019/forum-logs-for-05-apr-2015#1683524">01:34</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">go small or go to the mall </td>
+<td><span style="color:#d3d3d3;">[<a id="1683525" href="/2019/forum-logs-for-05-apr-2015#1683525">01:34</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">well, the redhat glibc static build is pretty much just building glibc with -static </td>
+<td><span style="color:#d3d3d3;">[<a id="1683526" href="/2019/forum-logs-for-05-apr-2015#1683526">01:36</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">ok, so the libdl/DSO thing is gone </td>
+<td><span style="color:#d3d3d3;">[<a id="1683527" href="/2019/forum-logs-for-05-apr-2015#1683527">01:38</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">http://pastebin.com/raw.php?i=KqcWDAs1 </td>
+<td><span style="color:#d3d3d3;">[<a id="1683528" href="/2019/forum-logs-for-05-apr-2015#1683528">01:38</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">... ( http://bit.ly/1yMPhIz ) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683529" href="/2019/forum-logs-for-05-apr-2015#1683529">01:38</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">ok from uclibc docs/Glibc_vs_uClibc_Differences.txt </td>
+<td><span style="color:#d3d3d3;">[<a id="1683530" href="/2019/forum-logs-for-05-apr-2015#1683530">01:39</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">6) uClibc does not support NSS (/lib/libnss_&ast;), which allows glibc to easily support various methods of authentication and DNS resolution. uClibc only supports flat password files and shadow password files for storing authentication information. If you need something more complex than this, you can compile and install pam. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683531" href="/2019/forum-logs-for-05-apr-2015#1683531">01:39</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">so this is not an issue for pogo anyway </td>
+<td><span style="color:#d3d3d3;">[<a id="1683532" href="/2019/forum-logs-for-05-apr-2015#1683532">01:39</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">this invites the question of why should we ever use conventional libc again. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683533" href="/2019/forum-logs-for-05-apr-2015#1683533">01:40</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">indeed </td>
+<td><span style="color:#d3d3d3;">[<a id="1683534" href="/2019/forum-logs-for-05-apr-2015#1683534">01:40</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">all the more reason to use embedded buildroot/minimal distro </td>
+<td><span style="color:#d3d3d3;">[<a id="1683535" href="/2019/forum-logs-for-05-apr-2015#1683535">01:40</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">+1 </td>
+<td><span style="color:#d3d3d3;">[<a id="1683536" href="/2019/forum-logs-for-05-apr-2015#1683536">01:41</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">the amount of bloat in glibc is quite shocking </td>
+<td><span style="color:#d3d3d3;">[<a id="1683537" href="/2019/forum-logs-for-05-apr-2015#1683537">01:41</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">I mostly blame redhat </td>
+<td><span style="color:#d3d3d3;">[<a id="1683538" href="/2019/forum-logs-for-05-apr-2015#1683538">01:41</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">they want to turn linux into winblows </td>
+<td><span style="color:#d3d3d3;">[<a id="1683539" href="/2019/forum-logs-for-05-apr-2015#1683539">01:41</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">who doesn't </td>
+<td><span style="color:#d3d3d3;">[<a id="1683540" href="/2019/forum-logs-for-05-apr-2015#1683540">01:42</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">meanwhile windows wants to turn itself into a bunch of sheets of coloured construction paper laid out on a blue tarp </td>
+<td><span style="color:#d3d3d3;">[<a id="1683541" href="/2019/forum-logs-for-05-apr-2015#1683541">01:43</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">http://arstechnica.com/business/2012/02/how-red-hat-killed-its-core-productand-became-a-billion-dollar-business/ < ""We never ever go into a customer and say, 'There's an application that's not supported on RHEL," Cormier said. "If it's supported on Windows, it's supported on RHEL."" </td>
+<td><span style="color:#d3d3d3;">[<a id="1683542" href="/2019/forum-logs-for-05-apr-2015#1683542">01:44</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">How Red Hat killed its core product—and became a billion-dollar business | Ars Technica ... ( http://bit.ly/1GVabMr ) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683543" href="/2019/forum-logs-for-05-apr-2015#1683543">01:44</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">^ what he means, specifically, is that you can enslave your rhel machine to a winblows 'kerberos/ldap' server </td>
+<td><span style="color:#d3d3d3;">[<a id="1683544" href="/2019/forum-logs-for-05-apr-2015#1683544">01:46</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">which gives us glibc turdlets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683545" href="/2019/forum-logs-for-05-apr-2015#1683545">01:46</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">Adlai never understood why nobody wrote a tree-shaking compiler </td>
+<td><span style="color:#d3d3d3;">[<a id="1683546" href="/2019/forum-logs-for-05-apr-2015#1683546">01:49</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">odyjm has quit (Quit: Quitte) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683547" href="/2019/forum-logs-for-05-apr-2015#1683547">01:49</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">^ </td>
+<td><span style="color:#d3d3d3;">[<a id="1683548" href="/2019/forum-logs-for-05-apr-2015#1683548">01:49</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">ascii_modem: suddenly talk about lisp machines seems cool </td>
+<td><span style="color:#d3d3d3;">[<a id="1683549" href="/2019/forum-logs-for-05-apr-2015#1683549">01:50</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">one reason is that it is damnably hard for c/cpp </td>
+<td><span style="color:#d3d3d3;">[<a id="1683550" href="/2019/forum-logs-for-05-apr-2015#1683550">01:50</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">there's this thing http://www.absint.com/compcert/index.htm </td>
+<td><span style="color:#d3d3d3;">[<a id="1683551" href="/2019/forum-logs-for-05-apr-2015#1683551">01:51</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">CompCert ... ( http://bit.ly/1yMPUl7 ) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683552" href="/2019/forum-logs-for-05-apr-2015#1683552">01:51</a>]</span></td>
+</tr>
+<tr>
+<td><b>Adlai</b></td>
+<td class="breakup">sure, but it's not like this is the first time people have wanted to use minimal functionality from existing libraries </td>
+<td><span style="color:#d3d3d3;">[<a id="1683553" href="/2019/forum-logs-for-05-apr-2015#1683553">01:51</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">^ I tried to use it once, immediately puked when it encountered system libraries </td>
+<td><span style="color:#d3d3d3;">[<a id="1683554" href="/2019/forum-logs-for-05-apr-2015#1683554">01:51</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">safety-critical c, l0l!! </td>
+<td><span style="color:#d3d3d3;">[<a id="1683555" href="/2019/forum-logs-for-05-apr-2015#1683555">01:52</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">don't laugh ascii, it's apparently industry standard </td>
+<td><span style="color:#d3d3d3;">[<a id="1683556" href="/2019/forum-logs-for-05-apr-2015#1683556">01:53</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">the car-with-stuck-accelerator industry? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683557" href="/2019/forum-logs-for-05-apr-2015#1683557">01:54</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">aye that's what I'm thinking of </td>
+<td><span style="color:#d3d3d3;">[<a id="1683558" href="/2019/forum-logs-for-05-apr-2015#1683558">01:54</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">or the plane-falls-like-brick one </td>
+<td><span style="color:#d3d3d3;">[<a id="1683559" href="/2019/forum-logs-for-05-apr-2015#1683559">01:54</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">it's in the logs somewhere. point is, there's a whole cottage industry around trying to 'support' C for missions that matter </td>
+<td><span style="color:#d3d3d3;">[<a id="1683560" href="/2019/forum-logs-for-05-apr-2015#1683560">01:55</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">the lite version for interested folks http://www.edn.com/design/automotive/4423428/Toyota-s-killer-firmware--Bad-design-and-its-consequences < " </td>
+<td><span style="color:#d3d3d3;">[<a id="1683561" href="/2019/forum-logs-for-05-apr-2015#1683561">01:56</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">Barr's ultimate conclusions were that: Toyota’s electronic throttle control system (ETCS) source code is of unreasonable quality. Toyota’s source code is defective and contains bugs, including bugs that can cause unintended acceleration (UA). Code-quality metrics predict presence of additional bugs. Toyota’s fail safes are defective and inadequate (referring to them as a “house of cards” safety architecture). </td>
+<td><span style="color:#d3d3d3;">[<a id="1683562" href="/2019/forum-logs-for-05-apr-2015#1683562">01:56</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">Misbehaviors of Toyota’s ETCS are a cause of UA. " </td>
+<td><span style="color:#d3d3d3;">[<a id="1683563" href="/2019/forum-logs-for-05-apr-2015#1683563">01:56</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Toyota's killer firmware: Bad design and its consequences | EDN ... ( http://bit.ly/1GVb6MK ) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683564" href="/2019/forum-logs-for-05-apr-2015#1683564">01:56</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">"Although the investigation focused almost entirely on software, there is at least one HW factor: Toyota claimed the 2005 Camry's main CPU had error detecting and correcting (EDAC) RAM. It didn't. EDAC, or at least parity RAM, is relatively easy and low-cost insurance for safety-critical systems." </td>
+<td><span style="color:#d3d3d3;">[<a id="1683565" href="/2019/forum-logs-for-05-apr-2015#1683565">01:57</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">lol </td>
+<td><span style="color:#d3d3d3;">[<a id="1683566" href="/2019/forum-logs-for-05-apr-2015#1683566">01:57</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">one wonders how much of our lives depend directly on such hard and soft turdware </td>
+<td><span style="color:#d3d3d3;">[<a id="1683567" href="/2019/forum-logs-for-05-apr-2015#1683567">01:57</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot removes voice from ascii_modem </td>
+<td><span style="color:#d3d3d3;">[<a id="1683568" href="/2019/forum-logs-for-05-apr-2015#1683568">01:59</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">!up ascii_modem </td>
+<td><span style="color:#d3d3d3;">[<a id="1683569" href="/2019/forum-logs-for-05-apr-2015#1683569">01:59</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot gives voice to ascii_modem </td>
+<td><span style="color:#d3d3d3;">[<a id="1683570" href="/2019/forum-logs-for-05-apr-2015#1683570">01:59</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">as much as we let. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683571" href="/2019/forum-logs-for-05-apr-2015#1683571">01:59</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">nubbins` has quit (Quit: Quit) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683572" href="/2019/forum-logs-for-05-apr-2015#1683572">02:00</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">rms was right about this kind of stuff </td>
+<td><span style="color:#d3d3d3;">[<a id="1683573" href="/2019/forum-logs-for-05-apr-2015#1683573">02:00</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">if 'we' let vendors hide their software, they will produce turds </td>
+<td><span style="color:#d3d3d3;">[<a id="1683574" href="/2019/forum-logs-for-05-apr-2015#1683574">02:00</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">it will happen until hammurabic punishment is reintroduced. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683575" href="/2019/forum-logs-for-05-apr-2015#1683575">02:01</a>]</span></td>
+</tr>
+<tr>
+<td><b>Adlai</b></td>
+<td class="breakup">something like compcert doesn't help when the libraries have mounds of garbage code, even if it "works," you just get mounds of garbage object code </td>
+<td><span style="color:#d3d3d3;">[<a id="1683576" href="/2019/forum-logs-for-05-apr-2015#1683576">02:01</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot removes voice from AusBitBank </td>
+<td><span style="color:#d3d3d3;">[<a id="1683577" href="/2019/forum-logs-for-05-apr-2015#1683577">02:01</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">Adlai: yeah I don't think it will even let you link with any modern open source standard libraries </td>
+<td><span style="color:#d3d3d3;">[<a id="1683578" href="/2019/forum-logs-for-05-apr-2015#1683578">02:01</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">nubbins` (~leel@unaffiliated/nubbins) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683579" href="/2019/forum-logs-for-05-apr-2015#1683579">02:02</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">fits-in-head is the only answer. though it goes well with a balanced diet of public impalements for wreckerz </td>
+<td><span style="color:#d3d3d3;">[<a id="1683580" href="/2019/forum-logs-for-05-apr-2015#1683580">02:02</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">fitted non-ecc ram in a car? enjoy being used as living crash dummy in next test </td>
+<td><span style="color:#d3d3d3;">[<a id="1683581" href="/2019/forum-logs-for-05-apr-2015#1683581">02:03</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">at least toyota got to pocket $0.50! </td>
+<td><span style="color:#d3d3d3;">[<a id="1683582" href="/2019/forum-logs-for-05-apr-2015#1683582">02:04</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">some berkshire 'wriggleys' is laughing all the way to the bank </td>
+<td><span style="color:#d3d3d3;">[<a id="1683583" href="/2019/forum-logs-for-05-apr-2015#1683583">02:05</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">but it is important to remember -why- </td>
+<td><span style="color:#d3d3d3;">[<a id="1683584" href="/2019/forum-logs-for-05-apr-2015#1683584">02:05</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">it is -not!- because the non-ecc chip is cheaper </td>
+<td><span style="color:#d3d3d3;">[<a id="1683585" href="/2019/forum-logs-for-05-apr-2015#1683585">02:05</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">but because the unreflective imbecile who signed off on it is. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683586" href="/2019/forum-logs-for-05-apr-2015#1683586">02:06</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">^ should be sat upon stake </td>
+<td><span style="color:#d3d3d3;">[<a id="1683587" href="/2019/forum-logs-for-05-apr-2015#1683587">02:06</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">cheaper than that endangered animal, the actual engineer... </td>
+<td><span style="color:#d3d3d3;">[<a id="1683588" href="/2019/forum-logs-for-05-apr-2015#1683588">02:07</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">somewhere there was a sweatshop where some asian person was committing code to this device </td>
+<td><span style="color:#d3d3d3;">[<a id="1683589" href="/2019/forum-logs-for-05-apr-2015#1683589">02:07</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">and that person either &ast;knew&ast; what he was doing or was pathologically ignorant </td>
+<td><span style="color:#d3d3d3;">[<a id="1683590" href="/2019/forum-logs-for-05-apr-2015#1683590">02:08</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">quite possibly did not even know, for toyota or toy car </td>
+<td><span style="color:#d3d3d3;">[<a id="1683591" href="/2019/forum-logs-for-05-apr-2015#1683591">02:08</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">but someone -decided- to use the idiot coolie </td>
+<td><span style="color:#d3d3d3;">[<a id="1683592" href="/2019/forum-logs-for-05-apr-2015#1683592">02:09</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">true. it's also possible that the code was acquired from elsewhere, written for some other purpose, and was 'merit-washed' into the ecm module </td>
+<td><span style="color:#d3d3d3;">[<a id="1683593" href="/2019/forum-logs-for-05-apr-2015#1683593">02:09</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">^ not uncommon </td>
+<td><span style="color:#d3d3d3;">[<a id="1683594" href="/2019/forum-logs-for-05-apr-2015#1683594">02:09</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">not uncommon at all - for instance, openssl </td>
+<td><span style="color:#d3d3d3;">[<a id="1683595" href="/2019/forum-logs-for-05-apr-2015#1683595">02:10</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 9600 @ 0.00027266 = 2.6175 BTC [+] </td>
+<td><span style="color:#d3d3d3;">[<a id="1683596" href="/2019/forum-logs-for-05-apr-2015#1683596">02:11</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">ascii_modem has quit (Remote host closed the connection) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683597" href="/2019/forum-logs-for-05-apr-2015#1683597">02:11</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">decimation has quit () </td>
+<td><span style="color:#d3d3d3;">[<a id="1683598" href="/2019/forum-logs-for-05-apr-2015#1683598">02:17</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">FabianB (~fabian@f053215129.adsl.alicedsl.de) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683599" href="/2019/forum-logs-for-05-apr-2015#1683599">02:26</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">FabianB is now known as Guest6405 </td>
+<td><span style="color:#d3d3d3;">[<a id="1683600" href="/2019/forum-logs-for-05-apr-2015#1683600">02:27</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">Lycerion__ (~Lycerion@unaffiliated/lycerion) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683601" href="/2019/forum-logs-for-05-apr-2015#1683601">02:27</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">Guest64317 has quit (Ping timeout: 255 seconds) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683602" href="/2019/forum-logs-for-05-apr-2015#1683602">02:29</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">Lycerion_ has quit (Ping timeout: 272 seconds) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683603" href="/2019/forum-logs-for-05-apr-2015#1683603">02:31</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">http://log.bitcoin-assets.com/?date=05-04-2015#1089113 << ftr, i've given up on it. imo gentoo is too retarded to be usable. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683604" href="/2019/forum-logs-for-05-apr-2015#1683604">02:42</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Logged on 05-04-2015 03:56:30; ascii_modem: ben_vulpes: congrats re: gentoo </td>
+<td><span style="color:#d3d3d3;">[<a id="1683605" href="/2019/forum-logs-for-05-apr-2015#1683605">02:42</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">http://log.bitcoin-assets.com/?date=05-04-2015#1089150 << lol. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683606" href="/2019/forum-logs-for-05-apr-2015#1683606">02:45</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Logged on 05-04-2015 04:12:26; nubbins`: it's like the usms thing but on the forum </td>
+<td><span style="color:#d3d3d3;">[<a id="1683607" href="/2019/forum-logs-for-05-apr-2015#1683607">02:45</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">http://log.bitcoin-assets.com/?date=05-04-2015#1089151 << quite exactly that, actually. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683608" href="/2019/forum-logs-for-05-apr-2015#1683608">02:46</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Logged on 05-04-2015 04:12:42; ascii_modem: as someone who only ever knew about it from #b-a links - i thought it was a kinda nature preserve just for folks like woodman </td>
+<td><span style="color:#d3d3d3;">[<a id="1683609" href="/2019/forum-logs-for-05-apr-2015#1683609">02:46</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">http://log.bitcoin-assets.com/?date=05-04-2015#1089169 << i still want to know what was in for blazedout to shill for him. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683610" href="/2019/forum-logs-for-05-apr-2015#1683610">02:47</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Logged on 05-04-2015 04:17:34; nubbins`: and uses the bought accounts to "buy" his coins </td>
+<td><span style="color:#d3d3d3;">[<a id="1683611" href="/2019/forum-logs-for-05-apr-2015#1683611">02:47</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">http://log.bitcoin-assets.com/?date=05-04-2015#1089192 << maybe i'm from the wrong asylum, but what exactly does "provide a static X" mean ? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683612" href="/2019/forum-logs-for-05-apr-2015#1683612">02:48</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Logged on 05-04-2015 04:25:47; decimation: well, redhat provides a static libc </td>
+<td><span style="color:#d3d3d3;">[<a id="1683613" href="/2019/forum-logs-for-05-apr-2015#1683613">02:48</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">ie, my way out of swallowing random binary strange is to get a solid block of binary strange ? from... red hat ? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683614" href="/2019/forum-logs-for-05-apr-2015#1683614">02:48</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">i want it from nsa directly. what is this. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683615" href="/2019/forum-logs-for-05-apr-2015#1683615">02:48</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">http://log.bitcoin-assets.com/?date=05-04-2015#1089208 << apparently we were not the only ones to notice glibc got raped. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683616" href="/2019/forum-logs-for-05-apr-2015#1683616">02:49</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 27088 @ 0.00027215 = 7.372 BTC [-] </td>
+<td><span style="color:#d3d3d3;">[<a id="1683617" href="/2019/forum-logs-for-05-apr-2015#1683617">02:49</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Logged on 05-04-2015 04:36:00; ascii_modem: this invites the question of why should we ever use conventional libc again. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683618" href="/2019/forum-logs-for-05-apr-2015#1683618">02:49</a>]</span></td>
+</tr>
+<tr>
+<td><b>ben_vulpes</b></td>
+<td class="breakup">i have a gentoo that comes up as expected - but sans eth0, and damned if i can figure out why. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683619" href="/2019/forum-logs-for-05-apr-2015#1683619">02:50</a>]</span></td>
+</tr>
+<tr>
+<td><b>ben_vulpes</b></td>
+<td class="breakup">anyways, that's enough for one day. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683620" href="/2019/forum-logs-for-05-apr-2015#1683620">02:50</a>]</span></td>
+</tr>
+<tr>
+<td><b>ben_vulpes</b></td>
+<td class="breakup">(&ast;damned&ast; frustrating, that networking thing) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683621" href="/2019/forum-logs-for-05-apr-2015#1683621">02:51</a>]</span></td>
+</tr>
+<tr>
+<td><b>ben_vulpes</b></td>
+<td class="breakup">(live cd connects through virtualization layer just happily </td>
+<td><span style="color:#d3d3d3;">[<a id="1683622" href="/2019/forum-logs-for-05-apr-2015#1683622">02:51</a>]</span></td>
+</tr>
+<tr>
+<td><b>ben_vulpes</b></td>
+<td class="breakup">but compiled kernel and gentoo - simply refuses. indubitably attributable to operator error.) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683623" href="/2019/forum-logs-for-05-apr-2015#1683623">02:52</a>]</span></td>
+</tr>
+<tr>
+<td><b>trinque</b></td>
+<td class="breakup">ben_vulpes: gentoo has this dumb scheme where you have to symlink /etc/init.d/net.lo to say /etc/init.d/net.eth0 </td>
+<td><span style="color:#d3d3d3;">[<a id="1683624" href="/2019/forum-logs-for-05-apr-2015#1683624">02:52</a>]</span></td>
+</tr>
+<tr>
+<td><b>trinque</b></td>
+<td class="breakup">then start the symlink </td>
+<td><span style="color:#d3d3d3;">[<a id="1683625" href="/2019/forum-logs-for-05-apr-2015#1683625">02:52</a>]</span></td>
+</tr>
+<tr>
+<td><b>trinque</b></td>
+<td class="breakup">because magic is awesome </td>
+<td><span style="color:#d3d3d3;">[<a id="1683626" href="/2019/forum-logs-for-05-apr-2015#1683626">02:52</a>]</span></td>
+</tr>
+<tr>
+<td><b>trinque</b></td>
+<td class="breakup">then there's of course having the right kernel module going </td>
+<td><span style="color:#d3d3d3;">[<a id="1683627" href="/2019/forum-logs-for-05-apr-2015#1683627">02:53</a>]</span></td>
+</tr>
+<tr>
+<td><b>ben_vulpes</b></td>
+<td class="breakup">i-i'm scared, t-trinque </td>
+<td><span style="color:#d3d3d3;">[<a id="1683628" href="/2019/forum-logs-for-05-apr-2015#1683628">02:54</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">i'm fucking depressed. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683629" href="/2019/forum-logs-for-05-apr-2015#1683629">02:55</a>]</span></td>
+</tr>
+<tr>
+<td><b>ben_vulpes</b></td>
+<td class="breakup">waI/ </td>
+<td><span style="color:#d3d3d3;">[<a id="1683630" href="/2019/forum-logs-for-05-apr-2015#1683630">02:55</a>]</span></td>
+</tr>
+<tr>
+<td><b>ben_vulpes</b></td>
+<td class="breakup">? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683631" href="/2019/forum-logs-for-05-apr-2015#1683631">02:55</a>]</span></td>
+</tr>
+<tr>
+<td><b>ben_vulpes</b></td>
+<td class="breakup">pressed shitboard all the way down? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683632" href="/2019/forum-logs-for-05-apr-2015#1683632">02:56</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">because it is unacceptable for a world to exist where i may have to spend more than an hour getting a new os running. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683633" href="/2019/forum-logs-for-05-apr-2015#1683633">02:56</a>]</span></td>
+</tr>
+<tr>
+<td><b>mats</b></td>
+<td class="breakup">and here i thought mp was going to show a moment of vulnerability </td>
+<td><span style="color:#d3d3d3;">[<a id="1683634" href="/2019/forum-logs-for-05-apr-2015#1683634">02:59</a>]</span></td>
+</tr>
+<tr>
+<td><b>trinque</b></td>
+<td class="breakup">someone could solve this; gentoo has this neckbeard orthodoxy which imo is the only thing preventing it from having a proper installer </td>
+<td><span style="color:#d3d3d3;">[<a id="1683635" href="/2019/forum-logs-for-05-apr-2015#1683635">02:59</a>]</span></td>
+</tr>
+<tr>
+<td><b>trinque</b></td>
+<td class="breakup">can't have that because it wouldn't be gentoo! </td>
+<td><span style="color:#d3d3d3;">[<a id="1683636" href="/2019/forum-logs-for-05-apr-2015#1683636">02:59</a>]</span></td>
+</tr>
+<tr>
+<td><b>trinque</b></td>
+<td class="breakup">yes it would </td>
+<td><span style="color:#d3d3d3;">[<a id="1683637" href="/2019/forum-logs-for-05-apr-2015#1683637">02:59</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">"someone could solve this" </td>
+<td><span style="color:#d3d3d3;">[<a id="1683638" href="/2019/forum-logs-for-05-apr-2015#1683638">02:59</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">sure, someone could. the moment someone does you get ubuntu - two years of unusable, six months of barely usable and then insta-poettering. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683639" href="/2019/forum-logs-for-05-apr-2015#1683639">03:00</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">ubuntu is practically 10.04 </td>
+<td><span style="color:#d3d3d3;">[<a id="1683640" href="/2019/forum-logs-for-05-apr-2015#1683640">03:00</a>]</span></td>
+</tr>
+<tr>
+<td><b>trinque</b></td>
+<td class="breakup">hm, how do you resolve it? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683641" href="/2019/forum-logs-for-05-apr-2015#1683641">03:00</a>]</span></td>
+</tr>
+<tr>
+<td><b>trinque</b></td>
+<td class="breakup">either it's easy to install and becomes the shit-smeared playground, or it's pulling teeth and marginally less shit-smeared, it seems </td>
+<td><span style="color:#d3d3d3;">[<a id="1683642" href="/2019/forum-logs-for-05-apr-2015#1683642">03:01</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">how. spiked club in one hand, plank-with-nail in another hand. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683643" href="/2019/forum-logs-for-05-apr-2015#1683643">03:01</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">stepping on transvestite cocks and hispster beards, in a swamp of hurt feelings. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683644" href="/2019/forum-logs-for-05-apr-2015#1683644">03:01</a>]</span></td>
+</tr>
+<tr>
+<td><b>trinque</b></td>
+<td class="breakup">haha, the plank with nail is unstoppable </td>
+<td><span style="color:#d3d3d3;">[<a id="1683645" href="/2019/forum-logs-for-05-apr-2015#1683645">03:02</a>]</span></td>
+</tr>
+<tr>
+<td><b>trinque</b></td>
+<td class="breakup">sounds like a hell of a fun time </td>
+<td><span style="color:#d3d3d3;">[<a id="1683646" href="/2019/forum-logs-for-05-apr-2015#1683646">03:02</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">sadly intelligent people are coditioned to fear hurting idiots, instead of enjoying it. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683647" href="/2019/forum-logs-for-05-apr-2015#1683647">03:02</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">anyway, it's the most objectionable thing ever, all this list of gotchas. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683648" href="/2019/forum-logs-for-05-apr-2015#1683648">03:04</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">trying to install gentoo is like taking an exam for public servancy </td>
+<td><span style="color:#d3d3d3;">[<a id="1683649" href="/2019/forum-logs-for-05-apr-2015#1683649">03:04</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">"you mean to tell me you wrote down form f.45.b instead of 4.5.fb ?!?!?! </td>
+<td><span style="color:#d3d3d3;">[<a id="1683650" href="/2019/forum-logs-for-05-apr-2015#1683650">03:04</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">if i wanted to live like that i'd have stayed in academia." </td>
+<td><span style="color:#d3d3d3;">[<a id="1683651" href="/2019/forum-logs-for-05-apr-2015#1683651">03:05</a>]</span></td>
+</tr>
+<tr>
+<td><b>trinque</b></td>
+<td class="breakup">oh god the mundane knowledge you must have to operate it </td>
+<td><span style="color:#d3d3d3;">[<a id="1683652" href="/2019/forum-logs-for-05-apr-2015#1683652">03:05</a>]</span></td>
+</tr>
+<tr>
+<td><b>trinque</b></td>
+<td class="breakup">I don't feel smarter doing this </td>
+<td><span style="color:#d3d3d3;">[<a id="1683653" href="/2019/forum-logs-for-05-apr-2015#1683653">03:05</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">that'd be the problem. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683654" href="/2019/forum-logs-for-05-apr-2015#1683654">03:06</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 13329 @ 0.00027215 = 3.6275 BTC [-] </td>
+<td><span style="color:#d3d3d3;">[<a id="1683655" href="/2019/forum-logs-for-05-apr-2015#1683655">03:13</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">smidge (smidge@HSI-KBW-091-089-192-244.hsi2.kabel-badenwuerttemberg.de) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683656" href="/2019/forum-logs-for-05-apr-2015#1683656">03:14</a>]</span></td>
+</tr>
+<tr>
+<td><b>BingoBoingo</b></td>
+<td class="breakup">;;bc,stats </td>
+<td><span style="color:#d3d3d3;">[<a id="1683657" href="/2019/forum-logs-for-05-apr-2015#1683657">03:23</a>]</span></td>
+</tr>
+<tr>
+<td><b>gribble</b></td>
+<td class="breakup">Current Blocks: 350791 | Current Difficulty: 4.944639068824144E10 | Next Difficulty At Block: 352799 | Next Difficulty In: 2008 blocks | Next Difficulty In About: 2 weeks, 0 days, 10 hours, 42 minutes, and 18 seconds | Next Difficulty Estimate: 78486415641.3 | Estimated Percent Change: 58.73032 </td>
+<td><span style="color:#d3d3d3;">[<a id="1683658" href="/2019/forum-logs-for-05-apr-2015#1683658">03:23</a>]</span></td>
+</tr>
+<tr>
+<td><b>mats</b></td>
+<td class="breakup">http://log.bitcoin-assets.com/?date=02-04-2015#1084918 << UDEREF is about best-effort userland/kernel separation for exploit mitigation, not limiting the capability of the kernel </td>
+<td><span style="color:#d3d3d3;">[<a id="1683659" href="/2019/forum-logs-for-05-apr-2015#1683659">03:30</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Logged on 02-04-2015 20:59:21; asciilifeform: mats: i can trivially make mincemeat of this by issuing raw dma cycles. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683660" href="/2019/forum-logs-for-05-apr-2015#1683660">03:30</a>]</span></td>
+</tr>
+<tr>
+<td><b>mats</b></td>
+<td class="breakup">quoth the spender: "the problem i set out to solve with UDEREF was that many kernel bugs can be exploited (at all or more reliably) due to the fact that on i386 most OSs don't separate the userland virtual address space from that of the kernel. this in turn means that whenever userland can make the kernel (unexpectedly) dereference a userland controlled </td>
+<td><span style="color:#d3d3d3;">[<a id="1683661" href="/2019/forum-logs-for-05-apr-2015#1683661">03:33</a>]</span></td>
+</tr>
+<tr>
+<td><b>mats</b></td>
+<td class="breakup">pointer, userland can control the data (and sometimes, control) flow of the kernel by virtue of providing the attack data in its own userland address range as it's fully visible in the kernel's virtual address space as well" </td>
+<td><span style="color:#d3d3d3;">[<a id="1683662" href="/2019/forum-logs-for-05-apr-2015#1683662">03:33</a>]</span></td>
+</tr>
+<tr>
+<td><b>mats</b></td>
+<td class="breakup">https://grsecurity.net/~spender/uderef.txt << for the logs </td>
+<td><span style="color:#d3d3d3;">[<a id="1683663" href="/2019/forum-logs-for-05-apr-2015#1683663">03:35</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">404 Not Found ... ( http://bit.ly/1D6g33I ) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683664" href="/2019/forum-logs-for-05-apr-2015#1683664">03:35</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">AusBitBank has quit (Quit: Ex-Chat) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683665" href="/2019/forum-logs-for-05-apr-2015#1683665">03:36</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">hktud0 has quit (Read error: Connection reset by peer) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683666" href="/2019/forum-logs-for-05-apr-2015#1683666">04:10</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">hktud0 (ncidsk@unaffiliated/fluffybunny) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683667" href="/2019/forum-logs-for-05-apr-2015#1683667">04:13</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">ColinT has quit (Quit: Leaving...) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683668" href="/2019/forum-logs-for-05-apr-2015#1683668">04:17</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">coingenuity has quit (Ping timeout: 256 seconds) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683669" href="/2019/forum-logs-for-05-apr-2015#1683669">04:52</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">coingenuity (~coingenui@unaffiliated/coingenuity) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683670" href="/2019/forum-logs-for-05-apr-2015#1683670">04:57</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">cnerd has quit () </td>
+<td><span style="color:#d3d3d3;">[<a id="1683671" href="/2019/forum-logs-for-05-apr-2015#1683671">05:02</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">_flow_ has quit (Ping timeout: 276 seconds) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683672" href="/2019/forum-logs-for-05-apr-2015#1683672">05:02</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">im starting to realise the "bitcoin atm" thing is actually just a sort of "freedom toaster" v2.0 </td>
+<td><span style="color:#d3d3d3;">[<a id="1683673" href="/2019/forum-logs-for-05-apr-2015#1683673">05:26</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">_flow_ (flow@star.geekplace.eu) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683674" href="/2019/forum-logs-for-05-apr-2015#1683674">05:30</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">Transisto (~Trans@modemcable026.188-59-74.mc.videotron.ca) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683675" href="/2019/forum-logs-for-05-apr-2015#1683675">05:38</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 8764 @ 0.00027599 = 2.4188 BTC [+] </td>
+<td><span style="color:#d3d3d3;">[<a id="1683676" href="/2019/forum-logs-for-05-apr-2015#1683676">05:38</a>]</span></td>
+</tr>
+<tr>
+<td><b>BingoBoingo</b></td>
+<td class="breakup">Wait, you had other impression of it? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683677" href="/2019/forum-logs-for-05-apr-2015#1683677">05:40</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">i originally imagined it's a misguided attempt to make money, </td>
+<td><span style="color:#d3d3d3;">[<a id="1683678" href="/2019/forum-logs-for-05-apr-2015#1683678">05:42</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">rather than a ludicrous attempt to be hipsterashionable. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683679" href="/2019/forum-logs-for-05-apr-2015#1683679">05:42</a>]</span></td>
+</tr>
+<tr>
+<td><b>BingoBoingo</b></td>
+<td class="breakup">Will it's an attempt to make some money for the people selling the boxes, but mostly it's a piece of conference swag some naive souls tried to introduce into the real world. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683680" href="/2019/forum-logs-for-05-apr-2015#1683680">05:44</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">aha </td>
+<td><span style="color:#d3d3d3;">[<a id="1683681" href="/2019/forum-logs-for-05-apr-2015#1683681">05:45</a>]</span></td>
+</tr>
+<tr>
+<td><b>BingoBoingo</b></td>
+<td class="breakup">Setup a freedom toaster at a conference, some idiots are going to put one up in a space they have access to thinking it will attact passerby outside the conference distortion swirl, same with BTC ATMs </td>
+<td><span style="color:#d3d3d3;">[<a id="1683682" href="/2019/forum-logs-for-05-apr-2015#1683682">05:48</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">it's a bizarre sort of museum-ification of life. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683683" href="/2019/forum-logs-for-05-apr-2015#1683683">05:49</a>]</span></td>
+</tr>
+<tr>
+<td><b>BingoBoingo</b></td>
+<td class="breakup">There's probably some subset of compulsive behavior spectrum that desperately wants whatever they are doing to actual be museum'ing </td>
+<td><span style="color:#d3d3d3;">[<a id="1683684" href="/2019/forum-logs-for-05-apr-2015#1683684">06:04</a>]</span></td>
+</tr>
+<tr>
+<td><b>[]bot</b></td>
+<td class="breakup">Bet placed: 2 BTC for No on "Gold to drop under $1000 before August 2015" http://bitbet.us/bet/1131/ Odds: 18(Y):82(N) by coin, 20(Y):80(N) by weight. Total bet: 5.65237 BTC. Current weight: 86,479. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683685" href="/2019/forum-logs-for-05-apr-2015#1683685">06:38</a>]</span></td>
+</tr>
+<tr>
+<td><b>[]bot</b></td>
+<td class="breakup">Bet placed: 2 BTC for No on "Silver at or over $22/oz before October" http://bitbet.us/bet/1132/ Odds: 32(Y):68(N) by coin, 33(Y):67(N) by weight. Total bet: 6.265139 BTC. Current weight: 92,827. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683686" href="/2019/forum-logs-for-05-apr-2015#1683686">06:38</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 10279 @ 0.00028224 = 2.9011 BTC [+] </td>
+<td><span style="color:#d3d3d3;">[<a id="1683687" href="/2019/forum-logs-for-05-apr-2015#1683687">06:56</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 6900 @ 0.00028229 = 1.9478 BTC [+] {2} </td>
+<td><span style="color:#d3d3d3;">[<a id="1683688" href="/2019/forum-logs-for-05-apr-2015#1683688">07:04</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">NewLiberty (~NewLibert@2602:304:cff8:1580:805d:481f:d702:8848) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683689" href="/2019/forum-logs-for-05-apr-2015#1683689">07:12</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 25250 @ 0.00028277 = 7.1399 BTC [+] {2} </td>
+<td><span style="color:#d3d3d3;">[<a id="1683690" href="/2019/forum-logs-for-05-apr-2015#1683690">07:47</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 11250 @ 0.00028334 = 3.1876 BTC [+] {2} </td>
+<td><span style="color:#d3d3d3;">[<a id="1683691" href="/2019/forum-logs-for-05-apr-2015#1683691">07:58</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">Xuthus (~x@unaffiliated/xuthus) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683692" href="/2019/forum-logs-for-05-apr-2015#1683692">08:05</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 33500 @ 0.00027671 = 9.2698 BTC [-] {4} </td>
+<td><span style="color:#d3d3d3;">[<a id="1683693" href="/2019/forum-logs-for-05-apr-2015#1683693">08:12</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">duchemin (beac0f2b@gateway/web/freenode/ip.190.172.15.43) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683694" href="/2019/forum-logs-for-05-apr-2015#1683694">08:16</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">duchemin (beac0f2b@gateway/web/freenode/ip.190.172.15.43) has left #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683695" href="/2019/forum-logs-for-05-apr-2015#1683695">08:17</a>]</span></td>
+</tr>
+<tr>
+<td><b>cazalla</b></td>
+<td class="breakup">danielpbarron, ha check it out, that freebsdgirl ya had it out with on twitter got swatted http://blog.randi.io/2015/04/03/swated/ </td>
+<td><span style="color:#d3d3d3;">[<a id="1683696" href="/2019/forum-logs-for-05-apr-2015#1683696">08:22</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Tales from the Trenches: I was SWATed | randi.io ... ( http://bit.ly/1xR2SmO ) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683697" href="/2019/forum-logs-for-05-apr-2015#1683697">08:22</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">shovel_boss (~shovel_bo@unaffiliated/shovel-boss/x-4881665) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683698" href="/2019/forum-logs-for-05-apr-2015#1683698">08:34</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">shovel_boss has quit (Read error: Connection reset by peer) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683699" href="/2019/forum-logs-for-05-apr-2015#1683699">08:54</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">diana_coman (~diana_com@unaffiliated/diana-coman/x-8319396) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683700" href="/2019/forum-logs-for-05-apr-2015#1683700">09:00</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 10950 @ 0.00027841 = 3.0486 BTC [+] {2} </td>
+<td><span style="color:#d3d3d3;">[<a id="1683701" href="/2019/forum-logs-for-05-apr-2015#1683701">10:26</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot gives voice to nubbins` </td>
+<td><span style="color:#d3d3d3;">[<a id="1683702" href="/2019/forum-logs-for-05-apr-2015#1683702">10:32</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">oh jeez so many eaten messages </td>
+<td><span style="color:#d3d3d3;">[<a id="1683703" href="/2019/forum-logs-for-05-apr-2015#1683703">10:32</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup"><+mircea_popescu> http://log.bitcoin-assets.com/?date=05-04-2015#1089169 << i still want to know what was in for blazedout to shill for him. <<< i still have NFI </td>
+<td><span style="color:#d3d3d3;">[<a id="1683704" href="/2019/forum-logs-for-05-apr-2015#1683704">10:32</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Logged on 05-04-2015 04:17:34; nubbins`: and uses the bought accounts to "buy" his coins </td>
+<td><span style="color:#d3d3d3;">[<a id="1683705" href="/2019/forum-logs-for-05-apr-2015#1683705">10:32</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup"><+trinque> ben_vulpes: gentoo has this dumb scheme where you have to symlink /etc/init.d/net.lo to say /etc/init.d/net.eth0 <<< +1 </td>
+<td><span style="color:#d3d3d3;">[<a id="1683706" href="/2019/forum-logs-for-05-apr-2015#1683706">10:32</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">ben_vulpes my eth0 is named enp0s3 in gentoo by default </td>
+<td><span style="color:#d3d3d3;">[<a id="1683707" href="/2019/forum-logs-for-05-apr-2015#1683707">10:33</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">try ifconfig to see if yours is same </td>
+<td><span style="color:#d3d3d3;">[<a id="1683708" href="/2019/forum-logs-for-05-apr-2015#1683708">10:33</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">https://twitter.com/olivierjanss/status/584496773592383488 </td>
+<td><span style="color:#d3d3d3;">[<a id="1683709" href="/2019/forum-logs-for-05-apr-2015#1683709">10:37</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Bitcoin Foundation's Corporate Counsel (Greg Egan) just resigned. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683710" href="/2019/forum-logs-for-05-apr-2015#1683710">10:38</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">i like this guy </td>
+<td><span style="color:#d3d3d3;">[<a id="1683711" href="/2019/forum-logs-for-05-apr-2015#1683711">10:38</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">okay, this is good:http://pastebin.com/raw.php?i=KKWE8Spe </td>
+<td><span style="color:#d3d3d3;">[<a id="1683712" href="/2019/forum-logs-for-05-apr-2015#1683712">10:39</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">now it's happening when i try to (re-)compile bdb rather than when i try to compile bitcoind </td>
+<td><span style="color:#d3d3d3;">[<a id="1683713" href="/2019/forum-logs-for-05-apr-2015#1683713">10:39</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">whaack (4a48d33f@gateway/web/freenode/ip.74.72.211.63) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683714" href="/2019/forum-logs-for-05-apr-2015#1683714">10:43</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup"><+cazalla> danielpbarron, ha check it out, that freebsdgirl ya had it out with on twitter got swatted <<< this imo is explicit admission by her enemies that they have no external genitalia </td>
+<td><span style="color:#d3d3d3;">[<a id="1683715" href="/2019/forum-logs-for-05-apr-2015#1683715">10:47</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">ascii_modem (~asciilife@79.sub-70-208-136.myvzw.com) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683716" href="/2019/forum-logs-for-05-apr-2015#1683716">10:50</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">!up ascii_modem </td>
+<td><span style="color:#d3d3d3;">[<a id="1683717" href="/2019/forum-logs-for-05-apr-2015#1683717">10:53</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot gives voice to ascii_modem </td>
+<td><span style="color:#d3d3d3;">[<a id="1683718" href="/2019/forum-logs-for-05-apr-2015#1683718">10:53</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 12050 @ 0.00028338 = 3.4147 BTC [+] {2} </td>
+<td><span style="color:#d3d3d3;">[<a id="1683719" href="/2019/forum-logs-for-05-apr-2015#1683719">10:56</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">morn </td>
+<td><span style="color:#d3d3d3;">[<a id="1683720" href="/2019/forum-logs-for-05-apr-2015#1683720">10:57</a>]</span></td>
+</tr>
+<tr>
+<td><b>punkman</b></td>
+<td class="breakup">http://blog.randi.io/2015/04/03/swated/ << couple cops showing up and being polite doesn't sound like "SWATed" </td>
+<td><span style="color:#d3d3d3;">[<a id="1683721" href="/2019/forum-logs-for-05-apr-2015#1683721">11:03</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Tales from the Trenches: I was SWATed | randi.io ... ( http://bit.ly/1a4Cknf ) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683722" href="/2019/forum-logs-for-05-apr-2015#1683722">11:03</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">mega-log </td>
+<td><span style="color:#d3d3d3;">[<a id="1683723" href="/2019/forum-logs-for-05-apr-2015#1683723">11:03</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">mircea_popescu: gentoo is not so much a 'usable linux' as a -machine for building a usable linux-. sorta like 'buildroot'. would you also say that, e.g., a lathe - is 'unusable' ? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683724" href="/2019/forum-logs-for-05-apr-2015#1683724">11:06</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">for me, yes </td>
+<td><span style="color:#d3d3d3;">[<a id="1683725" href="/2019/forum-logs-for-05-apr-2015#1683725">11:08</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">a lathe is the essence of unusable. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683726" href="/2019/forum-logs-for-05-apr-2015#1683726">11:08</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">me, i find all those -other- distros, the ones that insist on littering my disk with all those bins i didn't ask for and that werent built in my home - unusable </td>
+<td><span style="color:#d3d3d3;">[<a id="1683727" href="/2019/forum-logs-for-05-apr-2015#1683727">11:08</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">these are completely separate problems. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683728" href="/2019/forum-logs-for-05-apr-2015#1683728">11:09</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683729" href="/2019/forum-logs-for-05-apr-2015#1683729">11:09</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">so i find prisses unusable and you find crosseyed women unusable. so ? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683730" href="/2019/forum-logs-for-05-apr-2015#1683730">11:09</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup"><+mircea_popescu> a lathe is the essence of unusable. <<< o.O i bet you have soft hands </td>
+<td><span style="color:#d3d3d3;">[<a id="1683731" href="/2019/forum-logs-for-05-apr-2015#1683731">11:09</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">very. and feet. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683732" href="/2019/forum-logs-for-05-apr-2015#1683732">11:10</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">heh </td>
+<td><span style="color:#d3d3d3;">[<a id="1683733" href="/2019/forum-logs-for-05-apr-2015#1683733">11:10</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">if you want to complete the picture, tell me your handshake is limp and clammy </td>
+<td><span style="color:#d3d3d3;">[<a id="1683734" href="/2019/forum-logs-for-05-apr-2015#1683734">11:10</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">nop. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683735" href="/2019/forum-logs-for-05-apr-2015#1683735">11:10</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">;/ </td>
+<td><span style="color:#d3d3d3;">[<a id="1683736" href="/2019/forum-logs-for-05-apr-2015#1683736">11:10</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">again, entirely separate propblems, these. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683737" href="/2019/forum-logs-for-05-apr-2015#1683737">11:10</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">a study in poopsites </td>
+<td><span style="color:#d3d3d3;">[<a id="1683738" href="/2019/forum-logs-for-05-apr-2015#1683738">11:10</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">also opposites. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683739" href="/2019/forum-logs-for-05-apr-2015#1683739">11:10</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">:( </td>
+<td><span style="color:#d3d3d3;">[<a id="1683740" href="/2019/forum-logs-for-05-apr-2015#1683740">11:10</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">lol </td>
+<td><span style="color:#d3d3d3;">[<a id="1683741" href="/2019/forum-logs-for-05-apr-2015#1683741">11:10</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">i find it odd that mircea_popescu does not handle linux in same way as lathe or - hell - dental work </td>
+<td><span style="color:#d3d3d3;">[<a id="1683742" href="/2019/forum-logs-for-05-apr-2015#1683742">11:11</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">i can. ocasionally i choose not to. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683743" href="/2019/forum-logs-for-05-apr-2015#1683743">11:11</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">[KS] has quit (Remote host closed the connection) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683744" href="/2019/forum-logs-for-05-apr-2015#1683744">11:14</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">http://log.bitcoin-assets.com/?date=05-04-2015#1089295 << ftr a new gentoo box usually takes me at least a week - if on sane hardware </td>
+<td><span style="color:#d3d3d3;">[<a id="1683745" href="/2019/forum-logs-for-05-apr-2015#1683745">11:16</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Logged on 05-04-2015 05:52:05; mircea_popescu: because it is unacceptable for a world to exist where i may have to spend more than an hour getting a new os running. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683746" href="/2019/forum-logs-for-05-apr-2015#1683746">11:16</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">and you do not see a problem with this ? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683747" href="/2019/forum-logs-for-05-apr-2015#1683747">11:17</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">i didn't say it should take YOU an hour. i said it should take me an hour. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683748" href="/2019/forum-logs-for-05-apr-2015#1683748">11:17</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">http://log.bitcoin-assets.com/?date=05-04-2015#1089297 << lol installer?!! as in copying other folks' bins over? ick </td>
+<td><span style="color:#d3d3d3;">[<a id="1683749" href="/2019/forum-logs-for-05-apr-2015#1683749">11:18</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Logged on 05-04-2015 05:54:27; trinque: someone could solve this; gentoo has this neckbeard orthodoxy which imo is the only thing preventing it from having a proper installer </td>
+<td><span style="color:#d3d3d3;">[<a id="1683750" href="/2019/forum-logs-for-05-apr-2015#1683750">11:18</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">and i'm not counting whatever it takes to compile. just, it is not sane to expect me to go through laundry lists for minute after minute after minute. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683751" href="/2019/forum-logs-for-05-apr-2015#1683751">11:18</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">that part takes me 1h at most. it is deliberately manual, like the sub reactors, or therealbitcoin </td>
+<td><span style="color:#d3d3d3;">[<a id="1683752" href="/2019/forum-logs-for-05-apr-2015#1683752">11:19</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">yeah well... </td>
+<td><span style="color:#d3d3d3;">[<a id="1683753" href="/2019/forum-logs-for-05-apr-2015#1683753">11:19</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">and done once </td>
+<td><span style="color:#d3d3d3;">[<a id="1683754" href="/2019/forum-logs-for-05-apr-2015#1683754">11:20</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">http://log.bitcoin-assets.com/?date=05-04-2015#1089301 << exactly </td>
+<td><span style="color:#d3d3d3;">[<a id="1683755" href="/2019/forum-logs-for-05-apr-2015#1683755">11:21</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Logged on 05-04-2015 05:55:23; mircea_popescu: sure, someone could. the moment someone does you get ubuntu - two years of unusable, six months of barely usable and then insta-poettering. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683756" href="/2019/forum-logs-for-05-apr-2015#1683756">11:21</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">what was bitcoind using that ended up pulling libnss via glibc ? gethostbyaddr() was it ? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683757" href="/2019/forum-logs-for-05-apr-2015#1683757">11:22</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">no royal road, people </td>
+<td><span style="color:#d3d3d3;">[<a id="1683758" href="/2019/forum-logs-for-05-apr-2015#1683758">11:22</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">BULL! </td>
+<td><span style="color:#d3d3d3;">[<a id="1683759" href="/2019/forum-logs-for-05-apr-2015#1683759">11:22</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">mircea_popescu: dns in general , aha </td>
+<td><span style="color:#d3d3d3;">[<a id="1683760" href="/2019/forum-logs-for-05-apr-2015#1683760">11:22</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">why did i not have this issue </td>
+<td><span style="color:#d3d3d3;">[<a id="1683761" href="/2019/forum-logs-for-05-apr-2015#1683761">11:24</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot removes voice from ascii_modem </td>
+<td><span style="color:#d3d3d3;">[<a id="1683762" href="/2019/forum-logs-for-05-apr-2015#1683762">11:24</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">!up ascii_modem </td>
+<td><span style="color:#d3d3d3;">[<a id="1683763" href="/2019/forum-logs-for-05-apr-2015#1683763">11:25</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot gives voice to ascii_modem </td>
+<td><span style="color:#d3d3d3;">[<a id="1683764" href="/2019/forum-logs-for-05-apr-2015#1683764">11:25</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">nubbins': which issue </td>
+<td><span style="color:#d3d3d3;">[<a id="1683765" href="/2019/forum-logs-for-05-apr-2015#1683765">11:25</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">w/e the libnss thing is. details escape me now. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683766" href="/2019/forum-logs-for-05-apr-2015#1683766">11:26</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">nubbins` is buried under mountain of monkeys and footballs </td>
+<td><span style="color:#d3d3d3;">[<a id="1683767" href="/2019/forum-logs-for-05-apr-2015#1683767">11:26</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">you did, no ? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683768" href="/2019/forum-logs-for-05-apr-2015#1683768">11:26</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">until killed the dns crap </td>
+<td><span style="color:#d3d3d3;">[<a id="1683769" href="/2019/forum-logs-for-05-apr-2015#1683769">11:26</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">oh right, yeah, the dns-snip patch killed that </td>
+<td><span style="color:#d3d3d3;">[<a id="1683770" href="/2019/forum-logs-for-05-apr-2015#1683770">11:27</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">though i'm pretty sure it left a dns turd in somewhere - so a bit odd, this </td>
+<td><span style="color:#d3d3d3;">[<a id="1683771" href="/2019/forum-logs-for-05-apr-2015#1683771">11:28</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">hmmmmmmm, cross-toolchain just spit out a static binary. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683772" href="/2019/forum-logs-for-05-apr-2015#1683772">11:28</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">nubbins` scrambles to xfer to pogo </td>
+<td><span style="color:#d3d3d3;">[<a id="1683773" href="/2019/forum-logs-for-05-apr-2015#1683773">11:28</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">nubbins': run on pogotron </td>
+<td><span style="color:#d3d3d3;">[<a id="1683774" href="/2019/forum-logs-for-05-apr-2015#1683774">11:28</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">if runs - genuinely static </td>
+<td><span style="color:#d3d3d3;">[<a id="1683775" href="/2019/forum-logs-for-05-apr-2015#1683775">11:29</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">nod </td>
+<td><span style="color:#d3d3d3;">[<a id="1683776" href="/2019/forum-logs-for-05-apr-2015#1683776">11:29</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">ldd says so, but proof is in pudding </td>
+<td><span style="color:#d3d3d3;">[<a id="1683777" href="/2019/forum-logs-for-05-apr-2015#1683777">11:29</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">the -only- real test </td>
+<td><span style="color:#d3d3d3;">[<a id="1683778" href="/2019/forum-logs-for-05-apr-2015#1683778">11:29</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">gotta set atftp </td>
+<td><span style="color:#d3d3d3;">[<a id="1683779" href="/2019/forum-logs-for-05-apr-2015#1683779">11:29</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">decimation (~bit_nugge@unaffiliated/decimation) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683780" href="/2019/forum-logs-for-05-apr-2015#1683780">11:31</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot gives voice to decimation </td>
+<td><span style="color:#d3d3d3;">[<a id="1683781" href="/2019/forum-logs-for-05-apr-2015#1683781">11:32</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">i still want to know why gentoo has the only honest (re: stdint) gcc ! </td>
+<td><span style="color:#d3d3d3;">[<a id="1683782" href="/2019/forum-logs-for-05-apr-2015#1683782">11:32</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">ColinT (~ColinT@69-11-97-130.regn.static.sasknet.sk.ca) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683783" href="/2019/forum-logs-for-05-apr-2015#1683783">11:33</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">http://log.bitcoin-assets.com/?date=05-04-2015#1089276 < I apologize for failing to convey my meaning well. I meant that redhat 'provides' this as a source package, and therefore one could examine exactly how they did it - not to swallow the binary without inspection. Source is here > http://ftp.redhat.com/redhat/linux/enterprise/6Server/en/os/SRPMS/glibc-2.12-1.149.el6_6.5.src.rpm </td>
+<td><span style="color:#d3d3d3;">[<a id="1683784" href="/2019/forum-logs-for-05-apr-2015#1683784">11:34</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Logged on 05-04-2015 05:43:38; mircea_popescu: ie, my way out of swallowing random binary strange is to get a solid block of binary strange ? from... red hat ? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683785" href="/2019/forum-logs-for-05-apr-2015#1683785">11:34</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">http://log.bitcoin-assets.com/?date=05-04-2015#1089320 << fuck 'mitigation' and the surrender built into the word. i insist on -extirpation- -- with hot iron </td>
+<td><span style="color:#d3d3d3;">[<a id="1683786" href="/2019/forum-logs-for-05-apr-2015#1683786">11:34</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Logged on 05-04-2015 06:26:08; mats: http://log.bitcoin-assets.com/?date=02-04-2015#1084918 << UDEREF is about best-effort userland/kernel separation for exploit mitigation, not limiting the capability of the kernel </td>
+<td><span style="color:#d3d3d3;">[<a id="1683787" href="/2019/forum-logs-for-05-apr-2015#1683787">11:34</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">marteen has quit (Ping timeout: 264 seconds) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683788" href="/2019/forum-logs-for-05-apr-2015#1683788">11:34</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">decimation: the source rpm still needs rathead to build </td>
+<td><span style="color:#d3d3d3;">[<a id="1683789" href="/2019/forum-logs-for-05-apr-2015#1683789">11:35</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">ugh c'mon tftp </td>
+<td><span style="color:#d3d3d3;">[<a id="1683790" href="/2019/forum-logs-for-05-apr-2015#1683790">11:35</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">/home/ftp # tftp 192.168.2.23 just spits out usage instructions </td>
+<td><span style="color:#d3d3d3;">[<a id="1683791" href="/2019/forum-logs-for-05-apr-2015#1683791">11:35</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">diana_coman has quit (Read error: Connection reset by peer) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683792" href="/2019/forum-logs-for-05-apr-2015#1683792">11:35</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">DianaComan (~diana_com@unaffiliated/diana-coman/x-8319396) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683793" href="/2019/forum-logs-for-05-apr-2015#1683793">11:35</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">marteen (~martin@190.113.147.133) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683794" href="/2019/forum-logs-for-05-apr-2015#1683794">11:36</a>]</span></td>
+</tr>
+<tr>
+<td><b>ascii_modem</b></td>
+<td class="breakup">nubbins': use atftpd </td>
+<td><span style="color:#d3d3d3;">[<a id="1683795" href="/2019/forum-logs-for-05-apr-2015#1683795">11:37</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">well, it does need rpmbuild at least, it would probably be difficult to work without redhat </td>
+<td><span style="color:#d3d3d3;">[<a id="1683796" href="/2019/forum-logs-for-05-apr-2015#1683796">11:37</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">Although if I recall a version of rpmbuild was available on gentoo </td>
+<td><span style="color:#d3d3d3;">[<a id="1683797" href="/2019/forum-logs-for-05-apr-2015#1683797">11:37</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">http://log.bitcoin-assets.com/?date=05-04-2015#1089403 < because uclibc doesn't even support nss </td>
+<td><span style="color:#d3d3d3;">[<a id="1683798" href="/2019/forum-logs-for-05-apr-2015#1683798">11:39</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Logged on 05-04-2015 14:21:21; nubbins`: w/e the libnss thing is. details escape me now. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683799" href="/2019/forum-logs-for-05-apr-2015#1683799">11:39</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">ascii_modem actually it was the client side that baffled me, heh. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683800" href="/2019/forum-logs-for-05-apr-2015#1683800">11:39</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">check it OUT: http://pastebin.com/raw.php?i=CnwtSvuQ </td>
+<td><span style="color:#d3d3d3;">[<a id="1683801" href="/2019/forum-logs-for-05-apr-2015#1683801">11:39</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">... ( http://bit.ly/1y7eTFk ) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683802" href="/2019/forum-logs-for-05-apr-2015#1683802">11:39</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">although the question of what it does with gethostbyaddr() is a good one </td>
+<td><span style="color:#d3d3d3;">[<a id="1683803" href="/2019/forum-logs-for-05-apr-2015#1683803">11:39</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">ascii_modem has quit (Remote host closed the connection) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683804" href="/2019/forum-logs-for-05-apr-2015#1683804">11:39</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">no storage attached at all, so i can't tell if it, y'know, does anything </td>
+<td><span style="color:#d3d3d3;">[<a id="1683805" href="/2019/forum-logs-for-05-apr-2015#1683805">11:40</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">but i think this is sufficient proof, yes? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683806" href="/2019/forum-logs-for-05-apr-2015#1683806">11:40</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">mostly, yes </td>
+<td><span style="color:#d3d3d3;">[<a id="1683807" href="/2019/forum-logs-for-05-apr-2015#1683807">11:40</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 39378 @ 0.00027217 = 10.7175 BTC [-] {2} </td>
+<td><span style="color:#d3d3d3;">[<a id="1683808" href="/2019/forum-logs-for-05-apr-2015#1683808">11:40</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">so that's static bitcoind, running on pogotron, built with portatronic toolchain. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683809" href="/2019/forum-logs-for-05-apr-2015#1683809">11:40</a>]</span></td>
+</tr>
+<tr>
+<td><b>mats</b></td>
+<td class="breakup">well ofc provably preventing the exploit is preferable. PaX like a custom Gentoo build, relying on the attacker not knowing it's there, and/or failing to react accordingly </td>
+<td><span style="color:#d3d3d3;">[<a id="1683810" href="/2019/forum-logs-for-05-apr-2015#1683810">11:40</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">good job nubbins` </td>
+<td><span style="color:#d3d3d3;">[<a id="1683811" href="/2019/forum-logs-for-05-apr-2015#1683811">11:41</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">decimation o i c. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683812" href="/2019/forum-logs-for-05-apr-2015#1683812">11:42</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">apparently uclibc has a dns client that opens /etc/resolv.conf itself, built into the code </td>
+<td><span style="color:#d3d3d3;">[<a id="1683813" href="/2019/forum-logs-for-05-apr-2015#1683813">11:43</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">libc/inet/resolv.conf </td>
+<td><span style="color:#d3d3d3;">[<a id="1683814" href="/2019/forum-logs-for-05-apr-2015#1683814">11:43</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">libc/inet/resolv.c </td>
+<td><span style="color:#d3d3d3;">[<a id="1683815" href="/2019/forum-logs-for-05-apr-2015#1683815">11:43</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">yeah apparently uclibc is made specifically because of this/similar issues </td>
+<td><span style="color:#d3d3d3;">[<a id="1683816" href="/2019/forum-logs-for-05-apr-2015#1683816">11:44</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">at least looks to me like something along those lines </td>
+<td><span style="color:#d3d3d3;">[<a id="1683817" href="/2019/forum-logs-for-05-apr-2015#1683817">11:44</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">here's my auto.sh: http://pastebin.com/raw.php?i=HxUfaTPT </td>
+<td><span style="color:#d3d3d3;">[<a id="1683818" href="/2019/forum-logs-for-05-apr-2015#1683818">11:44</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">... ( http://bit.ly/1y7fdDK ) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683819" href="/2019/forum-logs-for-05-apr-2015#1683819">11:44</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">please note the Boost section -- i'm using a custom subset of the full boost libs </td>
+<td><span style="color:#d3d3d3;">[<a id="1683820" href="/2019/forum-logs-for-05-apr-2015#1683820">11:44</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">you'll need to use bcp (see logs) to trim out the fat and gristle </td>
+<td><span style="color:#d3d3d3;">[<a id="1683821" href="/2019/forum-logs-for-05-apr-2015#1683821">11:45</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">otherwise your boost build will fail </td>
+<td><span style="color:#d3d3d3;">[<a id="1683822" href="/2019/forum-logs-for-05-apr-2015#1683822">11:45</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">i'm gonna try this all from scratch once more just to verify </td>
+<td><span style="color:#d3d3d3;">[<a id="1683823" href="/2019/forum-logs-for-05-apr-2015#1683823">11:45</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">marteen has quit (Ping timeout: 255 seconds) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683824" href="/2019/forum-logs-for-05-apr-2015#1683824">11:50</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 11174 @ 0.00027 = 3.017 BTC [-] </td>
+<td><span style="color:#d3d3d3;">[<a id="1683825" href="/2019/forum-logs-for-05-apr-2015#1683825">11:51</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">marteen (~martin@190.113.147.133) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683826" href="/2019/forum-logs-for-05-apr-2015#1683826">11:55</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">ok fwiw that auto.sh does have problems, i'll try to polish it later </td>
+<td><span style="color:#d3d3d3;">[<a id="1683827" href="/2019/forum-logs-for-05-apr-2015#1683827">11:57</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">ColinT has quit (Ping timeout: 264 seconds) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683828" href="/2019/forum-logs-for-05-apr-2015#1683828">11:57</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">also the bcp stuff could totally be included in same, not sure if this is something people want </td>
+<td><span style="color:#d3d3d3;">[<a id="1683829" href="/2019/forum-logs-for-05-apr-2015#1683829">11:57</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">or if they'd rather do it manually as needed </td>
+<td><span style="color:#d3d3d3;">[<a id="1683830" href="/2019/forum-logs-for-05-apr-2015#1683830">11:57</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">but i don't think it's a &ast;terrible&ast; idea for our install script to only compile the parts of boost that we need </td>
+<td><span style="color:#d3d3d3;">[<a id="1683831" href="/2019/forum-logs-for-05-apr-2015#1683831">11:58</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">epic shit nubsy </td>
+<td><span style="color:#d3d3d3;">[<a id="1683832" href="/2019/forum-logs-for-05-apr-2015#1683832">11:58</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">imagine, i thought i left this life behind. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683833" href="/2019/forum-logs-for-05-apr-2015#1683833">11:58</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">pls to make a proper patch in full glory so people can benefit from fruits of your genius. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683834" href="/2019/forum-logs-for-05-apr-2015#1683834">11:58</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">yah </td>
+<td><span style="color:#d3d3d3;">[<a id="1683835" href="/2019/forum-logs-for-05-apr-2015#1683835">11:58</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">marteen has quit (Ping timeout: 264 seconds) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683836" href="/2019/forum-logs-for-05-apr-2015#1683836">12:02</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">DianaComan has quit (Quit: Leaving) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683837" href="/2019/forum-logs-for-05-apr-2015#1683837">12:03</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">bitstein (~bitstein@unaffiliated/bitstein) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683838" href="/2019/forum-logs-for-05-apr-2015#1683838">12:43</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot gives voice to bitstein </td>
+<td><span style="color:#d3d3d3;">[<a id="1683839" href="/2019/forum-logs-for-05-apr-2015#1683839">12:44</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">nubbins` has quit (Quit: Quit) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683840" href="/2019/forum-logs-for-05-apr-2015#1683840">12:47</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 19434 @ 0.00028388 = 5.5169 BTC [+] {2} </td>
+<td><span style="color:#d3d3d3;">[<a id="1683841" href="/2019/forum-logs-for-05-apr-2015#1683841">12:47</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">decimation has quit (Ping timeout: 244 seconds) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683842" href="/2019/forum-logs-for-05-apr-2015#1683842">12:47</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">nubbins` (~leel@unaffiliated/nubbins) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683843" href="/2019/forum-logs-for-05-apr-2015#1683843">12:48</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 10760 @ 0.00028767 = 3.0953 BTC [+] </td>
+<td><span style="color:#d3d3d3;">[<a id="1683844" href="/2019/forum-logs-for-05-apr-2015#1683844">12:48</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 10100 @ 0.0002881 = 2.9098 BTC [+] </td>
+<td><span style="color:#d3d3d3;">[<a id="1683845" href="/2019/forum-logs-for-05-apr-2015#1683845">13:01</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">DreadKnight (~DreadKnig@unaffiliated/dreadknight) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683846" href="/2019/forum-logs-for-05-apr-2015#1683846">13:08</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 15300 @ 0.00028699 = 4.3909 BTC [-] </td>
+<td><span style="color:#d3d3d3;">[<a id="1683847" href="/2019/forum-logs-for-05-apr-2015#1683847">13:11</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">whaack has quit (Ping timeout: 246 seconds) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683848" href="/2019/forum-logs-for-05-apr-2015#1683848">13:16</a>]</span></td>
+</tr>
+<tr>
+<td><b>trinque</b></td>
+<td class="breakup">ascii_modem | http://log.bitcoin-assets.com/?date=05-04-2015#1089297 << lol installer?!! as in copying other folks' bins over? ick << nah, just bash script that plonks you into a partition editor, then a list of architectures, then has you pick a stage, etc; script the scriptable parts of the manual, and leave everything that should be.. manual :D </td>
+<td><span style="color:#d3d3d3;">[<a id="1683849" href="/2019/forum-logs-for-05-apr-2015#1683849">13:53</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Logged on 05-04-2015 05:54:27; trinque: someone could solve this; gentoo has this neckbeard orthodoxy which imo is the only thing preventing it from having a proper installer </td>
+<td><span style="color:#d3d3d3;">[<a id="1683850" href="/2019/forum-logs-for-05-apr-2015#1683850">13:53</a>]</span></td>
+</tr>
+<tr>
+<td><b>trinque</b></td>
+<td class="breakup">I don't want decisions made for me; I want bricks laid for me. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683851" href="/2019/forum-logs-for-05-apr-2015#1683851">13:55</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">marteen (~martin@190.113.148.125) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683852" href="/2019/forum-logs-for-05-apr-2015#1683852">14:11</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 8523 @ 0.00027831 = 2.372 BTC [-] </td>
+<td><span style="color:#d3d3d3;">[<a id="1683853" href="/2019/forum-logs-for-05-apr-2015#1683853">14:18</a>]</span></td>
+</tr>
+<tr>
+<td><b>trinque</b></td>
+<td class="breakup">!up marteen </td>
+<td><span style="color:#d3d3d3;">[<a id="1683854" href="/2019/forum-logs-for-05-apr-2015#1683854">14:20</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot gives voice to marteen </td>
+<td><span style="color:#d3d3d3;">[<a id="1683855" href="/2019/forum-logs-for-05-apr-2015#1683855">14:20</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">Now talking on #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683856" href="/2019/forum-logs-for-05-apr-2015#1683856">20:54</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">Topic for #bitcoin-assets is: http://bitcoin-assets.com || http://log.bitcoin-assets.com || http://bash.bitcoin-assets.com || http://blogs.bitcoin-assets.com </td>
+<td><span style="color:#d3d3d3;">[<a id="1683857" href="/2019/forum-logs-for-05-apr-2015#1683857">20:54</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">Topic for #bitcoin-assets set by kakobrekla!~kako@unaffiliated/kakobrekla at Wed Mar 5 16:58:12 2014 </td>
+<td><span style="color:#d3d3d3;">[<a id="1683858" href="/2019/forum-logs-for-05-apr-2015#1683858">20:54</a>]</span></td>
+</tr>
+<tr>
+<td>-assbot-</td>
+<td class="breakup">Welcome to #bitcoin-assets. To get voice (ie, to be able to speak), send me "!up" in a private message to get an OTP. You must have a sufficient WoT rating. If you do not have a WoT account or sufficient rating, try politely asking one of the voiced people for a temporary voice. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683859" href="/2019/forum-logs-for-05-apr-2015#1683859">20:54</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot gives voice to mircea_popescu </td>
+<td><span style="color:#d3d3d3;">[<a id="1683860" href="/2019/forum-logs-for-05-apr-2015#1683860">20:56</a>]</span></td>
+</tr>
+<tr>
+<td><b>BingoBoingo</b></td>
+<td class="breakup">mats: "The packages, at 4 inches by 6 inches, are not easily concealed, he said. And because of the single-use packaging, he said, it would be easier to spike a punchbowl with a large bottle of rum." << I was telling people you wouldn't lose volume by powdering the stuff </td>
+<td><span style="color:#d3d3d3;">[<a id="1683861" href="/2019/forum-logs-for-05-apr-2015#1683861">20:57</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 13869 @ 0.000289 = 4.0081 BTC [+] </td>
+<td><span style="color:#d3d3d3;">[<a id="1683862" href="/2019/forum-logs-for-05-apr-2015#1683862">21:01</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">bitstein has quit (Quit: Textual IRC Client: www.textualapp.com) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683863" href="/2019/forum-logs-for-05-apr-2015#1683863">21:02</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 8291 @ 0.000289 = 2.3961 BTC [+] </td>
+<td><span style="color:#d3d3d3;">[<a id="1683864" href="/2019/forum-logs-for-05-apr-2015#1683864">21:08</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">felipelalli has quit (Remote host closed the connection) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683865" href="/2019/forum-logs-for-05-apr-2015#1683865">21:10</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">felipelalli (~Thunderbi@unaffiliated/felipelalli) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683866" href="/2019/forum-logs-for-05-apr-2015#1683866">21:12</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">https://news.ycombinator.com/item?id=9320989 </td>
+<td><span style="color:#d3d3d3;">[<a id="1683867" href="/2019/forum-logs-for-05-apr-2015#1683867">21:13</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">http://bitcoinstats.com/irc/bitcoin-dev/logs/2013/03/11 </td>
+<td><span style="color:#d3d3d3;">[<a id="1683868" href="/2019/forum-logs-for-05-apr-2015#1683868">21:13</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">absent title: "the bitcoin protocol doesn't exist" </td>
+<td><span style="color:#d3d3d3;">[<a id="1683869" href="/2019/forum-logs-for-05-apr-2015#1683869">21:13</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 4049 @ 0.00027367 = 1.1081 BTC [-] </td>
+<td><span style="color:#d3d3d3;">[<a id="1683870" href="/2019/forum-logs-for-05-apr-2015#1683870">21:19</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">NewLiberty (~NewLibert@2602:304:cff8:1580:c17f:cc83:78c0:70a3) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683871" href="/2019/forum-logs-for-05-apr-2015#1683871">21:23</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 5250 @ 0.00027045 = 1.4199 BTC [-] </td>
+<td><span style="color:#d3d3d3;">[<a id="1683872" href="/2019/forum-logs-for-05-apr-2015#1683872">21:26</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">NewLiberty has quit (Ping timeout: 265 seconds) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683873" href="/2019/forum-logs-for-05-apr-2015#1683873">21:28</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">Basquait has quit (Quit: Page closed) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683874" href="/2019/forum-logs-for-05-apr-2015#1683874">21:31</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">lolk. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683875" href="/2019/forum-logs-for-05-apr-2015#1683875">21:37</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">drawingthesun (~drawingth@58-7-165-41.dyn.iinet.net.au) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683876" href="/2019/forum-logs-for-05-apr-2015#1683876">21:38</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">drawingthesun has quit (Max SendQ exceeded) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683877" href="/2019/forum-logs-for-05-apr-2015#1683877">21:39</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">drawingthesun (~drawingth@58-7-165-41.dyn.iinet.net.au) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683878" href="/2019/forum-logs-for-05-apr-2015#1683878">21:40</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 26073 @ 0.00027067 = 7.0572 BTC [+] </td>
+<td><span style="color:#d3d3d3;">[<a id="1683879" href="/2019/forum-logs-for-05-apr-2015#1683879">21:40</a>]</span></td>
+</tr>
+<tr>
+<td><b>asciilifeform</b></td>
+<td class="breakup">^ anything from that link other than factual ? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683880" href="/2019/forum-logs-for-05-apr-2015#1683880">21:47</a>]</span></td>
+</tr>
+<tr>
+<td><b>asciilifeform</b></td>
+<td class="breakup">lies by omission re: who broke, yes </td>
+<td><span style="color:#d3d3d3;">[<a id="1683881" href="/2019/forum-logs-for-05-apr-2015#1683881">21:47</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 46711 @ 0.0002872 = 13.4154 BTC [+] {4} </td>
+<td><span style="color:#d3d3d3;">[<a id="1683882" href="/2019/forum-logs-for-05-apr-2015#1683882">21:47</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">it's entirely untrue, and a poor attempt at trying to salvage some clout for the power rangers. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683883" href="/2019/forum-logs-for-05-apr-2015#1683883">21:51</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">bitcoin is in fact a very solid protocol, and it flows in an unbroken line from software pre 0.5.x and from block 1. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683884" href="/2019/forum-logs-for-05-apr-2015#1683884">21:52</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">pretense to the contrary is just that, pretense, readily explained by the desperation in usg quarters post their loss of their main asset in here. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683885" href="/2019/forum-logs-for-05-apr-2015#1683885">21:52</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">it is kind-of fascinating for me that they were actually this unprepared for gavin getting headshot. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683886" href="/2019/forum-logs-for-05-apr-2015#1683886">21:54</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">(you can trace Patrick McKenzie / starfighter if you feel like it0 </td>
+<td><span style="color:#d3d3d3;">[<a id="1683887" href="/2019/forum-logs-for-05-apr-2015#1683887">21:57</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">marginally amusing read, stuff like http://www.kalzumeus.com/2015/03/09/announcing-starfighter/ (grep for "Sounds like BS, right. I know. I’m a generic web programmer (yay Ruby, meh JavaScript, boo low-level anything). The last time I played a CTF, written by my cofounders, they had me breaking into locks controlled by micro controllers which ran embedded assembly code.") </td>
+<td><span style="color:#d3d3d3;">[<a id="1683888" href="/2019/forum-logs-for-05-apr-2015#1683888">21:58</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Announcing Starfighter | Kalzumeus Software ... ( http://bit.ly/19WBys2 ) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683889" href="/2019/forum-logs-for-05-apr-2015#1683889">21:58</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 11250 @ 0.00030325 = 3.4116 BTC [+] </td>
+<td><span style="color:#d3d3d3;">[<a id="1683890" href="/2019/forum-logs-for-05-apr-2015#1683890">21:59</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">Birdman (46d70bb1@gateway/web/freenode/ip.70.215.11.177) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683891" href="/2019/forum-logs-for-05-apr-2015#1683891">22:00</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">Guest1281 (uid50160@gateway/web/irccloud.com/x-sjqevzwifgxgrvjo) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683892" href="/2019/forum-logs-for-05-apr-2015#1683892">22:00</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">Guest1281 is now known as Rozal </td>
+<td><span style="color:#d3d3d3;">[<a id="1683893" href="/2019/forum-logs-for-05-apr-2015#1683893">22:01</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">up Birdman </td>
+<td><span style="color:#d3d3d3;">[<a id="1683894" href="/2019/forum-logs-for-05-apr-2015#1683894">22:01</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">Rozal has quit (Changing host) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683895" href="/2019/forum-logs-for-05-apr-2015#1683895">22:01</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">Rozal (uid50160@unaffiliated/rozal) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683896" href="/2019/forum-logs-for-05-apr-2015#1683896">22:01</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">Rozal has quit (Changing host) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683897" href="/2019/forum-logs-for-05-apr-2015#1683897">22:01</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">Rozal (uid50160@gateway/web/irccloud.com/x-sjqevzwifgxgrvjo) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683898" href="/2019/forum-logs-for-05-apr-2015#1683898">22:01</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">!up Birdman </td>
+<td><span style="color:#d3d3d3;">[<a id="1683899" href="/2019/forum-logs-for-05-apr-2015#1683899">22:02</a>]</span></td>
+</tr>
+<tr>
+<td>-assbot-</td>
+<td class="breakup">You voiced Birdman for 30 minutes. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683900" href="/2019/forum-logs-for-05-apr-2015#1683900">22:02</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot gives voice to Birdman </td>
+<td><span style="color:#d3d3d3;">[<a id="1683901" href="/2019/forum-logs-for-05-apr-2015#1683901">22:02</a>]</span></td>
+</tr>
+<tr>
+<td><b>Birdman</b></td>
+<td class="breakup">[20:57] <Birdman> thoughts on the Chinese's AIIB? http://www.zerohedge.com/news/2015-04-02/us-has-screwed-its-approach-chinas-aiib-former-us-secretary-state-blasts </td>
+<td><span style="color:#d3d3d3;">[<a id="1683902" href="/2019/forum-logs-for-05-apr-2015#1683902">22:02</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">... ( http://bit.ly/19WC21j ) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683903" href="/2019/forum-logs-for-05-apr-2015#1683903">22:02</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[HAVELOCK] [B.MINE] 386 @ 0.00284 = 1.0962 BTC [-] {2} </td>
+<td><span style="color:#d3d3d3;">[<a id="1683904" href="/2019/forum-logs-for-05-apr-2015#1683904">22:02</a>]</span></td>
+</tr>
+<tr>
+<td><b>Birdman</b></td>
+<td class="breakup">Apparently nations are falling head over heels to switch over </td>
+<td><span style="color:#d3d3d3;">[<a id="1683905" href="/2019/forum-logs-for-05-apr-2015#1683905">22:03</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">this is not exactly new. was discussed here back in the lead-up to the cn-ru financial compact </td>
+<td><span style="color:#d3d3d3;">[<a id="1683906" href="/2019/forum-logs-for-05-apr-2015#1683906">22:03</a>]</span></td>
+</tr>
+<tr>
+<td><b>Birdman</b></td>
+<td class="breakup">Then I suppose I should read up on the logs, thanks. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683907" href="/2019/forum-logs-for-05-apr-2015#1683907">22:03</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">beijing accords or wtf they were called </td>
+<td><span style="color:#d3d3d3;">[<a id="1683908" href="/2019/forum-logs-for-05-apr-2015#1683908">22:04</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">it was pretty clear at the time the ru "sanctions" were nailgun suicide. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683909" href="/2019/forum-logs-for-05-apr-2015#1683909">22:04</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">!up Rozal </td>
+<td><span style="color:#d3d3d3;">[<a id="1683910" href="/2019/forum-logs-for-05-apr-2015#1683910">22:07</a>]</span></td>
+</tr>
+<tr>
+<td>-assbot-</td>
+<td class="breakup">You voiced Rozal for 30 minutes. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683911" href="/2019/forum-logs-for-05-apr-2015#1683911">22:07</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot gives voice to Rozal </td>
+<td><span style="color:#d3d3d3;">[<a id="1683912" href="/2019/forum-logs-for-05-apr-2015#1683912">22:07</a>]</span></td>
+</tr>
+<tr>
+<td><b>Rozal</b></td>
+<td class="breakup">thank you </td>
+<td><span style="color:#d3d3d3;">[<a id="1683913" href="/2019/forum-logs-for-05-apr-2015#1683913">22:08</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">aha. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683914" href="/2019/forum-logs-for-05-apr-2015#1683914">22:08</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">http://log.bitcoin-assets.com/?date=05-04-2015#1089391 << you know, you should fucking publish it. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683915" href="/2019/forum-logs-for-05-apr-2015#1683915">22:09</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Logged on 05-04-2015 14:14:53; ascii_modem: that part takes me 1h at most. it is deliberately manual, like the sub reactors, or therealbitcoin </td>
+<td><span style="color:#d3d3d3;">[<a id="1683916" href="/2019/forum-logs-for-05-apr-2015#1683916">22:09</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">so it's done once not just at level you, but at the whole wot level. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683917" href="/2019/forum-logs-for-05-apr-2015#1683917">22:09</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">http://log.bitcoin-assets.com/?date=05-04-2015#1089468 << couldn't have said it better myself. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683918" href="/2019/forum-logs-for-05-apr-2015#1683918">22:10</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Logged on 05-04-2015 16:50:58; trinque: I don't want decisions made for me; I want bricks laid for me. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683919" href="/2019/forum-logs-for-05-apr-2015#1683919">22:10</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">http://log.bitcoin-assets.com/?date=05-04-2015#1089472 << ahh the excitement of the geek that laid an egg :D </td>
+<td><span style="color:#d3d3d3;">[<a id="1683920" href="/2019/forum-logs-for-05-apr-2015#1683920">22:11</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Logged on 05-04-2015 17:22:50; nubbins`: would be nice to get some people to test this patch when it's ready </td>
+<td><span style="color:#d3d3d3;">[<a id="1683921" href="/2019/forum-logs-for-05-apr-2015#1683921">22:11</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">http://log.bitcoin-assets.com/?date=05-04-2015#1089477 << exactly the right name for that comment lol </td>
+<td><span style="color:#d3d3d3;">[<a id="1683922" href="/2019/forum-logs-for-05-apr-2015#1683922">22:11</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Logged on 05-04-2015 18:06:07; Apocalyptic: ^ only for that fact alone it's a good experience </td>
+<td><span style="color:#d3d3d3;">[<a id="1683923" href="/2019/forum-logs-for-05-apr-2015#1683923">22:11</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 4691 @ 0.00030769 = 1.4434 BTC [+] </td>
+<td><span style="color:#d3d3d3;">[<a id="1683924" href="/2019/forum-logs-for-05-apr-2015#1683924">22:12</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">http://www.tedunangst.com/flak/post/making-security-sausage << pretty great read ftr. guy's likable. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683925" href="/2019/forum-logs-for-05-apr-2015#1683925">22:17</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">making security sausage </td>
+<td><span style="color:#d3d3d3;">[<a id="1683926" href="/2019/forum-logs-for-05-apr-2015#1683926">22:17</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">http://www.tedunangst.com/flak/post/analysis-of-d2i-X509-reuse << even names dogecoin, with correct usage in context. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683927" href="/2019/forum-logs-for-05-apr-2015#1683927">22:23</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">analysis of d2i_X509 reuse </td>
+<td><span style="color:#d3d3d3;">[<a id="1683928" href="/2019/forum-logs-for-05-apr-2015#1683928">22:23</a>]</span></td>
+</tr>
+<tr>
+<td><b>nubbins`</b></td>
+<td class="breakup">bitcoinrpc.cpp is a big one </td>
+<td><span style="color:#d3d3d3;">[<a id="1683929" href="/2019/forum-logs-for-05-apr-2015#1683929">22:24</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 6400 @ 0.00030598 = 1.9583 BTC [-] </td>
+<td><span style="color:#d3d3d3;">[<a id="1683930" href="/2019/forum-logs-for-05-apr-2015#1683930">22:25</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">feel the need for silverware nubbins` ? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683931" href="/2019/forum-logs-for-05-apr-2015#1683931">22:25</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 4350 @ 0.00031364 = 1.3643 BTC [+] </td>
+<td><span style="color:#d3d3d3;">[<a id="1683932" href="/2019/forum-logs-for-05-apr-2015#1683932">22:26</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">http://log.bitcoin-assets.com/?date=05-04-2015#1089515 << a man with just one pogo is like the woman trying to get pregnant off a single spermatozoid. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683933" href="/2019/forum-logs-for-05-apr-2015#1683933">22:26</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Logged on 05-04-2015 19:39:37; ben_vulpes: me pogo's at the office </td>
+<td><span style="color:#d3d3d3;">[<a id="1683934" href="/2019/forum-logs-for-05-apr-2015#1683934">22:26</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">shesek has quit (Ping timeout: 264 seconds) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683935" href="/2019/forum-logs-for-05-apr-2015#1683935">22:31</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">“The likelihood of widespread Palcohol abuse — particularly among underage consumers — carries a real possibility of tragic consequences,” Mr. Franchot said in a statement, “which is why I’m so pleased by the industry’s unified response to protect the public from such a dangerous product.” </td>
+<td><span style="color:#d3d3d3;">[<a id="1683936" href="/2019/forum-logs-for-05-apr-2015#1683936">22:31</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">lawl. errything that's broken, in one sentence. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683937" href="/2019/forum-logs-for-05-apr-2015#1683937">22:31</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot removes voice from Birdman </td>
+<td><span style="color:#d3d3d3;">[<a id="1683938" href="/2019/forum-logs-for-05-apr-2015#1683938">22:32</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">re this entire "powdered alcohol" bs : why the fuck would i drink a galon of cyclodextrine slog for a quart of alcohol ? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683939" href="/2019/forum-logs-for-05-apr-2015#1683939">22:33</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">why not eat cotton imbibed in milk. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683940" href="/2019/forum-logs-for-05-apr-2015#1683940">22:33</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 55350 @ 0.00030496 = 16.8795 BTC [-] {2} </td>
+<td><span style="color:#d3d3d3;">[<a id="1683941" href="/2019/forum-logs-for-05-apr-2015#1683941">22:35</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">in other news, http://40.media.tumblr.com/a6adfb6ada69f528204781e135fb3b8d/tumblr_nga4gxtFcR1qgv7t5o1_1280.jpg </td>
+<td><span style="color:#d3d3d3;">[<a id="1683942" href="/2019/forum-logs-for-05-apr-2015#1683942">22:36</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">... ( http://bit.ly/19WGVY7 ) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683943" href="/2019/forum-logs-for-05-apr-2015#1683943">22:36</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot removes voice from Rozal </td>
+<td><span style="color:#d3d3d3;">[<a id="1683944" href="/2019/forum-logs-for-05-apr-2015#1683944">22:38</a>]</span></td>
+</tr>
+<tr>
+<td><b>asciilifeform</b></td>
+<td class="breakup">'palcohol' << anyone remember when they banned the etoh antidote ? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683945" href="/2019/forum-logs-for-05-apr-2015#1683945">22:39</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">what was that ? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683946" href="/2019/forum-logs-for-05-apr-2015#1683946">22:40</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">asciilifeform digs for ancient yarchive entry </td>
+<td><span style="color:#d3d3d3;">[<a id="1683947" href="/2019/forum-logs-for-05-apr-2015#1683947">22:41</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">Birdman has quit (Ping timeout: 246 seconds) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683948" href="/2019/forum-logs-for-05-apr-2015#1683948">22:48</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">http://mad0uleurexquise.tumblr.com/post/108802990037/trauma-is-complicated-after-a-couple-of-years-of << what an actual feminist actually sounds like. &ast;like&ast;. copying the form does not result in being a feminist. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683949" href="/2019/forum-logs-for-05-apr-2015#1683949">22:48</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Trauma is complicated. After a couple of years of... — My Exquisite Pain ... ( http://bit.ly/19WIFAK ) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683950" href="/2019/forum-logs-for-05-apr-2015#1683950">22:48</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">shesek (~shesek@77.127.158.156) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683951" href="/2019/forum-logs-for-05-apr-2015#1683951">22:49</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">the important part being that the pansy-ass ten year olds masquerading as adults have reclassified as "trauma" a large swath of life experiences that are exactly necessary for the woman. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683952" href="/2019/forum-logs-for-05-apr-2015#1683952">22:49</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">much like the same idiots have reclassified natural phenomena like wildfire as "bad", notwithstanding that coniferous trees will only open the seedpods if they get scorched. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683953" href="/2019/forum-logs-for-05-apr-2015#1683953">22:49</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">because they lived there forever, and are adapted to what there &ast;means&ast;. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683954" href="/2019/forum-logs-for-05-apr-2015#1683954">22:50</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 24450 @ 0.00030213 = 7.3871 BTC [-] </td>
+<td><span style="color:#d3d3d3;">[<a id="1683955" href="/2019/forum-logs-for-05-apr-2015#1683955">22:51</a>]</span></td>
+</tr>
+<tr>
+<td><b>TomServo</b></td>
+<td class="breakup">Ethereum wallet down to 486 BTC. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683956" href="/2019/forum-logs-for-05-apr-2015#1683956">23:13</a>]</span></td>
+</tr>
+<tr>
+<td><b>asciilifeform</b></td>
+<td class="breakup">http://www.hydeparkmedia.com/fisher.html << vintage lol </td>
+<td><span style="color:#d3d3d3;">[<a id="1683957" href="/2019/forum-logs-for-05-apr-2015#1683957">23:15</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Hyde Park Media | Paul Fisher Space Pen ... ( http://bit.ly/19WMjKY ) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683958" href="/2019/forum-logs-for-05-apr-2015#1683958">23:15</a>]</span></td>
+</tr>
+<tr>
+<td><b>asciilifeform</b></td>
+<td class="breakup">'With that he interrupted me and said, `Mr. Fisher, you as an individual have no inalienable rights. You live in a democracy subject to the will of the majority, and the will of the majority, through an act of Congress can deprive you of any right.'' </td>
+<td><span style="color:#d3d3d3;">[<a id="1683959" href="/2019/forum-logs-for-05-apr-2015#1683959">23:15</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">pete_dushenski (~pete_dush@unaffiliated/pete-dushenski/x-8158685) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683960" href="/2019/forum-logs-for-05-apr-2015#1683960">23:15</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">lmao wut. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683961" href="/2019/forum-logs-for-05-apr-2015#1683961">23:21</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">"I don't remember that," Fisher says. "But the inmates did tell me they had never eaten so good until I arrived." </td>
+<td><span style="color:#d3d3d3;">[<a id="1683962" href="/2019/forum-logs-for-05-apr-2015#1683962">23:23</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">tales from the early soviets. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683963" href="/2019/forum-logs-for-05-apr-2015#1683963">23:23</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">could be romania back when ceausescu was trying to play prague spring supporter just as well. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683964" href="/2019/forum-logs-for-05-apr-2015#1683964">23:24</a>]</span></td>
+</tr>
+<tr>
+<td><b>BingoBoingo</b></td>
+<td class="breakup">!up pete_dushenski </td>
+<td><span style="color:#d3d3d3;">[<a id="1683965" href="/2019/forum-logs-for-05-apr-2015#1683965">23:24</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot gives voice to pete_dushenski </td>
+<td><span style="color:#d3d3d3;">[<a id="1683966" href="/2019/forum-logs-for-05-apr-2015#1683966">23:24</a>]</span></td>
+</tr>
+<tr>
+<td><b>pete_dushenski</b></td>
+<td class="breakup">o hello </td>
+<td><span style="color:#d3d3d3;">[<a id="1683967" href="/2019/forum-logs-for-05-apr-2015#1683967">23:24</a>]</span></td>
+</tr>
+<tr>
+<td><b>pete_dushenski</b></td>
+<td class="breakup">thx bb </td>
+<td><span style="color:#d3d3d3;">[<a id="1683968" href="/2019/forum-logs-for-05-apr-2015#1683968">23:24</a>]</span></td>
+</tr>
+<tr>
+<td><b>pete_dushenski</b></td>
+<td class="breakup">lol i was wondering when the last 5k was going to disappear from the 'ethereum wallet' </td>
+<td><span style="color:#d3d3d3;">[<a id="1683969" href="/2019/forum-logs-for-05-apr-2015#1683969">23:25</a>]</span></td>
+</tr>
+<tr>
+<td><b>pete_dushenski</b></td>
+<td class="breakup">aaand scoop: http://www.contravex.com/2015/04/05/yknow-that-post-industrial-service-economy-thing-ya-its-just-another-shitty-command-economy/ </td>
+<td><span style="color:#d3d3d3;">[<a id="1683970" href="/2019/forum-logs-for-05-apr-2015#1683970">23:27</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Y’know that post-industrial service economy thing ? Ya, it’s just another shitty command economy. | Contravex: A blog by Pete Dushenski ... ( http://bit.ly/19WNKsN ) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683971" href="/2019/forum-logs-for-05-apr-2015#1683971">23:27</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot gives voice to pete_dushenski </td>
+<td><span style="color:#d3d3d3;">[<a id="1683972" href="/2019/forum-logs-for-05-apr-2015#1683972">23:28</a>]</span></td>
+</tr>
+<tr>
+<td><b>pete_dushenski</b></td>
+<td class="breakup">http://log.bitcoin-assets.com/?date=05-04-2015#1089526 << heh. yes. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683973" href="/2019/forum-logs-for-05-apr-2015#1683973">23:30</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Logged on 05-04-2015 20:57:47; BingoBoingo: http://qntra.net/2015/04/ti-89-bitcoin-diceware-tool-released/ << since scoop seems missing </td>
+<td><span style="color:#d3d3d3;">[<a id="1683974" href="/2019/forum-logs-for-05-apr-2015#1683974">23:30</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">DreadKnight has quit (Quit: #AncientBeast - Master Your Beasts ( www.AncientBeast.com )) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683975" href="/2019/forum-logs-for-05-apr-2015#1683975">23:34</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">bitstein (~bitstein@unaffiliated/bitstein) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683976" href="/2019/forum-logs-for-05-apr-2015#1683976">23:38</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot gives voice to bitstein </td>
+<td><span style="color:#d3d3d3;">[<a id="1683977" href="/2019/forum-logs-for-05-apr-2015#1683977">23:39</a>]</span></td>
+</tr>
+<tr>
+<td><b>pete_dushenski</b></td>
+<td class="breakup">!s water </td>
+<td><span style="color:#d3d3d3;">[<a id="1683978" href="/2019/forum-logs-for-05-apr-2015#1683978">23:40</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">995 results for 'water' : http://s.b-a.link/?q=water </td>
+<td><span style="color:#d3d3d3;">[<a id="1683979" href="/2019/forum-logs-for-05-apr-2015#1683979">23:40</a>]</span></td>
+</tr>
+<tr>
+<td><b>pete_dushenski</b></td>
+<td class="breakup">"The 25 percent cut in water consumption ordered by Gov. Jerry Brown raises fundamental questions about what life in California will be like in the years ahead, and even whether this state faces the prospect of people leaving for wetter climates" </td>
+<td><span style="color:#d3d3d3;">[<a id="1683980" href="/2019/forum-logs-for-05-apr-2015#1683980">23:40</a>]</span></td>
+</tr>
+<tr>
+<td><b>pete_dushenski</b></td>
+<td class="breakup">hey gavin, thirsty yet ? </td>
+<td><span style="color:#d3d3d3;">[<a id="1683981" href="/2019/forum-logs-for-05-apr-2015#1683981">23:41</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">guy lives in mass. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683982" href="/2019/forum-logs-for-05-apr-2015#1683982">23:46</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 54395 @ 0.00028799 = 15.6652 BTC [-] {2} </td>
+<td><span style="color:#d3d3d3;">[<a id="1683983" href="/2019/forum-logs-for-05-apr-2015#1683983">23:47</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 16505 @ 0.00029563 = 4.8794 BTC [+] {2} </td>
+<td><span style="color:#d3d3d3;">[<a id="1683984" href="/2019/forum-logs-for-05-apr-2015#1683984">23:48</a>]</span></td>
+</tr>
+<tr>
+<td><b>pete_dushenski</b></td>
+<td class="breakup">hm. my mistake </td>
+<td><span style="color:#d3d3d3;">[<a id="1683985" href="/2019/forum-logs-for-05-apr-2015#1683985">23:49</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">decimation (~bit_nugge@unaffiliated/decimation) has joined #bitcoin-assets </td>
+<td><span style="color:#d3d3d3;">[<a id="1683986" href="/2019/forum-logs-for-05-apr-2015#1683986">23:49</a>]</span></td>
+</tr>
+<tr>
+<td><b>pete_dushenski</b></td>
+<td class="breakup">fine, hearn then! </td>
+<td><span style="color:#d3d3d3;">[<a id="1683987" href="/2019/forum-logs-for-05-apr-2015#1683987">23:50</a>]</span></td>
+</tr>
+<tr>
+<td>&ast;</td>
+<td class="breakup"><span style="color:#d3d3d3;">assbot gives voice to decimation </td>
+<td><span style="color:#d3d3d3;">[<a id="1683988" href="/2019/forum-logs-for-05-apr-2015#1683988">23:50</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">i think hearn is one of the... how shall i put this. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683989" href="/2019/forum-logs-for-05-apr-2015#1683989">23:50</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">it would be handy to have a 'diceware' version for rsa keys </td>
+<td><span style="color:#d3d3d3;">[<a id="1683990" href="/2019/forum-logs-for-05-apr-2015#1683990">23:51</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">^ re: ti-89 'diceware' tool </td>
+<td><span style="color:#d3d3d3;">[<a id="1683991" href="/2019/forum-logs-for-05-apr-2015#1683991">23:52</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">well, perhaps an illustration is worth a billion words. here : http://mad0uleurexquise.tumblr.com/post/115182109582/allysins-treat-a-slut-how-she-deserves-to-be </td>
+<td><span style="color:#d3d3d3;">[<a id="1683992" href="/2019/forum-logs-for-05-apr-2015#1683992">23:54</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">allysins: </td>
+<td><span style="color:#d3d3d3;">[<a id="1683993" href="/2019/forum-logs-for-05-apr-2015#1683993">23:54</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">note pete_dushenski the guy starts by inquiring whether the tramp is "in a room tonight" </td>
+<td><span style="color:#d3d3d3;">[<a id="1683994" href="/2019/forum-logs-for-05-apr-2015#1683994">23:54</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">re: california > http://www.nytimes.com/2015/04/05/us/california-drought-tests-history-of-endless-growth.html?_r=0 < "“Mother Nature didn’t intend for 40 million people to live here,” said Kevin Starr, a historian at the University of Southern California who has written extensively about this state. “This is literally a culture that since the 1880s has progressively invented, invented and reinvented itself. At what point </td>
+<td><span style="color:#d3d3d3;">[<a id="1683995" href="/2019/forum-logs-for-05-apr-2015#1683995">23:54</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">does this invention begin to hit limits?”" </td>
+<td><span style="color:#d3d3d3;">[<a id="1683996" href="/2019/forum-logs-for-05-apr-2015#1683996">23:54</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">Log In - The New York Times ... ( http://bit.ly/19WR4Ek ) </td>
+<td><span style="color:#d3d3d3;">[<a id="1683997" href="/2019/forum-logs-for-05-apr-2015#1683997">23:54</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">the "easy" situation has created this particular inferno for the underclass, that they are literally a mob now. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683998" href="/2019/forum-logs-for-05-apr-2015#1683998">23:55</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">no fixed place of residence, some nights in a hotel, or a car, or someone's livingroom, or the park. </td>
+<td><span style="color:#d3d3d3;">[<a id="1683999" href="/2019/forum-logs-for-05-apr-2015#1683999">23:55</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">that's pretty much the life of the whore, and of the mentally ill, and of the "student" and so on. bums, the lot of them. </td>
+<td><span style="color:#d3d3d3;">[<a id="1684000" href="/2019/forum-logs-for-05-apr-2015#1684000">23:55</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">like hearn, like everyone else on github. like the names on social media, like the leah goodmans trying to convince you they're "journalists". </td>
+<td><span style="color:#d3d3d3;">[<a id="1684001" href="/2019/forum-logs-for-05-apr-2015#1684001">23:56</a>]</span></td>
+</tr>
+<tr>
+<td><b>asciilifeform</b></td>
+<td class="breakup">mircea_popescu: this was taken to hilarious heights in j. brunner's 'stand on zanzibar', where virtually the entire fuckable female population of planet earth lives that way </td>
+<td><span style="color:#d3d3d3;">[<a id="1684002" href="/2019/forum-logs-for-05-apr-2015#1684002">23:56</a>]</span></td>
+</tr>
+<tr>
+<td><b>decimation</b></td>
+<td class="breakup">meanwhile actualy california has 'reinvented' itself into a central american shithole, wants to pretend like it matters </td>
+<td><span style="color:#d3d3d3;">[<a id="1684003" href="/2019/forum-logs-for-05-apr-2015#1684003">23:56</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">you know, "journalists" just like the fictional carriew bradshaw, </td>
+<td><span style="color:#d3d3d3;">[<a id="1684004" href="/2019/forum-logs-for-05-apr-2015#1684004">23:56</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">not journalists like every other whore you fucked whenever you didn't mind getting filmy. </td>
+<td><span style="color:#d3d3d3;">[<a id="1684005" href="/2019/forum-logs-for-05-apr-2015#1684005">23:56</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">just like the actresses waiting tables and turning tricks. </td>
+<td><span style="color:#d3d3d3;">[<a id="1684006" href="/2019/forum-logs-for-05-apr-2015#1684006">23:56</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">it's a social class. </td>
+<td><span style="color:#d3d3d3;">[<a id="1684007" href="/2019/forum-logs-for-05-apr-2015#1684007">23:56</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">asciilifeform aha. </td>
+<td><span style="color:#d3d3d3;">[<a id="1684008" href="/2019/forum-logs-for-05-apr-2015#1684008">23:56</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">this is not far from truth today. </td>
+<td><span style="color:#d3d3d3;">[<a id="1684009" href="/2019/forum-logs-for-05-apr-2015#1684009">23:56</a>]</span></td>
+</tr>
+<tr>
+<td><b>asciilifeform</b></td>
+<td class="breakup">mega-b00k incidentally. recommended to all. </td>
+<td><span style="color:#d3d3d3;">[<a id="1684010" href="/2019/forum-logs-for-05-apr-2015#1684010">23:56</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">decimation in fairness, california has always been past its demographic limits. people were paying more for hay there than anywhere in the world cca 1850 </td>
+<td><span style="color:#d3d3d3;">[<a id="1684011" href="/2019/forum-logs-for-05-apr-2015#1684011">23:57</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">(nevada excepted, of course) </td>
+<td><span style="color:#d3d3d3;">[<a id="1684012" href="/2019/forum-logs-for-05-apr-2015#1684012">23:57</a>]</span></td>
+</tr>
+<tr>
+<td><b>assbot</b></td>
+<td class="breakup">[MPEX] [S.MPOE] 20000 @ 0.00028743 = 5.7486 BTC [-] </td>
+<td><span style="color:#d3d3d3;">[<a id="1684013" href="/2019/forum-logs-for-05-apr-2015#1684013">23:57</a>]</span></td>
+</tr>
+<tr>
+<td><b>pete_dushenski</b></td>
+<td class="breakup">mircea_popescu: heh, well this particular whore recently claimed to have never heard of #b-a, which must be like carrie bradshaw never having heard of the new york times </td>
+<td><span style="color:#d3d3d3;">[<a id="1684014" href="/2019/forum-logs-for-05-apr-2015#1684014">23:58</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">pete_dushenski if you recall the famous "conference" held in london by nefario, taaki and the rest of "bitcoinica consultancy" crowd... </td>
+<td><span style="color:#d3d3d3;">[<a id="1684015" href="/2019/forum-logs-for-05-apr-2015#1684015">23:59</a>]</span></td>
+</tr>
+<tr>
+<td><b>pete_dushenski</b></td>
+<td class="breakup">because in magical fairy land, things that don't like you don't exist </td>
+<td><span style="color:#d3d3d3;">[<a id="1684016" href="/2019/forum-logs-for-05-apr-2015#1684016">23:59</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">that's the idea, generally. like going to a rave, orwhatever. sleep on the floor of a squatted building. </td>
+<td><span style="color:#d3d3d3;">[<a id="1684017" href="/2019/forum-logs-for-05-apr-2015#1684017">23:59</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">sleep at renton's underage girlfriend's parents' place </td>
+<td><span style="color:#d3d3d3;">[<a id="1684018" href="/2019/forum-logs-for-05-apr-2015#1684018">23:59</a>]</span></td>
+</tr>
+<tr>
+<td><b>mircea_popescu</b></td>
+<td class="breakup">"are you her mates or what then ?!" </td>
+<td><span style="color:#d3d3d3;">[<a id="1684019" href="/2019/forum-logs-for-05-apr-2015#1684019">23:59</a>]</span></td>
+</tr>
+<tr>
+<td><b>pete_dushenski</b></td>
+<td class="breakup">airbnb it </td>
+<td><span style="color:#d3d3d3;">[<a id="1684020" href="/2019/forum-logs-for-05-apr-2015#1684020">23:59</a>]</span></td>
+</tr>
+</table>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2019/forum-logs-for-04-apr-2015/">Forum logs for 04 Apr 2015</a></div>
+                <div class="alignright"><a href="/2019/forum-logs-for-06-apr-2015/">Forum logs for 06 Apr 2015</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/logs/" title="View all posts in Logs" rel="category tag">Logs</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2019/forum-logs-for-05-apr-2015/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2019/forum-logs-for-05-apr-2015/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+
+
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authore8e1dd8" id="authore8e1dd8" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emaile8e1dd8" id="emaile8e1dd8" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urle8e1dd8" id="urle8e1dd8" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="90337" /></p>
+				<input type="hidden" name="comment_post_time" value="1735330660-152.53.39.118" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2024 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-90337")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-90337");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-90337");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

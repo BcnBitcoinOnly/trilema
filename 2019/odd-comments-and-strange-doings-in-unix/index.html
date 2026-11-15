@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_apr2020.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Odd Comments and Strange Doings in Unix on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Joe Bidden Reales<br />La Al Paispcelea Congres!
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-85445"><div class="post" id="post-85445">                    <h1><a href="/2019/odd-comments-and-strange-doings-in-unix/" rel="bookmark" title="Permanent Link to Odd Comments and Strange Doings in Unix">Odd Comments and Strange Doings in Unix</a></h1>                        <div class="date">                                     Friday, 19 July, Year 11 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p style="padding-left: 60px;"><em>I am preserving here<sup><a href="#footnote_0_85445" id="identifier_0_85445" class="footnote-link footnote-identifier-link" title="Including the completely idiotic hard newlines of the original, god fucking damn these people and their inept notions of implicit tagging.">i</a></sup> the original form of an article I happen to need to link somewhere else -- yes, I've had to interrupt working on that to work on this, thank you <a href="/forum-logs-for-19-jul-2019#2543695">Team Fucktard</a> -- because the Internet's meanwhile <a href="http://btcbase.org/log/2019-07-19#1923514">broken</a>. Sorry about that ; I didn't break it myself.</em></p>
+<p>&lt;!-- BELL-LABS<br />
+username        Ritchie, Dennis<br />
+category        user<br />
+contact         dmr@bell-labs.com<br />
+--&gt;</p>
+<h2>Odd Comments and Strange Doings in Unix</h2>
+<h3>Values of Beeta</h3>
+<p>In Sixth Edition Unix, the <strong>mv</strong> command could produce this diagnostic:</p>
+<pre>	values of β will give rise to dom!</pre>
+<p>This was noticed by some and is recorded in a<sup><a href="#footnote_1_85445" id="identifier_1_85445" class="footnote-link footnote-identifier-link" title="Meanwhile broken, was www.tmk.com/ftp/humor/computer-error-messages.txt ">ii</a></sup> WWW page  or so, which are mostly copies of the same compilation<br />
+of rarely encountered and striking error messages from various systems.</p>
+<p>The actual source line in <strong>mv.c</strong> that produced the message was</p>
+<pre>	write(1,"values of \016B\017 will give rise to dom!\n",37);</pre>
+<p>except that in the real source, the \016B\017 was written with literal<br />
+ASCII SI and SO control characters.  These shifted the Model 37 Teletype<br />
+into its optional extended character set, and the B printed as the Greek<br />
+letter beta.  See below for more about rendering beta amidst changing<br />
+hardware and software.</p>
+<p>Like most of the messages recorded in these compilations, this one was produced<br />
+in some situation that we considered unlikely or as result of abuse; the details<br />
+don't matter.  I'm recording why the phrase was selected.</p>
+<p>The very first use of Unix in the "real business" of Bell Labs was to<br />
+type and produce patent applications, and for a while in the early 1970s we had three typists<br />
+busily typing away in the grotty lab on the sixth floor.  One day someone came<br />
+in and observed on the paper sticking out of one of the Teletypes,<br />
+displayed in magnificent isolation, this ominous phrase:</p>
+<pre>	values of β will give rise to dom!</pre>
+<p>It was of course obvious that the typist had interrupted a printout (generating<br />
+the "!" from the <strong>ed</strong> editor) and moved up the paper, and that the context<br />
+must have been something like "varying values of beta will give rise to domain wall movement"<br />
+or some other fragment of a physically plausible patent application.</p>
+<p>But the phrase itself was just so striking!  Utterly meaningless, but it looks like what...<br />
+a warning?  What is "dom?"</p>
+<p>At the same time, we were experimenting with text-to-voice software by Doug McIlroy<br />
+and others, and of course the phrase was tried out with it.  For whatever reason, its rendition<br />
+of "give rise to dom!" accented the last word in a way that emphasized<br />
+the phonetic similarity between "doom" and the first syllable of "dominance."<br />
+It pronounced "beta" in the British style, "beeta."  The entire occurrence became a small, shared<br />
+treasure.</p>
+<p>The phrase had to be recorded somewhere, and it was, in the v6 source.<sup><a href="#footnote_2_85445" id="identifier_2_85445" class="footnote-link footnote-identifier-link" title="How about you tards get some fucking blogs. 
+And actually maintain them.">iii</a></sup><br />
+Most likely it was Bob Morris who did the deed, but it could just<br />
+as easily have been Ken.</p>
+<p>I hope that your browser reproduces the β as a Greek beta.<br />
+It is written here as '&amp; beta ;', which works on MSIE and<br />
+at least some Linux browsers, but not on Netscape 4.6 (at least mine).<br />
+Formerly I tried rendering it using 'fontface=symbol b /fontface'<br />
+with the appropriate angle-brackets, which works on this old Netscape<br />
+and MSIE, but not recent Mozillas.  Sigh. If you are using<br />
+an old Netscape, with an appropriate fontface, here it is: <span style="font-family: symbol;">b</span>.<sup><a href="#footnote_3_85445" id="identifier_3_85445" class="footnote-link footnote-identifier-link" title="The things these puppies will tolerate, I swear...">iv</a></sup></p>
+<h2>/* You are not expected to understand this */</h2>
+<p>Every now and then on Usenet or elsewhere I run across a<br />
+reference to a certain comment in the source code of the Sixth Edition<br />
+Unix operating system.</p>
+<p>I've even been given two sweatshirts that quote it.</p>
+<p>Most probably just heard about it, but those who saw it<br />
+in the flesh either had Sixth Edition Unix (ca. 1975)<br />
+or read the annotated version of this system by John Lions<br />
+(which was republished in 1996: ISBN 1-57298-013-7, Peer-to-Peer Communications).</p>
+<p>It's often quoted as a slur on the quantity or quality of the comments<br />
+in the Bell Labs research releases of Unix.  Not an unfair<br />
+observation in general, I fear, but in this case unjustified.<br />
+The actual code and other commentary surrounding it were precisely this:</p>
+<p><code> </code></p>
+<pre><code><tt>
+	/*
+	 * Switch to stack of the new process and set up
+	 * his segmentation registers.
+	 */
+	retu(rp-&gt;p_addr);
+	sureg();
+	/*
+	 * If the new process paused because it was
+	 * swapped out, set the stack level to the last call
+	 * to savu(u_ssav).  This means that the return
+	 * which is executed immediately after the call to aretu
+	 * actually returns from the last routine which did
+	 * the savu.
+	 *
+	 * You are not expected to understand this.
+	 */
+	if(rp-&gt;p_flag&amp;SSWAP) {
+		rp-&gt;p_flag =&amp; ~SSWAP;
+		aretu(u.u_ssav);
+	}
+	/*
+	 * The value returned here has many subtle implications.
+	 * See the newproc comments.
+	 */
+	return(1);
+</tt>
+</code></pre>
+<p><code> </code></p>
+<p>So we tried to explain what was going on.<br />
+"You are not expected to understand this" was intended as a remark<br />
+in the spirit of "This won't be on the exam," rather than as an<br />
+impudent challenge.</p>
+<p>The real problem is that we didn't understand what was going on either.<br />
+The savu/retu mechanism for doing process exchange was fundamentally broken<br />
+because it depended on switching to a previous stack frame and executing function<br />
+return code in a different procedure from the one that saved the earlier state.<br />
+This worked on the PDP-11 because its compiler always used the same context-save<br />
+mechanism; with the Interdata compiler, the procedure return code differed<br />
+depending on which registers were saved.</p>
+<p>So, for Steve Johnson and me, trying to move the kernel for the first time<br />
+to a new machine, this code was indeed on the exam.<br />
+It took about a week of agonizing before we finally convinced each other that<br />
+the mechanism was wrong and no fiddling with the compiler was useful.<br />
+We redid the coroutine control-passing primitives altogether, and this code<br />
+section, and the comment, passed into history.</p>
+<p><a name="muldiv"></a></p>
+<h2>Comments I do feel guilty about</h2>
+<p>Doing 32-bit multiplication and division on a 16-bit machine like<br />
+the PDP-11 needs cleverness.  My PDP-11 C compiler used subroutines<br />
+to do long * and /.<br />
+The multiplication routine was<br />
+<code> </code></p>
+<pre><code><tt>
+/
+/ 32-bit multiplication routine for fixed pt hardware.
+/  Implements * operator
+/ Credit to an unknown author who slipped it under the door.
+.globl	lmul
+.globl	csv, cret
+
+lmul:
+	jsr	r5,csv
+	mov	6(r5),r2
+	sxt	r1
+	sub	4(r5),r1
+	mov	10.(r5),r0
+	sxt	r3
+	sub	8.(r5),r3
+	mul	r0,r1
+	mul	r2,r3
+	add	r1,r3
+	mul	r2,r0
+	sub	r3,r0
+	jmp	cret
+</tt></code></pre>
+<p><code> </code><br />
+which is neat, and I wasn't smart enough to figure it out.<br />
+I don't feel guilty, though, because I didn't then know who<br />
+suggested it and I did acknowledge the fact.</p>
+<p>But I'll carry this one on my conscience for a while.<br />
+The division routine included<br />
+<code> </code></p>
+<pre><code><tt>
+1:
+	mov	r4,-(sp)
+	clr	r0
+	div	r3,r0
+	mov	r0,r4		/high quotient
+	mov	r1,r0
+	mov	r2,r1
+	div	r3,r0
+	bvc	1f
+	sub	r3,r0		/ this is the clever part
+	div	r3,r0
+	tst	r1
+	sxt	r1
+	add	r1,r0		/ cannot overflow!
+1:
+</tt></code></pre>
+<p><code> </code><br />
+I almost (or maybe even completely) figured out why it worked.</p>
+<p>The spot on the soul is the "this is the clever part" comment.</p>
+<h4>Addendum 18 Oct 1998</h4>
+<p>Amos Shapir of nSOF (and of long memory!) just blackened<br />
+(or widened) the spot a bit more in a<br />
+mail message, to wit:</p>
+<p><em>I gather the "almost" here is because this trick almost worked...  It has<br />
+a nasty bug which I had to find the hard way! </em><sup><a href="#footnote_4_85445" id="identifier_4_85445" class="footnote-link footnote-identifier-link" title="The shit these people put up with!">v</a></sup></p>
+<p><em> </em></p>
+<p><em> The "clever part" relies on the fact that if the "bvc 1f" is not taken,<br />
+it means that the result could not fit in 16 bits; in that case the long<br />
+value in r0,r1 is left unchanged.  The bug is that this behavior is not<br />
+documented; in later models (I found this on an 11/34) when the result<br />
+does fit in 16 bits but not in 15 bits (that is, overflow for signed, but<br />
+not unsigned types), the overflow bit is set, but the unsigned result<br />
+does overwrite the original values -- which makes this routine provide<br />
+very strange results!</em></p>
+<h2>A hardware story</h2>
+<p>Back around 1970-71, Unix on the PDP-11/20 ran on hardware that<br />
+not only did not support virtual memory, but didn't support any<br />
+kind of hardware memory mapping or protection, for example against<br />
+writing over the kernel.  This was a pain,<br />
+because we were using the machine for multiple users.  When anyone<br />
+was working on a program, it was considered a courtesy to yell<br />
+"A.OUT?" before trying it, to warn others to save whatever they<br />
+were editing.<br />
+[A substory: at some point several were sitting around working away.<br />
+Bob Morris asked, almost conversationally, "what are the arguments to ld?"<br />
+Someone told him.  We continued typing for the next minute, as a<br />
+thought began to percolate, not quite to the top of the brain--<br />
+in other words, not quite fast enough.  The terminal stopped echoing<br />
+before anyone could stop and say "Hold on Bob, what is it you're trying to do?"]</p>
+<p>We knew the PDP-11/45, which did support memory mapping and protection<br />
+for the kernel and other processes, was coming, but not instantly;<br />
+in anticipation, we arranged with Digital Special Systems to buy a<br />
+PDP-11/20 with KS-11 add-on.  This was an extra system unit bolted to<br />
+the processor that made it distinguish kernel from user mode, and provided<br />
+a classical PDP-10 style "hi-seg" "low-seg" memory mapping unit.  I seem<br />
+to recall that maybe 6 of these had been made when we ordered it.</p>
+<p>Those who remember the early PDP-11s remember that there were no<br />
+multiply, divide, or shift-by-more-than-1 instructions, and that<br />
+they had an optional EAE ("extended arithmetic extension") gadget,<br />
+the KE-11A,<br />
+that appeared in physical memory in the I/O device space: one<br />
+stored the operands here and read back the answer there<br />
+(in fact at 777302 and following addresses).</p>
+<p>One problem the KS-11 had to deal with was that ordinary programs needed to<br />
+do multiplies and divides, yet shouldn't be allowed to access the I/O device<br />
+space.  So it included circuitry that detected just the EAE addresses,<br />
+and remapped them to physical, while all other virtual addresses in<br />
+user mode were mapped.</p>
+<p>When we got the KS-11 machine, the EAE just didn't work at all.<br />
+With test programming, we got bus errors, or no action from<br />
+the EAE unit.  But, in those days<br />
+when you bought such things from Digital Special Systems, you also got the<br />
+circuit drawings, so after a lot of headscratching and fiddling, they<br />
+were consulted.</p>
+<p>It turned out that on one page of the drawings, there was an address comparator for the<br />
+EAE address, with an out-of-page arrow labelled "EAE ADDRESS DETECTED H".<br />
+On another page, there was an in-arrow labelled "EAE ADDRESS DETECTED L".<br />
+We couldn't find anything between these.</p>
+<p>In the end, we had a visit from an embarrassed Digital Special Systems<br />
+guy who found an unused inverter pin<br />
+and added some white wires.</p>
+<p>These days, such a problem would be harder to fix in the field.</p>
+&mdash;&mdash;&mdash;<ol class="footnotes"><li id="footnote_0_85445" class="footnote">Including the completely idiotic hard newlines of the original, god fucking damn these people and their inept notions of <a href="/forum-logs-for-16-dec-2017#2377806">implicit tagging</a>. [<a href="#identifier_0_85445" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_1_85445" class="footnote">Meanwhile broken, was www.tmk.com/ftp/humor/computer-error-messages.txt  [<a href="#identifier_1_85445" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_2_85445" class="footnote">How about you tards get some fucking blogs. </p>
+<p><b>And actually maintain them</b>. [<a href="#identifier_2_85445" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_3_85445" class="footnote">The things these puppies will tolerate, I swear... [<a href="#identifier_3_85445" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_4_85445" class="footnote"><b>The shit these people put up with!</b> [<a href="#identifier_4_85445" class="footnote-link footnote-back-link">&#8617;</a>]</li></ol>
+              <div>
+                <div class="alignleft">&laquo; <a href="/2019/thelastpsychiatristcom-a-case-study-on-why-policy-changes-fail-pharma-paying-docs-adnotated/">thelastpsychiatrist.com - A Case Study On Why Policy Changes Fail: Pharma Paying Docs. Adnotated.</a></div>
+                <div class="alignright"><a href="/2019/thelastpsychiatristcom-according-to-time-the-worlds-most-influential-person-is-adnotated/">thelastpsychiatrist.com - According to Time, The World's Most Influential Person Is.... Adnotated.</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/meta-psihoza/" title="View all posts in Meta psihoza" rel="category tag">Meta psihoza</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2019/odd-comments-and-strange-doings-in-unix/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2019/odd-comments-and-strange-doings-in-unix/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>4 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-129998" class="commentbody"><div class="commenthead"><img alt='Stanislav Datskovskiy`s avatar' src='http://www.loper-os.org/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink"><a href='http://www.loper-os.org' class='url'>Stanislav Datskovskiy</a><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-129998" title="">Friday, 19 July 2019</a>
+							</div>
+						<p>That 'lmul' routine is a miniature fixint Karatsuba.</p>
+						</li>
+
+										<li id="comment-130001" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-130001" title="">Friday, 19 July 2019</a>
+							</div>
+						<p>What else could it be, practically.</p>
+						</li>
+
+										<li id="comment-130009" class="commentbody"><div class="commenthead"><img alt='Stanislav Datskovskiy`s avatar' src='http://www.loper-os.org/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink"><a href='http://www.loper-os.org' class='url'>Stanislav Datskovskiy</a><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-130009" title="">Saturday, 20 July 2019</a>
+							</div>
+						<p>3 half-bitness muls in there, so pretty obvious, imho.</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+				<li class="trackbody" id="comment-146226">
+					<div class='trackhead'>
+						<div class="commentcount">4</div>
+						<span class="authorlink"><a href='/2019/thelastpsychiatristcom-according-to-time-the-worlds-most-influential-person-is-adnotated?b=not%2C%20of%20catt&amp;e=irst#select' class='url'>thelastpsychiatrist.com - According to Time, The World's Most Influential Person Is.... Adnotated. on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-146226" title="">Wednesday, 8 January 2020</a>
+					</div>
+					<p>[...] not, of cattle we use. [&#8617;]Right, "hacked". It's the contemporaneous term for "magic", that "you are not expected to understand this" of yore, most beloved by all the bleaters who really had no business being there in the first [...]</p>
+				</li>
+
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authorf523607" id="authorf523607" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emailf523607" id="emailf523607" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urlf523607" id="urlf523607" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="85445" /></p>
+				<input type="hidden" name="comment_post_time" value="1786296059-18.97.14.84" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2026 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-85445")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-85445");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-85445");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_oct2019c.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>How to restructure the categories of articles on MP-WP on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Repressing the female point of view<br />every day since 2008.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-86030"><div class="post" id="post-86030">                    <h1><a href="/2019/how-to-restructure-the-categories-of-articles-on-mp-wp/" rel="bookmark" title="Permanent Link to How to restructure the categories of articles on MP-WP">How to restructure the categories of articles on MP-WP</a></h1>                        <div class="date">                                     Thursday, 25 July, Year 11 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p>First off,</p>
+<blockquote><p>SELECT p.ID, t.term_id FROM MPWP_posts<sup><a href="#footnote_0_86030" id="identifier_0_86030" class="footnote-link footnote-identifier-link" title="This is the main article table, it holds things such as the article content and title, the urls it has pinged and has yet to ping, date, author, etcetera.
+It also has a post_category record, which is not set by MP WP and doesn't do anything if you set it directly (ie, via your cmdline mysql link). Don't fucking ask me why, this thing is on the to-fix list since two thousand fucking eight. insufficient-hands.jpg">i</a></sup> p LEFT JOIN MPWP_term_relationships<sup><a href="#footnote_1_86030" id="identifier_1_86030" class="footnote-link footnote-identifier-link" title="This is a long and thin table consisting of one entry for each MP-WP post (note that articles are only the Published posts ; the table also contains drafts, undergirthing the MP-WP compare/restore functionality) and its associated `term_taxonomy_id` (there's also a `term_order` but atm I dunno it's used for anything). Obviously enough this table is entirely spurious as such, `the term_taxonomy_id` could have just as well been the MPWP_posts.post_category directly.">ii</a></sup> rel ON rel.object_id = p.ID LEFT JOIN MPWP_term_taxonomy<sup><a href="#footnote_2_86030" id="identifier_2_86030" class="footnote-link footnote-identifier-link" title="This is a table holding its own id, then references to  `term_id` (which, in a decade of Trilema, still exactly equals select term_taxonomy_id on all 43 records), `taxonomy` (which simply reads `category` throughout), `description`, which is simply empty, `parent`, which is null throughout, and `count`, which holds the article count for the respective category.">iii</a></sup> tax ON tax.term_taxonomy_id = rel.term_taxonomy_id LEFT JOIN MPWP_terms<sup><a href="#footnote_3_86030" id="identifier_3_86030" class="footnote-link footnote-identifier-link" title="This is another entirely spurious table, consisting of its own id (like in the case of MPWP_term_taxonomy, there's as many records as categories, ie here 43), a `name` (which is displayed by the blog), a `slug` (which is used for urls) and a `term_group`, which is null. Obviously this is a mechanism to have categorical hierarchies, but in my opinion this is fucking stupid. Mind that I never used it ; Ballas used it in the sense of `tried it out`, he has Clinical ; Clinical.Antipsychotics ; Clinical.Suicide nominally but he practically never used them either. I submit this then makes for perfect illustration as to the wisdom of NOT designing by design, and of designing by usage instead.
+Self-obviously these three tables could have been a single table, holding the name, the slug, no fucking description -- if you want to describe a category, put a fucking article in it, it's a very stupid idea to have ad-hoc and undocumented hierarchies of automatically pasted text (understood as `descriptions` rather than labels) -- then the article count associated and that's just about it. MPWP_posts.post_category could then link into it by id and you'd be done with the whole bloody mess. Aaanyways.">iv</a></sup> t ON t.term_id = tax.term_id WHERE p.post_status="Publish" and p.post_title LIKE "%notated%";<br />
+> 66 rows in set (0.17 sec)
+</p></blockquote>
+<p>Thereby we select all articles which have "notated" in the title, because that's what I want to do -- get all the articles I adnotated moved into the newly-formed "Adnotations" category.</p>
+<blockquote><p>UPDATE MPWP_posts p LEFT JOIN MPWP_term_relationships rel ON rel.object_id = p.ID LEFT JOIN MPWP_term_taxonomy tax ON tax.term_taxonomy_id = rel.term_taxonomy_id LEFT JOIN MPWP_terms t ON t.term_id = tax.term_id SET rel.term_taxonomy_id = 43<sup><a href="#footnote_4_86030" id="identifier_4_86030" class="footnote-link footnote-identifier-link" title="For the purpose of this exercise we magically know our new category has id 43, hurr.">v</a></sup> WHERE p.post_status="Publish" and p.post_title LIKE "%notated%";<br />
+> Query OK, 63 rows affected (0.16 sec)<br />
+> Rows matched: 66  Changed: 63  Warnings: 0
+</p></blockquote>
+<p>The reason it finds 66 but only changes 63 is that the past three articles I had put into the proper category directly, at the time of writing.</p>
+<p>At this juncture we might notice that the post count for the category in question still stands at 3, so we have to hack that off<sup><a href="#footnote_5_86030" id="identifier_5_86030" class="footnote-link footnote-identifier-link" title="Which yes, means that all other counts are now fucked, but whatever.
+If you actually give a shit, you can always count the records from MPWP_term_relationships by the term_taxonomy_id = magic number criterion, and then update the MPWP_term_taxonomy record accordingly.">vi</a></sup> : </p>
+<blockquote><p>update MPWP_term_taxonomy set count = 66 where term_taxonomy_id=43;</p></blockquote>
+<p>And that'd be it. The same obviously applies if you want to similarily update any specific list of articles, for instance if you want to move all articles containing the string "cunt" you'd replace </p>
+<blockquote><p>WHERE p.post_status="Publish" and p.post_title LIKE "%notated%"</p></blockquote>
+<p>from above with a more adequate</p>
+<blockquote><p>WHERE p.post_status="Publish" and p.post_content LIKE "% cunt%<sup><a href="#footnote_6_86030" id="identifier_6_86030" class="footnote-link footnote-identifier-link" title="Note the leading space -- it's true there don't exist any other English words ending in cunt, but maybe you misspelled account or something, I dunno, it's your blog.">vii</a></sup>"</p></blockquote>
+<p>Enjoy! And if you find the time to fix the database destructure and submit a patch...  </p>
+&mdash;&mdash;&mdash;<ol class="footnotes"><li id="footnote_0_86030" class="footnote">This is the main article table, it holds things such as the article content and title, the urls it has pinged and has yet to ping, date, author, etcetera.</p>
+<p>It <em>also</em> has a post_category record, which is not set by MP WP and doesn't do anything if you set it directly (ie, via your cmdline mysql link). Don't fucking ask me why, this thing is on the to-fix list since two thousand fucking eight. <a href=/wp-content/uploads/2019/07/many-hands.jpg>insufficient-hands.jpg</a> [<a href="#identifier_0_86030" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_1_86030" class="footnote">This is a long and thin table consisting of one entry for each MP-WP post (note that articles are only the <em>Published</em> posts ; the table also contains drafts, undergirthing the MP-WP compare/restore functionality) and its associated "term_taxonomy_id" (there's also a "term_order" but atm I dunno it's used for anything). Obviously enough this table is entirely spurious as such, "the term_taxonomy_id" could have just as well been the MPWP_posts.post_category directly. [<a href="#identifier_1_86030" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_2_86030" class="footnote">This is a table holding its own id, then references to  "term_id" (which, in a decade of Trilema, still exactly equals select term_taxonomy_id on all 43 records), "taxonomy" (which simply reads "category" throughout), "description", which is simply empty, "parent", which is null throughout, and "count", which holds the article count for the respective category. [<a href="#identifier_2_86030" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_3_86030" class="footnote">This is another entirely spurious table, consisting of its own id (like in the case of MPWP_term_taxonomy, there's as many records as categories, ie here 43), a "name" (which is displayed by the blog), a "slug" (which is used for urls) and a "term_group", which is null. Obviously this is a mechanism to have categorical hierarchies, but in my opinion this is fucking stupid. Mind that I never used it ; Ballas used it in the sense of "tried it out", he has <a href=/2019/christos-ballas-tlp-thelastpsychiatristcom-archive/#footnote_0_84931>Clinical ; Clinical.Antipsychotics ; Clinical.Suicide</a> nominally but he practically never used them either. I submit this then makes for perfect illustration as to the wisdom of NOT designing by design, and of designing by usage instead.</p>
+<p>Self-obviously these three tables could have been a single table, holding the name, the slug, no fucking description -- if you want to describe a category, put a fucking article in it, it's a <em>very</em> stupid idea to have ad-hoc and undocumented hierarchies of automatically pasted text (understood as "descriptions" rather than labels) -- then the article count associated and that's just about it. MPWP_posts.post_category could then link into it by id and you'd be done with the whole bloody mess. Aaanyways. [<a href="#identifier_3_86030" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_4_86030" class="footnote">For the purpose of this exercise we magically know our new category has id 43, hurr. [<a href="#identifier_4_86030" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_5_86030" class="footnote">Which yes, means that all other counts are now fucked, but whatever.</p>
+<p>If you actually give a shit, you can always count the records from MPWP_term_relationships by the term_taxonomy_id = magic number criterion, and then update the MPWP_term_taxonomy record accordingly. [<a href="#identifier_5_86030" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_6_86030" class="footnote">Note the leading space -- it's true there don't exist any other English words ending in cunt, but maybe you misspelled account or something, I dunno, it's your blog. [<a href="#identifier_6_86030" class="footnote-link footnote-back-link">&#8617;</a>]</li></ol>
+              <div>
+                <div class="alignleft">&laquo; <a href="/2019/thelastpsychiatristcom-a-quick-word-on-porns-effect-on-your-penis-adnotated/">thelastpsychiatrist.com - A Quick Word on Porn's Effect On Your Penis. Adnotated.</a></div>
+                <div class="alignright"><a href="/2019/thelastpsychiatristcom-ara-abrahamian-wins-award-for-medal-toss-saved-by-passport-adnotated/">thelastpsychiatrist.com - Ara Abrahamian Wins Award For Medal Toss, Saved By Passport. Adnotated.</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/meta-psihoza/" title="View all posts in Meta psihoza" rel="category tag">Meta psihoza</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2019/how-to-restructure-the-categories-of-articles-on-mp-wp/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2019/how-to-restructure-the-categories-of-articles-on-mp-wp/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>2 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-148374" class="commentbody"><div class="commenthead"><img alt='AndrewPak`s avatar' src='http://pest/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink"><a href='http://pest' class='url'>AndrewPak</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-148374" title="">Wednesday, 8 April 2020</a>
+							</div>
+						<p>Alarming mo = 'modus operandi' of expression. Obey it up!</p>
+						</li>
+
+										<li id="comment-148375" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-148375" title="">Wednesday, 8 April 2020</a>
+							</div>
+						<p>Amusingky, this is I expect the least expressively alarming article on the whole blog (which says a lot, seeing how Trilema is easily larger than any "mainstream media" or w/e).</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="author1b9a340" id="author1b9a340" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email1b9a340" id="email1b9a340" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="url1b9a340" id="url1b9a340" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="86030" /></p>
+				<input type="hidden" name="comment_post_time" value="1779283814-18.97.14.89" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2026 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-86030")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-86030");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-86030");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>
