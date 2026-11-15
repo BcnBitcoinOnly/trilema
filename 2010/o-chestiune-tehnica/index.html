@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_dec2016.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>O chestiune tehnica on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">The fates are cruel an' the chances are slim<br />so grab a good sieve and dig in.<br />~<a href=/2020/nannare/#comment-147503>my elder slavegirl</a>
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-8174"><div class="post" id="post-8174">                    <h1><a href="/2010/o-chestiune-tehnica/" rel="bookmark" title="Permanent Link to O chestiune tehnica">O chestiune tehnica</a></h1>                        <div class="date">                                     Saturday, 29 May, Year 2 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p>In urma unei discutii pe twitter (unei discutii private, nu va repeziti) am tras concluzia ca o buna parte a cetatenilor republicii internetice nu inteleg niste chestii de baza despre functionarea sculelor de masura in care-si pun increderea.</p>
+<p>Subiectul discutiei de astazi va fi conceptul de Time on Site. In romaneste ar insemna "timp petrecut pe pagina" sau ceva asemanator, si intuitiv se traduce ca intervalul pe care un cititor il petrece citind o pagina.</p>
+<p>Aceasta translatie intuitiva este din nefericire eronata. Sigur, ar fi foarte bine si de dorit sa putem cumva masura timpul pe care un utilizator il petrece citind o pagina. Ar fi util si interesant. Din pacate, este si imposibil.</p>
+<p>Ce este posibil, si chiar usor de facut, e sa masori distanta in timp intre doua accesari succesive ale unui server. Toate serverele isi noteaza momentul in timp cand au primit o cerere anumita, si nu-i deloc dificil sa compari intervalele intre doua cereri ale aceluiasi client. Fiind simplu de facut, s-a si facut, si ca rezultat Time on Site (TS) masoara intervalul dintre doua accesari succesive ale paginilor de pe acelasi site, in cadrul aceleiasi sesiuni. </p>
+<p>Hai sa luam niste exemple concrete :</p>
+<blockquote><p>Ion intra pe pagina.com/articol-tare.html, la ora 15:05. Serverul noteaza 15:05:43. Ion citeste articolul, intre timp ii suna telefonul, vorbeste cu nevasta care-i la cumparaturi despre ce au nevoie, 15 minute, continua sa citeasca, merge pana la baie, termina articolul, inchide pagina.</p>
+<p><strong>Time on Site </strong>: 0s.
+</p></blockquote>
+<p>De ce 0s ? Pentru ca Ion nu a mai cerut o a doua pagina. Neavand la dispozitie doua pagini, ai caror timpi sa-l compare, evident ca serverul nu poate oferi o diferenta. El stie doar 15:05:43, ora la care i s-a cerut prima, si singura, pagina. El nu are cum sa stie sau sa ghiceasca ce-a mai facut Ion dupa aceea, pentru ca http este un asa numit protocol <a href="http://foldoc.org/stateless">fara stare</a>.</p>
+<blockquote><p>Marin intra pe pagina.com/index.html la 15:07. Serverul noteaza 15:07:22. Marin scaneaza in viteza titlurile, si da click pe unul dintre ele, pagina.com/articol-pentru-marin.html. Serverul noteaza 15:07:52. Marin citeste articolul, isi ia notite, conspecteaza chestiunea, dupa care inchide pagina si pleaca in parc, sa se poata gandi in liniste.</p>
+<p><strong>Time on Site</strong> : 30s.</p>
+<p>Marin revine spre seara, isi scrie cu grija comentariul pe care doreste sa-l adauge, il reciteste multumit, apoi merge din nou la pagina.com/index.html (19:45:02), da imediat click pe pagina.com/articol-pentru-marin.html (19:45:04), copiaza articolul pregatit si-l trimite (19:45:11). Dupa care inchide pagina si-si vede de treaba.</p>
+<p><strong>Time on Site</strong> : 4s (2 + 7 / 2 = 4).</p></blockquote>
+<p>Intrucat intre cele doua vizite a intervenit un interval semnificativ, si e posibil, chiar probabil ca Marin sa fi inchis calculatorul, serverul va trata cele doua drept doua sesiuni distincte (visits) ale aceluiasi IP (unique). Deci de la calculatorul lui Marin s-au facut doua vizite, una de 30s medie, si a doua de 4s medie. Sigur, Marin n-a facut altceva toata ziua decat sa se gandeasca la respectivul articol, dar asta n-avem cum afla, eventual daca ne scrie Marin un email (si nu minte).</p>
+<blockquote><p>Adina, Andreea, Alexandra, Anita, Angela, Aglaia si Adina sunt 7 fete care traiesc intr-un apartament de 3 camere. Sunt studente si decat sa stea in camin, prefera sa puna fiecare cate 30 de euro. E mai fun asa. Au si internet, si anume, un modem de cablu la care e legat un router de 6, din care ies 6 cabluri care duc la 6 calculatoare. Aglaia n-are bani de calculator, si oricum Alexandra sau Anita o lasa sa le foloseasca pe ale lor daca vrea. </p>
+<p>La 11:03, Adina intra pe pagina.com/articol-pentru-fete.html. Serverul noteaza 11:03:45. Independent de Adina, in alta camera, Alexandra intra pe pagina.com/articol-despre-baieti.html. Serverul noteaza 11:03:48. Vazand-o pe Alexandra ca intra pe pagina.com, Angela isi aminteste ca vroia si ea sa citeasca daca s-a mai comentat ceva pe pagina.com/articol-pentru-marin.html, care Marin ii este ei simpatic. Serverul noteaza 11:04:35. Vazand ca Marin a raspuns, se apuca sa scrie si ea in viteza. Adina incarca o noua pagina, serverul noteaza 11:04:59. Angela trimite un comentariu la pagina.com/articol-pentru-marin.html, serverul noteaza 11:05:07. Alexandra incarca si ea pagina sa vada ce-a scris Angela. Serverul noteaza 11:05:22.</p>
+<p><strong>Time on Site</strong> : 20s (3 + 47 + 24 + 8 / 4 = 20).</p></blockquote>
+<p>Intrucat toate calculatoarele fetelor au pentru internet acelasi IP (asta fiind sensul si scopul unui NAT Router), din punctul de vedere al serverului ele sunt toate 7 aceeasi persoana. Simplu, nu ?</p>
+<p>Am explicat mai demult ca nu dau doua parale pe asa-zisele "<a href="/2010/trafic-2/">trafic analytics tools</a>". Asta este unul dintre motive. </p>
+<p>Nu cred ca sanatosi la cap fiind puteti sa va inchipuiti ca oamenii care citesc o pagina si pleaca + oamenii care folosesc browsere cu taburi + oamenii care folosesc routere sunt in total o minoritate ai cititorilor unui site, oricarui site, in timp ce majoritatea foloseste IP-uri fixe, cate o singura pagina web deschisa intr-un singur browser, si da click-uri pentru a-si marca corect activitatea, ca si cum ar fi la fisa de pontaj. In fapt, daca adunam cele trei categorii, rezulta probabil 250% din orice populatie de internauti. </p>
+<p>Parerea mea este ca a te ghida dupa o busola gresita e mai grav decat a incerca sa ghicesti.</p>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2010/o-suta-de-cuvinte-v/">O suta de cuvinte - V</a></div>
+                <div class="alignright"><a href="/2010/polimedia-srl-rezultate-financiare/">Polimedia srl - Rezultate financiare</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/3-ani-experienta/" title="View all posts in 3 ani experienta" rel="category tag">3 ani experienta</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2010/o-chestiune-tehnica/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2010/o-chestiune-tehnica/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>64 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-24870" class="commentbody"><div class="commenthead"><img alt='kokofifi`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink">kokofifi<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24870" title="">Saturday, 29 May 2010</a>
+							</div>
+						<p>chiar asa ar trebui sa arate userul ideal: Trilema ca pagina de start, in IE8 ( servus, Marian!) cu un singur tab deschis , IP pe viata, tasta de F5 tocita pâna la platina :D</p>
+						</li>
+
+										<li id="comment-24871" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24871" title="">Saturday, 29 May 2010</a>
+							</div>
+						<p>Da' ce-s io, Hitler ?!</p>
+						</li>
+
+										<li id="comment-24875" class="commentbody"><div class="commenthead"><img alt='Mcgogoo`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink">Mcgogoo</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24875" title="">Saturday, 29 May 2010</a>
+							</div>
+						<p>Corect. Din pacate sunt pe tel si nu am rabdare să comentez. Sper sa revin</p>
+						</li>
+
+										<li id="comment-24876" class="commentbody"><div class="commenthead"><img alt='kokofifi`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink">kokofifi<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24876" title="">Saturday, 29 May 2010</a>
+							</div>
+						<p>nu ghitler, goebbels! :p</p>
+						</li>
+
+										<li id="comment-24877" class="commentbody"><div class="commenthead"><img alt='cipslim`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink">cipslim<img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24877" title="">Saturday, 29 May 2010</a>
+							</div>
+						<p>Pai da, numa ca astea is exceptii, ca o fost si in Australia un sondaj si erau o gramada de Jedi, dar per ansamblu o iesit aproximativ bine.<br />
+e o medie, nu sunt date exacte, dar au relevanta.<br />
+Ca exemplu, eu cu gugl crom am tab cu Trilema care ma duce la o postare cu Tristetea, deci de fiecare data can intru, apare cacumca as citi ce scrie acolo, dar eu nu citesc, in schimb celelalte pagini cam au dreptate.</p>
+						</li>
+
+										<li id="comment-24879" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24879" title="">Saturday, 29 May 2010</a>
+							</div>
+						<p>@<b>Mcgogoo</b> Este vreme ;)</p>
+<p>@<b>kokofifi</b> Aia da. Desi... ala parca era virgin.</p>
+<p>@<b>cipslim</b> Exceptii pe focu'. Exceptie e cazul ideal, ca vorba fifei, in afara de Marian n-am idee cine mai practica sportu' ala.</p>
+<p>Io, daca-i sa ma iau de exemplu, am acu ni 14 taburi deschise, cu articole ramase de ieri. Daca ajung sa le citesc in cursul zilei bine, daca nu le citesc maine. Daca ajung sa le citesc mai pe seara si las un comentariu, ala va avea 6 ore time on site, si restu' 0.</p>
+						</li>
+
+										<li id="comment-24881" class="commentbody"><div class="commenthead"><img alt='cipslim`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink">cipslim<img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24881" title="">Saturday, 29 May 2010</a>
+							</div>
+						<p>Pai las ca-i bine sa se bucure si el ca-l ceteste lumea cate 6 ore de caciula.</p>
+						</li>
+
+										<li id="comment-24883" class="commentbody"><div class="commenthead"><img alt='F`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink">F</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24883" title="">Saturday, 29 May 2010</a>
+							</div>
+						<p>F deschide Trilema la orele 20:02:20 si o inchide la 20:02:22 a doua zi... Time On Site 24 de ore si 2 secunde desi F intre timp a dormit a plecat prin oras si-a taiat unghiile a luat micul dejun si si-a uitat pc-ul aprins.</p>
+						</li>
+
+										<li id="comment-24884" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24884" title="">Saturday, 29 May 2010</a>
+							</div>
+						<p>Depinzand de felul in care-i scris codul, 24 de ore si 2 secunde pot fi interpretate si ca doua vizite de 0 fiecare.</p>
+						</li>
+
+										<li id="comment-24887" class="commentbody"><div class="commenthead"><img alt='Mihai`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">10</div>
+								<span class="authorlink">Mihai<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24887" title="">Saturday, 29 May 2010</a>
+							</div>
+						<p>"Au si internet, si anume, un modem de cablu la care e legat un router de 6, din care ies 6 cabluri care duc la 6 calculatoare. "</p>
+<p>esti in urma rau. se sta pe notebookuri, laptopuri. si routerul trimite semnal wireless. :)</p>
+						</li>
+
+										<li id="comment-24890" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">11</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24890" title="">Saturday, 29 May 2010</a>
+							</div>
+						<p>Nici n-am vrut sa intru in discutia cu wireless-uri, si respectiv cu net-cafe-uri, ca alea-s deja fineturi. Da' cu siguranta nu contribuie la reliabilitatea masuratorii respective.</p>
+						</li>
+
+										<li id="comment-24891" class="commentbody"><div class="commenthead"><img alt='Ionut`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">12</div>
+								<span class="authorlink">Ionut</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24891" title="">Saturday, 29 May 2010</a>
+							</div>
+						<p>Uite ca da. Asta ar explica multe ... deci practic nu e un cronometru care sa masoare cat sta un nene si se uita la poza porno postata ci scriptul asteapta sa dea undeva un click ca sa fie si un final al contorizarii ... si cat a stat pe site. </p>
+<p>ex: intru pe trilema la 10:00 fix fix, si las site-ul asa pana seara la 10:00 fix cand dau un alt click pe acolo ... inseamna 1 vizitator 12 ore? super!</p>
+<p>eu am un "fan/a", ce m-a descoperit de curand, cautand pe google o expresie si gasind-o la mine, acum intra zi de zi si vede niste pagini, ieri au fost 46.33 (btw, cum vine asta? o pagina nu-i o pagina? 0.33 rest?) si Avg. Time on Site 02:00:09 ... asta sigur a citit! ;)</p>
+						</li>
+
+										<li id="comment-24893" class="commentbody"><div class="commenthead"><img alt='F`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">13</div>
+								<span class="authorlink">F</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24893" title="">Saturday, 29 May 2010</a>
+							</div>
+						<p>Dar tehnic se poate implementa o solutie AJAX care sa pinguiasca serverul cat timp userul e online... cu marja de eroare acceptabila incat sa nu supraincarce serverul.</p>
+						</li>
+
+										<li id="comment-24895" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">14</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24895" title="">Saturday, 29 May 2010</a>
+							</div>
+						<p>@<b>Ionut</b> E probabil media per sesiuni, ti-o considera in mai multe sesiuni - in cazul de fata 3. Sau ma rog, 9.</p>
+<p>Si eu am de-astia, e chiar destul de frecvent, omul ajunge pe Trilema intamplator, citeste un articol-doua, pe urma intr-o zi-doua revine si citeste cinci, pe urma o luna intreaga tot revine si tot citeste. Sincer sa fiu, ma-ncanta.</p>
+<p>@<b>F</b> In principiu, da. Ce faci cu cei ce nu ruleaza js ? (Ca mine, de ex.) Ce faci daca vre-un antivirus te intercepteaza drept malware/spyware ? Ce faci daca cine stie ce bug pe cine stie ce browser obscur (sau Microfost) iti introduce erori sistematice ? Etc.</p>
+						</li>
+
+										<li id="comment-24898" class="commentbody"><div class="commenthead"><img alt='F`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">15</div>
+								<span class="authorlink">F</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24898" title="">Saturday, 29 May 2010</a>
+							</div>
+						<p>se poate implementa o alternativa cu flash sau silverlight... si tot te prindem cumva :D cu antivirusii e ok. bugurile vor afecta procente mici de useri, in principiu 95% din useri ar trebui sa fie prinsi... cel putin.</p>
+						</li>
+
+										<li id="comment-24899" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">16</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24899" title="">Saturday, 29 May 2010</a>
+							</div>
+						<p>Zic ca ai un draft de prototip al unei idei de start-up bunicele.</p>
+<p>Daca reusesti sa chiar faci prototipul, si nu ies la iveala vicii majore, s-ar putea sa fii finantabil.</p>
+<p>La munca, acu :)</p>
+						</li>
+
+										<li id="comment-24901" class="commentbody"><div class="commenthead"><img alt='Florin`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">17</div>
+								<span class="authorlink">Florin<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24901" title="">Saturday, 29 May 2010</a>
+							</div>
+						<p>"Parerea mea este ca a te ghida dupa o busola gresita e mai grav decat a incerca sa ghicesti", masuratoarea nu-i gresita ci interpretarea rezultatelor, nici aia intodeauna si ma gandesc ca, asa gresita cum ii interpretarea rezultatelor, are o anumita relevanta. Am mai discutat despre ce inseamna un vizitator inregistrat in dreptul a 0 secunde, si anume un zivitator care o incarcat DOAR o pagina si apoi o iesit. Asta ii o masuratoare corecta, interpretabila in fel si chip, ce-i drept. La fel cum sunt vizitele de 16-20 de ore, hai sa fim seriosi, nimeni nu ma citea nici macar o ora, daramite 16, ramanea o pagina deschisa degeama iar inainte de a fi inchisa, omu mai incerca sa vada daca o aparut ceva nou. La fel cum ai tu vizitatori care nu dau aproape niciodata doar un click pe trilema, la fel ai si vizitatori care incarca doar o pagina, si din cei care n-au treaba a lasa cate o fereastra deschisa o zi intreaga.</p>
+						</li>
+
+										<li id="comment-24902" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">18</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24902" title="">Saturday, 29 May 2010</a>
+							</div>
+						<p>Problema este ca dandu-ti eu o masuratoare oarecare, si o propunere de interpretare a ei, e imposibil pentru tine sa estimezi ce probabilitate are respectiva interpretare sa fie corecta. Sau macar sa estimezi cu ce factor de eroare ai face estimarea.</p>
+<p>Ceea ce descalifica toata abordarea de la orice pretentie de stiinta, masuratoare, etc. E pur si simplu samanism, divinatie. Nu zic ca divinatia nu poate da rezultate corecte, e plina istoria de gaste si Capitolii, dar zic ca nu-i o chestie serioasa.</p>
+<p>Cu alte cuvinte, daca trebuie neaparat sa angajezi un ghicitor in stele, angajeaza-l pe cel mai ieftin, nu pe "cel mai bun". Toti sunt la fel de buni.</p>
+						</li>
+
+										<li id="comment-24905" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">19</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24905" title="">Saturday, 29 May 2010</a>
+							</div>
+						<p>Da` ce te-a apucat bre ??? Sculele alea de analiza iti dau si chestii utile, cum ar fi: referreri. La acest capitol stai bine !<br />
+Sincer, ma doare fix in pix de acest indicator: timpul petrecut de un user pe site. Da, poti sa lasi un tab deschis si sa mergi la pipi. Da, lasi browserul deschis si mergi la masa, in timp ce iti cinta Winamp. Ai dreptate, sunt multe chestii care denatureaza acest indicator; pai atunci de ce sa-mi pese de el ?<br />
+Mult mai importante sunt altele, am mai zis.<br />
+Sau aia cu ``vizitatori unici`` - mare tampenie ! Dar discutia e lunga...</p>
+<p>Kokofifi, am impresia ca incepi sa ma iubesti.</p>
+						</li>
+
+										<li id="comment-24906" class="commentbody"><div class="commenthead"><img alt='Florin`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">20</div>
+								<span class="authorlink">Florin<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24906" title="">Saturday, 29 May 2010</a>
+							</div>
+						<p>Mircea, nu-s de acord intru totul cu ce zici. Un vizitator notat cu 0 secunde "o incarcat DOAR o pagina si apoi o iesit", mai mult de atat, interesul lui putea sa fie maxim pagina respectiva. Un vizitator notat cu 0  secunde ii limitat ca si interes, asta se poate masura, interesul, in nici un caz placutul sau neplacutul, is omi care din cauza de neplacut dau zeci de clicuri, printre spume. Stii treaba cu ziliardele de comentatori si poola comentarii, camn asa ii si aici, daca vizitatorii aia nu or mai  incarcat inca  o pagina sau nu or  lasat macar  un comentariu, de ce sa te INTERESEZE cat timp or petrecut pe o pagina ? La ce ajuta sa stii cat timp or petrecut vizitatorii pe o pagina ?<br />
+Ca-s 0 secunde ca-s 16 ore, ca-i timpul de mers la baie, cum spune Marian, la ce ajuta ? Daca tin o pagina 50 de ore deschisa sau o ora, poate sa insemne tot aia. Cati vizitatori de pe trilema  deschid doar o pagina ? X. Bun, cati vizitatori is trecuti in minim  in dreptul a 5-15 minute ? Y. Masuratoarea te ajuta sa vezi cati is X si cati Y, si raportul dintre x si y poate fi de ajutor.<br />
+Iar daca in pagina vizata iar macar o legatura catre alta pagina ... atunci 0 secunde ii cu atat mai mult de luat in seama.</p>
+						</li>
+
+										<li id="comment-24909" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">21</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24909" title="">Sunday, 30 May 2010</a>
+							</div>
+						<p>Si sa ne mai spuna dom` Popescu care e diferenta dintre un link ``open in the same window`` si ``open in new window``. La rezultatele privind traficul ma refer.</p>
+						</li>
+
+										<li id="comment-24915" class="commentbody"><div class="commenthead"><img alt='dAImon`s avatar' src='http://daimon.me/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">22</div>
+								<span class="authorlink"><a href='http://daimon.me/blog/' class='url'>dAImon</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24915" title="">Sunday, 30 May 2010</a>
+							</div>
+						<p>Io's perfect de acord că datele obţinute nu-s tocmai corecte, dar poţi folosi câteva paleative:</p>
+<p>1, elimini timpii prea mari şi obţii o medie; despre ăia cu timp 0 pe site ştii că n-au fost interesaţi de altceva, ceea ce se poate traduce de obicei prin oamenii care intră în magazin şi greşiseră uşa;</p>
+<p>2, despre ăia care totuşi stau ştii cât stau pe o pagină anumită; dacă istoric vorbind în 60% din vizite ai timpi într-un anume interval, poţi considera ăla ca fiind standardul; devierile şi timpii prea mari le poţi ajusta cu cât e nevoie pentru a te apropia de realitate ... gen assume că unu' care stă 30 de minute pe un articol-gigant poate o fumat şi 2 ţigări în timpul ăla</p>
+<p>3, actually the most important thing dincolo de timpi, statistica îţi zice "traseul" omului prin site. Şi asta te interesează pe tine, să ştii unde ţi-s punctele tari şi unde-i exitul.</p>
+<p>De numărat las c-or număra alţii.</p>
+						</li>
+
+										<li id="comment-24919" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">23</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24919" title="">Sunday, 30 May 2010</a>
+							</div>
+						<p>@<b>Marian S</b> Pai ce sa ma apuce, incerc sa mai limpezesc apele pentru uzul antreprenorilor virtuali.</p>
+<p>@<b>Florin</b> Mei, poate sa ai dreptate, da' io nu-s convins. Ce zici tu se bazeaza pe teoria ca interesu' ii neaparat in relatie cu numaru' de pagini. Da' sa luam de exemplu Trilema : unu' citeste, cand are timp, cate-un articol, si anume, incarcand pagina de home, care-i selecteaza mereu ceva aleator. Foarte rar tre' sa dea un refresh. Mnoa. Cat de limitat ii interesu' ?</p>
+<p>Daca faci un site prost, adica din punct de vedere ux design, unde utilizatorii tre' sa dea un miliard de click-uri ca sa ajunga unde vor, aia inseamna ca ai crescut interesul lor ? Ca ideea asta paguboasa ca numarul de pagini incarcate traduce interesul cam incolo duce, inspre dezastrele de site-uri pe care le produc ametitii din presa online.ro. </p>
+<p>Da' poate e din contra, numaru' de pagini tradeaza <em>calitatea designului</em>, si anume, cu cat mai mic cu atat mai bine. E posibil, stii cum zic ?</p>
+<p>Si raportul dintre X si Y ala de care vorbesti tu, la ce ajuta exact ? Ca nu-i clar defel ce masoara el. Si-atunci cum anume ajuta ?</p>
+<p>@<b>Marian S</b> Pai primele iti vor da multe pagini, ca omu' tre sa revina, si ultimele iti vor da timpi mai mari, ca paginile stau si dospesc.</p>
+<p>@<b>dAImon</b> Mei, problema nu-i ca nu-s "tocmai corecte". Problema-i ca nici dracu' nu stie ce-i cu ele, si-i mai scump sa le normalizam decat sa le aruncam. E o problema serioasa in statistica asta, cu un set de date corupte, sa stabilesti ce-i mai ieftin, sa le dregi sau sa le tapi.</p>
+<p>Practic situatia-i asa : tu te apuci de masurat mese de ruleta : arunci bila de cateva ori, trei pana la cinci, sa zicem, notezi pe ce numere se opreste, faci media. Si uite asa ai mese de "45", mese de "16" si mese de orice alt numar, pe o curba Gauss. Bun, si ? Acu n-o sa vrei sa-mi zici, si io sa te si cred, ca tu de fapt ai masurat ceva. Sper.</p>
+<p>1. E fals. Pot fi oamenii care intra in magazin zilnic, si stiu exact ce vor sa cumpere [clienti excelenti] sau aia care intra in magazin crezand ca-i bordel [non-clienti]. Nu poate, rational vorbind, sa existe valoarea medie a [celor mai buni clienti] + [celor mai slabi clienti], e un nonsens (pentru ca media e in afara intervalului pe care-l mediaza).</p>
+<p>2. Tu nu stii <em>cat stau pe o pagina</em>. Tu stii ce interval de timp trece intre doua cereri de pagina. Cele doua n-au nici in clin, nici in maneca. Uite Marin din exemplu, cat o stat pe pagina ? Angela cat o stat pe pagina ? Daca unu' intra pe site, pe urma da click in 2 secunde pe ce-l intereseaza, pe urma citeste juma' de ceas si pleaca tu vei vedea 2 secunde. Ce-ai facut ?</p>
+<p>3. Problema cu traseul asta liniarizat e ca-i perfect aplicabila unui site de vanzari, cand e clar ce vrei tu de la oameni, si perfect inaplicabil in rest. Eu ce pagina anume sa-mi doresc sa fie vizitata ? A, aia care intereseaza. Bine. Si daca pe X il intereseaza x si pe Y y ? Sa plang acu ? Nu, foarte bine. N-am un traseu unic, si nici nu-mi doresc, ca atare ideea de "traseu prin site" asa, in general, in medie, e aberanta.</p>
+						</li>
+
+										<li id="comment-24927" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">24</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24927" title="">Sunday, 30 May 2010</a>
+							</div>
+						<p>Face ce face dom` Popescu si isi mai acorda singur o lovitura cu dreptul in stangul. Sau invers, dupa preferinte.<br />
+Pai daca tot ne-am apucat de statistici privind timpul hai sa mai facem una:<br />
+1.  Citi vizitatori cu IE are polimedia. us care parasesc site-ul in trei secunde, dupa ce sunt injurati degeaba astfel:<br />
+``Browser-ul pe care il folositi (Internet Explorer) nu respecta standardele si de aceea vedeti mai putin si mai prost, pe acest website si pe majoritatea celorlalte. Pacat de Internet. ``<br />
+2.  Citi dintre ei mai revin vreodata pe polimedia.</p>
+<p>Daca polimedia asta ar fi fost un site de genul `` veveve. hai-sa-va-arat-ce-tare-e-mozilla. com`` ar mai fi fost de inteles. Dar, la mintea mea precara, inteleg ca pulimedia trebuie sa ATRAGA vizitatorii care ajung eventual pe acolo prin Goagal, par egzampl. Ca sa iasa biznisu` bine, conform documentelor din alt articol.</p>
+<p>Numai ca acolo si-a facut loc un capos care vrea neaparat sa ne demonstreze ceva total aiurea. Sa fie el sanatos daca vrea sa-si indeparteze mai mult de jumatate dintre vizitatori.</p>
+<p>Culmea e ca atunci cind ma apuc sa critic pe cineva o fac cu intentii bune, desi viata mi-a demonstrat de multe ori ca facerea de bine e futere...<br />
+Si sa mai intelegem ceva: nu m-a platit nenea Bill sa-i tin partea, dar ma enerveaza la culme partizanii unei idei tampite, indiferent din ce parte vin ei. Unii le zic talibani.<br />
+Apreciez Mozilla si ... surpriza, o am si eu !!!  Dar n-o sa intru niciodata pe polimedia cu Mozilla doar pentru ca asa vrea dom` Popescu. Este extrem de enervant sa ti se impuna ceva, MAI ALES ATUNCI CIND IDEEA E GRESITA BY DEFAULT.<br />
+Validatorul w3c, adica exact ala despre care se spune ca da tonul la muzica si trebuie respectat, semnaleaza fo` 15 greseli la polimedia, exact acolo unde ne doare: margin, alignement, etc.  Si ne mai spune profu` :</p>
+<p>One of the important maxims of computer programming is: “Be conservative in what you produce; be liberal in what you accept.” </p>
+<p>Browsers follow the second half of this maxim by accepting Web pages and trying to display them even if they're not legal HTML. Usually this means that the browser will try to make educated guesses about what you probably meant. The problem is that different browsers (or even different versions of the same browser) will make different guesses about the same illegal construct; worse, if your HTML is really pathological, the browser could get hopelessly confused and produce a mangled mess, or even crash. </p>
+<p>Adica de aici:  <a href="http://validator.w3.org/docs/help.html#why-validate">http://validator.w3.org/docs/help.html#why-validate</a></p>
+<p>Inchei aici subliniind doua lucruri:<br />
+- chiar am intentii bune cind iti critic vehement aceasta aiureala<br />
+- nu mai revin asupra subiectului.</p>
+						</li>
+
+										<li id="comment-24936" class="commentbody"><div class="commenthead"><img alt='krossfire`s avatar' src='http://www.krossfire.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">25</div>
+								<span class="authorlink"><a href='http://www.krossfire.ro' class='url'>krossfire</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24936" title="">Sunday, 30 May 2010</a>
+							</div>
+						<p>Solutia ideala este un pop-up care apare la fiecare 10 secunde si te intreaba ''Coaie mai esti aici ?  - Da,  - Nu   -Vorbesc cu piranda ''</p>
+						</li>
+
+										<li id="comment-24939" class="commentbody"><div class="commenthead"><img alt='dAImon`s avatar' src='http://daimon.me/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">26</div>
+								<span class="authorlink"><a href='http://daimon.me/blog/' class='url'>dAImon</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24939" title="">Sunday, 30 May 2010</a>
+							</div>
+						<p>klar, faci site-ul ca applet java.</p>
+						</li>
+
+										<li id="comment-24955" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">27</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24955" title="">Sunday, 30 May 2010</a>
+							</div>
+						<p>@<b>Marian S</b> Mei, pe de-o parte ca esti offtopic, pe de-a doua ca n-ai inteles ("cu mintea ta precara") mare lucru, si mai ales ai inteles gresit ca root-ul ar trebui sa atraga pe cineva sau pe ceva, ceea ce-i fals. Si mai important : simplul fapt ca folosesti IE te califica drept bou. Iote ca ti-am spus-o si personal, daca nu ti-o convenit sa ti-o spuie masina.</p>
+<p>Nu, nu ma intereseaza ce soi de versiune or mai scos prostalaii de la Microsoft, dupa IE 6.0 au pierdut definitiv dreptul sa mai produca orice pentru web, sunt pusi sub interdictie. Voi lua in considerare argumente contrarii nu inainte de 2050. Ca io asa fac.</p>
+<p>Filosofia ca eu ar trebui sa accept orice, ca asa vrei tu sau altu' e fix problema voastra. Mai ales cand in discutie e o non-companie care n-a respectat nici un standard de la facere, care-a incercat sa creeze substitute proprietary pentru orice si care e responsabila pentru miliarde de dolari si ore pierdute prin aia ca a inventat virusul, si continua pana in ziua de azi sa-i asigure spatiu de dezvoltare. Ca sa nu mai intram in alte detalii. Toata trupa Microsoft ar trebui sa se afle la inchisoare, si acolo s-ar si afla, intr-o lume normala.</p>
+<p>@<b>krossfire</b> Ahahaha dap. Sa vezi ca azi maine apare pe realitatea.net, doara adcaptcher or pus, si se dadea domnu' Falcuta mare cocosel prin comentarii ca "el ii pus sa se ocupe de monetizarea lu' situ', nu fraerii de comentatori". </p>
+<p>@<b>dAImon</b> Stii ce ar fi o idee tare, ca m-o inspirat Vlad : Sa apara asa tot cate o litere pe ecran odata si cu un sunet "crrpt" ca si cum ar fi o masina de batut situ'. Si cititoru' sta si asteapta.</p>
+<p>Genial, este ?</p>
+						</li>
+
+										<li id="comment-24959" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">28</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24959" title="">Sunday, 30 May 2010</a>
+							</div>
+						<p>Stii vorba aia: credeam, speram, dar nici chiar asa ?<br />
+Credeam ca s-a repezit vreun webdesigner sa faca prostii. Speram ca nu e dom` Popescu de vina. Credeam ca nu stie sau nu poate sa intervina, o fi de vina partenerul celalalt. Abia acum mi-ai spulberat orice urma de indoiala si m-ai facut sa inteleg cine e boul in cauza.</p>
+<p>Koko, daca ma taie dom` Popescu de la portie sa stii ca te-am iubit.</p>
+						</li>
+
+										<li id="comment-24961" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">29</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24961" title="">Sunday, 30 May 2010</a>
+							</div>
+						<p>Tot ajung io odata sefu' FCC si-i fut pe astia de ce-or patit industria tabagica va fi o poveste frumoasa.</p>
+<p>Prima amenda de un trilion de dolari din istoria lumii.</p>
+<p>Plus 100 de joarde in piata publica pentru fiecare bug. Incepand cu 1995.</p>
+						</li>
+
+										<li id="comment-24964" class="commentbody"><div class="commenthead"><img alt='kokofifi`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">30</div>
+								<span class="authorlink">kokofifi<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24964" title="">Sunday, 30 May 2010</a>
+							</div>
+						<p>@Marian: Trilemoiul nu taie pe nime' de la portie!</p>
+<p>dar daca ma insel, atunci sa stii ca tu ai fost my hero :D<br />
+numai  tu folosesti IE8 la mai mult decât a lua firefox/opera de pe net<br />
+&amp;<br />
+te iei la trânta dreapta cu liberali din toate tarile.</p>
+<p>din partea unei natiuni recunoscatoare ( amazing grace acapella pe fundal)</p>
+<p>lumea va fi alta fara tine :x</p>
+						</li>
+
+										<li id="comment-24965" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">31</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24965" title="">Sunday, 30 May 2010</a>
+							</div>
+						<p>Tu de ce crezi ca-i ase pasionat Marianu' de pozitia 69 ?</p>
+<p>Doara ca i-o taiat Darius puta, stie el ce stie cu blogerii astia...</p>
+						</li>
+
+										<li id="comment-24971" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">32</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24971" title="">Sunday, 30 May 2010</a>
+							</div>
+						<p>Koko, nu ma provoca prea tare ca acus ma indrept spre gara ! Baia Mare ziceai ? La Satu Mare am fost si trenul trece si pe la tine. Drace, daca stiam inca de anul trecut coboram unde trebuie.</p>
+						</li>
+
+										<li id="comment-24972" class="commentbody"><div class="commenthead"><img alt='kokofifi`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">33</div>
+								<span class="authorlink">kokofifi<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24972" title="">Sunday, 30 May 2010</a>
+							</div>
+						<p>Marian, de ce la gara?<br />
+pune-ti mantia de superman si ia-ti zborul! :p</p>
+						</li>
+
+										<li id="comment-24976" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">34</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24976" title="">Sunday, 30 May 2010</a>
+							</div>
+						<p>Nu te potrivi Mariane, ca asta-i sirena, nu-i vocea ei :D</p>
+						</li>
+
+										<li id="comment-24978" class="commentbody"><div class="commenthead"><img alt='kokofifi`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">35</div>
+								<span class="authorlink">kokofifi<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24978" title="">Sunday, 30 May 2010</a>
+							</div>
+						<p>sirena lui Vasile Roaita :))))</p>
+						</li>
+
+										<li id="comment-24984" class="commentbody"><div class="commenthead"><img alt='dAImon`s avatar' src='http://daimon.me/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">36</div>
+								<span class="authorlink"><a href='http://daimon.me/blog/' class='url'>dAImon</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24984" title="">Sunday, 30 May 2010</a>
+							</div>
+						<p>Extras dintr-un mail de acu 3 luni pe intranet: "Please use Internet Explorer for working. Our portal is designed to work with IE and using other browsers is not supported". Asta dupa ce la un update de framework or inceput oamenii sa comenteze ca nu le mai merg niste actiuni. Dupa ce-or primit mailul or instalat IE Tab, end of story.</p>
+						</li>
+
+										<li id="comment-24985" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">37</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-24985" title="">Sunday, 30 May 2010</a>
+							</div>
+						<p>@<b>dAImon</b> And so therefore, fuck them.</p>
+<p>Io chipurile sa fiu all open and "liberal", ca sa poata muistii sa se dea rotunzi ca ei or facut "cea mai mare companie de tehnologie din lume". E, zau ?</p>
+						</li>
+
+										<li id="comment-25012" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">38</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-25012" title="">Monday, 31 May 2010</a>
+							</div>
+						<p>Pentru daIMon si restu` lumii, ca sa incheiem odata subiectul.</p>
+<p>Citat din comentariul 24: Si sa mai intelegem ceva: nu m-a platit nenea Bill sa-i tin partea, dar ma enerveaza la culme partizanii unei idei tampite, indiferent din ce parte vin ei.</p>
+<p>Foarte multe mui isi iau de la mine si creatorii de site-uri la care vezi scris mare: ``acest site este optimizat pentru Internet Explorer``.<br />
+Nici un site nu trebuie optimizat pentru nimic, el trebuie doar scris corect, conform normelor de care facem atita caz. Apoi ORICE browser il va citi corect.<br />
+Ca exista pe lumea asta ``mofturi`` cum ar fi mizeriile alea de Active X si ai nevoie de IE pentru ele... e discutabil. Uite, eu le-am evitat pina am gasit bitdefender online scanner, o scula foarte utila. Ei poftim, esti obligat sa folosesti Active X !<br />
+Bun, poti sa eviti sa folosesti features specifice doar unui anume browser si esti OK, esti in rind cu lumea. Poti sa le folosesti, la caz de mare nevoie. Dar sa stai si sa analizezi ceva de genul ``ce sa fac eu ca sa arat ca in oglinda asta te vezi mai bine si in asta mai prost`` si sa faci INTENTIONAT greseli care te duc EXACT la scopul propus mi se pare deja o mare porcarie.</p>
+<p>Si EXACT asta se face pe trilema aia de baza, root cum i se spune.</p>
+<p>Mai am putin si desenez, daca tot nu se intelege. Dar hai sa incerc o explicatiune cam in sensul in care le intelege gazda noastra binevoitoare care. uite, da dovada de spirit democratic si ma lasa sa-l critic.</p>
+<p>Mie nu-mi plac deloc oamenii care se imbraca in costume verzi (sa zicem). Dom`ne, da` nu-mi plac deloc, i-as impusca, pe bune. Si pe aia cu tricouri sau camasi verzi. Combat chestia asta pe unde apuc, le-o spun in fatza, nu-mi iau niciodata haine verzi, scriu pe forumuri ca nu e frumos din partea lor sa umble asa. Dar azi mi-am deschis o covrigarie, vad bun, incepe lumea sa cumpere in draci. Sa vezi mizeria dracului, unii vin sa cumpere covrigi imbracati in tricouri verzi !!!  Sa le vind covrigi sau sa-i dau pe usa afara ? asta-i intrebarea.</p>
+<p>Mai ales ca oamenii inca poarta haine ``verzi``. Hai sa vedem ce zic niste creatori si designeri de moda (astept moderarea, ce sa fac):</p>
+<p><a href="http://en.wikipedia.org/wiki/Usage_share_of_web_browsers">http://en.wikipedia.org/wiki/Usage_share_of_web_browsers</a></p>
+<p><a href="http://www.w3counter.com/globalstats.php">http://www.w3counter.com/globalstats.php</a></p>
+<p>(asta ultima e chiar foarte utila !)</p>
+						</li>
+
+										<li id="comment-25013" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">39</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-25013" title="">Monday, 31 May 2010</a>
+							</div>
+						<p>Am si eu un comentariu in moderare, saru` mana.<br />
+Si inca ceva: mai distrati-va si voi pe  browsershots dot org. Merita.</p>
+						</li>
+
+										<li id="comment-25014" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">40</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-25014" title="">Monday, 31 May 2010</a>
+							</div>
+						<p>Da' ti-ai pus problema ca poate io nu vand covrigi ?</p>
+<p>E un abuz de interpretare ca adica "faci INTENTIONAT greseli care te duc la scopul propus". Citeste codul, e un paragraf, cea mai simpla (si scurta) forma posibila pentru ce se intampla acolo, 1000 de caractere sau ceva.</p>
+<p>Faptu' ca unele browsere nu reusesc sa interpreteze corect cele mai simple notiuni nu-i, pana la urma, echivalent cu "a face intentionat" sa nu le iasa.</p>
+<p>PS. Noi ne distram pe browsershots.org din 2008. Ca sa stii!</p>
+						</li>
+
+										<li id="comment-25015" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">41</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-25015" title="">Monday, 31 May 2010</a>
+							</div>
+						<p>Omule, iti spun eu ca acel cod e scris gresit cu intentie. Scrie-l din nou CORECT si ai sa vezi surpriza ! Eu am facut-o si e destul de simplu:<br />
+- se salveaza pagina<br />
+- se deschide un simplu editor<br />
+- se trece in mod cod html<br />
+- se corecteaza EXACT cum spun cei de la w3c org, mura in gura si complet gratuit<br />
+- se deschide apoi in browsere diferite si se obtine EXACT acelasi rezultat, corect de data aceasta !<br />
+Pur si simplu nu poti sa-ti bati joc de niste oameni doar pentru ca nu gandesc toti ca tine. Tot asa cum eu respect oamenii indiferent de culoarea politica, sa zicem. Chiar daca nu sunt decit vreo 15% liberali in tara asta, merita respectati. Si ei ca oameni dar si UNELE din ideile lor.</p>
+<p>In alta ordine de idei: AM si apreciez Mozilla Firefox pe ici, pe colo. Insa are de mult timp o mica-mare problema, explicata pe larg aici:</p>
+<p><a href="http://forums.cnet.com/5208-6620_102-0.html?messageID=3308330&amp;tag=nl.e497">http://forums.cnet.com/5208-6620_102-0.html?messageID=3308330&amp;tag=nl.e497</a></p>
+<p>Si acum chiar ca am incheiat discutia ACEASTA. Sunt lamurit deplin.</p>
+						</li>
+
+										<li id="comment-25016" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">42</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-25016" title="">Monday, 31 May 2010</a>
+							</div>
+						<p>E fas. Daca tot te-ai apucat, ia fa o varianta care are proprietatile pe care le clamezi tu, nu-mi da mie sarcini sa-ti fac treaba, ca nu asa se castiga argumentatii.</p>
+						</li>
+
+										<li id="comment-25018" class="commentbody"><div class="commenthead"><img alt='F`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">43</div>
+								<span class="authorlink">F</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-25018" title="">Monday, 31 May 2010</a>
+							</div>
+						<p>domnu' Marians, mi se pare ca gresiti. permiteti-mi sa va spun asta fiindca io asta fac la job... si w3c e un mit urban online :P</p>
+						</li>
+
+										<li id="comment-25020" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">44</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-25020" title="">Monday, 31 May 2010</a>
+							</div>
+						<p>Sa fac eu TREABA ? Pentru ce anume sa fac eu treaba ? Polimedia e cumva a mea, castig eu bani de pe urma ei ? Eu am facut acest lucru doar pentru a ma convinge daca am dreptate sau nu. Fiindca mie niciodata nu-mi place sa fac o afirmatie fara sa o verific in prealabil.<br />
+Lasa ca o face domnul F, ca doar asta face la job.</p>
+						</li>
+
+										<li id="comment-25035" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">45</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-25035" title="">Monday, 31 May 2010</a>
+							</div>
+						<p>@<b>F</b> Lui Marian spune-i ce doresti tu, ca-i baiat dezghetat asa si pricepe, numa' nu-i spune ca greseste, ca aia nu poate. Chiar daca ar intelege el asa ce zici, in general, tot nu poate.</p>
+<p>@<b>Marian S</b> Pai iara te gasesti in situatia in care vorbesti teorii si cand te ia lumea cu practica o dai pe dupa piersic, ca stai sa vedeti, da' io vorbeam in general, asa, si de altu' si altundeva si in fine ? Pai tu ce esti, politician sub acoperire sau ce ?</p>
+						</li>
+
+										<li id="comment-25088" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">46</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-25088" title="">Monday, 31 May 2010</a>
+							</div>
+						<p>Am facut ``treaba`` ca sa ma conving ca am dreptate.<br />
+Treaba buna de pus pe site poate face domnul F, fiindca se lauda ca acesta este jobul lui. Sa-l lasam sa-ti faca o oferta PUBLICA iar apoi retine faptul ca oferta mea e cu 25% sub orice alta oferta publica. Asa e trendul, minus 25% !</p>
+						</li>
+
+										<li id="comment-25090" class="commentbody"><div class="commenthead"><img alt='F`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">47</div>
+								<span class="authorlink">F</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-25090" title="">Monday, 31 May 2010</a>
+							</div>
+						<p>Bun. Oferta mea publica e voluntariat. Sa vedem cum faci tu minus 25% la asta :D</p>
+						</li>
+
+										<li id="comment-25095" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">48</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-25095" title="">Monday, 31 May 2010</a>
+							</div>
+						<p>Lol and Marian bites the dust. And another one gone, and another one gone... Marian bites the dust. Oo yeah.</p>
+						</li>
+
+										<li id="comment-25109" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">49</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-25109" title="">Monday, 31 May 2010</a>
+							</div>
+						<p>1. Domnul F face o oferta cu tarif 0.<br />
+2. Domnul Marian S pierde licitatia, fiindca nu poate licita cu 25% mai putin din 0. Matematici elementare.<br />
+3. Domnul F cistiga deci licitatia.<br />
+Doo concluzii:<br />
+a) Domnul F face un site mai bun pe gratis, ABIA ASTEPT !!!<br />
+b) Domnul Marian a pierdut o batalie dar a cistigat razboiul. Nici vorba sa fi ``bites the dust`` !<br />
+[ in acest spatiu as fi pus emoticonu` ala de la yahoo mess cu figurina care se tavaleste de ras dar uite ca nu merge ]</p>
+						</li>
+
+										<li id="comment-25112" class="commentbody"><div class="commenthead"><img alt='Luka D`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">50</div>
+								<span class="authorlink">Luka D<img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-25112" title="">Monday, 31 May 2010</a>
+							</div>
+						<p>Marian S ... credeam ca urmaresti articolele lui Popescu ... nu pe mine ... incep sa am indoieli ...</p>
+						</li>
+
+										<li id="comment-25118" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">51</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-25118" title="">Tuesday, 1 June 2010</a>
+							</div>
+						<p>Apoi pe internet daca pierzi sau nu razboiu' e strict o chestiune de cat de incapatanat esti. Altfel, poti pierde la un miliard de batalii si tot aia zici, ca nu razboiu :D</p>
+						</li>
+
+										<li id="comment-25124" class="commentbody"><div class="commenthead"><img alt='dAImon`s avatar' src='http://daimon.me/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">52</div>
+								<span class="authorlink"><a href='http://daimon.me/blog/' class='url'>dAImon</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-25124" title="">Tuesday, 1 June 2010</a>
+							</div>
+						<p>io nu'nteleg ce-a avut marianu' cu mine. ca io dadeam exemplul ala oarecum offtopic, n-am treaba cu batalia voastra .. ucideti-va sanatosi :D</p>
+						</li>
+
+										<li id="comment-25125" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">53</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-25125" title="">Tuesday, 1 June 2010</a>
+							</div>
+						<p>Pai el nu s-o fi prins.</p>
+						</li>
+
+										<li id="comment-25139" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">54</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-25139" title="">Tuesday, 1 June 2010</a>
+							</div>
+						<p>@ daIMon: n-am nimic cu tine, doar că am desenat şi am invitat toată lumea să privească la desenul explicativ;<br />
+@ Luka D aka Ukavra: mă pui pe gânduri... vezi că ne vede koko şi am pus-o !</p>
+						</li>
+
+										<li id="comment-27405" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">55</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27405" title="">Thursday, 8 July 2010</a>
+							</div>
+						<p>Ca sa-l enervam pe Marian : <a href="http://catalin.francu.com/index_msie.html">http://catalin.francu.com/index_msie.html</a></p>
+						</li>
+
+										<li id="comment-27440" class="commentbody"><div class="commenthead"><img alt='Luka D`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">56</div>
+								<span class="authorlink">Luka D<img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27440" title="">Thursday, 8 July 2010</a>
+							</div>
+						<p>@Marian S Vise taticule .... vise ... :D</p>
+						</li>
+
+										<li id="comment-27441" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">57</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27441" title="">Thursday, 8 July 2010</a>
+							</div>
+						<p>Ia uite cine-a renascut.</p>
+						</li>
+
+										<li id="comment-27467" class="commentbody"><div class="commenthead"><img alt='Luka D`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">58</div>
+								<span class="authorlink">Luka D<img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27467" title="">Friday, 9 July 2010</a>
+							</div>
+						<p>Cine? Cine?<br />
+Eu ma duc sa zzzzzZZZZZzzzzzaaaiii o vreme ... :P</p>
+						</li>
+
+										<li id="comment-27469" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">59</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27469" title="">Friday, 9 July 2010</a>
+							</div>
+						<p>Ce faci dom` Popescu, te bucuri ? Asta e din ciclul ``uite unul mai dihai decit mine`` ???<br />
+Daca il vezi pe omu` sau daca il cunosti spune-i te rog urmatoarele:<br />
+- E treaba lui daca vrea sa-si bata joc de mai mult de jumatate dintre utilizatorii de internet; din aceasta cauza acest om nu exista pentru mine si nu discut cu el.<br />
+- Orice soft are probleme, ma bucur ca recunoaste; Bill are cele mai multe probleme fiindca exista dementi ca omu` nostru care il ataca pe toate fronturile. Daca niste hackeri seriosi ar ``intra`` in firefox l-ar face praf in citeva minute, numai ca ei au alte preocupari.<br />
+- Sa-i mai spuna cineva lucrul acela pe care l-am tot repetat: un site construit dupa toate regulile artei se vede bine in ORICE browser. Poti sa-l inviti sa citeasca de aici comentariul numarul 24.</p>
+<p>Ai motive sa te bucuri - ceea ce ai facut matale la pulimedia e joaca de copil fatza de ce a facut asta. Dar e lumea plina de talibani, cu unu` in plus sau in minus nu inseamna ca nu mai curge Dunarea pe la Galati.</p>
+						</li>
+
+										<li id="comment-27477" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">60</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27477" title="">Friday, 9 July 2010</a>
+							</div>
+						<p>Problema este ca el habar n-are cine-i Marian S, asa ca nu ma pot apuca sa-i povestesc parerile lu' Marian S despre nimic.</p>
+						</li>
+
+										<li id="comment-27562" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">61</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27562" title="">Sunday, 11 July 2010</a>
+							</div>
+						<p>Alta problema ar fi ca eu habar nu am cine este Catalin Francu, iar dupa aceasta poanta chiar nu mai am chef sa aflu. Pentru ca nu-mi place sa-mi umplu memoria cu cite un nimic.</p>
+						</li>
+
+										<li id="comment-27564" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">62</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27564" title="">Sunday, 11 July 2010</a>
+							</div>
+						<p>Pai cine sa fie, 4 ani de Google, olimpic la info, tipul cu dexonline, de-astea minore. Ia de-aici <a href="http://catalin.francu.com/resume.txt">http://catalin.francu.com/resume.txt</a>.</p>
+<p>Fata cu nimicul, intrebarea care ne mai framanta e cine este Marian S.</p>
+						</li>
+
+										<li id="comment-27694" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">63</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27694" title="">Tuesday, 13 July 2010</a>
+							</div>
+						<p>Vaaaai, mii de multumiri, dom` Popescu. M-ai luminat !<br />
+Am mai vazut eu din astia, chiar pe aproape. Schema e simpla: mai intai critica de zor microsoftu`, in ideea ca ii vede si pe ei vreo piarista de la firma si le ofera un os de ros. Dupa aceea se transforma miraculos si isi trag palme peste ochi, ca ce obtuzi au fost ei pina atunci si n-au fost in stare sa vada minunea ! CV-ul ala in format text spune multe, in primul rind despre cei 4 ani despre care amintesti. Acum totul devine clar. Si mai clar incepe sa devina cind te uiti ca din 2006 incoace NU MAI SCRIE NIMIC, si e criza, ce mama naibii. Dar aici il iert, nici eu nu mi-am actualizat niste CV-uri, am inceput sa regret emisiunea ``Stupize, stupize``. O fi si la el la fel, mai stii ?</p>
+<p>Tipul e inteligent foc, ca nu-l doare mana sa scrie. Sa vezi surpriza, dexonline merge bien-sur si cu IE, iar asta o stiam de mult. Ca acolo e biznis, de. Mi-e sila, pur si simplu.</p>
+<p>In rest, un pic off-topic, imi place cum stii sa resuscitezi articole mai vechi, mai ales poanta aia cu articole aleatoare, la care mi-am luat-o si eu la inceput. Bogatie de link-uri interne, chestia aia cu ``v-am mai spus aici``. Figuri de SEO, la care esti bun, recunosc. Uite de-aia mai stau eu pe aproape, intotdeauna mi-a placut sa invat de la oricine, fara sa stau cu nasul pe sus. Mai ramine sa ma prind cum il pacalesti pe goagal sa ne dea fo` douaj` de mii de rezultate cu pagini de pe trilema atunci cind il intrebi ceva ce se gaseste DOAR pe o pagina. In ziua aia m-am scos, ma apuc serios de blogareala, si-asa imbatrinesc si imi place sa stau mai mult in casa.</p>
+<p>Si zi asa, n-ai baut tu niciodata un viziki cu nenea Francu, cit ai stat prin America aia ?</p>
+						</li>
+
+										<li id="comment-27704" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">64</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-27704" title="">Tuesday, 13 July 2010</a>
+							</div>
+						<p>Ehehehe neah.</p>
+<p>CV-ul in format text spune, intr-adevar, multe, dar nu ce crezi tu. Spune ca omul respecta standardele (spre deosebire, de exemplu, de mine, care culmea haiului l-am pus in pdf!) Dejeaba te iei de om, n-ai pe ce. O fi avand bube-n cap, da' nu le-ai gasit inca. Mai sapa.</p>
+<p>Ce numesti tu "figuri de SEO" e doar rigoare contextuala. De-aia apreciez mediul online, pentru ca ingaduie relationari. Hiperlink-ul e probabil cea mai mare inventie a bipezilor de la abac incoace. Dar pentru linistea ta : scriam la fel si inainte sa existe SE, si gandesc la fel.</p>
+<p>Si de pacalit nu-l pacalesc, Google ma iubeste pentru ca dincolo de pedefee, si eu respect standardele. Alea vechi, de dinainte de el.</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authore8e1dd8" id="authore8e1dd8" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emaile8e1dd8" id="emaile8e1dd8" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urle8e1dd8" id="urle8e1dd8" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="8174" /></p>
+				<input type="hidden" name="comment_post_time" value="1735345868-152.53.39.118" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2024 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-8174")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-8174");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-8174");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

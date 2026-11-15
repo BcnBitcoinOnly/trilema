@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_jul2020c.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>404 pe aprilie on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Joe Bidden Reales<br />La Al Paispcelea Congres!
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-7135"><div class="post" id="post-7135">                    <h1><a href="/2010/404-pe-aprilie/" rel="bookmark" title="Permanent Link to 404 pe aprilie">404 pe aprilie</a></h1>                        <div class="date">                                     Sunday, 02 May, Year 2 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p>Trecand sumar prin logurile lunii trecute, mi-a atras atentia o cantitate destul de insemnata de cereri ce-au primit raspunsul 404, care inseamna ca serverul nu are cunostinta de existenta paginii cerute. In principiu, pe un server bine administrat asa ceva nu ar trebui sa se intample niciodata.</p>
+<p>In practica, chestia se intampla din doua motive : ori "admin"-ul, care nu-i de fapt nici calificat nici capabil sa fie admin face tampenii funeste precum muta fisiere sau redenumeste directoare - ceva ce <strong>NU ESTE PERMIS SA FACI NICIODATA</strong> - ori clientii incearca sa fie destepti, explorand resursele nepublicate ale serverului, fie pentru a descoperi chestii secrete cu care sa se laude, fie pentru a descoperi chestii secrete cu care sa se laude. Inclinatia omului pentru secret e lucru mare.</p>
+<p>Am sa redau mai jos o lista, impartita pe doua categorii, a railor si-a confuzilor, cu comentarii. Ma gandesc ca-i o lectura neinteresanta pentru administratorii experimentati, dar poate fi instructiva pentru cei ce se gasesc mai la inceputul minunatului drum prin lumea calculatoarelor, sau cum s-o fi numind chestia. Sa-i dam drumul.</p>
+<p>trilema/rss.xml</p>
+<ul>
+Feed-urile se gasesc in /feed/, ceea ce-i cam de facto standard. Nu mi-e clar daca asta-i o scapare de-a mea sau pur si simplu un robot/spider care are dificultati in a identifica Trilema.</ul>
+<p>/trilema/wp-content/uploads/2006/09/04/invitatie-la-aberatie/<br />
+/trilema/wp-content/uploads/2006/03/14/hello-bloody-world/<br />
+/trilema/wp-content/uploads/2006/09/04/cel-mai-bun-blogger-roman-prostii/<br />
+/trilema/wp-content/uploads/2006/09/04/get27-outdoor/</p>
+<ul>
+Evident, Trilema nu exista in 2006. Oare cum s-a compus aceasta cerere ? Pornind de la ce ? </ul>
+<p>/trilema/wp-content/uploads/2006/09/04/cel-mai-bun-blogger-roman-prostii/2006/09/04/cel-mai-bun-blogger-roman-prostii/trackback/</p>
+<ul>
+Cineva a copiat de doua ori url-ul in casuta de track-back la el pe blog, sau daca nu pe blog, atunci in cutiuta de spam. Mai probabil a doua.</ul>
+<p>/trilema/2010/la-taclale-cu-mosu/[misto]<br />
+/trilema/2010/la-taclale-cu-mosu/%5Bmisto%5D<br />
+/trilema/2009/cum-sa-fac-sa-fiu-si-io/blogul<br />
+/trilema/2010/concurs-de-proza-arhiscurta/%3ETrilema<br />
+/trilema/2009/oh-the-drama/alt=%22Trilema,</p>
+<ul>
+Cel mai probabil cineva a scris gresit un link undeva.</ul>
+<p>/trilema/2009/despre-perenitatea-minciunii/comment-page-1/(null)</p>
+<ul>
+Nu-mi dau seama daca cineva chiar a scris (null) intr-un anchor text, sau altfel ce sfantu' s-o intamplat aici.</ul>
+<p>/trilema/wp-content/uploads/wp-content/plugins/wp-greet-box/css/wp-greet-box.css<br />
+/trilema/wp-content/uploads/2006/09/04/cel-mai-bun-blogger-roman-prostii/wp-content/plugins/wp-greet-box/css/wp-greet-box.css</p>
+<ul>
+Exista ceva plug-in numit wp-greet-box care are o slabiciune atacabila pornind de la oarece informatii in .css ?</ul>
+<p>/trilema/wp-content/uploads/wp-content/themes/warlord/style.css</p>
+<ul>
+Trilema n-a folosit niciodata o tema numita "warlord", si structura este de fapt dubioasa, n-ar avea ce sa caute in /wp-content/uploads/ chiar daca ar exista. Totusi, cine si de ce o cauta ? Are ceva gauri ce-ar permite accesul ?</ul>
+<p>/trilema/wp-content/uploads/wp-content/plugins/google-analyticator/external-tracking.min.js<br />
+/trilema/wp-content/uploads/2006/09/04/cel-mai-bun-blogger-roman-prostii/wp-content/plugins/google-analyticator/external-tracking.min.js</p>
+<ul>
+external-tracking.min.js face parte din ceva pachet inutil care adauga ceva functionalitate de utilitate dubioasa (Google Analytics). Totusi, un plugin nu s-ar gasi niciodata acolo. Nu ma pot decide daca e o cautare confuza sau rea.</ul>
+<p>/trilema/2009///components/com_mojo/wp-comments-post.php<br />
+/trilema/2009/trilema-anti-spam///components/com_mojo/wp-comments-post.php<br />
+/trilema///components/com_mojo/wp-comments-post.php<br />
+/trilema/2009/trilema-anti-spam/%20%20///components/com_mojo/wp-comments-post.php</p>
+<ul>
+Sunt destul de convins ca se incearca exploatarea vre-unei slabiciuni pe undeva, atata ca nu-mi prea dau seama cum ar functiona ea.</ul>
+<p>/trilema/wp-content/uploads/feed/</p>
+<ul>
+Deci eu las wp-content deschis, si lumea vrea feed, pe principiul dai un deget, da si-o mana. Partea amuzanta este ca Trilema livreaza feed-uri pe orice, asta de exemplu te intreaba daca vrei sa te abonezi la "Not found". Vrei ? :D</ul>
+<p>/trilema/wp-content/uploads/wp-includes/js/jquery/jquery.js<br />
+/trilema/cached_articles/inc/flashobject.js</p>
+<ul>
+Banui ca cineva vrea sa citeasca fisierul ala ca sa se asigure sufletu' lui ca nu exista ceva posibilitati de injectie/xss sau alte minuni. C-asa-i el, generos. Faptul ca nu exista pe server nici nu mai conteaza chiar asa de mult, fata cu atata generozitate.</ul>
+<p>/trilema/cached_articles/captcha/captcha.php</p>
+<ul>
+Ma intristeaza s-aud ca spamerii au reusit sa sparga captcha.php. Zau.</ul>
+<p>/trilema/2009/jalea-din-ro/blog.adrian.mihalcioiu.ro/2009/01/gaz-politica-si-principii.html<br />
+/trilema/2009/in-caz-ca-ai-febra-si-iti-pare-romania-o-tara-normala/chris39.bloggerul.ro/<br />
+/trilema/2010/de-unde-vine/amestecate.five4all.com<br />
+/trilema/2009/problema-sistemelor-sociale-ideale/chris39.bloggerul.ro/<br />
+/trilema/2010/tehnocratii/amestecate.five4all.com</p>
+<ul>
+Banui ca cineva si-o fi scris adresa gresit pe la comentarii, hmm ?</ul>
+<p>/trilema/main.php<br />
+/trilema/2009/main.php<br />
+/trilema/2009/domeniu-propriu-ghid-de-supravietuire/main.php<br />
+/trilema/2009/hai-sa-disecam-prostia//register.php<br />
+/trilema/2009/hai-sa-disecam-prostia//register<br />
+/trilema/2009/asemanari-si-deosebiri/cotidian.php</p>
+<ul>
+Succes va doresc ? Sau daca nu, rabdare ? Sau daca nici, tutun ? </ul>
+<p>/trilema///////register.php//<br />
+/trilema/2009///////register.php//<br />
+/trilema/2009/adserverpolimediaus-post-mortem///////register.php//<br />
+/trilema/2009/concurs-de-august///////register.php//<br />
+/trilema/2009/adserverpolimediaus-post-mortem/%20%20///////register.php//</p>
+<ul>
+A, asa da. Tarii cat mai multe slashuri. Asa se face hackingul care este.</ul>
+<p>/trilema/wp-admin/post.php<br />
+/trilema/admin.php<br />
+/trilema/2010/reforma-invatamantului/admin<br />
+/trilema/2010/tweed-si-nast/wp-admin</p>
+<ul>
+Cineva se crede eu. E greu sa fii unul dintr-un miliard de galbenele, da probleme de identitate, bag sama.</ul>
+<p>/content/index.php../../../../../proc/self/environ<br />
+/trilema/2009/sunt-tigan/%20%20//</p>
+<ul>
+Mdeci. Hackerul din DreamWeave sau ce-avem aici ?</ul>
+<p>/trilema/wp-content/themes/trilema/images/bg_feb2010.jpg<br />
+/trilema/wp-content/themes/trilema/images/bg_ma2010.jpg<br />
+/trilema/wp-content/themes/trilema/images/bg_fe2009.jpg<br />
+/trilema/wp-content/themes/trilema/images/bg_martz2010.jpg</p>
+<ul>
+Cineva exploreaza headerele Trilemei. Merita poate mentionat, dincolo de faptul ca /images/ e deschis, ca headerele se schimba la 3 luni, si deci nu in februarie.</ul>
+<p>/trilema/bbs/</p>
+<ul>
+Din pacate Trilema nu are bbs. Cum nu mai are nimeni, cam din 1999. Cu regret.</ul>
+<p>/trilema/2010/ma-puteti-ajuta/file=http://194.152.42.99/videos/7f4a17d5a2148d3.flv</p>
+<ul>
+Cineva incearca sa distribuie un virus. Partea asta-i clara. Partea neclara este cum si de ce si-a inchipuit ca file=http:// functioneaza ?</ul>
+<p>/trilema/wp-content/uploads/2006/09/04/cel-mai-bun-blogger-roman-prostii/2006/09/04/cel-mai-bun-blogger-roman-prostii/trackback/</p>
+<ul>
+Cineva a copiat de doua ori url-ul in casuta de track-back la el pe blog, sau daca nu pe blog, atunci in cutiuta de spam. Mai probabil a doua.</ul>
+<p>/trilema/wp-content/uploads/2010/02/Editoriale/Bun%C4%83-ziua-doamnelor,-bun%C4%83-ziua-domnilor,-bun%C4%83-ziua-%C5%9Fi-vou%C4%83-celorlal%C5%A3i!-29070<br />
+/trilema/wp-content/uploads/2010/02/Politic/Prim%C4%83ria-din-Ia%C5%9Fi,-cuibu%C5%9Forul-func%C5%A3ionarilor-%C3%AEndr%C4%83gosti%C5%A3i-29021<br />
+/trilema/wp-content/uploads/2010/02/Politic/Schr%C3%B6tter,-despre-caracati%C5%A3a-din-prim%C4%83rie-%C5%9Fi-accesul-interzis-%C3%AEn-pres%C4%83-28940<br />
+/trilema/wp-content/uploads/2010/02/Editoriale/Scutul-anti-rachet%C4%83---un-mariaj-gr%C4%83bit-28731<br />
+/trilema/wp-content/uploads/2010/02/News/Z%C4%83pada-din-Capital%C4%83,-toxic%C4%83-din-cauza-con%C5%A3inutului-de-metale-grele-28714<br />
+/trilema/wp-content/themee%20cu%20vaporul%20%C3%AEn%20jurul%20lumii.%3C/p%3E%3C/blockquote%3E%3Cp%3EPe%20de%20cealalta%20parte%20eu,%20neindragostit%20cum%20ma%20aflu,%20stapan%20de%20sclave,%20%3Cahref=<br />
+/trilema/wp-content/uploads/2010/02/Politic/Consiliul-Na%C5%A3ional,-trambulina-lui-N%C4%83stase-spre-%C5%9Fefia-PSD-28644<br />
+/trilema/wp-content/uploads/2010/02/Alegeri/Copiii-din-Costa-Rica,-invita%C5%A3i-s%C4%83-'voteze'-la-alegerile-preziden%C5%A3iale-28668</p>
+<ul>
+Interesant concept. Deci cum ?!</ul>
+<p>/trilema/2010/reforma-invatamantului/RELEASE-NOTES</p>
+<ul>
+Din pacate, n-am RELEASE-NOTES la reforma invatamantului. Ca n-am scris-o eu. Cand ajung ministru promit sa adaug, ok ? </ul>
+<p>/trilema/2010/tweed-si-nast/templates/subSilver/subSilver.cfg<br />
+/trilema/2010/tweed-si-nast/styles/prosilver/style.cfg<br />
+/trilema/2010/reforma-invatamantului/styles/prosilver/style.cfg<br />
+/trilema/2010/reforma-invatamantului/templates/subSilver/subSilver.cfg</p>
+<ul>
+Pacat ca Trilema nu-i phpbb. Si pacat ca gaura din subsilver.cfg fu reparata nu mai retin, da' parca prin 2001 ? Asa ceva.</ul>
+<p>/trilema/2010/reforma-invatamantului/includes/usercp_email.php<br />
+/trilema/2010/tweed-si-nast/includes/usercp_email.php</p>
+<ul>
+Frumos. Aviz adminilor de phpbb.</ul>
+<p>/trilema/2010/tweed-si-nast/wiki/<br />
+/trilema/2010/tweed-si-nast/skins/monobook/main.css<br />
+/trilema/2010/reforma-invatamantului/skins/monobook/main.css<br />
+/trilema/2010/reforma-invatamantului/wiki/</p>
+<ul>
+Ia uite, wikia are ceva probleme in main.css ? Nici n-am stiut. Sau e doar confuz cetateanul ? </ul>
+<p>/trilema/2010/reforma-invatamantului/maintenance/database.sql<br />
+/trilema/2010/tweed-si-nast/maintenance/database.sql<br />
+/trilema/2010/tweed-si-nast/includes/zhtable/Makefile<br />
+/trilema/2010/reforma-invatamantului/includes/normal/Makefile</p>
+<ul>
+Bun asa. Conform teoriei ca daca tot cerem, macar sa cerem chestii interesante. </ul>
+<p>/trilema/2009/breviar-de-credinte-religioase-fizica-cuantica/mai.php</p>
+<ul>
+Ce-o fi fiind, sau ce-o fi crezand cetateanul asta ca este mai.php ?</ul>
+<p>/trilema/wp-content/uploads/2006/09/04/cel-mai-bun-blogger-roman-prostii/2006/03/14/hello-bloody-world/</p>
+<ul>
+Ciudat. </ul>
+<p>/trilema/2010/reforma-invatamantului/htaccess.txt<br />
+/trilema/2010/tweed-si-nast/htaccess.txt</p>
+<ul>
+htaccess.txt ? Ce este htaccess.txt ?</ul>
+<p>/trilema/2010/nenorocire/%20cc%20@OrlandoNicoara</p>
+<ul>
+Noa saracu' ?! Da' ce-o patit ?</ul>
+<p>/trilema/*.xml</p>
+<ul>
+Buna idee. Nu stiam ca Apache serveste dupa regex, dar sincer va spun ca mi-ar fi salvat o groaza de timp pana acum informatia asta. </ul>
+<p>/trilema/2010/oameni-ocupati/sdfds/</p>
+<ul>
+Cineva nu mai are rabdare, hm ? </ul>
+<p>/trilema/xmlrpc.phprsd</p>
+<ul>
+Phprsd ? Stie cineva ce-i aia ?</ul>
+<p>/trilema/2010/bani-pent1c48ru-piariste/</p>
+<ul>
+Nu-mi da prin cap ce s-o fi putut intampla... pisica pe tastatura ? </ul>
+<p>/trilema/cached_articles/trimite.php</p>
+<ul>
+Pai sa-l trimitem, da' daca-l trimitem, se duce ? </ul>
+<p>/trilema/2010/tweed-si-nast/sites/all/README.txt</p>
+<ul>
+Interesant ca nu incearca si alte variante de capitalizare, precum README.TXT. Banui ca merge la sigur, pe urmele unui pachet de instalare automata, de exemplu.</ul>
+<p>Ziceam ca voi imparti in rautati si erori. Cam dificil de facut. Eventual, daca aveti chef, incercati-va puterile dumneavoastra.</p>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2010/beau-monde-style/">Beau Monde Style</a></div>
+                <div class="alignright"><a href="/2010/arizona-fata-cu-idiotii/">Arizona fata cu idiotii</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/3-ani-experienta/" title="View all posts in 3 ani experienta" rel="category tag">3 ani experienta</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2010/404-pe-aprilie/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2010/404-pe-aprilie/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>12 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-22188" class="commentbody"><div class="commenthead"><img alt='F`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink">F</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-22188" title="">Sunday, 2 May 2010</a>
+							</div>
+						<p>o fi fost vreun scanner de vulnerabilitati</p>
+						</li>
+
+										<li id="comment-22189" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-22189" title="">Sunday, 2 May 2010</a>
+							</div>
+						<p>Sau mai multe. Ce-i clar e că </p>
+<blockquote><p>/trilema/2010/reforma-invatamantului/maintenance/database.sql</p></blockquote>
+<p>E cu siguranță o încercare cel mai probabil automatizată de a beli câteva baze de date. Și cine știe, în unele locuri poate chiar funcționează. Aplicabil la majoritatea accesărilor de mai sus.</p>
+<blockquote><p>/trilema/2009/despre-perenitatea-minciunii/comment-page-1/(null)
+</p></blockquote>
+<p>Un soft prost scris care indirectează un pointer NULL (printf-ul din C mai are uneori obiceiul să afișeze pointerii către adrese nule în felul ăla).</p>
+						</li>
+
+										<li id="comment-22191" class="commentbody"><div class="commenthead"><img alt='Mihai`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink">Mihai<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-22191" title="">Sunday, 2 May 2010</a>
+							</div>
+						<p>sa vina zoso?</p>
+<p>sa vina zoso! </p>
+<p>lol</p>
+						</li>
+
+										<li id="comment-22194" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-22194" title="">Sunday, 2 May 2010</a>
+							</div>
+						<p>@<b>F</b> Clar.</p>
+<p>@<b>spyked</b> Teoretic (ma rog, cat am priceput eu) nu poti avea motiv legitim pentru care sa ceri C-ului sa-ti tipareasca continutul unui pointer null, asa ca daca totusi o faci el corect presupune ca te tii de debug-uri, si-ti scrie explicit sa stii cum sta treaba. Deci da, prost scris.</p>
+<p>@<b>Mihai</b> Nu mai vine, ca inca-l ustura tura precedenta.</p>
+						</li>
+
+										<li id="comment-22205" class="commentbody"><div class="commenthead"><img alt='Dorin Victor Vasile`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink">Dorin Victor Vasile</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-22205" title="">Sunday, 2 May 2010</a>
+							</div>
+						<p>La mine 404-urile au si alte cauze decat cele 'clasice' enumerate de tine: (nelinistile adminului plus nelinistile vizitatorilor). </p>
+<p>De ex. se intampla ca un plugin/modul thirdparty care aparent merge bine sa isi doreasca el niste fisiere numai de el stiute si uite asa se umplu logurile de 404.</p>
+<p>Trecand insa de la una la alta cu 403-urile cum stai? :)</p>
+<p>Insa mai suculente decat orice 'patrusute'-uri la orice site sunt keyphrase-urile dupa care se rataceste lumea acolo. </p>
+<p>Eu mai public ocazional din cele mai suprarealiste cautari cu care ajung oamenii la mine (nu, nu mai dau link, ca iar zici e linku' brusc :) )</p>
+<p>As fi curios sa vad o lista de keyphrase-uri trilematice...</p>
+						</li>
+
+										<li id="comment-22209" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-22209" title="">Sunday, 2 May 2010</a>
+							</div>
+						<p>Hehe pai multa lume-ar fi curioasa, da' le tin la secret.</p>
+<p>Ma gandesc ca modulu' 3rd party intra totusi la nelinistile administratorului.</p>
+						</li>
+
+										<li id="comment-22211" class="commentbody"><div class="commenthead"><img alt='Dorin Victor Vasile`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink">Dorin Victor Vasile</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-22211" title="">Sunday, 2 May 2010</a>
+							</div>
+						<p>"da’ le tin la secret"</p>
+<p>nu ziceam de cele care e normal sa le tii sub oboroc ci de cele care ies muuult in decor.</p>
+<p>Uite, la din astea ma refeream <a href="http://www.psihoterapie.net/blog/dorin-victor-vasile/2010/04/de-prin-loguri-adunate.html">http://www.psihoterapie.net/blog/dorin-victor-vasile/2010/04/de-prin-loguri-adunate.html</a> , sunt convins ca are si trilema unele suculente :)</p>
+						</li>
+
+										<li id="comment-22241" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-22241" title="">Monday, 3 May 2010</a>
+							</div>
+						<p>Scrieti, scrieti, ca eu chibitez si bag la cap.</p>
+						</li>
+
+										<li id="comment-22293" class="commentbody"><div class="commenthead"><img alt='kokofifi`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink">kokofifi<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-22293" title="">Monday, 3 May 2010</a>
+							</div>
+						<p>toate ca toate, dar io un 404 "frumos" n-am vazut niciodata pe vreun blog, numai prin colectii de funnies pe net.</p>
+						</li>
+
+										<li id="comment-22307" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">10</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-22307" title="">Monday, 3 May 2010</a>
+							</div>
+						<p>@<b>Marian S</b> Lol sa nu faci indigestie mei</p>
+<p>@<b>kokofifi</b> Eu am vazut chiar recent, da' nu mai retin unde. 4chan are unele destul de faine, sau ma rog, aveau intr-o vreme.</p>
+						</li>
+
+										<li id="comment-54546" class="commentbody"><div class="commenthead"><img alt='Critic`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">11</div>
+								<span class="authorlink">Critic</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54546" title="">Friday, 8 July 2011</a>
+							</div>
+						<p>dude, m-am uitat in images si ai programat headerul si pentru anul care vine?</p>
+						</li>
+
+										<li id="comment-54549" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">12</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-54549" title="">Friday, 8 July 2011</a>
+							</div>
+						<p>Dap.</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="author838c2da" id="author838c2da" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email838c2da" id="email838c2da" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="url838c2da" id="url838c2da" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="7135" /></p>
+				<input type="hidden" name="comment_post_time" value="1762702652-18.97.14.82" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2025 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-7135")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-7135");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-7135");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

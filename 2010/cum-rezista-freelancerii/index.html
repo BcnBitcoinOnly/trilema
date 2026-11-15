@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_jul2010.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Cum rezista freelancerii ?! on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Mediocrity is not a lack of intelligence.<br />Mediocrity is intelligence entirely dedicated to self-preservation.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-5063"><div class="post" id="post-5063">                    <h1><a href="/2010/cum-rezista-freelancerii/" rel="bookmark" title="Permanent Link to Cum rezista freelancerii ?!">Cum rezista freelancerii ?!</a></h1>                        <div class="date">                                     Saturday, 27 February, Year 2 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p><a href="/wp-content/uploads/2010/02/bilge.jpg"><img src="/wp-content/uploads/2010/02/bilge_s.jpg" alt="bilge_s" title="bilge_s" width="560" height="603" class="aligncenter size-full wp-image-5065" /></a></p>
+<p>Am tot respectul din lume pentru oameni precum <a href="http://dojoblog.info/2010/02/09/cum-ajungi-freelancer-web-chiar-de-la-zero/">Ramona Iftode</a> (si nu doar pentru ea, ci pentru toti cei care mananaca din freelancing online). Acesti oameni isi extrag cumva painea zilnica dintr-o gramada imensa de chestii precum aia de mai sus. S-o traducem, ca exercitiu de respect pentru munca lor de fiecare zi si, presupun, aproape fiecare noapte :</p>
+<blockquote><p>Descriere :</p>
+<p>Aceasta este o sarcina simpla pentru oricine poate sa creeze afaceri profitabile in turism de la zero [l].</p>
+<p>1. Vreau sa imi creezi un website de calatorii, unde sa pot uploada informatii utille, videoclipuri [a] de calatorie si fotografii. Trebuie sa fie bilingva [b] bazata pe membership, asa incat pana si membrii sa poata uploada videoclipuri [c], fotografii si sfaturi [d]. Pot sa scriu despre o multime de destinatii turistice singur, dar am de asemenea nevoie de un copywriter specializat [e] care sa noteze totul repede.</p>
+<p>2. Pentru a face bani din site as dori sa ma afiliez cu agenti de turism, companii aeriene [f], haine de calatorie, gadgeturi de calatorie, camere de filmat etc, hoteluri, inchiriatori de masini, restaurantele pot oferi bannere [g].</p>
+<p>3. Bineinteles ca asa cum stim cu totii, situl trebuie sa fie nu doar prietenos pentru SE, ci sa atraga o groaza de trafic :) Asa incat, gratie profesionalismului tau, da-mi un website care genereaza trafic imens imediat si realizeaza vanzari [h]. Am cumparat deja domeniul [i], am hosting si un blog wordpress instalat.</p>
+<p>Stiu ca dureaza ceva timp pentru a incepe sa castigi din afilieri si bannere, dar ce ma intereseaza pe mine este sa lucrez cu cineva care poate genera un flux constant de trafic spre site fara a trebui sa ating eu nimic, si sa continue sa faca bani singur [j].</p>
+<p>Castigatorul va fi platit imediat dupa livrarea sitului in stare complet functionala. Bugetul este foarte strans, tineti cont de asta in oferte [k].</p>
+<p>Multumiri,<br />
+Bilge.</p></blockquote>
+<p>Sa pornim deci pe puncte, frumos :</p>
+<ol type="a">
+<li>Problema uploadurilor video nu este triviala din punct de vedere al resurselor pe server. Polimedia.us se bucura de un port de 100Mbps dedicat, si totusi eu sunt destul de rezervat in a introduce continut video, dintr-un motiv aritmetic simplu : Daca video-ul are 640x480 pixeli, asta inseamna 307k pixeli. Daca sunt true color, asta inseamna 3 bytes per pixel, adica 24 de biti. Deci fiecare frame are 307k x 24 = 7.4 Mbiti. Intr-o secunda intra minimum 20 de frame, deci 148Mbiti.  100 de oameni urmarind acelasi video simultan ar hali atunci 14.8 Gbps. Pe de-o parte continutul video este adesea comprimat, ceea ce mai taie un ordin de marime, sau chiar doua. Pe de alta parte, traficul poate fi de 1000 sau 10,000 de utilizatori, care corespunzator adauga un ordin de marime, sau chiar doua. Pe scurt, nu degeaba foloseste atata lume youtube sau alte solutii care ofera embed, si nu degeaba pierd toate solutiile respective bani, cheltuind mai mult decat incaseaza. Trebuie ceva vitejie ca sa-ti inchipui ca vei face tu treaba mai buna decat youtube, reusind sa transformi o activitate nerentabila pentru ei intr-una rentabila pentru tine.</li>
+<li>Sa fie bilingva, primesc, dar atunci sa se spuna care sunt cele doua limbi.
+</li>
+<li>Cumva magic utilizatorii nu vor folosi facilitatea pentru a uploada pornografie cu minori, asa cum a patit recent Google, si nici materiale in proprietatea altora, cum a patit recent Trilulilu. Si nici tampeniile cele mai inutile, asa cum pateste tot mereu toata lumea. Nu. Ei vor uploada chestii utile si interesante. Sa le punem ceva in apa, ca parte a proiectului. Freelancerul are responsabilitatea sa gaseasca formula preparatului si sa-i asigure distributia in conductele de apa potabila a intregii planete.</li>
+<li>Ca si la c, utilizatorii vor munci pe gratis, oferind continut de buna calitate si certa valoare, fara exceptii, si se vor abtine de la tampeniile care in general rezulta din implementarea practica a crowdsourcingului. Ce trolli, ce vandalism, ce povesti ?! Pentru detalii de implementare vezi punctul c.</li>
+<li>Un copywriter specializat care nu are nevoie de salar, nu 	doarme, si nu mananca. Maria Tereza copywritingului.</li>
+<li>Eu cunosc cel putin 16 companii aeriene care n-au dat faliment, si se straduiesc cu disperare sa gaseasca site-uri anonime pe internet care sa le trimita trafic afiliat. Cum sa nu.</li>
+<li>Ca si la punctul anterior, sunt o groaza de restaurante care abia asteapta sa plateasca niste bani pe-un banner pe internet. Si nici nu se poate spune c-ar exista asa mare competitie din partea unui miliard de alte siteuri disperate dupa advertiseri. Precum realitatea.net, sau precum oricine altcineva.</li>
+<li>Trafic imens imediat si vanzari pe loc. Sigur ca da. Asa ceva este posibil, si se chiar intampla. Sigur, nu pe lumea asta, dar orisicat.</li>
+<li>Cumpararea unui domeniu (probabil .info) cu un nume judicios ales (precum travel-tips-and-other-usefull.info) este de departe cea mai dificila chestiune in administrarea unui proiect online. Nu-i ca si cum orice tapir cautand furnici printre taste ar fi putut scrie XKCD sau GOOGLE. Nici vorba. Fata de dificultatea de-a alege un domeniu (lucru realizat de cel putin un miliard de ori pana la momentul actual), dificultatile de-a face un website cu trafic si advertiseri si afiliati si utilizatori interesati sunt cvasi nule (dovada stand faptul ca asta s-a realizat de cateva ori pana astazi, ca la o duzina).</li>
+<li>Si sex, de asemenea, tot singur.</li>
+<li>Bugetul cel strans e, din cate inteleg de la oameni cu mai multa experienta, una dintre cele doua caracteristici permanente ale proiectului idiot.</li>
+<li>Cealalta dintre cele doua caracteristici permanente ale proiectului idiot e pretul ridicol. 30 de $ ? Sa moara Jean.</li>
+</ol>
+<p>Dupa cum vedeti, prostia cea mai densa nu-i in nici un fel apanajul romanilor de pe internet. Nici poveste de-asa ceva.</p>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2010/stiinta-si-pseudostiinta/">Stiinta si pseudostiinta</a></div>
+                <div class="alignright"><a href="/2010/test-de-cultura-vizuala-6/">Test de cultura vizuala 6</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/3-ani-experienta/" title="View all posts in 3 ani experienta" rel="category tag">3 ani experienta</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2010/cum-rezista-freelancerii/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2010/cum-rezista-freelancerii/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>26 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-16608" class="commentbody"><div class="commenthead"><img alt='dAImon`s avatar' src='http://daimon.me/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink"><a href='http://daimon.me/blog' class='url'>dAImon</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16608" title="">Saturday, 27 February 2010</a>
+							</div>
+						<p>Taci, tu. Bine ca n-o cerut si frisca pe deasupra, ca de primit carne presupun ca a primit deja de la toti care si-au pierdut timpul sa citeasca cerintele :D</p>
+<p>Si revenind, avantajul acestui Uncle Scrooge modern este ca-si va baga banii fericit intr-un cont al unui nigerian care "can deliver great results using the merging of 14 different technologies". Gyeah.</p>
+						</li>
+
+										<li id="comment-16609" class="commentbody"><div class="commenthead"><img alt='Mikael Eon`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Mikael Eon</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16609" title="">Saturday, 27 February 2010</a>
+							</div>
+						<p>sper sa nu se apuce toata lumea de vandut seminte de floarea soarelui, ca  speranta e pe moka, nu? parca asa spuneai intr-un articol recent.</p>
+						</li>
+
+										<li id="comment-16610" class="commentbody"><div class="commenthead"><img alt='kokofifi`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink">kokofifi<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16610" title="">Saturday, 27 February 2010</a>
+							</div>
+						<p>i do report violation!<br />
+usefull ? cel târziu aici m-as opri din citit.</p>
+<p>dar, daca-mi dau un ghes si citesc diagonal in continuare, ochii mei obositi vad doar bla bla bla you morons show me teh money.<br />
+density dense dense</p>
+						</li>
+
+										<li id="comment-16612" class="commentbody"><div class="commenthead"><img alt='fcbl`s avatar' src='http://www.twitter.com/fcbl/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink"><a href='http://www.twitter.com/fcbl' class='url'>fcbl</a><img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16612" title="">Saturday, 27 February 2010</a>
+							</div>
+						<p><a href="http://clientsfromhell.tumblr.com/">http://clientsfromhell.tumblr.com/</a></p>
+						</li>
+
+										<li id="comment-16613" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16613" title="">Saturday, 27 February 2010</a>
+							</div>
+						<p>@<b>dAImon</b> Ma bucur c-ai ridicat problema, pentru ca uite sunt in masura sa-ti citez cele 3 raspunsuri : </p>
+<ul>
+I. lastguru Bid $250 Time 5 days Today 10:09 EST </p>
+<p>Greetings.. we have proven again and again our ability to develop quality products on-time and on-budget without sacrificing quality. there will not be any communication gap. Waiting excited to hear and interact with you. I would like to thank you all for your time and assure you of our best services going forward. Kindly , check PM :)</p>
+<p>II.  trigno Bid $250 Time 7 days Today 10:07 EST </p>
+<p>Hello, Please check your PM; We are a well-established Website Development. We’ve very good experience in designing and development with Photoshop, XHTML, CSS, PHP, Joomla, MYSQL, AJAX and JavaScript. Also have experience in customizing Ecommerce Shopping carts and Joomla Templates. We’re confident in delivering you with quality work. Thanks</p>
+<p>III.  wahyuzonny Bid $1000 Time 30 days Today 10:23 EST </p>
+<p>Web Development offers professional Website development services to help you successfully plan, create, maintain and market your Web development project. Our strengths include fresh and creative graphic design, solid information architecture, and useful Web interactive features including polls, e-newsletters, message boards and forums. Web Development uses a combination of Microsoft Visual Basic, Active Server Pages, SQL Server and straight web design to create pages that work in almost every browser and are more efficient to develop. When we integrate this technology into your web site, you gain significant benefits over conventional technology. Our focus is on clean looking, fast loading, website design and web page design with intuitive navigation and layout that enables the visitor to find what he or she is looking for quickly and easily. We offer the following services: -Web Site Design - From single pages to entire sites -Multimedia Development -Programming - C+ + , Java, CGI, -Database integration - Access, DBase, and SQL -E-commerce - From online shopping to customer order management -Internet Marketing and Advertising -Web site statistics - Analysis of your site traffic -Web Site Hosting - Storage of Web sites on a Web Server -Domain Name Registration -Company Email Systems We help successful businesses become even more successful. web site : wmkdivisimultimedia.co.cc 021 8070 3961
+</ul>
+<p>Dupa cum vezi, siteurile de freelance work sunt niste locuri binecuvantate unde "cumparatori" fara buget se intalnesc cu spamboti care pozeaza in "provideri". </p>
+<p>Asta-i de fapt si frumusetea salbateca a Internetului, acest loc unde fiecare capata exact, dar <i>exact</i> ce merita.</p>
+<p>@<b>Mikael Eon</b> Pana n-o gineste Boc si-i baga ceva impozit.</p>
+<p>@<b>kokofifi</b> De-aia zic, tot respectu' meu pentru aia care asta fac. (Zici ca te-o violatara ocular ?)</p>
+						</li>
+
+										<li id="comment-16614" class="commentbody"><div class="commenthead"><img alt='kokofifi`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink">kokofifi<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16614" title="">Saturday, 27 February 2010</a>
+							</div>
+						<p>da, asa ceva: tocmai am vazut o stire la tembelizor despre blogherii rumuni. era un nene gras care 'tinea'un blog culinar, la mansarda unui restaurant. apoi niste specialisti specializati - un orlando something si omniprezentul tau pretin, zosozaurus arheopterix ex, dându-si cu parerea.</p>
+<p>And  the fervour of my youthful eyes ...</p>
+						</li>
+
+										<li id="comment-16619" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16619" title="">Saturday, 27 February 2010</a>
+							</div>
+						<p>Ingaduie-mi sa-ti raspund parafrazandu-l pe stimabilul Anonimosu : analist, parerist, la teve e tot aia.</p>
+						</li>
+
+										<li id="comment-16621" class="commentbody"><div class="commenthead"><img alt='lexy229`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink">lexy229</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16621" title="">Saturday, 27 February 2010</a>
+							</div>
+						<p>@fcbl hahaha prea tare <a href="http://clientsfromhell.tumblr.com/post/388979980/but-i-thought-you-were-a-freelancer">http://clientsfromhell.tumblr.com/post/388979980/but-i-thought-you-were-a-freelancer</a></p>
+						</li>
+
+										<li id="comment-16628" class="commentbody"><div class="commenthead"><img alt='dojo`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink">dojo</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16628" title="">Saturday, 27 February 2010</a>
+							</div>
+						<p>Problema unui freelancer incepator este ca va manca destul rahat. Bun, acu si asta e discutabila. Moi are un pret "oficial". M-am tinut de el ca gaia matul ani de zile. Ca ma durea sub coada daca luam sau nu proiectul. Aveam freelancingul ca hobby / part time si un job relativ misto platit. Deci nu discuti.</p>
+<p>A venit sfanta criza si s-a dus pe soare jobul. Subsemnata s-a trezit singura in bataia ploii, cu o microintreprindere sugrumata de onor conducerea tarii cu noi taxe si para-taxe, un leasing de 300 de euro pe luna, darile firmei in sine, haleala etc. Si bani ... din parti.</p>
+<p>Pentru ca nu-s destul de frumoasa pentru "produs" si salariile oferite in media imi acopereau 70% din rata, era clar ca tre' sa fac si altceva.</p>
+<p>Asa ca am intrat "dur" in freelancing. Am mai scazut pretul (un pic cam mult prin toamna lui 2009) si am luat neste proiecte. Personal stau departe de cacanarii astia cu 30 de dolari situl si le recomand sa le faca in FrontPage. Deci, pret scazut, dar avem mandria noastra :D</p>
+<p>Dupa ce prestezi niste situri si tragi un feedback de 5 stele, incepe dansul. Acum 6 luni am licitat ca proasta pe ZECI de proiecte. Am cautat orice putea aduce un ban. Am castigat cateva. Am prins banii (care mi-au platit ratele, papica, intretinerea, taxele la rahatul asta de stat) si am crescut porcofoliul. In momentul asta sunt locul 4 pentru wordpress pe unul dintre ale mai tari situri de freelancing.</p>
+<p>REFUZ 4-5 oferte pe zi. Aleg eu clientul si proiectul, daca nu imi convine ceva, nu licitez. In loc sa caut de dementa proiecte, ele vin la mine. Am crescut progresiv pretul incat acum lucrez dublu ca pret fata de august 2009 de pilda. Sunt cautata, "curtata" etc. Am rate inca mic fata de americani si le dau cu flit multora ca portofoliu. Inutil sa precizez ca am facut vreo 40 de situri in cateva luni pe platforma minunata si am invatat o caruta de smecherii. </p>
+<p>Inceputul deci este infiorator, mai ales daca esti disperat. Nu am lucrat pe 30 de dolari niciodata, mi-am impus 10 USD/ora de munca si m-am tinut de "promisiune". In momentul asta ajung spre 20 si creste continuu.</p>
+<p>E nevoie de multa munca, dar, odata ce faci portofoliu si cresti in rating, incepi sa ai clienti misto (pe care ii alegi) si lucrarile pe care ai chef sa le executi. Dupa aia e mai bine. ;)</p>
+						</li>
+
+										<li id="comment-16629" class="commentbody"><div class="commenthead"><img alt='lexy229`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">10</div>
+								<span class="authorlink">lexy229</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16629" title="">Saturday, 27 February 2010</a>
+							</div>
+						<p>Craigslist Ad</p>
+<p>I have a once and a lifetime opportunity for the right designer who will help me to build the next twitter. </p>
+<p>You have to be an expert at: </p>
+<p>-Web design and graphics<br />
+-Website systems and programming<br />
+-Getting ranked 1st on google and getting 1 million visitors a month</p>
+<p>This job is for an intern position with no pay, but you will be able to put this on your resume and get great exposure!</p>
+<p>Ahahahaha fo sho!</p>
+						</li>
+
+										<li id="comment-16630" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">11</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16630" title="">Saturday, 27 February 2010</a>
+							</div>
+						<p>@<b>lexy229</b> Cineva o descoperit Clients from Hell :D Ai facut o fapta buna, Flaviu.</p>
+<p>@<b>dojo</b> Douaji de parai pe ora, pai tu realizezi ca aia-s peste 50 de lei ? Ia cumpara tu Publitimu' sa vezi cat cer fetele de strada pe half'n'half mai nou ? Asa ca nu te plange ca n-areti de produs, doara castigi mai bine ca ele. Bagi 200 de ore la saptamana, iei salar peste toata presa, inclusiv <a href=/2010/key-business-affairs-manager-scl/ >key business affairs managerii.</a></p>
+						</li>
+
+										<li id="comment-16631" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">12</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16631" title="">Saturday, 27 February 2010</a>
+							</div>
+						<p>PS. M-ati naucit si pe mine de cap.</p>
+<p>"We don’t like the look of our phone number. Can you put a different phone number on the business cards, one that looks better but still have calls come through to the old one?"</p>
+<p>Bai frate, si-o chiar dadusem de exemplu in articol, ce sa mai...</p>
+						</li>
+
+										<li id="comment-16634" class="commentbody"><div class="commenthead"><img alt='Mari`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">13</div>
+								<span class="authorlink">Mari<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16634" title="">Saturday, 27 February 2010</a>
+							</div>
+						<p>"Designer - Boss" mail exchange.<br />
+  A "must read":  <a href="http://twitpic.com/zu7vv">http://twitpic.com/zu7vv</a></p>
+						</li>
+
+										<li id="comment-16638" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">14</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16638" title="">Saturday, 27 February 2010</a>
+							</div>
+						<p>O da, stiu setul. Tipul trolleaza de ceva ani pe mail :D</p>
+						</li>
+
+										<li id="comment-16641" class="commentbody"><div class="commenthead"><img alt='Ciolanus`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">15</div>
+								<span class="authorlink">Ciolanus</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16641" title="">Sunday, 28 February 2010</a>
+							</div>
+						<p>E libera sa viseze persoana.</p>
+						</li>
+
+										<li id="comment-16675" class="commentbody"><div class="commenthead"><img alt='krossfire`s avatar' src='http://www.krossfire.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">16</div>
+								<span class="authorlink"><a href='http://www.krossfire.ro' class='url'>krossfire</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16675" title="">Sunday, 28 February 2010</a>
+							</div>
+						<p>Freelancerii in perioada asta cam rup angajatii normali la volum de munca. Asa a fost mereu insa acum si cei axati pe grafica si copywriting (nu doar designerii de tip Ramona) alearga dupa conturi.</p>
+						</li>
+
+										<li id="comment-16680" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">17</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16680" title="">Sunday, 28 February 2010</a>
+							</div>
+						<p>Acuma logic vorbind, probabil ca ala-i viitorul intr-o multime de profesiuni. Ce birou, ce serviciu, e ineficient.</p>
+						</li>
+
+										<li id="comment-16683" class="commentbody"><div class="commenthead"><img alt='Mihai`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">18</div>
+								<span class="authorlink">Mihai<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16683" title="">Sunday, 28 February 2010</a>
+							</div>
+						<p>"Acuma logic vorbind, probabil ca ala-i viitorul intr-o multime de profesiuni. Ce birou, ce serviciu, e ineficient."</p>
+<p>neah... viitorul nu e lipsa de organizare. eu mai lenes animal decat freelancerul, mai dezorganizat si mofturos, inca nu am vazut.</p>
+<p>viitorul e corporatismul, ceea ce presupune organizare. deisgur pe unele pozitii li se vor merita sa tina prosti din astia pe care sa ii cheme doar cand au nevoie(contract de colaborare). in orice caz, corporatiile vor face piata muncii. ceea ce nu e neaparat de bine, zic eu.</p>
+						</li>
+
+										<li id="comment-16686" class="commentbody"><div class="commenthead"><img alt='dAImon`s avatar' src='http://daimon.me/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">19</div>
+								<span class="authorlink"><a href='http://daimon.me/blog' class='url'>dAImon</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16686" title="">Monday, 1 March 2010</a>
+							</div>
+						<p>Mihai, freelancing != "lipsa de organizare". Ba chiar dimpotriva, ca la corporate office mai slack off, mai "am intarziat in trafic", mai o cafea mai un mess. Da' cand te plateste careva pe hourly rate si-ti face challenge si pentru 30 de minute daca are impresia ca-i tragi chiulul ...</p>
+						</li>
+
+										<li id="comment-16688" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">20</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16688" title="">Monday, 1 March 2010</a>
+							</div>
+						<p>@<b>Mihai</b> Bine, da' pe ce te bazezi in rationament ? </p>
+<p>Adica, da, sigur, oamenii au probleme intrinseci (lenesi, dezorganizati, scl). Tu presupui ca va exista acolo cineva (corporatia) care sa li le rezolve... Ma tem ca abordarea este paseism pur, survine din colectivismele post-razboi mondial din anii '50. Ele nu se datorau atata agitatiei sau dorintei unor persoane anumite (De Gaulle in Franta, Patton in SUA sunt exemple convenabile) cat obisnuintei formata in mentalul a milioane de oameni de-a respecta ordine. Corporatismul ala, ca si posibilitatea lui a murit odata cu generatia aia, si nu se va mai intoarce decat in situatii similare. </p>
+<p>Pana atunci, esti lenes, dezorganizat, ce-oi mai fi, foarte bine. Mori de foame, si chiar nu intereseaza pe nimeni.</p>
+<p>@<b>dAImon</b> Io-s chiar curios pe ce experienta concreta discuta Mihai, sa fiu sincer.</p>
+						</li>
+
+										<li id="comment-16690" class="commentbody"><div class="commenthead"><img alt='Florin`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">21</div>
+								<span class="authorlink">Florin<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16690" title="">Monday, 1 March 2010</a>
+							</div>
+						<p>Noa hai ca ma bag io daca ii vorba de experienta concreta, desi ma gandeam ca-i prea putin pentru a se forma idei.<br />
+Anul trecut o trebuit sa verific peste 100 de DALI (docum de avizare lucr de interventie) si studii de feazabilitate.<br />
+Luand  la puricat firmele mari de proiectare, mi-o iesit o tona de greseli si un miserupism total (asta si din cauza ca la noi SF = fix pielea, nu conteaza, si asa sumele licitate se modifica  pana la finalizarea lucrarii) pentru  mare parte din documentatii, multi dintre ei nu or avut bunul simt sa gandeasca  cu capul lor o solutie tehnica, or copiat-o din proiecte mai vechi, da atat de prost si dezorganizat o copiat incat  pana la sfarsitul proiectului apareau cam 4 solutii in loc de una si nici macar  nu aveau bunul simt sa  faca adaptari prohectului copiat.<br />
+Pe celalta parte, am avut  cativa omi de lucrau pe cont propriu, vreau sa spun ca or fost cateva lucrari la care aplaudam  mai ceva ca foca. Si-mi pare ca aveau toate motivele din lume.<br />
+Cam dintr-o suta, 70  or fost firme/companii, iar din cele 80  cam 65 or  dat cu oistea-n gard. Doozaci de pfa din care cam 15 or facut treaba buna, cu simt de raspundere, bine structurata, ba chiar munca in plus (adica in loc  de documentatie sf, continea si detaliile necesare unui proiect tehnic).<br />
+Poate ca domeniu ii de asa natura si nu-i  aplicabil si-n rest.</p>
+						</li>
+
+										<li id="comment-16691" class="commentbody"><div class="commenthead"><img alt='Florin`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">22</div>
+								<span class="authorlink">Florin<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16691" title="">Monday, 1 March 2010</a>
+							</div>
+						<p>* 70-80 firme companii</p>
+						</li>
+
+										<li id="comment-16692" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">23</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16692" title="">Monday, 1 March 2010</a>
+							</div>
+						<p>Experienta ta confirma experienta mea. Sunt de acord cu "domeniul e de asa natura, si poate nu se aplica in rest", cu mentiunea ca "domeniul" se va intelege ca notatia in scris a unei actiuni viitoare sau descrierea in scris a unei actiuni trecute. Administratie, management, planificare, scl, iara nu "constructii industriale" cum probabil ca intentionai tu.</p>
+						</li>
+
+										<li id="comment-16693" class="commentbody"><div class="commenthead"><img alt='Florin`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">24</div>
+								<span class="authorlink">Florin<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16693" title="">Monday, 1 March 2010</a>
+							</div>
+						<p>Mircea, iar te-ai bagat in mintea mea  :P</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+				<li class="trackbody" id="comment-134419">
+					<div class='trackhead'>
+						<div class="commentcount">25</div>
+						<span class="authorlink"><a href='/2011/acesti-hecari-minunati-si-puterile-lor-miraculoase?b=acum%20un%20an%20d&amp;e=g%20in#select' class='url'>Acesti hecari minunati si puterile lor miraculoase on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-134419" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] acum un an de zile plus-minus ca nu inteleg cum rezista frelancerii. In anul de-a trecut nu s-a schimbat absolut nimic : nu inteleg in [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-136075">
+					<div class='trackhead'>
+						<div class="commentcount">26</div>
+						<span class="authorlink"><a href='/2011/filosoful-luminii-de-neon?b=cind%20m-am%20in&amp;e=u%20si#select' class='url'>Filosoful luminii. De neon. on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-136075" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] cind m-am intrebat retoric "cum rezista freelancerii" lumea imi trimite diverse exemple de teste de rezistenta. De fapt adevaru-i ca-mi trimiteau si [...]</p>
+				</li>
+
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="author19f44ba" id="author19f44ba" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email19f44ba" id="email19f44ba" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="url19f44ba" id="url19f44ba" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="5063" /></p>
+				<input type="hidden" name="comment_post_time" value="1781757016-18.97.9.168" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2026 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-5063")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-5063");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-5063");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

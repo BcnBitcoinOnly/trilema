@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_dec2016.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Phishing on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">The fates are cruel an' the chances are slim<br />so grab a good sieve and dig in.<br />~<a href=/2020/nannare/#comment-147503>my elder slavegirl</a>
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-4898"><div class="post" id="post-4898">                    <h1><a href="/2010/phishing/" rel="bookmark" title="Permanent Link to Phishing">Phishing</a></h1>                        <div class="date">                                     Thursday, 18 February, Year 2 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p>"Phishing" nu este un cuvant. Chiar daca nu este un cuvant, el totusi numeste o chestie, si anume, atunci cand un website se preface c-ar fi altul, pentru a va afla parolele. S-o luam cu exemple.</p>
+<p>Sa zicem ca exista un website respectabil, Politica.com, care raspunde la adresa http://politica.com. Sa zicem ca dumneavoastra aveti un cont acolo, care are o valoare oarecare, din orice motiv. Un site care se numeste "intamplator" Po1itica.com, si raspunde la adresa http://po1itica.com va momeste cu un design absolut identic cu cel al websitului original. Daca smecheria reuseste si cadeti in plasa va veti scrie numele si parola, pe care proprietarul Po1itica le poate acum folosi pentru a va fura identitatea pe adevaratul site Politica. Indeobste asa ceva se foloseste pentru a fura datele de identificare ale clientilor diverselor banci, si mai apoi pentru a le goli conturile, efectuand in numele lor transferuri bancare.</p>
+<p>In teoria securitatii, atacul pe care Po1itica il desfasoara asupra dumneavoastra se numeste man-in-the-middle, adica al intermediarului, si este de tipul social engineering, adica nu functioneaza exploatand o eroare sau functionalitate neprevazuta in cadrul programelor, ci o eroare sau functionalitate neprevazuta in cadrul comportamentelor oamenilor. Nu este deci o abordare tehnica, ci sociala a securitatii.</p>
+<p>Motivul pentru care se numeste phishing tine de istoria explorarilor lumii masinilor. Cu multi ani in urma, inainte sa existe internet, si inainte sa existe PC-uri, si inainte sa existe killer micros, si inainte sa existe Apple sau Microsoft exista totusi o retea. Prima retea, reteaua de telefonie prin cablu. </p>
+<p>Aceasta retea functiona pe baza unui "soft" de facto, dar foarte rudimentar, si in cea mai mare parte analogic, nu digital. Oamenii curiosi din fire, cu o anumita constitutie mentala, sa-i spunem geeky, pentru ca asa se numeste, au devenit interesati de studierea proprietatilor acestei retele. Reteaua fiind operata de interese comerciale pentru scopuri comerciale, si intelegerea oamenilor asupra retelelor fiind inca foarte primitiva, toate regulile se gaseau tinute frumos sub cheie de catre companiile proprietare ale cablurilor si centralelor telefonice.</p>
+<p>Un geek adevarat nu poate rezista unei enigme bune la fel cum un Fat Frumos adevarat nu poate rezista unei blonde adormite de vrajitoarea cea rea, si ca atare mult efort - mult mai mult decat ar fi fost sau ar fi putut fi rational justificat - s-a indreptat inspre studierea si descrierea secretelor primei retele. S-au obtinut rezultate notabile, hackeri capabili sa fluiere pe gustul detectoarelor de ton care administrau reteaua, cutii negre, cutii rosii, cutii roz bombon cu picatele, tot tacamul unui film cu spioni, sau unei povesti cu Cosanzene, sau oricarui alt mit.</p>
+<p>Preocuparea asta s-a numit phreaking, si preocupatii phreaks, pentru ca e mai cool sa scrii ph decat f, dovedind astfel o cunoastere fina a unor conventii lingvistice secrete (precum phaptul ca pe Phillip il strigi de fapt Filip si nu Pilip). Iara freaks vine de la aia ca-i extraordinar, rar, deosebit, special, nec plus ultram, o chestie rara. </p>
+<p>Pe acelasi tipar, operatiunea de-a pescui naivi dispusi sa nu observe diferenta intre po1itica si politica s-ar putea destul de inspirat numi fishing, a pescui pe englezeste, si atunci de ce sa n-o scriem phishing si sa fim speciali ?</p>
+<p>Dupa acest exhaustiv excurs istoric, daca n-ati adormit, sa ajungem si la ce voiam de fapt sa spun. (Da, exista.) Toate atacurile intermediarilor, printre care si phishingul, au o vulnerabilitate fundamentala : intermendiarul <em>nu cunoaste</em> parola dumneavoastra. Tocmai asta e si scopul intregului exercitiu, s-o afle. Daca ar cunoaste-o, nu si-ar mai bate capul.</p>
+<p>Asta inseamna ca el nu poate discerne intre doua cazuri diferite : cazul a) cand dumneavoastra va chiar scrieti parola si cazul b) cand scrieti ceva acolo, la intamplare. Spre deosebire de intermediar, destinatarul stie foarte bine care va este parola, si ca atare discerne intre cele doua cazuri. Daca a) atunci va recunoaste, daca b) atunci va roaga sa mai incercati o data.</p>
+<p>Si asta inseamna ca puteti deosebi intotdeauna si foarte usor intre un site autentic si un site de phishing, indiferent ce tehnologie se foloseste sau in ce situatie concreta va aflati : ori de cate ori suspectati posibilitatea unui intermediar, scrieti-va parola gresit. Daca destinatarul de facto se comporta ca si cum ati fi scris-o corect, e clar cum sta treaba.</p>
+<p>O dovada in plus ca securitatea nu este o functie a tehnologiei.</p>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2010/evenimente-importante/">Evenimente importante</a></div>
+                <div class="alignright"><a href="/2010/cand-am-fo-io-la-america/">Cand am fo' io la America</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/trilenciclopedia/" title="View all posts in Trilenciclopedia" rel="category tag">Trilenciclopedia</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2010/phishing/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2010/phishing/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>19 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-16021" class="commentbody"><div class="commenthead"><img alt='Mihai`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink">Mihai<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16021" title="">Thursday, 18 February 2010</a>
+							</div>
+						<p>dragut articol, am alfat si eu ca phishing vine de la fishing! insa mnoa, ca si detaliere a preocuparii psihingului articolul lasa de dorit. nu ca nu e si ce ai zis tu, dar mai sunt multe aplicatii ale pescuitului si multe metode de a prinde musca in panza.</p>
+<p>dar in fine, daca imi permiti, ma incumet sa dau o definitie, asa din burta, cum se poate da la ora asta, asupra psihingului.</p>
+<p>pshihing - actiune desfasurata pe internet de o persoana sau un grup de persoane asupra unei alte persoane sau al altui grup de persoane pentru a sustrage anumite informatii de la persoana sau grupul tinta, in scopul obtinerii de foloase personale de pe urma prelucrarii acelor date.</p>
+						</li>
+
+										<li id="comment-16022" class="commentbody"><div class="commenthead"><img alt='Mihai`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Mihai<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16022" title="">Thursday, 18 February 2010</a>
+							</div>
+						<p>*psihing -</p>
+						</li>
+
+										<li id="comment-16023" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16023" title="">Thursday, 18 February 2010</a>
+							</div>
+						<p>Zic ca-i mai slaba decat definitia mea.</p>
+						</li>
+
+										<li id="comment-16026" class="commentbody"><div class="commenthead"><img alt='dAImon`s avatar' src='http://daimon.me/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink"><a href='http://daimon.me/blog' class='url'>dAImon</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16026" title="">Thursday, 18 February 2010</a>
+							</div>
+						<p>Intr-o vreme faceam chestia asta, pe vremea atacurilor care incercau sa impersoneze Raiffeisen - dadeam click pe link si introduceam bogus data, chit ca n-aveam nici macar cont. Then again, am realizat ca probabil dau de munca unui robotel si nu unui om, asa ca nu merita sa-mi irosesc timpul, era ca si cum as raspunde unui mail de spam cu "pizda ma-tii" .. masinii nu-i pasa.</p>
+<p>Ca side-topic, imi amintesc ca am incercat in generala impreuna cu un coleg sa contruim ceva blue box or whatever, dar pe langa ca nu prea stiam electronica, nici structura retelei de la Romtelecom nu semana deloc cu cea descrisa, so we dropped it. But still, i-am admirat mereu pe baietii destepti care au reusit in U.S. sa utilizeze loopholes din structura AT&amp;T si sa obtina internet si telefonie gratis, doar prin exploatarea gaurilor gigantului. That's what I call balls.</p>
+						</li>
+
+										<li id="comment-16029" class="commentbody"><div class="commenthead"><img alt='Mikael Eon`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink">Mikael Eon</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16029" title="">Thursday, 18 February 2010</a>
+							</div>
+						<p>n-am incredere deloc in tranyactiile pe internet sau bancomate, sunt tipul conservator care prefera banul in forma sa bruta, nu digitala. insa daca e si nu se poate altfel sunt cu ochii in patru de fiecare data cand imi introduc datele. ai punctt foarte bine la sfarsit, cea mai buna metoda de a incerca daca siteul e autentic sau nu ar mai fi metoda verificarii grselilor de pe pagina, pentru ca de obicei paginile de phishing contin greseli, dar asta inseamna sa citesti foarte bine toata pagina si sa stii cum arata pagina originala, plus ca au inceput si hackerii astia sa depuna mai mult efort in ultima perioada pentru a realiza o copie cat mai fidela, un alt efect al crizei prsupun. multi nu inteleg nici macar ca atunci cand esti la bancomat, indiferent ca esti la sediul central sau nu, acoperi codul pin cu mana cand tastezi, nu stiu de ce e asa de greu de inteles.</p>
+						</li>
+
+										<li id="comment-16031" class="commentbody"><div class="commenthead"><img alt='Porkul de York`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink">Porkul de York</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16031" title="">Friday, 19 February 2010</a>
+							</div>
+						<p>sa fi vazut ce frumos arata clona de la Raiffeisen Bank. am primit suficiente link-uri de gen in mail. sa vi fazut ce frumos arata clonele de la Cajamadrid din Spania. Una peste alta, mare lucru nu e. As indrazni sa spun ca cine furnizeaza acestor pagini date de genul PIN, nu este pregatit sa aiba un cont nici la adevarata banca. Asa cum nici aceia care raspund unui SMS de genul "ati castigat o suma de X euro si avem nevoie de un cod de reincarcare in valoare de 20 euro" nu sunt pregatiti sa poarte un telefon mobil. Am fost un pic rau ?</p>
+						</li>
+
+										<li id="comment-16032" class="commentbody"><div class="commenthead"><img alt='fcbl`s avatar' src='http://www.twitter.com/fcbl/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink"><a href='http://www.twitter.com/fcbl' class='url'>fcbl</a><img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16032" title="">Friday, 19 February 2010</a>
+							</div>
+						<p>dar ce zici tu de faza ca phisheru :)))) (lol, ce csq suna asta) deci siteul ala care te fura, incearca sa te logheze pe siteul original indata ce are parola, si daca nu reuseste iti afiseaza pagina de "wrong pass or user" care-i leit cu cea originala, si daca reuseste te redirecteaza spre siteul original. :D ca mai nou mai toate saitele au API-uri si API-tzii pentru tot felul de operatiuni inclusiv loginul. </p>
+<p>dar, ce-i mai grav, ce zici tu ca ingrijorator de multi algoritmi de criptare, de la md5, wep, wpa, tcm, criptarea din gsm si mai nou si cartile de credit (care se pot fura fara sa stii pin-ul dupa ceva vulnerabilitate nou descoperita cf. aici <a href="http://www.adevarul.ro/societate/viata/Cum_pot_fi_pradate_cardurile_de_credit_0_210579428.html">http://www.adevarul.ro/societate/viata/Cum_pot_fi_pradate_cardurile_de_credit_0_210579428.html</a> si aici <a href="http://www.lightbluetouchpaper.org/2010/02/11/chip-and-pin-is-broken/">http://www.lightbluetouchpaper.org/2010/02/11/chip-and-pin-is-broken/</a> )<br />
+deci ziceam ca ingrijorator de multe chestii odata pe vremuri sigure is acum ca o umbra de securitate.</p>
+						</li>
+
+										<li id="comment-16033" class="commentbody"><div class="commenthead"><img alt='Mihai`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink">Mihai<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16033" title="">Friday, 19 February 2010</a>
+							</div>
+						<p>@MP</p>
+<p>neah, tu nu ai vreo definitie in text... ai doar istorie si un exemplu! :P</p>
+<p>psihingul asta se foloseste mai comun, e utilizat  de diverse companii care vand in cercetari de marketing. obtin datele din sondaje(asta in .ro ca mno la noi in cadrul sondajelor te pune sa iti dai numele si numarul de telefon, chestie care nu se face) sau concursuri, tombole.</p>
+						</li>
+
+										<li id="comment-16034" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16034" title="">Friday, 19 February 2010</a>
+							</div>
+						<p>@<b>dAImon</b> Nu stiu daca face o masina sau nu, as zice ca-i probabil 50-50. Cat ma duce pe mine capul, cel mai probabil niste smecheri wannabe au angajat un prieten de-al lor sa le faca un site, l-au pus undeva pe un hosting intr-o tara mai dubioasa si asta-i tot planul. Sigur, cealalta jumatate e Mafia, dupa cum rezulta acu' recent in niste procese, in care caz probabil se fac niste prime verificari automate, ca de exemplu daca exista contul.</p>
+<p>Oricum, solutia problemei "oricum o masina citeste, deci n-are rost sa scriu cu mana" nu-i sa nu mai scrii deloc, e sa nu mai scrii cu mana :D Trebuia sa faci si tu un script lol.</p>
+<p>Iti dai totusi seama ca daca foloseau acelasi, hai sa nu zic volum de efort intelectual, ca iese ridicol, dar acelasi interval de timp, lucrand la at&#038;t, chiar si pe post de TESA, faceau mai multi bani decat de-un abonament la telefon ? Cu alte cuvinte, that's what I call naive :)</p>
+<p>@<b>Mikael Eon</b> Si eu prefer cum zici, banul in forma bruta, doar ca de la o vreme mi s-o luat de organizat caravane cu bani spre si dinspre orientul mijlociu, coordonat vase din state si camioane din rusia, prins si pedepsit piratii si nomazii si etc. Pe scurt, vezi mai sus :p</p>
+<p>In tot cazul, eu nu am spus nici un cuvant de greselile de pe pagina, te rog sa recitesti. Si vreau sa subliniez ca solutia tehnologica (verificat pagina) e stupida, ineficienta si inaplicabila. Chiar daca toata lumea (care nu se pricepe) acolo sare. Nu are rost sa validam pagini, trebuie sa validam procesul.</p>
+<p>@<b>Porcul de Yorc</b> Nu.</p>
+<p>@<b>fcbl</b> Posibil, dar riscul fundamental vorbind este ca banca, sau ma rog, destinatarul, observa ca un script incearca sa logheze un numar mare de clienti, si se prinde. Pentru siguranta phisherul ar trebui sa procedeze cu mana. Practic ce ceri tu este ca destinatarul sa fie atata de tantalau incat sa furnizeze servicii de api phisherului, in care caz, din punct de vedere al securitatii vorbind, nu mai avem un atac, ci o simpla interactiune cu un tert de incredere.</p>
+<p>Dupa cum stii, exista enigme care pot rezista la tot soiul de chestii, dar nu exista enigme care sa reziste timpului.</p>
+						</li>
+
+										<li id="comment-16036" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">10</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16036" title="">Friday, 19 February 2010</a>
+							</div>
+						<p>@<b>Mihai</b> "<i>el totusi numeste o chestie, si anume, atunci cand un website se preface c-ar fi altul, pentru a va afla parolele.</i>"</p>
+						</li>
+
+										<li id="comment-16038" class="commentbody"><div class="commenthead"><img alt='Mikael Eon`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">11</div>
+								<span class="authorlink">Mikael Eon</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16038" title="">Friday, 19 February 2010</a>
+							</div>
+						<p>s-a inteles gresit ce am vrut sa zic, se mai intampla... am vrut sa spun ca o alta metoda dar nu la fel de valida (spre deloc) ca cea prezentata de tine ar fi citirea cu atentie a paginii, dar nu prea functioneaza, motive ar fi o multime.</p>
+						</li>
+
+										<li id="comment-16039" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">12</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16039" title="">Friday, 19 February 2010</a>
+							</div>
+						<p>A. Da, asa da. Problema este ca orice greseli se vor gasi in pagina baietii le vor repara mai devreme sau mai tarziu, dupa care aplicatia de gasit greseli va raporta ca situ-i bun. Ceea ce-i foarte rau.</p>
+						</li>
+
+										<li id="comment-16047" class="commentbody"><div class="commenthead"><img alt='Ionut`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">13</div>
+								<span class="authorlink">Ionut</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16047" title="">Friday, 19 February 2010</a>
+							</div>
+						<p>Intr-o vreme Banca Transilvania era victima preferata! :)</p>
+						</li>
+
+										<li id="comment-16049" class="commentbody"><div class="commenthead"><img alt='dadatroll`s avatar' src='http://dadatroll.wordpress.com/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">14</div>
+								<span class="authorlink"><a href='http://dadatroll.wordpress.com' class='url'>dadatroll</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16049" title="">Friday, 19 February 2010</a>
+							</div>
+						<p>Problema asta cu furtu de indentitate e foarte serioasa. Acu vrun an ia furat unu indentitatea lui Gramo:</p>
+<p><a href="http://gramo.ro/2009/06/03/ce-mai-fura-lumea-identitatea-virtuala-deh/">http://gramo.ro/2009/06/03/ce-mai-fura-lumea-identitatea-virtuala-deh/</a></p>
+<p>Siasa sa suparat Cel Mai Mare Blogar Roman In Viata ca la acuzat pana si pe dadatroll dea trebuit sa aduc martori ca nus eu ala care ia furat pretioasa indentitate:</p>
+<p><a href="http://dadatroll.wordpress.com/2009/06/03/furtu-de-indentitate/">http://dadatroll.wordpress.com/2009/06/03/furtu-de-indentitate/</a></p>
+						</li>
+
+										<li id="comment-16051" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">15</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16051" title="">Friday, 19 February 2010</a>
+							</div>
+						<p>Tu probabil ca ai furat identitatea martorilor...</p>
+						</li>
+
+										<li id="comment-16052" class="commentbody"><div class="commenthead"><img alt='donted`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">16</div>
+								<span class="authorlink">donted</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16052" title="">Friday, 19 February 2010</a>
+							</div>
+						<p>cum iei tu painea de la gura unora ... :))</p>
+						</li>
+
+										<li id="comment-16073" class="commentbody"><div class="commenthead"><img alt='dAImon`s avatar' src='http://daimon.me/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">17</div>
+								<span class="authorlink"><a href='http://daimon.me/blog' class='url'>dAImon</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16073" title="">Friday, 19 February 2010</a>
+							</div>
+						<p>Mei, nu-i vorba de banii pentru abonamentul de telefon, e senzatia ca they're screwing the Man !!!1</p>
+						</li>
+
+										<li id="comment-16074" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">18</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16074" title="">Friday, 19 February 2010</a>
+							</div>
+						<p>@<b>donted</b> Sarmanii.</p>
+<p>@<b>dAImon</b> De-asta-i si asa amuzant. Senzatia de a, divortata de faptul de a. Similara cu senzatia de-a o fute pe Pamela, da' prin monitor, nu prin dormitor.</p>
+						</li>
+
+										<li id="comment-16094" class="commentbody"><div class="commenthead"><img alt='Marian S`s avatar' src='/2010/domenii-si-hosting-gratuit-in-prelungiri/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">19</div>
+								<span class="authorlink"><a href='/2010/domenii-si-hosting-gratuit-in-prelungiri/#comment-30638' class='url'>Marian S</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-16094" title="">Saturday, 20 February 2010</a>
+							</div>
+						<p>Ciudat lucru, eu prima oara am crezut ca ``phishing`` vine de la pişare, fiindca se aseamana mult cu `` a face pipi in capul prostilor``.<br />
+Exista `jde mii de metode de a te feri de phishing dar nu-mi mai bat capul cu cei numiti mai sus (in comentariul meu). N-ai decit sa faci articol utilitar: cum sa ne ferim de phishing. Cineva tot o sa te pomeneasca de bine.</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authore8e1dd8" id="authore8e1dd8" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emaile8e1dd8" id="emaile8e1dd8" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urle8e1dd8" id="urle8e1dd8" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="4898" /></p>
+				<input type="hidden" name="comment_post_time" value="1735325803-152.53.39.118" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2024 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-4898")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-4898");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-4898");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>
