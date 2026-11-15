@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-DOMAIN="https://trilema-mirror.pages.dev"
+DOMAIN="https://trilema.bitcoinbarcelona.xyz"
 OUT="sitemap.xml"
 
 cat > "$OUT" <<'HEADER'
