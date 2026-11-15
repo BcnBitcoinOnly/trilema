@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_dec2016.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Euler on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">The fates are cruel an' the chances are slim<br />so grab a good sieve and dig in.<br />~<a href=/2020/nannare/#comment-147503>my elder slavegirl</a>
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-3808"><div class="post" id="post-3808">                    <h1><a href="/2009/euler/" rel="bookmark" title="Permanent Link to Euler">Euler</a></h1>                        <div class="date">                                     Sunday, 20 December, Year 1 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p>Ati auzit probabil de matematicianul meu favorit pentru prima oara prin scoala primara, odata cu diagramele Venn-Euler. Ei bine, a sosit vremea sa auziti mai multe.</p>
+<p>Leonhard Euler este de fapt un fel de Mozart al matematicii. Sigur, Mozart compunea simfonii la 12 ani, va aud zicand, Euler asta ce-a facut ? Ei bine, se pot scrie simfonii si in matematica, nu doar in muzica. Tot pe la 12 ani, ceva profesor s-a gasit sa-l pedepseasca cerandu-i sa adune toate numerele intregi de la 1 la 100. Dupa doua minute, primea si raspunsul. 4950. Profesorul si-a inchipuit ca micutul il ia in bascalie, si s-a apucat sa calculeze cum stia el, babeste. Si.. surpriza... rezultatul e chiar corect. Cum a procedat Euler ?</p>
+<p>Sa aplicam metoda pe numerele intregi pana la 10, ca-i mai usor de inteles. Odata, scrieti pe o foaie toate numerele in ordine : </p>
+<ul>
+1 2 3 4 5 6 7 8 9</ul>
+<p>Apoi, scrieti-le inca o data, dedesubt,</p>
+<ul>
+1 2 3 4 5 6 7 8 9<br />
+1 2 3 4 5 6 7 8 9</ul>
+<p>Mnu. Nu-i bine. Asta dovedeste ca n-avem talent la simfonii matematice. Sa trisam, sa privim in partitura maestrului, si sa repetam operatiunea, dar scriindu-le invers.</p>
+<ul>
+1 2 3 4 5 6 7 8 9<br />
+<del datetime="2009-12-20T21:13:44+00:00">1 2 3 4 5 6 7 8 9</del><br />
+9 8 7 6 5 4 3 2 1
+</ul>
+<p>Ei, si-acum, se poate intampla sa observam, daca observam, ca fiecare pereche de numere da aceeasi suma : 10. 9 + 1 = 8 + 2 si asa mai departe. Cate perechi sunt ? Pai 9, adica 10-1. Cat este suma ? 10. Deci totalul perechilor va fi 9 x 10. Dar intrucat noi am adunat numerele cerute de doua ori, rezultatul obtinut nu-i corect, e dublat. Sa-l injumatatim deci. 9 x 10 / 2 = 45. 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 = 45. </p>
+<p>Sa abstractizam. Ce-i 10 ? Numarul pana la care adunam. Deci n. Ce-i 9 ? 10 - 1. De ce -1 ? Pentru ca vom avea totdeauna mai putine perechi cu una decat numarul <em>pana la care</em> adunam. Deci, n-1. Si atunci, suma unui sir de numere naturale pana la n este n (n-1) / 2. Acest rezultat va fi, evident, intotdeauna un numar natural (ori n, ori n-1 vor fi numere pare).</p>
+<p>Sigur, asta nu-i decat o picatura in oceanul contributiilor lui Euler la stiinta matematicii. In vorbele lui Laplace, "<em>lisez Euler, lisez Euler, c'est notre maître à tous.</em>" Este. Omul a lasat in urma cufere intregi de documente, hartii, rapoarte, proiecte, eseuri, metode si solutii, in total destul material cat sa umple fo' 70 de volume. Nu doar calcul infinitesimal, dar si probleme de topografie si grafuri, fizica si astronomie, metode numerice si matematica aplicata scl scl.</p>
+<p><div id="attachment_3812" class="wp-caption aligncenter" style="width: 540px"><a href="/wp-content/uploads/2009/12/konigsberg.jpg"><img src="/wp-content/uploads/2009/12/konigsberg.jpg" alt="Podurile din Konigsberg County" title="konigsberg" width="530" height="430" class="size-full wp-image-3812" /></a><p class="wp-caption-text">Podurile din Konigsberg County</p></div></p>
+<p>Dupa cum vedeti, in jurul fortaretei Konigsberg-ului se afla sapte poduri. Mintea neostoita a oamenilor si-a pus intrebarea daca-i posibil sa treci pe fiecare pod fix o data, si sa ajungi de unde ai pornit. Ei bine, nu-i posibil. Acest graf n-are un circuit eulerian. Solutia este prima teorema din teoria grafurilor, si inceputul unei frumoase istorii.</p>
+<p>Euler nu s-a limitat la chestiunile matematice, ci si-a bagat nasul cam peste tot. A incercat sa creeze o teorie matematica a muzicii, sperand sa integreze in cele din urma muzica in matematica generala. Rezultatele au fost considerate "prea muzicale pentru matematicieni si prea matematice pentru muzicieni" si nu s-au bucurat de o prea larga circulatie. L-a combatut de asemenea pe Leibniz, de pe pozitii foarte pioase, a scris numeroase apologii si a polemizat cu majoritatea ateilor notabili ai vremii. Nebucurandu-se de multa educatie retorica, a ajuns deseori victima coltilor ascutiti ai lui Voltaire, care si-a petrecut si el cativa ani sub patronajul regelui Frederick al Prusiei. De-atunci incoace, de cate ori ma bucur de cate-o victorie a ascutimii si vitezei asupra lentorii si imbacselii eclesiale, imi amintesc ca-i si Euler printre imbacsitii aia.</p>
+<p>Si-n final, a orbit. Ramas chior in urma unui atac de febra, a facut mai tarziu si-o cataracta in ochiul bun, devenindu-i aproape imposibil sa citeasca. Dar, bucurandu-se de o memorie fotografica si o bine dezvoltata capacitate de-a calcula in cap (datorata, poate, si profesorilor slabi din gimnaziu ?), si ajutat de-o mica armata de secretari, asistenti si scribi a devenit inca si mai productiv, scriind cate o lucrare pe saptamana in anul 1775, zece ani aproape dupa lasarea intunericului.</p>
+<p>Un om simplu si silitor, nascut in Elvetia.</p>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2009/cautare-pe-blog/">Cautare pe blog</a></div>
+                <div class="alignright"><a href="/2009/loialitatea/">Loialitatea</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/trilenciclopedia/" title="View all posts in Trilenciclopedia" rel="category tag">Trilenciclopedia</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2009/euler/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2009/euler/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>23 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-11739" class="commentbody"><div class="commenthead"><img alt='Marius Ola`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink">Marius Ola</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11739" title="">Sunday, 20 December 2009</a>
+							</div>
+						<p>No, că atâtea despre Euler chiar nu am ştiut:)</p>
+						</li>
+
+										<li id="comment-11740" class="commentbody"><div class="commenthead"><img alt='Flaviu L. Comănescu-Balla`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Flaviu L. Comănescu-Balla<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11740" title="">Sunday, 20 December 2009</a>
+							</div>
+						<p>Deloc simplu, un geniu. Așa ceva nu cred că se poate educa. Din păcate. Dar a zis Gauss că cine nu vede frumusețea din ecuația lui Euler aia care leagă i de e nu va înțelege niciodată matematică. Care zicere m-a bucurat c-am găsit-o după ce apreciasem ca frumoasă ecuația. Sper că si cu ceva contributie personală la aprecierea asta estetică de-a mea și nu doar a minunatului meu prof de mate din liceu. Tot ce mai îmi rămâne acum e să încerc să înțeleg matematica cât pot. Cică Euler nu prea avea răbdare cu cei care nu pricepeau ce le explica (dădea si meditatii).</p>
+						</li>
+
+										<li id="comment-11741" class="commentbody"><div class="commenthead"><img alt='Flaviu L. Comănescu-Balla`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink">Flaviu L. Comănescu-Balla<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11741" title="">Sunday, 20 December 2009</a>
+							</div>
+						<p>Exemplu în plus in favoarea argumentului că geniul e orice altceva decât făcut - o mică poveste: era un matematician si a intalnit un caprar relativ tanar la vreo 20 si ceva de ani fara educatie prin Alpi. Sau poate era oier, nu mai tin minte exact, la fel nici numele faimosului matematician. Poveste adevarata. Si a remarcat cumva acest matematician ca tanarul needucat, prestator de servicii foarte manuale societatii, are ceva talent pentru figuri geometrice. O fi stat cu el putin de vorba, i-o fi aratat desenele lui ceva, cine stie. Cert e c-a inceput sa-l invete Geometrie. Asta se intampla pe la 1700 si ceva. Si tanarul caprar a devenit la randul sau un mare si faimos matematician caruia din nou i-am uitat numele. Dar povestea e reala. Daca doar mi-as aminti numele lor sa demonstrez. Cert e ca nu erau nici Euleru nici Gaussu vreunul dintre ei. Nici Bernoulli cred. Sau poate cel batran era unul din Bernoulli. Futu-i memoria.</p>
+						</li>
+
+										<li id="comment-11749" class="commentbody"><div class="commenthead"><img alt='Ionut`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink">Ionut</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11749" title="">Sunday, 20 December 2009</a>
+							</div>
+						<p>Numerele lui erau placute urechii, astea sunt placute ochiului:</p>
+<p>1 x 8 + 1 = 9<br />
+12 x 8 + 2 = 98<br />
+123 x 8 + 3 = 987<br />
+1234 x 8 + 4 = 9876<br />
+12345 x 8 + 5 = 98765<br />
+123456 x 8 + 6 = 987654<br />
+1234567 x 8 + 7 = 9876543<br />
+12345678 x 8 + 8 = 98765432<br />
+123456789 x 8 + 9 = 987654321</p>
+<p>SAU </p>
+<p>1 x 9 + 2 = 11<br />
+12 x 9 + 3 = 111<br />
+123 x 9 + 4 = 1111<br />
+1234 x 9 + 5 = 11111<br />
+12345 x 9 + 6 = 111111<br />
+123456 x 9 + 7 = 1111111<br />
+1234567 x 9 + 8 = 11111111<br />
+12345678 x 9 + 9 = 111111111<br />
+123456789 x 9 +10= 1111111111</p>
+<p>Dintr-o postare de-a mea, postare care poarta hramul Frumuseţea matematicii!</p>
+						</li>
+
+										<li id="comment-11750" class="commentbody"><div class="commenthead"><img alt='Flaviu L. Comănescu-Balla`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink">Flaviu L. Comănescu-Balla<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11750" title="">Sunday, 20 December 2009</a>
+							</div>
+						<p>I can beat that, watch this:  e^ix = cos x + i*sin x</p>
+						</li>
+
+										<li id="comment-11752" class="commentbody"><div class="commenthead"><img alt='dAImon`s avatar' src='http://www.daimon.me/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink"><a href='http://www.daimon.me/blog' class='url'>dAImon</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11752" title="">Sunday, 20 December 2009</a>
+							</div>
+						<p>epic win @FLCB :))</p>
+<p>in alta ordine de idei, Euler ce naiba cauta intre clerici? Asta-i riscul cand iesi din domeniul tau, nu mai porti luptele tale ci pe ale altora. Cam ca Iorga irosindu-si vremea in Parlament.</p>
+<p>Sa-i multumim doar pentru contributiile din stiintele exacte, zic.</p>
+						</li>
+
+										<li id="comment-11754" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11754" title="">Sunday, 20 December 2009</a>
+							</div>
+						<p>Na, într-adevăr, să nu uităm de constanta transcedentală e ce-i poartă numele și de identitatea considerată de matematicienii noștri trăzniți cea mai frumoasă egalitate din istorie [1].</p>
+<p>Aș adăuga totuși la faptul că Euler a fost genial (fapt de necontestat) și chestia că la vremea respectivă matematica era totuși un domeniu cât de cât virgin. Punctul de plecare era dat de cunoștințele de la greci, and there it went. El, Leibniz, Newton și toți ceilalți au revoluționat un domeniu ce urma să rămână temelie pentru sute de ani (și chiar și acum, cu ideile lui Dirac și matematicile discrete, tot de bază rămâne).</p>
+<p>Și doamne ferește, nu spun că nu mai sunt lucruri de descoperit în matematică. Spațiul axiomelor (deci și cel al teoremelor) e infinit - nenea Stephen Wolfram încearcă chiar să dezvolte o metodă de a le demonstra automat -, atât doar că învățământul s-a standardizat într-un asemenea hal încât distruge cea mai mare parte din creativitate. Pe tema asta, un nene pe nume Lockhart și-a dat cei doi cenți [2].</p>
+<p>[1] <a href="http://en.wikipedia.org/wiki/Euler%27s_identity">http://en.wikipedia.org/wiki/Euler%27s_identity</a><br />
+[2] <a href="http://www.maa.org/devlin/LockhartsLament.pdf">http://www.maa.org/devlin/LockhartsLament.pdf</a></p>
+						</li>
+
+										<li id="comment-11755" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11755" title="">Sunday, 20 December 2009</a>
+							</div>
+						<p>E 5050, dude. :D</p>
+						</li>
+
+										<li id="comment-11756" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11756" title="">Sunday, 20 December 2009</a>
+							</div>
+						<p>Sau, ca sa generalizez: e n(n+1)/2</p>
+						</li>
+
+										<li id="comment-11757" class="commentbody"><div class="commenthead"><img alt='Flaviu L. Comănescu-Balla`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">10</div>
+								<span class="authorlink">Flaviu L. Comănescu-Balla<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11757" title="">Sunday, 20 December 2009</a>
+							</div>
+						<p>Hait. Chiar așa. : )))</p>
+						</li>
+
+										<li id="comment-11759" class="commentbody"><div class="commenthead"><img alt='Mihai`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">11</div>
+								<span class="authorlink">Mihai<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11759" title="">Sunday, 20 December 2009</a>
+							</div>
+						<p><a href="http://matematicaesimpla.com/matematica/formule/formule-suma-primelor-n-numere-naturale/">http://matematicaesimpla.com/matematica/formule/formule-suma-primelor-n-numere-naturale/</a></p>
+<p>e n=1, si da rezultatul scris de catalin!</p>
+						</li>
+
+										<li id="comment-11764" class="commentbody"><div class="commenthead"><img alt='krossfire`s avatar' src='http://www.krossfire.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">12</div>
+								<span class="authorlink"><a href='http://www.krossfire.ro' class='url'>krossfire</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11764" title="">Monday, 21 December 2009</a>
+							</div>
+						<p>Grafurile euleriene sunt iar de baza in construirea unui A.I simplu in jocuri (I did that in highschool) :)</p>
+						</li>
+
+										<li id="comment-11765" class="commentbody"><div class="commenthead"><img alt='Flaviu L. Comănescu-Balla`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">13</div>
+								<span class="authorlink">Flaviu L. Comănescu-Balla<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11765" title="">Monday, 21 December 2009</a>
+							</div>
+						<p>@ krossfire - cum anume?</p>
+						</li>
+
+										<li id="comment-11768" class="commentbody"><div class="commenthead"><img alt='Martin`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">14</div>
+								<span class="authorlink">Martin</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11768" title="">Monday, 21 December 2009</a>
+							</div>
+						<p>Gauss e protagonistul intamplarii cu suma primelor 100 de numere, nu Euler.</p>
+						</li>
+
+										<li id="comment-11771" class="commentbody"><div class="commenthead"><img alt='Flaviu L. Comănescu-Balla`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">15</div>
+								<span class="authorlink">Flaviu L. Comănescu-Balla<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11771" title="">Monday, 21 December 2009</a>
+							</div>
+						<p>Hait. Corect și la asta!</p>
+						</li>
+
+										<li id="comment-11836" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">16</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11836" title="">Monday, 21 December 2009</a>
+							</div>
+						<p>@<b>Marius Ola</b> ;)</p>
+<p>@<b>Flaviu L. Comănescu-Ball</b> Sa te impartim per capitole, ca multe zisasi.</p>
+<p>1. A lasat in urma niste scrisori catre printesa de Anhalt-Dessau destul de tolerante, poti incepe de-acolo (si daca te timoreaza, exista notat in istorie si momentul cand a proiectat o fantana arteziana pentru Frederick care n-a functionat, dar deloc.)</p>
+<p>2. A mathematical biologist spends his vacation hiking in the Scottish highlands. One day, he encounters a shepherd with a large herd of sheep. One of these cuddly, woolly animals would make a great pet, he thinks...<br />
+"How much for one of your sheep?" he asks the shepherd.<br />
+"They aren't for sale", the shepherd replies.<br />
+The math biologist ponders for a moment and then says: "I will give you the precise number of sheep in your herd without counting. If I'm right, don't you think that I deserve one of them as a reward?"<br />
+The shepherd nods.<br />
+The math biologist says: "387".<br />
+The shepherd is silent for a while and then says: "You're right. I hate to loose any of my sheep, but I promised: One of them is yours. Have your pick!"<br />
+The math biologist grabs one of the animals, puts it on his shoulders, and is about to march on, when the shepherd says: "Wait! I will tell you what your profession is, and if I'm right I'll get the animal back."<br />
+"That's fair enough."<br />
+"You must be a mathematical biologist."<br />
+The man is stunned. "You're right. But how could you know?"<br />
+"That's easy: You gave me the precise number of sheep without counting - and then you picked my dog..."</p>
+<p>3. Hehehe</p>
+<p>4. Nope.</p>
+<p>@<b>Ionut</b> Acu refa-le in baza 8.</p>
+<p>@<b>dAImon</b> Pai daca asa credea omu' ? Te caci in credinta lui ?</p>
+<p>@<b>spyked</b> Cred ca vei ramane in anale ca primul om cu aparat critic la comentarii :D</p>
+<p>Da' vreau sa-ti spun ca matematica nu era virgina decat privind situatia anacronic, comitand ceea ce se numeste presentism. In fapt, ea nu-i mai virgina  azi decat era virgina acum 100, 1000 sau 10,000 de ani. Ceea ce ne limiteaza pe noi, facandu-ne sa ne para inghesuit domeniul e limita mintii noastre, iara nu a matematicii. Sa nu-ti inchipui tu ca fizica n-a parut niciodata o stiinta "inchisa". Cum crezi ca arata geometria dupa Euclid ? </p>
+<p>Dar subscriu la teoria cu invatamantul care distruge creativitatea. Exact ca si in 1700 :)</p>
+<p>@<b>Catalin</b> Problema vine de la interpretarea pe care-o dai lui "pana la". Eu am folosit pana la in sens strict, tu folosesti pana la in sens inclusiv (pana la 100, inclusiv 100). Priveste mai cu atentie exemplele.</p>
+<p>De unde se vede ca v-am cam prins, apropo, si pe tine si pe mihai, si pe fcbl, ca aplicati formule asa, cam mecanic, hmm ? :D</p>
+<p>@<b>krossfire</b> Dap.</p>
+<p>@<b>Martin</b> Sigur esti ?!</p>
+						</li>
+
+										<li id="comment-11839" class="commentbody"><div class="commenthead"><img alt='Flaviu L. Comănescu-Balla`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">17</div>
+								<span class="authorlink">Flaviu L. Comănescu-Balla<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11839" title="">Monday, 21 December 2009</a>
+							</div>
+						<p>O fi, o fi. M-am intristat iar. Gauss de fapt o zis ca cine nu pricepe identitatea lui Leo din prima, n-o va pricepe niciodata. N-o zis nimic de placut. Futu-i. Io tot nu pricep cum poti ridica pe e la o putere. La naiba.</p>
+						</li>
+
+										<li id="comment-11840" class="commentbody"><div class="commenthead"><img alt='Flaviu L. Comănescu-Balla`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">18</div>
+								<span class="authorlink">Flaviu L. Comănescu-Balla<img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11840" title="">Monday, 21 December 2009</a>
+							</div>
+						<p>Erata: e la o putere complexa desigur.</p>
+						</li>
+
+										<li id="comment-11846" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">19</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11846" title="">Tuesday, 22 December 2009</a>
+							</div>
+						<p>Na, așa e, poate m-am raportat prea mult la prezent. Cert e că dacă stai prea mult să studiezi un (sub)domeniu standardizat într-o știință, fie că-i ea matematică sau fizică sau altceva, îți creezi câteva preconcepții, iar la un moment dat creierului o să îi fie mult mai lejer să accepte formalismul impus de acel (sub)domeniu decât să își pună întrebări. Vorba aia, cine era el Planck să creadă că energia se distribuie în cuante. Chiar și pentru el, treaba asta a fost ca o găleată de apă rece turnată peste față. O abordare intuitivă însă va oferi un insight mult mai bun asupra problemei, la fel ca și în cazul lui Euler. În mod ironic, pe ei nu-i motiva nimeni cu un milion de dolari să rezolve P vs NP-urile lor de atunci. Problema-i că mulți îți sar în cap atunci când le spui că matematica e o artă cum e și muzica.</p>
+<p>Și chiar și așa, între cele două metode de abordare pentru învățat (citit cărți vs încercarea de a reinventa roata) e bine să existe un echilibru, deoarece cunoștințele alea standardizate pot oferi un punct de plecare pentru altceva. </p>
+<p>@Flaviu L. Comănescu-Balla Ridicarea la putere e cum e, dar ce te faci când funcția aia (e ridicat la x) vine reprezentată ca o sumă infinită? Oamenii ăștia și-au permis să facă multe nebunii peste numerele complexe. :) Și când te mai gândești și că atunci când îl ridici pe e la o putere reală, lucrezi de fapt într-un spațiu în care cos și sin au argumente complexe, zău că durerea de cap e inevitabilă.</p>
+						</li>
+
+										<li id="comment-11849" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">20</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11849" title="">Tuesday, 22 December 2009</a>
+							</div>
+						<p>@<b>Flaviu L. Comănescu-Balla</b> Asta din ciclul bun ii vinu', da' naspa-i dimineata de dupa ?</p>
+<p>Oricum, problema e ca "ridicarea la putere" e un concept, nu o operatie. Tot asa cum suma numerelor pana la x e un concept, nu o operatie. Abordarea ei ca operatie e exact motivul pentru care v-ati prins urechile in 5050. Si daca-mi este permis sa-l parafrazez pe punctu' G al matematicii, cei ce cred ca matematica e o suita de operatii n-o vor intelege niciodata (fiind defapt indistinctibili de masinile de calcul, si mult mai bine echipati pentru a citi carti de bucate).</p>
+<p>@<b>skythes</b> Sunt bineinteles si cei care-si reprezinta "studierea" ca operatie. Nici ea nu-i :) Vezi supra.</p>
+<p>Problema cu i este ca-i abstractiune matematica pura, fara nici un referent "real". Ecuatiile lui au proprietatea de a-i desparti pe cei ce pot trai intr-o lume abstracta de cei ce-o pot doar vizita.</p>
+						</li>
+
+										<li id="comment-11851" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">21</div>
+								<span class="authorlink"><a href='http://reinvented.ro' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11851" title="">Tuesday, 22 December 2009</a>
+							</div>
+						<p>M-ai prins ca nu am citit cu atentie, recunosc. Dar nu am aplicat formula mecanic - pur si simplu mi s-a parut ceva in neregula cu rezultatul respectiv, intrucat cand eram mai mic imi placea sa fac calcule sau sa retin valori pentru chestii mai mult sau mai putin relevante.<br />
+4950 didn't sound familiar, pur si simplu. :)</p>
+						</li>
+
+										<li id="comment-11853" class="commentbody"><div class="commenthead"><img alt='dAImon`s avatar' src='http://www.daimon.me/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">22</div>
+								<span class="authorlink"><a href='http://www.daimon.me/blog' class='url'>dAImon</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11853" title="">Tuesday, 22 December 2009</a>
+							</div>
+						<p>Popescule, cre'ca esti singuru' care a reusit sa faca matematica sa-mi para atragatoare, asta cu ajutorul lui [spyked]. Gen, ai zis ca matematica ii un spatiu abstract, and I do love abstract stuff. Bonus momentele cand teoremele noi par absurde de-a dreptul prin comparatie cu vechea knowledge base.</p>
+<p>Congrats, kinda.</p>
+						</li>
+
+										<li id="comment-11854" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">23</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11854" title="">Tuesday, 22 December 2009</a>
+							</div>
+						<p>Orice teorema demna de-acest nume se gaseste dincolo de absurd :D</p>
+<p>Welcome aboard matey.</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authore8e1dd8" id="authore8e1dd8" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emaile8e1dd8" id="emaile8e1dd8" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urle8e1dd8" id="urle8e1dd8" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="3808" /></p>
+				<input type="hidden" name="comment_post_time" value="1735325903-152.53.39.118" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2024 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-3808")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-3808");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-3808");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

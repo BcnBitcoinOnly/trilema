@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg-chet.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>TRIP - Discutie pe algoritm on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Aici este pragul cel de sus,<br />unde v-o zis tati ca'ti da cu capul.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-3465"><div class="post" id="post-3465">                    <h1><a href="/2009/trip-discutie-pe-algoritm/" rel="bookmark" title="Permanent Link to TRIP - Discutie pe algoritm">TRIP - Discutie pe algoritm</a></h1>                        <div class="date">                                     Friday, 20 November, Year 1 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p><a href="//trip/">Topul Romanilor Influenti pe Twitter</a>, prescurtat TRIP nu fara oarecare malitie se bazeaza pe niste asumptii teoretice si niste alegeri specifice la implementare, pe care as dori sa le discutam putin.</p>
+<p><strong>I. Limba Romana.</strong> Nu incape discutie pentru mintea mea ca o astfel de unealta are utilitate strict pentru vorbitorii de limba romana. Aceasta lipsa de indoiala e rezultatul unor <a href="/2009/trip/">alegeri strategice</a> facute de mine, pentru mine, si ca atare nu are neaparat sens sau utilitate pentru alte persoane. Totusi, discutia in afara ei nu are utilitate pentru mine, asa ca suntem siliti de imprejurari sa ne supunem acestei limitari. </p>
+<p>In ce priveste implementarea practica, spider-ul TRIP citeste fluxul unui utilizator de twitter si incearca sa discearna ce limba vorbeste acesta. Alegerea nu se face nici dupa declaratia utilizatorului (de exemplu Location:) nici dupa alte criterii. In acest sens, daca scrieti in limba engleza sunteti, pentru TRIP.spider un englez, si daca scrieti in limba romana, chiar si in Angola sau Indochina, sunteti roman. Cred ca aceasta alegere e destul de bine justificabila prin recurs la rolul limbii ca suport principal al influentei culturale, si astfel, privind oricat de adanc la radacinile filosofice ale problemei, tot nu vom putea discerne notiunea de influenta de limba in care ea se petrece. Totusi, indiferent de credinta mea, acesta e un prim punct deschis discutiei.</p>
+<p>II. <strong>Re-tweets ca unica baza de masura.</strong> De departe cea mai controversata alegere. S-o luam la pas : cam ce s-ar putea folosi pentru a construi o ierarhie intre diversii utilizatori de twitter ? </p>
+<p>In mod evident, nu inaltimea sau culoarea ochilor, pentru ca sunt dificil de masurat in cadrul sistemului. In mod evident nu calificarea academica sau parerea prietenilor de-o bere, nu doar pentru ca sunt dificil de masurat in cadrul sistemului, dar mai ales pentru ca nu prezinta multa diversitate. Toata lumea are o diploma si bea bere cu oameni care-l cred destept, ca asta-i cursul lumii. </p>
+<p>Poate parea ridicol a lua in considerare asemenea chestiuni, pana realizam ca de fapt aici este asumptia numarul 1 a oricarei incercari de ierarhizare : se va putea ea face folosind strict masuri din cadrul sistemului ? Eu propun ca da, dar mi se pare ca este, sau ar putea sa fie discutabil.</p>
+<p>Dar daca admitem asumptia II.1, ramane sa alegem ce masuri din cadrul sistemului vom folosi. Ele ar putea fi : numarul de followeri (adica persoanele care urmaresc un utilizator anumit) ; numarul de tweeturi emise ; numarul de mentiuni ale numelui de catre altii ( @user) si respectiv numarul de re-tweets, (RT @user). Si asa ajungem sa facem si asumptia II.2, si anume, ca nu mai exista altele. Sa le luam pe acestea la rand :</p>
+<ol>
+<LI STYLE="list-style-type: lower-alpha">numarul de followeri. In principiu, toti cei care subscriu la lista de distributie sunt interesati de continut, ca altfel n-ar face-o, si reprezinta o potentiala piata pe care emisiile fiecarui utilizator se lupta pentru atentie.<br />
+Problema este ca nu te obliga nimeni sa-ti citesti twitturile. Daca ar exista un sistem prin care sa fii obligat sa citesti tot ce te-ai abonat sa primesti, atunci sigur ca oamenii ar fi foarte atenti unde subscriu (se vede in indarjirea cu care majoritatea lumii isi apara adresa de email. Ce-i o adresa de email decat un @nume, pana la urma ?).<br />
+A doua problema este faptul ca numarul de foloweri se afla pe aceasta lista. Acest numar fiind pasibil de-a fi folosit in evaluarea si ierarhizarea conturilor de twitter, si posesorii lor fiind vanitosi ca toti oamenii (ba poate chiar ceva pe deasupra), fiecare unitate capata o valoare pentru <em>cel urmarit</em>. De-aici si pana la schimb nu mai este decat un pas, pentru ca traim in capitalism, si iata deci ca exista o valoare de schimb pentru a urmari pe cineva.<br />
+Intrucat costul urmaririi e minim, si exista o valoare reziduala, vor aparea (si deja au aparut) oameni specializati in a urmari (fara a citi). Sigur, n-o fac cu mana, dar de facut tot o fac. Acest fapt imi spune mie ca in sine, numarul de urmaritori e complet lipsit de valoare pentru scopurile noaste.<br />
+Bine-bine, imi veti spune, o fi "in sine" lipsit de valoare, dar se poate proceda la "rafinarea" lui, alegand spamerii de oamenii reali etc. Sigur ca se poate, discretionar. Singura metoda non-discretionara care poate fi aplicata e descrisa mai jos (si iata si asumptia II.3)
+</li>
+<p><LI STYLE="list-style-type: lower-alpha">numarul de tweets. Avand in vedere ca exista servicii care muta fluxuri rss pe twitter, precum si jocurile acelea tampe ("x a vanat o caprioara! vino si tu sa-ti spamezi urmaritorii cu mesajele noastre tampe!"), precum si tot soiul de aplicatii dubioase ("X asculta melodia Y") tot la 3-4 minute cat dureaza o melodie fac acest punct complet ridicol pentru scopurile noastre . Asumptia II.4
+</li>
+<p><LI STYLE="list-style-type: lower-alpha">numarul de mentiuni. Twitter poate fi folosit ca un fel de chat, in care X se adreseaza @Y si Y inapoi @X. In principiu, aceste mentiuni ar putea avea valoare pentru scopul nostru, dar intervine o singura problema : oamenii percep in majoritate ca e nepoliticos sa ignori aceste mesaje (cand au sens, sigur ca spamul, adica mesajele fara context discernibil se ignora cu veselie). Intr-un sens, o @replica nu-i un act al vointei celui ce-o trimite, ci un rezultat al vointei celui ce-o primeste.<br />
+Astfel, daca am pune valoare pe aceste mentiuni, ar fi foarte simplu pentru o persoana interesata sa manipuleze rezultatele sa trimita cate o intrebare de bun simt pe zi catre fiecare din cei aflati pe primele 100 de pozitii. Si-aici deci asumptia II.4, ca a numara @replicile n-ar aduce servicii.
+</li>
+<p><LI STYLE="list-style-type: lower-alpha">Re-tweets. Diferenta intre o @replica si-un retweet este ca prima se distribuie doar <em>listei comune</em>, in timp ce ultimul se distribuie listei proprii. Ca sa ne intelegem : Daca Y este urmarit de 500 de persoane, iar X este urmarit de 400, din care 45 il urmaresc si pe Y, atunci textul "@X Salut mei!" emis de Y, precum si textul "@Y Salut, ce mai faci." sunt distribuite unui numar de 45 de oameni : aceia care-i urmaresc pe ambii. Asta in timp ce textele "RT @X : Buna idee" emis de Y respectiv "RT: @Y Beau lapte" emis de X sunt distribuite catre 500 si 400 de persoane respectiv.<br />
+Pe langa aceasta, nu exista o atat de mare asteptare din partea emitentilor ca un mesaj anumit va fi preluat si re-trimis, ceea ce inseamna ca agentii au o mult mai mare libertate in a-si manifesta alegerea.
+</li>
+</ol>
+<p><strong>III. Sistemul nou de RT.</strong> Noul sistem introdus recent de platforma ingaduie RT-ul ca functie programatica. Problema cu el este ca pune mai mult accent pe sursa originala, si foarte putin accent pe conducatorii mesajului, ori succesul ideii de RT e tocmai accentul pus pe transmitatori, adesea in detrimentul originatorului. In plus, se limiteaza semnificativ modificarile pe care un transmitator le poate aduce mesajului, care erau al doilea factor major in succesul sistemului. Chestia e un bun exemplu de gresala inspirata de niste idei putrede (alea cu copyrightul), si eu sunt convins ca nu va cunoaste o larga folosire, si va disparea in negura uitarii. Asumptia II.5, pentru ca TRIP nu le ia in considerare (deloc).</p>
+<p>In loc de concluzie, pentru ca m-am intins destul de mult la vorba, va poftesc la comentarii, sa disecam problema pe mai departe, pana la satisfacere sau extenuare.</p>
+<p><strong>Update</strong>, 22 nov : Am implementat o sugestie foarte buna venita din partea lui <a href="http://reinvented.ro/">Catalin</a>, de-a lua in considerare si "via @".</p>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2009/trip/">TRIP</a></div>
+                <div class="alignright"><a href="/2009/nevoi/">Nevoi</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/meta-psihoza/" title="View all posts in Meta psihoza" rel="category tag">Meta psihoza</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2009/trip-discutie-pe-algoritm/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2009/trip-discutie-pe-algoritm/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>26 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-10416" class="commentbody"><div class="commenthead"><img alt='krossfire`s avatar' src='http://www.krossfire.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink"><a href='http://www.krossfire.ro' class='url'>krossfire</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10416" title="">Friday, 20 November 2009</a>
+							</div>
+						<p>Tehnic, o rugaminte de tip ''Please RT'' iti poate genera o ''influenta'' bunicica dupa criteriul asta.</p>
+						</li>
+
+										<li id="comment-10417" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10417" title="">Friday, 20 November 2009</a>
+							</div>
+						<p>Ce-i drept.</p>
+						</li>
+
+										<li id="comment-10418" class="commentbody"><div class="commenthead"><img alt='krossfire`s avatar' src='http://www.krossfire.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink"><a href='http://www.krossfire.ro' class='url'>krossfire</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10418" title="">Friday, 20 November 2009</a>
+							</div>
+						<p>Bene, nu ca influenta pe Twitter te-ar face cine stie ce mare stab dar vezi sa nu generezi un RT mania :)</p>
+						</li>
+
+										<li id="comment-10420" class="commentbody"><div class="commenthead"><img alt='Dr.A`s avatar' src='http://blog.adrian.mihalcioiu.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink"><a href='http://blog.adrian.mihalcioiu.ro/' class='url'>Dr.A</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10420" title="">Friday, 20 November 2009</a>
+							</div>
+						<p>Modul in care tratezi RT-ul nou e ca si cum ai da toate premiile oscar baietilor de la piratesbay sau Cinema Patria.</p>
+						</li>
+
+										<li id="comment-10421" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10421" title="">Friday, 20 November 2009</a>
+							</div>
+						<p>@<b>krossfire</b> Ma gandesc ca ma salveaza structura de costuri : A cere un RT costa mai mult, si a primi un RT valoreaza mai mult decat prezenta in acest top : insasi valoarea intrinseca a RT-ului respectiv, care-i practic o inchiriere de lista de distributie. </p>
+<p>Cel putin teoretic vorbind, cred ca e ok.</p>
+<p>@<b>Dr.A</b> Nu stiu, mie mi se pare c-ai mai aproape de a spune, filmele sunt filme, n-am sa ma duc la asta pentru ca asa imi spune mr Holywood, doar e mult mai mare lumea decat vrea sa-ti arate o corporatie.</p>
+						</li>
+
+										<li id="comment-10422" class="commentbody"><div class="commenthead"><img alt='Ionut`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink">Ionut</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10422" title="">Friday, 20 November 2009</a>
+							</div>
+						<p>Suna frumos ... nu e frumos locul pe care ma aflu! :D</p>
+						</li>
+
+										<li id="comment-10428" class="commentbody"><div class="commenthead"><img alt='fanitza`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink">fanitza<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10428" title="">Friday, 20 November 2009</a>
+							</div>
+						<p>nimic despre dezbatere? am cautat si nu gasesc pe nicaieri decat mici schite!</p>
+						</li>
+
+										<li id="comment-10431" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10431" title="">Friday, 20 November 2009</a>
+							</div>
+						<p>@<b>Ionut</b> Esti tanar, ai vreme.</p>
+<p>@<b>fanitza</b> Ce dezbatere ?</p>
+						</li>
+
+										<li id="comment-10432" class="commentbody"><div class="commenthead"><img alt='fanitza`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink">fanitza<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10432" title="">Friday, 20 November 2009</a>
+							</div>
+						<p>aia de pe la parlament. ce a inceput pe 19 si a durat doua ore. cu principalii contracandidati la presedintie.</p>
+						</li>
+
+										<li id="comment-10433" class="commentbody"><div class="commenthead"><img alt='Dr.A`s avatar' src='http://blog.adrian.mihalcioiu.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">10</div>
+								<span class="authorlink"><a href='http://blog.adrian.mihalcioiu.ro' class='url'>Dr.A</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10433" title="">Friday, 20 November 2009</a>
+							</div>
+						<p>@fanita<br />
+pai dezbaterea e pentru nehotarati. Daca stii cu cine votezi la ce sa mai pierzi vremea ?</p>
+<p>@mircea<br />
+poate ar fi interesant sa pui data ultimei actualizari la top</p>
+						</li>
+
+										<li id="comment-10435" class="commentbody"><div class="commenthead"><img alt='fanitza`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">11</div>
+								<span class="authorlink">fanitza<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10435" title="">Friday, 20 November 2009</a>
+							</div>
+						<p>am vrut sa aud despre prestatie, dar nu numai. m-ar interesa mai mult despre subiectul asta. m-a dezamagit toata clasa politica. toti cei care au fost acolo, inafara de participantii la confruntare si sotia lui basescu, care a avut decenta sa stea cuminte si probabil a lui antonescu, pe care nu au prea aratat-o.</p>
+<p>niste porci si niste nesimtiti. parca nu au fost la socala. se foiau, sopteau, radeau, vorbeau, ca si niste prescolari. nesimtita de eba se juca la telefon, a lui geoana citea mesaje si colectiona biletele in timp ce unul pe acolo prin spate dormea(l-au aratat camerele). liniste sa faca?! nici vorba, l-au si intrerupt la un moment dat pe geoana ca sa ceara liniste salii. niste nesimtiti! porci!</p>
+						</li>
+
+										<li id="comment-10436" class="commentbody"><div class="commenthead"><img alt='Dr.A`s avatar' src='http://blog.adrian.mihalcioiu.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">12</div>
+								<span class="authorlink"><a href='http://blog.adrian.mihalcioiu.ro' class='url'>Dr.A</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10436" title="">Friday, 20 November 2009</a>
+							</div>
+						<p>@fanita<br />
+Terorista mica ce esti tu. Cautai o ocazie, un pretext, ceva  sa dai afara tot ce aveai pe suflet, asai ?</p>
+						</li>
+
+										<li id="comment-10441" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">13</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10441" title="">Friday, 20 November 2009</a>
+							</div>
+						<p>@<b>Dr.A</b> Va avea actualizare continua, dar deocamdata se mai munceste la spideri, asa ca-s cand cu roatele la deal, cand fac tampenii si trebe rollback etc.</p>
+						</li>
+
+										<li id="comment-10485" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">14</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10485" title="">Sunday, 22 November 2009</a>
+							</div>
+						<p>Mi-a venit o idee. Faza e ca unele mesaje cu @ nu sunt mesaje de chat, dar nu ai cum sa le identifici pe cele valoroase. Insa mi s-ar parea relevant sa introduci in algoritm si "via @x" - asta chiar are sens si tine de influenta lui x. Ce parere ai?</p>
+						</li>
+
+										<li id="comment-10486" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">15</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10486" title="">Sunday, 22 November 2009</a>
+							</div>
+						<p>Posibil, eventual inteles ca diversitate, nu volum.</p>
+<p>De asemenea, as putea adauga toate RT-urile factuale, adica mesajele precum de exemplu "Da ? Si ? @nume bla bla" care se comporta ca un RT chiar daca lumea nu le numeste asa. Totusi, se pierde ceva prin diluare, tocmai datorita faptului ca lumea nu le-a numit intentionat RT-uri.</p>
+						</li>
+
+										<li id="comment-10487" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">16</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10487" title="">Sunday, 22 November 2009</a>
+							</div>
+						<p>"via" e altceva, nu e un retweet in sine. E cand pui un link de care ai aflat prin x sau cand pui link la un articol al lui x. Asta inseamna ca x e influent..<br />
+Chiar mi se pare relevant "via @" - o sa dau, de curiozitate un search, sa vad daca exista foarte multe contexte in care nu e semnificativ..</p>
+						</li>
+
+										<li id="comment-10488" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">17</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10488" title="">Sunday, 22 November 2009</a>
+							</div>
+						<p>wtf.. gasesc doar update-uri de la japonezi. Ceva e in neregula cu searchul ala..</p>
+						</li>
+
+										<li id="comment-10489" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">18</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10489" title="">Sunday, 22 November 2009</a>
+							</div>
+						<p>Search-ul twitter zici ? Nici eu nu-l prea folosesc ca-i cam confuz.</p>
+<p>Via, da, asta-i drept. Hmm.</p>
+						</li>
+
+										<li id="comment-10492" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">19</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10492" title="">Sunday, 22 November 2009</a>
+							</div>
+						<p>Am implementat si via, si-am mai introdus cateva mici schimbari/rafinamente de algoritm.</p>
+						</li>
+
+										<li id="comment-10493" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">20</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10493" title="">Sunday, 22 November 2009</a>
+							</div>
+						<p>Foarte tare. :)<br />
+Asta e motivul ptr care ai dat tweetul cu chinezu? <a href="http://twitter.com/#search?q=via%20%40chinezu">http://twitter.com/#search?q=via%20%40chinezu</a></p>
+<p>Daca tot mi-ai acceptat propunerea, as mai avea una legata de estetica:<br />
+sa aliniezi coloanele. Asta poti s-o faci fara mari batai de cap daca tii cont de faptul ca exista maxim 15 (parca) caractere intr-un username de twitter. Poti sa bagi un font gen courier new si afisezi prima coloana pe 15 spatii.<br />
+La fel si cu scorul: sa fie afisat tot cu un font de-asta, cu un numar fixed de zecimale.<br />
+Si ar merge si un spatiu intre prima coloana (cu numarul curent) si username. :D</p>
+						</li>
+
+										<li id="comment-10494" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">21</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10494" title="">Sunday, 22 November 2009</a>
+							</div>
+						<p>Problema cu astea e una de spatiu. La ora actuala pagina aia are 2000 de oameni pe ea, si se incarca acceptabil de repede (zic eu). Tine cont ca fiecare spatiu adauga inca 2kb. Fiecare tag, fiecare caracter costa.</p>
+						</li>
+
+										<li id="comment-10495" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">22</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10495" title="">Sunday, 22 November 2009</a>
+							</div>
+						<p>Pai nu e un cost atat de mare in comparatie cu versiunea de acum cateva ore, cand se afisau toti referrerii din oficiu. :)</p>
+						</li>
+
+										<li id="comment-10880" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">23</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10880" title="">Monday, 30 November 2009</a>
+							</div>
+						<p>Si iata ca twitter renunta la noul RT. A supravietuit vreo 10 zile, o saptamana mai mult decat era nevoie. Duca-se.</p>
+						</li>
+
+										<li id="comment-10881" class="commentbody"><div class="commenthead"><img alt='Catalin`s avatar' src='http://reinvented.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">24</div>
+								<span class="authorlink"><a href='http://reinvented.ro/' class='url'>Catalin</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10881" title="">Monday, 30 November 2009</a>
+							</div>
+						<p>Poate e ceva temporar. Au anuntat asta oficial? M-ar enerva sa scoata listele. De RT nu-mi pasa asa mult..</p>
+						</li>
+
+										<li id="comment-10883" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">25</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-10883" title="">Monday, 30 November 2009</a>
+							</div>
+						<p>Listele ziceau ca le aduc inapoi.</p>
+						</li>
+
+										<li id="comment-11035" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">26</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-11035" title="">Thursday, 3 December 2009</a>
+							</div>
+						<p><b>MODIFICARE IMPORTANTA</b></p>
+<p>Revizuind datele colectate (care se apropie binisor de un milion de tweeturi) am tras concluzia ca principala eroare sistematica care afecteaza la ora actuala procesarea algoritmica a datelor survine din interpretarea gresita a RT-urilor date de "grupurile de prietenie".</p>
+<p>Aceasta descoperire nu-i neaparat surprinzatoare, in principiu, orice algoritm iterativ pe graful conexiunilor e vulnerabil la un atac al unui grup oarecare de noduri care isi acorda link-uri in cerc inchis (circle-jerk in limba engleza). In economie, problema e descrisa de <a href=/2009/v-as-spune-un-banc/ >bancul cu tabloul</a>. Toate sistemele de evaluare a importantei bazate pe aceasti teorie matematica (ca de exemplu Google) folosesc penalizari pentru a impiedica acest abuz. Astfel, avem mai degraba confirmarea implementarii corecte pana la acest punct, in sensul ca n-am introdus surse mai importante de erori, care s-o eclipseze. </p>
+<p>De acum incolo am introdus sisteme corective, pentru a impiedica  reprezentarea disproportionata a acestui tip de "influenta" mai degraba conventionala decat reala, si am recompilat intreaga baza de date. Este probabil sa apara cateva modificari importante in clasament fata de versiunile anterioare.</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="author8a54e46" id="author8a54e46" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email8a54e46" id="email8a54e46" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="url8a54e46" id="url8a54e46" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="3465" /></p>
+				<input type="hidden" name="comment_post_time" value="1768093376-207.241.225.134" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2026 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-3465")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-3465");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-3465");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>
