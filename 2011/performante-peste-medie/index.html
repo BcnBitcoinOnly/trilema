@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_oct2019c.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Performante peste medie on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Lucruri fine pentru oameni subtiri.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-18923"><div class="post" id="post-18923">                    <h1><a href="/2011/performante-peste-medie/" rel="bookmark" title="Permanent Link to Performante peste medie">Performante peste medie</a></h1>                        <div class="date">                                     Saturday, 30 April, Year 3 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p>Daca tot am executat un regal statistic cu ocazia <a href="//topul-blogurilor-romanesti.php">TBR</a>, care-a atras un numar de curiozitati din partea unei largi varietati de cetateni nebotezati in misteriosul cult al numerelor lipsite de corespondent in realitate denumit pompos "statistica teoretica", hai sa facem si citiva pasi introductivi.</p>
+<p>In principiu, cam noua oameni din zece (precum si nouazeci dintr-o suta si noua sute de mii dintr-un milion) se considera soferi "mai buni decit media". Cam aceeasi proportie se considera "empatici", "amuzanti" respectiv "capabili sa prinda glumele", tot idem "mai frumosi decit media", mai inteligenti decit media si asa mai departe. Pe scurt, orice calitate slab definita dar valorizata pozitiv in societate am alege, o zdrobitoare majoritate dintre subiecti se vor considera "mai buni decit media".</p>
+<p>Ei bine, ca sa vedeti chestie, majoritatea oamenilor au impresia ca inteleg statistica mai bine decit media! (Nu decit media insasi vreau sa zic, nu se compara ei cu conceptul abstract de-i fiul drept al insasi stiintei respective, ci decit media "celorlalti oameni [...]", unde [...] poate fi absolut orice). Rugati sa aduca o dovada in favoarea acestei evaluari a lor, majoritatea zdrobitoare a oamenilor aduc o dovada irationala.</p>
+<p>Care, in majoritatea zdrobitoare a cazurilor, este o varianta izomorf-omoloaga urmatoarei observatii : Desi 90% dintre oameni au impresia ca sunt soferi "mai buni decit media", asa ceva nu este posibil, din motive statistice. Cel mult 4x% din oameni pot fi "mai buni decit media".</p>
+<p>Problema cu acest rationament este urmatoarea : un numar oarecare de oameni au doua picioare. Un alt numar oarecare de oameni, cu siguranta semnificativ mai mic decit primul, au cite un singur picior fiecare. In fine, inca un alt numar de oameni, iarasi mic in raport cu primul, nu au picioare deloc. Este teoretic posibil sa existe si oameni cu 3, 5 sau 19 picioare, dar inca nu s-a intilnit asa o minunatie.</p>
+<p>Ca atare, la fiecare moment anumit, numarul mediu de picioare al oamenilor este cel mult 2, si probabil ceva peste 1. Admitind ca grupul luat in discutie este suficient de mare pentru a include macar un schiop (ca de exemplu, "populatia Transilvaniei" sau "oamenii nascuti in anul 1990"), e evident ca valoarea medie nu are cum fi 2, si deci <em>oricine are doua picioare are mai multe picioare decit media</em>. Pentru ca are numarul maxim de picioare posibil, si media nu poate fi egala cu maximum-ul decit in anumite situatii extrem de particulare (sau in termeni statistici, doar in grupuri nereprezentative).</p>
+<p>Chestia asta cam scufunda observatia cea inteligenta a statisticienilor amatori, dar n-am chiar terminat. Fie un set de zece oameni, care primesc note pentru abilitatea lor de-a conduce masina, pe o scara de la 1 la 10. Note acordate de Dumnezeu Tatal, intr-o comisie condusa de Trompi si la care mai participa si Allah, Buddha, Sitra etc etc. Nici o putinta de eroare in masuratoare, bun ? </p>
+<p>Ei, daca unul dintre cei zece ia nota 1,08 iar ceilalti iau toti note cuprinse intre 9,05 si 9,15, fara a lua nimeni 10 (si deci, nota maxima, ca-n exemplul anterior), totusi media va fi undeva in jur de 8. Care 8 este mai mic decit 9,05, si iata cum... 90% dintre soferii grupului sunt... <em>mai buni decit media</em>.</p>
+<p>Iata deci ca statistica-i o stiinta complicata, si toate bizdiganiile alea cu medie si median si mod si abateri standard etc scl nu-s tocmai degeaba, ci au si ele importanta lor. Anume, ne ingaduie sa ne asiguram ca nu ne aflam cumva in situatia celor ce-si intemeiaza superioritatea intelectuala in intelegerea lumii asteia pe idei izomorf-omoloage teoriei ca doar 4 soferi din 10 pot fi "mai buni decit media". </p>
+<p>Spor :)</p>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2011/sa-bem-in-gura/">Sa bem in gura!</a></div>
+                <div class="alignright"><a href="/2011/contramuzica-antimuzicala/">Contramuzica antimuzicala</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/trilenciclopedia/" title="View all posts in Trilenciclopedia" rel="category tag">Trilenciclopedia</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2011/performante-peste-medie/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2011/performante-peste-medie/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>14 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-48197" class="commentbody"><div class="commenthead"><img alt='Diana Coman`s avatar' src='http://dianacoman.com/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink"><a href='http://dianacoman.com/blog' class='url'>Diana Coman</a><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-48197" title="">Saturday, 30 April 2011</a>
+							</div>
+						<p>Pai na, canta zeita media pe toate gardurile, dar numai daca e distributie Gauss ca altminteri nu prea e ceea ce te astepti :D</p>
+						</li>
+
+										<li id="comment-48200" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-48200" title="">Saturday, 30 April 2011</a>
+							</div>
+						<p>Tu zici de mass-media, da' io ziceam de media aritmetica sa stii.</p>
+						</li>
+
+										<li id="comment-48203" class="commentbody"><div class="commenthead"><img alt='mitzaabiciclista`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink">mitzaabiciclista</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-48203" title="">Saturday, 30 April 2011</a>
+							</div>
+						<p>Hehehehe. Şi eu m-am izbit de chestiunea în speţă de multe ori. Şi cel mai al naibii e când trebuie să îi explici unuia care nu vrea să priceapă.<br />
+ Hmmm. Ex, că ştii că îmi plac puii(sau ai observat) Puii care se cresc pentru abatorizare se cântăresc odată la 7 zile pentru a li se urmări şi înregistra sporul în greutate pe graficul de creştere. Într-o hala unde sunt 20000 de capete, normal că nu stai să cântăreşti din 7 în 7 zile toţi puii fiindcă: 1 intri la balamuc, 2.mor puii de atâta stress, 3 intri la balamuc fiindcă au murit puii. Dar în fine, deci se cântăresc un eşantion de 50 de pui , care eşantion nu e acelaşi. Şi apoi se face o medie, se trece în graficul de creştere şi se compară cu rezultatele teoretice specifice fiecărei rase, pentru bunul mers al puiului, desigur. După cele 38-40 de zile cât îi ajunge puiului să ajungă la minimul de 2.2 kg se merge la abator. Acolo se face o cântărire pe camion plin cu animale-camion gol de animale(brut-tară=net) Apoi netul total se împarte la numărul de capete. Logic, nu? Ei bine, mi-a luat luni întregi să le explic unora de ce media greutăţii per total capete hală este mai mică decât media greutăţii per total capete eşantion. Şi deşi am argumentat de fiecare dată, matematic. Hell. Şi acum am coşmaruri când mă gândesc</p>
+						</li>
+
+										<li id="comment-48204" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-48204" title="">Saturday, 30 April 2011</a>
+							</div>
+						<p>Problema-i asa : daca media greutatii per total esantion 1 (brut-tara) e constant inferioara (sau constant superioara) mediei greutatii per esantion 2 cintarit individual (50 de pui) rezulta ca aveti o problema sistematica. </p>
+<p>In practica, asta-i fie din cauza ca nu alegeti corect puii (din nenumarate motive posibile, pentru ca fata de-i cintareste ii alege pe aia mai faini, sau pentru ca fata care-i alege prefera sa-i ia pe cei mai accesibili si din ceva motiv aia mai mari is mai accesibili etc) fie din cauza ca va fura la cintar cu camionul (frecvent se fura la receptie scazind marginea de eroare din greutatea cintarita, de exemplu).</p>
+<p>Chestiunea merita investigata, mai ales daca variantele nu diverg corect.</p>
+						</li>
+
+										<li id="comment-48205" class="commentbody"><div class="commenthead"><img alt='mitzaabiciclista`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink">mitzaabiciclista</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-48205" title="">Saturday, 30 April 2011</a>
+							</div>
+						<p>Nu, indiferent cât de bine ai alege, sau mai bine zis cât de corect ai alege, trebuie să ţii cont de un lucru. Puii nu sunt egali, nu mănâncă egal, nu cresc egal. Ca şi la oameni de altfel. Şi oricât de corect ai alege eşantionul, nu ai de unde să ştii numărul exact de pui a căror greutate nu este conformă. Nu vorbesc aici de diferenţe mari. Vorbesc de diferenţe relative. La diferenţe mari probleme se pun altfel.<br />
+ Deci indiferent cât de bine ai gestiona, nu ai cum să realizezi numărul exact al celor care nu îndeplinesc greutatea specifică. Căci dacă acel număr este într-un procent de 10% automat asta îţi va influenţa rezultatul dar nesimnificativ. Într-un procent de 20% se simte, de la 30% te oftici, de la 50% îţi bagi unghia, şi tot aşa. La 7, 14 zile de viaţă diferenţele se văd la ochi liber, iar cele arătate de cântar doar confirmă şi automat aplici metode de redresare. De la 28 de zile, diferenţele mai sunt vizibile doar dacă acestea chiar există. Iar când ajungi la 35 de zile crede-mă, oricât ai fi tu de şmecher, nu faci diferenţă la o simplă aruncătură de ochi intre doi pui care diferă la greutate doar cu 200 de grame.<br />
+ Probabil acum îţi vine să râzi, că vorbesc de diferenţe de grame. Doar că nu e amuzant când o diferenţă de chiar şi 100 grame pe medie se înmulţeşte cu un număr de 20000 de capete, fiindcă asta înseamnă 2000 kg de carne x 4,2 kg=8400 lei, care zic eu nu sunt de colea. Dar nu este o consecinţă de neatenţie, sau eroare umană, voită sau nevoită. Sunt factori care influenţează negativ, factori care îi poţi diminua dar nu elimina.<br />
+ Până şi viteza de circulare a aerului în hală poate fi un factor care să influenţeze negativ. Hmmm, dar e o teorie atât de stufoasă că ne-ar lua zile întregi să dezbatem. Pfff acaparăm postul cu asta. Dar ideea mi-ai inteles-o oricum!<br />
+ Te pup pe barbă, dar acuma chiar fug în lume, îmi iau câmpii. Ne revedem, luni.<br />
+  .kiss</p>
+						</li>
+
+										<li id="comment-48206" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-48206" title="">Saturday, 30 April 2011</a>
+							</div>
+						<p>Stai putin mei om, ca nu m-ai inteles.</p>
+<p>Deci, fie o hala cu 10,000 de pui in ea, ale caror greutati variaza intre 1600 si 2600 de grame. Fie esantionul 1, camion de pui, cu 2,000 de capete in el. Fie esantionul 2, cu 50 de capete in el.</p>
+<p>Esantionul 1 se masoara pe metoda brut-tara, si rezulta o greutate totala de 4 tone (4,000,000 grame) si deci o greutate per cap de 2,000 grame.</p>
+<p>Esantionul 2 se masoara pe metoda cintarire individuala, si rezulta 50 de greutati, pe plaja 1822 - 2495 grame. </p>
+<p>Daca diferenta intre media 2 si media 1 este mereu si intotdeauna pozitiva, sau daca este mereu si intotdeauna negativa, sau daca este mereu si intotdeauna egala cu 19, sau daca in general vorbind nu se imprastie rezulta ca aveti o problema sistematica, ori in ce priveste esantionarea (la 1, la 2, la amindoua), ori in ce priveste cintarirea, ori in ce priveste socotelile (cineva nu stie imparti, sau aduna, etc).</p>
+<p>Pentru ca nu este posibil sa convearga rezultatele alea din cauze naturale.</p>
+						</li>
+
+										<li id="comment-48208" class="commentbody"><div class="commenthead"><img alt='mitzaabiciclista`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink">mitzaabiciclista</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-48208" title="">Saturday, 30 April 2011</a>
+							</div>
+						<p>Nuuuuuuuu, nu ai voie la o asemenea diferenţă. Dacă sunt diferenţe de 1 kg per cap de pui, înseamnă că puii sunt bolnavi, sau liniile de furajare nu merg corect, sau frontul de adăpare nu a fost alimentat corect, sau au vârste diferite, sau naiba să ii ia.<br />
+ Eu vorbesc de diferenţe apărute la 1, maxim 200 de grame pe medie.<br />
+  Pfff, e altceva.<br />
+ Când mă întorc promit să îţi explic dacă te pasionează. dar cum pui tu problema nu e bine. Ca daca s-a ajuns la asa ceva înseamnă că acel crescător e Nepriceputeanu in persoană.<br />
+  Singura mea idee a fost că dacă greutăţile eşantionului au fost aproximativ în grafic pe toată durata creşterii, te poti astepta la diferente la final, in abatorizare, de respectiv 100-200grame/cap. Ceea ce tehnic nu e grav, e ok. Comercial însă, când vine vorba de incasat banii, acolo te scarpini in cur neintelegand de ce naiba e aşa, ca tu îţi faci calculul că esti in grafic si de fapt ai o eroare. Uneori si un 0.1% poate sa iti dea un plan peste cap.<br />
+ Mai vorbim, chiar ca urla lumea la mine acuma ca nu ma ridic de aici.</p>
+						</li>
+
+										<li id="comment-48209" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-48209" title="">Saturday, 30 April 2011</a>
+							</div>
+						<p>Nu conteaza amplitudinea diferentei in discutia noastra. Tot ce conteaza este ca uneori rezultatele masurarii prin metoda camion trebuie sa fie mai mari decit evaluarile prin metoda cintarire individuala, si alteori mai mici. Daca sunt tot mereu mai mari, sau tot mereu mai mici, cineva (sau ceva) undeva fura. Fara discutii posibile, e un fapt.</p>
+						</li>
+
+										<li id="comment-48244" class="commentbody"><div class="commenthead"><img alt='dAImon`s avatar' src='http://daimon.me/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink"><a href='http://daimon.me/blog/' class='url'>dAImon</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-48244" title="">Saturday, 30 April 2011</a>
+							</div>
+						<p>Mdefapt ce zice Miţa voiam să semnalez şi eu: la foarte multe grupuri, media cea mai reprezentativă este una făcută excluzând erorile statistice. Oamenii normali născuţi în 1990 aveau la naştere două picioare.</p>
+<p>Un copil obez acum 50 de ani nu reprezintă nimic, fiind el 1/1000 sau 1/10000 sau cât era raportul. În orice caz, media reprezentată în mentalul colectiv reprezintă mai mereu o plajă, nu un punct fix. Un şcolar mediu are note între 6,5 şi 8,5 (să zicem).</p>
+<p>Besides, din câte observ se întâmplă o substituire de noţiune: spui "media" şi omul înţelege "majoritatea". Nu, nu am mai multe picioare decât majoritatea.</p>
+						</li>
+
+										<li id="comment-48255" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">10</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-48255" title="">Saturday, 30 April 2011</a>
+							</div>
+						<p>Pai se produc tot felul de confuzii.</p>
+<p>In primul rind ca elementul care apare cel mai frecvent nu-i elementul mediu, ci modulul (de exemplu in setul de date pe care-i alcatuit TBR, modulul iese 50, pentru ca 50 e cea mai frecventa valoare in grup). </p>
+<p>In al doilea rind ca "media" inteleasa drept plaja, de la jumatate - epsilon la jumatate plus epsilon este mediana, nu media.</p>
+<p>Si-n ultimul rind ca eu vorbeam de oameni nascuti in 90 traitori astazi, deci de 21 de ani, sigur undeva pe planeta exista si un schiop printre ei, n-are cum.</p>
+<p>Iar in mai-mult-decit-ultimul rind, media <em>nu este reprezentativa</em>, in sensul general al notiunii de reprezentare.</p>
+						</li>
+
+										<li id="comment-48265" class="commentbody"><div class="commenthead"><img alt='gheorghe`s avatar' src='http://animalantisocial.wordpress.com/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">11</div>
+								<span class="authorlink"><a href='http://animalantisocial.wordpress.com' class='url'>gheorghe</a><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-48265" title="">Saturday, 30 April 2011</a>
+							</div>
+						<p>Lol, ai dracu pui inegali, cum se face ca intotdeauna ies pe minus si niciodata pe plus. Ma gandesc ca daca cantarirea se face la client, puii aia vor fi mai usori pentru ca in timpul drumului pe camion n-au mancat si n-au baut apa.</p>
+						</li>
+
+										<li id="comment-48267" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">12</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-48267" title="">Saturday, 30 April 2011</a>
+							</div>
+						<p>E posibil sa fie de la deshidratare/dejectii normale, sigur ca da. Dar se pot parametriza pierderile homeostatice.</p>
+<p>Sau cu alte cuvinte, chestiunea necesita un raspuns, oricum ar fi el.</p>
+						</li>
+
+										<li id="comment-48395" class="commentbody"><div class="commenthead"><img alt='mitzaabiciclista`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">13</div>
+								<span class="authorlink">mitzaabiciclista</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-48395" title="">Tuesday, 3 May 2011</a>
+							</div>
+						<p># Gheorghe, nu am spus nici o secundă că acei pui ies întotdeauna pe minus şi niciodată pe plus. De ce dramatizezi?<br />
+ # Mircea, închipuie că sunt cazuri în care nu se fură. De ce? Pentru că există astfel de sisteme care nu permit furtişagul, asta pe de o parte- pe de altă parte, de ce neapărat trebuie să ne gândim la furtişag?<br />
+  Eu vroiam să îţi spun altceva, dar am observat deja că ai concluzionat la penultimul comentariu. Da, media nu este reprezentativă. Desigur că poate fi luată ca punct de reper. Eu aici vroiam să nuanţez. Că media efectuată prin sondaje este o variabilă cu + - erori de abatere.<br />
+  Greşelile se fac atunci când sunt luate în calcul ca şi valori de adevăr absolut, acele medii aritmetice rezultate din sondaje aleatorii.</p>
+						</li>
+
+										<li id="comment-48401" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">14</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-48401" title="">Tuesday, 3 May 2011</a>
+							</div>
+						<p>Mei, sa nu ne luam mai in serios decit e cazul : eu pot fi oricind de acord ca exista sisteme care in anumite conditii de exploatare ingreuneaza furtisagul, dar nu voi fi niciodata de acord ca ele pur si simplu "nu-l permit". Asa ceva nu-i posibil.</p>
+<p>Singura metoda practica de-a verifica teoria cu eficienta sistemelor respective e sa te asiguri ca diferentele constatate sunt coerente cu o distributie statistica aleatorie. Ai formulele lui Poisson, care n-o muncit bietul degeaba, faci derivatele si vezi. </p>
+<p>Da-n rest, clar ca media prin sondaj are o abatere fata de media reala (a carei amplitudine medie se poate de altfel si calcula - tot Poisson).</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="author1b9a340" id="author1b9a340" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email1b9a340" id="email1b9a340" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="url1b9a340" id="url1b9a340" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="18923" /></p>
+				<input type="hidden" name="comment_post_time" value="1779286727-18.97.14.89" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2026 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-18923")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-18923");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-18923");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_aug2019b.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Imbunatatiri si complicari in calcularea karma on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Aici este pragul cel de sus,<br />unde v-o zis tati ca'ti da cu capul.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-17533"><div class="post" id="post-17533">                    <h1><a href="/2011/imbunatatiri-si-complicari-in-calcularea-karma/" rel="bookmark" title="Permanent Link to Imbunatatiri si complicari in calcularea karma">Imbunatatiri si complicari in calcularea karma</a></h1>                        <div class="date">                                     Saturday, 19 March, Year 3 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p>In ce priveste imbunatatirile, am modificat modul in care scriptul calculeaza karma utilizatorilor. </p>
+<p>Initial foloseam un script special care calcula cu o oarecare periodicitate (jumatate de ora - o ora) karma tuturor utilizatorilor simultan. Aceasta abordare are citeva avantaje - in principal faptul ca-i mai usor de scris si de verificat - dar si citeva dezavantaje - in principal ca incarca destul de tare procesorul, asa incit unii utilizatori au putut observa performante diminuate in timp ce se recalcula karma. In plus, odata cu cresterea numarului de utilizatori si a debitului de actiuni ale lor aceasta abordare tot devine nesustenabila. Se va intimpla mai devreme sau mai tirziu, dar se va intimpla cu siguranta.</p>
+<p>Asa incit am trecut la o abordare difuza (procedure hook), in care orice pagina incarcata poate, daca este nevoie, sa calculeze karma unui utilizator (nu neaparat a celui ce incarca pagina). </p>
+<p>In principiu singurele efecte pe care utilizatorii le vor observa vor fi karma mai proaspata si respectiv timpi de acces mai buni. In practica pot aparea bineinteles diverse erori, pe care nu va sfiiti sa le semnalati.</p>
+<p>In ce priveste complicarile, am modificat modul de calcul a karmei utilizatorilor. </p>
+<p>Precum probabil stiti, toate actiunile (votat, comentat, introdus articole) atrageau un bonus de karma. In plus, succesul procentual (numarul de articole introduse dar nepublicate versus numarul de articole introduse si publicate pe de-o parte, respectiv numarul voturilor acordate articolelor nepublicate versus numarul voturilor acordate articolelor publicate inainte de-a ajunge publicate) mai atragea bonificatii categoriilor respective. De asemenea, convergenta (link-uri introduse de pe acelasi domeniu) atragea si ea penalizari fixe, in crestere exponentiala de la 2 articole in sus.</p>
+<p>Ei bine, pe linga acest sistem deja complicat am adaugat un nou considerent : convergenta globala. Scriptul mentine de-acum o lista a tuturor domeniilor introduse in ultima luna, alaturi de numarul de aparitii. Tuturor utilizatorilor li se calculeaza de-acum inainte un coeficient de convergenta, asa fel incit cei care introduc in majoritate articole de pe domeniile cu frecventa mare de aparitie vor avea un factor aproape de 0, iar cei care introduc in majoritate articole de pe domenii noi sau cu frecventa mica vor avea un factor aproape de 1.</p>
+<p>Acest factor se inmulteste cu karma pozitiva acumulata de utilizator (anterior substragerii penalitatilor), asa incit un utilizator care introduce strict articole aparute pe domeniile cele mai frecvente nu va primi karma aproape deloc. Dimpotriva, utilizatorii care introduc in general articole de pe domenii noi vor primi karma nealterata.</p>
+<p>Intrucit aceasta modificare induce per total o scadere a karmei totale din sistem (factorul fiind cuprins intre 0 si 1) voi proceda in cursul zilei la o reevaluare a punctajelor de baza pentru actiuni (introdus articole, votat, comentat scl) in sensul cresterii lor corespunzatoare. Oricum era cazul, respectivele nemaifiind revizuite de mai bine de un an de zile. </p>
+<p>Urmeaza probabil si o re-scriere a ghidului de utilizare/regulamentului pentru a reflecta noua situatie de fapt.</p>
+<p>Spor la fain!</p>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2011/urme-sarate-xvi/">Urme sarate - XVI</a></div>
+                <div class="alignright"><a href="/2011/primal-fear/">Primal Fear</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/meta-psihoza/" title="View all posts in Meta psihoza" rel="category tag">Meta psihoza</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2011/imbunatatiri-si-complicari-in-calcularea-karma/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2011/imbunatatiri-si-complicari-in-calcularea-karma/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>64 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-44672" class="commentbody"><div class="commenthead"><img alt='dAImon`s avatar' src='http://daimon.me/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink"><a href='http://daimon.me/blog/' class='url'>dAImon</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44672" title="">Saturday, 19 March 2011</a>
+							</div>
+						<p>"ultima luna" avand date fixe de incepere si terminare, sau e o lista FIFO calculata intre data curenta si acum 30 de zile?</p>
+						</li>
+
+										<li id="comment-44674" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44674" title="">Saturday, 19 March 2011</a>
+							</div>
+						<p>Fifo.</p>
+						</li>
+
+										<li id="comment-44676" class="commentbody"><div class="commenthead"><img alt='Critic`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink">Critic</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44676" title="">Saturday, 19 March 2011</a>
+							</div>
+						<p>deci daca am inteles bine, acum e mai greu de facut karma. yay pentru utilizatorii de.</p>
+						</li>
+
+										<li id="comment-44677" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44677" title="">Saturday, 19 March 2011</a>
+							</div>
+						<p>N-ai inteles bine.</p>
+						</li>
+
+										<li id="comment-44678" class="commentbody"><div class="commenthead"><img alt='Porcul de York`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink">Porcul de York</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44678" title="">Saturday, 19 March 2011</a>
+							</div>
+						<p>yo zic ca e ok</p>
+						</li>
+
+										<li id="comment-44680" class="commentbody"><div class="commenthead"><img alt='dAImon`s avatar' src='http://daimon.me/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink"><a href='http://daimon.me/blog/' class='url'>dAImon</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44680" title="">Saturday, 19 March 2011</a>
+							</div>
+						<p>Din câte am văzut ochiometric, articolele din categoria Internet sunt cele mai puţine şi de obicei şi slab votate, la pol opus faţă de Societate. Practic modificarea încearcă să încurajeze la nivel sistemic o egalitate de volum. Nu-mi dau seama cât se pliază asta pe comunitatea actuală, probabil vom vedea mişcări şi la nivel de oameni.</p>
+<p>Sau prin domenii te referi la .. ce? Taguri? Ai propriul spider şi parcurgi şi articolele introduse?</p>
+						</li>
+
+										<li id="comment-44681" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44681" title="">Saturday, 19 March 2011</a>
+							</div>
+						<p>Uite pentru curiozitate lista :</p>
+<blockquote><p>avola.ro	27<br />
+worldinaphoto.wordpress.com	19<br />
+traveloman.ro	18<br />
+lisandrulisandru.wordpress.com	15<br />
+bucurvictor.wordpress.com	13<br />
+dropgol.ro	13<br />
+polimedia.us	10<br />
+pavelarcana.com	10<br />
+lumealuigaita.blogspot.com	10<br />
+angelorobitu.wordpress.com	9<br />
+cabinetexpert.ro	8<br />
+melicovici.wordpress.com	8<br />
+piesadeseara.wordpress.com	8<br />
+loredana.prwave.ro	8<br />
+9am.ro	7<br />
+cenusadetrandafir.ro	7<br />
+eufaranume.wordpress.com	7<br />
+tu26dor.blogspot.com	7<br />
+turistu.ro	7<br />
+perspectivenoi.wordpress.com	7<br />
+questioare.com	6<br />
+descopera.ro	6<br />
+alecuracoviceanu.ro	6<br />
+worldofsolitaire.wordpress.com	6<br />
+traveloman.wordpress.com	6<br />
+pavelionut.wordpress.com	6<br />
+reinvented.ro	6<br />
+razvanitu.blogspot.com	6<br />
+hazmate.wordpress.com	6<br />
+rezistenta.net	5<br />
+freeseodesign.blogspot.com	5<br />
+arsenestefania.com	5<br />
+lagrimme.blogspot.com	5<br />
+betivuldecuvinte.ro	5<br />
+dyobodiu.wordpress.com	5<br />
+imperatortravel.ro	5<br />
+creiercretz.wordpress.com	5<br />
+rastalmaciu.wordpress.com	5<br />
+licuriciulorb.com	5<br />
+cumgandescbogatii.com	5<br />
+andreiamza.ro	5<br />
+cristiandima.wordpress.com	5<br />
+calinhera.wordpress.com	5<br />
+graphis-artwork.blogspot.com	5<br />
+alexandrugrivei.ro	5<br />
+achilianu.ro	5<br />
+cristianpatrascu.wordpress.com	5<br />
+patrickdan.blogspot.com	4<br />
+flaviusobeada.wordpress.com	4<br />
+tvdece.ro	4<br />
+fwr.ro	4<br />
+spranceana.com	4<br />
+dono.ro	4<br />
+dianacoman.com	4<br />
+inconstantin.ro	4<br />
+bitumihai.wordpress.com	4<br />
+tinomentor.wordpress.com	4<br />
+neamtu.romascani.ro	4<br />
+colt.paramedia.ro	4<br />
+uzinadeganduri.ro	4<br />
+simonatache.ro	4<br />
+sutsigol.com	4<br />
+expertdiamant.wordpress.com	4<br />
+omulbun.blogspot.com	4<br />
+blogvista.ro	4<br />
+infogradina.ro	4<br />
+nepoate.romascani.ro	4<br />
+contributors.ro	4<br />
+utilecopii.ro	4<br />
+promisiunilesportuluirege.blogspot.com	4<br />
+jurnaldeepoca.wordpress.com	4<br />
+miscellanea.ro	4<br />
+cinefon.ro	4<br />
+umograf.com	4<br />
+lunapatrata.wordpress.com	4<br />
+blog.casainteligenta.com	4<br />
+azicitesc.com	4<br />
+delaepicentru.wordpress.com	4<br />
+peterwithapen.wordpress.com	3<br />
+pisicaroz.ro	3<br />
+adevarul.ro	3<br />
+mariapostu.wordpress.com	3<br />
+baricada.wordpress.com	3<br />
+chinezu.eu	3<br />
+roscata.romascani.ro	3<br />
+alinailioi.ro	3<br />
+jurnalul0unui0tip0frustrat0de0vreme.blogspot.com	3<br />
+verze.ro	3<br />
+evz.ro	3<br />
+alexmazilu.ro	3<br />
+piticigratis.com	3<br />
+prinromania.eu	3<br />
+mintea-de-ceai.blogspot.com	3<br />
+apolloro.blogspot.com	3<br />
+spi-oana.org	3<br />
+se-cret-blognotes.blogspot.com	3<br />
+ukavra.com	3<br />
+extclub.ro	3<br />
+meetsun.ro	3<br />
+catavencu.ro	3<br />
+name 	count<br />
+dojoblog.info	3<br />
+buimacii.wordpress.com	3<br />
+anndrei.wordpress.com	3<br />
+jurnalisticus.blogspot.com	3<br />
+viatanebuna.blogspot.com	3<br />
+trenduri.blogspot.com	3<br />
+cleo.spi-oana.org	3<br />
+riscograma.ro	3<br />
+miorlaieliinmiezdenoapte.wordpress.com	3<br />
+cautpensiuni.ro	3<br />
+intalniripeneve.blogspot.com	2<br />
+taradaciuc.com	2<br />
+liarebelyell.blogspot.com	2<br />
+milogul.blogspot.com	2<br />
+timesnewroman.ro	2<br />
+dubioasa.com	2<br />
+cristina-v.blogspot.com	2<br />
+morom3t3.wordpress.com	2<br />
+evilessence.wordpress.com	2<br />
+rfi.ro	2<br />
+ardgazul.wordpress.com	2<br />
+tanar-cititor.eu	2<br />
+andreewmd.wordpress.com	2<br />
+bagatare.ro	2<br />
+pisica07.wordpress.com	2<br />
+daimon.me	2<br />
+reclame-tv.ro	2<br />
+recenzii.serafimpantea.ro	2<br />
+ 	2<br />
+mihaelaanghel.com	2<br />
+grotesque.silentact.eu	2<br />
+krossfire.ro	2<br />
+moonlightblues.wordpress.com	2<br />
+saccsiv.wordpress.com	2<br />
+incertitudini2008.blogspot.com	2<br />
+agonia.net	2<br />
+cititordeproza.ning.com	2<br />
+lejournaldecorina.blogspot.com	2<br />
+lacoltulstrazii.wordpress.com	2<br />
+iavaleriana.wordpress.com	2<br />
+tea.mug.ro	2<br />
+makavelis.com	2<br />
+tikitaka.ro	2<br />
+factoria.ro	2<br />
+lucian.mogosanu.ro	2<br />
+parvan.ro	2<br />
+ionut-puerava.blog.com	2<br />
+apropo.ro	2<br />
+alphablog.ro	2<br />
+jacquelineblog.info	2<br />
+badeadan.blogspot.com	2<br />
+lucicx.com	2<br />
+pavelionut.eu	2<br />
+stoenescu.eu	2<br />
+obisnuit.eu	2<br />
+cobrarappagrl.wordpress.com	2<br />
+voxpublica.realitatea.net	2<br />
+bazavan.ro	2<br />
+jumatati.blogspot.com	2<br />
+ivanuska.wordpress.com	2<br />
+drujbaru.wordpress.com	2<br />
+iaundex.blogspot.com	2<br />
+viajoa.ro	2<br />
+capitalismpepaine.wordpress.com	2<br />
+art-decoblog.blogspot.com	2<br />
+cutiuta-milei.com	2<br />
+toane.ro	2<br />
+visezdoarciocolata.blogspot.com	2<br />
+moshemordechai.wordpress.com	2<br />
+ciprianpseudolirice.wordpress.com	2<br />
+petreanu.ro	2<br />
+inspiredachievement.ro	2<br />
+canta-v-as.blogspot.com	2<br />
+radupadurean.wordpress.com	2<br />
+theophylepoliteia.wordpress.com	2<br />
+barbosu.kamikazeonline.ro	2<br />
+jurnalpress.wordpress.com	2<br />
+andreimituca.wordpress.com	2<br />
+horiapatrascu.wordpress.com	2<br />
+cartim.ro	2<br />
+film-sinopsis.blogspot.com	2<br />
+razvan.exarhu.ro	2<br />
+siblondelegandesc.ro	2<br />
+decodare.wordpress.com	2<br />
+cotidianul.ro	2<br />
+mindruta.ro	2<br />
+acidcarbonic.blogspot.com	2<br />
+prwave.ro	2<br />
+soseta-cu-povesti.com	2<br />
+ancahotineanu.wordpress.com	2<br />
+mikaeleon.wordpress.com	2<br />
+portraits-dreamtime.blogspot.com	1<br />
+doarsport.info	1<br />
+blog.joacadeamine.ro	1<br />
+mariusbodochi.wordpress.com	1<br />
+unquest.ro	1<br />
+groparu.ro	1<br />
+constantingozman.ro	1<br />
+regulideviata.blogspot.com	1<br />
+zergu-si-credinta.blogspot.com	1<br />
+name 	count<br />
+refresh.ro	1<br />
+zf.ro	1<br />
+sapteminuni.ro	1<br />
+anamariadeleanu.wordpress.com	1<br />
+schizoid.us	1<br />
+jurnalul.ro	1<br />
+danl33.wordpress.com	1<br />
+futezatorii.ro	1<br />
+catcoffeeandshampoobubbles.blogspot.com	1<br />
+forensicgirl.wordpress.com	1<br />
+vjmyruna.blogspot.com	1<br />
+andimoisescu.ro	1<br />
+mediafax.ro	1<br />
+serbanhuidu.ro	1<br />
+cultureunplugged.com	1<br />
+clementmedia.ro	1<br />
+businessday.ro	1<br />
+lumealapas.wordpress.com	1<br />
+serafimpantea.ro	1<br />
+calatorsauturist.ro	1<br />
+gandul.info	1<br />
+pavajdecatifea.wordpress.com	1<br />
+revista22.ro	1<br />
+raulghiran.blogspot.com	1<br />
+craiova.ro	1<br />
+muzicabuna.ro	1<br />
+veone.wordpress.com	1<br />
+lumebuna.ro	1<br />
+zu-zuzi.blogspot.com	1<br />
+taraluihabarnam.blogspot.com	1<br />
+zicolorata.blogspot.com	1<br />
+hoinaru.ro	1<br />
+tricolorul.wordpress.com	1<br />
+directproprietar.ro	1<br />
+mesterulmanole.wordpress.com	1<br />
+carbon14.ro	1<br />
+fotomaniacu.blogspot.com	1<br />
+allias.ro	1<br />
+vladcreanga.com	1<br />
+savonarolawho.wordpress.com	1<br />
+reteaualiterara.ning.com	1<br />
+think-write-share.blogspot.com	1<br />
+muzeuldefotografie.ro	1<br />
+220.ro	1<br />
+dumnezero.blogspot.com	1<br />
+ancheteonline.ro	1<br />
+izokinetica.wordpress.com	1<br />
+travel.descopera.ro	1<br />
+gazetino.wordpress.com	1<br />
+pariuri2009.blogspot.com	1<br />
+doitreisi.ro	1<br />
+laurentiu.elenaworld.net	1<br />
+polisagora.com	1<br />
+ovidescu.ro	1<br />
+madalin-ciortea.blogspot.com	1<br />
+oneworld.ro	1<br />
+ingerica.blogspot.com	1<br />
+maria-postu.blogspot.com	1<br />
+serbantomsa.blogspot.com	1<br />
+adimihaila.blogspot.com	1<br />
+adypetrisor.blogspot.com	1<br />
+cristianbogdanhotnoga.wordpress.com	1<br />
+doxologia.ro	1<br />
+razbunareacapsunarului.blogspot.com	1<br />
+dianacosmin.com	1<br />
+ddsr.wordpress.com	1<br />
+brushvox.com	1<br />
+deceblog.net	1<br />
+fixup.ro	1<br />
+blogulupozaru.blogspot.com	1<br />
+mircea21dominte.wordpress.com	1<br />
+crazymothercooker.blogspot.com	1<br />
+lucian-desprenimicuri.blogspot.com	1<br />
+gayofficial.blogspot.com	1<br />
+tech.serafimpantea.ro	1<br />
+dailycotcodac.ro	1<br />
+historia.ro	1<br />
+blogosphera.ro	1<br />
+oglindalunii.blogspot.com	1<br />
+oaltaparere.ro	1<br />
+ftr.ro	1<br />
+remodelatorul.ro	1<br />
+calinhera.blogspot.com	1<br />
+vasiledancu.blogspot.com	1<br />
+deaduralex.wordpress.com	1<br />
+nikuelektriku.blogspot.com	1<br />
+imondo.ro	1<br />
+new.ablog.ro	1<br />
+giorno24.blogspot.com	1<br />
+politeanu.blogspot.com	1<br />
+neinfectat-de-comunism.blogspot.com	1<br />
+poweraxxel.wordpress.com	1<br />
+riddickro.blogspot.com	1<br />
+romaniadeieri.blogspot.com	1<br />
+romanicablues.wordpress.com	1<br />
+severvoinescu.wordpress.com	1<br />
+sorinamatei.blogspot.com	1<br />
+bref-urile-doamnei-tia.blogspot.com	1<br />
+uhitto.daniancu.ro	1<br />
+marfadeblog.blogspot.com	1<br />
+name 	count<br />
+blogatu.ro	1<br />
+teonegura.wordpress.com	1<br />
+neacostache.com	1<br />
+taraalmajului.ro	1<br />
+psihoterapie.net	1<br />
+carmen76negoita.wordpress.com	1<br />
+apti.ro	1<br />
+angelatocila.blogspot.com	1<br />
+pasareacetii.blogspot.com	1<br />
+dereglatpsihic.wordpress.com	1<br />
+traianvasilcau.wordpress.com	1<br />
+anatolbasarab.wordpress.com	1<br />
+sarivan.wordpress.com	1<br />
+vykent.wordpress.com	1<br />
+andraagachi.wordpress.com	1<br />
+scorpio72.wordpress.com	1<br />
+doinapopescu.wordpress.com	1<br />
+bancurisiglume.blogspot.com	1<br />
+myeva.wordpress.com	1<br />
+codrutamarinescu.wordpress.com	1<br />
+fatadehartie.blogspot.com	1<br />
+varajaponeza.blogspot.com	1<br />
+noapteaiguanei.ro	1<br />
+hoinarind-prin-viata.blogspot.com	1<br />
+dilemaveche.ro	1<br />
+maria-popart.blogspot.com	1<br />
+stefamedia.ro	1<br />
+novit.ro	1<br />
+cutremur.net	1<br />
+pariupeocartenepublicata.wordpress.com	1<br />
+goodmorning.ro	1<br />
+manolim.wordpress.com	1<br />
+pisicasblog.wordpress.com	1<br />
+pisicka.wordpress.com	1<br />
+mirceateorean.wordpress.com	1<br />
+v2valmont.wordpress.com	1<br />
+dollo.ro	1<br />
+sorin.greencore.ro	1<br />
+lbarza.blogspot.com	1<br />
+badraganm.wordpress.com	1<br />
+semanticu.wordpress.com	1<br />
+blogstraniu.blogspot.com	1<br />
+dromichaetes.wordpress.com	1<br />
+blogponta.wordpress.com	1<br />
+politichii.ro	1<br />
+vyrclozone.wordpress.com	1<br />
+turnofftheglory.com	1<br />
+civitaspoliticsblog.wordpress.com	1<br />
+hymerion.ro	1<br />
+bujold.wordpress.com	1<br />
+uglybadbear.wordpress.com	1<br />
+reportervirtual.ro	1<br />
+kamikazeonline.ro	1<br />
+danandronic.ro	1<br />
+adelin-petrisor.ro	1<br />
+drumuricatretine.wordpress.com	1<br />
+anaelisabeta.blogspot.com	1<br />
+mihaibendeac.ro	1<br />
+mana.ciutacu.ro	1<br />
+vecinipsihopati.blogspot.com	1<br />
+adriansuciu.ro	1<br />
+6simturi.ro	1<br />
+turambarr.blogspot.com	1<br />
+tlonsociety.blogspot.com	1<br />
+lanternativa.info	1<br />
+ex-blank-page.blogspot.com	1<br />
+ipostaze.wordpress.com	1<br />
+tlp.ro	1<br />
+dulce-mahala.tapirul.net	1<br />
+irinamirela.blogspot.com	1<br />
+danioanpopescu.ro	1<br />
+coolnewz.info	1<br />
+cinefillebookeeper.blogspot.com	1<br />
+blogul-lui-moroi.blogspot.com	1<br />
+dificildecontrolar.blogspot.com	1<br />
+apostolatintarafagarasului.blogspot.com	1<br />
+bogdanabutnar.ro	1<br />
+georgesimion.wordpress.com	1<br />
+roncea.ro	1<br />
+adrian-popa.blogspot.com	1<br />
+adizabava.ro	1<br />
+andreeavass.ro	1<br />
+menaru.blogspot.com	1<br />
+bibliophyle.wordpress.com	1<br />
+cafeacutaifas.ro	1<br />
+cetateanx.blogspot.com	1<br />
+clubromania2020.ro	1<br />
+contramanipulare.wordpress.com	1<br />
+sclavii.blogspot.com	1<br />
+profudereligie.blogspot.com	1<br />
+poorly-written-stupid-thoughts.blogspot.com	1<br />
+cartidragi.blogspot.com	1<br />
+viatadeboem.blogspot.com	1<br />
+bibliotecarul.blogspot.com	1<br />
+zombie6.ro	1<br />
+popasiturcu.blogspot.com	1<br />
+armyuser.blogspot.com	1<br />
+pilif.ro	1<br />
+somnulescu.com	1<br />
+nicodabija.wordpress.com	1<br />
+name 	count<br />
+nimicniciodata.wordpress.com	1<br />
+planetariubm.wordpress.com	1<br />
+mihaialexandrescu.wordpress.com	1<br />
+mentorconsult.ro	1<br />
+daimadeadun.wordpress.com	1<br />
+fumarel.blogspot.com	1<br />
+copaculdinpadure.wordpress.com	1<br />
+marianhurducas.ro	1<br />
+zozozoli.wordpress.com	1<br />
+suntnemultumit.wordpress.com	1<br />
+blog.matinal.org	1<br />
+rupingpulism.wordpress.com	1<br />
+barbatlacratita.blogspot.com	1<br />
+sutu.ro	1<br />
+ghidulescu.ro	1<br />
+ellenamihaela.blogspot.com	1<br />
+roadar.ro	1<br />
+inchiuveta.blogspot.com	1<br />
+radugonciar.blogspot.com	1<br />
+cuvintetacute.wordpress.com	1<br />
+blog.dubios.ro	1<br />
+danielurda.ro	1<br />
+faranumere.wordpress.com	1<br />
+apexutzuu.wordpress.com	1<br />
+pr.lucicx.com	1<br />
+sophiestricata.blogspot.com	1<br />
+bungust.com	1<br />
+partidliterar.wordpress.com	1<br />
+psihanaliza.info	1<br />
+adrianciubotaru.ro	1<br />
+george-damian.ro	1<br />
+nomadic.ro	1<br />
+dadatroll.wordpress.com	1<br />
+elfuldelamare.wordpress.com	1<br />
+azette.wordpress.com	1<br />
+blog.adrian.mihalcioiu.ro	1<br />
+unica.ro	1<br />
+paulyluca.wordpress.com	1<br />
+ionpetrescu.ro	1<br />
+vaduva.ro	1<br />
+patraru.ro	1<br />
+inozza.blogspot.com	1<br />
+gerhald.ro	1<br />
+poemix.blogspot.com	1<br />
+romanialibera.ro	1<br />
+bloginvest.ro	1<br />
+quotationsfreak.wordpress.com	1<br />
+gabitzu.eu	1<br />
+al3ssa.opv.ro	1<br />
+serbanrazvan.com	1<br />
+paulmelian.de	1<br />
+rotundu.blogs.jurnalulbtd.ro	1<br />
+thinkagain.ro	1<br />
+criticati.ro	1<br />
+emigrantintenerife.info	1<br />
+cemaifac.eu	1<br />
+cinesunt.info	1<br />
+ndrey.com	1<br />
+jurnaldebucuresti.com	1<br />
+ardeimedia.ro	1<br />
+cojocari.ro	1<br />
+ola.ro	1<br />
+chestiilivresti.blogspot.com	1<br />
+clubulcolectorilor.ro	1<br />
+smokingcoolcat.blogspot.com	1<br />
+ortodoxiepenet.blogspot.com	1<br />
+gradinuca.ro	1<br />
+tanasadan.blogspot.com	1<br />
+pitica.com	1<br />
+jurnalismonline.ro	1<br />
+jurnalulanei.blogspot.com	1<br />
+raz-soft.com	1<br />
+vulupe.com	1<br />
+trombon.ro	1<br />
+suspans.ro	1<br />
+tesatorul.blogspot.com	1<br />
+thechronicle.ro	1<br />
+literaturism.tumblr.com	1<br />
+secunde.com	1<br />
+dxn-doxon.blogspot.com	1<br />
+subiectiv.ro	1<br />
+spititout.ro	1<br />
+dosaresecrete.eu	1<br />
+mirelapete.dexign.ro	1<br />
+wtfro.wordpress.com	1<br />
+dictie.ro	1<br />
+decantare.wordpress.com	1<br />
+digerate.blogspot.com	1<br />
+imperatortravel.blogspot.com	1<br />
+ralucanicula.blogspot.com	1<br />
+radovicescu.com	1<br />
+relansat.ro	1<br />
+sanuca.ro	1<br />
+locapersiempre.blogspot.com	1<br />
+batcampii.ro	1<br />
+razvanbb.ro	1<br />
+mirceadumitrescu.trei.ro	1<br />
+ioanscurtu.ro	1<br />
+slavegloria.wordpress.com	1<br />
+lumanaripersonalizate.blogspot.com	1<br />
+name 	count<br />
+botezatus.wordpress.com	1<br />
+elenastanescu.blogspot.com	1<br />
+ciolanus.wordpress.com	1<br />
+arcaluigoe.wordpress.com	1<br />
+brailanews.blogspot.com	1<br />
+conteledesaintgermain.ro	1<br />
+napocanews.ro	1<br />
+apologeticum.wordpress.com	1<br />
+imunteanu.com	1<br />
+adihadean.ro	1<br />
+andreicrivat.ro	1<br />
+decatorevista.ro	1<br />
+boston.com	1<br />
+visezdezor.blogspot.com	1<br />
+geotax.wordpress.com	1<br />
+topgazduire.com	1<br />
+puterea.ro	1<br />
+tismaneanu.wordpress.com	1<br />
+adriangeorgescu.ro	1<br />
+artdeleanul.com	1<br />
+blogdeaccelerat.blogspot.com	1<br />
+neuronu.ro	1<br />
+floridecires7.blogspot.com	1<br />
+proatitudine.ro	1<br />
+sportaverna.alphablog.ro	1<br />
+yuppy.ro	1<br />
+vova.ro	1<br />
+ramonadinu89.wordpress.com	1<br />
+mihaistanescu.ro	1<br />
+nastase.wordpress.com	1<br />
+pinocchiomuc.blogspot.com	1<br />
+koreafilm.ro	1<br />
+zaone.ro	1<br />
+mihneamaruta.ro	1<br />
+easypeasy.ro	1<br />
+aurasmihai.ro	1<br />
+chez.mazilique.ro	1<br />
+ciuciuriciu.ro	1<br />
+sport.dragos-trestioreanu.ro	1<br />
+ramonne.blogspot.com	1<br />
+ublog.ro	1<br />
+vladvlaicu.com	1<br />
+unseremblog.blogspot.com	1<br />
+vala.ro	1<br />
+desspina.com	1<br />
+valiovidiu.ro	1<br />
+rrroxana.phpnet.us	1<br />
+eliseimiron.com	1<br />
+claudiulucaci.ro	1<br />
+allandalla.blogspot.com	1<br />
+eu-si-tu.blogspot.com	1<br />
+stiri-neconventionale.blogspot.com	1<br />
+saptepietre.blogspot.com	1<br />
+andreeamira.ro	1<br />
+vciobanu.blogspot.com	1<br />
+piratiideapasalcie.ro	1<br />
+teo.tfm.ro	1<br />
+euzicasa.wordpress.com	1<br />
+literatura-ddl.blogspot.com	1<br />
+liviualexa.ro	1<br />
+cancan.ro	1<br />
+fylmyfriend.wordpress.com	1<br />
+firica.blogspot.com	1<br />
+cititordeproza.wordpress.com	1<br />
+cupresadeperete.wordpress.com	1<br />
+discutiidespredrogurisiretetedroguri.blogspot.com	1<br />
+georgebecali.ro	1<br />
+zoonapolitikon.ro	1<br />
+octavdafinoiu.ro	1<br />
+apasaenter.ro	1<br />
+ancutarusu.blogspot.com	1<br />
+inreluare.com	1<br />
+atlasulinimii.ablog.ro	1<br />
+calatoriifestinalente.wordpress.com	1<br />
+curedeslabirenoi.blogspot.com	1<br />
+ciprianmihali.blogspot.com	1<br />
+filme-carti.ro	1<br />
+japonia-departe-aproape.blogspot.com	1<br />
+rrodia.blogspot.com	1<br />
+madimcm.wordpress.com	1<br />
+prosport.ro	1<br />
+haretzii.wordpress.com	1<br />
+prinmunti.org	1<br />
+floungureanu.com	1<br />
+cafeneauaturistica.blogspot.com	1<br />
+fashion.radardemedia.ro	1<br />
+daurel.wordpress.com	1<br />
+viziteazaneamt.ro	1<br />
+iubescungambler.blogspot.com	1<br />
+cristianmatache.blogspot.com	1<br />
+cafeneaua.net	1<br />
+vasileracovitan.com	1<br />
+emi.floaredecolt.org	1<br />
+adimitran.com	1<br />
+condamnareacomunismului.ro	1<br />
+andreiutzza4u.blogspot.com	1<br />
+andreeadragomir.blogspot.com	1<br />
+paulghitiu2009.blogspot.com	1<br />
+asybaris.blogspot.com	1<br />
+mariatimuc.blogspot.com	1<br />
+name 	count<br />
+andruska.wordpress.com	1<br />
+myvirtualia.blogspot.com	1<br />
+gheisha-ralu.blogspot.com	1<br />
+fundatiacaleavictoriei.ro	1<br />
+juganaru.blogspot.com	1<br />
+vadim.ro	1<br />
+idei-urbane.blogspot.com	1<br />
+m-mnemosyne.blogspot.com	1<br />
+alcoolism.info	1<br />
+bookiseala.ro	1<br />
+savedemsaauzim.blogspot.com	1<br />
+economie.hotnews.ro	1<br />
+thebdf.com	1<br />
+gandurisinuante.wordpress.com	1<br />
+gura-lumii.com	1<br />
+preadetot.wordpress.com	1<br />
+art-historia.blogspot.com	1<br />
+vreausareclam.wordpress.com	1<br />
+nabadaiosul.wordpress.com	1<br />
+incautareaproprieiidenthithati.wordpress.com	1<br />
+trafic-de-ganduri.blogspot.com	1<br />
+gelu11.ro	1<br />
+cicat.ro	1<br />
+clevetic.com	1<br />
+promovarearomaniei.ro	1<br />
+atelier.liternet.ro	1<br />
+bogdanpitaru.ro	1<br />
+rudy.ro	1<br />
+leytto.com	1<br />
+soniacososchi.blogspot.com	1<br />
+hori-lazar.blogspot.com	1<br />
+eugenhriscu.ro	1<br />
+ionutbranzei.ro	1<br />
+pionezadintrefese.ro	1<br />
+moisilist.com	1<br />
+vyio.blogspot.com	1<br />
+luciaverona.blogspot.com	1<br />
+ursky.wordpress.com	1<br />
+reflectiieconomice.zilisteanu.ro	1<br />
+terbea.blogspot.com	1<br />
+fumurescu.wordpress.com	1<br />
+ionela-vs-nellie.blogspot.com	1<br />
+georginapp.blogspot.com	1<br />
+nighton.ro	1<br />
+jteph.info	1<br />
+vanghelieblog.wordpress.com	1<br />
+ovidiux.com	1<br />
+tudi.ro	1<br />
+mihai-irinel.ro	1<br />
+ciprianpopa.blogspot.com	1<br />
+simonspune.wordpress.com	1<br />
+nadinanedelea.ro	1<br />
+adriandinarad.ro	1<br />
+departe2.wordpress.com	1<br />
+crudutza.wordpress.com	1<br />
+sinueeadevina.blogspot.com	1<br />
+bordelpoliticcutarfesicurve-tinta007.blogspot.com	1<br />
+sorinbogdan.ro	1<br />
+lautaru.net	1<br />
+prologos.ro	1<br />
+invizibil.blogspot.com	1<br />
+blogul-medusei.blogspot.com	1<br />
+cuibus.ro	1<br />
+dragosdehelean.ro	1<br />
+anutza.wordpress.com	1<br />
+fin-apa.ablog.ro	1<br />
+oscarfoto.ro	1<br />
+nenealars.com	1<br />
+beakohl.wordpress.com	1<br />
+dan-marius.ro	1</p>
+<p>Showing rows 0 - 29 (670 total, Query took 0.0008 sec) [count: 27 - 1]</p></blockquote>
+						</li>
+
+										<li id="comment-44683" class="commentbody"><div class="commenthead"><img alt='Luka D`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink">Luka D<img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44683" title="">Saturday, 19 March 2011</a>
+							</div>
+						<p>Mnoa bine.</p>
+						</li>
+
+										<li id="comment-44684" class="commentbody"><div class="commenthead"><img alt='Ionut`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink">Ionut</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44684" title="">Saturday, 19 March 2011</a>
+							</div>
+						<p>lunga lista, nu gluma. eu am 2, super, sunt un important. ;)</p>
+						</li>
+
+										<li id="comment-44689" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">10</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44689" title="">Saturday, 19 March 2011</a>
+							</div>
+						<p>Doi la mie, ceva acolo >D</p>
+						</li>
+
+										<li id="comment-44692" class="commentbody"><div class="commenthead"><img alt='viorel gaita`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">11</div>
+								<span class="authorlink">viorel gaita</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44692" title="">Saturday, 19 March 2011</a>
+							</div>
+						<p>Iar am ajuns sub linia de plutire la karma. Sa inteleg ca mi-ai scazut imprumutul de 100? Daca-i asa, sterge-mi te rog si contul de pe polimedia.us. Oricum, chiar scazand cei 100 nu inteleg cum am ajuns la -90 de la + 37.4. E mult prea complicat pentru mine.<br />
+Cu multumiri.</p>
+						</li>
+
+										<li id="comment-44699" class="commentbody"><div class="commenthead"><img alt='alex mazilu`s avatar' src='http://www.alexmazilu.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">12</div>
+								<span class="authorlink"><a href='http://www.alexmazilu.ro' class='url'>alex mazilu</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44699" title="">Saturday, 19 March 2011</a>
+							</div>
+						<p>Respect pentru munca. ;)</p>
+						</li>
+
+										<li id="comment-44700" class="commentbody"><div class="commenthead"><img alt='Mitzaa Biciclista`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">13</div>
+								<span class="authorlink">Mitzaa Biciclista</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44700" title="">Saturday, 19 March 2011</a>
+							</div>
+						<p>Eu nici nu mi-am văzut blogul în lista aia şi mi-a scăzut şi karma cu 1000 de puncte. Sunt tare necăjită.<br />
+  Miţa plânge :(</p>
+						</li>
+
+										<li id="comment-44701" class="commentbody"><div class="commenthead"><img alt='Critic`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">14</div>
+								<span class="authorlink">Critic</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44701" title="">Saturday, 19 March 2011</a>
+							</div>
+						<p>eu unul în schimb voi mulţumi pentru reclamă :))</p>
+						</li>
+
+										<li id="comment-44703" class="commentbody"><div class="commenthead"><img alt='tu26dor`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">15</div>
+								<span class="authorlink">tu26dor</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44703" title="">Saturday, 19 March 2011</a>
+							</div>
+						<p>eu am 7 in lista aia.<br />
+saptamana trecuta aveam peste 3000 karma. acum am putin peste minus 100.<br />
+mai nasol e ca nu pot sa raspund  nici la comentariile de pe propriile articole...<br />
+asta tine de bun simt si nu ar trebui sa fie conditionat de karma. in rest toata stima pentru munca depusa. mai mult decat "fain"!<br />
+sa auzim numai de bine!</p>
+						</li>
+
+										<li id="comment-44707" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">16</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44707" title="">Sunday, 20 March 2011</a>
+							</div>
+						<p>@<b>viorel gaita</b> Cam infantile comportamente, domnu'.</p>
+<p>@<b>alex mazilu</b> Sa fie primit.</p>
+<p>@<b>Mitzaa Biciclista</b> Trece pina te mariti, zic.</p>
+<p>@<b>Critic</b> Sa fie primit #2.</p>
+<p>@<b>tu26dor</b> Pai nu poti raspunde in chiar clipa asta, da' vei putea miine, sau poimiine, sau cind. Nu moare Internetul in citeva zile.</p>
+						</li>
+
+										<li id="comment-44745" class="commentbody"><div class="commenthead"><img alt='tu26dor`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">17</div>
+								<span class="authorlink">tu26dor</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44745" title="">Sunday, 20 March 2011</a>
+							</div>
+						<p>cu siguranta. merci fain!</p>
+						</li>
+
+										<li id="comment-44750" class="commentbody"><div class="commenthead"><img alt='viorel gaita`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">18</div>
+								<span class="authorlink">viorel gaita</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44750" title="">Monday, 21 March 2011</a>
+							</div>
+						<p>@Daca zici tu ca sunt infantile, asa sa fie. Da' nu era mai simplu sa pui un buton acolo si daca are omu' chef sa-si steara contu' sa-l stearga pur si simplu si sa nu te mai deranjeze pe tine?</p>
+						</li>
+
+										<li id="comment-44752" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">19</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44752" title="">Monday, 21 March 2011</a>
+							</div>
+						<p>Da' inainte de-a propune chestia asta te-ai gindit cam ce-ar implica ea ? Ca de-un exemplu, poate ca altii au votat articole introduse de ala, ce facem, le stergem voturile ? Poate ca ala a votat articolele altora, unele dintre ele ajungind publicate. Ce facem, le depublicam ? </p>
+<p>Daca te gindeai inainte de-a vorbi probabil ca iti venea ideea ca nu poti dezvorbi ce-ai vorbit, tot asa cum nu poti "sterge" un cont, exact la fel si exact din aceleasi motive. Si, daca-i pina acolo, daca te gindeai inainte de-a actiona probabil ca nici n-ajungeai cu karma pe minus. Si multe alte chestii.</p>
+<p>Hai sa-ti spun un banc : cica neamtu' face chelie in crestet si romanu' pe frunte. Stii de ce ?</p>
+						</li>
+
+										<li id="comment-44753" class="commentbody"><div class="commenthead"><img alt='viorel gaita`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">20</div>
+								<span class="authorlink">viorel gaita</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44753" title="">Monday, 21 March 2011</a>
+							</div>
+						<p>Noroc cu tine mai Mircea ca te gandesti la toate (desi daca te gandeai gaseai o solutie, ca pe alte directoare de linkuri exita butonul respectiv). Ma si mir cum poti dormi de zumzetul neuronilor si de pacanitul sinapselor. Normal ca nu m-am gandit. Dar tu te-ai gandit ca poate n-am chef sa ma gandesc la nimicurile astea? Mai bine ma gandesc la nemurirea sufletului ca e mai obtenabila (daca se foloseste sustenabila de ce sa nu se foloseasca si obtenabila?) decat karma lu' matale.</p>
+						</li>
+
+										<li id="comment-44754" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">21</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44754" title="">Monday, 21 March 2011</a>
+							</div>
+						<p>E o atitudine paguboasa sa te crezi mai important decit chestiile pe care le faci, da' tu insista pina te saturi.</p>
+						</li>
+
+										<li id="comment-44755" class="commentbody"><div class="commenthead"><img alt='viorel gaita`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">22</div>
+								<span class="authorlink">viorel gaita</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44755" title="">Monday, 21 March 2011</a>
+							</div>
+						<p>Cred ca tu ai niste idei preconcepute in ce ma priveste. Atitudinea ar fi paguboasa daca intr-adevar as avea de pierdut ceva. Daca nu ma intereseaza cum se produce karma si cum sa fac frumos pe polimedia.us ca s-o primesc nu inseamna ca ma cred mai important decat chestiile pe care le fac. Din contra, chestiile pe care le fac sunt atat de importante incat nu merita sa pierd timpul cu nimicuri.</p>
+						</li>
+
+										<li id="comment-44758" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">23</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44758" title="">Monday, 21 March 2011</a>
+							</div>
+						<p>In care caz, despre ce discutam ?</p>
+						</li>
+
+										<li id="comment-44783" class="commentbody"><div class="commenthead"><img alt='roscata`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">24</div>
+								<span class="authorlink">roscata</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44783" title="">Monday, 21 March 2011</a>
+							</div>
+						<p>super tare!!! multumesc... am 3, sunt om mare!</p>
+						</li>
+
+										<li id="comment-44804" class="commentbody"><div class="commenthead"><img alt='Serafim`s avatar' src='http://www.serafimpantea.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">25</div>
+								<span class="authorlink"><a href='http://www.serafimpantea.ro' class='url'>Serafim</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44804" title="">Monday, 21 March 2011</a>
+							</div>
+						<p>Poate ar fi o chestie să afișeze la propunere ce incidență are domeniul respectiv. Că nu are de unde să știe un om "normal" cam cât de promovat a fost în ultimele 30 de zile un domeniu. Sunt multe articole și e greu pentru cineva să urmărească chiar tot.</p>
+						</li>
+
+										<li id="comment-44805" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">26</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44805" title="">Monday, 21 March 2011</a>
+							</div>
+						<p>@<b>roscata</b> Sa traiesti :)</p>
+<p>@<b>Serafim</b> Pai masura e evaluativa, nu neaparat corectiva. Cine aduce noutati va avea karma mai mare decit cine aduce banalitati, aia-i tot si mie mi se pare ca ajunge atit.</p>
+						</li>
+
+										<li id="comment-44806" class="commentbody"><div class="commenthead"><img alt='gabi`s avatar' src='http://razameadesoare.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">27</div>
+								<span class="authorlink"><a href='http://razameadesoare.ro' class='url'>gabi</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-44806" title="">Monday, 21 March 2011</a>
+							</div>
+						<p>Noh bun ashe...</p>
+<p>te tzuc si eu de pe noul domeniu cu hosting la voi</p>
+<p><a href="http://razameadesoare.ro">http://razameadesoare.ro</a></p>
+						</li>
+
+										<li id="comment-45044" class="commentbody"><div class="commenthead"><img alt='gigi`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">28</div>
+								<span class="authorlink">gigi</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-45044" title="">Thursday, 24 March 2011</a>
+							</div>
+						<p>aveti ceva greutati p-aici..daca ma poate ajuta si pe mine asta de scriu p-aici cu ceva..cam cum ar fi poate sa cistig la loto fara sa particip,da'sa am karma la maxim..da?</p>
+						</li>
+
+										<li id="comment-46124" class="commentbody"><div class="commenthead"><img alt='siloxy`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">29</div>
+								<span class="authorlink">siloxy</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-46124" title="">Tuesday, 5 April 2011</a>
+							</div>
+						<p>huh, maestre calculator al karmei, oare de ce orice as vota o iau la vale, nu la deal, in ce priveste punctajul? mai ales ca votez doar ce cred ca merita votat. sau tre sa votez pe categorii de-acu-nainte?:)</p>
+						</li>
+
+										<li id="comment-46127" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">30</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-46127" title="">Tuesday, 5 April 2011</a>
+							</div>
+						<p>@<b>gigi</b> Mai ia si tu un belet...</p>
+<p>@<b>siloxy</b> Votatul n-are cum sa te coste karma, votind primesti intotdeauna un ce pozitiv, mai aproape de zero sau mai departe de 0, dar intotdeauna +.</p>
+<p>Pe de alta parte, fain e un organism viu, si karma fiecarui participant depinde si de actiunile celorlalti, intr-o continua si superba reevaluare. Ca atare, karma iti poate varia, si-n sus, si-n jos, fara ca tu sa faci nimic sau indiferent de ce faci tu.</p>
+<p>Keep a stiff upper lip, cum zice englezu', si da-i inainte, rezultatele se vad in zile si saptamini, nu in minute si ore. Ca-n karma.</p>
+						</li>
+
+										<li id="comment-46442" class="commentbody"><div class="commenthead"><img alt='Mari`s avatar' src='http://www.fuckoffimbusy.com/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">31</div>
+								<span class="authorlink"><a href='http://www.fuckoffimbusy.com/' class='url'>Mari</a><img src="/wp-content/themes/trilema/images/insigna-criptograf.png" class="insigna" alt="insigna de criptograf" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-46442" title="">Friday, 8 April 2011</a>
+							</div>
+						<p>o_O</p>
+						</li>
+
+										<li id="comment-48453" class="commentbody"><div class="commenthead"><img alt='speranta`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">32</div>
+								<span class="authorlink">speranta</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-48453" title="">Wednesday, 4 May 2011</a>
+							</div>
+						<p>"Pe de alta parte, fain e un organism viu, si karma fiecarui participant depinde si de actiunile celorlalti, intr-o continua si superba reevaluare. Ca atare, karma iti poate varia, si-n sus, si-n jos, fara ca tu sa faci nimic sau indiferent de ce faci tu."</p>
+<p>...eu sunt in "coma" de ceva timp pe fain....ai idee cam cat mai poate dura? nu de alta dar am constatat ca doar prin vot zilnic nu pot sa-mi "revin"... de cumparat karma, mai greu ca mi-s pensionara si nerabdarea e mare in a-mi face complet datoria de utilizator fain....</p>
+						</li>
+
+										<li id="comment-48454" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">33</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-48454" title="">Wednesday, 4 May 2011</a>
+							</div>
+						<p>@<b>speranta</b> In cazul tau nu ai penalizari de nici un fel, ai doar un minus de la o vinzare de karma de pe 20 Aprilie. Cum respectiva vinzare a ajuns mai mare decit karma, esti pe minus total. Expira, evident, pe 20 Mai.</p>
+						</li>
+
+										<li id="comment-48455" class="commentbody"><div class="commenthead"><img alt='speranta`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">34</div>
+								<span class="authorlink">speranta</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-48455" title="">Wednesday, 4 May 2011</a>
+							</div>
+						<p>multumesc de raspuns...m-am lamurit.... raman optimista si robace, in tacere, pana pe 20....</p>
+						</li>
+
+										<li id="comment-48885" class="commentbody"><div class="commenthead"><img alt='cosminmaricari`s avatar' src='http://cosminmaricari.wordpress.com/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">35</div>
+								<span class="authorlink"><a href='http://cosminmaricari.wordpress.com/' class='url'>cosminmaricari</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-48885" title="">Tuesday, 10 May 2011</a>
+							</div>
+						<p>Mărturisesc că nu am înţeles încă cum anume se calculează karma. M-am trezit cu o penalizare de 200 de pct, am ajuns brusc la -59 zilele trecute. Şi nu înţeleg ce regulă am încălcat. Am publicat 4 articole, cu subiecte diferite. Cumva acele "domenii" se referă la faptul că articolele trebuie să fie de pe site-uri diferite? Eu am înţeles că trebuie să aibă subiecte diferite, m-am înşelat? Să înţeleg că până la sfârşitul lunii mai nu mai am dreptul să adaug articole de pe blogul meu?</p>
+						</li>
+
+										<li id="comment-48886" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">36</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-48886" title="">Tuesday, 10 May 2011</a>
+							</div>
+						<p>Pai te-ai inselat, domenii inseamna domenii, de exemplu polimedia.us e un domeniu. </p>
+<p>Logic vorbind scriptul n-are cum socoti care sunt subiectele unui text, nu-i chiar asa de destept inca.</p>
+<p>In principiu, in afara de cazul ca esti foarte activ, e intelept sa te limitezi la doua articole de pe acelasi domeniu in orice interval de 30 de zile.</p>
+						</li>
+
+										<li id="comment-48887" class="commentbody"><div class="commenthead"><img alt='cosminmaricari`s avatar' src='http://cosminmaricari.wordpress.com/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">37</div>
+								<span class="authorlink"><a href='http://cosminmaricari.wordpress.com/' class='url'>cosminmaricari</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-48887" title="">Tuesday, 10 May 2011</a>
+							</div>
+						<p>Aha, ok, my bad.<br />
+Am înţeleg greşit. Problema a fost că aceste reguli sunt împărţite în fapt în 4 locuri diferite.<br />
+Dacă-mi permiţi o sugestie, poate că ar trebui să reuneşti Regulamentul, Ghidul de utilizare şi cele două articole despre modul de calculare al karma într-un singur articol, care să fie amplasat unde cât mai vizibil pe site. Spun asta deoarece sunt un membru recent al polimedia şi, după cum vezi, m-am cam încurcat în reguli.<br />
+Mulţumesc pt. răspunsul prompt.</p>
+						</li>
+
+										<li id="comment-48888" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">38</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-48888" title="">Tuesday, 10 May 2011</a>
+							</div>
+						<p>Pai ar fi o idee, ce-i drept.</p>
+						</li>
+
+										<li id="comment-79125" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">39</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79125" title="">Thursday, 1 March 2012</a>
+							</div>
+						<p>Am introdus o limitare in calcularea divergentei, in sensul ca bonusul datorita unei divergente mari nu poate depasi 25% din punctajul total. Masura afecteaza < 10 conturi cu divergente intre 1.25 si 1.6, intre care si al meu.</p>
+						</li>
+
+										<li id="comment-80980" class="commentbody"><div class="commenthead"><img alt='leganza`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">40</div>
+								<span class="authorlink">leganza</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-80980" title="">Monday, 26 March 2012</a>
+							</div>
+						<p>@MP - acu' un an spuneai "@siloxy Votatul n-are cum sa te coste karma, votind primesti intotdeauna un ce pozitiv, mai aproape de zero sau mai departe de 0, dar intotdeauna +."<br />
+Se pare ca nu mai e valabil....si uite de ce :<br />
+aseara inainte de a introduce acest articol, <a href="http://polimedia.us/fain/noutati/6-7-februarie-1941-comemorarea-romanilor-masacrati-de-ocupantii-sovietici/">http://polimedia.us/fain/noutati/6-7-februarie-1941-comemorarea-romanilor-masacrati-de-ocupantii-sovietici/</a><br />
+aveam aprox. 90 karma (introdusesem inainte vreo alte 4 articole, zic eu de pe domenii destul de putin frecventate, primind pentru fiecare in medie cam 12 k)....amscazut brusc la -32 k.....am incercat sa recuperez prin voturi, dar cu cat am am votat cu atat a scazut mai mult karma si azi dupa o noua runda de votat am ajuns la -50 k.<br />
+Apelez la bunavointa ta, poate ma scoti din ceata....in urma cu 30 de zile nu cred ca am facut exces de zel care sa fi intrat la "expirate"!<br />
+chiar si asa tot nu-mi explic de ce pentru votat obtin karma cu minus....lumineaza-ma, te rog.....</p>
+						</li>
+
+										<li id="comment-80981" class="commentbody"><div class="commenthead"><img alt='leganza`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">41</div>
+								<span class="authorlink">leganza</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-80981" title="">Monday, 26 March 2012</a>
+							</div>
+						<p>update! acu cateva secunde am prins"glas"pe fain....mi s=a publicat unul din articolele introduse aseara si am ajuns, tot brusc, la 236 k !!!!</p>
+						</li>
+
+										<li id="comment-80983" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">42</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-80983" title="">Monday, 26 March 2012</a>
+							</div>
+						<p>Pai deci bravo tie :)</p>
+						</li>
+
+										<li id="comment-80987" class="commentbody"><div class="commenthead"><img alt='leganza`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">43</div>
+								<span class="authorlink">leganza</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-80987" title="">Monday, 26 March 2012</a>
+							</div>
+						<p>bravo mie, bravo mie.....da' intrebarea tot ramane : de ce karma cu minus la votare?</p>
+						</li>
+
+										<li id="comment-81031" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">44</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-81031" title="">Monday, 26 March 2012</a>
+							</div>
+						<p>Karma n-are cum sa mearga in jos de la votare, e tot ca acum un an, nu s-a schimbat nimic. E posibil sa-ti mearga in jos karma pentru ca ti-au expirat voturi/articole publicate/etc, sau pentru ca ti-ai scazut divergenta cu ce-ai introdus, sau la caz ca esti peste 150 de comentarii in ultima luna si ai mai comentat. Cam astea-s posibilitatile.</p>
+						</li>
+
+										<li id="comment-81083" class="commentbody"><div class="commenthead"><img alt='leganza`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">45</div>
+								<span class="authorlink">leganza</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-81083" title="">Tuesday, 27 March 2012</a>
+							</div>
+						<p>Daca la mine o fi asa cum zici, atunci poate-ti arunci un ochi aici : <a href="http://polimedia.us/fain/user/profile/dionis">http://polimedia.us/fain/user/profile/dionis</a> ; azi la 12,06 era cu -23 k... la urmatoarele statistici : </p>
+<p>Alaturat: 	2012-03-11<br />
+Articole Introduse: 	6<br />
+Articole Publicate: 	0<br />
+Comentarii: 	9<br />
+Voturi: 	109<br />
+Voturi ESP: 	13<br />
+Scor Karma: 	-23.76</p>
+<p>Undeva-s incurcate ceva ite, nu crezi?</p>
+						</li>
+
+										<li id="comment-81085" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">46</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-81085" title="">Tuesday, 27 March 2012</a>
+							</div>
+						<p><a href="http://polimedia.us/fain/user/history/dionis">http://polimedia.us/fain/user/history/dionis</a></p>
+<p>Toate alea 6 sunt de pe acelasi domeniu (ormuzblog). Cam ce te-ai astepta ?</p>
+						</li>
+
+										<li id="comment-81086" class="commentbody"><div class="commenthead"><img alt='leganza`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">47</div>
+								<span class="authorlink">leganza</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-81086" title="">Tuesday, 27 March 2012</a>
+							</div>
+						<p>...uite asa mai invata omu'... mersi Mircea ptr. rabdare...<br />
+Vorba ceea : cine si-a crescut "copilu'" il si cunoaste cel mai bine !</p>
+						</li>
+
+										<li id="comment-81088" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">48</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-81088" title="">Tuesday, 27 March 2012</a>
+							</div>
+						<p>Nu ie nici o problema, da' sa stii ca regula asta e cam cea mai veche de pe fain, are binisor peste doi ani. Ideea e sa mai introduci si de la altii nu sa faci ca spammeru', ziua si articolu' propriu, restu' nu exista nu cunoastem n-am vazut. Nu e frumos asa, incercam sa facem civilizatie aici nu tot ce-o fost.</p>
+						</li>
+
+										<li id="comment-81089" class="commentbody"><div class="commenthead"><img alt='leganza`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">49</div>
+								<span class="authorlink">leganza</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-81089" title="">Tuesday, 27 March 2012</a>
+							</div>
+						<p>io n-am blog da' iau aminte!</p>
+						</li>
+
+										<li id="comment-88193" class="commentbody"><div class="commenthead"><img alt='Savoir Faire`s avatar' src='http://www.blogsavoirfaire.wordpress.com/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">50</div>
+								<span class="authorlink"><a href='http://www.blogsavoirfaire.wordpress.com' class='url'>Savoir Faire</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-88193" title="">Monday, 27 August 2012</a>
+							</div>
+						<p>Eu crezusem ca poti baga cate articole doresti, fapt pentru care mi s-a spus ca fac spam :|.<br />
+Abia intr-un al doilea moment am vazut un link in regulament care te redirectiona pe o pagina in care spunea ca poti posta 4 articole.<br />
+Mai nou am auzit de la un utilizator ca pot posta doar 2.<br />
+Am mai auzit si ca la sfarsitul lunii scorul se reseteaza.<br />
+Cat este de adevarat acest lucru ?<br />
+Merci frumos, Savoir</p>
+						</li>
+
+										<li id="comment-88194" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">51</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-88194" title="">Monday, 27 August 2012</a>
+							</div>
+						<p>Poti introduce oricite doresti da' daca tot introduci din acelasi loc iei incet incet penalizari care tot cresc.</p>
+<p>Scorul nu se reseteaza la sfirsitul lunii, ci se calculeaza pe intervale de cite 30 de zile. Deci pe 30 August considera actiuni din 1 August dar nu din 31 Iulie. Pe 31 August considera actiuni de pe 2 dar nu de pe 1.</p>
+						</li>
+
+										<li id="comment-88198" class="commentbody"><div class="commenthead"><img alt='Savoir Faire`s avatar' src='http://www.blogsavoirfaire.wordpress.com/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">52</div>
+								<span class="authorlink"><a href='http://www.blogsavoirfaire.wordpress.com' class='url'>Savoir Faire</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-88198" title="">Tuesday, 28 August 2012</a>
+							</div>
+						<p>Tu ca administrator ce ma sfatuiesti sa fac ?<br />
+Sa stau sa recuperez un scor imposibil fara a putea comenta si/sau posta (minus 3359.01) sau sa fac un cont nou ?</p>
+						</li>
+
+										<li id="comment-88203" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">53</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-88203" title="">Tuesday, 28 August 2012</a>
+							</div>
+						<p>Awww. Pai depinde cit de important ie numele respectiv pentru tine.</p>
+<p>Da' in tot cazu', pe viitor te  sfatuiesc sa sfatuiesti si tu nou venitii sa nu faca aceeasi gresala, cum mai fac si alti oameni (care si ei or fi patit-o) si in general is tratati drept naspeti de aia mai noi, care evident stiu ei mai bine si li se doreste raul!</p>
+						</li>
+
+										<li id="comment-88208" class="commentbody"><div class="commenthead"><img alt='Savoir Faire`s avatar' src='http://www.blogsavoirfaire.wordpress.com/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">54</div>
+								<span class="authorlink"><a href='http://www.blogsavoirfaire.wordpress.com' class='url'>Savoir Faire</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-88208" title="">Tuesday, 28 August 2012</a>
+							</div>
+						<p>Da, o sa sfatuiesc si eu la randul meu daca voi avea ocazia<br />
+Momentan cred o sa imi fac un cont nou.</p>
+						</li>
+
+										<li id="comment-89883" class="commentbody"><div class="commenthead"><img alt='Savoir Faire`s avatar' src='http://www.blogsavoirfaire.wordpress.com/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">55</div>
+								<span class="authorlink"><a href='http://www.blogsavoirfaire.wordpress.com' class='url'>Savoir Faire</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-89883" title="">Sunday, 14 October 2012</a>
+							</div>
+						<p>Sunt destul de nou pe fain (asa cum am precizat mai sus)<br />
+In primele zile am postat mai multe articole, fapt pentru care mi s-a dat un scor de - 3000 si ceva.<br />
+Mentionez ca nu stiam ca am voie sa postez doar doua la luna din acelas loc...<br />
+Mi s-a parut imposibil sa recuperez un asa scor si am decis sa fac alt cont.<br />
+Acum m-am trezit cu -10 000 pe amble conturi.<br />
+Ce e de facut, alt cont banuiesc ca nu pot face si minus 10 000 nu pot recupera :|</p>
+						</li>
+
+										<li id="comment-89884" class="commentbody"><div class="commenthead"><img alt='mihai b`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">56</div>
+								<span class="authorlink">mihai b<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-89884" title="">Sunday, 14 October 2012</a>
+							</div>
+						<p>@savoir faire</p>
+<p>nu te-ai adresat unde trebuie. mosneagul acesta ramolit de pe trollema vinde fainu'. adreseazai-te cumparatorului. :d</p>
+						</li>
+
+										<li id="comment-89885" class="commentbody"><div class="commenthead"><img alt='Savoir Faire`s avatar' src='http://www.blogsavoirfaire.wordpress.com/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">57</div>
+								<span class="authorlink"><a href='http://www.blogsavoirfaire.wordpress.com' class='url'>Savoir Faire</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-89885" title="">Sunday, 14 October 2012</a>
+							</div>
+						<p>@ Mihai.<br />
+Auzisem ca exista un cumparator, dar nu stiu de ce natie este si cum sa dau de el.<br />
+Ma poti ajuta ?</p>
+						</li>
+
+										<li id="comment-89887" class="commentbody"><div class="commenthead"><img alt='Alex`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">58</div>
+								<span class="authorlink">Alex</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-89887" title="">Sunday, 14 October 2012</a>
+							</div>
+						<p>Proprietaru' a inchis Fainu' si a incetat sa scrie in romana pe Trilema. Aici s-au facut anunturile:</p>
+<p><a href="/2012/dragii-mei-avem-o-problema/">/2012/dragii-mei-avem-o-problema/</a><br />
+<a href="http://polimedia.us/fain/internet/the-end---/">http://polimedia.us/fain/internet/the-end---/</a></p>
+<p>Nu esti tu de vina cu nimic, dar nici nu poti face nimic: s-a inchis sandramaua ;/</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+				<li class="trackbody" id="comment-44671">
+					<div class='trackhead'>
+						<div class="commentcount">59</div>
+						<span class="authorlink"><a href='http://polimedia.us/fain/story/29093' class='url'>polimedia.us/fain/</a></span>&nbsp;(via Trackback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-44671" title="">Saturday, 19 March 2011</a>
+					</div>
+					<p><strong>Imbunatatiri si complicari in calcularea karma pe Trilema - Un blog de Mircea Popescu-...</strong></p>
+<p>Daca va intereseaza karma....</p>
+				</li>
+
+				<li class="trackbody" id="comment-44908">
+					<div class='trackhead'>
+						<div class="commentcount">60</div>
+						<span class="authorlink">Saga savanților polimicționați trilemic și karmic (prima parte) |</span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-44908" title="">Tuesday, 22 March 2011</a>
+					</div>
+					<p>[...] savanți, mă rog, să fie cei mai buni savanți polimedici din Institut. Toate astea de dragul karmei cea de toate zilele! Karma funcționează ca un super-glue. Este ca aracetul, ca pasta de lipit comunistă la borcan [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-134654">
+					<div class='trackhead'>
+						<div class="commentcount">61</div>
+						<span class="authorlink"><a href='/2011/noi-modificari-pe-fain?b=bal%2C%20bal%20sa%20&amp;e=%20era#select' class='url'>Noi modificari pe fain on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-134654" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] bal, bal sa fie, si daca tot ne-am apucat de imbunatatiri si complicari in calcularea karma, sa facem ceva si cu sistemul de vot, ca prea era [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-135997">
+					<div class='trackhead'>
+						<div class="commentcount">62</div>
+						<span class="authorlink"><a href='/2011/cine-o-persecuta-pe-sonia?b=Soniei%20este%20&amp;e=si-n#select' class='url'>Cine-o persecuta pe Sonia ? on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-135997" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] Soniei este ca ea are o divergenta foarte mica (0.228571428571)i rezultat al faptului ca introduce o varietate mica de domenii, si-n [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-136452">
+					<div class='trackhead'>
+						<div class="commentcount">63</div>
+						<span class="authorlink"><a href='/2011/istoria-unui-proiect-online?b=19%20Martie%2020&amp;e=oduc#select' class='url'>Istoria unui proiect online on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-136452" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] 19 Martie 2011 se introduce divergenta ca criteriu de punctare a utilizatorilor (un avantaj pentru cei ce introduc [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-138566">
+					<div class='trackhead'>
+						<div class="commentcount">64</div>
+						<span class="authorlink"><a href='/2012/cum-se-calculeaza-karma-pe-fain?b=Convergenta%20&amp;e=e%20pe#select' class='url'>Cum se calculeaza karma pe fain ? on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-138566" title="">Tuesday, 7 January 2020</a>
+					</div>
+					<p>[...] Convergenta fata de fain va poate aduce si ea bonificatii sau minusuri destul de importante. Daca introduceti articole de pe [...]</p>
+				</li>
+
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authordec2bf1" id="authordec2bf1" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emaildec2bf1" id="emaildec2bf1" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urldec2bf1" id="urldec2bf1" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="17533" /></p>
+				<input type="hidden" name="comment_post_time" value="1765802063-207.241.225.134" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2025 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-17533")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-17533");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-17533");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>
