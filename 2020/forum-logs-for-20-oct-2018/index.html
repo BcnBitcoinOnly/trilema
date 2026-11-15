@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_dec2016.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Forum logs for 20 Oct 2018 on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">024776FFD3CBD21C872ECCD26AD078C5<br />BA0586E2E57CF68515E3C4828A673A6E
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-92736"><div class="post" id="post-92736">                    <h1><a href="/2020/forum-logs-for-20-oct-2018/" rel="bookmark" title="Permanent Link to Forum logs for 20 Oct 2018">Forum logs for 20 Oct 2018</a></h1>                        <div class="date">                                     Monday, 16 March, Year 12 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/" title="Posts by "></a>                                                        </div>
+
+                        <div class="entry">
+<table style="font-size:1em;width:"580px;">
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> <a href="/forum-logs-for-19-oct-2018#2488080" target=\'_blank\'>/forum-logs-for-19-oct-2018#2488080</a> &lt;&lt; ty, this is a bug in vdiff for sure, i'll investigate </td>
+<td><font color="gray">[<a id="2488102" href="#2488102">10:44</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-10-20 01:44 asciilifeform: !Q later tell phf i found today that your keccak-vdiff is unable to eat a 40MB file ( dies politely with stack overflow ) </font></td>
+<td><font color="gray">[<a id="2488103" href="#2488103">10:44</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">lobbesbot:</font></td>
+<td class="breakup"><font color="gray"> phf: Sent 12 hours and 59 minutes ago: &lt;asciilifeform&gt; i found today that your keccak-vdiff is unable to eat a 40MB file ( dies politely with stack overflow ) </font></td>
+<td><font color="gray">[<a id="2488104" href="#2488104">10:44</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">lobbesbot:</font></td>
+<td class="breakup"><font color="gray"> phf: Sent 12 hours and 52 minutes ago: &lt;asciilifeform&gt; plox to snarf <a href="http://therealbitcoin.org/ml/btc-dev/2018-October/000315.html" target=\'_blank\'>http://therealbitcoin.org/ml/btc-dev/2018-October/000315.html</a> into 'experiment' tree. </font></td>
+<td><font color="gray">[<a id="2488105" href="#2488105">10:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> i suspect when i was removing various optimizations from c diff, i removed something that let it eat larger files, because regular diff obviously diffs </td>
+<td><font color="gray">[<a id="2488106" href="#2488106">10:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> i also don't think it's a stack allocation issue, ksum against the file works, and the integration between c diff and keccak was designed with chunk reading in mind </td>
+<td><font color="gray">[<a id="2488107" href="#2488107">10:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> phf: it's an ada stack overflow, so almost certainly in keccak </td>
+<td><font color="gray">[<a id="2488108" href="#2488108">10:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> and it happens prior to any output </td>
+<td><font color="gray">[<a id="2488109" href="#2488109">10:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> try it yourself, the 40M snapshot txt from last night was the trigger </td>
+<td><font color="gray">[<a id="2488110" href="#2488110">10:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> hmm, i wonder if it's maybe c/ada interop? straight ksum gives me the answer, and it uses the same incremental mechanism (already trie)d </td>
+<td><font color="gray">[<a id="2488111" href="#2488111">10:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> 70af5c296fb8a9e9bae4c871cbedc67345db91f3e380170fc07b83871e8b5079b9ae55d44a7f5c9afb6eea64211712eaf88a608a4d7e52bcf209c425f776cc9c snap_546400.txt </td>
+<td><font color="gray">[<a id="2488112" href="#2488112">10:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ha </td>
+<td><font color="gray">[<a id="2488113" href="#2488113">10:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i was on a box without the standalone keccak, so tried to use vdiff to get keccakization </td>
+<td><font color="gray">[<a id="2488114" href="#2488114">10:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> diana_coman's keccak interface uses a KeccakWholeThing(...) method (not the actual name), in vtools i added a new interface, which follows the classical hasher format: KeccakCtx() UpdateCtx(ctx, data) EndCtx(ctx, resultHash) </td>
+<td><font color="gray">[<a id="2488115" href="#2488115">10:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> so data would be stack friendly in this case, which is also how ksum is written </td>
+<td><font color="gray">[<a id="2488116" href="#2488116">10:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> but i like your suggestion also, i suspect diana's interface can be used against your mmap result </td>
+<td><font color="gray">[<a id="2488117" href="#2488117">10:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> phf: not sure yet, the bytes-&gt;bits bloatism might get in the way </td>
+<td><font color="gray">[<a id="2488118" href="#2488118">10:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> it will have to be cured at some point, keccakization currently eats 8x moar memory (9x if counting the fact that it cannot run in-place) than it ought </td>
+<td><font color="gray">[<a id="2488119" href="#2488119">10:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> so i have a vdiff that takes an -s flag (enables sha512), and it works fine </td>
+<td><font color="gray">[<a id="2488120" href="#2488120">11:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> +++ b/snap_546400.txt 326782a77b9ca1d83da6af8e28f305d5fd6c0b509507effbf50f1cd932c4e882edeb8887632664c073c8dca097145cada941490efdae6443e82bbb85a9ca1371 </td>
+<td><font color="gray">[<a id="2488121" href="#2488121">11:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> possibly my stack is set smaller than yours ? </td>
+<td><font color="gray">[<a id="2488122" href="#2488122">11:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> will have to check </td>
+<td><font color="gray">[<a id="2488123" href="#2488123">11:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i'm curious what it was that overflowed it tho </td>
+<td><font color="gray">[<a id="2488124" href="#2488124">11:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> no no, that's an unreleased enable sha512, so my point is that it must be something in ada/c interop, or the particular way i do it in vdiff: ksum works though it uses same interface, vdiff sha512 works though it uses an architecturally identical sha interface. </td>
+<td><font color="gray">[<a id="2488125" href="#2488125">11:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> aah hm. </td>
+<td><font color="gray">[<a id="2488126" href="#2488126">11:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> oh my god I found some humans today </td>
+<td><font color="gray">[<a id="2488127" href="#2488127">11:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> talked to me for a couple hours about biznis, Qataris etc. got some good info </td>
+<td><font color="gray">[<a id="2488128" href="#2488128">11:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> you made it to a hookah bar then? </td>
+<td><font color="gray">[<a id="2488129" href="#2488129">11:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> is joke see, all middle eastern business is done at hookah bars </td>
+<td><font color="gray">[<a id="2488130" href="#2488130">11:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> yes, actually, but they don't call it hookah here, they call it shisha. but that wasn't today and no humans in sight </td>
+<td><font color="gray">[<a id="2488131" href="#2488131">11:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> today was at a cheesecake factory, in a mall bigger than my home town in which I got lost twice </td>
+<td><font color="gray">[<a id="2488132" href="#2488132">11:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> they ought to call it argile, but i suspect shisha is more international. in turkey they call it nargile almost exclusively, and only call it shisha when trying to communicate with a foreigner </td>
+<td><font color="gray">[<a id="2488133" href="#2488133">11:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> my iranians call it kalyan which is also how we call it in russian. </td>
+<td><font color="gray">[<a id="2488134" href="#2488134">11:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'И, склонясь в дыму кальяна На цветной диван, У жемчужного фонтана Дремлет Тегеран' (tm)(r) ! </td>
+<td><font color="gray">[<a id="2488135" href="#2488135">11:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://www.runivers.ru/bookreader/books/18669/0005.gif" target=\'_blank\'>http://www.runivers.ru/bookreader/books/18669/0005.gif</a> &lt;&lt; oblig illust. </td>
+<td><font color="gray">[<a id="2488136" href="#2488136">11:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> Mocky: what sorta humans ? </td>
+<td><font color="gray">[<a id="2488137" href="#2488137">11:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> phf well i've only spoken to foreigners here about it so that could be the case here as well, but it does say "shisha" on the printed menu, but also printed in english for foreigners </td>
+<td><font color="gray">[<a id="2488138" href="#2488138">11:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> an older american lady who works in a qatari house and has authority over the financial dealings of the sons with business degrees from uni and because of the status of the father (her boss) there are other lower station qataris that she doesn't need to listen to </td>
+<td><font color="gray">[<a id="2488139" href="#2488139">11:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> the other was an Egyptian veterinary doctor who has been working freelance here for some years </td>
+<td><font color="gray">[<a id="2488140" href="#2488140">11:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> i met others as well, europeans, americans, canadians but they didn't know about biz or qataris enough to contribute to the convo </td>
+<td><font color="gray">[<a id="2488141" href="#2488141">11:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> phf: what does your ulimit -s say ? mine's 8192 kB </td>
+<td><font color="gray">[<a id="2488142" href="#2488142">11:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> asciilifeform: i figured out what the issue is </td>
+<td><font color="gray">[<a id="2488143" href="#2488143">11:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> aite, will wait for full postmortem </td>
+<td><font color="gray">[<a id="2488144" href="#2488144">11:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> diff's block reader doesn't necessarily attempt to keep the blocks small, allocates a 39098690 buffer, which crosses the boundary and immediatelly hits the part you've already pointed out: x8 bitstream allocator </td>
+<td><font color="gray">[<a id="2488145" href="#2488145">11:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> bitstream allocation happens on stack, so.. </td>
+<td><font color="gray">[<a id="2488146" href="#2488146">11:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> i suspect a temporary solution as far as vdiff is concerned is to spoon feed keccak smaller blocks </td>
+<td><font color="gray">[<a id="2488147" href="#2488147">11:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> really, keccak oughta be doable in-place. but i haven't loaded it into my head yet and cannot immediately say how to rewrite equation so that it could </td>
+<td><font color="gray">[<a id="2488148" href="#2488148">11:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> Mocky: oh yeah i didn't mean to imply that in qatar specifically it's only foreigners term, seems like the words used are entirely regional, e.g. egyptians call it shisha also. i've smoked too much hookah, so i like to know the whole set, so that i can effectively communicate with the locals :) </td>
+<td><font color="gray">[<a id="2488149" href="#2488149">11:49</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://bimbo.club/?p=60" target=\'_blank\'>http://bimbo.club/?p=60</a> &lt;&lt; Bimbo.Club - TMSR Log Summary - 08/24/2018 </font></td>
+<td><font color="gray">[<a id="2488150" href="#2488150">12:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>billymg:</b></td>
+<td class="breakup"> everything running nicely now <a href="http://161.0.121.194" target=\'_blank\'>http://161.0.121.194</a> -- writeup forthcoming </td>
+<td><font color="gray">[<a id="2488151" href="#2488151">13:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> oh hey </td>
+<td><font color="gray">[<a id="2488152" href="#2488152">13:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> loads </td>
+<td><font color="gray">[<a id="2488153" href="#2488153">13:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>billymg:</b></td>
+<td class="breakup"> many thanks to esthlos, hanbot, BingoBoingo, phf for helpful posts </td>
+<td><font color="gray">[<a id="2488154" href="#2488154">14:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>billymg:</b></td>
+<td class="breakup"> and to trinque for giving me the task </td>
+<td><font color="gray">[<a id="2488155" href="#2488155">14:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>billymg:</b></td>
+<td class="breakup"> curious what type of browser environments the lords use -- when writing a theme for mp-wp will need to know what kind of font, css, js support to expect </td>
+<td><font color="gray">[<a id="2488156" href="#2488156">14:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> billymg: pretty much errybody uses 'lynx' at least occasionally, and sometimes ordinary graphical browser </td>
+<td><font color="gray">[<a id="2488157" href="#2488157">14:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( iirc there's even somebody with early 2000s 'opera' ) </td>
+<td><font color="gray">[<a id="2488158" href="#2488158">14:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> billymg: most folx have multiple boxes, for different occasions, with diff contents </td>
+<td><font color="gray">[<a id="2488159" href="#2488159">14:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>billymg:</b></td>
+<td class="breakup"> ah </td>
+<td><font color="gray">[<a id="2488160" href="#2488160">14:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>billymg:</b></td>
+<td class="breakup"> is there perhaps a list of "definitely don't use [feature], will never load for republicans" </td>
+<td><font color="gray">[<a id="2488161" href="#2488161">14:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> js is used pretty much entirely for mircea_popescu's linkable-text-selection thing </td>
+<td><font color="gray">[<a id="2488162" href="#2488162">14:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> (afaik nowhere else) </td>
+<td><font color="gray">[<a id="2488163" href="#2488163">14:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> there aren't really explicit lists of 'don't's, the philosophy is really 'don't do obviously dumb things' </td>
+<td><font color="gray">[<a id="2488164" href="#2488164">14:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; billymg</b></td>
+<td class="breakup"> nods </td>
+<td><font color="gray">[<a id="2488165" href="#2488165">14:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>billymg:</b></td>
+<td class="breakup"> ok, that makes sense </td>
+<td><font color="gray">[<a id="2488166" href="#2488166">14:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> e.g. building a www that doesn't correctly display when put through archive.is , is evidence of having done something dumb </td>
+<td><font color="gray">[<a id="2488167" href="#2488167">14:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>billymg:</b></td>
+<td class="breakup"> aha </td>
+<td><font color="gray">[<a id="2488168" href="#2488168">14:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( various heathen sites routinely 'load content dynamically' etc ) </td>
+<td><font color="gray">[<a id="2488169" href="#2488169">14:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>billymg:</b></td>
+<td class="breakup"> this is a nice heuristic </td>
+<td><font color="gray">[<a id="2488170" href="#2488170">14:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> if your thing is bookmarkable, and readable in 'curl' output, it's generally healthy. </td>
+<td><font color="gray">[<a id="2488171" href="#2488171">14:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-10-20#1864394" target=\'_blank\'>http://btcbase.org/log/2018-10-20#1864394</a> -&gt; oh hey, nice! </td>
+<td><font color="gray">[<a id="2488172" href="#2488172">14:08</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-10-20 15:13 Mocky: talked to me for a couple hours about biznis, Qataris etc. got some good info </font></td>
+<td><font color="gray">[<a id="2488173" href="#2488173">14:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-10-20#1864385" target=\'_blank\'>http://btcbase.org/log/2018-10-20#1864385</a> -&gt; yes perhaps as it gets used more, the trouble becomes more pressing and then it'll get done... </td>
+<td><font color="gray">[<a id="2488174" href="#2488174">14:09</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-10-20 14:55 asciilifeform: it will have to be cured at some point, keccakization currently eats 8x moar memory (9x if counting the fact that it cannot run in-place) than it ought </font></td>
+<td><font color="gray">[<a id="2488175" href="#2488175">14:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> billymg: on list of 'definitely nobody in his right mind will use' -- sslism comes to mind </td>
+<td><font color="gray">[<a id="2488176" href="#2488176">14:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: which item in your 'shelf' contains the most recent keccak , to go from ? </td>
+<td><font color="gray">[<a id="2488177" href="#2488177">14:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> billymg, flash won't load </td>
+<td><font color="gray">[<a id="2488178" href="#2488178">14:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> lol afaik even the heathens have largely forgotten flashism </td>
+<td><font color="gray">[<a id="2488179" href="#2488179">14:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> asciilifeform, eucrypt, that's where keccak lives </td>
+<td><font color="gray">[<a id="2488180" href="#2488180">14:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ok as i thought, ty </td>
+<td><font color="gray">[<a id="2488181" href="#2488181">14:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> np </td>
+<td><font color="gray">[<a id="2488182" href="#2488182">14:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> and re flashism...idiotic stuff tends to linger </td>
+<td><font color="gray">[<a id="2488183" href="#2488183">14:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> somewhere, on some forgotten www, prolly even 'shockwave' lingers </td>
+<td><font color="gray">[<a id="2488184" href="#2488184">14:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> but for the most part crapple succeeded in exterminating flashism ( to replace with own 'html5' abortion ) </td>
+<td><font color="gray">[<a id="2488185" href="#2488185">14:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> ah, I don't quite distinguish between them really </td>
+<td><font color="gray">[<a id="2488186" href="#2488186">14:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> they're distinguishable ~only in that 'flash' at this point requires elaborate gymnastics to run, involving pretty much sacrifice of a whole box (sorta like java) </td>
+<td><font color="gray">[<a id="2488187" href="#2488187">14:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> whereas 'html5' past ~decade of graphical browsers will mostly display (if with eggogs) </td>
+<td><font color="gray">[<a id="2488188" href="#2488188">14:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> afaik the only thinking folx today with copy of 'flash' are , like asciilifeform , running it on dedicated winblowz leprosorium, specifically for unpacking virii which require it... </td>
+<td><font color="gray">[<a id="2488189" href="#2488189">14:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> and come to think of it, i dun think i've used mine in several yrs. </td>
+<td><font color="gray">[<a id="2488190" href="#2488190">14:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> I have one box for all the shit, yes </td>
+<td><font color="gray">[<a id="2488191" href="#2488191">14:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> so i dug into what it's like to be in business with Qataris and how their attitudes are, with my 11 new acquaintances at breakfast today. 3 of them have had first hand experience in their business dealings for years now and happy to tell stories. I'll relay the gist of it here. on the following points there was not the slightest disagreement from anyone at the table, only nodding heads and further stories illustrating the exact same points. </td>
+<td><font color="gray">[<a id="2488192" href="#2488192">14:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> stands up ears, tunes in </td>
+<td><font color="gray">[<a id="2488193" href="#2488193">14:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> They have a very poor appreciation for intangibles. They want to get something they can hold in their hand when they spend money. If it's something they can't see, they balk at paying for it. And if they do pay for it, it'll bother them to no end. One example was dude decided he wanted a car, ordered a brand new, fully customized Bentley. 350k USD. Wouldn't go pick it up when it arrived because balked at having to pay 900 USD /month for insurance. not </td>
+<td><font color="gray">[<a id="2488194" href="#2488194">14:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> because insurance was to expensive for the given coverage, but because "paying money to get nothing". </td>
+<td><font color="gray">[<a id="2488195" href="#2488195">14:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> Another example was horse needed some major surgery. owner had no problem paying for facilities, staff, ancillaries but balked at paying surgeon fee. "i pay you much less for minor treatments, why must I pay more for your time now". Selling them preventative medicine or machine maintenance is a non-starter. They'd rather pay 10x when the emergency hits because then they know they are getting something for their money. </td>
+<td><font color="gray">[<a id="2488196" href="#2488196">14:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> Mocky: is the implication also that they dun bother to look into totalcostofownership before buying ? hence the legends of bedouin sheiks buying a merc and leaving it in desert when fuel tank empty ..? </td>
+<td><font color="gray">[<a id="2488197" href="#2488197">14:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> impression i got was totalcostofownership can't compete with how they feel about it in their gut </td>
+<td><font color="gray">[<a id="2488198" href="#2488198">14:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> hm, re insurance I'm not sure it is evidence of "wouldn't pay if not tangible" </td>
+<td><font color="gray">[<a id="2488199" href="#2488199">14:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> Mocky: sounds like they're perfect candidates for selling iron to, rather than softs, then </td>
+<td><font color="gray">[<a id="2488200" href="#2488200">14:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> more of "wouldn't pay if I don't need it" and they might not need the shitinsurance </td>
+<td><font color="gray">[<a id="2488201" href="#2488201">14:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> diana_coman, that could be a reasonable assumption and i suggested the same to my companions, they shook thier heads. </td>
+<td><font color="gray">[<a id="2488202" href="#2488202">14:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> i've haven't seen personally, so all i can do is report for now </td>
+<td><font color="gray">[<a id="2488203" href="#2488203">14:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> This goes hand in hand with their feeling that everyone comes to Qatar to take their money and rip them off. So all these fancy insurance / maintenance contracts "feel" like they give nothing to the buyer, plus they were dreamed up by foreigners who come to rip them off and decieve them. They detest such things. Easier to sell them a spoon they can old in their hand today for a million dollars than get them to agree to a monthly payout to a vet for care of </td>
+<td><font color="gray">[<a id="2488204" href="#2488204">14:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> a stable of horses, no matter how much it saves them in the long run. </td>
+<td><font color="gray">[<a id="2488205" href="#2488205">14:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> Mocky, maybe it's worth writing it all up in a blog post? it seems to me you have quite a lot to say and it's easier to have a reference point afterwards </td>
+<td><font color="gray">[<a id="2488206" href="#2488206">14:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> possibly will be a tough audience for the traditional type of consulting, where you '$ 1 : turned screw $499,999 -- knowing which screw' </td>
+<td><font color="gray">[<a id="2488207" href="#2488207">14:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> honestly, by this description I start even liking them </td>
+<td><font color="gray">[<a id="2488208" href="#2488208">14:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> also seems to go hand in hand with their impulsiveness. 3 different people described this exact scenario. Qatari goes opens a business with someone (one freelance vet service, one animal rescue shelter, one doggy day care) 3 months later decides, "I didn't realize I was going to have to keep paying so much every month (payroll, rent, etc.) where's the profit?" "it may take a year to become profitable, it's only been 3 months" "I'm not paying anymore." which </td>
+<td><font color="gray">[<a id="2488209" href="#2488209">14:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> asciilifeform, I don't think so I think they would pay &ast;you&ast; that 500k if you manage to convince them that you are worth that for them </td>
+<td><font color="gray">[<a id="2488210" href="#2488210">14:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> isn't necessarily bad, but bad that they waited till 3 months in to even think about it. In the case of the shelter, it was a charity, never meant to make a profit. but still "dun wanna pay anymore" </td>
+<td><font color="gray">[<a id="2488211" href="#2488211">14:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> but they won't pay rando "expert" that, no </td>
+<td><font color="gray">[<a id="2488212" href="#2488212">14:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: hmm, from my reading seems that they won't pay anybody for 'which screw' , gotta also supply a physical talisman they can hang on wall </td>
+<td><font color="gray">[<a id="2488213" href="#2488213">14:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> but i'ma let Mocky elaborate, possibly diff will become clear </td>
+<td><font color="gray">[<a id="2488214" href="#2488214">14:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> thus far sounds like typical savages, with both plus and minus, won't buy 'how to dig well' but will buy musket. </td>
+<td><font color="gray">[<a id="2488215" href="#2488215">14:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> Also re impulsiveness: one school adminsitrator said they have a rule of 3 for instructions comeing down from Qatari management. Let them ask three times including an official goverment memo before you do anything they say. Because as soon as they start to see the fall out of random impulsive decisions they will reverse it and have you undo all your work. </td>
+<td><font color="gray">[<a id="2488216" href="#2488216">14:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> Mocky: funnily enuff, it's how i deal with americans.. </td>
+<td><font color="gray">[<a id="2488217" href="#2488217">14:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> ahahahah </td>
+<td><font color="gray">[<a id="2488218" href="#2488218">14:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> and this wasn't like just one school. was city wide "make every teacher do x" after 900 parent complaints "stop doing x" </td>
+<td><font color="gray">[<a id="2488219" href="#2488219">14:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> so "impulsiveness" would be "don't think it through"? or "won't listen/care about more than 2 steps ahead"? </td>
+<td><font color="gray">[<a id="2488220" href="#2488220">14:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> came across like simpleton management, decree whatever occurs to you, dilbert-esque pointy haired manager on steroids </td>
+<td><font color="gray">[<a id="2488221" href="#2488221">14:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> like both don't think and won't listen </td>
+<td><font color="gray">[<a id="2488222" href="#2488222">14:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> One Qatari owns a chain of 9 fittness supplement stores. 3 of the stores were found to have someone pocketing the cash from transactions. Owner fired everyone in all 9 stores because "see, everyone tries to steal from us". Also he had his driver who can barely count to 10 doing store inventory for him. </td>
+<td><font color="gray">[<a id="2488223" href="#2488223">14:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> so why are those people starting doggy rescue/care biznis in qatar of all places? </td>
+<td><font color="gray">[<a id="2488224" href="#2488224">14:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> that I don't know </td>
+<td><font color="gray">[<a id="2488225" href="#2488225">14:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: ikr? it's the last thing i'd think of pitching to dar-al-islam </td>
+<td><font color="gray">[<a id="2488226" href="#2488226">14:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> because somehow it does read like "oh, they have money, let's bleed them" </td>
+<td><font color="gray">[<a id="2488227" href="#2488227">14:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( what's next , pet pig rescue in israel ?? ) </td>
+<td><font color="gray">[<a id="2488228" href="#2488228">14:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> Word is that they want to make a profit, but don't want to have to put money into it. and they want the profit now. but don't think it thru, maybe can be convinced easily </td>
+<td><font color="gray">[<a id="2488229" href="#2488229">14:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> and don't want to have to put sweat into it either </td>
+<td><font color="gray">[<a id="2488230" href="#2488230">14:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> Mocky: out of curiosity, didja see even one dog ? </td>
+<td><font color="gray">[<a id="2488231" href="#2488231">14:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> maybe they want to claim "i started a charity like my older brother" no idea yet why </td>
+<td><font color="gray">[<a id="2488232" href="#2488232">14:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> anywhere </td>
+<td><font color="gray">[<a id="2488233" href="#2488233">14:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> no dogs but word this morning was that expat western women keep them here like surrogate children just as elsewhere, and there are enough to make a good business </td>
+<td><font color="gray">[<a id="2488234" href="#2488234">14:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> cats a plenty </td>
+<td><font color="gray">[<a id="2488235" href="#2488235">14:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> aaah western women </td>
+<td><font color="gray">[<a id="2488236" href="#2488236">14:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> Mocky: cat is a++ mohammed-approved beast. biznis d00d oughta have opened a cat biz. </td>
+<td><font color="gray">[<a id="2488237" href="#2488237">14:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> but ~all cats i've seen are stones throw from open dumpster. i bet if they had auto-closing lids on dumpsters cats would go extinct </td>
+<td><font color="gray">[<a id="2488238" href="#2488238">14:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> hm so not like turks, then.. </td>
+<td><font color="gray">[<a id="2488239" href="#2488239">14:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> the cats tho! so skinny and downs syndrome looking </td>
+<td><font color="gray">[<a id="2488240" href="#2488240">14:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> and move so slowly </td>
+<td><font color="gray">[<a id="2488241" href="#2488241">14:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> to much time seeing fat cats in US </td>
+<td><font color="gray">[<a id="2488242" href="#2488242">14:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> Being as the requirement for standard LLC is 51% Qatari ownership, this new info suggests to me that having two locals who split the 51% may be the way to go. They can still close it down but not at the whim of a single person. </td>
+<td><font color="gray">[<a id="2488243" href="#2488243">14:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> And sticking a Qatari with ongoing expenditures was never on my radar, def seems like something to explicitly avoid. </td>
+<td><font color="gray">[<a id="2488244" href="#2488244">14:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> files swim to safety? </td>
+<td><font color="gray">[<a id="2488245" href="#2488245">14:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> fuck, ignore </td>
+<td><font color="gray">[<a id="2488246" href="#2488246">14:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> too many keyboards sitting on lap </td>
+<td><font color="gray">[<a id="2488247" href="#2488247">14:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> lol </td>
+<td><font color="gray">[<a id="2488248" href="#2488248">14:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> got a years worth of rain here today </td>
+<td><font color="gray">[<a id="2488249" href="#2488249">14:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> Mocky, I wonder though how much those burnt partners actually catered to the qatari partner as an ongoing relationship rather than just "he gives money for my biznis" (and how the hell is a charity a business, ugh) </td>
+<td><font color="gray">[<a id="2488250" href="#2488250">14:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> good q -- what's their notion of charity, anyway </td>
+<td><font color="gray">[<a id="2488251" href="#2488251">14:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>mats:</b></td>
+<td class="breakup"> reads like some qataris are like amateur daytraders </td>
+<td><font color="gray">[<a id="2488252" href="#2488252">14:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>mats:</b></td>
+<td class="breakup"> pretense of doing business without having to do it </td>
+<td><font color="gray">[<a id="2488253" href="#2488253">14:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mats:</b></td>
+<td class="breakup"> impress dad </td>
+<td><font color="gray">[<a id="2488254" href="#2488254">14:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> Mocky: unrelated q -- are qataris fixated on precious metals, like in dubai ? </td>
+<td><font color="gray">[<a id="2488255" href="#2488255">14:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> i get the impression from other talks (not today) that there is no end of "i have great biz idea for importing from my home country india" being pitched </td>
+<td><font color="gray">[<a id="2488256" href="#2488256">14:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> asciilifeform, this I haven't heard, but flashy stuff like rolex, lambos, bentleys I have heard </td>
+<td><font color="gray">[<a id="2488257" href="#2488257">14:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( asciilifeform worked for some yrs for a fella who regularly traveled to dubai, and never failed to mention the 'gold bar ATMs' ) </td>
+<td><font color="gray">[<a id="2488258" href="#2488258">14:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> Mocky: aand do they still stick to the koranic prohibition against lending-at-interest ? (is that why they spend on 'bling' and oddball 'charity' ..? ) </td>
+<td><font color="gray">[<a id="2488259" href="#2488259">14:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( i dun recall whether mircea_popescu revealed whether this is troo in egypt, also, come to think of it ) </td>
+<td><font color="gray">[<a id="2488260" href="#2488260">14:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> yes lending at interest illegal. credit card issuance with interest, illegal </td>
+<td><font color="gray">[<a id="2488261" href="#2488261">15:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> how do they even do lending ? fully collateralized loans only ? </td>
+<td><font color="gray">[<a id="2488262" href="#2488262">15:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> bank invests, shares profit </td>
+<td><font color="gray">[<a id="2488263" href="#2488263">15:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> if there is more beyond that, i haven't dug deep enough to find it </td>
+<td><font color="gray">[<a id="2488264" href="#2488264">15:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> bitcoin is also illegal for banks to exchange in. which apparently some wanted to do but now central bank authority has banned </td>
+<td><font color="gray">[<a id="2488265" href="#2488265">15:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> re meeting Qataris, I found that 30-something aged men interested in business hang out at certain places on a daily basis. if you go and hang there and get to know them, if they like you they may invite you to majalis. which is the regular practice of closing off half of the home from women in the evening and doing man cave shit </td>
+<td><font color="gray">[<a id="2488266" href="#2488266">15:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> normally is informal "playstation" time, but occasionally, perhaps once a week, it's more formal and they talk business </td>
+<td><font color="gray">[<a id="2488267" href="#2488267">15:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> this is only done by qataris established enough to have own household </td>
+<td><font color="gray">[<a id="2488268" href="#2488268">15:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> the vet doc has been invited 12 times. he said in the beginning he prepared things to say, ways to pitch business. but they never wanted to talk business with him, just playstation </td>
+<td><font color="gray">[<a id="2488269" href="#2488269">15:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> "majlis" not majalis </td>
+<td><font color="gray">[<a id="2488270" href="#2488270">15:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> the regular spots are mostly 5 star hotels on the water. St. Regis, The Four Seasons, The Pearl Qatar &amp; Medina Centrale. Also there's some pickup beach volleyball at katara beach on fridays once the day cools off </td>
+<td><font color="gray">[<a id="2488271" href="#2488271">15:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> men from a couple of the most powerful families hang out at a Costa coffee chain in the shittiest mall in the city </td>
+<td><font color="gray">[<a id="2488272" href="#2488272">15:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> but that was suggested as not a good place to start </td>
+<td><font color="gray">[<a id="2488273" href="#2488273">15:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> a chick unrelated to todays info breakfast also suggested the coffee bar in La Cigal Hotel </td>
+<td><font color="gray">[<a id="2488274" href="#2488274">15:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> &lt;Mocky&gt; i get the impression from other talks (not today) that there is no end of "i have great biz idea for importing from my home country india" being pitched &lt;&lt; WTF does India export that people with options would buy? </td>
+<td><font color="gray">[<a id="2488275" href="#2488275">15:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: afaik -- pharma, ironwork. </td>
+<td><font color="gray">[<a id="2488276" href="#2488276">15:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Very short list. </td>
+<td><font color="gray">[<a id="2488277" href="#2488277">15:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> + slaves. </td>
+<td><font color="gray">[<a id="2488278" href="#2488278">15:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> That's not an export, that's an educational charity </td>
+<td><font color="gray">[<a id="2488279" href="#2488279">15:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> remember, it's indians coming up with those ideas so options dun enter into it </td>
+<td><font color="gray">[<a id="2488280" href="#2488280">15:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> &lt;mats&gt; reads like some qataris are like amateur daytraders &lt;&lt; Kinda like early MPOE-PR era Bitcointalk </td>
+<td><font color="gray">[<a id="2488281" href="#2488281">15:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> it could also be that the above descriptions have selection bias of young Qatari biznis noobs, or peripheral wot members </td>
+<td><font color="gray">[<a id="2488282" href="#2488282">16:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> but so many nods around the table, makes me suspect flaws widely present, to some degree </td>
+<td><font color="gray">[<a id="2488283" href="#2488283">16:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Well, I mean they could also be stuck on 80's US bzbs books </td>
+<td><font color="gray">[<a id="2488284" href="#2488284">16:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> i also reached out to local bitcoin guy. turns out there are two. one sells other buys. I reached out the the seller but no response yet. The buyer doesn't have contact info listed and i don't have the bitcoin to answer his ad so haven't contacted yet. </td>
+<td><font color="gray">[<a id="2488285" href="#2488285">16:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> theres also a "blockchain doha" group with 103 members, I can reach out to </td>
+<td><font color="gray">[<a id="2488286" href="#2488286">16:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> I found out why cars are so nice toward pedestrians in the crosswalks. if you run a red, 3000 USD fine. cameras at most intersections </td>
+<td><font color="gray">[<a id="2488287" href="#2488287">16:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> also huge fine if you stop past the "stop line". If you go over camera starts recording, tiny light flashes. if you reverse back to proper spot and wave your hand out the window showing submission at the camera, you don't get a ticket! </td>
+<td><font color="gray">[<a id="2488288" href="#2488288">16:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> if you are a white woman or a doctor, cops very accommodating toward you, let you off tickets </td>
+<td><font color="gray">[<a id="2488289" href="#2488289">16:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> even if you're a crazy ass vet doc who keeps getting into accidents by not looking </td>
+<td><font color="gray">[<a id="2488290" href="#2488290">16:39</a>]</font></td>
+</tr>
+</table>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2020/forum-logs-for-19-oct-2018/">Forum logs for 19 Oct 2018</a></div>
+                <div class="alignright"><a href="/2020/forum-logs-for-21-oct-2018/">Forum logs for 21 Oct 2018</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/logs/" title="View all posts in Logs" rel="category tag">Logs</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2020/forum-logs-for-20-oct-2018/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2020/forum-logs-for-20-oct-2018/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+
+
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authore8e1dd8" id="authore8e1dd8" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emaile8e1dd8" id="emaile8e1dd8" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urle8e1dd8" id="urle8e1dd8" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="92736" /></p>
+				<input type="hidden" name="comment_post_time" value="1735305627-152.53.39.118" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2024 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-92736")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-92736");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-92736");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

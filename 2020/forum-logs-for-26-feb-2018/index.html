@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_jul2019b.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Forum logs for 26 Feb 2018 on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Aici este pragul cel de sus,<br />unde v-o zis tati ca'ti da cu capul.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-92500"><div class="post" id="post-92500">                    <h1><a href="/2020/forum-logs-for-26-feb-2018/" rel="bookmark" title="Permanent Link to Forum logs for 26 Feb 2018">Forum logs for 26 Feb 2018</a></h1>                        <div class="date">                                     Monday, 16 March, Year 12 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/" title="Posts by "></a>                                                        </div>
+
+                        <div class="entry">
+<table style="font-size:1em;width:"580px;">
+<tr>
+<td><b>ave1:</b></td>
+<td class="breakup"> So request is to create a rss-reader bot, that can subscribe / unsubscribe on request from L1 only? </td>
+<td><font color="gray">[<a id="2411498" href="#2411498">00:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> hey, keep with the zero overhead ada compiles </td>
+<td><font color="gray">[<a id="2411499" href="#2411499">00:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> more useful. </td>
+<td><font color="gray">[<a id="2411500" href="#2411500">00:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>ave1:</b></td>
+<td class="breakup"> Yes, that one is almost done, hard part is making a blog item, will do that first </td>
+<td><font color="gray">[<a id="2411501" href="#2411501">00:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> cool </td>
+<td><font color="gray">[<a id="2411502" href="#2411502">00:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>ave1:</b></td>
+<td class="breakup"> I will finish blog post this week </td>
+<td><font color="gray">[<a id="2411503" href="#2411503">00:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> cool </td>
+<td><font color="gray">[<a id="2411504" href="#2411504">00:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> <a href="/forum-logs-for-25-feb-2018#2411491" target=\'_blank\'>/forum-logs-for-25-feb-2018#2411491</a> &lt;&lt; ahh okay, I misunderstood (glad I asked). So each archived webpage will have its own abstract syntax tree of the code. Now I'm starting to see the utility in deduping (e.g. can ignore 'meaningless' changes between otherwise identical webpages (such as an extra whitespace, etc)) </td>
+<td><font color="gray">[<a id="2411505" href="#2411505">00:04</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-02-26 03:27 mircea_popescu: lobbes you understand what the AST is for a [web]page [of code] ? </font></td>
+<td><font color="gray">[<a id="2411506" href="#2411506">00:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> lobbes webpages are just idiotic programs. you familiar with how the dom works ? it's just a tree structure, more grossly of resources ("img src=" script = " etc) and more finely of tagged elements (&lt;b&gt; &lt;div&gt; etc). </td>
+<td><font color="gray">[<a id="2411507" href="#2411507">00:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> nobody can possibly force you to save image sluts-in-water-12.jpg EVERY TIME some page links it. yes ? </td>
+<td><font color="gray">[<a id="2411508" href="#2411508">00:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> so in this sense, keeping the merkle trees of sites is the ultimate de-duping </td>
+<td><font color="gray">[<a id="2411509" href="#2411509">00:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> which is the original problem you started with. </td>
+<td><font color="gray">[<a id="2411510" href="#2411510">00:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> but the implications are far-reaching (for one example : sinonymy rings can be declared, whereby a set of images are declared equivalent to trilema's rss.svg, so i can simply see that in there instead of w/e insanity the author picked)\ </td>
+<td><font color="gray">[<a id="2411511" href="#2411511">00:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> this is making more and more sense, ty. </td>
+<td><font color="gray">[<a id="2411512" href="#2411512">00:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> re: dom, I've been wondering if it would be worth it to leverage this to build the trees. alternative I guess would be to parse the downloaded files from archive.is and build based on that </td>
+<td><font color="gray">[<a id="2411513" href="#2411513">00:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well, it's a huge field, like a major cave-in you stumbled upon here. i don't expect it'll be done in one hack </td>
+<td><font color="gray">[<a id="2411514" href="#2411514">00:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> word. iterative approach makes sense. see what works, improve, repeat. </td>
+<td><font color="gray">[<a id="2411515" href="#2411515">00:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>jurov:</b></td>
+<td class="breakup"> ben_vulpes: gpg: encrypted with RSA key, ID 4C4FCE69 gpg: decryption failed: secret key not available </td>
+<td><font color="gray">[<a id="2411516" href="#2411516">05:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>jurov:</b></td>
+<td class="breakup"> oops i tried to decrypt oG7AA instead of MOuRX, nevermind </td>
+<td><font color="gray">[<a id="2411517" href="#2411517">05:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>jurov:</b></td>
+<td class="breakup"> and ack, schedule for reboots and raid corruptions was set </td>
+<td><font color="gray">[<a id="2411518" href="#2411518">05:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>jurov:</b></td>
+<td class="breakup"> oops jkjk </td>
+<td><font color="gray">[<a id="2411519" href="#2411519">05:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> soo i'm trying to dig up an ancient discussion (in which i proposed to alf he weighs something PRECISELY). i can't find it, of course, but meanwhile <a href="http://btcbase.org/log/2013-09-30#336297" target=\'_blank\'>http://btcbase.org/log/2013-09-30#336297</a> <a href="http://btcbase.org/log/2013-09-30#336298" target=\'_blank\'>http://btcbase.org/log/2013-09-30#336298</a> </td>
+<td><font color="gray">[<a id="2411520" href="#2411520">08:46</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2013-09-30 07:12 mircea_popescu: Protandrous hermaphrodites refer to organisms that are born male and at some point in their lifespan change sex to female. Protandrous animals include clownfish. Clownfish have a very structured society. In the Amphiprion percula species, there are zero to four individuals excluded from breeding and a breeding pair living in a sea anemone. Dominance is based on size, the female being the largest and the male being the </font></td>
+<td><font color="gray">[<a id="2411521" href="#2411521">08:46</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2013-09-30 07:12 mircea_popescu: second largest. The rest of the group is made up of progressively smaller non-breeders, which have no functioning gonads. If the female dies, the male gains weight and becomes the female for that group. The largest non-breeding fish then sexually matures and becomes the male of the group. </font></td>
+<td><font color="gray">[<a id="2411522" href="#2411522">08:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> then we wonder why the kids are "transgender". but as their life conditions become more like these offered by sea anemone (ie, a very sparse stone cubicle in a very hostile ocean), the clows will naturally be more like clownfish. </td>
+<td><font color="gray">[<a id="2411523" href="#2411523">08:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform do you remember this btw ? exact sister argument to the dioxin-less tomato crate, but with "weigh EXACTLY, fucker" instead. </td>
+<td><font color="gray">[<a id="2411524" href="#2411524">08:50</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="/2018/technology-and-governance/" target=\'_blank\'>/2018/technology-and-governance/</a> &lt;&lt; Trilema - Technology and Governance </font></td>
+<td><font color="gray">[<a id="2411525" href="#2411525">10:20</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://qntra.net/2018/02/argentine-coast-guard-fires-on-and-is-outmaneuvered-by-chinese-fishing-vessel/" target=\'_blank\'>http://qntra.net/2018/02/argentine-coast-guard-fires-on-and-is-outmaneuvered-by-chinese-fishing-vessel/</a> &lt;&lt; Qntra - Argentine Coast Guard Fires On And Is Outmaneuvered By Chinese Fishing Vessel </font></td>
+<td><font color="gray">[<a id="2411526" href="#2411526">10:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> mornin' </td>
+<td><font color="gray">[<a id="2411527" href="#2411527">10:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: quite frustrating, i know there ~was~ this thread. but no dice re finding when, where. </td>
+<td><font color="gray">[<a id="2411528" href="#2411528">11:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> myeah. i spent an unpleasant coupla hours earlier at this also </td>
+<td><font color="gray">[<a id="2411529" href="#2411529">11:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>spyked:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-02-26#1786219" target=\'_blank\'>http://btcbase.org/log/2018-02-26#1786219</a> &lt;-- hey, that sounds like a really neat project, I wouldn't mind adding it to the list. on a related note, /me has been on a sort of semi-holiday for the last 2 months, which led to a lot of exploration on items of potential republican interest. e.g. the ada lisp scriptlang, an irc logger bot (which I could spin into a rss bot), the text browser thing and some out-of-the-blue ro-en Trilema </td>
+<td><font color="gray">[<a id="2411530" href="#2411530">12:07</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-02-26 00:39 mircea_popescu: douchebag ? spyked ? esthlos ? ave1 ? mats ? </font></td>
+<td><font color="gray">[<a id="2411531" href="#2411531">12:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>spyked:</b></td>
+<td class="breakup"> translations. I've been piling 'em up and taking them in small bits, which makes this very much non-productive work on the short term. I can prioritize if you deem any item to be particularly important (and I think it'd be best to first publish some of these before embarking on further quests) </td>
+<td><font color="gray">[<a id="2411532" href="#2411532">12:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> hm? </td>
+<td><font color="gray">[<a id="2411533" href="#2411533">12:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> spyked the bot is a solved problem, genesis and all. </td>
+<td><font color="gray">[<a id="2411534" href="#2411534">12:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>spyked:</b></td>
+<td class="breakup"> mircea_popescu, do you mean the irc logger? well, I figured moar redundancy can't do any harm and it started as an occasion to study the various ways in which common lisp can handle the various pieces (database, irc, <a href="http)." target=\'_blank\'>http).</a> what I have so far is not very different from btcbase.org/patches/logbot-genesis , only I made it a point to avoid quicklisp and use manual imports etc. </td>
+<td><font color="gray">[<a id="2411535" href="#2411535">12:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i guess. but there's so much work not currently bering handled seems somewhat of a waste to re-do things already done. </td>
+<td><font color="gray">[<a id="2411536" href="#2411536">12:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> what exactly is the benefit of redundancy in correct code ? </td>
+<td><font color="gray">[<a id="2411537" href="#2411537">12:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> redundancy is for known-broken items </td>
+<td><font color="gray">[<a id="2411538" href="#2411538">12:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>spyked:</b></td>
+<td class="breakup"> oh, I meant redundancy in "standing a logger bot", not necessarily in re-coding. </td>
+<td><font color="gray">[<a id="2411539" href="#2411539">12:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well that sure, just press it and voila. </td>
+<td><font color="gray">[<a id="2411540" href="#2411540">12:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> anyway, more generally, don't do the work-for-drawer idiocy. do things publish them, and so on. </td>
+<td><font color="gray">[<a id="2411541" href="#2411541">12:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> mircea_popescu: i'll take 'em in exchange for the note at 0.5. ty! </td>
+<td><font color="gray">[<a id="2411542" href="#2411542">12:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> deal. </td>
+<td><font color="gray">[<a id="2411543" href="#2411543">12:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> send asciilifeform shipping deets. </td>
+<td><font color="gray">[<a id="2411544" href="#2411544">12:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> ack </td>
+<td><font color="gray">[<a id="2411545" href="#2411545">12:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ben_vulpes: also plox to specify if you want the usb snakes, or sans ( the latter -- slightly faster , i 'jit'-stock snakes ) </td>
+<td><font color="gray">[<a id="2411546" href="#2411546">12:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> asciilifeform: <a href="http://p.bvulpes.com/pastes/hfwYb/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/hfwYb/?raw=true</a> </td>
+<td><font color="gray">[<a id="2411547" href="#2411547">12:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> can ya' </td>
+<td><font color="gray">[<a id="2411548" href="#2411548">12:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> can you jit them to me instead of your workshop? </td>
+<td><font color="gray">[<a id="2411549" href="#2411549">12:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> sure. </td>
+<td><font color="gray">[<a id="2411550" href="#2411550">12:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> please to </td>
+<td><font color="gray">[<a id="2411551" href="#2411551">12:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ok worx. all goes out by thurs at the very worst. </td>
+<td><font color="gray">[<a id="2411552" href="#2411552">12:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> mmmmk </td>
+<td><font color="gray">[<a id="2411553" href="#2411553">12:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> please let me know when you get a delivery date as well </td>
+<td><font color="gray">[<a id="2411554" href="#2411554">12:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ben_vulpes now getting back to this deal of ours. 0.345773172 for a year of box as detailed ( <a href="http://btcbase.org/log/2018-02-24#1785941" target=\'_blank\'>http://btcbase.org/log/2018-02-24#1785941</a> ) + 0.014 for one month of rack + ??? for a pair fgs </td>
+<td><font color="gray">[<a id="2411555" href="#2411555">12:38</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-02-24 18:53 ben_vulpes: !!invoice mircea_popescu 0.345773172 one year of <a href="http://pizarroisp.net/?p=9" target=\'_blank\'>http://pizarroisp.net/?p=9</a> </font></td>
+<td><font color="gray">[<a id="2411556" href="#2411556">12:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> aaalmost there. </td>
+<td><font color="gray">[<a id="2411557" href="#2411557">12:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> also, are you gonna sell 5 to mod6 for an instant paper profit ? lol. </td>
+<td><font color="gray">[<a id="2411558" href="#2411558">12:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> mircea_popescu: i'm going to roll the FGs into the rental cost of the machine 20% markup for a year paid up front for the whole kit and caboodle if that passes with you </td>
+<td><font color="gray">[<a id="2411559" href="#2411559">12:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> lol, if i wanted to get middleman'd, i'd get 'em from dpb! </td>
+<td><font color="gray">[<a id="2411560" href="#2411560">12:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well... it'll pass with me for fairytale reasons (irl i wouldn't have any reason to buy insurance on a fg, seeing how that'll be the day, and besides i got alf to squeeze but let's play.) </td>
+<td><font color="gray">[<a id="2411561" href="#2411561">12:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> mod6 so is pizarro gonna sell you things at cost ?! </td>
+<td><font color="gray">[<a id="2411562" href="#2411562">12:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> i doubt it. </td>
+<td><font color="gray">[<a id="2411563" href="#2411563">12:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> aight thanks mircea_popescu </td>
+<td><font color="gray">[<a id="2411564" href="#2411564">12:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> tis why, was hoping to buy direct from nsa. </td>
+<td><font color="gray">[<a id="2411565" href="#2411565">12:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> but if there are not 5 remaining, then there are not 5. will figure something else out. </td>
+<td><font color="gray">[<a id="2411566" href="#2411566">12:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> was just about to retort to 'insurance on fg, lol' with 'fg is eternal iron' but then remembered that cpld's eeprom is rated for somewhere like 20yrs. naturally it can be refreshed via the jtag connector and my signed payload, as many times as one likes. </td>
+<td><font color="gray">[<a id="2411567" href="#2411567">12:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> mod6 no offense, and sorry for the contorted but in thew business game we're currently playing nsa is going to only want to sell in bulk see </td>
+<td><font color="gray">[<a id="2411568" href="#2411568">12:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> Alrighty. </td>
+<td><font color="gray">[<a id="2411569" href="#2411569">12:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> so unless you actually want the next 100 once we assemble them... you're stuck dealing with one or the other </td>
+<td><font color="gray">[<a id="2411570" href="#2411570">12:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> Fair enough. </td>
+<td><font color="gray">[<a id="2411571" href="#2411571">12:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>spyked:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-02-26#1786295" target=\'_blank\'>http://btcbase.org/log/2018-02-26#1786295</a> &lt;-- makes plenty of sense it never crossed my head to not publish, it's more a matter of discipline (whipping myself up into shape and focusing) </td>
+<td><font color="gray">[<a id="2411572" href="#2411572">12:51</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-02-26 17:23 mircea_popescu: anyway, more generally, don't do the work-for-drawer idiocy. do things publish them, and so on. </font></td>
+<td><font color="gray">[<a id="2411573" href="#2411573">12:51</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://thetarpit.org/posts/y04/06c-ffa-egypt-proof.html" target=\'_blank\'>http://thetarpit.org/posts/y04/06c-ffa-egypt-proof.html</a> &lt;&lt; The Tar Pit - Egyptian div and mul "work": a correctness proof for the arithmetic operations in FFA Chapter 5 </font></td>
+<td><font color="gray">[<a id="2411574" href="#2411574">13:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> Alright, I'm taking quotes on those 5 FGs now. Please add in a bit for shipping to MN. Would like to see them packaged like this: <a href="http://www.mod6.net/fg/fg-test/20170328_125346.jpg" target=\'_blank\'>http://www.mod6.net/fg/fg-test/20170328_125346.jpg</a> </td>
+<td><font color="gray">[<a id="2411575" href="#2411575">14:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> danielpbarron, ben_vulpes ^. </td>
+<td><font color="gray">[<a id="2411576" href="#2411576">14:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> !~ticker --market all </td>
+<td><font color="gray">[<a id="2411577" href="#2411577">14:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>jhvh1:</b></td>
+<td class="breakup"> BingoBoingo: Bitstamp BTCUSD last: 10246.81, vol: 14354.04888975 | Bitfinex BTCUSD last: 10230.25145315, vol: 43778.80132675 | Kraken BTCUSD last: 10248.7, vol: 8600.73993726 | Volume-weighted last average: 10236.1907911 </td>
+<td><font color="gray">[<a id="2411578" href="#2411578">14:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> mod6: i'll do the 5 for 0.7838890 btc that's a 10% markup from pizarro's cost plus ~20usd for shipping </td>
+<td><font color="gray">[<a id="2411579" href="#2411579">14:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> sorry 0.07838890 </td>
+<td><font color="gray">[<a id="2411580" href="#2411580">14:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> Thanks ben_vulpes! I'll leave it open for danielpbarron here yet. See what he comes up with. </td>
+<td><font color="gray">[<a id="2411581" href="#2411581">14:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-02-26#1786334" target=\'_blank\'>http://btcbase.org/log/2018-02-26#1786334</a> &lt;&lt;-&gt;&gt; <a href="http://btcbase.org/log/2018-02-24#1785964" target=\'_blank\'>http://btcbase.org/log/2018-02-24#1785964</a> price drop! </td>
+<td><font color="gray">[<a id="2411582" href="#2411582">16:07</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-02-26 19:19 ben_vulpes: sorry 0.07838890 </font></td>
+<td><font color="gray">[<a id="2411583" href="#2411583">16:07</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-02-24 19:23 mod6: !~calc 0.0395 &ast; 5 </font></td>
+<td><font color="gray">[<a id="2411584" href="#2411584">16:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> Aha, very competitive pricing there. </td>
+<td><font color="gray">[<a id="2411585" href="#2411585">16:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> Wanna give dpb a chance here tho, before I accept. I feel like 24 hours should be fine since the time of my posting. </td>
+<td><font color="gray">[<a id="2411586" href="#2411586">16:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; danielpbarron</b></td>
+<td class="breakup"> has no better offer </td>
+<td><font color="gray">[<a id="2411587" href="#2411587">16:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> Ok, fair enough, I appreciate your response danielpbarron. I'll probably need more eventually anyway. </td>
+<td><font color="gray">[<a id="2411588" href="#2411588">16:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> ben_vulpes: It's a deal then! Can pay sometime today yet. Invoice me if you like even. I'll pay with my deedbot acct. </td>
+<td><font color="gray">[<a id="2411589" href="#2411589">16:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> Will provide shipping details later also. </td>
+<td><font color="gray">[<a id="2411590" href="#2411590">16:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> From the Bawlling And Butthurt files: <a href="https://archive.is/w4daN" target=\'_blank\'>https://archive.is/w4daN</a> "Westminster’s prospective buyer only changed its name from Jiangsu Zhongtai Bridge Steel Structure Co. to Kaiwen at the end of December" </td>
+<td><font color="gray">[<a id="2411591" href="#2411591">17:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> !~later tell joecool It looks like you sat too long putting togther that "exclusive". Now the world knows Craig Wright is being sued for 10 Billion dollars and such are the wages of convincingly faking the wrong papers. </td>
+<td><font color="gray">[<a id="2411592" href="#2411592">17:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>jhvh1:</b></td>
+<td class="breakup"> BingoBoingo: The operation succeeded. </td>
+<td><font color="gray">[<a id="2411593" href="#2411593">17:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> !~seen joecool </td>
+<td><font color="gray">[<a id="2411594" href="#2411594">17:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>jhvh1:</b></td>
+<td class="breakup"> BingoBoingo: I have not seen joecool. </td>
+<td><font color="gray">[<a id="2411595" href="#2411595">17:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-02-19#1785174" target=\'_blank\'>http://btcbase.org/log/2018-02-19#1785174</a> </td>
+<td><font color="gray">[<a id="2411596" href="#2411596">17:54</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-02-19 23:11 joecool: BingoBoingo: probable creators of bitcoin filed suit against each other last week, I have the complaint </font></td>
+<td><font color="gray">[<a id="2411597" href="#2411597">17:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> talk about waste. </td>
+<td><font color="gray">[<a id="2411598" href="#2411598">19:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !~rated joecool </td>
+<td><font color="gray">[<a id="2411599" href="#2411599">19:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>jhvh1:</b></td>
+<td class="breakup"> mircea_popescu: Error: "rated" is not a valid command. </td>
+<td><font color="gray">[<a id="2411600" href="#2411600">19:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!rated joecool </td>
+<td><font color="gray">[<a id="2411601" href="#2411601">19:44</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> mircea_popescu rated joecool 1 at 2015/05/07 16:00:17 &lt;&lt; Approximately new blood :p </font></td>
+<td><font color="gray">[<a id="2411602" href="#2411602">19:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!rate joecool -1 wastrel. </td>
+<td><font color="gray">[<a id="2411603" href="#2411603">19:44</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Get your OTP: <a href="http://p.bvulpes.com/pastes/uVVwR/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/uVVwR/?raw=true</a> </font></td>
+<td><font color="gray">[<a id="2411604" href="#2411604">19:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!up state_bits </td>
+<td><font color="gray">[<a id="2411605" href="#2411605">19:52</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> state_bits voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2411606" href="#2411606">19:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>state_bits:</b></td>
+<td class="breakup"> Hi all - I stopped by a month or so ago. Been reading logs but wanted to register a key </td>
+<td><font color="gray">[<a id="2411607" href="#2411607">19:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> go for it </td>
+<td><font color="gray">[<a id="2411608" href="#2411608">19:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>state_bits:</b></td>
+<td class="breakup"> ty </td>
+<td><font color="gray">[<a id="2411609" href="#2411609">19:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>state_bits:</b></td>
+<td class="breakup"> !!register <a href="http://p.bvulpes.com/pastes/R0FwM/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/R0FwM/?raw=true</a> </td>
+<td><font color="gray">[<a id="2411610" href="#2411610">19:53</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> 28FD28682552EE17282217A4A9DFAC7974E1933D registered as state_bits. </font></td>
+<td><font color="gray">[<a id="2411611" href="#2411611">19:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>state_bits:</b></td>
+<td class="breakup"> btw actually stumbled on trilema maybe 4 months ago </td>
+<td><font color="gray">[<a id="2411612" href="#2411612">19:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> anything good ? </td>
+<td><font color="gray">[<a id="2411613" href="#2411613">19:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>state_bits:</b></td>
+<td class="breakup"> taken that long to unpantsuitify myself </td>
+<td><font color="gray">[<a id="2411614" href="#2411614">19:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>state_bits:</b></td>
+<td class="breakup"> I'm only halfway lol </td>
+<td><font color="gray">[<a id="2411615" href="#2411615">19:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>state_bits:</b></td>
+<td class="breakup"> Hope to keep stopping by to sharpen myself against the spinning blades etc </td>
+<td><font color="gray">[<a id="2411616" href="#2411616">19:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> cool deal. </td>
+<td><font color="gray">[<a id="2411617" href="#2411617">19:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>state_bits:</b></td>
+<td class="breakup"> Also happy to see qntra is back up </td>
+<td><font color="gray">[<a id="2411618" href="#2411618">19:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>state_bits:</b></td>
+<td class="breakup"> Anyway I'll pop back if I have anything worth saying </td>
+<td><font color="gray">[<a id="2411619" href="#2411619">19:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> cool. </td>
+<td><font color="gray">[<a id="2411620" href="#2411620">19:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> evenin'! </td>
+<td><font color="gray">[<a id="2411621" href="#2411621">20:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> !!up pinochle </td>
+<td><font color="gray">[<a id="2411622" href="#2411622">20:45</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> pinochle voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2411623" href="#2411623">20:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>pinochle:</b></td>
+<td class="breakup"> !!register <a href="http://p.bvulpes.com/pastes/YpSse/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/YpSse/?raw=true</a> </td>
+<td><font color="gray">[<a id="2411624" href="#2411624">20:58</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> 685BD2BF73D2096B8DBDA3754EE147269B5763CA registered as pinochle. </font></td>
+<td><font color="gray">[<a id="2411625" href="#2411625">20:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> aaand who might ye be ? </td>
+<td><font color="gray">[<a id="2411626" href="#2411626">20:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>pinochle:</b></td>
+<td class="breakup"> long time log eater, taking steps a la <a href="/2016/how-to-participate-in-the-affairs-of-the-most-serene-republic/" target=\'_blank\'>/2016/how-to-participate-in-the-affairs-of-the-most-serene-republic/</a> </td>
+<td><font color="gray">[<a id="2411627" href="#2411627">21:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> so good for you. </td>
+<td><font color="gray">[<a id="2411628" href="#2411628">21:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!rate pinochle 1 new blood </td>
+<td><font color="gray">[<a id="2411629" href="#2411629">21:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!rate state_bits 1 new blood </td>
+<td><font color="gray">[<a id="2411630" href="#2411630">21:01</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Get your OTP: <a href="http://p.bvulpes.com/pastes/7KBf2/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/7KBf2/?raw=true</a> </font></td>
+<td><font color="gray">[<a id="2411631" href="#2411631">21:01</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Get your OTP: <a href="http://p.bvulpes.com/pastes/78UmJ/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/78UmJ/?raw=true</a> </font></td>
+<td><font color="gray">[<a id="2411632" href="#2411632">21:01</a>]</font></td>
+</tr>
+</table>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2020/forum-logs-for-25-feb-2018/">Forum logs for 25 Feb 2018</a></div>
+                <div class="alignright"><a href="/2020/forum-logs-for-27-feb-2018/">Forum logs for 27 Feb 2018</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/logs/" title="View all posts in Logs" rel="category tag">Logs</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2020/forum-logs-for-26-feb-2018/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2020/forum-logs-for-26-feb-2018/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+
+
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="author22b8d0a" id="author22b8d0a" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email22b8d0a" id="email22b8d0a" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="url22b8d0a" id="url22b8d0a" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="92500" /></p>
+				<input type="hidden" name="comment_post_time" value="1739908852-18.97.14.84" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2025 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-92500")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-92500");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-92500");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

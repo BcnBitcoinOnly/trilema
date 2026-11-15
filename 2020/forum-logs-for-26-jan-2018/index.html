@@ -1,0 +1,3628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_dec2016.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Forum logs for 26 Jan 2018 on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">The fates are cruel an' the chances are slim<br />so grab a good sieve and dig in.<br />~<a href=/2020/nannare/#comment-147503>my elder slavegirl</a>
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-92469"><div class="post" id="post-92469">                    <h1><a href="/2020/forum-logs-for-26-jan-2018/" rel="bookmark" title="Permanent Link to Forum logs for 26 Jan 2018">Forum logs for 26 Jan 2018</a></h1>                        <div class="date">                                     Monday, 16 March, Year 12 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/" title="Posts by "></a>                                                        </div>
+
+                        <div class="entry">
+<table style="font-size:1em;width:"580px;">
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> meanwhile in girls alf won't like, <a href="http://78.media.tumblr.com/33cb28925c37b2cd04d9ff82a675d37d/tumblr_nh7rhnlD9v1qd7u7zo1_1280.jpg" target=\'_blank\'>http://78.media.tumblr.com/33cb28925c37b2cd04d9ff82a675d37d/tumblr_nh7rhnlD9v1qd7u7zo1_1280.jpg</a> </td>
+<td><font color="gray">[<a id="2401944" href="#2401944">00:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> both vdiffs fail on this. </td>
+<td><font color="gray">[<a id="2401945" href="#2401945">00:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> and it goes back to the same thing as with diana_coman. having two '++' at the front of the line. the way the vdiff is written, when it passes the diffed file off to awk to pattern match the ---|+++ it adds that '+' in the front, then it matches, causing it to call sha512sum.. which is where the false comes from. I think. </td>
+<td><font color="gray">[<a id="2401946" href="#2401946">00:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i expect. </td>
+<td><font color="gray">[<a id="2401947" href="#2401947">00:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> <a href="http://p.bvulpes.com/pastes/MSMop/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/MSMop/?raw=true</a> </td>
+<td><font color="gray">[<a id="2401948" href="#2401948">00:09</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://www.contravex.com/2018/01/26/the-g-word/" target=\'_blank\'>http://www.contravex.com/2018/01/26/the-g-word/</a> &lt;&lt; Contravex: A blog by Pete Dushenski - The G-word. </font></td>
+<td><font color="gray">[<a id="2401949" href="#2401949">01:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> I managed to find two vulnerabilities in Yahoo last night, I highly suggest their bug bounty program for anyone who is interested in doing that sort of stuff. </td>
+<td><font color="gray">[<a id="2401950" href="#2401950">01:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> how much do two vulnerabilities in yahoo pay ? </td>
+<td><font color="gray">[<a id="2401951" href="#2401951">01:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Well, I still have to wait until they patch them before they reward the bounty. They pay based on likelyhood/impact, now a friend of mine reported a vulnerability less serious than the one I found and he was rewarded $2,000 total </td>
+<td><font color="gray">[<a id="2401952" href="#2401952">01:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> The other one I discovered, I would say probably somewhere between $200-$500 </td>
+<td><font color="gray">[<a id="2401953" href="#2401953">01:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> However, even though I have to wait until they patch the bugs I found before they reward me, they did reward me $150 on triage and will be rewarding the rest at a later date </td>
+<td><font color="gray">[<a id="2401954" href="#2401954">01:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> You can read his blog here: <a href="http://www.sxcurity.pro/" target=\'_blank\'>http://www.sxcurity.pro/</a> </td>
+<td><font color="gray">[<a id="2401955" href="#2401955">01:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> i suppose we should be looking for: (--- |\+\+\+ ) instead of (---|\+\+\+) </td>
+<td><font color="gray">[<a id="2401956" href="#2401956">01:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> hey, almost better than tits. </td>
+<td><font color="gray">[<a id="2401957" href="#2401957">01:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> mod6 YES! </td>
+<td><font color="gray">[<a id="2401958" href="#2401958">01:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i kept sayin' this! </td>
+<td><font color="gray">[<a id="2401959" href="#2401959">01:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> A relatively well known bug bounty hunter I know has made $40k this month off of bug bounties, his goal is $50k for January </td>
+<td><font color="gray">[<a id="2401960" href="#2401960">01:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> this is like re-reading old shoemoney drivel about google adsense successes. goals and whatnot. </td>
+<td><font color="gray">[<a id="2401961" href="#2401961">01:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Haha, you do have to admit for the average person $40k in a little over 3 weeks is pretty damn good. </td>
+<td><font color="gray">[<a id="2401962" href="#2401962">01:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i certainly admit. </td>
+<td><font color="gray">[<a id="2401963" href="#2401963">01:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> but you're not discussing an average person, you're discussing a selected person. </td>
+<td><font color="gray">[<a id="2401964" href="#2401964">01:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i know a girl that made $30 million with her ass and you must admit that for the average girl's ass this is indeed generous. </td>
+<td><font color="gray">[<a id="2401965" href="#2401965">01:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> but her ass is not actually all that average. </td>
+<td><font color="gray">[<a id="2401966" href="#2401966">01:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Oh yes, that's very true. However, I do know quite a few people who have been very successful with it </td>
+<td><font color="gray">[<a id="2401967" href="#2401967">01:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i know quite a few people whose iq is over 150. the internet is good at collecting similar things. sadly -- this does little for the intelligence of the race in general. </td>
+<td><font color="gray">[<a id="2401968" href="#2401968">01:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Very true </td>
+<td><font color="gray">[<a id="2401969" href="#2401969">01:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> I suppose the point I'm trying to get across is that there is a pretty good community involved with bug bounties, I especially like the classic hacker additude of most of the people in the sense that they're all working together to learn more </td>
+<td><font color="gray">[<a id="2401970" href="#2401970">01:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> And how most people are more than willing to share the information they acquire through blogs and whatnot </td>
+<td><font color="gray">[<a id="2401971" href="#2401971">01:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> mircea_popescu: Who runs bpvulpes.com? </td>
+<td><font color="gray">[<a id="2401972" href="#2401972">02:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> &lt; </td>
+<td><font color="gray">[<a id="2401973" href="#2401973">02:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> surely you can sleuth that one out. </td>
+<td><font color="gray">[<a id="2401974" href="#2401974">02:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Ohh lol I'm retarded </td>
+<td><font color="gray">[<a id="2401975" href="#2401975">02:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> ben_vulpes: I found a vulnerability in your site, how would you like me to disclose it to you? </td>
+<td><font color="gray">[<a id="2401976" href="#2401976">02:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> It's not a major issue and an easy fix, however it could potentially allow someone to create fake logs </td>
+<td><font color="gray">[<a id="2401977" href="#2401977">02:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> guy's probably away for the night. why don't you drop him a gpggram on his paste site, link him to it here </td>
+<td><font color="gray">[<a id="2401978" href="#2401978">02:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Forsure </td>
+<td><font color="gray">[<a id="2401979" href="#2401979">02:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> !!key ben_vulpes </td>
+<td><font color="gray">[<a id="2401980" href="#2401980">02:09</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://wot.deedbot.org/4F7907942CA8B89B01E25A762AFA1A9FD2D031DA.asc" target=\'_blank\'>http://wot.deedbot.org/4F7907942CA8B89B01E25A762AFA1A9FD2D031DA.asc</a> </font></td>
+<td><font color="gray">[<a id="2401981" href="#2401981">02:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Are there any sites any of you guys would like me to check out? I'm a bit bored right now and I am always up for a challenge :-) </td>
+<td><font color="gray">[<a id="2401982" href="#2401982">02:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> might help you more to do that reading I was talking about, and get a v-tron set up. </td>
+<td><font color="gray">[<a id="2401983" href="#2401983">02:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; trinque</b></td>
+<td class="breakup"> off for the night as well </td>
+<td><font color="gray">[<a id="2401984" href="#2401984">02:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> ben_vulpes: <a href="http://p.bvulpes.com/pastes/VGhcp/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/VGhcp/?raw=true</a> </td>
+<td><font color="gray">[<a id="2401985" href="#2401985">02:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> douchebag ben_vulpes </td>
+<td><font color="gray">[<a id="2401986" href="#2401986">02:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Mhmmm I already got it, thanks anyway though </td>
+<td><font color="gray">[<a id="2401987" href="#2401987">02:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> :p </td>
+<td><font color="gray">[<a id="2401988" href="#2401988">02:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> mircea_popescu: any sites you want me to take a look at really quick? </td>
+<td><font color="gray">[<a id="2401989" href="#2401989">02:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> wp-mp, basically, like last time. </td>
+<td><font color="gray">[<a id="2401990" href="#2401990">02:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> To make my job a little bit easier, could you tell me a little bit about mp-wp and how it differs from Wordpress? </td>
+<td><font color="gray">[<a id="2401991" href="#2401991">02:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="/forum-logs-for-23-jan-2018#2399979" target=\'_blank\'>/forum-logs-for-23-jan-2018#2399979</a> &lt; </td>
+<td><font color="gray">[<a id="2401992" href="#2401992">02:39</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-23 07:11 mircea_popescu: actually, hanbot is about to genesis mp-wp, you're more than welcome to help down with the paring down effort of that, if you want. mostly php. </font></td>
+<td><font color="gray">[<a id="2401993" href="#2401993">02:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> it's a fork off 2.7 wp trunk iirc. </td>
+<td><font color="gray">[<a id="2401994" href="#2401994">02:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> hanbot just published an unofficial genesis, so you can just fire up your v and press that </td>
+<td><font color="gray">[<a id="2401995" href="#2401995">02:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Where can I find a copy of the source? </td>
+<td><font color="gray">[<a id="2401996" href="#2401996">02:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-01-25#1775994" target=\'_blank\'>http://btcbase.org/log/2018-01-25#1775994</a> </td>
+<td><font color="gray">[<a id="2401997" href="#2401997">02:45</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-25 06:00 hanbot: <a href="http://btcbase.org/log/2018-01-25#1775981" target=\'_blank\'>http://btcbase.org/log/2018-01-25#1775981</a> &gt;&gt; can grab <a href="http://thewhet.net/testickle/mp-wp_genesis.vpatch" target=\'_blank\'>http://thewhet.net/testickle/mp-wp_genesis.vpatch</a> &amp; <a href="http://thewhet.net/testickle/mp-wp_genesis.vpatch.hanbot.sig" target=\'_blank\'>http://thewhet.net/testickle/mp-wp_genesis.vpatch.hanbot.sig</a> pubkey's on about page if you need it. </font></td>
+<td><font color="gray">[<a id="2401998" href="#2401998">02:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> mic </td>
+<td><font color="gray">[<a id="2401999" href="#2401999">02:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> mircea_popescu: I have discovered a vulnerability :-) </td>
+<td><font color="gray">[<a id="2402000" href="#2402000">02:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> How would you like me to disclose this? </td>
+<td><font color="gray">[<a id="2402001" href="#2402001">02:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> by saying what it is lel </td>
+<td><font color="gray">[<a id="2402002" href="#2402002">03:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Cross Site Scripting </td>
+<td><font color="gray">[<a id="2402003" href="#2402003">03:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> but be specific </td>
+<td><font color="gray">[<a id="2402004" href="#2402004">03:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Is it alright if I link you to a PoC of the vulnerability? </td>
+<td><font color="gray">[<a id="2402005" href="#2402005">03:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> sure. </td>
+<td><font color="gray">[<a id="2402006" href="#2402006">03:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Alright one moment </td>
+<td><font color="gray">[<a id="2402007" href="#2402007">03:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> <a href="/mp_fabulous_hashonator.php?m=%3Csvg/onload=alert`XSS`%3E" target=\'_blank\'>/mp_fabulous_hashonator.php?m=%3Csvg/onload=alert`XSS`%3E</a> </td>
+<td><font color="gray">[<a id="2402008" href="#2402008">03:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> does that actually do something ? </td>
+<td><font color="gray">[<a id="2402009" href="#2402009">03:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> I was able to execute arbitrary Javascript on your site </td>
+<td><font color="gray">[<a id="2402010" href="#2402010">03:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> all i see is <a href="https://archive.is/Kbau3" target=\'_blank\'>https://archive.is/Kbau3</a> </td>
+<td><font color="gray">[<a id="2402011" href="#2402011">03:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> XSS can be used to steal cookies of logged in users which can then be used to jack their session. </td>
+<td><font color="gray">[<a id="2402012" href="#2402012">03:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> but you can't log into trilema. </td>
+<td><font color="gray">[<a id="2402013" href="#2402013">03:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> So there is never a session stored on the site? </td>
+<td><font color="gray">[<a id="2402014" href="#2402014">03:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> not afaik moreover, does an alert box actually pop up for you ? </td>
+<td><font color="gray">[<a id="2402015" href="#2402015">03:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Yes </td>
+<td><font color="gray">[<a id="2402016" href="#2402016">03:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> odd, neither archive bot not this testbox firefox i have do it. </td>
+<td><font color="gray">[<a id="2402017" href="#2402017">03:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> <a href="/mp_fabulous_hashonator.php?m=%3Ch1%20style=%22color:%20red%22%3E" target=\'_blank\'>/mp_fabulous_hashonator.php?m=%3Ch1%20style=%22color:%20red%22%3E</a> </td>
+<td><font color="gray">[<a id="2402018" href="#2402018">03:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Go there </td>
+<td><font color="gray">[<a id="2402019" href="#2402019">03:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> You'll see arbitrary html was added to the page </td>
+<td><font color="gray">[<a id="2402020" href="#2402020">03:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://browsershots.org//mp_fabulous_hashonator.php?m=%3Csvg/onload=alert%60XSS%60%3E" target=\'_blank\'>http://browsershots.org//mp_fabulous_hashonator.php?m=%3Csvg/onload=alert%60XSS%60%3E</a> &lt;&lt; lulzty enough. </td>
+<td><font color="gray">[<a id="2402021" href="#2402021">03:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> douchebag was this actually in mp-wp ?! </td>
+<td><font color="gray">[<a id="2402022" href="#2402022">03:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> this is hysterical, apparently it works in newer (3x, 4x firefox) but not in older (2x say). </td>
+<td><font color="gray">[<a id="2402023" href="#2402023">03:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> It might be, I'm not sure at the moment if this was added with mp-wp or if it was uploaded to trilema.com's webhost a later date </td>
+<td><font color="gray">[<a id="2402024" href="#2402024">03:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Oh yeah, javscript is great isn't it? </td>
+<td><font color="gray">[<a id="2402025" href="#2402025">03:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> notreally. </td>
+<td><font color="gray">[<a id="2402026" href="#2402026">03:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> lol I was being sarcastic </td>
+<td><font color="gray">[<a id="2402027" href="#2402027">03:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> anyway, i suppose "the message chosen was $" is just bad webcoding on my part. </td>
+<td><font color="gray">[<a id="2402028" href="#2402028">03:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; mircea_popescu</b></td>
+<td class="breakup"> has ~0 experience with this, an' i guess it shows. </td>
+<td><font color="gray">[<a id="2402029" href="#2402029">03:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Don't feel bad, XSS is one of the most common vulnerabilities that exists on the majority of websites </td>
+<td><font color="gray">[<a id="2402030" href="#2402030">03:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> but this browsershots set is a comedy goldmine! apparently a good third of the failful firefox browsers ALSO are getting an "uptades" blabla popup </td>
+<td><font color="gray">[<a id="2402031" href="#2402031">03:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> lol </td>
+<td><font color="gray">[<a id="2402032" href="#2402032">03:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> hmm i wonder </td>
+<td><font color="gray">[<a id="2402033" href="#2402033">03:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> &lt;script&gt;alert`OHAI`&lt;/script&gt; </td>
+<td><font color="gray">[<a id="2402034" href="#2402034">03:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> I wonder if any of the logs will pop an alert </td>
+<td><font color="gray">[<a id="2402035" href="#2402035">03:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> apparently not </td>
+<td><font color="gray">[<a id="2402036" href="#2402036">03:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> mircea_popescu: So the bots in this channel for instance the one that will add your GPG key from a url you provide </td>
+<td><font color="gray">[<a id="2402037" href="#2402037">03:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> aha </td>
+<td><font color="gray">[<a id="2402038" href="#2402038">03:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> That actually can hold quite the potential of a vulnerability </td>
+<td><font color="gray">[<a id="2402039" href="#2402039">03:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> If it </td>
+<td><font color="gray">[<a id="2402040" href="#2402040">03:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> If it's returning page responses in any way, it could be used to access internal network addresses </td>
+<td><font color="gray">[<a id="2402041" href="#2402041">03:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> go ahead and try it </td>
+<td><font color="gray">[<a id="2402042" href="#2402042">03:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> What are the commands that have that sort of functionality? </td>
+<td><font color="gray">[<a id="2402043" href="#2402043">03:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!register ? </td>
+<td><font color="gray">[<a id="2402044" href="#2402044">03:52</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> 6160E1CAC8A3C52966FD76998A736F0E2FB7B452 is already registered as mircea_popescu. </font></td>
+<td><font color="gray">[<a id="2402045" href="#2402045">03:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!help </td>
+<td><font color="gray">[<a id="2402046" href="#2402046">03:52</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://deedbot.org/help.html" target=\'_blank\'>http://deedbot.org/help.html</a> </font></td>
+<td><font color="gray">[<a id="2402047" href="#2402047">03:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> ooh I have an idea </td>
+<td><font color="gray">[<a id="2402048" href="#2402048">03:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> 1sec </td>
+<td><font color="gray">[<a id="2402049" href="#2402049">03:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!subscribe <a href="https://my.mixtape.moe/kcoilr.xml" target=\'_blank\'>https://my.mixtape.moe/kcoilr.xml</a> </td>
+<td><font color="gray">[<a id="2402050" href="#2402050">03:54</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> douchebag subscription to <a href="https://my.mixtape.moe/kcoilr.xml" target=\'_blank\'>https://my.mixtape.moe/kcoilr.xml</a> failed </font></td>
+<td><font color="gray">[<a id="2402051" href="#2402051">03:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!subscribe <a href="https://my.mixtape.moe/spofpo.xml" target=\'_blank\'>https://my.mixtape.moe/spofpo.xml</a> </td>
+<td><font color="gray">[<a id="2402052" href="#2402052">03:55</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> douchebag subscription to <a href="https://my.mixtape.moe/spofpo.xml" target=\'_blank\'>https://my.mixtape.moe/spofpo.xml</a> failed </font></td>
+<td><font color="gray">[<a id="2402053" href="#2402053">03:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!subscribe <a href="http://c6jqm84m3hami0jwzts22crxmosgg5.burpcollaborator.net" target=\'_blank\'>http://c6jqm84m3hami0jwzts22crxmosgg5.burpcollaborator.net</a> </td>
+<td><font color="gray">[<a id="2402054" href="#2402054">03:56</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> douchebag subscription to <a href="http://c6jqm84m3hami0jwzts22crxmosgg5.burpcollaborator.net" target=\'_blank\'>http://c6jqm84m3hami0jwzts22crxmosgg5.burpcollaborator.net</a> failed </font></td>
+<td><font color="gray">[<a id="2402055" href="#2402055">03:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> you probably need a rss feed </td>
+<td><font color="gray">[<a id="2402056" href="#2402056">03:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Well, since RSS is in XML format I was testing a popular vulnerability that occurs in XML parsers which uses external entities, allowing an attacker to exfiltrate data </td>
+<td><font color="gray">[<a id="2402057" href="#2402057">03:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> not a bad idea. </td>
+<td><font color="gray">[<a id="2402058" href="#2402058">03:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!deed darrq98n7ienm1nx3uw36dvyqpwik7.burpcollaborator.net </td>
+<td><font color="gray">[<a id="2402059" href="#2402059">04:00</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Bad URL or network outage. </font></td>
+<td><font color="gray">[<a id="2402060" href="#2402060">04:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!deed <a href="http://darrq98n7ienm1nx3uw36dvyqpwik7.burpcollaborator.net" target=\'_blank\'>http://darrq98n7ienm1nx3uw36dvyqpwik7.burpcollaborator.net</a> </td>
+<td><font color="gray">[<a id="2402061" href="#2402061">04:00</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Bad URL or network outage. </font></td>
+<td><font color="gray">[<a id="2402062" href="#2402062">04:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> douchebag it has to be signed </td>
+<td><font color="gray">[<a id="2402063" href="#2402063">04:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Ah </td>
+<td><font color="gray">[<a id="2402064" href="#2402064">04:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!deed gopher://darrq98n7ienm1nx3uw36dvyqpwik7.burpcollaborator.net:80/_TEST </td>
+<td><font color="gray">[<a id="2402065" href="#2402065">04:01</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Bad URL or network outage. </font></td>
+<td><font color="gray">[<a id="2402066" href="#2402066">04:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> That would have been cool if it worked </td>
+<td><font color="gray">[<a id="2402067" href="#2402067">04:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Honestly, I bet a lot of boxes could be popped just from messing around with IRC bots lol </td>
+<td><font color="gray">[<a id="2402068" href="#2402068">04:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> you think ? </td>
+<td><font color="gray">[<a id="2402069" href="#2402069">04:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> oh definitely </td>
+<td><font color="gray">[<a id="2402070" href="#2402070">04:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well... go for it. </td>
+<td><font color="gray">[<a id="2402071" href="#2402071">04:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Here's a fun fact, </td>
+<td><font color="gray">[<a id="2402072" href="#2402072">04:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> <a href="http://169.254.169.254/latest/meta-data/" target=\'_blank\'>http://169.254.169.254/latest/meta-data/</a> </td>
+<td><font color="gray">[<a id="2402073" href="#2402073">04:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> IF I were able to find a bot that essentially returned the content of that URL and it was hosted on Amazon AWS </td>
+<td><font color="gray">[<a id="2402074" href="#2402074">04:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> I could grab the AWS Instances API keys lol </td>
+<td><font color="gray">[<a id="2402075" href="#2402075">04:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html" target=\'_blank\'>https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html</a> </td>
+<td><font color="gray">[<a id="2402076" href="#2402076">04:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> It's the simple things like that which can do that most damage </td>
+<td><font color="gray">[<a id="2402077" href="#2402077">04:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> interesting. </td>
+<td><font color="gray">[<a id="2402078" href="#2402078">04:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Hmm, I wonder </td>
+<td><font color="gray">[<a id="2402079" href="#2402079">04:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !! key ' or '1'='1 </td>
+<td><font color="gray">[<a id="2402080" href="#2402080">04:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!key ' or '1'='1 </td>
+<td><font color="gray">[<a id="2402081" href="#2402081">04:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!key douchebag </td>
+<td><font color="gray">[<a id="2402082" href="#2402082">04:17</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://wot.deedbot.org/5A067BA31976B2576818247075CD5709D6509291.asc" target=\'_blank\'>http://wot.deedbot.org/5A067BA31976B2576818247075CD5709D6509291.asc</a> </font></td>
+<td><font color="gray">[<a id="2402083" href="#2402083">04:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!key douchebag' </td>
+<td><font color="gray">[<a id="2402084" href="#2402084">04:17</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Not registered. </font></td>
+<td><font color="gray">[<a id="2402085" href="#2402085">04:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!key douchebag 1 </td>
+<td><font color="gray">[<a id="2402086" href="#2402086">04:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!key douchebag|sleep(10) </td>
+<td><font color="gray">[<a id="2402087" href="#2402087">04:17</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Not registered. </font></td>
+<td><font color="gray">[<a id="2402088" href="#2402088">04:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!key douchebag'|sleep(10) </td>
+<td><font color="gray">[<a id="2402089" href="#2402089">04:17</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Not registered. </font></td>
+<td><font color="gray">[<a id="2402090" href="#2402090">04:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!key douchebag"|sleep(10) </td>
+<td><font color="gray">[<a id="2402091" href="#2402091">04:17</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Not registered. </font></td>
+<td><font color="gray">[<a id="2402092" href="#2402092">04:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> douchebag you can also do it in pm </td>
+<td><font color="gray">[<a id="2402093" href="#2402093">04:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> oh okay </td>
+<td><font color="gray">[<a id="2402094" href="#2402094">04:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!up emmylark </td>
+<td><font color="gray">[<a id="2402095" href="#2402095">04:25</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> emmylark voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2402096" href="#2402096">04:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> say hello to the group, slut. </td>
+<td><font color="gray">[<a id="2402097" href="#2402097">04:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>emmylark:</b></td>
+<td class="breakup"> Hello sirs </td>
+<td><font color="gray">[<a id="2402098" href="#2402098">04:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>emmylark:</b></td>
+<td class="breakup"> &ast;and madames. don't wanna discriminate </td>
+<td><font color="gray">[<a id="2402099" href="#2402099">04:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> hehe </td>
+<td><font color="gray">[<a id="2402100" href="#2402100">04:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> emmylark so write 4b57ff75 on your tits and get your slit in the shot as well. </td>
+<td><font color="gray">[<a id="2402101" href="#2402101">04:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>emmylark:</b></td>
+<td class="breakup"> <a href="http://p.bvulpes.com/pastes/X7SkS/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/X7SkS/?raw=true</a> </td>
+<td><font color="gray">[<a id="2402102" href="#2402102">04:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> aww, for me ?! </td>
+<td><font color="gray">[<a id="2402103" href="#2402103">04:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> aite lessee here... </td>
+<td><font color="gray">[<a id="2402104" href="#2402104">04:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>emmylark:</b></td>
+<td class="breakup"> <a href="http://p.bvulpes.com/pastes/exv9a/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/exv9a/?raw=true</a> </td>
+<td><font color="gray">[<a id="2402105" href="#2402105">04:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> emmylark congrats, you're now famous! </td>
+<td><font color="gray">[<a id="2402106" href="#2402106">04:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Hell yeah </td>
+<td><font color="gray">[<a id="2402107" href="#2402107">04:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> tell me... how does it feel... to be all nude... like a hm... like a rolling stone. </td>
+<td><font color="gray">[<a id="2402108" href="#2402108">04:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> congratz on being famous </td>
+<td><font color="gray">[<a id="2402109" href="#2402109">04:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>emmylark:</b></td>
+<td class="breakup"> How did I do sir? Was it acceptable? I sent a second one just in case the first wasnt enough. I thought it might be nice to get to choose </td>
+<td><font color="gray">[<a id="2402110" href="#2402110">04:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> quite acceptable, yes. </td>
+<td><font color="gray">[<a id="2402111" href="#2402111">04:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> now put your public key in a paste and say !!register url </td>
+<td><font color="gray">[<a id="2402112" href="#2402112">04:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> emmylark it's very nice to get to choose i choose to keep the second for my private collection of smutty selfies. </td>
+<td><font color="gray">[<a id="2402113" href="#2402113">04:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>emmylark:</b></td>
+<td class="breakup"> !!register url<a href="http://p.bvulpes.com/pastes/U1Xh4/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/U1Xh4/?raw=true</a> </td>
+<td><font color="gray">[<a id="2402114" href="#2402114">04:49</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Provide a paste URL to the ascii-armored GPG public key or the full 40 character key fingerprint without spaces or dashes. </font></td>
+<td><font color="gray">[<a id="2402115" href="#2402115">04:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> emmylark !!register <a href="http://p.bvulpes.com/pastes/U1Xh4/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/U1Xh4/?raw=true</a> </td>
+<td><font color="gray">[<a id="2402116" href="#2402116">04:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>emmylark:</b></td>
+<td class="breakup"> !!register <a href="http://p.bvulpes.com/pastes/U1Xh4/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/U1Xh4/?raw=true</a> </td>
+<td><font color="gray">[<a id="2402117" href="#2402117">04:50</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> 3BC472963B76AEE0448C19F414DEC3397D761EA4 registered as emmylark. </font></td>
+<td><font color="gray">[<a id="2402118" href="#2402118">04:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>emmylark:</b></td>
+<td class="breakup"> Fuck yeah! </td>
+<td><font color="gray">[<a id="2402119" href="#2402119">04:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> emmylark did you ever register your name with freenode ? </td>
+<td><font color="gray">[<a id="2402120" href="#2402120">04:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> say /msg nickserv register your_password your_email_address use a good password and an email you actually can read, they'll send you a verification thing. this way someone else can't steal your name. </td>
+<td><font color="gray">[<a id="2402121" href="#2402121">04:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>emmylark:</b></td>
+<td class="breakup"> I'm talking to you through the Freenode server in my IRC client. It made me register a name and email. </td>
+<td><font color="gray">[<a id="2402122" href="#2402122">04:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!rate emmylark 1 Slutty pixie bearing my protection collar. </td>
+<td><font color="gray">[<a id="2402123" href="#2402123">04:52</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Get your OTP: <a href="http://p.bvulpes.com/pastes/oK6cP/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/oK6cP/?raw=true</a> </font></td>
+<td><font color="gray">[<a id="2402124" href="#2402124">04:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!pay emmylark 0.02 </td>
+<td><font color="gray">[<a id="2402125" href="#2402125">04:52</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Get your OTP: <a href="http://p.bvulpes.com/pastes/sU3kd/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/sU3kd/?raw=true</a> </font></td>
+<td><font color="gray">[<a id="2402126" href="#2402126">04:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> emmylark congrats on earning your first coupla bitcents! </td>
+<td><font color="gray">[<a id="2402127" href="#2402127">04:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>emmylark:</b></td>
+<td class="breakup"> Wait are you serious? I did that for you sir. </td>
+<td><font color="gray">[<a id="2402128" href="#2402128">04:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i know. </td>
+<td><font color="gray">[<a id="2402129" href="#2402129">04:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Will hack 4 BTC :-D </td>
+<td><font color="gray">[<a id="2402130" href="#2402130">04:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!up emmylark </td>
+<td><font color="gray">[<a id="2402131" href="#2402131">04:55</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> emmylark voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2402132" href="#2402132">04:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i rated you, so now the bot will allow you to voice yourself. say /query deedbot and then !!up it will give you a thing to decrypt, give the result back to it as !!v &lt;string&gt; </td>
+<td><font color="gray">[<a id="2402133" href="#2402133">04:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> win. </td>
+<td><font color="gray">[<a id="2402134" href="#2402134">05:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> I just learned about AngularJS XSS attacks </td>
+<td><font color="gray">[<a id="2402135" href="#2402135">05:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Pretty interesting stuff </td>
+<td><font color="gray">[<a id="2402136" href="#2402136">05:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> !~ticker --market all </td>
+<td><font color="gray">[<a id="2402137" href="#2402137">07:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>jhvh1:</b></td>
+<td class="breakup"> shinohai: Bitstamp BTCUSD last: 10531.07, vol: 14129.46495924 | Bitfinex BTCUSD last: 10527.0, vol: 49688.74405499 | Kraken BTCUSD last: 10538.0, vol: 6394.72947932 | Volume-weighted last average: 10528.8208745 </td>
+<td><font color="gray">[<a id="2402138" href="#2402138">07:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> Morning tmsr </td>
+<td><font color="gray">[<a id="2402139" href="#2402139">07:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> mornin' </td>
+<td><font color="gray">[<a id="2402140" href="#2402140">09:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> Heya mod6 </td>
+<td><font color="gray">[<a id="2402141" href="#2402141">09:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> how goes? </td>
+<td><font color="gray">[<a id="2402142" href="#2402142">10:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> meanwhile, in heathendom, <a href="https://archive.is/rTmuG" target=\'_blank\'>https://archive.is/rTmuG</a> &gt;&gt; 'The first freight deal settled in Bitcoin was executed last month on a vessel carrying wheat from top shipper Russia to Turkey, according to Prime Shipping Foundation, the venture behind the transaction. ... The vessel used in Prime Shipping’s transaction carried 3,000 metric tons of wheat from Rostov-on-Don to Samsun. ' </td>
+<td><font color="gray">[<a id="2402143" href="#2402143">10:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Awe, shit can only go up from wheat </td>
+<td><font color="gray">[<a id="2402144" href="#2402144">10:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> but i thought they already had a perfect medium of exchange called the unified standard dosidoe! </td>
+<td><font color="gray">[<a id="2402145" href="#2402145">10:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> :D </td>
+<td><font color="gray">[<a id="2402146" href="#2402146">11:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> spyked all in. </td>
+<td><font color="gray">[<a id="2402147" href="#2402147">11:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ah, yeah. <a href="/2014/ill-pay-for-your-tits/#selection-309.2-309.31" target=\'_blank\'>/2014/ill-pay-for-your-tits/#selection-309.2-309.31</a> in case anyone's missed it. </td>
+<td><font color="gray">[<a id="2402148" href="#2402148">11:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> neato </td>
+<td><font color="gray">[<a id="2402149" href="#2402149">11:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> wait, you like blue eyed girls now ?! </td>
+<td><font color="gray">[<a id="2402150" href="#2402150">11:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> for so long as upside down!111 </td>
+<td><font color="gray">[<a id="2402151" href="#2402151">11:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> lmao </td>
+<td><font color="gray">[<a id="2402152" href="#2402152">11:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> in her case, that's the up side. </td>
+<td><font color="gray">[<a id="2402153" href="#2402153">11:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> Nice! </td>
+<td><font color="gray">[<a id="2402154" href="#2402154">11:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> must admit that the <a href="http://btcbase.org/log/2018-01-26#1776811" target=\'_blank\'>http://btcbase.org/log/2018-01-26#1776811</a> thread reminds him of <a href="http://btcbase.org/log/2016-05-01#1460013" target=\'_blank\'>http://btcbase.org/log/2016-05-01#1460013</a> </td>
+<td><font color="gray">[<a id="2402155" href="#2402155">11:05</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-26 08:59 douchebag: Well, since RSS is in XML format I was testing a popular vulnerability that occurs in XML parsers which uses external entities, allowing an attacker to exfiltrate data </font></td>
+<td><font color="gray">[<a id="2402156" href="#2402156">11:05</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2016-05-01 14:53 mircea_popescu: asciilifeform&gt; mod6: the baked-in presumption of webtardism is almost insulting &lt;&lt; it is insulting, not to us though. think about it : the crab has pincers because in its environment THAT WORKS and so does "GET /blog/blog-config.php~". </font></td>
+<td><font color="gray">[<a id="2402157" href="#2402157">11:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> hey, he did find a trilema vulnerability... </td>
+<td><font color="gray">[<a id="2402158" href="#2402158">11:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-01-26#1776736" target=\'_blank\'>http://btcbase.org/log/2018-01-26#1776736</a> &lt;&lt; you really should do the homework trinque pointed you to, but if you are done with that and bored again, plox to look at logs.minigame.bz, lobbesblog.com and lobbesbot? I'm a meganoob so you may find something. I've no shame, so disclose whatever you can find here. I'll toss a handful of satoshis your way if you do (and a wot rating) </td>
+<td><font color="gray">[<a id="2402159" href="#2402159">11:07</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-26 07:09 douchebag: Are there any sites any of you guys would like me to check out? I'm a bit bored right now and I am always up for a challenge :-) </font></td>
+<td><font color="gray">[<a id="2402160" href="#2402160">11:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> Most of the 'dynamic' bits of the www are php+sqlite3. lobbesbot is limnoria (fork of supybot, a common python bot api), also atop sqlite3 </td>
+<td><font color="gray">[<a id="2402161" href="#2402161">11:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; trinque</b></td>
+<td class="breakup"> appreciates the deedbot fuzzing. pretty damned sure all my inputs are quoted though. </td>
+<td><font color="gray">[<a id="2402162" href="#2402162">11:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> indeed, but being surer never hurt anything. </td>
+<td><font color="gray">[<a id="2402163" href="#2402163">11:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> naw, fuzz away </td>
+<td><font color="gray">[<a id="2402164" href="#2402164">11:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> in fairness, kid's got me meditating about the nature of things ever since last night. see, the trouble is : in his syustem, he has actually found a vulnerability, as a factual matter. in my system this is entirely meaningless. why the difference ? </td>
+<td><font color="gray">[<a id="2402165" href="#2402165">11:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i suppose i should rate him. </td>
+<td><font color="gray">[<a id="2402166" href="#2402166">11:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!rated douchebag </td>
+<td><font color="gray">[<a id="2402167" href="#2402167">11:15</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> mircea_popescu rated douchebag 1 at 2018/01/15 07:34:46 &lt;&lt; hyde.solutions </font></td>
+<td><font color="gray">[<a id="2402168" href="#2402168">11:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ah, already did. go me. </td>
+<td><font color="gray">[<a id="2402169" href="#2402169">11:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> and in other news, <a href="http://www.gutenberg.org/files/3178/3178-h/3178-h.htm" target=\'_blank\'>http://www.gutenberg.org/files/3178/3178-h/3178-h.htm</a> &lt;&lt; pretty decent yarn, mark twain's forgotten novel. </td>
+<td><font color="gray">[<a id="2402170" href="#2402170">11:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> oblig re quotation of inputs -- <a href="http://btcbase.org/log/2015-08-13#1237281" target=\'_blank\'>http://btcbase.org/log/2015-08-13#1237281</a> </td>
+<td><font color="gray">[<a id="2402171" href="#2402171">11:26</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2015-08-13 19:00 phf: mats: well, i actually meant the opposite. classes of attacks can be eliminated by not using c. i think that majority of the attacks come from leaky abstractions. there's no &lt;string&gt; in c, but there's a null terminated memory region. there's no &lt;sql&gt; in perl, but there's a character array with sql text in it. one of the solutions is to plug abstraction holes on a level of the language, in such a way that you can't not use improved abstractions </font></td>
+<td><font color="gray">[<a id="2402172" href="#2402172">11:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform there's two fundamental items i can readily identify, maybe more. 1. i actually did plop an echo $_GET in there. is this just bad coding ? is it a legitimate assumption ? 2. he has a point, as long as it's on trilema.com, a script has powers OUTSIDE of its implicit scope, "steal cookies" whatever. is this ~actually~ bad systems design ? </td>
+<td><font color="gray">[<a id="2402173" href="#2402173">11:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> obviously quoted link's right other than the attacks croming from nsa ("enemy" aka idiot with vested interest in idiocy), they ALL come from leaky abstractions. both points above qualify. </td>
+<td><font color="gray">[<a id="2402174" href="#2402174">11:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: do you recall the case of <a href="http://btcbase.org/log/2016-08-01#1512390" target=\'_blank\'>http://btcbase.org/log/2016-08-01#1512390</a> ? </td>
+<td><font color="gray">[<a id="2402175" href="#2402175">11:29</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2016-08-01 19:48 asciilifeform: oh for fuckssake. </font></td>
+<td><font color="gray">[<a id="2402176" href="#2402176">11:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i do. </td>
+<td><font color="gray">[<a id="2402177" href="#2402177">11:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="https://archive.is/PSU53" target=\'_blank\'>https://archive.is/PSU53</a> &lt;&lt; ftr </td>
+<td><font color="gray">[<a id="2402178" href="#2402178">11:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> the other way to think of it, is that for so long as you have a box that eats rubbish from randos, you have a mechanism for folx to host shitware to use against firefox-besotted js victims etc </td>
+<td><font color="gray">[<a id="2402179" href="#2402179">11:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> whether this matters -- is separate q </td>
+<td><font color="gray">[<a id="2402180" href="#2402180">11:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> is this right ? </td>
+<td><font color="gray">[<a id="2402181" href="#2402181">11:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> consider the celebrated lulz of (most recently) <a href="http://btcbase.org/log/2017-11-06#1733263" target=\'_blank\'>http://btcbase.org/log/2017-11-06#1733263</a> : none of those curls are sanitized. yet <a href="http://btcbase.org/log/2018-01-16#1771208" target=\'_blank\'>http://btcbase.org/log/2018-01-16#1771208</a> right ? </td>
+<td><font color="gray">[<a id="2402182" href="#2402182">11:33</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2017-11-06 19:27 deedbot: <a href="/2017/how-the-beastforumcom-private-messaging-function-became-a-paid-user-only-item/" target=\'_blank\'>/2017/how-the-beastforumcom-private-messaging-function-became-a-paid-user-only-item/</a> &lt;&lt; Trilema - How the beastforum.com private messaging function became a paid-user-only item </font></td>
+<td><font color="gray">[<a id="2402183" href="#2402183">11:33</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-16 17:08 mircea_popescu: (also, let it be pointed out for the benefit of the future noob : the use of xargs with shit from curl is dancing with the wolves. finest way to lose a box.) </font></td>
+<td><font color="gray">[<a id="2402184" href="#2402184">11:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> let's picture the general case. the pgpkey xss thing did not 'fire' against phuctor viewers, because quoted. but did against wotpaste reader ( with 0 practical effect , but for the principle of the thing ) </td>
+<td><font color="gray">[<a id="2402185" href="#2402185">11:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well which the fuck is it, and don't tell me "why mp! perl=bash=php=crap", it's not the point. </td>
+<td><font color="gray">[<a id="2402186" href="#2402186">11:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> but conceivably one day there will be an idjit browser that gives obama root on yer box when it sees string 'open sesame'. and what, errybody gotta know in advance to escape 'open sesame', lol ? </td>
+<td><font color="gray">[<a id="2402187" href="#2402187">11:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> RIGHT ? </td>
+<td><font color="gray">[<a id="2402188" href="#2402188">11:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> the fundamental q is whether there is a diff b/w 'enabled js' and 'enabled opensesamism' </td>
+<td><font color="gray">[<a id="2402189" href="#2402189">11:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> if i'm responsible for the above why am i not responsible for sending emmylark nude on a harley to luser's house to tear out intel ME out of his chip ? </td>
+<td><font color="gray">[<a id="2402190" href="#2402190">11:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> that's the idea. </td>
+<td><font color="gray">[<a id="2402191" href="#2402191">11:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> as i said, sent me meditating on nature of things </td>
+<td><font color="gray">[<a id="2402192" href="#2402192">11:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> but the "you enabled js, you're dead" position is untenable -- i use js for the selection thing. and i fucking need it </td>
+<td><font color="gray">[<a id="2402193" href="#2402193">11:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> it isn't , as it happens, particularly difficult to neuter js in pasteolade. but that's separate , imho, matter. </td>
+<td><font color="gray">[<a id="2402194" href="#2402194">11:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> without the ability to link INSIDE my output $value would decrease sensibly. not a little. a lot. </td>
+<td><font color="gray">[<a id="2402195" href="#2402195">11:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> no i get. </td>
+<td><font color="gray">[<a id="2402196" href="#2402196">11:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i use the feature also. </td>
+<td><font color="gray">[<a id="2402197" href="#2402197">11:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i honestly believe it's as big as the concept of link. </td>
+<td><font color="gray">[<a id="2402198" href="#2402198">11:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> it's a poor man's tednelsonlink </td>
+<td><font color="gray">[<a id="2402199" href="#2402199">11:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> this triad : links, pingbacks, selection reference make up a whole NEW hypertext. just as far from the old as that was from text. </td>
+<td><font color="gray">[<a id="2402200" href="#2402200">11:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform half of one, yes. needs the pingback to be full. </td>
+<td><font color="gray">[<a id="2402201" href="#2402201">11:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> well, ~wants~ to 'make new hypertext', really it's a sad emulation. but considerable improvement over nothingatall </td>
+<td><font color="gray">[<a id="2402202" href="#2402202">11:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i guess so, at that. </td>
+<td><font color="gray">[<a id="2402203" href="#2402203">11:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> "poc" right. </td>
+<td><font color="gray">[<a id="2402204" href="#2402204">11:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> the interesting thing re js, is that entirely ~aside~ from traditional cmachine bugolade, it gets compiled c-cstyle nowadays, in popular graphical wwwbrowsers, ( how else to churn 50MB of google crapola ) and so e.g. rowhammerism works in it. </td>
+<td><font color="gray">[<a id="2402205" href="#2402205">11:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> oya. </td>
+<td><font color="gray">[<a id="2402206" href="#2402206">11:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> note the epic lulz of how the "vulnerability" doesn't even work until you gert to ff version 30. </td>
+<td><font color="gray">[<a id="2402207" href="#2402207">11:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> there's a pile of browser captures linked in there yest. </td>
+<td><font color="gray">[<a id="2402208" href="#2402208">11:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> the xss thing ? aha </td>
+<td><font color="gray">[<a id="2402209" href="#2402209">11:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> (because they didn't parse svg tags prior, not because "it doesn't work", he could have made it to work with plain script, so it's a separate issue, but quite germane) </td>
+<td><font color="gray">[<a id="2402210" href="#2402210">11:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> imo a fabulous textbook example of how the imperial vulnerability cycle goes. 1. make a bad spec, a la SMGL 2. implement some portions of it only, because <a href="http://btcbase.org/log/2018-01-25#1776189" target=\'_blank\'>http://btcbase.org/log/2018-01-25#1776189</a> 3. discover the bad spec is vulnerable, issue "best practices" for people to "santize". obviously this will not be made by 1 if 2 wasn't, so... 4) implement slightly more of the spec, throw security in disarray. </td>
+<td><font color="gray">[<a id="2402211" href="#2402211">11:42</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-25 16:42 asciilifeform: i dun actually disagree with mircea_popescu : i never liked bigendianism . but it did come from a particular cost analysis , ftr. </font></td>
+<td><font color="gray">[<a id="2402212" href="#2402212">11:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> this is EXACTLY how it goes, and perhaps why there has not yet existed such a thing as a fully implemented specification or a fully specified implementation in empire lands. </td>
+<td><font color="gray">[<a id="2402213" href="#2402213">11:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> the philosophical puzzler of 'what is a vuln' probably cannot be answered from strictly 1side pov. consider the ultimate degenerate case, microshit, who produces more vulns every day than mircea_popescu spermatozoids , but not 1 of them dings it in any substantial way ( and many in fact are a profit ) </td>
+<td><font color="gray">[<a id="2402214" href="#2402214">11:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> are you implying my sperm count is low ? </td>
+<td><font color="gray">[<a id="2402215" href="#2402215">11:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> lol </td>
+<td><font color="gray">[<a id="2402216" href="#2402216">11:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> lol </td>
+<td><font color="gray">[<a id="2402217" href="#2402217">11:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> hey, i was looking for a pretext to get a test, so bbs. </td>
+<td><font color="gray">[<a id="2402218" href="#2402218">11:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> and the 'bad spec' thing is part of multilayered shit sandwich, the general principle is that complexicrud accretes the overflows, etc. follow naturally ( with helping hand from kochs, dreppers, et al as necessary ) </td>
+<td><font color="gray">[<a id="2402219" href="#2402219">11:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: lo, aaaah, but where will you get a microshit bugcount. the stars in the sky themselves not sufficient to count !11! </td>
+<td><font color="gray">[<a id="2402220" href="#2402220">11:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> re specs, whole thread ( e.g. <a href="http://btcbase.org/log/2016-08-01#1512423" target=\'_blank\'>http://btcbase.org/log/2016-08-01#1512423</a> ) re pgpkey worth a reread. </td>
+<td><font color="gray">[<a id="2402221" href="#2402221">11:50</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2016-08-01 20:03 phf: mircea_popescu: a lot of xss detection "solutions" rely on grepping for known bad input, like "script" or whatever. and there are ways to sidestep that, like '&lt;scr' + 'ipt&gt;' or a='ipt&gt;''&lt;scr'+a. in this case whoever is fucking with detection by using this truly wtf feature i've never heard of, &lt;meta charset="a"&gt;b&lt;/meta&gt; that apparently parses b according to charset a rules </font></td>
+<td><font color="gray">[<a id="2402222" href="#2402222">11:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform slavegirl tasted, says my sperm count's fine (and delicious). so NYAH! </td>
+<td><font color="gray">[<a id="2402223" href="#2402223">11:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> congrats </td>
+<td><font color="gray">[<a id="2402224" href="#2402224">11:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i suppose on contemplation the <a href="http://btcbase.org/log/2018-01-25#1776155" target=\'_blank\'>http://btcbase.org/log/2018-01-25#1776155</a> would be to fucking sign javascript and you know "hey, we've had v for a while, get with the program. why are you running unsigned nonsense". </td>
+<td><font color="gray">[<a id="2402225" href="#2402225">11:58</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-25 16:29 mircea_popescu: wait wait, i might have a pill </font></td>
+<td><font color="gray">[<a id="2402226" href="#2402226">11:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i guess ima actually do just that. </td>
+<td><font color="gray">[<a id="2402227" href="#2402227">11:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> gonna luvv the multi-second pageloads </td>
+<td><font color="gray">[<a id="2402228" href="#2402228">11:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> or wouldja cache it, or how </td>
+<td><font color="gray">[<a id="2402229" href="#2402229">11:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> what's js comment style, # ? </td>
+<td><font color="gray">[<a id="2402230" href="#2402230">12:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> iirc c-style /&ast; &ast;/ </td>
+<td><font color="gray">[<a id="2402231" href="#2402231">12:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> but what'll that do if browser dun check the sig </td>
+<td><font color="gray">[<a id="2402232" href="#2402232">12:00</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://www.thedrinkingrecord.com/2018/01/26/la-desfile-de-inaugural-de-carnival/" target=\'_blank\'>http://www.thedrinkingrecord.com/2018/01/26/la-desfile-de-inaugural-de-carnival/</a> &lt;&lt; Bingo Blog - La Desfile De Inaugural De Carnival </font></td>
+<td><font color="gray">[<a id="2402233" href="#2402233">12:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: this is one of those items that really wants the rsa fpga </td>
+<td><font color="gray">[<a id="2402234" href="#2402234">12:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> / </td>
+<td><font color="gray">[<a id="2402235" href="#2402235">12:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> // motherfucker who comes up with this shit </td>
+<td><font color="gray">[<a id="2402236" href="#2402236">12:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> waits for mircea_popescu to scream in 'joy' when he finds that not 1 attempt at any such pgpsig verifies, on account of newline mutilation in www stack </td>
+<td><font color="gray">[<a id="2402237" href="#2402237">12:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!deed <a href="http://p.bvulpes.com/pastes/iSV8M/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/iSV8M/?raw=true</a> </td>
+<td><font color="gray">[<a id="2402238" href="#2402238">12:05</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> accepted: 1 </font></td>
+<td><font color="gray">[<a id="2402239" href="#2402239">12:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform i didn't expect it'd work mechanically but there it is now. </td>
+<td><font color="gray">[<a id="2402240" href="#2402240">12:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> in the future, it can be mecanicized. </td>
+<td><font color="gray">[<a id="2402241" href="#2402241">12:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> aa i see </td>
+<td><font color="gray">[<a id="2402242" href="#2402242">12:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i suppose the workings of this insane nut posse must be quite disconcerting to the professional. "i told this guy he had an xss hole in some file and he proceeded to sign an unrelated snippet of javascript". </td>
+<td><font color="gray">[<a id="2402243" href="#2402243">12:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> a flounder in epoxy , then. </td>
+<td><font color="gray">[<a id="2402244" href="#2402244">12:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> but, take heart douchebag : there's not that many people your age that can say "hey, i sent mp to meditation room" and they're overwhelmingly female to boot. </td>
+<td><font color="gray">[<a id="2402245" href="#2402245">12:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform admire the recursive gift : his "reputation in the community" doth indeed grow. what now. </td>
+<td><font color="gray">[<a id="2402246" href="#2402246">12:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> why is this a whatnow </td>
+<td><font color="gray">[<a id="2402247" href="#2402247">12:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> for any of us, i mean </td>
+<td><font color="gray">[<a id="2402248" href="#2402248">12:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well... didn't the problem appear misstated originally ? </td>
+<td><font color="gray">[<a id="2402249" href="#2402249">12:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> how's that? i dungetit </td>
+<td><font color="gray">[<a id="2402250" href="#2402250">12:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> hm. </td>
+<td><font color="gray">[<a id="2402251" href="#2402251">12:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-01-23#1774915" target=\'_blank\'>http://btcbase.org/log/2018-01-23#1774915</a> &lt;&lt; say. </td>
+<td><font color="gray">[<a id="2402252" href="#2402252">12:10</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-23 19:52 phf: i can see the education angle, and how it fails these people, but what i'm surprised about is the lack of personal drive? it's some kind of learned helplessness </font></td>
+<td><font color="gray">[<a id="2402253" href="#2402253">12:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> sticking to wwwtardism stack is not a manifestation of learnedhelplessness ? </td>
+<td><font color="gray">[<a id="2402254" href="#2402254">12:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> not if it works to deliver the results above ? </td>
+<td><font color="gray">[<a id="2402255" href="#2402255">12:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i dun see a megaresult. </td>
+<td><font color="gray">[<a id="2402256" href="#2402256">12:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> in entirely unrelated lulz : i recommend to the expert entomologist item #341 of the assembly of the state of new york, entered into record april 12, 1838 (a message from W L Marcy, the governor). </td>
+<td><font color="gray">[<a id="2402257" href="#2402257">12:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> got text ? or does one have to go to nyc and break into a museum to get it </td>
+<td><font color="gray">[<a id="2402258" href="#2402258">12:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> at issue is the resumption of a redeemable currency in fact, through payments in specie, supported by new york alone and firmly opposed by our good friends in <a href="/2018/the-principal-agent-problem-or-how-america-went-away/#footnote_9_77193" target=\'_blank\'>/2018/the-principal-agent-problem-or-how-america-went-away/#footnote_9_77193</a> (ie, 2nd national bank and the wide array of western and southern banks dependent upon it. because guess who brought you slavery in the sense of financing it ? oh yeah, the re </td>
+<td><font color="gray">[<a id="2402259" href="#2402259">12:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> formists!) </td>
+<td><font color="gray">[<a id="2402260" href="#2402260">12:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform i got a hardbound copy. shall i have it transcribed ? </td>
+<td><font color="gray">[<a id="2402261" href="#2402261">12:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> !!key hanbot </td>
+<td><font color="gray">[<a id="2402262" href="#2402262">12:15</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://wot.deedbot.org/EA0FAD90985B3025576A5061454B0FC0BC07B87E.asc" target=\'_blank\'>http://wot.deedbot.org/EA0FAD90985B3025576A5061454B0FC0BC07B87E.asc</a> </font></td>
+<td><font color="gray">[<a id="2402263" href="#2402263">12:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: or even photo, if it's reasonably compact </td>
+<td><font color="gray">[<a id="2402264" href="#2402264">12:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( and lol, this has gotta be the 1st time i hear mircea_popescu refer to a hardcopy of sumthing..? ) </td>
+<td><font color="gray">[<a id="2402265" href="#2402265">12:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> not the first, but yes, rare. </td>
+<td><font color="gray">[<a id="2402266" href="#2402266">12:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ah, check it out, google has it. one moment. </td>
+<td><font color="gray">[<a id="2402267" href="#2402267">12:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> douchebag: how does this allow a user to create fake logs? </td>
+<td><font color="gray">[<a id="2402268" href="#2402268">12:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> !~later tell mod6 <a href="http://btcbase.org/log/2018-01-26#1776700" target=\'_blank\'>http://btcbase.org/log/2018-01-26#1776700</a> seems to be ye olde <a href="http://btcbase.org/log/2016-12-11#1581504" target=\'_blank\'>http://btcbase.org/log/2016-12-11#1581504</a> inbandism crapola </td>
+<td><font color="gray">[<a id="2402269" href="#2402269">12:21</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-26 05:06 mod6: and it goes back to the same thing as with diana_coman. having two '++' at the front of the line. the way the vdiff is written, when it passes the diffed file off to awk to pattern match the ---|+++ it adds that '+' in the front, then it matches, causing it to call sha512sum.. which is where the false comes from. I think. </font></td>
+<td><font color="gray">[<a id="2402270" href="#2402270">12:21</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2016-12-11 20:15 mircea_popescu: +++7F0QaZAgBgF3/7448/fmnc/DnT29zJipI3ZCWnifqyfJH6/nRzUt7979al5JtwrACPLNjDb5Pc false &lt;&lt;&lt; ahahaha epic! </font></td>
+<td><font color="gray">[<a id="2402271" href="#2402271">12:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>jhvh1:</b></td>
+<td class="breakup"> asciilifeform: The operation succeeded. </td>
+<td><font color="gray">[<a id="2402272" href="#2402272">12:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> it is. </td>
+<td><font color="gray">[<a id="2402273" href="#2402273">12:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> hey mircea_popescu : asciilifeform sat down and tried to make a 'and i'll give you a 1btc prize' puzzler for douchebag re 'break pehbot' . but how to phrase the condition of said puzzle, i am still at a loss, burned half hour nearly. </td>
+<td><font color="gray">[<a id="2402274" href="#2402274">12:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> specifically such that puzzler specifically rewards the breaking of the proggy, rather than the condition. </td>
+<td><font color="gray">[<a id="2402275" href="#2402275">12:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> or is this a perpetuum mobile. </td>
+<td><font color="gray">[<a id="2402276" href="#2402276">12:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i suspect this is what we are gazing upon in amazement : that slavegirl must ~love~, ie that there is no mechanical solution to the problem. </td>
+<td><font color="gray">[<a id="2402277" href="#2402277">12:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> thought so. </td>
+<td><font color="gray">[<a id="2402278" href="#2402278">12:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> brb </td>
+<td><font color="gray">[<a id="2402279" href="#2402279">12:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: entirely troo, there are no mechanical prostheses for love, loyalty, honour. the ancients -- knew this. </td>
+<td><font color="gray">[<a id="2402280" href="#2402280">12:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !#s flirty fishing </td>
+<td><font color="gray">[<a id="2402281" href="#2402281">12:35</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> 0 results for "flirty fishing", <a href="http://btcbase.org/log-search?q=flirty%20fishing" target=\'_blank\'>http://btcbase.org/log-search?q=flirty%20fishing</a> </font></td>
+<td><font color="gray">[<a id="2402282" href="#2402282">12:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> in vaguely related lulz : there existed a cult which had the girls prostitute themselves for membership. (apparently it was tried with boys too, but it didn't pay.) eventually they just listed them as proper whores with "escort agencies". apparently a total of &gt;quarter million men were made to feel religious however briefly during a decade. </td>
+<td><font color="gray">[<a id="2402283" href="#2402283">12:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> IN THE SEVENTIES. </td>
+<td><font color="gray">[<a id="2402284" href="#2402284">12:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> AHA, the Family! </td>
+<td><font color="gray">[<a id="2402285" href="#2402285">12:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> "Children of god" / aka varous </td>
+<td><font color="gray">[<a id="2402286" href="#2402286">12:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i thought this was sop for meatcults </td>
+<td><font color="gray">[<a id="2402287" href="#2402287">12:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> notrly afaik </td>
+<td><font color="gray">[<a id="2402288" href="#2402288">12:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> hm. gotta wonder then, wainot </td>
+<td><font color="gray">[<a id="2402289" href="#2402289">12:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> because usually cults are build around a paranoid not a narcisiac </td>
+<td><font color="gray">[<a id="2402290" href="#2402290">12:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> wants to fuck them himself, and what he can't fuck he kills. </td>
+<td><font color="gray">[<a id="2402291" href="#2402291">12:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> subj lit is so laden with desinfo that asciilifeform has genuinely nfi </td>
+<td><font color="gray">[<a id="2402292" href="#2402292">12:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( enemy has a very good idea of the efficacy of the mircea_popescu form of harem org , and tries to burn it down wherever and however the chance presents itself ) </td>
+<td><font color="gray">[<a id="2402293" href="#2402293">12:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> recall few yrs back during 1st obummer term, for instance, when they set to work on the remaining ortho-mormons </td>
+<td><font color="gray">[<a id="2402294" href="#2402294">12:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> the warren jefferies thing? </td>
+<td><font color="gray">[<a id="2402295" href="#2402295">12:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i dunno that any of those has anything to do with my harem tbh. </td>
+<td><font color="gray">[<a id="2402296" href="#2402296">12:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: only in so much as the mosquitoes in my backyard have to do with your skin </td>
+<td><font color="gray">[<a id="2402297" href="#2402297">12:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> 1BTC reward? I'm up for that challenge any day </td>
+<td><font color="gray">[<a id="2402298" href="#2402298">12:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well, no, i mean something like "just because it has cogs in it doesn't mean it's a clock, could be a car transmission" </td>
+<td><font color="gray">[<a id="2402299" href="#2402299">12:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: to carry the analogy, luddite dun care whether clock or orrery, thinks 'gears' </td>
+<td><font color="gray">[<a id="2402300" href="#2402300">12:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> douchebag: how does what you found get leveraged into 'fake irc logs'? </td>
+<td><font color="gray">[<a id="2402301" href="#2402301">12:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform <a href="/wp-content/uploads/2018/01/Documents_of_the_Assembly_of_the_State_of_New_York_1838.pdf" target=\'_blank\'>/wp-content/uploads/2018/01/Documents_of_the_Assembly_of_the_State_of_New_York_1838.pdf</a> </td>
+<td><font color="gray">[<a id="2402302" href="#2402302">12:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: eggog </td>
+<td><font color="gray">[<a id="2402303" href="#2402303">12:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> and yes but that doesn't make the luddite right in any meaningful sense </td>
+<td><font color="gray">[<a id="2402304" href="#2402304">12:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Able to inject Javascript, such javascript could be used to create a link that leads to logs that appear real, however they're completely fake </td>
+<td><font color="gray">[<a id="2402305" href="#2402305">12:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform hmm, spermissions ? lemme see. </td>
+<td><font color="gray">[<a id="2402306" href="#2402306">12:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Basically, the javascript could be used to remove the logs that exist (on the client side mind you), and add in logs that are fake </td>
+<td><font color="gray">[<a id="2402307" href="#2402307">12:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> It would all be within the url </td>
+<td><font color="gray">[<a id="2402308" href="#2402308">12:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> douchebag: so someone sends someone else a link with ?q=&lt;script="diddledepageforme"&gt;, and unsuspecting b copies, pastes, reads everything but the url bar? </td>
+<td><font color="gray">[<a id="2402309" href="#2402309">12:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> It could be URL encoded, so they wouldn't really be able to read anything </td>
+<td><font color="gray">[<a id="2402310" href="#2402310">12:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> So yeah, people who know what the typical url format is would likely know right away that something is up </td>
+<td><font color="gray">[<a id="2402311" href="#2402311">12:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; ben_vulpes</b></td>
+<td class="breakup"> is reminded of the doctorow pulp, "human readable" </td>
+<td><font color="gray">[<a id="2402312" href="#2402312">12:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: loads nao </td>
+<td><font color="gray">[<a id="2402313" href="#2402313">12:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> cool. </td>
+<td><font color="gray">[<a id="2402314" href="#2402314">12:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ben_vulpes could just put it in an "url shortener" </td>
+<td><font color="gray">[<a id="2402315" href="#2402315">12:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> dork reads it off mobile or w/e. </td>
+<td><font color="gray">[<a id="2402316" href="#2402316">12:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> the whole issue of <a href="http://btcbase.org/log/2018-01-26#1776941" target=\'_blank\'>http://btcbase.org/log/2018-01-26#1776941</a> is FAR REACHING. </td>
+<td><font color="gray">[<a id="2402317" href="#2402317">12:50</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-26 16:34 asciilifeform: but conceivably one day there will be an idjit browser that gives obama root on yer box when it sees string 'open sesame'. and what, errybody gotta know in advance to escape 'open sesame', lol ? </font></td>
+<td><font color="gray">[<a id="2402318" href="#2402318">12:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: that wouldn't run js in the log page tho </td>
+<td><font color="gray">[<a id="2402319" href="#2402319">12:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> oh i get it </td>
+<td><font color="gray">[<a id="2402320" href="#2402320">12:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> yes it would </td>
+<td><font color="gray">[<a id="2402321" href="#2402321">12:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> douchebag: with urlshortener ?! </td>
+<td><font color="gray">[<a id="2402322" href="#2402322">12:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> url -&gt; url w/ js added in vuln parameter </td>
+<td><font color="gray">[<a id="2402323" href="#2402323">12:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> -&gt; user </td>
+<td><font color="gray">[<a id="2402324" href="#2402324">12:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> no i get how original worx </td>
+<td><font color="gray">[<a id="2402325" href="#2402325">12:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> but in re mircea_popescu's variant </td>
+<td><font color="gray">[<a id="2402326" href="#2402326">12:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> i gotta run, be back in about 30 mins </td>
+<td><font color="gray">[<a id="2402327" href="#2402327">12:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-01-26#1776698" target=\'_blank\'>http://btcbase.org/log/2018-01-26#1776698</a> &lt;&lt; if alf don't wan em, i'll take em </td>
+<td><font color="gray">[<a id="2402328" href="#2402328">12:58</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-26 05:04 mircea_popescu: meanwhile in girls alf won't like, <a href="http://78.media.tumblr.com/33cb28925c37b2cd04d9ff82a675d37d/tumblr_nh7rhnlD9v1qd7u7zo1_1280.jpg" target=\'_blank\'>http://78.media.tumblr.com/33cb28925c37b2cd04d9ff82a675d37d/tumblr_nh7rhnlD9v1qd7u7zo1_1280.jpg</a> </font></td>
+<td><font color="gray">[<a id="2402329" href="#2402329">12:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> lol </td>
+<td><font color="gray">[<a id="2402330" href="#2402330">12:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-01-26#1777052" target=\'_blank\'>http://btcbase.org/log/2018-01-26#1777052</a> &lt;&lt; i'd like to make such a challenge. but turns out that we do not even yet have a usable formula for what exactly even is an exploit. </td>
+<td><font color="gray">[<a id="2402331" href="#2402331">12:59</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-26 17:45 douchebag: 1BTC reward? I'm up for that challenge any day </font></td>
+<td><font color="gray">[<a id="2402332" href="#2402332">12:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> it is almost like trying to define humour </td>
+<td><font color="gray">[<a id="2402333" href="#2402333">13:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'is this funny' </td>
+<td><font color="gray">[<a id="2402334" href="#2402334">13:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> there is the element of surprise , i.e. ' i had nfi that it would do X ' . but this is subjective, and impossible to say in advance that ' you had nfi that it would X ' </td>
+<td><font color="gray">[<a id="2402335" href="#2402335">13:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu for instance prolly knew that one could paste a js into his php thing. but had no particular reason to give a damn </td>
+<td><font color="gray">[<a id="2402336" href="#2402336">13:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-01-26#1776788" target=\'_blank\'>http://btcbase.org/log/2018-01-26#1776788</a> &lt;&lt; jeez, gtfo </td>
+<td><font color="gray">[<a id="2402337" href="#2402337">13:03</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-26 08:44 douchebag: &lt;script&gt;alert`OHAI`&lt;/script&gt; </font></td>
+<td><font color="gray">[<a id="2402338" href="#2402338">13:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> phf: i am at this point nearly convinced that working with www stack -- even moar so than, say, work with retarded children -- is destructive to one's own higher brain </td>
+<td><font color="gray">[<a id="2402339" href="#2402339">13:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> the fruit hang so low , all muscles atrophy. </td>
+<td><font color="gray">[<a id="2402340" href="#2402340">13:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> but even worse -- the type of effort that the work rewards, is exactly the wrong type </td>
+<td><font color="gray">[<a id="2402341" href="#2402341">13:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> &lt;asciilifeform&gt; <a href="http://btcbase.org/log/2018-01-26#1777052" target=\'_blank\'>http://btcbase.org/log/2018-01-26#1777052</a> &lt;&lt; i'd like to make such a challenge. but turns out that we do not even yet have a usable formula for what exactly even is an exploit. &lt;&lt; Dude finds way through pehbot commands to replace host machine BIOS with "Hypercard" binary that shipped with OS7 </td>
+<td><font color="gray">[<a id="2402342" href="#2402342">13:07</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-26 17:45 douchebag: 1BTC reward? I'm up for that challenge any day </font></td>
+<td><font color="gray">[<a id="2402343" href="#2402343">13:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> lmao </td>
+<td><font color="gray">[<a id="2402344" href="#2402344">13:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: for instance. </td>
+<td><font color="gray">[<a id="2402345" href="#2402345">13:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: why not add 'and burns down the box' also. </td>
+<td><font color="gray">[<a id="2402346" href="#2402346">13:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> coming next, pole vaulting contest where folx hop over the trump tower. </td>
+<td><font color="gray">[<a id="2402347" href="#2402347">13:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> asciilifeform: Burns down box leaves less to confirm by reading failROM </td>
+<td><font color="gray">[<a id="2402348" href="#2402348">13:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> phf o yeah i know you're the fancy playboy type. </td>
+<td><font color="gray">[<a id="2402349" href="#2402349">13:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: let's develop your picture. because it still isn't a complete one . because e.g. knowing the magicpacket for that particular box's nic, is not 'exploit for ffa', it is for $nic. </td>
+<td><font color="gray">[<a id="2402350" href="#2402350">13:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> just like if a d00d managed to sneak in and steal it, it ain't 'exploit for ffa' . etc </td>
+<td><font color="gray">[<a id="2402351" href="#2402351">13:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> asciilifeform: You failed to spec that part. You spec'd pehbot </td>
+<td><font color="gray">[<a id="2402352" href="#2402352">13:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: the whole thread is re the impossibility of a satisfying spec of any such kind. </td>
+<td><font color="gray">[<a id="2402353" href="#2402353">13:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> and it specifically does not admit room for inclusion by 'failed to spec X'. </td>
+<td><font color="gray">[<a id="2402354" href="#2402354">13:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> That is a point. </td>
+<td><font color="gray">[<a id="2402355" href="#2402355">13:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> hey BingoBoingo , recall james randi's flower pot ? </td>
+<td><font color="gray">[<a id="2402356" href="#2402356">13:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> same type of problem. </td>
+<td><font color="gray">[<a id="2402357" href="#2402357">13:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i dun think that it is solvable as-stated. </td>
+<td><font color="gray">[<a id="2402358" href="#2402358">13:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> it's very solvable as stated, but not mechanically. "1. figure out v 2. press pehbot 3. say intelligent things about it." "intelligent according to whom ?" "intelligent according to me" "how am i supposed to cheat this ?!" "you aren't." </td>
+<td><font color="gray">[<a id="2402359" href="#2402359">13:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> right, not mechanically. </td>
+<td><font color="gray">[<a id="2402360" href="#2402360">13:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-01-26#1777090" target=\'_blank\'>http://btcbase.org/log/2018-01-26#1777090</a> &lt;&lt; for all you know this is how kock-weimer goes too. </td>
+<td><font color="gray">[<a id="2402361" href="#2402361">13:17</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-26 18:02 asciilifeform: mircea_popescu for instance prolly knew that one could paste a js into his php thing. but had no particular reason to give a damn </font></td>
+<td><font color="gray">[<a id="2402362" href="#2402362">13:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> it's ~certainly~ in the list of things they'd spew once put to the question. </td>
+<td><font color="gray">[<a id="2402363" href="#2402363">13:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> certainly would </td>
+<td><font color="gray">[<a id="2402364" href="#2402364">13:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> not that it'd do'em any good. </td>
+<td><font color="gray">[<a id="2402365" href="#2402365">13:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> the difference b/w <a href="http://btcbase.org/log/2018-01-26#1776941" target=\'_blank\'>http://btcbase.org/log/2018-01-26#1776941</a> and e.g. koch-rng remains apparent to anybody with half a brain </td>
+<td><font color="gray">[<a id="2402366" href="#2402366">13:18</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-26 16:34 asciilifeform: but conceivably one day there will be an idjit browser that gives obama root on yer box when it sees string 'open sesame'. and what, errybody gotta know in advance to escape 'open sesame', lol ? </font></td>
+<td><font color="gray">[<a id="2402367" href="#2402367">13:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> In other exploits, tonight I will be sleeping in a different bed because axe time gas time has some for the chinches de cama! </td>
+<td><font color="gray">[<a id="2402368" href="#2402368">13:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i must admit to BingoBoingo , i have not yet experienced the 'joys' of this insect </td>
+<td><font color="gray">[<a id="2402369" href="#2402369">13:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Eh, not such a big deal. First weeks the bites itch and then your immune system stops caring and you cease to get quite the histamine reaction to the bites. </td>
+<td><font color="gray">[<a id="2402370" href="#2402370">13:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform with half a brain is not mechanically </td>
+<td><font color="gray">[<a id="2402371" href="#2402371">13:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ifonly this worked for mosquito. </td>
+<td><font color="gray">[<a id="2402372" href="#2402372">13:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: this is correct. which is why we dun have mechanisms judging kochs. </td>
+<td><font color="gray">[<a id="2402373" href="#2402373">13:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> how's the cocksuckers BingoBoingo ? apparently moar bloodsuckers. </td>
+<td><font color="gray">[<a id="2402374" href="#2402374">13:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> now to revisit upstack, once i describe peh-rsa , and demonstrate signing etc, it will be possible to make straightforward mechanical puzzle for whoever wants to play. </td>
+<td><font color="gray">[<a id="2402375" href="#2402375">13:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> there is that. </td>
+<td><font color="gray">[<a id="2402376" href="#2402376">13:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> could even pehbot encrypt a privkey. </td>
+<td><font color="gray">[<a id="2402377" href="#2402377">13:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> e.g. 'make your invalid sig of $item cause my verifier to say 'valid' ' etc. </td>
+<td><font color="gray">[<a id="2402378" href="#2402378">13:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: or that. ( the difficulty with privkeys-as-prizes is to show that they are in in fact inside the prizebox prior to play ) </td>
+<td><font color="gray">[<a id="2402379" href="#2402379">13:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> myeah. </td>
+<td><font color="gray">[<a id="2402380" href="#2402380">13:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> douchebag: ty, fixed </td>
+<td><font color="gray">[<a id="2402381" href="#2402381">13:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> you're right, it's not quite as good. </td>
+<td><font color="gray">[<a id="2402382" href="#2402382">13:25</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://www.thedrinkingrecord.com/2018/01/26/mcdonalds-the-gringo-gets-his-groove-back/" target=\'_blank\'>http://www.thedrinkingrecord.com/2018/01/26/mcdonalds-the-gringo-gets-his-groove-back/</a> &lt;&lt; Bingo Blog - McDonalds: The Gringo Gets His Groove Back </font></td>
+<td><font color="gray">[<a id="2402383" href="#2402383">13:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> mircea_popescu: Starting to get more attention for them again as my confidence recovers from the past weekend </td>
+<td><font color="gray">[<a id="2402384" href="#2402384">13:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> that's good. </td>
+<td><font color="gray">[<a id="2402385" href="#2402385">13:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; mircea_popescu</b></td>
+<td class="breakup"> has had the following unpleasant experience : was going to take whore tribe horseback riding called whorelist, "o sure, pick me up ?" called horse farms "nope, wounded/gone/booked/etc". HOW!!! could it be harder to get horses than whores! </td>
+<td><font color="gray">[<a id="2402386" href="#2402386">13:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> what, is it by leg count ? </td>
+<td><font color="gray">[<a id="2402387" href="#2402387">13:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Mebbe horses provide less useful error messages to the locals? Thusly there were many available horses until they hit the same fate the cars do. </td>
+<td><font color="gray">[<a id="2402388" href="#2402388">13:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> maybe. </td>
+<td><font color="gray">[<a id="2402389" href="#2402389">13:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> or maybe the chinese don't ship hay flavoured chips. </td>
+<td><font color="gray">[<a id="2402390" href="#2402390">13:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Possible </td>
+<td><font color="gray">[<a id="2402391" href="#2402391">13:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> horse himself suffers the disadvantage of being edible </td>
+<td><font color="gray">[<a id="2402392" href="#2402392">13:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> possibly -- that's where they went. </td>
+<td><font color="gray">[<a id="2402393" href="#2402393">13:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> like , supposedly, in ro. </td>
+<td><font color="gray">[<a id="2402394" href="#2402394">13:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i never saw horsemeat here, you know that ? </td>
+<td><font color="gray">[<a id="2402395" href="#2402395">13:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> there was this rumour of a 1time massive horse-to-sausage conversion when eu pressed on a ban against horse on roads </td>
+<td><font color="gray">[<a id="2402396" href="#2402396">13:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> eh, greatly exaggerated. </td>
+<td><font color="gray">[<a id="2402397" href="#2402397">13:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> it's exactly the kind of thing that would be greatlyexaggerated. so i have nfi. </td>
+<td><font color="gray">[<a id="2402398" href="#2402398">13:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> the true horse killing was in 50s, when ceausescu decided to force agromecanization </td>
+<td><font color="gray">[<a id="2402399" href="#2402399">13:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> fefeleagaization lol </td>
+<td><font color="gray">[<a id="2402400" href="#2402400">13:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> 60s&ast; </td>
+<td><font color="gray">[<a id="2402401" href="#2402401">13:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> prolly a million heads give or take. </td>
+<td><font color="gray">[<a id="2402402" href="#2402402">13:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( orwell aficionados will also remember his version of fefeleaga's bator , the sad horse character boxer ) </td>
+<td><font color="gray">[<a id="2402403" href="#2402403">13:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-01-26#1776919" target=\'_blank\'>http://btcbase.org/log/2018-01-26#1776919</a> &lt;&lt; could be the flip side of <a href="/2012/strategic-superiority-a-saga/" target=\'_blank\'>/2012/strategic-superiority-a-saga/</a> </td>
+<td><font color="gray">[<a id="2402404" href="#2402404">13:32</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-26 16:15 mircea_popescu: in fairness, kid's got me meditating about the nature of things ever since last night. see, the trouble is : in his syustem, he has actually found a vulnerability, as a factual matter. in my system this is entirely meaningless. why the difference ? </font></td>
+<td><font color="gray">[<a id="2402405" href="#2402405">13:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i'm sure. </td>
+<td><font color="gray">[<a id="2402406" href="#2402406">13:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-01-26#1777009" target=\'_blank\'>http://btcbase.org/log/2018-01-26#1777009</a> &lt;&lt; this is exactly how "secoority" snake oil propagates: cheap tricks </td>
+<td><font color="gray">[<a id="2402407" href="#2402407">13:42</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-26 17:12 mircea_popescu: not if it works to deliver the results above ? </font></td>
+<td><font color="gray">[<a id="2402408" href="#2402408">13:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> phf is this repackageable into a puritan argument against sluts ? if not, why not ? </td>
+<td><font color="gray">[<a id="2402409" href="#2402409">13:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> i don't know the puritan arguments against sluts </td>
+<td><font color="gray">[<a id="2402410" href="#2402410">13:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> you may not be aware, but the ~original~ repression of faggotry has everything in common with the original repression of jews, masons, etc : it was perceived by the "normal" man that these "perverts" have it TOO EASY. </td>
+<td><font color="gray">[<a id="2402411" href="#2402411">13:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> it's "unfair" (in the exact sense of childhood playground) and therefore "forbidden". because... obviously you can find a MALE partner to work with the question is to get one of the speaking cows to do it. </td>
+<td><font color="gray">[<a id="2402412" href="#2402412">13:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> so men who fuck men have an "unwarranted" social advantage, and consequently off with their heads. </td>
+<td><font color="gray">[<a id="2402413" href="#2402413">13:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> obviously fucking the boss is mandatory in the workplace but this is specifically what <a href="/2012/reguli-pentru-iobagi/" target=\'_blank\'>/2012/reguli-pentru-iobagi/</a> DIDNT want. </td>
+<td><font color="gray">[<a id="2402414" href="#2402414">13:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> wake me when there's a "too easy" on btcbase </td>
+<td><font color="gray">[<a id="2402415" href="#2402415">13:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> and so : a homebreaker is a female that delivers on the "easy" part which "anyone could do" (sex) and not on the hard part -- and there's no quotes there because how about YOU try polishing an oaken table the size of a current usian garage each morning, plus rub the iron pots. </td>
+<td><font color="gray">[<a id="2402416" href="#2402416">13:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> phf how's that related ? </td>
+<td><font color="gray">[<a id="2402417" href="#2402417">13:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> alright, I'm back </td>
+<td><font color="gray">[<a id="2402418" href="#2402418">13:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !~google he's here, he's here, he's here have no fear, stay by his side an' he'll take you for a ride... </td>
+<td><font color="gray">[<a id="2402419" href="#2402419">13:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>jhvh1:</b></td>
+<td class="breakup"> mircea_popescu: Nana – He's Comin' Lyrics | Genius Lyrics: &lt;<a href="https://genius.com/Nana-hes-comin-lyrics&gt;" target=\'_blank\'>https://genius.com/Nana-hes-comin-lyrics&gt;</a> Nana - He's Comin' Lyrics | LetsSingIt Lyrics: &lt;<a href="https://www.letssingit.com/nana-lyrics-he-s-comin-qkcsz32&gt;" target=\'_blank\'>https://www.letssingit.com/nana-lyrics-he-s-comin-qkcsz32&gt;</a> Songtext von Nana - He's Comin' Lyrics: &lt;<a href="http://www.songtexte.com/songtext/nana/hes-comin-73c2661d.html&gt;" target=\'_blank\'>http://www.songtexte.com/songtext/nana/hes-comin-73c2661d.html&gt;</a> </td>
+<td><font color="gray">[<a id="2402420" href="#2402420">13:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> mircea_popescu: i'm perhaps failing to find a point at which your analogy connects with the situation. i read it as "don't know on things that seem trivial" </td>
+<td><font color="gray">[<a id="2402421" href="#2402421">13:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: the 'anyone could cheat with witchcraft' thing is a recurring motif in idjit pygmystans , verily </td>
+<td><font color="gray">[<a id="2402422" href="#2402422">13:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> &ast;don't knock </td>
+<td><font color="gray">[<a id="2402423" href="#2402423">13:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( but pointedly not in ~all~ pygmistans. recall the 'ru prison cheating at cards is not cheating if not obvious' thread ) </td>
+<td><font color="gray">[<a id="2402424" href="#2402424">13:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> phf no, no, the structure of the argument, "X propagates via r-selection" is not delivering on what i expect is the intent ("of COURSE x is "bad" in the sense of illegitimate). </td>
+<td><font color="gray">[<a id="2402425" href="#2402425">13:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> the problem is that illegitimacy crosses a definition boundry (it doesn't mean the same thing in boston wharf side and in african village) and so leaves us stranded. </td>
+<td><font color="gray">[<a id="2402426" href="#2402426">13:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform it is, at that. and in ru prison is "not cheating if ~not caught~, to an ellaborate standard of wot-proof. which takes us straight into <a href="/2014/un-prophete/#selection-53.90-53.169" target=\'_blank\'>/2014/un-prophete/#selection-53.90-53.169</a> sadness </td>
+<td><font color="gray">[<a id="2402427" href="#2402427">13:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> and to the 'mechanical puzzle' thread, aha. </td>
+<td><font color="gray">[<a id="2402428" href="#2402428">13:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> oh i finally got it </td>
+<td><font color="gray">[<a id="2402429" href="#2402429">14:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> yes, totally unrelated, yeesh slow day. </td>
+<td><font color="gray">[<a id="2402430" href="#2402430">14:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Alright, what do you guys suppose I do I've been trying to find vulns in Starbucks pretty much all night with very little success. Should I continue hitting this bug bounty, or switch over to Yahoo's program? </td>
+<td><font color="gray">[<a id="2402431" href="#2402431">14:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> but, the intent wasn't actually "of course x is bad", we've had conversation about that elsewhere, this was a pure cause/purpose "you're fat" situation: that's literally how security theater propagates! </td>
+<td><font color="gray">[<a id="2402432" href="#2402432">14:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> consider just how weak this "r selection = bad" argument by looking at the principal class of problem we know a (sorta) solution for today. why even have bitcoin nodes when you could have a central server ? <a href="http://btcbase.org/log/2018-01-25#1776507" target=\'_blank\'>http://btcbase.org/log/2018-01-25#1776507</a> ? </td>
+<td><font color="gray">[<a id="2402433" href="#2402433">14:09</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-25 23:37 NoSatoshisHear: centralized system, so one server counts the ticks, it would simply be a demo of reddit "the button" style idiocy combined with gambling. Sounds viral, like the 1918 flu. </font></td>
+<td><font color="gray">[<a id="2402434" href="#2402434">14:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> phf ah, so it was just stating the obvious for some reason ? i'm... aware that's how it propagatges o.O </td>
+<td><font color="gray">[<a id="2402435" href="#2402435">14:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> well, i didn't know if you were aware, and i can always fall back to the usual log "but tis was for the reader!" </td>
+<td><font color="gray">[<a id="2402436" href="#2402436">14:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> (the truth of the matter is that the power of human speech comes from parsing and collapsing very lengthy and complex trees one of the rules is "obvious branch is dead", which means you practically never assume one's stating the obvious, so you pick the alternative) </td>
+<td><font color="gray">[<a id="2402437" href="#2402437">14:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> phf certainly. </td>
+<td><font color="gray">[<a id="2402438" href="#2402438">14:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> phf the actual trick i use to force a "no, go down obv branch" is by prepending a "you know" or whatever. but, sure. </td>
+<td><font color="gray">[<a id="2402439" href="#2402439">14:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> i've seen the machinery work many times, though for some reason it reminded me of the case where it misfired, in a famous bit by feynman where he was cracking safes at los alamos, security resolution and the unexpected punchline is "don't let feynman near your safes" </td>
+<td><font color="gray">[<a id="2402440" href="#2402440">14:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> douchebag: Have you tried flipping a coin? Or failing that tire flipping a bit? </td>
+<td><font color="gray">[<a id="2402441" href="#2402441">14:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Not really too much, I've held onto coin and made a bit here and there. Typically I end up selling it right away so that I can get my cash in hand and not have to worry about waiting for the price to fluctuate. I know I should have held onto it </td>
+<td><font color="gray">[<a id="2402442" href="#2402442">14:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; trinque</b></td>
+<td class="breakup"> gives this "pls to mirror back to me that am doing smart things smartly" hours to live </td>
+<td><font color="gray">[<a id="2402443" href="#2402443">14:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Considering I looked at one of my wallets and $50 transactions are now worth roughly $20,0000 </td>
+<td><font color="gray">[<a id="2402444" href="#2402444">14:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> $20,000&ast; </td>
+<td><font color="gray">[<a id="2402445" href="#2402445">14:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> douchebag: does it ever bother you that you sell a $10k info for $1k ? </td>
+<td><font color="gray">[<a id="2402446" href="#2402446">14:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( or 100, for 10, etc ) </td>
+<td><font color="gray">[<a id="2402447" href="#2402447">14:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> douchebag: I mean in the physical sense. You know... the old fashioned kind of flip and coin. Or flip and tire. </td>
+<td><font color="gray">[<a id="2402448" href="#2402448">14:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Not really, I know that by responsibly disclosing vulnerabilites to companies I am building a pretty awesome resume which will benefit me later in life </td>
+<td><font color="gray">[<a id="2402449" href="#2402449">14:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> douchebag: on the contrary. </td>
+<td><font color="gray">[<a id="2402450" href="#2402450">14:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> !#s responsible disclosure </td>
+<td><font color="gray">[<a id="2402451" href="#2402451">14:27</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> 30 results for "responsible disclosure", <a href="http://btcbase.org/log-search?q=responsible%20disclosure" target=\'_blank\'>http://btcbase.org/log-search?q=responsible%20disclosure</a> </font></td>
+<td><font color="gray">[<a id="2402452" href="#2402452">14:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ^ mandatory reading. </td>
+<td><font color="gray">[<a id="2402453" href="#2402453">14:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Everyone else I know is working some shitty job, not getting a decent amount of experience, and they're just kind of stuck in the same place. Meanwhile, I'm just entertaining myself with the challenge of hacking these companies </td>
+<td><font color="gray">[<a id="2402454" href="#2402454">14:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> douchebag: your "write-only" mode grows tiresome </td>
+<td><font color="gray">[<a id="2402455" href="#2402455">14:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; shinohai</b></td>
+<td class="breakup"> snickers a bit @ 'responsible disclosure' </td>
+<td><font color="gray">[<a id="2402456" href="#2402456">14:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> nobody is inviting you to "be in the republic in your own way" </td>
+<td><font color="gray">[<a id="2402457" href="#2402457">14:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> douchebag: do you realize that you are doing the equiv of showing up at e.g. google campus and repainting the stairs in exchange for the pennies accidentally dropped there ? </td>
+<td><font color="gray">[<a id="2402458" href="#2402458">14:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> the most abject kind of slavery known, really </td>
+<td><font color="gray">[<a id="2402459" href="#2402459">14:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> !~google mudlarks </td>
+<td><font color="gray">[<a id="2402460" href="#2402460">14:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>jhvh1:</b></td>
+<td class="breakup"> asciilifeform: Mudlark - Wikipedia: &lt;<a href="https://en.wikipedia.org/wiki/Mudlark&gt;" target=\'_blank\'>https://en.wikipedia.org/wiki/Mudlark&gt;</a> Museum of London :: Mudlarks children's gallery: &lt;<a href="https://www.museumoflondon.org.uk/museum-london-docklands/permanent-galleries/mudlarks-childrens-gallery&gt;" target=\'_blank\'>https://www.museumoflondon.org.uk/museum-london-docklands/permanent-galleries/mudlarks-childrens-gallery&gt;</a> Mudlarks of the 1700 and 1800s - Geri Walton: &lt;<a href="https://www.geriwalton.com/child-mudlarks/&gt;" target=\'_blank\'>https://www.geriwalton.com/child-mudlarks/&gt;</a> </td>
+<td><font color="gray">[<a id="2402461" href="#2402461">14:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Eh, perhaps. It's mainly just a hobby of mine, and I'm constantly learning from it and it pays the bills for now. </td>
+<td><font color="gray">[<a id="2402462" href="#2402462">14:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> What do you suggest I do? </td>
+<td><font color="gray">[<a id="2402463" href="#2402463">14:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> Read the logs for starters. </td>
+<td><font color="gray">[<a id="2402464" href="#2402464">14:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> douchebag: look in the subjline for this chan </td>
+<td><font color="gray">[<a id="2402465" href="#2402465">14:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> for instance. </td>
+<td><font color="gray">[<a id="2402466" href="#2402466">14:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Well, I'm not the best programmer out there however I always make damn sure the code I do write is secure as it can be </td>
+<td><font color="gray">[<a id="2402467" href="#2402467">14:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> how is this statement a commentary on the item in the subjline ? </td>
+<td><font color="gray">[<a id="2402468" href="#2402468">14:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> "V. You could learn how to program correctly, such as for instance by writing your own Vvi implementation, or by standing up an irc botvii, or by following the excellent manuals produced by the Lordshipviii. Bear in mind that it is deemed unethical within the Republic to write code if you haven't actually learned how to write it first, and that orcs' claims to have taught you something often turn out </td>
+<td><font color="gray">[<a id="2402469" href="#2402469">14:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> fraudulent upon examination." </td>
+<td><font color="gray">[<a id="2402470" href="#2402470">14:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> douchebag: skipped right over the reading &ast;again&ast; did you </td>
+<td><font color="gray">[<a id="2402471" href="#2402471">14:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Well, I'm just trying to figure out where my skillset could be best put to use, I would be more than capable of writing a V implementation or setting up an IRC bot. I'm trying to leave it to you guys to tell me where my skillset could best be put to use </td>
+<td><font color="gray">[<a id="2402472" href="#2402472">14:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> douchebag: while you are intelligent, and may have succeeded in sending mp to meditation room, realize that continued existence in this forum is predicated on you doing something useful for the Republic. Understanding -what- is useful will require (as trinque has been patiently explaining) "moar ready, less talky". </td>
+<td><font color="gray">[<a id="2402473" href="#2402473">14:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> !!rate douchebag -1 &ast;autistic screeching </td>
+<td><font color="gray">[<a id="2402474" href="#2402474">14:47</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Get your OTP: <a href="http://p.bvulpes.com/pastes/MFYD0/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/MFYD0/?raw=true</a> </font></td>
+<td><font color="gray">[<a id="2402475" href="#2402475">14:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> Else that happens ^^ </td>
+<td><font color="gray">[<a id="2402476" href="#2402476">14:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> douchebag: start with v </td>
+<td><font color="gray">[<a id="2402477" href="#2402477">14:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-01-23#1774923" target=\'_blank\'>http://btcbase.org/log/2018-01-23#1774923</a> </td>
+<td><font color="gray">[<a id="2402478" href="#2402478">14:47</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-23 20:04 ben_vulpes: ours mostly </font></td>
+<td><font color="gray">[<a id="2402479" href="#2402479">14:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> several folks told douchebag here to do various somethings </td>
+<td><font color="gray">[<a id="2402480" href="#2402480">14:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> douchebag: alternatively, ( or best of all, in conjunction ) read the ffa series and do the exercises. </td>
+<td><font color="gray">[<a id="2402481" href="#2402481">14:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> douchebag, -as you read more- the "how can I best use my skillset" will become obvious to you </td>
+<td><font color="gray">[<a id="2402482" href="#2402482">14:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> ayep </td>
+<td><font color="gray">[<a id="2402483" href="#2402483">14:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> !!v F446A115E51B6AB6665F943C47F5DBADD60D81F06A76C65156E43F4710A7B46C </td>
+<td><font color="gray">[<a id="2402484" href="#2402484">14:49</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> shinohai rated douchebag -1 &lt;&lt; &ast;autistic screeching </font></td>
+<td><font color="gray">[<a id="2402485" href="#2402485">14:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; trinque</b></td>
+<td class="breakup"> ftr thinks it's nice to see someone that shows up and wants to do &ast;anything&ast; aside pull his dick </td>
+<td><font color="gray">[<a id="2402486" href="#2402486">14:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> trinque: aha! </td>
+<td><font color="gray">[<a id="2402487" href="#2402487">14:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> just, the dickpulling can now go. </td>
+<td><font color="gray">[<a id="2402488" href="#2402488">14:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> but asciilifeform for one will read his vtron. and ffa homework answers. </td>
+<td><font color="gray">[<a id="2402489" href="#2402489">14:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> supposing he produces any. </td>
+<td><font color="gray">[<a id="2402490" href="#2402490">14:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> Could have used skills to hack CoinCheck, been 530M usd richer </td>
+<td><font color="gray">[<a id="2402491" href="#2402491">14:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> shinohai: naaah, see, not 'responsibledisclosure' is it nao. </td>
+<td><font color="gray">[<a id="2402492" href="#2402492">14:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> d00d gotta cure himself first, of the headcockroaches </td>
+<td><font color="gray">[<a id="2402493" href="#2402493">14:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> Precisely my point. </td>
+<td><font color="gray">[<a id="2402494" href="#2402494">14:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> shinohai, trinque : as i understand, d00d is a kid, and really oughta be beaten with wooden stick, and only after this fails, with spiked iron stick. </td>
+<td><font color="gray">[<a id="2402495" href="#2402495">15:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> Beatings bring about character development! </td>
+<td><font color="gray">[<a id="2402496" href="#2402496">15:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i dun see any reason to think that he is incurable. </td>
+<td><font color="gray">[<a id="2402497" href="#2402497">15:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( yet ) </td>
+<td><font color="gray">[<a id="2402498" href="#2402498">15:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> I would like to clarify with someone that I properly understand everything required to create a V implementation. </td>
+<td><font color="gray">[<a id="2402499" href="#2402499">15:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> No, not incurable, but simply needs to do time in the logs, etc. to cure the aforementioned head cockroaches. </td>
+<td><font color="gray">[<a id="2402500" href="#2402500">15:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> asciilifeform: shinohai negrated him all by himself </td>
+<td><font color="gray">[<a id="2402501" href="#2402501">15:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> I don't see where I condemned </td>
+<td><font color="gray">[<a id="2402502" href="#2402502">15:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> douchebag: observe that you can readily test what you make : massive amount of vpatch published , at e.g. <a href="http://btcbase.org/patches" target=\'_blank\'>http://btcbase.org/patches</a> </td>
+<td><font color="gray">[<a id="2402503" href="#2402503">15:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> trinque: i can readily see that you have not yet condemned , aha </td>
+<td><font color="gray">[<a id="2402504" href="#2402504">15:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> douchebag: so demonstrate it, yeah? talk is cheap. </td>
+<td><font color="gray">[<a id="2402505" href="#2402505">15:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> douchebag: this is not miserable american school . shoot first ask questions second. make a vtron. if its function diverges in some way from previous vtrons, you will a) notice b) find out why c ) then, ~maybe~ later ask others, if cannot determine solution on your own </td>
+<td><font color="gray">[<a id="2402506" href="#2402506">15:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> I'll write something up and let one of you take a look at it when I'm finished. </td>
+<td><font color="gray">[<a id="2402507" href="#2402507">15:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> i'll certainly read it </td>
+<td><font color="gray">[<a id="2402508" href="#2402508">15:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> gonna post on medium or what? </td>
+<td><font color="gray">[<a id="2402509" href="#2402509">15:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> It'll most likely be it's own web application. </td>
+<td><font color="gray">[<a id="2402510" href="#2402510">15:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> wutwutwut? a vtron webapp? </td>
+<td><font color="gray">[<a id="2402511" href="#2402511">15:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> Oh dear lord </td>
+<td><font color="gray">[<a id="2402512" href="#2402512">15:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> hey, phf has one </td>
+<td><font color="gray">[<a id="2402513" href="#2402513">15:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> i'm curious, not casting aspersions </td>
+<td><font color="gray">[<a id="2402514" href="#2402514">15:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> douchebag: surely you're not thinking of something that would eat a mess of patches and sigs and vomit forth a press, are you? </td>
+<td><font color="gray">[<a id="2402515" href="#2402515">15:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Pardon? </td>
+<td><font color="gray">[<a id="2402516" href="#2402516">15:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> I'm genuinely curious to see gpg operations performed in a web app. </td>
+<td><font color="gray">[<a id="2402517" href="#2402517">15:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> douchebag: howabout you tell me what this "it's own web application" is going to do </td>
+<td><font color="gray">[<a id="2402518" href="#2402518">15:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> (<a href="https://www.igolder.com/pgp/generate-key/)" target=\'_blank\'>https://www.igolder.com/pgp/generate-key/)</a> </td>
+<td><font color="gray">[<a id="2402519" href="#2402519">15:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> before writing a vtron, maybe spend sometime using one. </td>
+<td><font color="gray">[<a id="2402520" href="#2402520">15:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> it did not even occur to me that chukcha is a writer and not a reader, and has not used </td>
+<td><font color="gray">[<a id="2402521" href="#2402521">15:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> presumably has, or will use, then -- write. </td>
+<td><font color="gray">[<a id="2402522" href="#2402522">15:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> douchebag: mod6 has a point, consider pressing a trb and syncing it douchebag </td>
+<td><font color="gray">[<a id="2402523" href="#2402523">15:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> That </td>
+<td><font color="gray">[<a id="2402524" href="#2402524">15:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> we'll never know which is a nick reference and which isn't! </td>
+<td><font color="gray">[<a id="2402525" href="#2402525">15:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> That's probably a good idea before I start. </td>
+<td><font color="gray">[<a id="2402526" href="#2402526">15:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> still curious in re what this hypothetical webapp would do </td>
+<td><font color="gray">[<a id="2402527" href="#2402527">15:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ben_vulpes: imho even a straight cleanroom clone of <a href="http://btcbase.org/patches" target=\'_blank\'>http://btcbase.org/patches</a> wouldn't be entirely useless </td>
+<td><font color="gray">[<a id="2402528" href="#2402528">15:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( supposing it works ) </td>
+<td><font color="gray">[<a id="2402529" href="#2402529">15:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> asciilifeform: let the kid speak for himself, eh? </td>
+<td><font color="gray">[<a id="2402530" href="#2402530">15:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> let the d00d write his vtron. it's a homework, not a heroic quest . then -- beat with sticks. not before. </td>
+<td><font color="gray">[<a id="2402531" href="#2402531">15:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ben_vulpes: i fully expect that he'll speak, lol </td>
+<td><font color="gray">[<a id="2402532" href="#2402532">15:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Well, the web application would just be for viewing purposes, the PGP operations will still be done via command line. I am quite comfortable writing web apps using Python's Flask web framework </td>
+<td><font color="gray">[<a id="2402533" href="#2402533">15:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> I see guidance, not beating, no harm there </td>
+<td><font color="gray">[<a id="2402534" href="#2402534">15:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> guidance and beatins can be hard to distinguish at twenty feet when kiddo's reaching for the stove </td>
+<td><font color="gray">[<a id="2402535" href="#2402535">15:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> haw </td>
+<td><font color="gray">[<a id="2402536" href="#2402536">15:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> bbl,meat </td>
+<td><font color="gray">[<a id="2402537" href="#2402537">15:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> douchebag: do yr marching orders make sense? </td>
+<td><font color="gray">[<a id="2402538" href="#2402538">15:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> <a href="http://therealbitcoin.org/ml/btc-dev/2015-August/000161.html" target=\'_blank\'>http://therealbitcoin.org/ml/btc-dev/2015-August/000161.html</a> &lt;- I'm looking at this right now, to get an understanding of what I'll be making. </td>
+<td><font color="gray">[<a id="2402539" href="#2402539">15:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> there's also <a href="http://cascadianhacker.com/07_v-tronics-101-a-gentle-introduction-to-the-most-serene-republic-of-bitcoins-cryptographically-backed-version-control-system" target=\'_blank\'>http://cascadianhacker.com/07_v-tronics-101-a-gentle-introduction-to-the-most-serene-republic-of-bitcoins-cryptographically-backed-version-control-system</a> </td>
+<td><font color="gray">[<a id="2402540" href="#2402540">15:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> I do not know what marching orders are at this time, I'm going to have to read more into it to better understand </td>
+<td><font color="gray">[<a id="2402541" href="#2402541">15:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> ben_vulpes link is most definitely required reading imho </td>
+<td><font color="gray">[<a id="2402542" href="#2402542">15:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> douchebag: press a trb with non-"release" patches so's you understand usage, ideally sync the binary if you can afford the hardware. then, write your own v, test it, and bring it back for review. </td>
+<td><font color="gray">[<a id="2402543" href="#2402543">15:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> Forsure, is there one you suggest me starting with? </td>
+<td><font color="gray">[<a id="2402544" href="#2402544">15:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> one what </td>
+<td><font color="gray">[<a id="2402545" href="#2402545">15:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> V implementation to use so that I understand how everything is working together </td>
+<td><font color="gray">[<a id="2402546" href="#2402546">15:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> asciilifeform's elaborates the fundamentals, mod6 has polished his to handle a bunch of edge cases. </td>
+<td><font color="gray">[<a id="2402547" href="#2402547">15:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> it is a matter of taste. would you rather read python or perl? </td>
+<td><font color="gray">[<a id="2402548" href="#2402548">15:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> fwiw, if you're comfortable with py, and you're on a learning quest, then start with alf's </td>
+<td><font color="gray">[<a id="2402549" href="#2402549">15:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> I prefer Python </td>
+<td><font color="gray">[<a id="2402550" href="#2402550">15:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> <a href="http://archive.is/KoGnA" target=\'_blank\'>http://archive.is/KoGnA</a> &lt;&lt;&lt; Not mentioned here, how Coincheck asked the NEM developers to roll back chain ala mETH to recover losses. </td>
+<td><font color="gray">[<a id="2402551" href="#2402551">15:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> aaaand at the intersection of pantsuit and me too streets: <a href="http://archive.is/xKXxl" target=\'_blank\'>http://archive.is/xKXxl</a> </td>
+<td><font color="gray">[<a id="2402552" href="#2402552">16:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> Her "Faith adviser" no less! Must have counseled 'ol Bill too. </td>
+<td><font color="gray">[<a id="2402553" href="#2402553">16:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> "The currency of the far-right: why neo-Nazis love bitcoin (The Guardian)" </td>
+<td><font color="gray">[<a id="2402554" href="#2402554">17:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> "... Only joint action by the G20 countries, as proposed by France and Germany, could be enough to become a game changer. ..." </td>
+<td><font color="gray">[<a id="2402555" href="#2402555">17:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> articled penned by one Julia Ebner, who also wrote "The Rage: The Vicious Circle of Islamist and Far Right Extremism" <a href="https://www.vox.com/world/2017/12/19/16764046/islam-terrorism-far-right-extremism-isis" target=\'_blank\'>https://www.vox.com/world/2017/12/19/16764046/islam-terrorism-far-right-extremism-isis</a> </td>
+<td><font color="gray">[<a id="2402556" href="#2402556">17:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> wherein she blames far right for creating and feeding islamic extrimism </td>
+<td><font color="gray">[<a id="2402557" href="#2402557">17:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-01-26#1777200" target=\'_blank\'>http://btcbase.org/log/2018-01-26#1777200</a> &lt;&lt; well, does it ever bother you you spend an hour you'll never ever get back ? </td>
+<td><font color="gray">[<a id="2402558" href="#2402558">17:30</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-26 19:24 asciilifeform: douchebag: does it ever bother you that you sell a $10k info for $1k ? </font></td>
+<td><font color="gray">[<a id="2402559" href="#2402559">17:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-01-26#1777253" target=\'_blank\'>http://btcbase.org/log/2018-01-26#1777253</a> &lt;&lt;-&gt;&gt; <a href="http://btcbase.org/log/2018-01-25#1775921" target=\'_blank\'>http://btcbase.org/log/2018-01-25#1775921</a> </td>
+<td><font color="gray">[<a id="2402560" href="#2402560">17:34</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-26 20:04 douchebag: I would like to clarify with someone that I properly understand everything required to create a V implementation. </font></td>
+<td><font color="gray">[<a id="2402561" href="#2402561">17:34</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-25 01:01 mircea_popescu: v is esentially found today as an enchanted castle surrounded by 5000 rakes upon which the prince is welcome to step, and once he stepped he can come to us and by the shape in his forehead we can describe the rake he stepped on. </font></td>
+<td><font color="gray">[<a id="2402562" href="#2402562">17:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> gol step. </td>
+<td><font color="gray">[<a id="2402563" href="#2402563">17:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> go&ast; </td>
+<td><font color="gray">[<a id="2402564" href="#2402564">17:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> lmao the zingers. </td>
+<td><font color="gray">[<a id="2402565" href="#2402565">17:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> haha. </td>
+<td><font color="gray">[<a id="2402566" href="#2402566">17:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> In other competence of the feebs news: <a href="http://archive.is/Un7mm" target=\'_blank\'>http://archive.is/Un7mm</a> </td>
+<td><font color="gray">[<a id="2402567" href="#2402567">18:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-01-26#1777309" target=\'_blank\'>http://btcbase.org/log/2018-01-26#1777309</a> &lt;&lt; yeah, right. to reiterate, a) <a href="http://btcbase.org/log/2014-02-07#487027" target=\'_blank\'>http://btcbase.org/log/2014-02-07#487027</a> and b) nobody fucking walks. </td>
+<td><font color="gray">[<a id="2402568" href="#2402568">18:19</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-26 22:16 phf: "... Only joint action by the G20 countries, as proposed by France and Germany, could be enough to become a game changer. ..." </font></td>
+<td><font color="gray">[<a id="2402569" href="#2402569">18:19</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2014-02-07 15:23 mircea_popescu: "Remember : we know where YOU live." </font></td>
+<td><font color="gray">[<a id="2402570" href="#2402570">18:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> better make sure there's replacement "representatives" "presidents" etcetera for the WHOLE list. </td>
+<td><font color="gray">[<a id="2402571" href="#2402571">18:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> meanwhile in efervescences, <a href="http://coupleamateursbellespoitrines.c.o.pic.centerblog.net/tumblr_mr10x0cH0h1s3uxuxo1_1280.jpg" target=\'_blank\'>http://coupleamateursbellespoitrines.c.o.pic.centerblog.net/tumblr_mr10x0cH0h1s3uxuxo1_1280.jpg</a> </td>
+<td><font color="gray">[<a id="2402572" href="#2402572">18:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: rerun ! </td>
+<td><font color="gray">[<a id="2402573" href="#2402573">18:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i could've sworn i saw it 2-3y ago </td>
+<td><font color="gray">[<a id="2402574" href="#2402574">18:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well... if you do this many shows eventually you're gonna have to rely on reruns! </td>
+<td><font color="gray">[<a id="2402575" href="#2402575">18:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-01-26#1777312" target=\'_blank\'>http://btcbase.org/log/2018-01-26#1777312</a> &lt;&lt; every day, lol </td>
+<td><font color="gray">[<a id="2402576" href="#2402576">18:52</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-26 22:30 mircea_popescu: <a href="http://btcbase.org/log/2018-01-26#1777200" target=\'_blank\'>http://btcbase.org/log/2018-01-26#1777200</a> &lt;&lt; well, does it ever bother you you spend an hour you'll never ever get back ? </font></td>
+<td><font color="gray">[<a id="2402577" href="#2402577">18:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> so stop being so bothered! :D </td>
+<td><font color="gray">[<a id="2402578" href="#2402578">18:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-01-26#1777305" target=\'_blank\'>http://btcbase.org/log/2018-01-26#1777305</a> &lt;&lt; 'One of Japan’s biggest cryptocurrency exchanges said that about $400 million in NEM tokens ...' &gt;&gt; asciilifeform was replacing a ceiling light and lost a screw, which he arbitrarily will value at 500 trillion unified reformed dubloons </td>
+<td><font color="gray">[<a id="2402579" href="#2402579">18:54</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-26 20:46 shinohai: <a href="http://archive.is/KoGnA" target=\'_blank\'>http://archive.is/KoGnA</a> &lt;&lt;&lt; Not mentioned here, how Coincheck asked the NEM developers to roll back chain ala mETH to recover losses. </font></td>
+<td><font color="gray">[<a id="2402580" href="#2402580">18:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i have about $1 trillion in trimmed pubic hairs. they, unlike a "transgender", are actually female, being XX. </td>
+<td><font color="gray">[<a id="2402581" href="#2402581">18:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> There's actually a market for shaved pubic hair! lol </td>
+<td><font color="gray">[<a id="2402582" href="#2402582">18:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i'm thinking of branching out into plucked. </td>
+<td><font color="gray">[<a id="2402583" href="#2402583">18:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-01-26#1777321" target=\'_blank\'>http://btcbase.org/log/2018-01-26#1777321</a> &lt;&lt; observe that in all such cases under modern usg, the corpse 'hangs' on the designated gallows bird and never on the gestapo ( who can machine-gun or even demolish, as in florida 2y ago, entire houses , with clear conscience ) </td>
+<td><font color="gray">[<a id="2402584" href="#2402584">18:56</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-26 23:09 shinohai: In other competence of the feebs news: <a href="http://archive.is/Un7mm" target=\'_blank\'>http://archive.is/Un7mm</a> </font></td>
+<td><font color="gray">[<a id="2402585" href="#2402585">18:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform the more interesting point is that purely latino style "kidnappings" are moving into the us in complete defiance of "law enforcement". </td>
+<td><font color="gray">[<a id="2402586" href="#2402586">18:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( iirc in all 50 states at this point, if even local cop runs somebody over on his way to arresting a pickpocket, corpse 'hangs' on the pickpocket ) </td>
+<td><font color="gray">[<a id="2402587" href="#2402587">18:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> the battle has evidently been lost. </td>
+<td><font color="gray">[<a id="2402588" href="#2402588">18:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: eh those have been a thing for many years </td>
+<td><font color="gray">[<a id="2402589" href="#2402589">18:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> typically not publicized , but they're there. </td>
+<td><font color="gray">[<a id="2402590" href="#2402590">18:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> mebbe. </td>
+<td><font color="gray">[<a id="2402591" href="#2402591">18:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( recall how fbi was even created ) </td>
+<td><font color="gray">[<a id="2402592" href="#2402592">18:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i was talking re "contempo" period, post ww2 not of the fucking know-nothing movement. </td>
+<td><font color="gray">[<a id="2402593" href="#2402593">18:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> well yes, hoover's fbi </td>
+<td><font color="gray">[<a id="2402594" href="#2402594">18:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !#s "the morgue" </td>
+<td><font color="gray">[<a id="2402595" href="#2402595">18:59</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> 4 results for "\"the morgue\"", <a href="http://btcbase.org/log-search?q=%22the%20morgue%22" target=\'_blank\'>http://btcbase.org/log-search?q=%22the%20morgue%22</a> </font></td>
+<td><font color="gray">[<a id="2402596" href="#2402596">18:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> there was a bar in new york where ~100 people died /year because people got drunk and starting shooting pistols at each other. </td>
+<td><font color="gray">[<a id="2402597" href="#2402597">19:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> all of that, yet people are still 'maga' or whatever it is today </td>
+<td><font color="gray">[<a id="2402598" href="#2402598">20:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> as if </td>
+<td><font color="gray">[<a id="2402599" href="#2402599">20:09</a>]</font></td>
+</tr>
+</table>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2020/forum-logs-for-25-jan-2018/">Forum logs for 25 Jan 2018</a></div>
+                <div class="alignright"><a href="/2020/forum-logs-for-27-jan-2018/">Forum logs for 27 Jan 2018</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/logs/" title="View all posts in Logs" rel="category tag">Logs</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2020/forum-logs-for-26-jan-2018/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2020/forum-logs-for-26-jan-2018/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+
+
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authore8e1dd8" id="authore8e1dd8" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emaile8e1dd8" id="emaile8e1dd8" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urle8e1dd8" id="urle8e1dd8" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="92469" /></p>
+				<input type="hidden" name="comment_post_time" value="1735304602-152.53.39.118" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2024 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-92469")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-92469");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-92469");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_dec2016.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Forum logs for 09 Sep 2019 on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">The world’s greatest erotica writer.<br /><a href=/2019/i-own-erotica-like-zeus-owns-olympus/>By far</a>.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-93055"><div class="post" id="post-93055">                    <h1><a href="/2020/forum-logs-for-09-sep-2019/" rel="bookmark" title="Permanent Link to Forum logs for 09 Sep 2019">Forum logs for 09 Sep 2019</a></h1>                        <div class="date">                                     Monday, 16 March, Year 12 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/" title="Posts by "></a>                                                        </div>
+
+                        <div class="entry">
+<table style="font-size:1em;width:"580px;">
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> BingoBoingo, <a href="/2010/dupa-dave-winer-citire/" target=\'_blank\'>/2010/dupa-dave-winer-citire/</a> &lt;&lt; ito. </td>
+<td><font color="gray">[<a id="2554909" href="#2554909">00:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> cnet meanwhile fucked the link i gave them. of fucking course </td>
+<td><font color="gray">[<a id="2554910" href="#2554910">00:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> morons </td>
+<td><font color="gray">[<a id="2554911" href="#2554911">00:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> mircea_popescu: ty, link added </td>
+<td><font color="gray">[<a id="2554912" href="#2554912">00:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> looks like ericbot didn't survive netsplit. Had to manually re-cycle it </td>
+<td><font color="gray">[<a id="2554913" href="#2554913">00:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> holy shit. it filled up nsabot.log too (2.4GB!!) </td>
+<td><font color="gray">[<a id="2554914" href="#2554914">00:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> here's the snippit of the bot logs for these logs &gt;&gt; <a href="http://paste.deedbot.org/?id=CAX0" target=\'_blank\'>http://paste.deedbot.org/?id=CAX0</a> </td>
+<td><font color="gray">[<a id="2554915" href="#2554915">00:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> very odd that just that bot had a netsplit and no one else </td>
+<td><font color="gray">[<a id="2554916" href="#2554916">00:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> lobbes, the reconnection code is buggy. should create new socket rather than try to reuse old one. </td>
+<td><font color="gray">[<a id="2554917" href="#2554917">00:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> afaik this can't be done. </td>
+<td><font color="gray">[<a id="2554918" href="#2554918">00:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> patch it so it releases the file descriptor and reconnects properly. </td>
+<td><font color="gray">[<a id="2554919" href="#2554919">00:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> roger that. I'll take a dive into the code and see if I can figure out the socket related bits </td>
+<td><font color="gray">[<a id="2554920" href="#2554920">00:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> wait mircea_popescu , why can't be done ? seems like simple fix ( tho in my simplistic 'run on lappy &amp; yank nic cord' reconnect test, never saw the state that lobbes discovered, so never implemented 'make new socket' ) </td>
+<td><font color="gray">[<a id="2554921" href="#2554921">01:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> seems like all you need is to move ' sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) ' into 'connect()' . </td>
+<td><font color="gray">[<a id="2554922" href="#2554922">01:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> would try, but does not know how to reproduce lobbes's boojum </td>
+<td><font color="gray">[<a id="2554923" href="#2554923">01:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-08#1935080" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-08#1935080</a> &lt;&lt; seems like finally lobbes photographed that legendary ufo, the 'socket alive, but wedged tcp' state. </td>
+<td><font color="gray">[<a id="2554924" href="#2554924">01:24</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-08 20:39:51 lobbes: here's the snippit of the bot logs for these logs &gt;&gt; <a href="http://paste.deedbot.org/?id=CAX0" target=\'_blank\'>http://paste.deedbot.org/?id=CAX0</a> </font></td>
+<td><font color="gray">[<a id="2554925" href="#2554925">01:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-08#1935079" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-08#1935079</a> &lt;&lt; prolly would not be bad idea to introduce log constrictor of some form (or using trinque's old method) </td>
+<td><font color="gray">[<a id="2554926" href="#2554926">01:25</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-08 20:35:48 lobbes: holy shit. it filled up nsabot.log too (2.4GB!!) </font></td>
+<td><font color="gray">[<a id="2554927" href="#2554927">01:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> thinks 'at last, somebody finally exposed the horrid fleanode edge cases' </td>
+<td><font color="gray">[<a id="2554928" href="#2554928">01:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> oh lobbes , prolly oughta have set SO_REUSEADDR also. loox like i did not </td>
+<td><font color="gray">[<a id="2554929" href="#2554929">01:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( then in principle dun gotta make new. but oughta test. nao q , how to reproduce wedged sockets, other than by playing fleanode lotto ? ) </td>
+<td><font color="gray">[<a id="2554930" href="#2554930">01:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> lobbes et al : another item i neglected to add, but really oughta have, is to log the actual ip of where connects. so can actually get some ~useful data re individual fleanode endpoints. </td>
+<td><font color="gray">[<a id="2554931" href="#2554931">01:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> !q uptime </td>
+<td><font color="gray">[<a id="2554932" href="#2554932">01:30</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> asciilifeform: time since my last reconnect : 23d 11h 50m </font></td>
+<td><font color="gray">[<a id="2554933" href="#2554933">01:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 204.225.96.251 (via netstat) ftr . </td>
+<td><font color="gray">[<a id="2554934" href="#2554934">01:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( #5, it seems , in fleanode's current rotator ) </td>
+<td><font color="gray">[<a id="2554935" href="#2554935">01:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> for thread-completeness : <a href="http://p.bvulpes.com/pastes/fzJdP/?raw=true" target=\'_blank\'>nsabot.log</a> of current run. </td>
+<td><font color="gray">[<a id="2554936" href="#2554936">01:34</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">feedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://blog.lobbesblog.com/2019/09/the-mp-wp-bot-job-offer/" target=\'_blank\'>http://blog.lobbesblog.com/2019/09/the-mp-wp-bot-job-offer/</a> &lt;&lt; lobbesblog -- The mp-wp bot job offer </font></td>
+<td><font color="gray">[<a id="2554937" href="#2554937">02:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> ^^ mircea_popescu for your perusal </td>
+<td><font color="gray">[<a id="2554938" href="#2554938">02:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> asciilifeform: yeah, I also have no idea how to properly test the thing.. except wait for the right fleanode weather to come by </td>
+<td><font color="gray">[<a id="2554939" href="#2554939">02:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> I'll look into that socket stuff you mentioned though. Ty </td>
+<td><font color="gray">[<a id="2554940" href="#2554940">02:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> !Xbid 1057 100mn </td>
+<td><font color="gray">[<a id="2554941" href="#2554941">03:06</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">auctionbot:</font></td>
+<td class="breakup"><font color="gray"> Buy order # 1057: item as described in <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-07#1934605" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-07#1934605</a> and following. Heard: 100mn from lobbes. Ending: 2019-09-12 20:26:41.479316 UTC (101 hours 9 mins) </font></td>
+<td><font color="gray">[<a id="2554942" href="#2554942">03:06</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-07 04:57:27 mircea_popescu: so : who would like to do a spot of work for hire for me ? the ideea is to write and publish as a vpatch a stan logbot extension which a) processes search, through talking to a [presumably present] mysql server, and spitting out the results (formatted as in <a href="/2019/" target=\'_blank\'>/2019/</a> </font></td>
+<td><font color="gray">[<a id="2554943" href="#2554943">03:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> lobbes: there's something weird with your loggger's treatment of ctcp lines, compare <a href="http://logs.ericbenevides.com/log/trilema/2019-09-07#1934613" target=\'_blank\'>http://logs.ericbenevides.com/log/trilema/2019-09-07#1934613</a> with <a href="http://logs.ossasepia.com/log/trilema/2019-09-07#1934613" target=\'_blank\'>http://logs.ossasepia.com/log/trilema/2019-09-07#1934613</a> and <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-07#1934613" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-07#1934613</a> </td>
+<td><font color="gray">[<a id="2554944" href="#2554944">07:13</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">ericbot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-07 09:01:18 mircea_popescuthinks: asciilifeform should also get something though it's unclear how exactly to figure this out. but -- lacking a better idea, i guess he can have 10% of the winning bid in royalties and we see. </font></td>
+<td><font color="gray">[<a id="2554945" href="#2554945">07:13</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">ossabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-07 05:16:52 mircea_popescu: thinks asciilifeform should also get something though it's unclear how exactly to figure this out. but -- lacking a better idea, i guess he can have 10% of the winning bid in royalties and we see. </font></td>
+<td><font color="gray">[<a id="2554946" href="#2554946">07:13</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-07 05:01:18 mircea_popescu: thinks asciilifeform should also get something though it's unclear how exactly to figure this out. but -- lacking a better idea, i guess he can have 10% of the winning bid in royalties and we see. </font></td>
+<td><font color="gray">[<a id="2554947" href="#2554947">07:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; mircea_popescu</b></td>
+<td class="breakup"> shall peruse forthwith </td>
+<td><font color="gray">[<a id="2554948" href="#2554948">07:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> lobbes: kept meaning to ask - how do you pronounce your surname? </td>
+<td><font color="gray">[<a id="2554949" href="#2554949">07:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-08#1935086" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-08#1935086</a> &lt;&lt; because the descriptors are maintained by the kernel not the userspace. </td>
+<td><font color="gray">[<a id="2554950" href="#2554950">07:26</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-08 22:04:14 asciilifeform: wait mircea_popescu , why can't be done ? seems like simple fix ( tho in my simplistic 'run on lappy &amp; yank nic cord' reconnect test, never saw the state that lobbes discovered, so never implemented 'make new socket' ) </font></td>
+<td><font color="gray">[<a id="2554951" href="#2554951">07:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> and sure, you didn't implement. but you're ~supposed~ to implement. </td>
+<td><font color="gray">[<a id="2554952" href="#2554952">07:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> otherwise it's "in all my driving i never had to back up, so... never put a reverse setting for the gearbox in" </td>
+<td><font color="gray">[<a id="2554953" href="#2554953">07:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> though i grant, sock = socket.socket(socket. is such promising lingo as to utterly recommend python for african studies. </td>
+<td><font color="gray">[<a id="2554954" href="#2554954">07:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-08#1935079" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-08#1935079</a> &lt;&lt; the joys of python!!11 </td>
+<td><font color="gray">[<a id="2554955" href="#2554955">07:43</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-08 20:35:48 lobbes: holy shit. it filled up nsabot.log too (2.4GB!!) </font></td>
+<td><font color="gray">[<a id="2554956" href="#2554956">07:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-08#1935095" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-08#1935095</a> &lt;&lt; log in as root, close the program's socket whileit's running. </td>
+<td><font color="gray">[<a id="2554957" href="#2554957">07:45</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-08 22:11:25 asciilifeform: ( then in principle dun gotta make new. but oughta test. nao q , how to reproduce wedged sockets, other than by playing fleanode lotto ? ) </font></td>
+<td><font color="gray">[<a id="2554958" href="#2554958">07:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-08#1935096" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-08#1935096</a> &lt;&lt; yes. esp if were going to immediately turn around ask everyone to run one, this "my one and only tru sole solitary i mate for life" approach is unfit. </td>
+<td><font color="gray">[<a id="2554959" href="#2554959">07:46</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-08 22:13:22 asciilifeform: lobbes et al : another item i neglected to add, but really oughta have, is to log the actual ip of where connects. so can actually get some ~useful data re individual fleanode endpoints. </font></td>
+<td><font color="gray">[<a id="2554960" href="#2554960">07:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> (and yes, depondopopotamosity is parasitosis on knightly dedication, this tendency to "pick ONE great ruler and follow HIM") </td>
+<td><font color="gray">[<a id="2554961" href="#2554961">07:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> dependopopotamosity&ast; </td>
+<td><font color="gray">[<a id="2554962" href="#2554962">07:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935112" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935112</a> &lt;&lt; looks like stray regexp </td>
+<td><font color="gray">[<a id="2554963" href="#2554963">08:12</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 03:56:22 ericbot: Logged on 2019-09-07 09:01:18 mircea_popescuthinks: asciilifeform should also get something though it's unclear how exactly to figure this out. but -- lacking a better idea, i guess he can have 10% of the winning bid in royalties and we see. </font></td>
+<td><font color="gray">[<a id="2554964" href="#2554964">08:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; mircea_popescu</b></td>
+<td class="breakup"> is actually excited at how well things are progressing, once we got rid of the dead weight. </td>
+<td><font color="gray">[<a id="2554965" href="#2554965">08:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> imagine, all this flurry of exciting new development could have been occuring in 2017, if i had the sense to kick phf out on his rear in 2017, rather than let him sit his dumb ass on us for two years. </td>
+<td><font color="gray">[<a id="2554966" href="#2554966">08:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> tolerance ~never~ fucking pays. </td>
+<td><font color="gray">[<a id="2554967" href="#2554967">08:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> it seems like ti will. it never does. </td>
+<td><font color="gray">[<a id="2554968" href="#2554968">08:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> <a href="http://logs.ossasepia.com/log/trilema/2019-09-09#1935128" target=\'_blank\'>http://logs.ossasepia.com/log/trilema/2019-09-09#1935128</a> - yes and probably reader-side ie not bot itself. </td>
+<td><font color="gray">[<a id="2554969" href="#2554969">08:41</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">ossabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 05:11:01 mircea_popescu: <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935112" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935112</a> &lt;&lt; looks like stray regexp </font></td>
+<td><font color="gray">[<a id="2554970" href="#2554970">08:41</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 03:56:22 ericbot: Logged on 2019-09-07 09:01:18 mircea_popescuthinks: asciilifeform should also get something though it's unclear how exactly to figure this out. but -- lacking a better idea, i guess he can have 10% of the winning bid in royalties and we see. </font></td>
+<td><font color="gray">[<a id="2554971" href="#2554971">08:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> all sorta chuck moores, "famous" and apparently ever so good and useful, just WAITING for you to give them a chance to strangle you. </td>
+<td><font color="gray">[<a id="2554972" href="#2554972">08:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> hm, bimbo.club does not have the b&amp;e selection mechanism set? I tried <a href="http://bimbo.club/2019/09/philosophical-transactions-for-the-months-of-april-may-and-june-1714-part-v/?b=Circassians&amp;e=Asiaticks" target=\'_blank\'>http://bimbo.club/2019/09/philosophical-transactions-for-the-months-of-april-may-and-june-1714-part-v/?b=Circassians&amp;e=Asiaticks</a> and it's not working </td>
+<td><font color="gray">[<a id="2554973" href="#2554973">08:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yo nicole! </td>
+<td><font color="gray">[<a id="2554974" href="#2554974">08:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> this chapter of transactions reads like great fun anyway, what with "procuring smallpox" and asia-ticks </td>
+<td><font color="gray">[<a id="2554975" href="#2554975">08:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> o she did a new transcription ? </td>
+<td><font color="gray">[<a id="2554976" href="#2554976">08:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> look at that. cool. </td>
+<td><font color="gray">[<a id="2554977" href="#2554977">08:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> aha, very nice. </td>
+<td><font color="gray">[<a id="2554978" href="#2554978">08:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> oh hi nicoleci </td>
+<td><font color="gray">[<a id="2554979" href="#2554979">09:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> !!up nicoleci </td>
+<td><font color="gray">[<a id="2554980" href="#2554980">09:55</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> nicoleci voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2554981" href="#2554981">09:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>nicoleci:</b></td>
+<td class="breakup"> helllo, diana_coman </td>
+<td><font color="gray">[<a id="2554982" href="#2554982">09:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>nicoleci:</b></td>
+<td class="breakup"> diana_coman, unfortunately i do not have selections set yet </td>
+<td><font color="gray">[<a id="2554983" href="#2554983">10:01</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">feedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://ave1.org/2019/off-the-road-again/" target=\'_blank\'>http://ave1.org/2019/off-the-road-again/</a> &lt;&lt; ave1 -- Off the road again </font></td>
+<td><font color="gray">[<a id="2554984" href="#2554984">10:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>nicoleci:</b></td>
+<td class="breakup"> glad you liked the article. the medical transcriptions are especially interesting/gross </td>
+<td><font color="gray">[<a id="2554985" href="#2554985">10:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> nicoleci: do you need help with setting the selections up? </td>
+<td><font color="gray">[<a id="2554986" href="#2554986">10:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> and yeah, this one has some gems in it I think my favourite is "Some more quicksighted, imagin'd these two children were, as useless shades sent to Charon by any means that could be made use of." </td>
+<td><font color="gray">[<a id="2554987" href="#2554987">10:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>nicoleci:</b></td>
+<td class="breakup"> diana_coman, yes i definitely can use some help </td>
+<td><font color="gray">[<a id="2554988" href="#2554988">10:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>nicoleci:</b></td>
+<td class="breakup"> lol great line </td>
+<td><font color="gray">[<a id="2554989" href="#2554989">10:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> nicoleci: where are you stuck with the steps in <a href="/2019/proper-html-linking-the-crisis-the-solution-the-resolution-conclusion/" target=\'_blank\'>/2019/proper-html-linking-the-crisis-the-solution-the-resolution-conclusion/</a> ? </td>
+<td><font color="gray">[<a id="2554990" href="#2554990">10:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> !!up nicoleci </td>
+<td><font color="gray">[<a id="2554991" href="#2554991">10:18</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> nicoleci voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2554992" href="#2554992">10:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>nicoleci:</b></td>
+<td class="breakup"> diana_coman, currently im having issues accessing the shell. this may be a BingoBoingo question. i'll provide a better answer as to which step im stuck on when i get inside. </td>
+<td><font color="gray">[<a id="2554993" href="#2554993">10:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> nicoleci: ok, but he'll prolly need the concrete barf/how it fails to help you out anyway. </td>
+<td><font color="gray">[<a id="2554994" href="#2554994">10:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> nicoleci: alternatively for the functions.php iirc you should be able to edit it from the blog's dashboard too, there's and Edit option in there too. </td>
+<td><font color="gray">[<a id="2554995" href="#2554995">10:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> but you still need the shell for the .htaccess changes, yes. </td>
+<td><font color="gray">[<a id="2554996" href="#2554996">10:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; diana_coman</b></td>
+<td class="breakup"> will bbl </td>
+<td><font color="gray">[<a id="2554997" href="#2554997">10:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ahaha check out the bug : </td>
+<td><font color="gray">[<a id="2554998" href="#2554998">11:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> if you're !!up'd and then self-voice... deedbot will devoice you ? </td>
+<td><font color="gray">[<a id="2554999" href="#2554999">11:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> mircea_popescu: iirc this has been noted before/it's been around for quite a while, yes (though I thought it was fixed at some point) but I don't think she self-voiced at all. </td>
+<td><font color="gray">[<a id="2555000" href="#2555000">11:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well there's a &ast; deedbot gives voice to nicoleci you prolly msiread as "removes voice" ? </td>
+<td><font color="gray">[<a id="2555001" href="#2555001">12:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> mircea_popescu: ah, you are right yes, I misread it as -v </td>
+<td><font color="gray">[<a id="2555002" href="#2555002">12:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> pfff, didn't mean to trigger the bug on her, lol sorry, nicoleci </td>
+<td><font color="gray">[<a id="2555003" href="#2555003">12:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> :p </td>
+<td><font color="gray">[<a id="2555004" href="#2555004">12:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> <a href="http://logs.ericbenevides.com/log/trilema/2019-09-09#1935114" target=\'_blank\'>http://logs.ericbenevides.com/log/trilema/2019-09-09#1935114</a> &lt;&lt; the "bene" is exactly how you'd think. The "vides" is actually "veedees". I usually tell people it 'rhymes with "diabetes"' </td>
+<td><font color="gray">[<a id="2555005" href="#2555005">14:02</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">ericbot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 07:14:41 diana_coman: lobbes: kept meaning to ask - how do you pronounce your surname? </font></td>
+<td><font color="gray">[<a id="2555006" href="#2555006">14:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> It is Portuguese, though (as Mocky can attest) if you look at me all you'll see is anglo </td>
+<td><font color="gray">[<a id="2555007" href="#2555007">14:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> <a href="http://logs.ericbenevides.com/log/trilema/2019-09-09#1935134" target=\'_blank\'>http://logs.ericbenevides.com/log/trilema/2019-09-09#1935134</a> &lt;&lt; I'll take a gander into that weird. Ty for the heads up </td>
+<td><font color="gray">[<a id="2555008" href="#2555008">14:02</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">ericbot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 08:41:36 diana_coman: <a href="http://logs.ossasepia.com/log/trilema/2019-09-09#1935128" target=\'_blank\'>http://logs.ossasepia.com/log/trilema/2019-09-09#1935128</a> - yes and probably reader-side ie not bot itself. </font></td>
+<td><font color="gray">[<a id="2555009" href="#2555009">14:02</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">ossabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 05:11:01 mircea_popescu: <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935112" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935112</a> &lt;&lt; looks like stray regexp </font></td>
+<td><font color="gray">[<a id="2555010" href="#2555010">14:02</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 03:56:22 ericbot: Logged on 2019-09-07 09:01:18 mircea_popescuthinks: asciilifeform should also get something though it's unclear how exactly to figure this out. but -- lacking a better idea, i guess he can have 10% of the winning bid in royalties and we see. </font></td>
+<td><font color="gray">[<a id="2555011" href="#2555011">14:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> I'm off to mines, bbl </td>
+<td><font color="gray">[<a id="2555012" href="#2555012">14:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> <a href="http://logs.ossasepia.com/log/trilema/2019-09-09#1935170" target=\'_blank\'>http://logs.ossasepia.com/log/trilema/2019-09-09#1935170</a> - heh, so my reading of it was actually right (latin-based since I couldn't think of any valid English-based reading of it). </td>
+<td><font color="gray">[<a id="2555013" href="#2555013">14:20</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">ossabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 11:01:15 lobbes: <a href="http://logs.ericbenevides.com/log/trilema/2019-09-09#1935114" target=\'_blank\'>http://logs.ericbenevides.com/log/trilema/2019-09-09#1935114</a> &lt;&lt; the "bene" is exactly how you'd think. The "vides" is actually "veedees". I usually tell people it 'rhymes with "diabetes"' </font></td>
+<td><font color="gray">[<a id="2555014" href="#2555014">14:20</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">ericbot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 07:14:41 diana_coman: lobbes: kept meaning to ask - how do you pronounce your surname? </font></td>
+<td><font color="gray">[<a id="2555015" href="#2555015">14:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935112" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935112</a> &lt;&lt; lobbes what didja do to reader.py ? </td>
+<td><font color="gray">[<a id="2555016" href="#2555016">14:45</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 03:56:22 ericbot: Logged on 2019-09-07 09:01:18 mircea_popescuthinks: asciilifeform should also get something though it's unclear how exactly to figure this out. but -- lacking a better idea, i guess he can have 10% of the winning bid in royalties and we see. </font></td>
+<td><font color="gray">[<a id="2555017" href="#2555017">14:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( the 1 in lobbes's latest vpatch is proper ) </td>
+<td><font color="gray">[<a id="2555018" href="#2555018">14:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935115" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935115</a> &lt;&lt; is why needs &gt;&gt; <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-08#1935094" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-08#1935094</a> </td>
+<td><font color="gray">[<a id="2555019" href="#2555019">14:46</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 04:09:21 mircea_popescu: <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-08#1935086" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-08#1935086</a> &lt;&lt; because the descriptors are maintained by the kernel not the userspace. </font></td>
+<td><font color="gray">[<a id="2555020" href="#2555020">14:46</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-08 22:10:50 asciilifeform: oh lobbes , prolly oughta have set SO_REUSEADDR also. loox like i did not </font></td>
+<td><font color="gray">[<a id="2555021" href="#2555021">14:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935119" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935119</a> &lt;&lt; this is a deeper africanism than mircea_popescu suspects , and sadly not even limited to pythonisms. it comes from when hands grow out of arses, and folx write libs where the namespaces cannot be mixed, so yer stuck lib_a.foo lib_b.foo , cuz can't import a + b . seen it in adaisms , cl, elsewhere. </td>
+<td><font color="gray">[<a id="2555022" href="#2555022">14:47</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 04:19:39 mircea_popescu: though i grant, sock = socket.socket(socket. is such promising lingo as to utterly recommend python for african studies. </font></td>
+<td><font color="gray">[<a id="2555023" href="#2555023">14:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935124" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935124</a> &lt;&lt; dunno re the other folx , but mine is set to 'lotto' atm, it uses fleanode's rotator. which is arguably unseemly, but i dun have a 'list of working fleanodes' atm. would like to obtain one. hence 'let's log ip' </td>
+<td><font color="gray">[<a id="2555024" href="#2555024">14:48</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 04:30:09 mircea_popescu: <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-08#1935096" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-08#1935096</a> &lt;&lt; yes. esp if were going to immediately turn around ask everyone to run one, this "my one and only tru sole solitary i mate for life" approach is unfit. </font></td>
+<td><font color="gray">[<a id="2555025" href="#2555025">14:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935131" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935131</a> &lt;&lt; for what in '17 ? for writing a working logger ? next, wat, will kick out trinque , so can have 'flurry of exciting, new development' of deedbot ?! </td>
+<td><font color="gray">[<a id="2555026" href="#2555026">14:50</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 05:21:49 mircea_popescu: imagine, all this flurry of exciting new development could have been occuring in 2017, if i had the sense to kick phf out on his rear in 2017, rather than let him sit his dumb ass on us for two years. </font></td>
+<td><font color="gray">[<a id="2555027" href="#2555027">14:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935132" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935132</a> &lt;&lt; this logic is appealing on surface, but recall that stalin ended up retrieving half-dead korolev, tupolev, et al, from gulag, when failed to find the imagined 'we dun have any irreplaceables here'(tm)(r) replacements . </td>
+<td><font color="gray">[<a id="2555028" href="#2555028">14:54</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 05:22:02 mircea_popescu: tolerance ~never~ fucking pays. </font></td>
+<td><font color="gray">[<a id="2555029" href="#2555029">14:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> sure. </td>
+<td><font color="gray">[<a id="2555030" href="#2555030">14:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935137" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935137</a> &lt;&lt; i gotta ask, what did the old astronomer do to mircea_popescu , to become this example ? </td>
+<td><font color="gray">[<a id="2555031" href="#2555031">14:55</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 05:25:00 mircea_popescu: all sorta chuck moores, "famous" and apparently ever so good and useful, just WAITING for you to give them a chance to strangle you. </font></td>
+<td><font color="gray">[<a id="2555032" href="#2555032">14:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> not in wot. </td>
+<td><font color="gray">[<a id="2555033" href="#2555033">14:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i'ma be quite surprised the day a 90yo d00d joins the wot </td>
+<td><font color="gray">[<a id="2555034" href="#2555034">14:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( or is this a 'vina batranilor' thing ? ) </td>
+<td><font color="gray">[<a id="2555035" href="#2555035">14:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> hey. this is why it sucks being old. </td>
+<td><font color="gray">[<a id="2555036" href="#2555036">14:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> what, you thought it's an idle thing ? it isn't. being old means shit'll happen, you'll fail to follow and end up the example. </td>
+<td><font color="gray">[<a id="2555037" href="#2555037">14:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> sorta what means 'old' neh </td>
+<td><font color="gray">[<a id="2555038" href="#2555038">14:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> quite, yes. </td>
+<td><font color="gray">[<a id="2555039" href="#2555039">14:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> what I can't quite get in all this is why is asciilifeform fighting mircea_popescu's leucocite-qualities so much and at every occasion? </td>
+<td><font color="gray">[<a id="2555040" href="#2555040">14:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: if nuffing counterposes leukocyte -- get leucosys. </td>
+<td><font color="gray">[<a id="2555041" href="#2555041">14:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> right ? nobody welcomes cancer </td>
+<td><font color="gray">[<a id="2555042" href="#2555042">14:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: 'ratchet must ratchet, so spring -- must spring'(tm)(r)(mp) </td>
+<td><font color="gray">[<a id="2555043" href="#2555043">14:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> asciilifeform: does it seem to you there's danger of "nothing counterposes leukocyte"? because uhm, I can't quite see it. </td>
+<td><font color="gray">[<a id="2555044" href="#2555044">14:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="https://www.youtube.com/watch?v=2wDESvyj1qo" target=\'_blank\'>vintage illustration</a> . </td>
+<td><font color="gray">[<a id="2555045" href="#2555045">14:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; mircea_popescu</b></td>
+<td class="breakup"> deeply regrets having spent the earlier 2010s in a "oh, stallman, famous" </td>
+<td><font color="gray">[<a id="2555046" href="#2555046">15:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> just another dickpuppet, forget about it. </td>
+<td><font color="gray">[<a id="2555047" href="#2555047">15:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> problem aren't all the tupolevs in gulag </td>
+<td><font color="gray">[<a id="2555048" href="#2555048">15:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> sometimes 'famous' like titanic. </td>
+<td><font color="gray">[<a id="2555049" href="#2555049">15:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> problem are all the escaped puppets running about. </td>
+<td><font color="gray">[<a id="2555050" href="#2555050">15:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform, titanic ACTUALLY sunk. didn't "write home tall tale of sunk" </td>
+<td><font color="gray">[<a id="2555051" href="#2555051">15:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> not even munchausen. he ACTUALLY lied. </td>
+<td><font color="gray">[<a id="2555052" href="#2555052">15:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> stallmanism sank similarly </td>
+<td><font color="gray">[<a id="2555053" href="#2555053">15:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> he didn't lie about one day maybe lieing </td>
+<td><font color="gray">[<a id="2555054" href="#2555054">15:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( long before lied ) </td>
+<td><font color="gray">[<a id="2555055" href="#2555055">15:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> fwiw i'm not even convinced that the 'human mushroom' lied in the customary sense -- but instead, fungus, i.e. passed off what his bob becks gave him, as fact. </td>
+<td><font color="gray">[<a id="2555056" href="#2555056">15:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> utter anal child argumentation, this, "oh, ispent years doing nothing because ANY MINUTE now" </td>
+<td><font color="gray">[<a id="2555057" href="#2555057">15:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> can stretch that "any minuite" cheese into two fucking years, and whenever you put a limti o nit, "oh, you fucked them up, they were just about to" </td>
+<td><font color="gray">[<a id="2555058" href="#2555058">15:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i hope to god they were just about to take a large bite out of a steel girder at high speed. </td>
+<td><font color="gray">[<a id="2555059" href="#2555059">15:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> needless to say, i am deeply unimpressed with "promising", "famous" and the whole rest of the fucking cohort of fiatardation. </td>
+<td><font color="gray">[<a id="2555060" href="#2555060">15:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> so -- yeah, hang all the promising adult-children by their guts wrapped around their ballsac, and see what you can do with the rest. </td>
+<td><font color="gray">[<a id="2555061" href="#2555061">15:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> stalin reference's not even wrong, afaik this was the historica conclusion of lenin-trotsky. </td>
+<td><font color="gray">[<a id="2555062" href="#2555062">15:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> this algo does require a &gt; 0 'the rest' tho. </td>
+<td><font color="gray">[<a id="2555063" href="#2555063">15:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> requires nothing. </td>
+<td><font color="gray">[<a id="2555064" href="#2555064">15:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> it'll solve all the world's problems regardless : either through zeroing, or else through solving. </td>
+<td><font color="gray">[<a id="2555065" href="#2555065">15:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> paging minister poincare </td>
+<td><font color="gray">[<a id="2555066" href="#2555066">15:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> as i tell the slavegirls "when they most need my support", "do or fucking die and i don't particularly care which the fuck it is." </td>
+<td><font color="gray">[<a id="2555067" href="#2555067">15:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> sometimes ends with 'das war ein befehl!!!1'(tm) </td>
+<td><font color="gray">[<a id="2555068" href="#2555068">15:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> eh, i had all the pies i wanted anyways. </td>
+<td><font color="gray">[<a id="2555069" href="#2555069">15:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> would like another pie or 2 </td>
+<td><font color="gray">[<a id="2555070" href="#2555070">15:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> hop to! </td>
+<td><font color="gray">[<a id="2555071" href="#2555071">15:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> relatedly, brb, tea/pie time </td>
+<td><font color="gray">[<a id="2555072" href="#2555072">15:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> get 'em while they're hot </td>
+<td><font color="gray">[<a id="2555073" href="#2555073">15:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> meanwhile, in 'wildmen attempt to tmsr' strange : '<a href="https://archive.is/Rd7eJ#selection-2979.0-2979.270" target=\'_blank\'>Tauthon</a> is a backwards-compatible fork of the Python 2.7.16 interpreter with new syntax, builtins, and libraries backported from Python 3.x. Python code and C-extensions targeting Python 2.7 or below are expected to run unmodified on Tauthon and produce the same output.' </td>
+<td><font color="gray">[<a id="2555074" href="#2555074">16:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> heh </td>
+<td><font color="gray">[<a id="2555075" href="#2555075">16:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( for what are needed these 'new syntax, ...' -- aside from 'embrace &amp; extinguish'(tm) -- remains a mystery to asciilifeform ) </td>
+<td><font color="gray">[<a id="2555076" href="#2555076">16:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'dun use python3, use our trotsky.python3!111' </td>
+<td><font color="gray">[<a id="2555077" href="#2555077">16:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> nfi. maybe ask them </td>
+<td><font color="gray">[<a id="2555078" href="#2555078">16:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> asciilifeform: they have a <a href="https://archive.is/51fmj" target=\'_blank\'>Why Python 2.8</a> post if you care. </td>
+<td><font color="gray">[<a id="2555079" href="#2555079">16:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: was just aboutta link. </td>
+<td><font color="gray">[<a id="2555080" href="#2555080">16:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: just nao read it, and lost what little appetite had </td>
+<td><font color="gray">[<a id="2555081" href="#2555081">16:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> eh, that's pretty much the ~only sort of pies actually available :p </td>
+<td><font color="gray">[<a id="2555082" href="#2555082">16:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> cowpie! </td>
+<td><font color="gray">[<a id="2555083" href="#2555083">16:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> most pies on planet3 -- in fact out of cow. </td>
+<td><font color="gray">[<a id="2555084" href="#2555084">16:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> !Qlater tell nicoleci let me know what troubles you are having with your attempts to enter the shell. Also make sure you specify the right port. </td>
+<td><font color="gray">[<a id="2555085" href="#2555085">17:24</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">lobbesbot:</font></td>
+<td class="breakup"><font color="gray"> BingoBoingo: The operation succeeded. </font></td>
+<td><font color="gray">[<a id="2555086" href="#2555086">17:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Here they make these nice little hand pies from the cow. Gotta reserve the pies baked in cow to feed the fields. </td>
+<td><font color="gray">[<a id="2555087" href="#2555087">17:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-07#1934465" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-07#1934465</a> - from the point of view of achieving perfection - it definitely should be included. From the practical point of view -- noone would notice. </td>
+<td><font color="gray">[<a id="2555088" href="#2555088">18:34</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-07 01:42:14 mircea_popescu: <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-06#1934219" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-06#1934219</a> &lt;&lt; ok, but that's still no reason not to include it, you know ? </font></td>
+<td><font color="gray">[<a id="2555089" href="#2555089">18:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> asciilifeform: the links to diana's sigs in your logotron post are wrong: <a href="http://paste.deedbot.org/?id=aYq7" target=\'_blank\'>http://paste.deedbot.org/?id=aYq7</a> </td>
+<td><font color="gray">[<a id="2555090" href="#2555090">18:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ty bvt , will fix </td>
+<td><font color="gray">[<a id="2555091" href="#2555091">18:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> tru </td>
+<td><font color="gray">[<a id="2555092" href="#2555092">18:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> meanwhile <a href="http://logs.nosuchlabs.com/log/ossasepia/2019-09-09#1001751" target=\'_blank\'> asciilifeform attempts to teach a short vtronics lecture in diana_coman's school while diana_coman slept </a> . </td>
+<td><font color="gray">[<a id="2555093" href="#2555093">18:38</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 13:53:35 asciilifeform: shrysr: i wrote it, and am willing to answer whatever q re how it worx </font></td>
+<td><font color="gray">[<a id="2555094" href="#2555094">18:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( whether succeeded -- do not know yet. ) </td>
+<td><font color="gray">[<a id="2555095" href="#2555095">18:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> bvt: fixed!! and ty for the eagle eye. </td>
+<td><font color="gray">[<a id="2555096" href="#2555096">18:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> ty i wanted to download them via wget on remote machine, discovered bunch of .sig.1 files </td>
+<td><font color="gray">[<a id="2555097" href="#2555097">19:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> <a href="http://logs.ossasepia.com/log/trilema/2019-09-09#1935258" target=\'_blank\'>http://logs.ossasepia.com/log/trilema/2019-09-09#1935258</a> - thank you! not at all a bad thing to have happening while I'm away, lol. </td>
+<td><font color="gray">[<a id="2555098" href="#2555098">19:10</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">ossabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 15:37:48 asciilifeform: meanwhile <a href="http://logs.nosuchlabs.com/log/ossasepia/2019-09-09#1001751" target=\'_blank\'> asciilifeform attempts to teach a short vtronics lecture in diana_coman's school while diana_coman slept </a> . </font></td>
+<td><font color="gray">[<a id="2555099" href="#2555099">19:10</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 13:53:35 asciilifeform: shrysr: i wrote it, and am willing to answer whatever q re how it worx </font></td>
+<td><font color="gray">[<a id="2555100" href="#2555100">19:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: i generally dun like to 'bring own vows to other's monastery' but wanted to try giving the fella sumthing to chew on. <a href="http://logs.nosuchlabs.com/log/ossasepia/2019-09-09#1001802" target=\'_blank\'>possibly is good idea</a> . </td>
+<td><font color="gray">[<a id="2555101" href="#2555101">19:11</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 15:15:46 shrysr: have to bbl &gt;&gt;&gt; this is getting more interesting by min though. </font></td>
+<td><font color="gray">[<a id="2555102" href="#2555102">19:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> eh, he needs to start chewing, not like there isn't &ast;what&ast; but yes, I see what you mean. </td>
+<td><font color="gray">[<a id="2555103" href="#2555103">19:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: i actually dun know when/how precisely the fella tuned in. but will hazard a guess that it was because he had spark of 'hmm, these folx have working gears'. so i suspect best result with him might be to pour some kerosene on that fire. 'motivation from interest' is 9000x bigger fire than 'motivation from needs-to'. </td>
+<td><font color="gray">[<a id="2555104" href="#2555104">19:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> eh </td>
+<td><font color="gray">[<a id="2555105" href="#2555105">19:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: admittedly asciilifeform is not any kind of star pedagogue. but from own schooling, i found much moar memorable the lessons where 'and this is btw is also the tamper equation in hbomb!' than 'you Need To ... for exam!' </td>
+<td><font color="gray">[<a id="2555106" href="#2555106">19:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> asciilifeform: for one thing it depends &ast;whose&ast; exam for the other, the focus wasn't on "exam", no (doubt anyone would even "tune in" for... exam,lol) but anyway: another dose doesn't hurt, no. </td>
+<td><font color="gray">[<a id="2555107" href="#2555107">19:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> asciilifeform: re SO_REUSEADDR - i don't see how it is applicable: as i understand errno 106=EISCONN the kernel believes that the socket is still connected (perhaps socket.timeout case in send()?) so if you proceed to connect without closing it, you'd get double connect on the same socket and SO_REUSEADDR does not protect against this: <a href="http://paste.deedbot.org/?id=Zd3l" target=\'_blank\'>http://paste.deedbot.org/?id=Zd3l</a> </td>
+<td><font color="gray">[<a id="2555108" href="#2555108">20:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> bvt: i still do not know whether socket 'was not closed, but wedged' somehow (in which case proggy oughta be made such as to find out, and close asap) or in fact closed but on acct of the idjit zombie-by-default thing, not reusable </td>
+<td><font color="gray">[<a id="2555109" href="#2555109">20:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> bvt: how didja generate the item seen in the paste ? </td>
+<td><font color="gray">[<a id="2555110" href="#2555110">20:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> as i currently understand, if one were to 1) SO_REUSEADDR + 2) force it closed before attempting any connect -- oughta cure </td>
+<td><font color="gray">[<a id="2555111" href="#2555111">20:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> also wtf, 'double connect on same socket', why the everliving fuck is this even a thing. </td>
+<td><font color="gray">[<a id="2555112" href="#2555112">20:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> what was the 'logic' inside the 'heads' that thought this to be permissible ? </td>
+<td><font color="gray">[<a id="2555113" href="#2555113">20:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> it's in php. </td>
+<td><font color="gray">[<a id="2555114" href="#2555114">20:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: if the tcp stack per se is retarded in this way, i expect it is also in cobol , fortran, etc, how not. </td>
+<td><font color="gray">[<a id="2555115" href="#2555115">20:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> asciilifeform: i think closing would necessary (not done right now, as i can see) re proggy - nothing complicated <a href="http://paste.deedbot.org/?id=4XUj" target=\'_blank\'>http://paste.deedbot.org/?id=4XUj</a> (merged two for convenience, so fd num will be different) </td>
+<td><font color="gray">[<a id="2555116" href="#2555116">20:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> aa. </td>
+<td><font color="gray">[<a id="2555117" href="#2555117">20:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i still dun grasp why os's tcp stack doesn't liquidate a socket known to be stone dead. but this i suppose is a q for the original perpetrators , when they're connected to 220v </td>
+<td><font color="gray">[<a id="2555118" href="#2555118">20:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> prolly because they don't know how to do that without creating a race condition with the time-outs involved in knowing it's stone dead. </td>
+<td><font color="gray">[<a id="2555119" href="#2555119">21:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> possib </td>
+<td><font color="gray">[<a id="2555120" href="#2555120">21:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> <a href="http://blog.lobbesblog.com/2019/09/the-mp-wp-bot-job-offer/#comment-92" target=\'_blank\'>ty for answering my Q's and I've responded</a> </td>
+<td><font color="gray">[<a id="2555121" href="#2555121">23:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> err, meant to prepend above line with a " mircea_popescu: " </td>
+<td><font color="gray">[<a id="2555122" href="#2555122">23:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935178" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935178</a> &lt;&lt; you are among the very few who pronounce it correctly then! Most assume it is Spanish and pronounce the end bit like the end of "Rodriguez" (actually, it was a good way to screen for telemarketers back when I answered unknown phone numbers) </td>
+<td><font color="gray">[<a id="2555123" href="#2555123">23:30</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 11:03:33 diana_coman: <a href="http://logs.ossasepia.com/log/trilema/2019-09-09#1935170" target=\'_blank\'>http://logs.ossasepia.com/log/trilema/2019-09-09#1935170</a> - heh, so my reading of it was actually right (latin-based since I couldn't think of any valid English-based reading of it). </font></td>
+<td><font color="gray">[<a id="2555124" href="#2555124">23:30</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">ossabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 11:01:15 lobbes: <a href="http://logs.ericbenevides.com/log/trilema/2019-09-09#1935114" target=\'_blank\'>http://logs.ericbenevides.com/log/trilema/2019-09-09#1935114</a> &lt;&lt; the "bene" is exactly how you'd think. The "vides" is actually "veedees". I usually tell people it 'rhymes with "diabetes"' </font></td>
+<td><font color="gray">[<a id="2555125" href="#2555125">23:30</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">ericbot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 07:14:41 diana_coman: lobbes: kept meaning to ask - how do you pronounce your surname? </font></td>
+<td><font color="gray">[<a id="2555126" href="#2555126">23:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935183" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935183</a> &lt;&lt; this gives me some piece of mind, at least. Gonna do some digging tonight after f00d intake. Odd mystery </td>
+<td><font color="gray">[<a id="2555127" href="#2555127">23:30</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 11:29:03 asciilifeform: ( the 1 in lobbes's latest vpatch is proper ) </font></td>
+<td><font color="gray">[<a id="2555128" href="#2555128">23:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935281" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935281</a> &lt;&lt; bvt, would you be able to produce the vpatch? I would, but a) my knowledge of tcp stack / kernels / etc. is pretty much nil and b) I'm gearing up to focus 100% on mircea_popescu's latest mp-wp bot ask if I end up winning this auction. </td>
+<td><font color="gray">[<a id="2555129" href="#2555129">23:31</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 17:05:07 bvt: asciilifeform: i think closing would necessary (not done right now, as i can see) re proggy - nothing complicated <a href="http://paste.deedbot.org/?id=4XUj" target=\'_blank\'>http://paste.deedbot.org/?id=4XUj</a> (merged two for convenience, so fd num will be different) </font></td>
+<td><font color="gray">[<a id="2555130" href="#2555130">23:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935283" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-09-09#1935283</a> &lt;&lt; lmao. Another great addition to the <a href="http://logs.nosuchlabs.com/log/trilema/2019-09-06#1934398" target=\'_blank\'>queue</a> imo </td>
+<td><font color="gray">[<a id="2555131" href="#2555131">23:31</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-09 17:22:25 asciilifeform: i still dun grasp why os's tcp stack doesn't liquidate a socket known to be stone dead. but this i suppose is a q for the original perpetrators , when they're connected to 220v </font></td>
+<td><font color="gray">[<a id="2555132" href="#2555132">23:31</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-09-06 22:43:49 trinque: heh, this place needs a cartoonist so bad </font></td>
+<td><font color="gray">[<a id="2555133" href="#2555133">23:31</a>]</font></td>
+</tr>
+</table>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2020/forum-logs-for-08-sep-2019/">Forum logs for 08 Sep 2019</a></div>
+                <div class="alignright"><a href="/2020/forum-logs-for-10-sep-2019/">Forum logs for 10 Sep 2019</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/logs/" title="View all posts in Logs" rel="category tag">Logs</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2020/forum-logs-for-09-sep-2019/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2020/forum-logs-for-09-sep-2019/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+
+
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authore8e1dd8" id="authore8e1dd8" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emaile8e1dd8" id="emaile8e1dd8" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urle8e1dd8" id="urle8e1dd8" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="93055" /></p>
+				<input type="hidden" name="comment_post_time" value="1735308566-152.53.39.118" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2024 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-93055")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-93055");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-93055");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

@@ -1,0 +1,1863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_dec2016.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Forum logs for 01 Aug 2018 on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">The world’s greatest erotica writer.<br /><a href=/2019/i-own-erotica-like-zeus-owns-olympus/>By far</a>.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-92656"><div class="post" id="post-92656">                    <h1><a href="/2020/forum-logs-for-01-aug-2018/" rel="bookmark" title="Permanent Link to Forum logs for 01 Aug 2018">Forum logs for 01 Aug 2018</a></h1>                        <div class="date">                                     Monday, 16 March, Year 12 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/" title="Posts by "></a>                                                        </div>
+
+                        <div class="entry">
+<table style="font-size:1em;width:"580px;">
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> BingoBoingo, thanks! confirmed back on + 1 fg available unfortunately the simple test from smg_rsa (./tests 11 11 ) still hangs </td>
+<td><font color="gray">[<a id="2462884" href="#2462884">04:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> I start suspecting it's maybe something to do with short+frequent reads as weirdly enough tests that read 4096 bytes seem... fine </td>
+<td><font color="gray">[<a id="2462885" href="#2462885">04:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> well, uhm, scratch that, I just got one of those stuck too, lol it took longer to get stuck, nothing else </td>
+<td><font color="gray">[<a id="2462886" href="#2462886">04:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: i've built eucrypt and replicated your hang </td>
+<td><font color="gray">[<a id="2462887" href="#2462887">09:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> asciilifeform, any clue as to cause? </td>
+<td><font color="gray">[<a id="2462888" href="#2462888">09:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> on what machine is this? </td>
+<td><font color="gray">[<a id="2462889" href="#2462889">09:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> dulap </td>
+<td><font color="gray">[<a id="2462890" href="#2462890">09:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> not discovered culprit yet, literally 5min ago finished pressing &amp; building ( used ave1's gcc , for completeness ) </td>
+<td><font color="gray">[<a id="2462891" href="#2462891">09:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> aha good to know at least it's not &ast;just&ast; that machine might be worth to try replicating the dd hang as well , although by now I expect it will happen </td>
+<td><font color="gray">[<a id="2462892" href="#2462892">09:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: what was the exact process for dd hang ? </td>
+<td><font color="gray">[<a id="2462893" href="#2462893">09:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( fwiw i've dd's from dulap's FGs previously, with 0 signs of any problem ) </td>
+<td><font color="gray">[<a id="2462894" href="#2462894">09:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> this box is running traditional gentoo, however, it more closely resembles primary s.mg machine than the test box </td>
+<td><font color="gray">[<a id="2462895" href="#2462895">09:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> machine with 2 fgs reboot without init of any fgs stty on only one fg dd on that fg </td>
+<td><font color="gray">[<a id="2462896" href="#2462896">09:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> the first time it usually hangs </td>
+<td><font color="gray">[<a id="2462897" href="#2462897">09:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> dd seems to be more resilient but I suspect it's mainly because it's not that sort of little&amp;frequent </td>
+<td><font color="gray">[<a id="2462898" href="#2462898">09:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> i.e. if you run the eucrypt tests 0 or 1 that read more they tend to take longer to get to the hang (although they still do eventually) </td>
+<td><font color="gray">[<a id="2462899" href="#2462899">09:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> fwiw same tests of eucrypt ran perfectly fine on all machines I have around here with fgs </td>
+<td><font color="gray">[<a id="2462900" href="#2462900">09:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> hm, over here dd ( with only 1 FG init'd ) is working correctly </td>
+<td><font color="gray">[<a id="2462901" href="#2462901">09:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> eucrypt's test reliably hangs, however, ~every other run </td>
+<td><font color="gray">[<a id="2462902" href="#2462902">09:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 1048576 bytes (1.0 MB, 1.0 MiB) copied, 151.838 s, 6.9 kB/s &lt;&lt; </td>
+<td><font color="gray">[<a id="2462903" href="#2462903">09:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ^ dd </td>
+<td><font color="gray">[<a id="2462904" href="#2462904">09:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> a bit slow though? </td>
+<td><font color="gray">[<a id="2462905" href="#2462905">09:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> not really, the nominal production is 7 </td>
+<td><font color="gray">[<a id="2462906" href="#2462906">09:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> anyways, if you find something the matter specifically with eucrypt code, I'd be quite happy really since it's easiest to fix tbh </td>
+<td><font color="gray">[<a id="2462907" href="#2462907">09:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( evidently the dc has pretty good cooling ) </td>
+<td><font color="gray">[<a id="2462908" href="#2462908">09:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> hm, I usually get that above 7, closer to 8 </td>
+<td><font color="gray">[<a id="2462909" href="#2462909">09:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> it's not a constant rate, 7 is the empirical avg., and depends on environmental temp </td>
+<td><font color="gray">[<a id="2462910" href="#2462910">09:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> anyways, dd hangs &ast;sometimes&ast;, harder to pin down ftr I DID go and read the dd code too but I can't say I'm any wiser as to why/how it is more resilient </td>
+<td><font color="gray">[<a id="2462911" href="#2462911">09:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> well the 1 obvious diff, is that it defaults to 512byte blocks </td>
+<td><font color="gray">[<a id="2462912" href="#2462912">09:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> and reads from buffered tty </td>
+<td><font color="gray">[<a id="2462913" href="#2462913">09:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> hence my diana_coman&gt; dd seems to be more resilient but I suspect it's mainly because it's not that sort of little&amp;frequent </td>
+<td><font color="gray">[<a id="2462914" href="#2462914">09:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> aha </td>
+<td><font color="gray">[<a id="2462915" href="#2462915">09:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> but a. WHY don't I have same trouble on any of the machines here b. WHY does it hang anyway c. wtf do I do </td>
+<td><font color="gray">[<a id="2462916" href="#2462916">09:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: ok, finally managed to get a stuck dd </td>
+<td><font color="gray">[<a id="2462917" href="#2462917">09:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> a-ha </td>
+<td><font color="gray">[<a id="2462918" href="#2462918">09:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i suspect an oddity with the linux tty subsystem. the Right Thing solution would be to find it. the alternative, ugly solution, is 1) 512 byte buffered reads 2) with timeout . </td>
+<td><font color="gray">[<a id="2462919" href="#2462919">09:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> so far can't think of a third. </td>
+<td><font color="gray">[<a id="2462920" href="#2462920">09:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> fwiw dd never stuck midway, only on opening tty. </td>
+<td><font color="gray">[<a id="2462921" href="#2462921">09:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 0 bytes copied, 99.8535 s, 0.0 kB/s </td>
+<td><font color="gray">[<a id="2462922" href="#2462922">10:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ^ 1 run </td>
+<td><font color="gray">[<a id="2462923" href="#2462923">10:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 1048576 bytes (1.0 MB, 1.0 MiB) copied, 150.483 s, 7.0 kB/s </td>
+<td><font color="gray">[<a id="2462924" href="#2462924">10:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ^ subsequent </td>
+<td><font color="gray">[<a id="2462925" href="#2462925">10:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( the former, ctrl-c'd ) </td>
+<td><font color="gray">[<a id="2462926" href="#2462926">10:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> note that FG outputs not only random bytes, but at random ~rate~ . currently i wonder if we've unearthed an 'impedence mismatch' in linux tty. </td>
+<td><font color="gray">[<a id="2462927" href="#2462927">10:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> no other device does the random ~rate~ thing. </td>
+<td><font color="gray">[<a id="2462928" href="#2462928">10:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> possibly asciilifeform is doomed to write the FG-reading daemon after all. </td>
+<td><font color="gray">[<a id="2462929" href="#2462929">10:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( observe, if tty ~does~ successfully open, can read 4evah, i had one dd going for 6 months without problem ) </td>
+<td><font color="gray">[<a id="2462930" href="#2462930">10:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> &lt;asciilifeform&gt; i suspect an oddity with the linux tty subsystem. the Right Thing solution would be to find it. the alternative, ugly solution, is 1) 512 byte buffered reads 2) with timeout . -&gt; this is pretty much my current understanding as well </td>
+<td><font color="gray">[<a id="2462931" href="#2462931">10:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> but I'm not comfortable with not knowing wtf in there because it has the potential to blow up very nastily indeed </td>
+<td><font color="gray">[<a id="2462932" href="#2462932">10:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> fwiw eucrypt always gets stuck on the actual "read(" </td>
+<td><font color="gray">[<a id="2462933" href="#2462933">10:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: i'ma have to do a detailed dig in re the linux tty thing. but this could take a while, and no guarantee of finding culprit in the 100s of MB of open sores liquishit. so you will need the buffer+timeout thing, i suspect. </td>
+<td><font color="gray">[<a id="2462934" href="#2462934">10:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( oughta log the timeouts ) </td>
+<td><font color="gray">[<a id="2462935" href="#2462935">10:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> I'm going to dig around a bit more too to see if I can find any more clues of sorts </td>
+<td><font color="gray">[<a id="2462936" href="#2462936">10:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> but yes, this is certainly not going to get solved in 1-2 days by the looks of it </td>
+<td><font color="gray">[<a id="2462937" href="#2462937">10:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> the ideal ugly-an'-reliable pill is prolly a demon that reads both FG 24/7 and alarms if rate is substantially below rated </td>
+<td><font color="gray">[<a id="2462938" href="#2462938">10:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> myeah, as battlefield solution that might be the direction to take </td>
+<td><font color="gray">[<a id="2462939" href="#2462939">10:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i ~would~ prefer a sanely-behaving OS. unfortunately i dun have one up my sleeve. </td>
+<td><font color="gray">[<a id="2462940" href="#2462940">10:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> brb,teatime </td>
+<td><font color="gray">[<a id="2462941" href="#2462941">10:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> enjoy! </td>
+<td><font color="gray">[<a id="2462942" href="#2462942">10:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> back </td>
+<td><font color="gray">[<a id="2462943" href="#2462943">11:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: lulzily, turns out that our horror show is not unknown, <a href="https://archive.fo/kRfZy" target=\'_blank\'>https://archive.fo/kRfZy</a> ( spoiler: none of the proposed pills, have any effect </td>
+<td><font color="gray">[<a id="2462944" href="#2462944">11:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ) </td>
+<td><font color="gray">[<a id="2462945" href="#2462945">11:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> oh joy </td>
+<td><font color="gray">[<a id="2462946" href="#2462946">11:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> whoa, haven't seen that trilema.com header before </td>
+<td><font color="gray">[<a id="2462947" href="#2462947">11:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>Mocky:</b></td>
+<td class="breakup"> super happy, lol </td>
+<td><font color="gray">[<a id="2462948" href="#2462948">11:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: i confirmed ( coupla dozen shots ) hang only ever takes place on 1st read() after open(). </td>
+<td><font color="gray">[<a id="2462949" href="#2462949">12:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: further pl2303 mod lulz, <a href="https://archive.is/CefaN" target=\'_blank\'>https://archive.is/CefaN</a> </td>
+<td><font color="gray">[<a id="2462950" href="#2462950">12:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> asciilifeform, ah,ah, the "modprobe -r " lulz, yes </td>
+<td><font color="gray">[<a id="2462951" href="#2462951">12:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'After much researching it seems this is NOT a driver bug but a CHANGE in the kernel Serial API semantics. What has happened is that the API now blocks when a Serial device is not indicating it is ready. This included 'open' on a serial device which now can block. Since lots of RS232 serial devices do not bother with any control signals such as DCD (data carrier detect) they never indicate they are ready and open blocks. This is the </td>
+<td><font color="gray">[<a id="2462952" href="#2462952">12:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'HANG' we are seeing' </td>
+<td><font color="gray">[<a id="2462953" href="#2462953">12:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ^ suggests shitgnomery </td>
+<td><font color="gray">[<a id="2462954" href="#2462954">12:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> the given 'solution' is absolutely prohibited for FG, tho, it ~must~ operate as blocking read </td>
+<td><font color="gray">[<a id="2462955" href="#2462955">12:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> ugh, uglier and uglier </td>
+<td><font color="gray">[<a id="2462956" href="#2462956">12:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> confirms my earlier suspicion tho. </td>
+<td><font color="gray">[<a id="2462957" href="#2462957">12:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 2 possible tacks -- 1) kill, with flamethrower, 'new api' 2) FG opened once per machine boot and left running into buffer </td>
+<td><font color="gray">[<a id="2462958" href="#2462958">12:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i'ma let mircea_popescu say, whether Right Thing is to start with (2) and proceed to (1), or straight to (1) . </td>
+<td><font color="gray">[<a id="2462959" href="#2462959">12:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> myeah, 1 promises to eat up a lot of time </td>
+<td><font color="gray">[<a id="2462960" href="#2462960">12:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-08-01#1838608" target=\'_blank\'>http://btcbase.org/log/2018-08-01#1838608</a> &lt;&lt; incidentally, maybe the correct move re the day's ninjashogun would be to redirect them to whatever castle one feels like ? trilema-mod6 or such. </td>
+<td><font color="gray">[<a id="2462961" href="#2462961">12:13</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-08-01 02:55 mod6: douchebag wants the mic </font></td>
+<td><font color="gray">[<a id="2462962" href="#2462962">12:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> speaking of which, i wonder how that fellow's business/revolutionary/technico-theoretical/etc idea is faring these days. </td>
+<td><font color="gray">[<a id="2462963" href="#2462963">12:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-08-01#1838691" target=\'_blank\'>http://btcbase.org/log/2018-08-01#1838691</a> &lt;&lt; da fuck buffered state machine, defeats the whole purpose of the thing. </td>
+<td><font color="gray">[<a id="2462964" href="#2462964">12:16</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-08-01 13:58 asciilifeform: i suspect an oddity with the linux tty subsystem. the Right Thing solution would be to find it. the alternative, ugly solution, is 1) 512 byte buffered reads 2) with timeout . </font></td>
+<td><font color="gray">[<a id="2462965" href="#2462965">12:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> mircea_popescu, read on for...deeper uncovered shit </td>
+<td><font color="gray">[<a id="2462966" href="#2462966">12:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> on it. </td>
+<td><font color="gray">[<a id="2462967" href="#2462967">12:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-08-01#1838720" target=\'_blank\'>http://btcbase.org/log/2018-08-01#1838720</a> &lt;&lt; ahahaha </td>
+<td><font color="gray">[<a id="2462968" href="#2462968">12:20</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-08-01 15:52 Mocky: super happy, lol </font></td>
+<td><font color="gray">[<a id="2462969" href="#2462969">12:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> btw, diana_coman , mircea_popescu , there's visible sys log barf from pl2303 when operating diana_coman's test : </td>
+<td><font color="gray">[<a id="2462970" href="#2462970">12:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> [8621835.122044] pl2303 ttyUSB0: pl2303_get_line_request - failed: -110 </td>
+<td><font color="gray">[<a id="2462971" href="#2462971">12:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> [8621835.122919] pl2303 ttyUSB0: pl2303_set_line_request - failed: -32 </td>
+<td><font color="gray">[<a id="2462972" href="#2462972">12:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> [8621835.463377] pl2303 ttyUSB0: usb_serial_generic_read_bulk_callback - urb stopped: -32 </td>
+<td><font color="gray">[<a id="2462973" href="#2462973">12:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: do you observe same on your box ? </td>
+<td><font color="gray">[<a id="2462974" href="#2462974">12:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> guy says '&lt;douchebag&gt; can I be upped? I have some productive things to say' in PM, and I think "hmm. alright" </td>
+<td><font color="gray">[<a id="2462975" href="#2462975">12:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> asciilifeform, I certainly say the last line, don't recall the first 2 but I might have missed them </td>
+<td><font color="gray">[<a id="2462976" href="#2462976">12:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> lemme see again </td>
+<td><font color="gray">[<a id="2462977" href="#2462977">12:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> it never fails. answering the door just doesn't work out too well for ole mod6 </td>
+<td><font color="gray">[<a id="2462978" href="#2462978">12:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> begone fuckwads </td>
+<td><font color="gray">[<a id="2462979" href="#2462979">12:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mod6: lol, 'productive things' </td>
+<td><font color="gray">[<a id="2462980" href="#2462980">12:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> "productive things to say " lol </td>
+<td><font color="gray">[<a id="2462981" href="#2462981">12:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> d00d could 'productive' any fucking time he feels like it. </td>
+<td><font color="gray">[<a id="2462982" href="#2462982">12:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> but not holding breath. </td>
+<td><font color="gray">[<a id="2462983" href="#2462983">12:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> i should have just ignored. typically I do. </td>
+<td><font color="gray">[<a id="2462984" href="#2462984">12:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> thought he might wanna talk about his rockchip, so was willing to give him the chance. </td>
+<td><font color="gray">[<a id="2462985" href="#2462985">12:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> WRONG </td>
+<td><font color="gray">[<a id="2462986" href="#2462986">12:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> shit on the rug in the foyer. </td>
+<td><font color="gray">[<a id="2462987" href="#2462987">12:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'most people are just going to go with a cheaper &amp; higher performance alternative' dontchaknow. </td>
+<td><font color="gray">[<a id="2462988" href="#2462988">12:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> mod6, I'd say don't worry about it as a rule though productive people do stuff, not as if they need to "say" productively things </td>
+<td><font color="gray">[<a id="2462989" href="#2462989">12:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> asciilifeform, I get as I recalled this "[63939.499700] pl2303 ttyUSB0: usb_serial_generic_read_bulk_callback - urb stopped: -32" but I don't see the others, hmm </td>
+<td><font color="gray">[<a id="2462990" href="#2462990">12:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> that one I got even 8 times in a row there </td>
+<td><font color="gray">[<a id="2462991" href="#2462991">12:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: the line_request one is sporadic ( erry dozen or so runs ) </td>
+<td><font color="gray">[<a id="2462992" href="#2462992">12:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> ah, that might explain why I haven't yet noticed it </td>
+<td><font color="gray">[<a id="2462993" href="#2462993">12:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> modprobe -r option &lt;&lt; does ditching the "option" bs do anything ? </td>
+<td><font color="gray">[<a id="2462994" href="#2462994">12:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> seems like a fine candidate for cuntoo banlist, if so. </td>
+<td><font color="gray">[<a id="2462995" href="#2462995">12:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: we dun have this item to begin with </td>
+<td><font color="gray">[<a id="2462996" href="#2462996">12:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( at least dulap kernel -- does not ) </td>
+<td><font color="gray">[<a id="2462997" href="#2462997">12:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> usure ? </td>
+<td><font color="gray">[<a id="2462998" href="#2462998">12:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> as in, "i checked, we don't have" or as in "we couldn't possibly have something this fucking stupid o oops there it is how the hell did it sneak in" </td>
+<td><font color="gray">[<a id="2462999" href="#2462999">12:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> dulap ~ # zcat /proc/config.gz | grep CONFIG_USB_SERIAL_OPTION </td>
+<td><font color="gray">[<a id="2463000" href="#2463000">12:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> # CONFIG_USB_SERIAL_OPTION is not set </td>
+<td><font color="gray">[<a id="2463001" href="#2463001">12:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> kk </td>
+<td><font color="gray">[<a id="2463002" href="#2463002">12:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> this is looking more and more like we're going to have to write a pl replacement does it </td>
+<td><font color="gray">[<a id="2463003" href="#2463003">12:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'usb_serial_generic_read_bulk_callback - urb stopped: -32' specifically, reported also for other usb2ttl chipsets, incl ftdi </td>
+<td><font color="gray">[<a id="2463004" href="#2463004">12:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> bug may very well be an interaction with upstream linux usb subsys </td>
+<td><font color="gray">[<a id="2463005" href="#2463005">12:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( <a href="https://archive.is/sYqkk" target=\'_blank\'>https://archive.is/sYqkk</a> for dedicated entomologist ) </td>
+<td><font color="gray">[<a id="2463006" href="#2463006">12:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> supposedly, forcing usb1 speed for whole jack, curative </td>
+<td><font color="gray">[<a id="2463007" href="#2463007">12:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( not tried yet ) </td>
+<td><font color="gray">[<a id="2463008" href="#2463008">12:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> dwc_otg.speed=1 on kernel param line. </td>
+<td><font color="gray">[<a id="2463009" href="#2463009">12:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> still tbh i'm kinda pleased with how this ratchet works. mystery meat in fg-machine interaction had to await s.mg to be found. item's been out what, years, undergone all sorta testing... </td>
+<td><font color="gray">[<a id="2463010" href="#2463010">12:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ok confirmed, forcing usb1 cures </td>
+<td><font color="gray">[<a id="2463011" href="#2463011">12:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://p.bvulpes.com/pastes/xAQ4U/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/xAQ4U/?raw=true</a> &lt;&lt; manual example , testable without rebooting kernel </td>
+<td><font color="gray">[<a id="2463012" href="#2463012">13:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> dozen runs of diana_coman's test all work </td>
+<td><font color="gray">[<a id="2463013" href="#2463013">13:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( forcing 12MB/s usb1 speed has no effect on FG performance, even 10 FG on 1 jack falls considerably below the max usb1 rate ) </td>
+<td><font color="gray">[<a id="2463014" href="#2463014">13:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman ^ </td>
+<td><font color="gray">[<a id="2463015" href="#2463015">13:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( the above is == to the 'Tip for Linux Users' item in <a href="http://nosuchlabs.com/hardware.html" target=\'_blank\'>http://nosuchlabs.com/hardware.html</a> , which i listed as workaround for 'more than 3 pl2303' infamous bugola ) </td>
+<td><font color="gray">[<a id="2463016" href="#2463016">13:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> not like we use usb for anything else anyway, so this may well work ad interim. </td>
+<td><font color="gray">[<a id="2463017" href="#2463017">13:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> fwiw asciilifeform's official FG tester rig runs always in this mode. </td>
+<td><font color="gray">[<a id="2463018" href="#2463018">13:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform is there some way to connect as a tty bypass the usb altogether ? i really dun wanna include usb if can be helped. </td>
+<td><font color="gray">[<a id="2463019" href="#2463019">13:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: there's no ttl serial on pc mobo </td>
+<td><font color="gray">[<a id="2463020" href="#2463020">13:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; mircea_popescu</b></td>
+<td class="breakup"> adds to wishlist for eventual fab. </td>
+<td><font color="gray">[<a id="2463021" href="#2463021">13:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: there is sometimes 1 or even 2 rs232 ports , but they go at -12v/+12v , and needs level shifter, which in turn oscillates, and potentially pollutes rng </td>
+<td><font color="gray">[<a id="2463022" href="#2463022">13:06</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="/2018/qntra-sqntr-july-2018-statement/" target=\'_blank\'>/2018/qntra-sqntr-july-2018-statement/</a> &lt;&lt; Trilema - Qntra (S.QNTR) July 2018 Statement </font></td>
+<td><font color="gray">[<a id="2463023" href="#2463023">13:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: fwiw rockchip and similar boards actually include several ttl-level serial ports. </td>
+<td><font color="gray">[<a id="2463024" href="#2463024">13:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> myeah </td>
+<td><font color="gray">[<a id="2463025" href="#2463025">13:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> pc is the hardcore tard reservation. </td>
+<td><font color="gray">[<a id="2463026" href="#2463026">13:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( i've yet to find ~one~ pc board, of any vintage, with ttl ports ) </td>
+<td><font color="gray">[<a id="2463027" href="#2463027">13:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> usb is a massive cistern of liquishit, with all kinds of corner-case breakages, see also <a href="http://btcbase.org/log/2014-02-21#520765" target=\'_blank\'>http://btcbase.org/log/2014-02-21#520765</a> . it Must Die. </td>
+<td><font color="gray">[<a id="2463028" href="#2463028">13:10</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2014-02-21 03:28 asciilifeform: usb is a highly-stateful protocol with a book-length standard </font></td>
+<td><font color="gray">[<a id="2463029" href="#2463029">13:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> !!sent-invoices </td>
+<td><font color="gray">[<a id="2463030" href="#2463030">13:19</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://p.bvulpes.com/pastes/YRYRx/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/YRYRx/?raw=true</a> </font></td>
+<td><font color="gray">[<a id="2463031" href="#2463031">13:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> usb is evil in 9000 ways. not only the ridiculous complexity, which makes it impractical to use with ~simple~ microcontrollers, msdos boxen, etc. but also the fact that it is impossible to make a ~transmit only~ (or , for that matter, receive-only) usb device, they are mandatorily stateful. which is the fundamental reason why asciilifeform refused to put a usb chip on FG proper. </td>
+<td><font color="gray">[<a id="2463032" href="#2463032">13:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> FG is transmit-only. there is literally nothing the attached pc can do ~to~ it, other than cycle the +5 supply ( and even this, strictly if the +5 supply is tied to the pc's ) </td>
+<td><font color="gray">[<a id="2463033" href="#2463033">13:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> thing eats 8ma, could easily run off, e.g., solar cell in a well-lit room. </td>
+<td><font color="gray">[<a id="2463034" href="#2463034">13:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: usb1 switchover also confirmed to cure log barfola. </td>
+<td><font color="gray">[<a id="2463035" href="#2463035">13:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman, mircea_popescu lemme know if the given cure, is curative. ( no change to diana_coman's coad is needed ) </td>
+<td><font color="gray">[<a id="2463036" href="#2463036">13:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> incidentally, there is also a potential iron cure, currently FG at pizarro are attached to miniature usb2 hubs. ( asciilifeform was not able to source pure usb1 hubs, but potentially these exist somewhere. ) </td>
+<td><font color="gray">[<a id="2463037" href="#2463037">13:51</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://qntra.net/2018/08/vandalia-outdoors-retailer-hit-by-multi-agency-usg-raid/" target=\'_blank\'>http://qntra.net/2018/08/vandalia-outdoors-retailer-hit-by-multi-agency-usg-raid/</a> &lt;&lt; Qntra - Vandalia Outdoors Retailer Hit By Multi Agency USG Raid </font></td>
+<td><font color="gray">[<a id="2463038" href="#2463038">14:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> oh hey, asciilifeform that cure seems to work </td>
+<td><font color="gray">[<a id="2463039" href="#2463039">14:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> so basically that's not for "if more than 2" but rather "always do it" </td>
+<td><font color="gray">[<a id="2463040" href="#2463040">14:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> for future ref: echo first barfed with "invalid argument" it turns out it was appending a newline so it had to be "echo -n portnumber &gt; ..." </td>
+<td><font color="gray">[<a id="2463041" href="#2463041">14:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: interestingly, in my (conventional gentoo) userland, worked as posted ( i.e. with the newline ) </td>
+<td><font color="gray">[<a id="2463042" href="#2463042">14:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> this was on the smg test machine </td>
+<td><font color="gray">[<a id="2463043" href="#2463043">15:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> aaha so cuntoo </td>
+<td><font color="gray">[<a id="2463044" href="#2463044">15:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: you'll probably want to make it happen on boot. </td>
+<td><font color="gray">[<a id="2463045" href="#2463045">15:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> makes sense how do I do that best on gentoo? still line in /boot/cmdline.txt ? </td>
+<td><font color="gray">[<a id="2463046" href="#2463046">15:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: afaik that's the only reliable way, usb bus numbering isn't iirc stable across boots </td>
+<td><font color="gray">[<a id="2463047" href="#2463047">15:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> k, test server is for testing will do </td>
+<td><font color="gray">[<a id="2463048" href="#2463048">15:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: from other fishwraps, re qntra, 'The grandson said they’re not selling guns, but reported that two men recently knocked on the door asking if they had gun parts or body armor. Hanabarger reportedly said “no” and showed them inside a storage container. But now they’re wondering if there’s a connection between those men and Tuesday’s raid.' </td>
+<td><font color="gray">[<a id="2463049" href="#2463049">15:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> asciilifeform: The other fishwrap refused to archived cleanly. Failed with a generic "content not available in your region" error page being archived instead. </td>
+<td><font color="gray">[<a id="2463050" href="#2463050">15:33</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://qntra.net/2018/08/reddit-hacked-user-data-taken/" target=\'_blank\'>http://qntra.net/2018/08/reddit-hacked-user-data-taken/</a> &lt;&lt; Qntra - Reddit Hacked, User Data Taken </font></td>
+<td><font color="gray">[<a id="2463051" href="#2463051">16:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> after reading around on this mess with the usb speeds, the summary + questions would be: 1. the dwc_otg seems actually specific to raspberry pi so I don't see how it's directly useful atm am I missing something? 2. the manual/runtime pill so far relies on the companion mechanism to force a USB port down from "high speed" to "full speed" so basically from ehci to uhci/ohci wouldn't it make more sense to blacklist ehci, xhci and whatever </td>
+<td><font color="gray">[<a id="2463052" href="#2463052">17:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> other "improved" xxxxhci and stick with uhci/ohci? </td>
+<td><font color="gray">[<a id="2463053" href="#2463053">17:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> asciilifeform, perhaps ^ </td>
+<td><font color="gray">[<a id="2463054" href="#2463054">17:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> trinque, esp re why ehci if you can shed some light ^ </td>
+<td><font color="gray">[<a id="2463055" href="#2463055">17:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: seems that you're right re the flag, it is specific to a nonstandard kernel </td>
+<td><font color="gray">[<a id="2463056" href="#2463056">17:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> building a kernel without xhci would almost certainly do the job tho </td>
+<td><font color="gray">[<a id="2463057" href="#2463057">17:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> I'm actively looking for any reason why xhci should be allowed in </td>
+<td><font color="gray">[<a id="2463058" href="#2463058">17:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: on server ? can't think of any, aside from 'backups to/from external drives' </td>
+<td><font color="gray">[<a id="2463059" href="#2463059">17:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( i can't afford it on dulap, because it also doubles as reimaging station for rockchippen , but s.mg prolly can safely say goodbye to usb3 ) </td>
+<td><font color="gray">[<a id="2463060" href="#2463060">17:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> err, usb2 </td>
+<td><font color="gray">[<a id="2463061" href="#2463061">17:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( 3 by implication also ) </td>
+<td><font color="gray">[<a id="2463062" href="#2463062">17:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> iirc ehci == usb2 , xhci == usb3 </td>
+<td><font color="gray">[<a id="2463063" href="#2463063">17:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> well yes, and 10 or whatever they come up with next </td>
+<td><font color="gray">[<a id="2463064" href="#2463064">17:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: 'nexts' wouldn't affect the existing iron tho. </td>
+<td><font color="gray">[<a id="2463065" href="#2463065">17:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> one type of existing machine where we can't afford to lose usb3 is the rockchip, it would be quite unusable without it ( main disk is solely usb3 ) </td>
+<td><font color="gray">[<a id="2463066" href="#2463066">17:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> so hm, on rockchip then FG are actually usable only with manual downgrade of usb port ? </td>
+<td><font color="gray">[<a id="2463067" href="#2463067">17:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: problem dun seem to exist on my desk rockchip. ( and in the end we'll move the rk FGs over to the convenient built-in TTL serialports ) </td>
+<td><font color="gray">[<a id="2463068" href="#2463068">17:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: re usb1 forcing, i was thinking the proper pill might be to write a shell thing that parses output of lsusb -t and does the correct magics rather than modded kernel </td>
+<td><font color="gray">[<a id="2463069" href="#2463069">17:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> ah, built-in ttl serialports sounds good, yes re problem dun seem to exist, mhm, I'd rather expect it would pop up sooner or later if used intensively in this little&amp;frequent style </td>
+<td><font color="gray">[<a id="2463070" href="#2463070">17:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( if diana_coman wants to take a crack at this, worx, otherwise asciilifeform will do it later this wk ) </td>
+<td><font color="gray">[<a id="2463071" href="#2463071">17:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> and yes, otherwise I was thinking that a script can't be all that difficult to write for it too </td>
+<td><font color="gray">[<a id="2463072" href="#2463072">17:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> really a sed/awk 1liner </td>
+<td><font color="gray">[<a id="2463073" href="#2463073">17:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> but now I admit I got angry with ehci after all of today's barfing on the topic </td>
+<td><font color="gray">[<a id="2463074" href="#2463074">17:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> for all the usb2/3 suckage, it sadly remains the only means to connect fast external disks to pc. </td>
+<td><font color="gray">[<a id="2463075" href="#2463075">17:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( i won't dignify 'esata' with a mention, it is flaky in asciilifeform's experience, and not really usable on racked boxen ) </td>
+<td><font color="gray">[<a id="2463076" href="#2463076">17:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-08-01#1838724" target=\'_blank\'>http://btcbase.org/log/2018-08-01#1838724</a> &lt;&lt; on the positive score, kernel patch for cuntoo killing this with fire quite feasible. </td>
+<td><font color="gray">[<a id="2463077" href="#2463077">18:02</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-08-01 16:03 asciilifeform: 'After much researching it seems this is NOT a driver bug but a CHANGE in the kernel Serial API semantics. What has happened is that the API now blocks when a Serial device is not indicating it is ready. This included 'open' on a serial device which now can block. Since lots of RS232 serial devices do not bother with any control signals such as DCD (data carrier detect) they never indicate they are ready and open blocks. This is the </font></td>
+<td><font color="gray">[<a id="2463078" href="#2463078">18:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: eat the l0g... </td>
+<td><font color="gray">[<a id="2463079" href="#2463079">18:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> eating, eating. </td>
+<td><font color="gray">[<a id="2463080" href="#2463080">18:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-08-01#1838730" target=\'_blank\'>http://btcbase.org/log/2018-08-01#1838730</a> &lt;&lt; 1. put the old thing back in. </td>
+<td><font color="gray">[<a id="2463081" href="#2463081">18:03</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-08-01 16:08 asciilifeform: 2 possible tacks -- 1) kill, with flamethrower, 'new api' 2) FG opened once per machine boot and left running into buffer </font></td>
+<td><font color="gray">[<a id="2463082" href="#2463082">18:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> there is no such thing as data that is all three of 1) random 2) useful and 3) buffered. </td>
+<td><font color="gray">[<a id="2463083" href="#2463083">18:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> pick any two. </td>
+<td><font color="gray">[<a id="2463084" href="#2463084">18:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> 1-3 is exactly <a href="http://btcbase.org/log/2018-08-01#1838591" target=\'_blank\'>http://btcbase.org/log/2018-08-01#1838591</a> 1-2 is FG 2-3 is science, as in <a href="/2017/is-it-still-rape-if-i-write-science-on-my-penis-first/" target=\'_blank\'>/2017/is-it-still-rape-if-i-write-science-on-my-penis-first/</a> item. </td>
+<td><font color="gray">[<a id="2463085" href="#2463085">18:04</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-08-01 01:52 asciilifeform could not muster the fuck-giving to read the payload, has nfi what the thing wants </font></td>
+<td><font color="gray">[<a id="2463086" href="#2463086">18:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> and that's a complete world-enumeration. </td>
+<td><font color="gray">[<a id="2463087" href="#2463087">18:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: observe that i did not put a ram buffer in FG (aside from the 16bit debias/accumulator ) , it was not happenstance. </td>
+<td><font color="gray">[<a id="2463088" href="#2463088">18:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> right. and i didn't say anything about this then, either. also not :) </td>
+<td><font color="gray">[<a id="2463089" href="#2463089">18:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( erry heathen rng i know of , includes... ) </td>
+<td><font color="gray">[<a id="2463090" href="#2463090">18:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> but ofcourse. </td>
+<td><font color="gray">[<a id="2463091" href="#2463091">18:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> there's likewise a reason i did not publish a 'demon' to go with FG. ideally random bitz oughta live the shortest possible life, and walk shortest possible path from point of birth to use. </td>
+<td><font color="gray">[<a id="2463092" href="#2463092">18:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> if somebody absolutely positively MUST buffer his FG, because, idk, he's generating a icbm launch key and wants to xorlemma 8 weeks of entropy into 4096b, oughta do it ~in his proggy~ imho. </td>
+<td><font color="gray">[<a id="2463093" href="#2463093">18:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-08-01#1838829" target=\'_blank\'>http://btcbase.org/log/2018-08-01#1838829</a> &lt;&lt; this is quite conceivably the right solution, and imo a fine candidate for cuntoo list. </td>
+<td><font color="gray">[<a id="2463094" href="#2463094">18:17</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-08-01 21:33 asciilifeform: building a kernel without xhci would almost certainly do the job tho </font></td>
+<td><font color="gray">[<a id="2463095" href="#2463095">18:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yes, you miss out on downloading sony camera contents in such a manner as the "your media contains pictures!!!" popup can shoot "usefully fast". this is not a permitted usecase anyway. </td>
+<td><font color="gray">[<a id="2463096" href="#2463096">18:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> losers shouldn't evne have cameras in the first place. </td>
+<td><font color="gray">[<a id="2463097" href="#2463097">18:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-08-01#1838832" target=\'_blank\'>http://btcbase.org/log/2018-08-01#1838832</a> &lt;&lt; i'll bet you you'll very much want to, and soon enough. </td>
+<td><font color="gray">[<a id="2463098" href="#2463098">18:18</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-08-01 21:36 asciilifeform: ( i can't afford it on dulap, because it also doubles as reimaging station for rockchippen , but s.mg prolly can safely say goodbye to usb3 ) </font></td>
+<td><font color="gray">[<a id="2463099" href="#2463099">18:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i ain't waiting 3 wks to reimage a motherfuckign 64GB stick. </td>
+<td><font color="gray">[<a id="2463100" href="#2463100">18:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> sure. </td>
+<td><font color="gray">[<a id="2463101" href="#2463101">18:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( bad enuff that i only even have usb2, not 3, on dulap, and it takes 3hrs ) </td>
+<td><font color="gray">[<a id="2463102" href="#2463102">18:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> imho at the very least usb jacks oughta default to 1, and if really needs the uglyhax of 2/3 should have to manually trigger. rather than the current sad. </td>
+<td><font color="gray">[<a id="2463103" href="#2463103">18:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i can see it. </td>
+<td><font color="gray">[<a id="2463104" href="#2463104">18:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> incidentally , lack of a sane usb2 chipset is what's holding up the lyso crystal super-FG item </td>
+<td><font color="gray">[<a id="2463105" href="#2463105">18:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( there's no reasonable way to connect it to pc , currently ) </td>
+<td><font color="gray">[<a id="2463106" href="#2463106">18:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> but in any case usb-+ should not be on mainline kernel. let he who runs rockchip farm patch in the ugly. </td>
+<td><font color="gray">[<a id="2463107" href="#2463107">18:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform could you make it a board ? use the agpx connector lol </td>
+<td><font color="gray">[<a id="2463108" href="#2463108">18:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: the only board holes in current boxen are pcie, and that's megatonne of stateful logic </td>
+<td><font color="gray">[<a id="2463109" href="#2463109">18:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( not even sure it'd fit on an ice40 ) </td>
+<td><font color="gray">[<a id="2463110" href="#2463110">18:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> aww </td>
+<td><font color="gray">[<a id="2463111" href="#2463111">18:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'can't have nice things'(tm)(r) </td>
+<td><font color="gray">[<a id="2463112" href="#2463112">18:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yeah, ye olde boards weren't unusable enough, had to get rid of amirite. </td>
+<td><font color="gray">[<a id="2463113" href="#2463113">18:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> it'dve made an ideal isa card, lol </td>
+<td><font color="gray">[<a id="2463114" href="#2463114">18:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> you know '? </td>
+<td><font color="gray">[<a id="2463115" href="#2463115">18:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ftr, i still have boards running my amds with proper isa cards... </td>
+<td><font color="gray">[<a id="2463116" href="#2463116">18:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( isa was a joy to interface, dun even need fpga, 3-4 ttl chips and you're cooking ) </td>
+<td><font color="gray">[<a id="2463117" href="#2463117">18:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> heck, right now typing on one. </td>
+<td><font color="gray">[<a id="2463118" href="#2463118">18:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: metoo, soundblaster64gold 4evah </td>
+<td><font color="gray">[<a id="2463119" href="#2463119">18:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform no, i know. </td>
+<td><font color="gray">[<a id="2463120" href="#2463120">18:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> you know, i'm tempted to put "must have 4x isa" on the reqs list for tmsr mobo ANYWAY. </td>
+<td><font color="gray">[<a id="2463121" href="#2463121">18:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> might as well make isa lyso. </td>
+<td><font color="gray">[<a id="2463122" href="#2463122">18:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: so happens i have a seekrit draft of ice40+isa toy </td>
+<td><font color="gray">[<a id="2463123" href="#2463123">18:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> lol. </td>
+<td><font color="gray">[<a id="2463124" href="#2463124">18:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> surprised, i am not. </td>
+<td><font color="gray">[<a id="2463125" href="#2463125">18:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( it wants 5v, which is a bitch, but not particularly hard to levelshift ) </td>
+<td><font color="gray">[<a id="2463126" href="#2463126">18:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> phunphakt : the slot connectors are still made. </td>
+<td><font color="gray">[<a id="2463127" href="#2463127">18:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yup. </td>
+<td><font color="gray">[<a id="2463128" href="#2463128">18:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> we're not the only ones to have noticed </td>
+<td><font color="gray">[<a id="2463129" href="#2463129">18:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> (if the putative fast oscilloscope ever got interfaced with killer micro box, it'd be through isa also, i'm sure.) </td>
+<td><font color="gray">[<a id="2463130" href="#2463130">18:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> not only, but one can still get astonishingly fast adc isa cards secondhand, ready to roll. </td>
+<td><font color="gray">[<a id="2463131" href="#2463131">18:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yup. </td>
+<td><font color="gray">[<a id="2463132" href="#2463132">18:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> there's a whole 'underground' market in ye olde goodstuff. </td>
+<td><font color="gray">[<a id="2463133" href="#2463133">18:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> brb,tea </td>
+<td><font color="gray">[<a id="2463134" href="#2463134">18:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> BingoBoingo: feel free to wipe mats' rockchip when you have a spare moment. </td>
+<td><font color="gray">[<a id="2463135" href="#2463135">19:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> mod6: The one in question is "C" correct? </td>
+<td><font color="gray">[<a id="2463136" href="#2463136">19:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> I don't have information on which letter assignment is which. </td>
+<td><font color="gray">[<a id="2463137" href="#2463137">19:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> ben_vulpes: can you send me this mapping if you have it? </td>
+<td><font color="gray">[<a id="2463138" href="#2463138">19:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> All I know is that mats has number '196'. </td>
+<td><font color="gray">[<a id="2463139" href="#2463139">19:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Aite, alf should be able to confirm when he gets back from tea </td>
+<td><font color="gray">[<a id="2463140" href="#2463140">19:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> cool. the '196' number is what I received from ben in that latest document that I marked up. </td>
+<td><font color="gray">[<a id="2463141" href="#2463141">19:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> you know, all these "Random names" have a distinct handmade flavour. </td>
+<td><font color="gray">[<a id="2463142" href="#2463142">19:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Well, that's why they call the beast "Dirty Randy" </td>
+<td><font color="gray">[<a id="2463143" href="#2463143">19:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> lol </td>
+<td><font color="gray">[<a id="2463144" href="#2463144">19:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Whitened and bleached the random to the point the sweat stains leaked a very pattered yellowing </td>
+<td><font color="gray">[<a id="2463145" href="#2463145">19:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo, mod6 : &ast;196 == 'C' , confirmed </td>
+<td><font color="gray">[<a id="2463146" href="#2463146">19:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Aite, I'll walk over and stretch the legs now. </td>
+<td><font color="gray">[<a id="2463147" href="#2463147">19:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: it wouldn't surprise me if the spamola bots were fleanode lusers pwnd via <a href="http://btcbase.org/log/2018-08-01#1838823" target=\'_blank\'>http://btcbase.org/log/2018-08-01#1838823</a> </td>
+<td><font color="gray">[<a id="2463148" href="#2463148">19:49</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-08-01 20:18 deedbot: <a href="http://qntra.net/2018/08/reddit-hacked-user-data-taken/" target=\'_blank\'>http://qntra.net/2018/08/reddit-hacked-user-data-taken/</a> &lt;&lt; Qntra - Reddit Hacked, User Data Taken </font></td>
+<td><font color="gray">[<a id="2463149" href="#2463149">19:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> me either. </td>
+<td><font color="gray">[<a id="2463150" href="#2463150">19:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> then again, 0 cloacks, so maybe not. </td>
+<td><font color="gray">[<a id="2463151" href="#2463151">19:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> but it wouldn't surprise me if it were lusers, which is close enough. </td>
+<td><font color="gray">[<a id="2463152" href="#2463152">19:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( i.e. pre-existing lusers, rather than sybils baked for the occasion ) </td>
+<td><font color="gray">[<a id="2463153" href="#2463153">19:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> lessee... what was the test ? </td>
+<td><font color="gray">[<a id="2463154" href="#2463154">19:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !$ssh 115.84.92.92 </td>
+<td><font color="gray">[<a id="2463155" href="#2463155">19:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> apparently this is dead ? </td>
+<td><font color="gray">[<a id="2463156" href="#2463156">20:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !$help </td>
+<td><font color="gray">[<a id="2463157" href="#2463157">20:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !$ ssh 115.84.92.92 </td>
+<td><font color="gray">[<a id="2463158" href="#2463158">20:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> was Framedragger_'s , neh </td>
+<td><font color="gray">[<a id="2463159" href="#2463159">20:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !$ ssh 197.53.92.104 </td>
+<td><font color="gray">[<a id="2463160" href="#2463160">20:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !$ ssh 159.192.248.185 </td>
+<td><font color="gray">[<a id="2463161" href="#2463161">20:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !$ ssh 209.107.210.162 </td>
+<td><font color="gray">[<a id="2463162" href="#2463162">20:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !$ ssh 216.151.183.64 </td>
+<td><font color="gray">[<a id="2463163" href="#2463163">20:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !$ ssh 197.39.84.100 </td>
+<td><font color="gray">[<a id="2463164" href="#2463164">20:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform apparently they're all domestic routers. </td>
+<td><font color="gray">[<a id="2463165" href="#2463165">20:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> lol!! </td>
+<td><font color="gray">[<a id="2463166" href="#2463166">20:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> not terribly astonishing tho. </td>
+<td><font color="gray">[<a id="2463167" href="#2463167">20:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !$ ssh 200.62.176.35 </td>
+<td><font color="gray">[<a id="2463168" href="#2463168">20:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2017-03-22#1630856" target=\'_blank\'>http://btcbase.org/log/2017-03-22#1630856</a> &lt;&lt; apparently it's actually dead tho. </td>
+<td><font color="gray">[<a id="2463169" href="#2463169">20:04</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2017-03-22 16:49 scriba: ssh banner of 200.62.176.35 as seen on 2016-06-13: SSH-2.0-OpenSSH_4.3p2 Debian-9 </font></td>
+<td><font color="gray">[<a id="2463170" href="#2463170">20:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !Qlater tell spyked any interest adding ^ functionality to spykedbot ? </td>
+<td><font color="gray">[<a id="2463171" href="#2463171">20:04</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">lobbesbot:</font></td>
+<td class="breakup"><font color="gray"> mircea_popescu: The operation succeeded. </font></td>
+<td><font color="gray">[<a id="2463172" href="#2463172">20:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> in other quasi-noose, asciilifeform derived the general form of pulse equation for <a href="http://btcbase.org/log/2018-07-22#1837163" target=\'_blank\'>http://btcbase.org/log/2018-07-22#1837163</a> . and the antenna geometry... </td>
+<td><font color="gray">[<a id="2463173" href="#2463173">20:06</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-07-22 17:07 asciilifeform: interestingly, both tx and rx end is considerably simpler, physically, than conventional periodic radio -- you dun need oscillators, tuners, at all. aside from pulse shaper, whole thing fits in fpga. </font></td>
+<td><font color="gray">[<a id="2463174" href="#2463174">20:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> turns out, pretty simple. </td>
+<td><font color="gray">[<a id="2463175" href="#2463175">20:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> &lt;+asciilifeform&gt; BingoBoingo, mod6 : &ast;196 == 'C' , confirmed &lt;&lt; thanks asciilifeform! </td>
+<td><font color="gray">[<a id="2463176" href="#2463176">20:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> mod6 asciilifeform Drive is in place for reimaging </td>
+<td><font color="gray">[<a id="2463177" href="#2463177">20:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ty BingoBoingo . will be ready be end of wk. </td>
+<td><font color="gray">[<a id="2463178" href="#2463178">20:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> nice! </td>
+<td><font color="gray">[<a id="2463179" href="#2463179">20:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> Lords and Ladies, one rockchip has become available (ready by end of the week), who wants it! $75/mo if you sign up for a quarter, $100/mo on a month to month. </td>
+<td><font color="gray">[<a id="2463180" href="#2463180">20:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> BingoBoingo asciilifeform ben_vulpes : correct me if I'm wrong, but we have a bunch of FGs available (with cables now) right? </td>
+<td><font color="gray">[<a id="2463181" href="#2463181">20:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> mod6: we do indeed </td>
+<td><font color="gray">[<a id="2463182" href="#2463182">20:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> nice </td>
+<td><font color="gray">[<a id="2463183" href="#2463183">20:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> All: 0.00104167 BTC/mo. to attach an FG to your newly rented Rockchip! </td>
+<td><font color="gray">[<a id="2463184" href="#2463184">20:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> First come, first serve. Let us know. :] </td>
+<td><font color="gray">[<a id="2463185" href="#2463185">20:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> &ast; neo-cool21 has quit (Killed (Unit193 (Spam is not permitted on freenode.)) &lt;&lt; Oh the IRC-Cops have a filter nao? </td>
+<td><font color="gray">[<a id="2463186" href="#2463186">22:24</a>]</font></td>
+</tr>
+</table>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2020/forum-logs-for-31-jul-2018/">Forum logs for 31 Jul 2018</a></div>
+                <div class="alignright"><a href="/2020/forum-logs-for-02-aug-2018/">Forum logs for 02 Aug 2018</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/logs/" title="View all posts in Logs" rel="category tag">Logs</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2020/forum-logs-for-01-aug-2018/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2020/forum-logs-for-01-aug-2018/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+
+
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authore8e1dd8" id="authore8e1dd8" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emaile8e1dd8" id="emaile8e1dd8" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urle8e1dd8" id="urle8e1dd8" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="92656" /></p>
+				<input type="hidden" name="comment_post_time" value="1735302774-152.53.39.118" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2024 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-92656")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-92656");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-92656");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

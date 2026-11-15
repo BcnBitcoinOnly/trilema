@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_dec2016.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Forum logs for 23 Jun 2018 on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Lucruri fine pentru oameni subtiri.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-92617"><div class="post" id="post-92617">                    <h1><a href="/2020/forum-logs-for-23-jun-2018/" rel="bookmark" title="Permanent Link to Forum logs for 23 Jun 2018">Forum logs for 23 Jun 2018</a></h1>                        <div class="date">                                     Monday, 16 March, Year 12 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/" title="Posts by "></a>                                                        </div>
+
+                        <div class="entry">
+<table style="font-size:1em;width:"580px;">
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> i broke my trb blockchain. </td>
+<td><font color="gray">[<a id="2453614" href="#2453614">00:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> thing was stuck, flooded with connections, not keeping up, wouldn't respond to any rpc calls. this going on for hours and hours. finally i just killed it. i probably instead should have just firewalled off 8333 instead. </td>
+<td><font color="gray">[<a id="2453615" href="#2453615">00:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> anyway, now the db is corrupt. </td>
+<td><font color="gray">[<a id="2453616" href="#2453616">00:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> will need to probably resync the whole thing. </td>
+<td><font color="gray">[<a id="2453617" href="#2453617">00:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> this ip from the nodes list: 208.94.240.42 </td>
+<td><font color="gray">[<a id="2453618" href="#2453618">00:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> ouch... I could see myself doing the same thing </td>
+<td><font color="gray">[<a id="2453619" href="#2453619">00:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> yeah, ensure that if something like this happens to you, you do not kill it -- instead firewall it off. wait until all connections drop. </td>
+<td><font color="gray">[<a id="2453620" href="#2453620">00:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> i think i'm just gonna cutblock all the blk&ast;.dat files, and eatblock 'em. </td>
+<td><font color="gray">[<a id="2453621" href="#2453621">00:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> should take 10 days. </td>
+<td><font color="gray">[<a id="2453622" href="#2453622">00:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; lobbes</b></td>
+<td class="breakup"> makes a literal note </td>
+<td><font color="gray">[<a id="2453623" href="#2453623">00:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> i'll probably just turn all of this into a blog post. </td>
+<td><font color="gray">[<a id="2453624" href="#2453624">00:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> mod6 nah, listen, do you have an index saved ? </td>
+<td><font color="gray">[<a id="2453625" href="#2453625">00:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> just reinstate the old index, have it check the chain. odds are it'll be able to recover, because it doesn't so much care about data ~past~ its index point. </td>
+<td><font color="gray">[<a id="2453626" href="#2453626">00:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> i have a backed up index, but its from long ago. </td>
+<td><font color="gray">[<a id="2453627" href="#2453627">00:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> meanwhile in the basement, <a href="https://78.media.tumblr.com/df0b4f8fa317c5110325b4496d0a7dee/tumblr_o6gtpxaWH61rhup7qo1_540.gif" target=\'_blank\'>https://78.media.tumblr.com/df0b4f8fa317c5110325b4496d0a7dee/tumblr_o6gtpxaWH61rhup7qo1_540.gif</a> </td>
+<td><font color="gray">[<a id="2453628" href="#2453628">00:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> mod6 backups are your friend! this whole trb stuff is a little friable. </td>
+<td><font color="gray">[<a id="2453629" href="#2453629">00:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> anyway, will try it. (it's from january) </td>
+<td><font color="gray">[<a id="2453630" href="#2453630">00:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> then maybe not worth it, likely will take more than 10 days to sync </td>
+<td><font color="gray">[<a id="2453631" href="#2453631">00:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> ah. perhaps ya. </td>
+<td><font color="gray">[<a id="2453632" href="#2453632">00:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> but backing up the chain is a good idea. i actually have backups more recent than that, but from other trbs, not this specific one. </td>
+<td><font color="gray">[<a id="2453633" href="#2453633">00:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ah. yeah, i mean weekly rotation, monthly, something. </td>
+<td><font color="gray">[<a id="2453634" href="#2453634">00:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> &ast;nod&ast;, lesson learned. </td>
+<td><font color="gray">[<a id="2453635" href="#2453635">01:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> <a href="/forum-logs-for-22-jun-2018#2453325" target=\'_blank\'>/forum-logs-for-22-jun-2018#2453325</a> &lt;&lt; so I figured it out: cause of downtime ended up being a flood of tor exit nodes &gt;&gt; <a href="http://p.bvulpes.com/pastes/VYVGW/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/VYVGW/?raw=true</a> </td>
+<td><font color="gray">[<a id="2453636" href="#2453636">01:10</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-06-22 16:14 lobbes: <a href="http://btcbase.org/log/2018-06-21#1828477" target=\'_blank\'>http://btcbase.org/log/2018-06-21#1828477</a> &lt;&lt; ack, ty for letting me know. I'll try sshing in tonight to rule out webserver failure before I flag down BB to check out the situation manually. (I must say, it is a good feeling knowing that nowhere in this troubleshooting cycle will I need to interface with orcs.) </font></td>
+<td><font color="gray">[<a id="2453637" href="#2453637">01:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> snippet of access log for additional wtf &gt;&gt; <a href="http://p.bvulpes.com/pastes/DtslR/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/DtslR/?raw=true</a> </td>
+<td><font color="gray">[<a id="2453638" href="#2453638">01:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> lobbes that's not overmuch by web standards. same one or diff ones ? </td>
+<td><font color="gray">[<a id="2453639" href="#2453639">01:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ah, crapolade trying to spam. shouldn't really bring mp-wp down afaik. </td>
+<td><font color="gray">[<a id="2453640" href="#2453640">01:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> of course... this is the rockchip ? </td>
+<td><font color="gray">[<a id="2453641" href="#2453641">01:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> word, well that is good to know at least.I tried to deny a shitload of em via virtualhosts.conf. Blog is back up for now, but I half-expect it to be down again by morning </td>
+<td><font color="gray">[<a id="2453642" href="#2453642">01:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> yeah, rockchip </td>
+<td><font color="gray">[<a id="2453643" href="#2453643">01:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> and to boot, I tried setting up some rules in iptables, but it barfs claiming it is missing 'insmod' module or somesuch </td>
+<td><font color="gray">[<a id="2453644" href="#2453644">01:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> in other words, iptables currently unavailable until I figure out more of arm64 peculiarities </td>
+<td><font color="gray">[<a id="2453645" href="#2453645">01:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> the thing is very stringently optimized to waste as little as possible on the spammer wanna-bes, but then again i never tried it on an arm. </td>
+<td><font color="gray">[<a id="2453646" href="#2453646">01:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i could say "trilema runs like that ~70% of the time", but then again trilema's got a larger box. pretty sure you can set it up though so it rejects multiple conns like that. there's a setting somewhere to limit inbound. </td>
+<td><font color="gray">[<a id="2453647" href="#2453647">01:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> hm, yeah, looks like there is mod_limitipconn but the arm64 support looks dismal &gt;&gt; <a href="https://packages.gentoo.org/packages/www-apache/mod_limitipconn" target=\'_blank\'>https://packages.gentoo.org/packages/www-apache/mod_limitipconn</a> </td>
+<td><font color="gray">[<a id="2453648" href="#2453648">01:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> mod_whateverthefuck the common one also can do it for you. and also csf or w/e you use to manage the firewall. </td>
+<td><font color="gray">[<a id="2453649" href="#2453649">01:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> in principle saying something like "no more than x connection from a given ip will be entertained" is perfectly reasonable though careful how low you set the x, some browsers (especially the mobile versions dedicated to fucking as much battery as possible) can turn a pageload into 10-20 simultaneous requests. </td>
+<td><font color="gray">[<a id="2453650" href="#2453650">01:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> meanwhile poolside, <a href="https://78.media.tumblr.com/3f6248c3f0a886611472762ba6bf4bbb/tumblr_inline_p1onsoyrKB1vpaf4h_500.gif" target=\'_blank\'>https://78.media.tumblr.com/3f6248c3f0a886611472762ba6bf4bbb/tumblr_inline_p1onsoyrKB1vpaf4h_500.gif</a> </td>
+<td><font color="gray">[<a id="2453651" href="#2453651">01:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-06-23#1829030" target=\'_blank\'>http://btcbase.org/log/2018-06-23#1829030</a> &lt;&lt; hey mod6 is this the same box as in the last coupla similar threads, with the questionable hdd ? </td>
+<td><font color="gray">[<a id="2453652" href="#2453652">08:42</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-06-23 04:30 mod6: thing was stuck, flooded with connections, not keeping up, wouldn't respond to any rpc calls. this going on for hours and hours. finally i just killed it. i probably instead should have just firewalled off 8333 instead. </font></td>
+<td><font color="gray">[<a id="2453653" href="#2453653">08:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-06-23#1829041" target=\'_blank\'>http://btcbase.org/log/2018-06-23#1829041</a> &lt;&lt; mircea_popescu has it , index is the only piece that actually bitrots ( bdb was written by the maliciously retarded ) </td>
+<td><font color="gray">[<a id="2453654" href="#2453654">08:44</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-06-23 04:45 mircea_popescu: just reinstate the old index, have it check the chain. odds are it'll be able to recover, because it doesn't so much care about data ~past~ its index point. </font></td>
+<td><font color="gray">[<a id="2453655" href="#2453655">08:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> fwiw asciilifeform has not suffered this problem in many yrs, for box on uninterruptible power ( and resist the temptation to fiddle! no it ain't 'stuck', it stands up again by itself in coupla hrs ) -- no bitrot </td>
+<td><font color="gray">[<a id="2453656" href="#2453656">08:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> unless dying hdd, etc, all bets off then. </td>
+<td><font color="gray">[<a id="2453657" href="#2453657">08:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-06-23#1829051" target=\'_blank\'>http://btcbase.org/log/2018-06-23#1829051</a> &lt;&lt; lobbes didja determine what proggy (e.g. apache?) it was that actually fell down ? </td>
+<td><font color="gray">[<a id="2453658" href="#2453658">08:46</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-06-23 05:10 lobbes: <a href="/forum-logs-for-22-jun-2018#2453325" target=\'_blank\'>/forum-logs-for-22-jun-2018#2453325</a> &lt;&lt; so I figured it out: cause of downtime ended up being a flood of tor exit nodes &gt;&gt; <a href="http://p.bvulpes.com/pastes/VYVGW/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/VYVGW/?raw=true</a> </font></td>
+<td><font color="gray">[<a id="2453659" href="#2453659">08:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> meanwhile, for fyootoor ref, <a href="http://btcbase.org/log/2018-06-23#1829003" target=\'_blank\'>http://btcbase.org/log/2018-06-23#1829003</a> &gt;&gt;&gt;&gt; <a href="http://phuctor.nosuchlabs.com/gpgkey/2F5EC26698365939D499561F385A39A4217604DEB38913D71AFD135B28009DAF" target=\'_blank\'>http://phuctor.nosuchlabs.com/gpgkey/2F5EC26698365939D499561F385A39A4217604DEB38913D71AFD135B28009DAF</a> </td>
+<td><font color="gray">[<a id="2453660" href="#2453660">10:46</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-06-23 02:09 asciilifeform: <a href="http://p.bvulpes.com/pastes/t16fl/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/t16fl/?raw=true</a> &lt;&lt; dump of RW key </font></td>
+<td><font color="gray">[<a id="2453661" href="#2453661">10:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform same here, lotta problems in 2012ish but meanwhile fuzzed out the weird, learned like ox, by trying. </td>
+<td><font color="gray">[<a id="2453662" href="#2453662">11:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: for comparison : the last time i reset 'zoolag' was to change ps. and the time before that -- to swap in the 'aggression' build </td>
+<td><font color="gray">[<a id="2453663" href="#2453663">12:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> aha </td>
+<td><font color="gray">[<a id="2453664" href="#2453664">12:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> thing has roughly same uptime as its upstream isp. </td>
+<td><font color="gray">[<a id="2453665" href="#2453665">12:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> meanwhile in true romance, <a href="https://78.media.tumblr.com/026a35dd07d2f0e4b08676f607ad9f52/tumblr_nconfxDv7X1rzv0kmo1_400.gif" target=\'_blank\'>https://78.media.tumblr.com/026a35dd07d2f0e4b08676f607ad9f52/tumblr_nconfxDv7X1rzv0kmo1_400.gif</a> </td>
+<td><font color="gray">[<a id="2453666" href="#2453666">12:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> !Q later tell phf <a href="http://btcbase.org/log/2018-06-22#1828933" target=\'_blank\'>http://btcbase.org/log/2018-06-22#1828933</a> &gt;&gt; <a href="http://btcbase.org/log/2018-06-23#1829007" target=\'_blank\'>http://btcbase.org/log/2018-06-23#1829007</a> &gt;&gt; <a href="https://github.com/coreboot/chrome-ec/blob/master/chip/g/signed_header.h" target=\'_blank\'>https://github.com/coreboot/chrome-ec/blob/master/chip/g/signed_header.h</a> &gt;&gt;&gt;&gt;&gt; <a href="http://www.loper-os.org/pub/c101pa/ro_signature.txt" target=\'_blank\'>http://www.loper-os.org/pub/c101pa/ro_signature.txt</a> ( not the only 1, but illustrative ) </td>
+<td><font color="gray">[<a id="2453667" href="#2453667">12:57</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-06-22 22:35 asciilifeform: if nobody finds obvious mistake, i guess i'ma have to pull an actual enemy signature out of the binariola, and see wtf </font></td>
+<td><font color="gray">[<a id="2453668" href="#2453668">12:57</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-06-23 02:18 asciilifeform: <a href="http://p.bvulpes.com/pastes/corod/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/corod/?raw=true</a> &lt;&lt; the RO pubkey. (labels mine, offsets original). does not appear to be posted publicly anywhere. </font></td>
+<td><font color="gray">[<a id="2453669" href="#2453669">12:57</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">lobbesbot:</font></td>
+<td class="breakup"><font color="gray"> asciilifeform: The operation succeeded. </font></td>
+<td><font color="gray">[<a id="2453670" href="#2453670">12:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> &lt;+asciilifeform&gt; <a href="http://btcbase.org/log/2018-06-23#1829030" target=\'_blank\'>http://btcbase.org/log/2018-06-23#1829030</a> &lt;&lt; hey mod6 is this the same box as in the last coupla similar threads, with the questionable hdd ? &lt;&lt; yup, same item. will post more about it later for sure. </td>
+<td><font color="gray">[<a id="2453671" href="#2453671">12:57</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-06-23 04:30 mod6: thing was stuck, flooded with connections, not keeping up, wouldn't respond to any rpc calls. this going on for hours and hours. finally i just killed it. i probably instead should have just firewalled off 8333 instead. </font></td>
+<td><font color="gray">[<a id="2453672" href="#2453672">12:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> takes break, lets the red hot barrels cool... </td>
+<td><font color="gray">[<a id="2453673" href="#2453673">12:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mod6: by all indications you have a box with iron problem. in your place i'd get a fresh set of iron, rather than sinking sweat into interpreting randomly flipped bits as 'bug' </td>
+<td><font color="gray">[<a id="2453674" href="#2453674">13:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> !Q later tell phf other interesting observations: 1) loader is not the same as what appears in the src, in either 3.3 or 3.4 fw bin not only key differs, but eggog strings, and possibly the rsa per se. 2) seems like : nowhere else in the fw is there any other routine which checksums/rsaverifies the cr50 fw , or references the rsa keyz at all other than to print keyid . </td>
+<td><font color="gray">[<a id="2453675" href="#2453675">13:09</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">lobbesbot:</font></td>
+<td class="breakup"><font color="gray"> asciilifeform: The operation succeeded. </font></td>
+<td><font color="gray">[<a id="2453676" href="#2453676">13:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> summary : google set up what is likely a deliberate bullshit dangle re the loader src for reasons that are yet unclear </td>
+<td><font color="gray">[<a id="2453677" href="#2453677">13:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> not a terribly high quality dangle, took roughly a day to uncover. </td>
+<td><font color="gray">[<a id="2453678" href="#2453678">13:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> google would lie ?! </td>
+<td><font color="gray">[<a id="2453679" href="#2453679">13:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> never!111 </td>
+<td><font color="gray">[<a id="2453680" href="#2453680">13:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> this comes as such a shock to absolutely nobody. </td>
+<td><font color="gray">[<a id="2453681" href="#2453681">13:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> the only even mild surprise is the sheer pile of echafaudage </td>
+<td><font color="gray">[<a id="2453682" href="#2453682">13:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well, the cloud of oricsh morons a la amstan are an expensive luxury. </td>
+<td><font color="gray">[<a id="2453683" href="#2453683">13:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> useless, it is true. but expensive nevertheleess. </td>
+<td><font color="gray">[<a id="2453684" href="#2453684">13:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> pretty great lolcow, btw, that d00d. spilled what he thought was a carefully incomplete pile of beans to 'get asciilifeform to waste months making debug cable', i suspect, didn't quite expect us to get a working one in 1wk </td>
+<td><font color="gray">[<a id="2453685" href="#2453685">13:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> since his monumental 'nobody has the keys!' gem, all i saw of him was that 1 time he popped in here and drooled for coupla min. </td>
+<td><font color="gray">[<a id="2453686" href="#2453686">13:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> eh. from a statistical perspective, it can't be said we don't get enough tards talking, so... </td>
+<td><font color="gray">[<a id="2453687" href="#2453687">13:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> btw i did figure out the <a href="http://btcbase.org/log/2018-06-22#1828757" target=\'_blank\'>http://btcbase.org/log/2018-06-22#1828757</a> matter -- their key format reserves 1st 4bytes for 'keyid' . but the lulzimplementation pictured in the (useless, doesn't seem to occur in the bin) published 'loader', treats the key as starting there . as i currently understand, couldn't actually work as written, barring some mathematical curio </td>
+<td><font color="gray">[<a id="2453688" href="#2453688">13:34</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-06-22 18:17 asciilifeform: static const uint32_t LOADERKEY_A[RSA_NUM_WORDS + 1] = { ...blah... } where #define RSA_NUM_WORDS 96 ... </font></td>
+<td><font color="gray">[<a id="2453689" href="#2453689">13:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-06-22#1828901" target=\'_blank\'>http://btcbase.org/log/2018-06-22#1828901</a> &lt;&lt; this kind of thing was a multi-week headache for asciilifeform the last time he had to actually uncork the launch codes and move coin and i expect that it will only ever get worse </td>
+<td><font color="gray">[<a id="2453690" href="#2453690">13:36</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-06-22 21:55 ben_vulpes: next thing i'm going to try is manually walk the spend-to-self down by 100 satoshis until this trb shits a tx out and then look at what it produces </font></td>
+<td><font color="gray">[<a id="2453691" href="#2453691">13:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> possibly the 2nd dumbest thing shitoshi did, after the mining algo -- the coin fragging nonsense. </td>
+<td><font color="gray">[<a id="2453692" href="#2453692">13:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> would it be sensible for the send&ast; commands to eat a changeaddress argument? </td>
+<td><font color="gray">[<a id="2453693" href="#2453693">13:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ben_vulpes: absolutely, this has been a sore spot of asciilifeform's since day1 </td>
+<td><font color="gray">[<a id="2453694" href="#2453694">14:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yes. </td>
+<td><font color="gray">[<a id="2453695" href="#2453695">14:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2016-03-16#1434267" target=\'_blank\'>http://btcbase.org/log/2016-03-16#1434267</a> &lt;&lt; see also oldthread </td>
+<td><font color="gray">[<a id="2453696" href="#2453696">14:58</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2016-03-16 15:42 mircea_popescu: both the "shittier than historical" and "new addr for change" bits are satoshi's dubious kludges to protect "anonimity" </font></td>
+<td><font color="gray">[<a id="2453697" href="#2453697">14:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> In miscellani-lulz: "The Serbian football association says it will demand that FIFA take action against Granit Xhaka and Xherdan Shaqiri for their eagle salute goal celebrations in Switzerland’s 2-1 World Cup win in Kaliningrad on Friday. Shaqiri and Xhaka, both of whom were born in Kosovo and are of Albanian descent, celebrated their goals in Switzerland’s comeback win by making an eagle salute in apparent reference to the Alban </td>
+<td><font color="gray">[<a id="2453698" href="#2453698">15:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> ian flag." &lt;&lt; Apparently the whole swiss team is Albanian or Bosnian </td>
+<td><font color="gray">[<a id="2453699" href="#2453699">15:27</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://qntra.net/2018/06/austria-threatens-border-controls-against-increasingly-isolated-germany/" target=\'_blank\'>http://qntra.net/2018/06/austria-threatens-border-controls-against-increasingly-isolated-germany/</a> &lt;&lt; Qntra - Austria Threatens Border Controls Against Increasingly Isolated Germany </font></td>
+<td><font color="gray">[<a id="2453700" href="#2453700">15:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> asciilifeform: <a href="https://www.youtube.com/watch?v=SPu8iRwZBZU" target=\'_blank\'>https://www.youtube.com/watch?v=SPu8iRwZBZU</a> </td>
+<td><font color="gray">[<a id="2453701" href="#2453701">16:03</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">lobbesbot:</font></td>
+<td class="breakup"><font color="gray"> phf: Sent 3 hours and 6 minutes ago: &lt;asciilifeform&gt; <a href="http://btcbase.org/log/2018-06-22#1828933" target=\'_blank\'>http://btcbase.org/log/2018-06-22#1828933</a> &gt;&gt; <a href="http://btcbase.org/log/2018-06-23#1829007" target=\'_blank\'>http://btcbase.org/log/2018-06-23#1829007</a> &gt;&gt; <a href="https://github.com/coreboot/chrome-ec/blob/master/chip/g/signed_header.h" target=\'_blank\'>https://github.com/coreboot/chrome-ec/blob/master/chip/g/signed_header.h</a> &gt;&gt;&gt;&gt;&gt; <a href="http://www.loper-os.org/pub/c101pa/ro_signature.txt" target=\'_blank\'>http://www.loper-os.org/pub/c101pa/ro_signature.txt</a> ( not the only 1, but illustrative ) </font></td>
+<td><font color="gray">[<a id="2453702" href="#2453702">16:03</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">lobbesbot:</font></td>
+<td class="breakup"><font color="gray"> phf: Sent 2 hours and 54 minutes ago: &lt;asciilifeform&gt; other interesting observations: 1) loader is not the same as what appears in the src, in either 3.3 or 3.4 fw bin not only key differs, but eggog strings, and possibly the rsa per se. 2) seems like : nowhere else in the fw is there any other routine which checksums/rsaverifies the cr50 fw , or references the rsa keyz at all other than to print keyid . </font></td>
+<td><font color="gray">[<a id="2453703" href="#2453703">16:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> you dare speak in #trilema ?! here's eight lines of stuff from the logs! </td>
+<td><font color="gray">[<a id="2453704" href="#2453704">16:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> lol! </td>
+<td><font color="gray">[<a id="2453705" href="#2453705">16:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> "have you been reading your log? but in case you haven't here's some more log in your log" </td>
+<td><font color="gray">[<a id="2453706" href="#2453706">16:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> exactly! </td>
+<td><font color="gray">[<a id="2453707" href="#2453707">16:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> was aiming to nail down from what derives what, rather than flooding phf, lel </td>
+<td><font color="gray">[<a id="2453708" href="#2453708">16:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> the other interesting bit ( from asciilifeform's disasm of the 3.4 fw) is that there doesn't seem to be any pinning of the keys! ( i.e. i can't currently find any reason why it wouldn't eat a rw-fw update signed with a variant key, so long as said key is stuffed in where expected) </td>
+<td><font color="gray">[<a id="2453709" href="#2453709">16:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> nao this is imho hard to swallow ('submarine with screen door') and so currently i'm assuming that i simply missed something. will have to test, at any rate. </td>
+<td><font color="gray">[<a id="2453710" href="#2453710">16:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> "beware of dog"? seems unlikely though.. </td>
+<td><font color="gray">[<a id="2453711" href="#2453711">16:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> I have become utterly unaccustomed to dogs being beasts to fear </td>
+<td><font color="gray">[<a id="2453712" href="#2453712">16:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-06-23#1829108" target=\'_blank\'>http://btcbase.org/log/2018-06-23#1829108</a> &lt;&lt; the alternative, which would be a smaller patch, is a "setchangeaddr" RPC function. i'm leery of changing the call signatures of sendfrom and sendmany, but doing so might be The Right Thing nevertheless </td>
+<td><font color="gray">[<a id="2453713" href="#2453713">17:05</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-06-23 17:59 ben_vulpes: would it be sensible for the send&ast; commands to eat a changeaddress argument? </font></td>
+<td><font color="gray">[<a id="2453714" href="#2453714">17:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ben_vulpes: if changing the semantics, i recommend new names ( new commands ) </td>
+<td><font color="gray">[<a id="2453715" href="#2453715">17:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> eliminate possibility of confusion with old , or reactor meltdown if new trb is plugged into a scriptolade harness meant for old, etc </td>
+<td><font color="gray">[<a id="2453716" href="#2453716">17:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> e.g. 'sendbtc to=&lt;destaddr&gt; change=&lt;chgaddr&gt; [from=&lt;optionalfromaddr_0,optionalfromaddr_1,...,optionalfromaddr_n&gt;]' </td>
+<td><font color="gray">[<a id="2453717" href="#2453717">17:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> it would be much easier to make a sendmanywithchangeaddr than to rework both sendfrom and sendmany </td>
+<td><font color="gray">[<a id="2453718" href="#2453718">17:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> or some other name, but idea being that it must be 1) impossible to confuse it with old 2) keywords ~named~, no order dependency plox </td>
+<td><font color="gray">[<a id="2453719" href="#2453719">17:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> yeah that fucking horror of ordered args </td>
+<td><font color="gray">[<a id="2453720" href="#2453720">17:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> srsly we have enuff pistols that fire from 2 ends. time for a normal one. </td>
+<td><font color="gray">[<a id="2453721" href="#2453721">17:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> hehehe </td>
+<td><font color="gray">[<a id="2453722" href="#2453722">17:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ben_vulpes: dun forget fee=&lt;...&gt; </td>
+<td><font color="gray">[<a id="2453723" href="#2453723">17:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> aha </td>
+<td><font color="gray">[<a id="2453724" href="#2453724">17:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> ty </td>
+<td><font color="gray">[<a id="2453725" href="#2453725">17:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> and not optionally, but errytime. </td>
+<td><font color="gray">[<a id="2453726" href="#2453726">17:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> upstack : <a href="http://btcbase.org/log/2018-06-23#1829075" target=\'_blank\'>http://btcbase.org/log/2018-06-23#1829075</a> &lt;&lt; for the record , it withstood (not much surprise) phuctoring (incl. fermat etc) </td>
+<td><font color="gray">[<a id="2453727" href="#2453727">17:19</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-06-23 14:46 asciilifeform: meanwhile, for fyootoor ref, <a href="http://btcbase.org/log/2018-06-23#1829003" target=\'_blank\'>http://btcbase.org/log/2018-06-23#1829003</a> &gt;&gt;&gt;&gt; <a href="http://phuctor.nosuchlabs.com/gpgkey/2F5EC26698365939D499561F385A39A4217604DEB38913D71AFD135B28009DAF" target=\'_blank\'>http://phuctor.nosuchlabs.com/gpgkey/2F5EC26698365939D499561F385A39A4217604DEB38913D71AFD135B28009DAF</a> </font></td>
+<td><font color="gray">[<a id="2453728" href="#2453728">17:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> am i thick or does nothing in the rpc take named args already? </td>
+<td><font color="gray">[<a id="2453729" href="#2453729">17:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> not thick, this is so </td>
+<td><font color="gray">[<a id="2453730" href="#2453730">17:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> how cool </td>
+<td><font color="gray">[<a id="2453731" href="#2453731">17:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ben_vulpes: funnily enuff, ~this very item~ is how asciilifeform got mired in attempt to bolt a lisp onto trb </td>
+<td><font color="gray">[<a id="2453732" href="#2453732">17:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'this arg parser, with all of the eggog handlings/safeties already weighs 85% of lisp interpreter...' </td>
+<td><font color="gray">[<a id="2453733" href="#2453733">17:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> noooooshit </td>
+<td><font color="gray">[<a id="2453734" href="#2453734">17:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> writing parsers in overflowsanddanglingpointers-lang is braindamaged. </td>
+<td><font color="gray">[<a id="2453735" href="#2453735">17:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> sarcasm fails me in the face of cpp </td>
+<td><font color="gray">[<a id="2453736" href="#2453736">17:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( btw, this does not appear to be in the l0gz as-such, so asciilifeform will note : c was an evil thing from ~birth~. on machines so impoverished that 'c is necessary', oughta be writing in asm on machines where not necessary -- well, obvious ) </td>
+<td><font color="gray">[<a id="2453737" href="#2453737">17:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> heh </td>
+<td><font color="gray">[<a id="2453738" href="#2453738">17:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> !!up epony do you plan to register a key or what </td>
+<td><font color="gray">[<a id="2453739" href="#2453739">17:56</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> epony voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2453740" href="#2453740">17:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>epony:</b></td>
+<td class="breakup"> don't know, I'll read on for now.. </td>
+<td><font color="gray">[<a id="2453741" href="#2453741">17:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>epony:</b></td>
+<td class="breakup"> devoice if you please, nothing to say on my end </td>
+<td><font color="gray">[<a id="2453742" href="#2453742">17:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> epony: what do you perceive the cost of registering a key to be? </td>
+<td><font color="gray">[<a id="2453743" href="#2453743">17:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> put another way, why &ast;not&ast; do it? </td>
+<td><font color="gray">[<a id="2453744" href="#2453744">17:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>epony:</b></td>
+<td class="breakup"> because, why would I want to say anything before getting a feel of the tone of the conversation.. </td>
+<td><font color="gray">[<a id="2453745" href="#2453745">18:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>epony:</b></td>
+<td class="breakup"> put another way, ephemeral is nice </td>
+<td><font color="gray">[<a id="2453746" href="#2453746">18:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> consider, one day, you find yourself inspired to say something, you then go to register a key first? and then conversation gets derailed with "oh ho, look who finally registered a key" or alternatively "oh ho, who are you now?" </td>
+<td><font color="gray">[<a id="2453747" href="#2453747">18:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> chance favors the prepared keyring or what was it. </td>
+<td><font color="gray">[<a id="2453748" href="#2453748">18:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>epony:</b></td>
+<td class="breakup"> I'll then say "just nobody" :-) </td>
+<td><font color="gray">[<a id="2453749" href="#2453749">18:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>epony:</b></td>
+<td class="breakup"> It's fun playing mental experiments anyway </td>
+<td><font color="gray">[<a id="2453750" href="#2453750">18:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> epony: still haven't digested the epsilon appetite for nobodies? not obvious in your 11 days reading? </td>
+<td><font color="gray">[<a id="2453751" href="#2453751">18:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>epony:</b></td>
+<td class="breakup"> I cherry pick 1 line at a view. </td>
+<td><font color="gray">[<a id="2453752" href="#2453752">18:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>epony:</b></td>
+<td class="breakup"> I think it's 9 days since I pop back in. </td>
+<td><font color="gray">[<a id="2453753" href="#2453753">18:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>epony:</b></td>
+<td class="breakup"> Don't know where these 11 days come from... </td>
+<td><font color="gray">[<a id="2453754" href="#2453754">18:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-06-12#1823667" target=\'_blank\'>http://btcbase.org/log/2018-06-12#1823667</a> </td>
+<td><font color="gray">[<a id="2453755" href="#2453755">18:11</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-06-12 06:20 mircea_popescu: !!up epony </font></td>
+<td><font color="gray">[<a id="2453756" href="#2453756">18:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>epony:</b></td>
+<td class="breakup"> :) </td>
+<td><font color="gray">[<a id="2453757" href="#2453757">18:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> assuming that epony is this epony </td>
+<td><font color="gray">[<a id="2453758" href="#2453758">18:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>epony:</b></td>
+<td class="breakup"> same </td>
+<td><font color="gray">[<a id="2453759" href="#2453759">18:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>epony:</b></td>
+<td class="breakup"> so, idling 12-15 and out... back in 9 days... </td>
+<td><font color="gray">[<a id="2453760" href="#2453760">18:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> dun dun dun </td>
+<td><font color="gray">[<a id="2453761" href="#2453761">18:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> this reminds me, not long ago asciilifeform picked up a little chinese toy, item shaped like tennis raquet but the wires are charged to 4000v and connect to (small) cap a sort of mechanized fly swatter, they pop, little blue plasma burst, vapour. nominally. so then , having used it, later i see a most peculiar insect, did not immediately realize what it is, never having seen before. looked closely, turns out -- fly head + front legs </td>
+<td><font color="gray">[<a id="2453762" href="#2453762">18:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> , still waking along, mostly torso-less and wingless... </td>
+<td><font color="gray">[<a id="2453763" href="#2453763">18:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> &ast;walking </td>
+<td><font color="gray">[<a id="2453764" href="#2453764">18:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mm pretty satisfying, swinging that thing through cloud of mosquito </td>
+<td><font color="gray">[<a id="2453765" href="#2453765">19:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> &lt;+asciilifeform&gt; mod6: by all indications you have a box with iron problem. in your place i'd get a fresh set of iron, rather than sinking sweat into interpreting randomly flipped bits as 'bug' &lt;&lt; yeah for sure, it certainly could be related to the disk issue. I don't really think it's a 'bug' or anything. </td>
+<td><font color="gray">[<a id="2453766" href="#2453766">21:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> I'll call these guys and get them to throw in a ~new~ SSD for me this time. Or will just pay out, and find new service. </td>
+<td><font color="gray">[<a id="2453767" href="#2453767">21:13</a>]</font></td>
+</tr>
+</table>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2020/forum-logs-for-22-jun-2018/">Forum logs for 22 Jun 2018</a></div>
+                <div class="alignright"><a href="/2020/forum-logs-for-24-jun-2018/">Forum logs for 24 Jun 2018</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/logs/" title="View all posts in Logs" rel="category tag">Logs</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2020/forum-logs-for-23-jun-2018/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2020/forum-logs-for-23-jun-2018/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+
+
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authore8e1dd8" id="authore8e1dd8" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emaile8e1dd8" id="emaile8e1dd8" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urle8e1dd8" id="urle8e1dd8" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="92617" /></p>
+				<input type="hidden" name="comment_post_time" value="1735331980-152.53.39.118" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2024 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-92617")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-92617");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-92617");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

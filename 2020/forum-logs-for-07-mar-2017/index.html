@@ -1,0 +1,2771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_sep2018.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Forum logs for 07 Mar 2017 on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Heretiquarium.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-92144"><div class="post" id="post-92144">                    <h1><a href="/2020/forum-logs-for-07-mar-2017/" rel="bookmark" title="Permanent Link to Forum logs for 07 Mar 2017">Forum logs for 07 Mar 2017</a></h1>                        <div class="date">                                     Monday, 16 March, Year 12 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/" title="Posts by "></a>                                                        </div>
+
+                        <div class="entry">
+<table style="font-size:1em;width:"580px;">
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> bonjour everyone </td>
+<td><font color="gray">[<a id="2248351" href="#2248351">02:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> so i did some reading re the wallet separation thing and ended up realizing i had an incorrect idea about trb's internals </td>
+<td><font color="gray">[<a id="2248352" href="#2248352">03:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> i thought i'd find an in-memory UTXO index, which i didn't. appears to me like trb will have to keep some sort of "watched addresses list" after all, or that such an index will have to be bolted in somehow </td>
+<td><font color="gray">[<a id="2248353" href="#2248353">03:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> the former looks like the most practicable option at this point </td>
+<td><font color="gray">[<a id="2248354" href="#2248354">03:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!up dm0n_ </td>
+<td><font color="gray">[<a id="2248355" href="#2248355">09:24</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> dm0n_ voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2248356" href="#2248356">09:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> davout this links into which part of the conversation ? </td>
+<td><font color="gray">[<a id="2248357" href="#2248357">09:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>dm0n_:</b></td>
+<td class="breakup"> thks </td>
+<td><font color="gray">[<a id="2248358" href="#2248358">09:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> aha. an' who might you be ? </td>
+<td><font color="gray">[<a id="2248359" href="#2248359">09:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>Reuel:</b></td>
+<td class="breakup"> <a href="https://twitter.com/wikileaks" target=\'_blank\'>https://twitter.com/wikileaks</a> </td>
+<td><font color="gray">[<a id="2248360" href="#2248360">09:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>Reuel:</b></td>
+<td class="breakup"> Anyone following this? CIA dump </td>
+<td><font color="gray">[<a id="2248361" href="#2248361">09:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>Reuel:</b></td>
+<td class="breakup"> My smart TV :( </td>
+<td><font color="gray">[<a id="2248362" href="#2248362">09:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> notrly. trump vs the rogue usg, kinda meh. </td>
+<td><font color="gray">[<a id="2248363" href="#2248363">09:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>Reuel:</b></td>
+<td class="breakup"> poor USa... </td>
+<td><font color="gray">[<a id="2248364" href="#2248364">09:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> speaking of, asciilifeform what about that ada rsa for eulora! </td>
+<td><font color="gray">[<a id="2248365" href="#2248365">09:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>Reuel:</b></td>
+<td class="breakup"> "CIA air-gap jumping viruses" lol gonna read this </td>
+<td><font color="gray">[<a id="2248366" href="#2248366">09:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: when 'p' is released, it can be put to use in eulora and elsewhere </td>
+<td><font color="gray">[<a id="2248367" href="#2248367">10:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log-search?q=%22%27P%27%22" target=\'_blank\'>http://btcbase.org/log-search?q=%22%27P%27%22</a> &lt;&lt; stretches back... A YEAR. </td>
+<td><font color="gray">[<a id="2248368" href="#2248368">10:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> when is this when ? </td>
+<td><font color="gray">[<a id="2248369" href="#2248369">10:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ffs i have 2 hands mircea_popescu . </td>
+<td><font color="gray">[<a id="2248370" href="#2248370">10:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> hey, didn't that hawking fellow have an eyeball typewriter ? </td>
+<td><font color="gray">[<a id="2248371" href="#2248371">10:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> arse joystick </td>
+<td><font color="gray">[<a id="2248372" href="#2248372">10:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i gotta get one </td>
+<td><font color="gray">[<a id="2248373" href="#2248373">10:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> oh i thought you already had THAT </td>
+<td><font color="gray">[<a id="2248374" href="#2248374">10:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2017-03-07#1622672" target=\'_blank\'>http://btcbase.org/log/2017-03-07#1622672</a> &lt;&lt; <a href="https://wikileaks.org/ciav7p1" target=\'_blank\'>https://wikileaks.org/ciav7p1</a> &gt;&gt; massive bag'o'lulz, in some ways considerably moar 'current' than the snowden rubbish . includes discussion of 'nsa is retarded, they forget to strip out debug crapola', etc </td>
+<td><font color="gray">[<a id="2248375" href="#2248375">10:34</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2017-03-07 14:43 Reuel: <a href="https://twitter.com/wikileaks" target=\'_blank\'>https://twitter.com/wikileaks</a> </font></td>
+<td><font color="gray">[<a id="2248376" href="#2248376">10:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> and also hilarious 'HIVE is a multi-platform CIA malware suite and its associated control software. The project provides customizable implants for Windows, Solaris, MikroTik (used in internet routers) and Linux platforms and a Listening Post (LP)/Command and Control (C2) infrastructure to communicate with these implants.' </td>
+<td><font color="gray">[<a id="2248377" href="#2248377">10:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well it'd have to be more current, five years later. </td>
+<td><font color="gray">[<a id="2248378" href="#2248378">10:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mikrotik! </td>
+<td><font color="gray">[<a id="2248379" href="#2248379">10:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> !#s mikrotik </td>
+<td><font color="gray">[<a id="2248380" href="#2248380">10:35</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> 15 results for "mikrotik", <a href="http://btcbase.org/log-search?q=mikrotik" target=\'_blank\'>http://btcbase.org/log-search?q=mikrotik</a> </font></td>
+<td><font color="gray">[<a id="2248381" href="#2248381">10:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> anyway, shutting down the "lp/c2" bs is about half the fun of this internet life. </td>
+<td><font color="gray">[<a id="2248382" href="#2248382">10:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> half the time they don't even bother to argue the point, go down like common malware artists. </td>
+<td><font color="gray">[<a id="2248383" href="#2248383">10:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> the wikifolx censored ip list for some reason </td>
+<td><font color="gray">[<a id="2248384" href="#2248384">10:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> keeps changing anyway, notjust for above reason. </td>
+<td><font color="gray">[<a id="2248385" href="#2248385">10:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> but anyway, the "law enforcement" / terrorist government bs reduces to "we're like in the top 20 or so malware houses". hurr. </td>
+<td><font color="gray">[<a id="2248386" href="#2248386">10:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> hardly worth 0.1% of the budget. "cyberwarfare" hurr durr. </td>
+<td><font color="gray">[<a id="2248387" href="#2248387">10:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> possibly the funniest bit is the docs for their internal gossipd </td>
+<td><font color="gray">[<a id="2248388" href="#2248388">10:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> which is badly designed and dun work. </td>
+<td><font color="gray">[<a id="2248389" href="#2248389">10:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> has not tested, does not know how well works </td>
+<td><font color="gray">[<a id="2248390" href="#2248390">10:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> lel, mikrotik is ~the~ platform apparently. </td>
+<td><font color="gray">[<a id="2248391" href="#2248391">10:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> all versions factory-pwned, just as suggested by phuctor. </td>
+<td><font color="gray">[<a id="2248392" href="#2248392">10:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="https://wikileaks.org/ciav7p1/cms/index.html" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/index.html</a> &lt;&lt; handy table of lulz , for log readers. </td>
+<td><font color="gray">[<a id="2248393" href="#2248393">10:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> also apparently mircea_popescu was right about the staffing problems, <a href="https://wikileaks.org/ciav7p1/cms/page_23134361.html" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/page_23134361.html</a> </td>
+<td><font color="gray">[<a id="2248394" href="#2248394">10:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'gender commits' </td>
+<td><font color="gray">[<a id="2248395" href="#2248395">10:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; mircea_popescu</b></td>
+<td class="breakup"> gets lucky and is right on occasions! </td>
+<td><font color="gray">[<a id="2248396" href="#2248396">10:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> CandyMountain_v1.0/bin/unclassified/centos/candymountain-centos-64 &lt;&lt; lel </td>
+<td><font color="gray">[<a id="2248397" href="#2248397">10:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="https://wikileaks.org/ciav7p1/cms/page_14587860.html" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/page_14587860.html</a> &lt;&lt; the very same huaweis </td>
+<td><font color="gray">[<a id="2248398" href="#2248398">10:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> from phuctor. </td>
+<td><font color="gray">[<a id="2248399" href="#2248399">10:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> lulzy </td>
+<td><font color="gray">[<a id="2248400" href="#2248400">10:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i suppose the fellow who was looking to be useful could write a phuctor - confirmed - by - wikileaks piece for qntra. </td>
+<td><font color="gray">[<a id="2248401" href="#2248401">10:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> anybody who wants a copy of the 'implants' wikilicks censored, just gotta log into some of the phuctored boxen. </td>
+<td><font color="gray">[<a id="2248402" href="#2248402">10:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> the fundamental problem being that it's way the fuck easier to spend day clicking through lolpics and "voting" on whatever retarded 2.0 site than reading the logs which then down the road means that one can'd do jack shit that's useful because drooled in class instead of paying attention. and so it goes, the gap between man and cow ever deepens. </td>
+<td><font color="gray">[<a id="2248403" href="#2248403">10:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>Framedragger:</b></td>
+<td class="breakup"> vim tips (<a href="https://wikileaks.org/ciav7p1/cms/page_3375350.html)" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/page_3375350.html)</a> and unit test guidelines (SECRET//NOFORN!!!1) <a href="https://wikileaks.org/ciav7p1/cms/page_11629048.html" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/page_11629048.html</a> </td>
+<td><font color="gray">[<a id="2248404" href="#2248404">10:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> "oh i had some other things to do." </td>
+<td><font color="gray">[<a id="2248405" href="#2248405">10:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="https://wikileaks.org/ciav7p1/cms/page_14588809.html" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/page_14588809.html</a> &lt;&lt; 'how nsa fucked' </td>
+<td><font color="gray">[<a id="2248406" href="#2248406">10:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i'm sure you did, especially given that there totally even are other things to do irl. like... what ? </td>
+<td><font color="gray">[<a id="2248407" href="#2248407">10:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> Framedragger they have a point, indians don't do unit tests. </td>
+<td><font color="gray">[<a id="2248408" href="#2248408">10:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Who wants the honor of writing of Wikileaks Phuctor gloating for Qntra? </td>
+<td><font color="gray">[<a id="2248409" href="#2248409">11:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; Framedragger</b></td>
+<td class="breakup"> commits to writing at least one article in june (or maybe even before) #preplanninglikeachump </td>
+<td><font color="gray">[<a id="2248410" href="#2248410">11:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; shinohai</b></td>
+<td class="breakup"> is busy with whoreticulture but may have time later if no one else steps up .... </td>
+<td><font color="gray">[<a id="2248411" href="#2248411">11:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="https://wikileaks.org/ciav7p1/cms/page_14588652.html" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/page_14588652.html</a> &lt;&lt; more in re mircea_popescu's psychiatric observations </td>
+<td><font color="gray">[<a id="2248412" href="#2248412">11:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>Framedragger:</b></td>
+<td class="breakup"> some kind of boys club with too much time on their hands lol. </td>
+<td><font color="gray">[<a id="2248413" href="#2248413">11:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> If no one else writes /me will, but mostly offering mircea_popescu and asciilifeform, S.NSA partners well earned "dibs" if they want them </td>
+<td><font color="gray">[<a id="2248414" href="#2248414">11:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2017-03-07#1622669" target=\'_blank\'>http://btcbase.org/log/2017-03-07#1622669</a> &lt;&lt;&lt; folks wondering how the "wallet split" was going </td>
+<td><font color="gray">[<a id="2248415" href="#2248415">11:40</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2017-03-07 14:25 mircea_popescu: davout this links into which part of the conversation ? </font></td>
+<td><font color="gray">[<a id="2248416" href="#2248416">11:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> seems somewhat solipsistic </td>
+<td><font color="gray">[<a id="2248417" href="#2248417">11:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'Topic 3: BadUSB' &lt;&lt; lel </td>
+<td><font color="gray">[<a id="2248418" href="#2248418">11:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> mircea_popescu: howso ? </td>
+<td><font color="gray">[<a id="2248419" href="#2248419">11:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> "what part of the conversation this links to ?" "no, just stuff going on in my head" "seems like stuff going on in your head" "how so" </td>
+<td><font color="gray">[<a id="2248420" href="#2248420">11:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2017-02-19#1615802" target=\'_blank\'>http://btcbase.org/log/2017-02-19#1615802</a> </td>
+<td><font color="gray">[<a id="2248421" href="#2248421">11:47</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2017-02-19 22:41 mod6: i haven't heard on davout's progress recently. </font></td>
+<td><font color="gray">[<a id="2248422" href="#2248422">11:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2017-02-19#1615799" target=\'_blank\'>http://btcbase.org/log/2017-02-19#1615799</a> </td>
+<td><font color="gray">[<a id="2248423" href="#2248423">11:47</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2017-02-19 22:40 mircea_popescu: curious how davout 's work on splitting function is coming along btw </font></td>
+<td><font color="gray">[<a id="2248424" href="#2248424">11:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; davout</b></td>
+<td class="breakup"> is confused. </td>
+<td><font color="gray">[<a id="2248425" href="#2248425">11:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well, so how is it coming along ? </td>
+<td><font color="gray">[<a id="2248426" href="#2248426">11:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> back at square one, did some reading to get started on implementing what i had in mind (full scan of the UTXO upon request for UTXOs relevant to addresses) </td>
+<td><font color="gray">[<a id="2248427" href="#2248427">11:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 1 more lul: </td>
+<td><font color="gray">[<a id="2248428" href="#2248428">11:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> '(S//NF) All tools must utilize OS provided cryptographically secure sources of entropy (e.g., /dev/random on &ast;nix, Microsoft CryptoAPI, etc) and should be a source compliant with NIST SP 800- 90. If a non-800-90 mechanism is used, the output from the source of entropy must be hashed with SHA-256 prior to use. Deviations from this must be justified and accepted by the OCRB.' -- 'Network Operations Division Cryptographic Requirements' </td>
+<td><font color="gray">[<a id="2248429" href="#2248429">11:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> did what you have in mind come from a discussion here at any point ? </td>
+<td><font color="gray">[<a id="2248430" href="#2248430">11:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> found out that i in fact hallucinated the existence of this index, which may or may not have been added later on to prb, but was absent from trb </td>
+<td><font color="gray">[<a id="2248431" href="#2248431">11:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> yeah, i remember talking about it here </td>
+<td><font color="gray">[<a id="2248432" href="#2248432">11:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> can link ? </td>
+<td><font color="gray">[<a id="2248433" href="#2248433">11:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> <a href="http://fr.anco.is/2017/removing-the-wallet-from-trb-first-thoughts" target=\'_blank\'>http://fr.anco.is/2017/removing-the-wallet-from-trb-first-thoughts</a> </td>
+<td><font color="gray">[<a id="2248434" href="#2248434">11:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> seems kinda solipsistic. </td>
+<td><font color="gray">[<a id="2248435" href="#2248435">11:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> "how so" "because you didn't link to the conversation here, you linked to your own thingee" </td>
+<td><font color="gray">[<a id="2248436" href="#2248436">11:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> "i am confused" "evidently" </td>
+<td><font color="gray">[<a id="2248437" href="#2248437">11:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; mircea_popescu</b></td>
+<td class="breakup"> saving the next 14:25 - 13:55 interval of this convo. </td>
+<td><font color="gray">[<a id="2248438" href="#2248438">11:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2017-01-27#1608204" target=\'_blank\'>http://btcbase.org/log/2017-01-27#1608204</a> </td>
+<td><font color="gray">[<a id="2248439" href="#2248439">11:54</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2017-01-27 19:00 davout: thestringpuller: UTXO set is ~2gb tops, indexing might be nice but necessary to scan for UTXOs that match a given set of addresses, also the wallet part can cache them if that particular wallet is the only one able to actually spend those UTXIs </font></td>
+<td><font color="gray">[<a id="2248440" href="#2248440">11:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; mircea_popescu</b></td>
+<td class="breakup"> off to re-read that thing </td>
+<td><font color="gray">[<a id="2248441" href="#2248441">11:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> davout: the '~2gb tops' may (or may not) be true currently, but it is a fundamentally unbounded quantity. as discussed in 2 very recent threads with mircea_popescu re 'proton decay' and ultimate lifespan of bitcoin </td>
+<td><font color="gray">[<a id="2248442" href="#2248442">11:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> asciilifeform: yeah, you did mention it also during that thread </td>
+<td><font color="gray">[<a id="2248443" href="#2248443">11:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i also recall a thread re how to do this with maybe mimi or else deedbot, which i don't think is that one </td>
+<td><font color="gray">[<a id="2248444" href="#2248444">11:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> davout: likewise i have nfi why wallet split requires indexing ~all~ unspents. just index the ones the user specifies </td>
+<td><font color="gray">[<a id="2248445" href="#2248445">11:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> how will the user specify them </td>
+<td><font color="gray">[<a id="2248446" href="#2248446">11:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> asciilifeform: the idea was that the internet facing piece shouldn't have this kind of information </td>
+<td><font color="gray">[<a id="2248447" href="#2248447">11:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> (but yes, this was broadly the idea there, index by arbitrary-address-list) </td>
+<td><font color="gray">[<a id="2248448" href="#2248448">11:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> davout: aha, you do it on an in-house 'hot' node </td>
+<td><font color="gray">[<a id="2248449" href="#2248449">11:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> (at some point you gotta touch the net, if you want to broadcast tx, or learn that you've been paid) </td>
+<td><font color="gray">[<a id="2248450" href="#2248450">11:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> well, obviously, but there's no particular reason your signed tx has to go out through ~your~ node </td>
+<td><font color="gray">[<a id="2248451" href="#2248451">11:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2017-01-03#1595779" target=\'_blank\'>http://btcbase.org/log/2017-01-03#1595779</a> &lt;&lt; ah there it was. </td>
+<td><font color="gray">[<a id="2248452" href="#2248452">11:59</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2017-01-03 20:42 mircea_popescu: this scheme among other things cheaply allows the "add arbitrary new address to wallet", just have utility that (separately) processes B.B and produces new set of B.T. </font></td>
+<td><font color="gray">[<a id="2248453" href="#2248453">11:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> davout so the competing idea, other than "maintain uxto unspent index", was "maintain index of txn involving specified list of addresses" </td>
+<td><font color="gray">[<a id="2248454" href="#2248454">12:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> the existing wallet already does that </td>
+<td><font color="gray">[<a id="2248455" href="#2248455">12:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> that's the bit i was looking for. </td>
+<td><font color="gray">[<a id="2248456" href="#2248456">12:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ok, so then what's teh problem ? </td>
+<td><font color="gray">[<a id="2248457" href="#2248457">12:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> 1. the principle of the thing where the wallet is coupled to the node and chain storage </td>
+<td><font color="gray">[<a id="2248458" href="#2248458">12:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i thought that was adequately resolved through layering. </td>
+<td><font color="gray">[<a id="2248459" href="#2248459">12:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> 2. the way the existing trb wallet currently works, mainly the automatic utxo selection </td>
+<td><font color="gray">[<a id="2248460" href="#2248460">12:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> didja ever discuss the unsuitability of that ? </td>
+<td><font color="gray">[<a id="2248461" href="#2248461">12:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> of the coupling? </td>
+<td><font color="gray">[<a id="2248462" href="#2248462">12:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yes. </td>
+<td><font color="gray">[<a id="2248463" href="#2248463">12:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i also dun get 2. how's the fact you already have the index you need related to the fact prb fucks up output selection ? </td>
+<td><font color="gray">[<a id="2248464" href="#2248464">12:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> you mean trb? </td>
+<td><font color="gray">[<a id="2248465" href="#2248465">12:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> trb too, for now, i guess. </td>
+<td><font color="gray">[<a id="2248466" href="#2248466">12:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> it's not really related </td>
+<td><font color="gray">[<a id="2248467" href="#2248467">12:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well then why's it there. </td>
+<td><font color="gray">[<a id="2248468" href="#2248468">12:03</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://phuctor.nosuchlabs.com/gpgkey/84DEA074B5B7F0A858E8B3AE0A0E6C1EEF4E40E2835FB94585FA727B344168FD" target=\'_blank\'>http://phuctor.nosuchlabs.com/gpgkey/84DEA074B5B7F0A858E8B3AE0A0E6C1EEF4E40E2835FB94585FA727B344168FD</a> &lt;&lt; Recent Phuctorings. - Phuctored: 1508...2273 divides RSA Moduli belonging to '77.37.2.63 (ssh-rsa key from 77.37.2.63 (13-14 June 2016 extraction) for Phuctor import. Ask asciilifeform or framedragger on Freenode, or email fd at mkj dot lt) &lt;ssh...lt&gt; ' (Unknown DE HE) </font></td>
+<td><font color="gray">[<a id="2248469" href="#2248469">12:04</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://phuctor.nosuchlabs.com/gpgkey/84DEA074B5B7F0A858E8B3AE0A0E6C1EEF4E40E2835FB94585FA727B344168FD" target=\'_blank\'>http://phuctor.nosuchlabs.com/gpgkey/84DEA074B5B7F0A858E8B3AE0A0E6C1EEF4E40E2835FB94585FA727B344168FD</a> &lt;&lt; Recent Phuctorings. - Phuctored: 1720...7347 divides RSA Moduli belonging to '77.37.2.63 (ssh-rsa key from 77.37.2.63 (13-14 June 2016 extraction) for Phuctor import. Ask asciilifeform or framedragger on Freenode, or email fd at mkj dot lt) &lt;ssh...lt&gt; ' (Unknown DE HE) </font></td>
+<td><font color="gray">[<a id="2248470" href="#2248470">12:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> has the index, should ask user to select outputs, not automagically generate transaction </td>
+<td><font color="gray">[<a id="2248471" href="#2248471">12:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> absolutely. </td>
+<td><font color="gray">[<a id="2248472" href="#2248472">12:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> s/outputs/inputs/ </td>
+<td><font color="gray">[<a id="2248473" href="#2248473">12:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yeah. </td>
+<td><font color="gray">[<a id="2248474" href="#2248474">12:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> so basically i thought it would be quite easy to cleanly decouple the wallet from the node, but i'm now stuck with the realization that for now the most workable option will simply be to make small improvements here and there </td>
+<td><font color="gray">[<a id="2248475" href="#2248475">12:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well, if you're not willing the read the jan 3rd discussion, i guess. </td>
+<td><font color="gray">[<a id="2248476" href="#2248476">12:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> yeah, i will. </td>
+<td><font color="gray">[<a id="2248477" href="#2248477">12:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> i did read actually, but seems it didn't really stick </td>
+<td><font color="gray">[<a id="2248478" href="#2248478">12:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> lol ok. anyway, the issue is that you seemed diverged, ie conversation is there, you're doing something else with no real discussion of why / what's wrong with it / etc. </td>
+<td><font color="gray">[<a id="2248479" href="#2248479">12:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2017-01-03#1595788" target=\'_blank\'>http://btcbase.org/log/2017-01-03#1595788</a> &lt;&lt;&lt; hah, true </td>
+<td><font color="gray">[<a id="2248480" href="#2248480">12:14</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2017-01-03 20:51 davout: hrm, i'll have to re-read </font></td>
+<td><font color="gray">[<a id="2248481" href="#2248481">12:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> lel </td>
+<td><font color="gray">[<a id="2248482" href="#2248482">12:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="https://wikileaks.org/ciav7p1/cms/page_4849711.html" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/page_4849711.html</a> &lt;&lt; lel they have in-house irc </td>
+<td><font color="gray">[<a id="2248483" href="#2248483">12:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> almost like people </td>
+<td><font color="gray">[<a id="2248484" href="#2248484">12:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> do you know since when ? </td>
+<td><font color="gray">[<a id="2248485" href="#2248485">12:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> (rather than 'slack', aol, etc.) </td>
+<td><font color="gray">[<a id="2248486" href="#2248486">12:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: dunno, prolly since 1985 or wat </td>
+<td><font color="gray">[<a id="2248487" href="#2248487">12:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> 2013ish actually afaik. </td>
+<td><font color="gray">[<a id="2248488" href="#2248488">12:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> mircea_popescu: i agree that the description made in the convo you linked is a very desirable target architecture </td>
+<td><font color="gray">[<a id="2248489" href="#2248489">12:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="https://wikileaks.org/ciav7p1/cms/page_46628880.html" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/page_46628880.html</a> &lt;&lt; 31117w4r3z </td>
+<td><font color="gray">[<a id="2248490" href="#2248490">12:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> davout dja see a problem with it ? </td>
+<td><font color="gray">[<a id="2248491" href="#2248491">12:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> as far as the wallet is concerned it's pretty much "when new address is added, rescan blockchain, have relevant txes in specific collection" </td>
+<td><font color="gray">[<a id="2248492" href="#2248492">12:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> pretty much </td>
+<td><font color="gray">[<a id="2248493" href="#2248493">12:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> i don't see any fundamental problem with it </td>
+<td><font color="gray">[<a id="2248494" href="#2248494">12:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i don't see the user has a leg to stand on, "i'm not sure which my addresses are". if you add some - there's a (minor) penalty. </td>
+<td><font color="gray">[<a id="2248495" href="#2248495">12:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well ok so then you can just make it. </td>
+<td><font color="gray">[<a id="2248496" href="#2248496">12:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> maybe fundamental problem appears. </td>
+<td><font color="gray">[<a id="2248497" href="#2248497">12:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> in essence, that's already what trb does </td>
+<td><font color="gray">[<a id="2248498" href="#2248498">12:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> keeping a pile of ALL utxos, as the alternative, is not very good, because you end up storing a bunch of (potentially toxic) crap </td>
+<td><font color="gray">[<a id="2248499" href="#2248499">12:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> i thought trb was keeping them in ram already </td>
+<td><font color="gray">[<a id="2248500" href="#2248500">12:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> node-trb. </td>
+<td><font color="gray">[<a id="2248501" href="#2248501">12:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> this'd be wallet-trb. </td>
+<td><font color="gray">[<a id="2248502" href="#2248502">12:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> which allowed any existing node to trivially serve any arbitrary wallet, at the cost of a 2gb memory scan for unspent outs </td>
+<td><font color="gray">[<a id="2248503" href="#2248503">12:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well yes but the idea was to split. </td>
+<td><font color="gray">[<a id="2248504" href="#2248504">12:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> it would have allowed some level of split, but anyway, this particular idea is dead since trb doesn't have this in-memory data structure </td>
+<td><font color="gray">[<a id="2248505" href="#2248505">12:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> so now, re your description, i'm not sure what a good start would be, because cutting it the way you described sounds like a mega-project that encompasses more than the mere wallet </td>
+<td><font color="gray">[<a id="2248506" href="#2248506">12:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> how so ? </td>
+<td><font color="gray">[<a id="2248507" href="#2248507">12:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> well, as i understand it the end result is a different set of binaries that talk together through a $to-be-defined queue mechanism </td>
+<td><font color="gray">[<a id="2248508" href="#2248508">12:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> and even if single binary, still sounds like a large architectural rewrite </td>
+<td><font color="gray">[<a id="2248509" href="#2248509">12:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> you can just take stock trb, operate on it, and place it so it only connects to operator-specified trb nodes. </td>
+<td><font color="gray">[<a id="2248510" href="#2248510">12:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> then you can take stock trb, operate on it, and so people interested can pick both version, have internal-external couple. </td>
+<td><font color="gray">[<a id="2248511" href="#2248511">12:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> conceivably can use current trb as your genesis for this. </td>
+<td><font color="gray">[<a id="2248512" href="#2248512">12:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> yeah, take a few trbs and cut different parts from each basically </td>
+<td><font color="gray">[<a id="2248513" href="#2248513">12:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yep </td>
+<td><font color="gray">[<a id="2248514" href="#2248514">12:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> design a way for them to talk together </td>
+<td><font color="gray">[<a id="2248515" href="#2248515">12:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> then also conceivably the changes will be backported into trb main once well tested </td>
+<td><font color="gray">[<a id="2248516" href="#2248516">12:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> and so there you go </td>
+<td><font color="gray">[<a id="2248517" href="#2248517">12:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well no, let them talk to each other as they do now exactly. </td>
+<td><font color="gray">[<a id="2248518" href="#2248518">12:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> you don't have to invent a new protocol. </td>
+<td><font color="gray">[<a id="2248519" href="#2248519">12:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2017-03-07#1622815" target=\'_blank\'>http://btcbase.org/log/2017-03-07#1622815</a> &lt;&lt; davout why would you need to store all of these?! just fire them, through the diode, at the wallet box that is actually computing addr balances , 1 at a time </td>
+<td><font color="gray">[<a id="2248520" href="#2248520">12:29</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2017-03-07 17:22 davout: which allowed any existing node to trivially serve any arbitrary wallet, at the cost of a 2gb memory scan for unspent outs </font></td>
+<td><font color="gray">[<a id="2248521" href="#2248521">12:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> eh trhat's a dead branch, let it be. </td>
+<td><font color="gray">[<a id="2248522" href="#2248522">12:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> aite </td>
+<td><font color="gray">[<a id="2248523" href="#2248523">12:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> still eating thread </td>
+<td><font color="gray">[<a id="2248524" href="#2248524">12:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> this has been a honest-to-god real-time davout node emerging in march going "so guyse... chatlog-block-419333 is highest rite ?" and resyncs ensued. </td>
+<td><font color="gray">[<a id="2248525" href="#2248525">12:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> bitcoin is like the paradigm of thought. </td>
+<td><font color="gray">[<a id="2248526" href="#2248526">12:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'AVG will sometimes heuristically identify Raptor/Melomy/Ferret trojans as, well, Trojans (duh). However, in many cases this heuristic detection can be avoided by renaming the .exe to a common installer name such as setup.exe. There may be other names that can be used – Windows itself recognizes a few "installer" exe names and slaps the little shield icon on there by default and also does that weird "this program didn't install c </td>
+<td><font color="gray">[<a id="2248527" href="#2248527">12:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> orrectly" popup, which can be elminated with some manifest-fu.' </td>
+<td><font color="gray">[<a id="2248528" href="#2248528">12:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> gold. </td>
+<td><font color="gray">[<a id="2248529" href="#2248529">12:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> sounds about the level. </td>
+<td><font color="gray">[<a id="2248530" href="#2248530">12:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> you understand ? backfeed fucking computing, "if i do this this happens so you press thios button" sorta excel-dev. </td>
+<td><font color="gray">[<a id="2248531" href="#2248531">12:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> this split really doesn't sound that simple to me </td>
+<td><font color="gray">[<a id="2248532" href="#2248532">12:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> davout well it's certainly not trivial, no. </td>
+<td><font color="gray">[<a id="2248533" href="#2248533">12:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i suspect it's the simplest-possible, which still doesn't promise it's simpler than any arbitrary level. </td>
+<td><font color="gray">[<a id="2248534" href="#2248534">12:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> see, i don't see how it could be done without designing another way for nodes to communicate in another way than the currently existing protocol </td>
+<td><font color="gray">[<a id="2248535" href="#2248535">12:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: so far reads like data dump from any large american software co. plenty of 'excel monkey' material, a veeery small bit of classy. </td>
+<td><font color="gray">[<a id="2248536" href="#2248536">12:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> davout why not ? </td>
+<td><font color="gray">[<a id="2248537" href="#2248537">12:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> davout: there is also eatblock </td>
+<td><font color="gray">[<a id="2248538" href="#2248538">12:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform just about. and large in the sense of alcatel not in the sense of alphabet, at that. </td>
+<td><font color="gray">[<a id="2248539" href="#2248539">12:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> wallet node could be munching with that hole </td>
+<td><font color="gray">[<a id="2248540" href="#2248540">12:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> for example, how does the wallet perform a reindex, without storing the chain itself </td>
+<td><font color="gray">[<a id="2248541" href="#2248541">12:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> davout wallet doesn't. </td>
+<td><font color="gray">[<a id="2248542" href="#2248542">12:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> meh. wallet doesn't NOT store the chain. it's just stock trb. </td>
+<td><font color="gray">[<a id="2248543" href="#2248543">12:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> it doesn't store ~the mempool~ is all. </td>
+<td><font color="gray">[<a id="2248544" href="#2248544">12:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i know of no reason why wallet would ever want to ~receive~ mempool tx </td>
+<td><font color="gray">[<a id="2248545" href="#2248545">12:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> if net-trb decides to engage in a reorg, it will eventually induce one in all the wallet-trbs connected to it. </td>
+<td><font color="gray">[<a id="2248546" href="#2248546">12:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform quite. </td>
+<td><font color="gray">[<a id="2248547" href="#2248547">12:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> why would it send either? crap a signed tx and operator feeds it to network node </td>
+<td><font color="gray">[<a id="2248548" href="#2248548">12:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> and trinque has it : i've put up nodes that communicate outside the house ~only~ via eatblock </td>
+<td><font color="gray">[<a id="2248549" href="#2248549">12:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform incidentally your ssh thing may well have been a major step forward for this split. </td>
+<td><font color="gray">[<a id="2248550" href="#2248550">12:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> worx great. </td>
+<td><font color="gray">[<a id="2248551" href="#2248551">12:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> aha </td>
+<td><font color="gray">[<a id="2248552" href="#2248552">12:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> because now - they can ssh connect! </td>
+<td><font color="gray">[<a id="2248553" href="#2248553">12:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: that is one of the most obvious uses, aha </td>
+<td><font color="gray">[<a id="2248554" href="#2248554">12:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> aha. </td>
+<td><font color="gray">[<a id="2248555" href="#2248555">12:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> asciilifeform: knowing about incoming txes before they've confirmed? </td>
+<td><font color="gray">[<a id="2248556" href="#2248556">12:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> why does that help anything? </td>
+<td><font color="gray">[<a id="2248557" href="#2248557">12:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> davout: ~nobody gives half a shit about unconfirmed tx he didn't himself make </td>
+<td><font color="gray">[<a id="2248558" href="#2248558">12:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> isn't in a block may &ast;never&ast; be in a block </td>
+<td><font color="gray">[<a id="2248559" href="#2248559">12:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> aha </td>
+<td><font color="gray">[<a id="2248560" href="#2248560">12:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i concur. "unconfirmed tx" is improperly thought of as a tx. </td>
+<td><font color="gray">[<a id="2248561" href="#2248561">12:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> asciilifeform: mebbe operator wants to check his tx propagated? </td>
+<td><font color="gray">[<a id="2248562" href="#2248562">12:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> and if I wanted that I'd want to do it as a "mempool explorer" tool </td>
+<td><font color="gray">[<a id="2248563" href="#2248563">12:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> ^ </td>
+<td><font color="gray">[<a id="2248564" href="#2248564">12:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> davout operator sshs into network node. </td>
+<td><font color="gray">[<a id="2248565" href="#2248565">12:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> davout: you wouldn't do this from wallet box </td>
+<td><font color="gray">[<a id="2248566" href="#2248566">12:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> and yes, better money just ask mimi for instance. </td>
+<td><font color="gray">[<a id="2248567" href="#2248567">12:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> (ie, someone else.) </td>
+<td><font color="gray">[<a id="2248568" href="#2248568">12:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> i really don't feel strongly about this, just thinking out loud </td>
+<td><font color="gray">[<a id="2248569" href="#2248569">12:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>davout:</b></td>
+<td class="breakup"> (this unconfirmed tx thing) </td>
+<td><font color="gray">[<a id="2248570" href="#2248570">12:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> that's why the forum's here for. </td>
+<td><font color="gray">[<a id="2248571" href="#2248571">12:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well, that and not being read. </td>
+<td><font color="gray">[<a id="2248572" href="#2248572">12:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> in other lulz, nsa has internal clone of ida, 'ghidra' </td>
+<td><font color="gray">[<a id="2248573" href="#2248573">12:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> java turd. </td>
+<td><font color="gray">[<a id="2248574" href="#2248574">12:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> and it is not even first-revealed in today's dump, has figured in... help-wanted ads, for eons. </td>
+<td><font color="gray">[<a id="2248575" href="#2248575">12:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> does it even work ? </td>
+<td><font color="gray">[<a id="2248576" href="#2248576">12:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> now how would i know. </td>
+<td><font color="gray">[<a id="2248577" href="#2248577">12:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> in-house mega-seekrit javaturd. </td>
+<td><font color="gray">[<a id="2248578" href="#2248578">12:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( ads, e.g., <a href="https://www.techexpousa.com/jobdetails.cfm/450840/Software-Engineer" target=\'_blank\'>https://www.techexpousa.com/jobdetails.cfm/450840/Software-Engineer</a> ) </td>
+<td><font color="gray">[<a id="2248579" href="#2248579">12:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> myeah. </td>
+<td><font color="gray">[<a id="2248580" href="#2248580">12:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> lel, ipnoje uses 'tinyscheme' internally. </td>
+<td><font color="gray">[<a id="2248581" href="#2248581">12:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'Apple seems to have taken version 1.38 of the Tiny Scheme project (available online, google it or check workshop output) and modified it a little. Most modifications are fixes for the most obvious bugs in the program: changing sprintf to snprintf and adding some more size checks but they have not fixed everything. In fact, they haven't even bothered keeping up with the Tiny Scheme project, which is now on version 1.41. Apple have al </td>
+<td><font color="gray">[<a id="2248582" href="#2248582">12:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> so added a couple of new members and changed some sizes in the struct scheme.These are fairly trivial to reverse but comparing each function in a disassembler with the Tiny Scheme source version. Apple uses Tiny Scheme to create a vector of sandbox rules that it then converts to a compiled sandbox profile....' </td>
+<td><font color="gray">[<a id="2248583" href="#2248583">12:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> lel </td>
+<td><font color="gray">[<a id="2248584" href="#2248584">12:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( from the docs of the active ios9+ browser driveby-with-arbitrary-payload. which hopefully surprises nobody ) </td>
+<td><font color="gray">[<a id="2248585" href="#2248585">12:59</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://qntra.net/2017/03/wikileaks-hands-elected-trump-us-government-weapon-to-gut-careerist-deep-state-us-government/" target=\'_blank\'>http://qntra.net/2017/03/wikileaks-hands-elected-trump-us-government-weapon-to-gut-careerist-deep-state-us-government/</a> &lt;&lt; Qntra - Wikileaks Hands Elected Trump US Government Weapon To Gut Careerist 'Deep State' US Government </font></td>
+<td><font color="gray">[<a id="2248586" href="#2248586">12:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( more re same, <a href="https://wikileaks.org/ciav7p1/cms/page_13205587.html" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/page_13205587.html</a> ) </td>
+<td><font color="gray">[<a id="2248587" href="#2248587">13:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: neato </td>
+<td><font color="gray">[<a id="2248588" href="#2248588">13:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> ty asciilifeform, figured I'd take big picture leaving opportunity for experts to fill in mined lulz with further submissions </td>
+<td><font color="gray">[<a id="2248589" href="#2248589">13:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'VOIP - Huawei VOIP Collection' &lt;&lt; direct phuctor lel </td>
+<td><font color="gray">[<a id="2248590" href="#2248590">13:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> various cisco rootkits, also, but these i regard as a snore </td>
+<td><font color="gray">[<a id="2248591" href="#2248591">13:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> buncha konsoomer junk also (linksys et al) </td>
+<td><font color="gray">[<a id="2248592" href="#2248592">13:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>Framedragger:</b></td>
+<td class="breakup"> isn't internet backbone basically juniper + cisco still? :( </td>
+<td><font color="gray">[<a id="2248593" href="#2248593">13:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> Framedragger: don't forget huawei. </td>
+<td><font color="gray">[<a id="2248594" href="#2248594">13:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> which is why you'll often find trb-related tcp pipes randomly RST'd, and the like. </td>
+<td><font color="gray">[<a id="2248595" href="#2248595">13:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>Framedragger:</b></td>
+<td class="breakup"> i thought huawei only made consumer shit? (not that that's reassuring...) </td>
+<td><font color="gray">[<a id="2248596" href="#2248596">13:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> nope </td>
+<td><font color="gray">[<a id="2248597" href="#2248597">13:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>Framedragger:</b></td>
+<td class="breakup"> i see - i'm behind on the internet of shit it seems </td>
+<td><font color="gray">[<a id="2248598" href="#2248598">13:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'Development of a tool to burst out a binary using udp packets with forward error correction at 100MB/s' &lt;&lt; somebody reads the l0gz </td>
+<td><font color="gray">[<a id="2248599" href="#2248599">13:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="https://wikileaks.org/ciav7p1/cms/page_5341225.html" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/page_5341225.html</a> &lt;&lt; him, apparently </td>
+<td><font color="gray">[<a id="2248600" href="#2248600">13:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'Worked as head of Software Engineering at Mediatech Inc. from 2004-2006' &lt;&lt; who will be the first to name this illustrious fella. </td>
+<td><font color="gray">[<a id="2248601" href="#2248601">13:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="https://wikileaks.org/ciav7p1/cms/page_18382968.html" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/page_18382968.html</a> &lt;&lt; winblowz code-signing bypass, courtesy of microshit </td>
+<td><font color="gray">[<a id="2248602" href="#2248602">13:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="https://wikileaks.org/ciav7p1/cms/page_3375460.html" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/page_3375460.html</a> &lt;&lt; usbdrive-shaped hardware raper for crapple desktops </td>
+<td><font color="gray">[<a id="2248603" href="#2248603">13:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="https://wikileaks.org/ciav7p1/cms/page_14588150.html" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/page_14588150.html</a> &lt;&lt; crapple firmware infector </td>
+<td><font color="gray">[<a id="2248604" href="#2248604">13:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> no lets get rid of openfirmware it doesn't x, y, and ... </td>
+<td><font color="gray">[<a id="2248605" href="#2248605">13:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> moar ARM and EFI </td>
+<td><font color="gray">[<a id="2248606" href="#2248606">13:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> it may sadden those that don't yet know that open firmware was a dead simple forth nugget. i.e. in the sense that apple for a brief time meant dead simple. </td>
+<td><font color="gray">[<a id="2248607" href="#2248607">13:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="https://wikileaks.org/ciav7p1/cms/page_36405256.html" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/page_36405256.html</a> &lt;&lt; re the 'internal gossipd', at the time of the writing appears to be entirely hypothetical </td>
+<td><font color="gray">[<a id="2248608" href="#2248608">13:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> trinque: the move to intel, killed it, intel iron wants megatonne of initialization crapolade </td>
+<td><font color="gray">[<a id="2248609" href="#2248609">13:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> aha </td>
+<td><font color="gray">[<a id="2248610" href="#2248610">13:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> (and, bonus: builds only on winblowz, heavy on -- yes -- masm) </td>
+<td><font color="gray">[<a id="2248611" href="#2248611">13:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> lel, i was wrong re their 'gossipd', it was written, by unknown commercial contractor: <a href="https://wikileaks.org/ciav7p1/cms/files/Fluxwire_manual-3.5.0.pdf" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/files/Fluxwire_manual-3.5.0.pdf</a> &lt;&lt; docs. </td>
+<td><font color="gray">[<a id="2248612" href="#2248612">13:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> pretty heavy. </td>
+<td><font color="gray">[<a id="2248613" href="#2248613">13:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> and oh hey, <a href="http://btcbase.org/log/2015-08-02#1222312" target=\'_blank\'>http://btcbase.org/log/2015-08-02#1222312</a> &lt;&lt;&lt;&gt;&gt;&gt; <a href="https://wikileaks.org/ciav7p1/cms/page_2621481.html" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/page_2621481.html</a> </td>
+<td><font color="gray">[<a id="2248614" href="#2248614">13:40</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2015-08-02 20:02 mircea_popescu: siemens is "german" in the sense tsipras is "greek" and so on. absolutely nothing to do. </font></td>
+<td><font color="gray">[<a id="2248615" href="#2248615">13:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ^ siemens voip gear, pwned </td>
+<td><font color="gray">[<a id="2248616" href="#2248616">13:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> aaaand <a href="https://wikileaks.org/ciav7p1/cms/page_9535850.html" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/page_9535850.html</a> &lt;&lt; hald (dbus component, poetteringism) local root. </td>
+<td><font color="gray">[<a id="2248617" href="#2248617">13:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> (0 details, but stated to exist.) </td>
+<td><font color="gray">[<a id="2248618" href="#2248618">13:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="https://wikileaks.org/ciav7p1/cms/page_1179686.html" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/page_1179686.html</a> &lt;&lt; lulzy, pocket gadget for theft of seeekrits from... floppies </td>
+<td><font color="gray">[<a id="2248619" href="#2248619">13:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> '...initial plan for concealment host is as a day planner.' </td>
+<td><font color="gray">[<a id="2248620" href="#2248620">13:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'hey lemme borrow this' </td>
+<td><font color="gray">[<a id="2248621" href="#2248621">13:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> can almost picture this scene </td>
+<td><font color="gray">[<a id="2248622" href="#2248622">13:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="https://wikileaks.org/ciav7p1/cms/page_22642800.html" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/page_22642800.html</a> &lt;&lt; plunder of lulz from the italian 'hackteam' dump of '15 </td>
+<td><font color="gray">[<a id="2248623" href="#2248623">13:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="https://wikileaks.org/ciav7p1/cms/page_9535630.html" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/page_9535630.html</a> &lt;&lt; their version of mircea_popescu's 'uci'. </td>
+<td><font color="gray">[<a id="2248624" href="#2248624">13:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i see you're well entertained. </td>
+<td><font color="gray">[<a id="2248625" href="#2248625">13:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> actually nearing the bottom of this barrel </td>
+<td><font color="gray">[<a id="2248626" href="#2248626">13:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'RainMaker v1.0 is a survey and file collection tool built for a FINO QRC operation. IOC/FINO is looking to expand asset-assisted operations. The intended CONOPS involves using an asset to gain access to a target network. The asset has the ability to plug in a personal thumbdrive to the network. In this scenario, the asset will have "downloaded" the portable version of VLC player (2.1.5) and will listen to music during work hours. W </td>
+<td><font color="gray">[<a id="2248627" href="#2248627">13:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> hile she is listening to music, the tool will execute the survey and a prioritized file collection. All collected data will be stored to the root of the removable media it is executing from. When the asset next meets with the case officer, the thumbdrive is retrieved and the collection is processed. ' </td>
+<td><font color="gray">[<a id="2248628" href="#2248628">13:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> srsly? </td>
+<td><font color="gray">[<a id="2248629" href="#2248629">13:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="https://wikileaks.org/ciav7p1/cms/page_4849785.html" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/page_4849785.html</a> &gt;&gt; 'I strongly suggest that you name your missing vector for DanceFloor "Twerk". ' </td>
+<td><font color="gray">[<a id="2248630" href="#2248630">13:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> note the fist fucking ever appropriate use of "she" </td>
+<td><font color="gray">[<a id="2248631" href="#2248631">13:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> loox like they censored the ~only ~useful bits, e.g. the active av holes. </td>
+<td><font color="gray">[<a id="2248632" href="#2248632">13:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> largely sums to snoar. </td>
+<td><font color="gray">[<a id="2248633" href="#2248633">13:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> ate the whole thing. </td>
+<td><font color="gray">[<a id="2248634" href="#2248634">13:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> anyway. maybe new elbrus brings ofw back. </td>
+<td><font color="gray">[<a id="2248635" href="#2248635">13:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="https://wikileaks.org/ciav7p1/cms/files/DevelopersGuide.pdf" target=\'_blank\'>https://wikileaks.org/ciav7p1/cms/files/DevelopersGuide.pdf</a> &lt;&lt; for aficionados strictly -- details of implant protocol, where gibblets are disguised as tcp replay packets. apparently standardized across this particular directorate. </td>
+<td><font color="gray">[<a id="2248636" href="#2248636">14:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'Hive beacons were designed to work with the Blot proxy (developed by Xetron). Blot looks for a tool ID embedded in the HELLO packet of an SSL session initiation. If the ID is found, then it forwards the packet to the tool-handler, otherwise it is sent to the cover server. The tool ID is embedded in the HELLO packet using the embedData function defined in …/polarssl/library/loki_utils.c. The SSL data structure defined in …/polars </td>
+<td><font color="gray">[<a id="2248637" href="#2248637">14:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> sl/include/polarssl/ssl.h is extended to include the session _checksum, tool_id, use_custom, and xor_key. The data contained within this packet is constant with the exception of a time stamp taken from the real-time clock and a few bytes of random data. A CRC checksum is computed from the entire packet and is included with the HELLO packet. When Blot receives this packet, it checks the CRC searches a list of previously seen packets f </td>
+<td><font color="gray">[<a id="2248638" href="#2248638">14:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> or any matches. If a match is found the packet is assumed to be a TCP replay and is dropped.' </td>
+<td><font color="gray">[<a id="2248639" href="#2248639">14:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> document also of slight interest in re discussion of ntp, and issues of time synchronization in general. apparently unsolved problem for usg just as well as for victims. </td>
+<td><font color="gray">[<a id="2248640" href="#2248640">14:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> unsolved problem for reality too </td>
+<td><font color="gray">[<a id="2248641" href="#2248641">14:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'IOC/ECG's Advanced Forensic Division (AFD) performed an analysis of Hive version 2.5 network communications to assess its likelihood of detection.The results of this analysis are found in document AFD-2012-0973-2. In summary, AFD was able to create signatures for DNS, ICMP, and TFTP triggers found that the TCP and UDP triggers did not adhere to their respective protocol standards and further found that the TCP and UDP triggers eac </td>
+<td><font color="gray">[<a id="2248642" href="#2248642">14:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> h had consistent packet sizes.' </td>
+<td><font color="gray">[<a id="2248643" href="#2248643">14:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ^ apparently they use own auditor directorate for beta testing, and consistently fail </td>
+<td><font color="gray">[<a id="2248644" href="#2248644">14:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> this rounds out today's lulzfest, i think. </td>
+<td><font color="gray">[<a id="2248645" href="#2248645">14:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> and srsly, 0 directly bitcoin-related anything. in motherfucking 2015-16. asciilifeform is disappoint. </td>
+<td><font color="gray">[<a id="2248646" href="#2248646">14:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ~that~ compartment, apparently, leakproof. </td>
+<td><font color="gray">[<a id="2248647" href="#2248647">14:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( just as crypto directorate is ) </td>
+<td><font color="gray">[<a id="2248648" href="#2248648">14:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> asciilifeform: To be fair about lack of Bitcoin, this is CIA rapidly reinventing own "NSA" </td>
+<td><font color="gray">[<a id="2248649" href="#2248649">14:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Stuck on low hanging fruit </td>
+<td><font color="gray">[<a id="2248650" href="#2248650">14:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: we did have a thread back in... 2013? re 'they will copy su approach and make 2-in-a-box kgb/gru duet' </td>
+<td><font color="gray">[<a id="2248651" href="#2248651">14:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> AHA </td>
+<td><font color="gray">[<a id="2248652" href="#2248652">14:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> not even the directorate which runs the gavins, the hearns, ever seems to leak so much as a drop. </td>
+<td><font color="gray">[<a id="2248653" href="#2248653">14:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Well, draining has just begun. Build windmill and pump! </td>
+<td><font color="gray">[<a id="2248654" href="#2248654">14:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> thus far i suspect that 'leakage' is roughly proportional to a directorate's population of folx who know what is 'twerk' </td>
+<td><font color="gray">[<a id="2248655" href="#2248655">14:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> and who embed anime gif into their project docs (several examples in the linked dump) </td>
+<td><font color="gray">[<a id="2248656" href="#2248656">14:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> but i'll be the first to admit that this heuristic is very much a 'blind man and the elephant'. </td>
+<td><font color="gray">[<a id="2248657" href="#2248657">14:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> And thus pumping needs to begin. Change pressure on the container and see what fails </td>
+<td><font color="gray">[<a id="2248658" href="#2248658">14:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> in other water-related engineering projects, here's something that is very definitely not a lock: <a href="http://gcaptain.com/worlds-first-ship-tunnel-to-bypass-dangerous-seas-in-norway/" target=\'_blank\'>http://gcaptain.com/worlds-first-ship-tunnel-to-bypass-dangerous-seas-in-norway/</a> </td>
+<td><font color="gray">[<a id="2248659" href="#2248659">14:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> <a href="https://1917.rt.com/" target=\'_blank\'>https://1917.rt.com/</a> &lt;&lt; russian revolution member-berries </td>
+<td><font color="gray">[<a id="2248660" href="#2248660">14:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> <a href="https://github.com/bitcoin/bitcoin/pull/9938" target=\'_blank\'>https://github.com/bitcoin/bitcoin/pull/9938</a> &lt;&lt;&lt; locks-free checking </td>
+<td><font color="gray">[<a id="2248661" href="#2248661">14:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2015-02-05#1008756" target=\'_blank\'>http://btcbase.org/log/2015-02-05#1008756</a> &lt;&lt; this is indeed still the case </td>
+<td><font color="gray">[<a id="2248662" href="#2248662">15:01</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2015-02-05 18:01 punkman: <a href="http://log.bitcoin-assets.com/?date=05-02-2015#1008336" target=\'_blank\'>http://log.bitcoin-assets.com/?date=05-02-2015#1008336</a> &lt;&lt; this is now stuck at 124275 </font></td>
+<td><font color="gray">[<a id="2248663" href="#2248663">15:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2015-02-05#1008972" target=\'_blank\'>http://btcbase.org/log/2015-02-05#1008972</a> &lt;&lt; mod6, is that why this patch did not make it in? </td>
+<td><font color="gray">[<a id="2248664" href="#2248664">15:01</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2015-02-05 19:11 mod6: &lt;+punkman&gt; running a node with this line removed: <a href="http://btc.yt/lxr/satoshi/source/src/main.cpp#0939" target=\'_blank\'>http://btc.yt/lxr/satoshi/source/src/main.cpp#0939</a> . works so far &lt;&lt; check out this patch: <a href="http://therealbitcoin.org/ml/btc-dev/2014-December/000023.html" target=\'_blank\'>http://therealbitcoin.org/ml/btc-dev/2014-December/000023.html</a> </font></td>
+<td><font color="gray">[<a id="2248665" href="#2248665">15:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> would've been nice if punkman studied this when he first saw it. </td>
+<td><font color="gray">[<a id="2248666" href="#2248666">15:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> shinohai: no mention of the db, the actual bottleneck.. </td>
+<td><font color="gray">[<a id="2248667" href="#2248667">15:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( incidentally, trb doesn't validate scripts in blocks. at. all. ) </td>
+<td><font color="gray">[<a id="2248668" href="#2248668">15:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; trinque</b></td>
+<td class="breakup"> has such a checkpoints-cauterized node wedged at that very block, will in fact study </td>
+<td><font color="gray">[<a id="2248669" href="#2248669">15:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> 124276 happens to be a 1 txn block btw </td>
+<td><font color="gray">[<a id="2248670" href="#2248670">15:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> trinque: first q to ask in a wedge: 'has it SEEN the block?' </td>
+<td><font color="gray">[<a id="2248671" href="#2248671">15:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( recall, in mircea_popescu's recent case, answer was the -- very usual -- 'nope' ) </td>
+<td><font color="gray">[<a id="2248672" href="#2248672">15:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> this guy's running with -connect to deedbot.org node </td>
+<td><font color="gray">[<a id="2248673" href="#2248673">15:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> sec and I'll grab some logs </td>
+<td><font color="gray">[<a id="2248674" href="#2248674">15:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform aha. the nsa itself long knew it is both a) deeply ineffectual and b) extremely loud. which is why now and again i say something to the effect of "wtf straw must one have in head to work for those dorks, move on already." </td>
+<td><font color="gray">[<a id="2248675" href="#2248675">15:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform&gt; not even the directorate which runs the gavins, the hearns, ever seems to leak so much as a drop. &lt;&lt; the reason is that utterly nobody gives a shit. </td>
+<td><font color="gray">[<a id="2248676" href="#2248676">15:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: and somebody gives a shit re junk routers etc? </td>
+<td><font color="gray">[<a id="2248677" href="#2248677">15:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yeah. </td>
+<td><font color="gray">[<a id="2248678" href="#2248678">15:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> don't ask me to explain what entertains teh public. </td>
+<td><font color="gray">[<a id="2248679" href="#2248679">15:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i suspect that , e.g., gavin's pay stubs, would entertain plenty. </td>
+<td><font color="gray">[<a id="2248680" href="#2248680">15:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> they're not that substantial. </td>
+<td><font color="gray">[<a id="2248681" href="#2248681">15:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> not nearly so much as "omg caught pirate robertz" or "pedo dark web lair" </td>
+<td><font color="gray">[<a id="2248682" href="#2248682">15:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> no, but the fact-of. </td>
+<td><font color="gray">[<a id="2248683" href="#2248683">15:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> makes great tweets </td>
+<td><font color="gray">[<a id="2248684" href="#2248684">15:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> nobody working for idiot empire makes much. this is a recurrent fantasy of yours, but not more. </td>
+<td><font color="gray">[<a id="2248685" href="#2248685">15:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> gotta divide by amt of honestwork, mircea_popescu </td>
+<td><font color="gray">[<a id="2248686" href="#2248686">15:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> megabux / ~0 is pretty sum </td>
+<td><font color="gray">[<a id="2248687" href="#2248687">15:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> no because if a girl who does nothing but fucks up and sucks my cock makes a grand, that grand does not get divided by 0.000000epsilon to result in TWENTY BRILLIONS!!1 </td>
+<td><font color="gray">[<a id="2248688" href="#2248688">15:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> in asciilifeform's mental calculus, it sure does </td>
+<td><font color="gray">[<a id="2248689" href="#2248689">15:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> the only difference between slavegirl in my household and usg employee is that a) i whip mine and b) after a while they are sensibly better at everything. the usg drones don't get whipped and don't improve. </td>
+<td><font color="gray">[<a id="2248690" href="#2248690">15:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> commuting to and sitting in butugychag is a mega-difference </td>
+<td><font color="gray">[<a id="2248691" href="#2248691">15:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> but otherwise, it's the same. i sent a bunch of girls on a bunch of missions this month, with various wads of cash. </td>
+<td><font color="gray">[<a id="2248692" href="#2248692">15:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> except for the part where IT IS MY CASH, they could just as well have been "government employees" </td>
+<td><font color="gray">[<a id="2248693" href="#2248693">15:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> who you know, "made salaries". </td>
+<td><font color="gray">[<a id="2248694" href="#2248694">15:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> couldn't find the log, but the other day mircea_popescu discussed that some pedo case's dismissal had very much to do with that the guy refused to LARP with them re: their importance. </td>
+<td><font color="gray">[<a id="2248695" href="#2248695">15:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: that's rather like to say that fucking same gurl vs fucking hole in a muddy tree trunk, 'is the same' </td>
+<td><font color="gray">[<a id="2248696" href="#2248696">15:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> no one can seriously claim the guy wearing steampunk goggles and going to conferences isn't LARPing in the grand american tradition of pretense to existing </td>
+<td><font color="gray">[<a id="2248697" href="#2248697">15:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform explain </td>
+<td><font color="gray">[<a id="2248698" href="#2248698">15:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> trinque no but it's exactly it, an exercise in serving the phantasmagorical. </td>
+<td><font color="gray">[<a id="2248699" href="#2248699">15:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="/2009/inchipuiti-va/" target=\'_blank\'>/2009/inchipuiti-va/</a> &lt;&lt; very related, sadly in romanian. </td>
+<td><font color="gray">[<a id="2248700" href="#2248700">15:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> (gedankenexperiment, what would happen if you could produce any item by thinking about it.) </td>
+<td><font color="gray">[<a id="2248701" href="#2248701">15:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: sweeping a floor for beloved comendante hasta y por la siempre, as gurl does, is quite different from sweeping floor for salary from hitler. even if same broom and same floor somehow. </td>
+<td><font color="gray">[<a id="2248702" href="#2248702">15:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well yes, certainly. </td>
+<td><font color="gray">[<a id="2248703" href="#2248703">15:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> but not ~economically~ different. </td>
+<td><font color="gray">[<a id="2248704" href="#2248704">15:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> the stay-puffed marshmallow man, elementarily </td>
+<td><font color="gray">[<a id="2248705" href="#2248705">15:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> i.e. any manner of destructive nonsense, or cancer of the imagination </td>
+<td><font color="gray">[<a id="2248706" href="#2248706">15:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> trinque: wassat? </td>
+<td><font color="gray">[<a id="2248707" href="#2248707">15:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yea trinque the who ? </td>
+<td><font color="gray">[<a id="2248708" href="#2248708">15:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> first ghostbusters, the david bowie lesbian god tells them to choose teh form of their destroyer </td>
+<td><font color="gray">[<a id="2248709" href="#2248709">15:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> first thing that popped into what's his name 80s hack's head was the marshmallow man </td>
+<td><font color="gray">[<a id="2248710" href="#2248710">15:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> lol ok </td>
+<td><font color="gray">[<a id="2248711" href="#2248711">15:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; mircea_popescu</b></td>
+<td class="breakup"> wanders back to his zuleika rewrite that he's been labouring on since weekend. </td>
+<td><font color="gray">[<a id="2248712" href="#2248712">15:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> expect an 80kword novel to be dropped on your heads later this week dear all. </td>
+<td><font color="gray">[<a id="2248713" href="#2248713">15:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> briefly upstack: as i once described, many years ago asciilifeform actually tried to sign up for nsa! was , unsurprisingly, turned down ( you get a ream of paper even if turned down! ) </td>
+<td><font color="gray">[<a id="2248714" href="#2248714">15:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> and , years later, ended up briefly labouring in a butugychag full of ex-nsa folx, who confirmed, they dun like ethnic untermenschen there </td>
+<td><font color="gray">[<a id="2248715" href="#2248715">15:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> they suure luvv anime bois tho. apparently. </td>
+<td><font color="gray">[<a id="2248716" href="#2248716">15:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> or maybe this is only at cia. </td>
+<td><font color="gray">[<a id="2248717" href="#2248717">15:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> the funny bit is, that was when i formed picture of nsa as 'serious org' </td>
+<td><font color="gray">[<a id="2248718" href="#2248718">15:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> I guess it wouldn't be the only "serious" gay men's club on earth. </td>
+<td><font color="gray">[<a id="2248719" href="#2248719">15:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'they're exempt from equalism!11 , think!' </td>
+<td><font color="gray">[<a id="2248720" href="#2248720">15:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> dunno, per my informant there were gurls there, </td>
+<td><font color="gray">[<a id="2248721" href="#2248721">15:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> fuckable, even </td>
+<td><font color="gray">[<a id="2248722" href="#2248722">15:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; trinque</b></td>
+<td class="breakup"> cannot connect those inputs to "luvv anime bois" </td>
+<td><font color="gray">[<a id="2248723" href="#2248723">15:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> conflicting data re seekrit heathen pits, noose at 11 </td>
+<td><font color="gray">[<a id="2248724" href="#2248724">15:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i don't see why it's such a big deal, i included all sorts of strange in the logs, what of it ? </td>
+<td><font color="gray">[<a id="2248725" href="#2248725">15:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> in other strange, '4-year-old male white rhino who was slaughtered this week inside his enclosure at a zoo outside Paris. The rhino — discovered by his keeper at the Thoiry Zoological Park on Tuesday — now holds the ominous distinction of likely being the first rhino to be killed by poachers inside a zoo, experts said.' </td>
+<td><font color="gray">[<a id="2248726" href="#2248726">15:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> !!up onlooker </td>
+<td><font color="gray">[<a id="2248727" href="#2248727">16:55</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> onlooker voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2248728" href="#2248728">16:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> Well onlooker certainly lives up to his handle. </td>
+<td><font color="gray">[<a id="2248729" href="#2248729">17:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> shinohai: i still dun get why cia stooge needs a handle. can read the l0gz on www, like anybody </td>
+<td><font color="gray">[<a id="2248730" href="#2248730">17:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> Maybe they get paid by # of connections </td>
+<td><font color="gray">[<a id="2248731" href="#2248731">17:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> somebody's boss's boss just orders that X must infiltrate and monitor, and yes sir right away sir. </td>
+<td><font color="gray">[<a id="2248732" href="#2248732">17:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> and so he does the most visibile thing such that boss sees him working, and he goes back to reading reddit. </td>
+<td><font color="gray">[<a id="2248733" href="#2248733">17:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> alternatively random guy clicked a link, hasn't even noticed the tab among the symphony of tabs on his ie. </td>
+<td><font color="gray">[<a id="2248734" href="#2248734">17:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: he didn't show up under the default lamer nick (e.g., 'fromphuctor') so probably not this </td>
+<td><font color="gray">[<a id="2248735" href="#2248735">17:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> perhaps. who knows where the link is found by now. </td>
+<td><font color="gray">[<a id="2248736" href="#2248736">17:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> and lol, infiltrate, sooo 2013!111 what'll he do, bore folx to death, like ninjashotgun </td>
+<td><font color="gray">[<a id="2248737" href="#2248737">17:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> or the other d00d, which one was he, </td>
+<td><font color="gray">[<a id="2248738" href="#2248738">17:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> decimation. </td>
+<td><font color="gray">[<a id="2248739" href="#2248739">17:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( the last time i mentioned him on the air -- he actually showed up! in pm! to whine re how cruelly he is libelled, how he was Never A Stooge, etc. snoar. ) </td>
+<td><font color="gray">[<a id="2248740" href="#2248740">17:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> &lt;+trinque&gt; <a href="http://btcbase.org/log/2015-02-05#1008972" target=\'_blank\'>http://btcbase.org/log/2015-02-05#1008972</a> &lt;&lt; mod6, is that why this patch did not make it in? &lt;&lt; i don't think it was because of any such wedge. i think we held off because it was proposed that there might have been a better way to handle that through configuration files. it's all in the logs if you look in around the time that email was sent december of '14. </td>
+<td><font color="gray">[<a id="2248741" href="#2248741">18:09</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2015-02-05 19:11 mod6: &lt;+punkman&gt; running a node with this line removed: <a href="http://btc.yt/lxr/satoshi/source/src/main.cpp#0939" target=\'_blank\'>http://btc.yt/lxr/satoshi/source/src/main.cpp#0939</a> . works so far &lt;&lt; check out this patch: <a href="http://therealbitcoin.org/ml/btc-dev/2014-December/000023.html" target=\'_blank\'>http://therealbitcoin.org/ml/btc-dev/2014-December/000023.html</a> </font></td>
+<td><font color="gray">[<a id="2248742" href="#2248742">18:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> meanwhile found some discussion, yep </td>
+<td><font color="gray">[<a id="2248743" href="#2248743">18:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> and in fact, meanwhile found that it was my own build environment hauling in libressl on openbsd </td>
+<td><font color="gray">[<a id="2248744" href="#2248744">18:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> so no big deal </td>
+<td><font color="gray">[<a id="2248745" href="#2248745">18:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> trinque: what was this in re </td>
+<td><font color="gray">[<a id="2248746" href="#2248746">18:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> stripping out of checkpoints. I'd done it here myself days ago before finding that you had already in 2016 </td>
+<td><font color="gray">[<a id="2248747" href="#2248747">18:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> snip of 'checkpoints' </td>
+<td><font color="gray">[<a id="2248748" href="#2248748">18:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ah </td>
+<td><font color="gray">[<a id="2248749" href="#2248749">18:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> &ast;2015 </td>
+<td><font color="gray">[<a id="2248750" href="#2248750">18:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i never cut the old ones out, but introduced flag 'verifyall' </td>
+<td><font color="gray">[<a id="2248751" href="#2248751">18:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> iirc mircea_popescu at the time said that the thing really oughta eat a programmable set of checkpoint </td>
+<td><font color="gray">[<a id="2248752" href="#2248752">18:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> but imho we are very, very far away from the 'verifying chain takes too long' problem, for this to be a burning issue </td>
+<td><font color="gray">[<a id="2248753" href="#2248753">18:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> maybe seems like a data structure that somebody would love to spooge malicious values into via some other (networking code) exploit </td>
+<td><font color="gray">[<a id="2248754" href="#2248754">18:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> trinque: if you have remote-execution 0day in the thing, you have a problem. </td>
+<td><font color="gray">[<a id="2248755" href="#2248755">18:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> plus/minus one useless routine, will make no difference, just like 7 bullet holes in head vs 8. </td>
+<td><font color="gray">[<a id="2248756" href="#2248756">18:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> but recall, i started by asking for 'the book' and for it to be as thin as reasonably possible (but not thinner..) </td>
+<td><font color="gray">[<a id="2248757" href="#2248757">18:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> having a branch available to skip verification ~at all~ seems questionable. </td>
+<td><font color="gray">[<a id="2248758" href="#2248758">18:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> so snip, snip the crapolade. </td>
+<td><font color="gray">[<a id="2248759" href="#2248759">18:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> indeed, I'm snipping and mapping for entirely that reason. </td>
+<td><font color="gray">[<a id="2248760" href="#2248760">18:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> fwiw i run my boxes with verifyall. </td>
+<td><font color="gray">[<a id="2248761" href="#2248761">18:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> aha </td>
+<td><font color="gray">[<a id="2248762" href="#2248762">18:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> btw trinque lemme know if you'd like a 'wire' on dulap. </td>
+<td><font color="gray">[<a id="2248763" href="#2248763">18:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( ideally you would also have one to ben_vulpes , et al , avoid 'stars' ) </td>
+<td><font color="gray">[<a id="2248764" href="#2248764">18:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> asciilifeform: need an ssh pubkey for it iirc? </td>
+<td><font color="gray">[<a id="2248765" href="#2248765">18:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> aha </td>
+<td><font color="gray">[<a id="2248766" href="#2248766">18:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> k will generate shortly and send it to ya </td>
+<td><font color="gray">[<a id="2248767" href="#2248767">18:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> gpggram. </td>
+<td><font color="gray">[<a id="2248768" href="#2248768">18:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> sure will </td>
+<td><font color="gray">[<a id="2248769" href="#2248769">18:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> in other cia lulz, <a href="https://www.academic-signature.org" target=\'_blank\'>https://www.academic-signature.org</a> </td>
+<td><font color="gray">[<a id="2248770" href="#2248770">18:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> in yet other lulz, 'dwave' no longer gets to monopolize snake oil market, <a href="https://www-03.ibm.com/press/us/en/pressrelease/51740.wss" target=\'_blank\'>https://www-03.ibm.com/press/us/en/pressrelease/51740.wss</a> </td>
+<td><font color="gray">[<a id="2248771" href="#2248771">18:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> how fortunate are we, to live in the times of such great discoveries. </td>
+<td><font color="gray">[<a id="2248772" href="#2248772">19:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> and with cloud computing, nobody gets to inspect the snake oil milking machine. </td>
+<td><font color="gray">[<a id="2248773" href="#2248773">19:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> nb </td>
+<td><font color="gray">[<a id="2248774" href="#2248774">19:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> in other very non-noose, cpp standard does not specify initialization order of static variables. </td>
+<td><font color="gray">[<a id="2248775" href="#2248775">19:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> (specifically unlike ada, where you can explicitly specify what this is called, 'elaboration', procedures) </td>
+<td><font color="gray">[<a id="2248776" href="#2248776">19:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> &ast;specify this, which is called </td>
+<td><font color="gray">[<a id="2248777" href="#2248777">19:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> <a href="http://www.ebay.com/itm/Symbolics-MacIvory-model-3-workstation-in-an-Apple-Quadra-700-with-Mac-O-S-8-0-/112326565327?hash=item1a272f5dcf:g:LUsAAOSwWxNYseQZ" target=\'_blank\'>http://www.ebay.com/itm/Symbolics-MacIvory-model-3-workstation-in-an-Apple-Quadra-700-with-Mac-O-S-8-0-/112326565327?hash=item1a272f5dcf:g:LUsAAOSwWxNYseQZ</a> </td>
+<td><font color="gray">[<a id="2248778" href="#2248778">20:44</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://phuctor.nosuchlabs.com/gpgkey/AFB7ADF63CF9C236A056A28E6E751A1031503D5BAC1020EEDC3350529CAB3E26" target=\'_blank\'>http://phuctor.nosuchlabs.com/gpgkey/AFB7ADF63CF9C236A056A28E6E751A1031503D5BAC1020EEDC3350529CAB3E26</a> &lt;&lt; Recent Phuctorings. - Phuctored: 1586...3923 divides RSA Moduli belonging to '222.168.55.50 (ssh-rsa key from 222.168.55.50 (13-14 June 2016 extraction) for Phuctor import. Ask asciilifeform or framedragger on Freenode, or email fd at mkj dot lt) &lt;ssh...lt&gt; ' (Unknown CN 22) </font></td>
+<td><font color="gray">[<a id="2248779" href="#2248779">20:44</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://phuctor.nosuchlabs.com/gpgkey/AFB7ADF63CF9C236A056A28E6E751A1031503D5BAC1020EEDC3350529CAB3E26" target=\'_blank\'>http://phuctor.nosuchlabs.com/gpgkey/AFB7ADF63CF9C236A056A28E6E751A1031503D5BAC1020EEDC3350529CAB3E26</a> &lt;&lt; Recent Phuctorings. - Phuctored: 1501...3239 divides RSA Moduli belonging to '222.168.55.50 (ssh-rsa key from 222.168.55.50 (13-14 June 2016 extraction) for Phuctor import. Ask asciilifeform or framedragger on Freenode, or email fd at mkj dot lt) &lt;ssh...lt&gt; ' (Unknown CN 22) </font></td>
+<td><font color="gray">[<a id="2248780" href="#2248780">20:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> first time I've seen one of those for sale. </td>
+<td><font color="gray">[<a id="2248781" href="#2248781">20:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; trinque</b></td>
+<td class="breakup"> will not be buying, but might be interesting to any scrap hunters present. </td>
+<td><font color="gray">[<a id="2248782" href="#2248782">20:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> trinque: pretty typical price </td>
+<td><font color="gray">[<a id="2248783" href="#2248783">21:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> and it's dks selling, looks like </td>
+<td><font color="gray">[<a id="2248784" href="#2248784">21:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> (though for some reason location is california, instead of virginia where he historically was found) </td>
+<td><font color="gray">[<a id="2248785" href="#2248785">21:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://www.ebay.com/itm/Symbolics-XL1201-no-FPA-4-MW-memory-18-GB-SCSI-disk-19-in-monochrome-console-/112325366421?hash=item1a271d1295:g:g~4AAOSwXYtYsb-C" target=\'_blank\'>http://www.ebay.com/itm/Symbolics-XL1201-no-FPA-4-MW-memory-18-GB-SCSI-disk-19-in-monochrome-console-/112325366421?hash=item1a271d1295:g:g~4AAOSwXYtYsb-C</a> &lt;&lt; him, also, nao </td>
+<td><font color="gray">[<a id="2248786" href="#2248786">21:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i lost more or less all interest in the physical machines after i got hold of the emulator. </td>
+<td><font color="gray">[<a id="2248787" href="#2248787">21:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( which not only runs on x64, but offers some reversing, and without electron microscope, even ) </td>
+<td><font color="gray">[<a id="2248788" href="#2248788">21:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> iirc phf has the xl1201. </td>
+<td><font color="gray">[<a id="2248789" href="#2248789">21:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> btw speaking of ebay, for ~same price you can get working electron microscope, of recent make. </td>
+<td><font color="gray">[<a id="2248790" href="#2248790">21:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i would get it, if i had where to put. </td>
+<td><font color="gray">[<a id="2248791" href="#2248791">21:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> !$ ssh 222.168.55.50 77.37.2.63 95.240.174.82 130.88.150.85 </td>
+<td><font color="gray">[<a id="2248792" href="#2248792">21:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>scriba:</b></td>
+<td class="breakup"> ssh banner of 222.168.55.50 as seen on 2016-06-13: SSH-2.0-OpenSSH_4.3p2 Debian-8ubuntu1 </td>
+<td><font color="gray">[<a id="2248793" href="#2248793">21:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>scriba:</b></td>
+<td class="breakup"> ssh banner of 77.37.2.63 as seen on 2016-06-13: SSH-2.0-OpenSSH_4.3p2 Debian-9 </td>
+<td><font color="gray">[<a id="2248794" href="#2248794">21:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>scriba:</b></td>
+<td class="breakup"> ssh banner of 95.240.174.82 as seen on 2016-06-13: SSH-2.0-OpenSSH_4.6p1 Debian-5 </td>
+<td><font color="gray">[<a id="2248795" href="#2248795">21:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>scriba:</b></td>
+<td class="breakup"> ssh banner of 130.88.150.85 as seen on 2016-06-13: SSH-2.0-OpenSSH_5.3p1 Debian-3ubuntu7 </td>
+<td><font color="gray">[<a id="2248796" href="#2248796">21:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> wonders if anybody had ever built bitcoin against debianized openssl... </td>
+<td><font color="gray">[<a id="2248797" href="#2248797">21:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> !!up onlooker </td>
+<td><font color="gray">[<a id="2248798" href="#2248798">21:39</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> onlooker voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2248799" href="#2248799">21:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i guess 'looker', not talker, huh. </td>
+<td><font color="gray">[<a id="2248800" href="#2248800">21:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> maybe it's alfbaiter </td>
+<td><font color="gray">[<a id="2248801" href="#2248801">21:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> evidently </td>
+<td><font color="gray">[<a id="2248802" href="#2248802">21:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> hm, now that i think of it, the question of 'against which openssl was it built' may be.. answerable. mircea_popescu : did satoshi ever distribute a binary ? </td>
+<td><font color="gray">[<a id="2248803" href="#2248803">21:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> iirc there was such a thing </td>
+<td><font color="gray">[<a id="2248804" href="#2248804">21:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> early on, yeah. i've no copies though. </td>
+<td><font color="gray">[<a id="2248805" href="#2248805">21:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ^ if anybody has copy... write in plox ^ </td>
+<td><font color="gray">[<a id="2248806" href="#2248806">21:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> esp. of the winblowz client . </td>
+<td><font color="gray">[<a id="2248807" href="#2248807">21:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://www.metzdowd.com/pipermail/cryptography/2009-January/014994.html" target=\'_blank\'>http://www.metzdowd.com/pipermail/cryptography/2009-January/014994.html</a> &lt;&lt; exe evaporated, naturally </td>
+<td><font color="gray">[<a id="2248808" href="#2248808">21:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://www.zorinaq.com/pub/bitcoin-0.1.0.rar" target=\'_blank\'>http://www.zorinaq.com/pub/bitcoin-0.1.0.rar</a> &lt;&lt; purports to be mirror. </td>
+<td><font color="gray">[<a id="2248809" href="#2248809">21:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 0.9.8h 28 May 2008. </td>
+<td><font color="gray">[<a id="2248810" href="#2248810">21:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> prolly more interesting </td>
+<td><font color="gray">[<a id="2248811" href="#2248811">21:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i was gonna say, get the pre 1.0 ones </td>
+<td><font color="gray">[<a id="2248812" href="#2248812">21:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> this seems to be the 1st public exe. </td>
+<td><font color="gray">[<a id="2248813" href="#2248813">21:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> (my memory, apparently, was correct, he published a winturd along with 1st source) </td>
+<td><font color="gray">[<a id="2248814" href="#2248814">21:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> asciilifeform: <a href="http://btcinfo.sdf.org/trb/original-bitcoin/" target=\'_blank\'>http://btcinfo.sdf.org/trb/original-bitcoin/</a> </td>
+<td><font color="gray">[<a id="2248815" href="#2248815">21:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> shinohai: INTERESTINGLY the checksums do not match !! </td>
+<td><font color="gray">[<a id="2248816" href="#2248816">21:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> sha512 of the exe i linked earlier : fa8f822c8f0d86f419ef94ffe80bdbfd4966169f4d3becec8b5cd4bf693ad11c1c8f91d3cfb74664cfc910a326f4bc799613847cf56aa12c3ff6124121626b6e </td>
+<td><font color="gray">[<a id="2248817" href="#2248817">21:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> of shinohai's : 919504c2ed1fd687f26b8b91033466854fe295464ac281abd3d83456208922a60d2844edecd4e330d7b329c24c7772289e0d32620b6dc0b8bf772b36efae98bf </td>
+<td><font color="gray">[<a id="2248818" href="#2248818">21:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> then again noshit </td>
+<td><font color="gray">[<a id="2248819" href="#2248819">21:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> shinohai: yours is 'BitCoin v0.1.3 ALPHA' per the readme. </td>
+<td><font color="gray">[<a id="2248820" href="#2248820">21:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> same openssl tho. </td>
+<td><font color="gray">[<a id="2248821" href="#2248821">21:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> Came from a bitcointalk mirror long ago </td>
+<td><font color="gray">[<a id="2248822" href="#2248822">21:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> it is interesting how much, imho, moar readable these are, than trb. </td>
+<td><font color="gray">[<a id="2248823" href="#2248823">22:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> they are ? </td>
+<td><font color="gray">[<a id="2248824" href="#2248824">22:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> yea </td>
+<td><font color="gray">[<a id="2248825" href="#2248825">22:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> !~ticker --market all </td>
+<td><font color="gray">[<a id="2248826" href="#2248826">22:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>jhvh1:</b></td>
+<td class="breakup"> BingoBoingo: Bitstamp BTCUSD last: 1221.0, vol: 14695.82308481 | BTC-E BTCUSD last: 1208.399, vol: 7580.12544 | Bitfinex BTCUSD last: 1214.3, vol: 44198.95268492 | BTCChina BTCUSD last: 1125.7281, vol: 10865.13950000 | Kraken BTCUSD last: 1208.92, vol: 4255.09536423 | Volume-weighted last average: 1202.8837954 </td>
+<td><font color="gray">[<a id="2248827" href="#2248827">22:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> O NOES BITCOIN PRICE MALAISE </td>
+<td><font color="gray">[<a id="2248828" href="#2248828">22:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> !!up ser </td>
+<td><font color="gray">[<a id="2248829" href="#2248829">22:55</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> ser voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2248830" href="#2248830">22:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> wb </td>
+<td><font color="gray">[<a id="2248831" href="#2248831">22:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> o.0 </td>
+<td><font color="gray">[<a id="2248832" href="#2248832">22:58</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://phuctor.nosuchlabs.com/gpgkey/77A9AAD03EADB9C5C54C893B5F439B1AAFB0E729454C9EE89C1857F7009D3272" target=\'_blank\'>http://phuctor.nosuchlabs.com/gpgkey/77A9AAD03EADB9C5C54C893B5F439B1AAFB0E729454C9EE89C1857F7009D3272</a> &lt;&lt; Recent Phuctorings. - Phuctored: 1487...5067 divides RSA Moduli belonging to '190.220.130.117 (ssh-rsa key from 190.220.130.117 (13-14 June 2016 extraction) for Phuctor import. Ask asciilifeform or framedragger on Freenode, or email fd at mkj dot lt) &lt;ssh...lt&gt; ' (ffylead.uncu.edu.ar. AR M) </font></td>
+<td><font color="gray">[<a id="2248833" href="#2248833">23:47</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://phuctor.nosuchlabs.com/gpgkey/77A9AAD03EADB9C5C54C893B5F439B1AAFB0E729454C9EE89C1857F7009D3272" target=\'_blank\'>http://phuctor.nosuchlabs.com/gpgkey/77A9AAD03EADB9C5C54C893B5F439B1AAFB0E729454C9EE89C1857F7009D3272</a> &lt;&lt; Recent Phuctorings. - Phuctored: 1604...4269 divides RSA Moduli belonging to '190.220.130.117 (ssh-rsa key from 190.220.130.117 (13-14 June 2016 extraction) for Phuctor import. Ask asciilifeform or framedragger on Freenode, or email fd at mkj dot lt) &lt;ssh...lt&gt; ' (ffyl2.uncu.edu.ar. AR M) </font></td>
+<td><font color="gray">[<a id="2248834" href="#2248834">23:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> O NOES ARGENTINE RSA MALAISE! </td>
+<td><font color="gray">[<a id="2248835" href="#2248835">23:49</a>]</font></td>
+</tr>
+</table>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2020/forum-logs-for-06-mar-2017/">Forum logs for 06 Mar 2017</a></div>
+                <div class="alignright"><a href="/2020/forum-logs-for-08-mar-2017/">Forum logs for 08 Mar 2017</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/logs/" title="View all posts in Logs" rel="category tag">Logs</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2020/forum-logs-for-07-mar-2017/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2020/forum-logs-for-07-mar-2017/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+
+
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authorf2d1a25" id="authorf2d1a25" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emailf2d1a25" id="emailf2d1a25" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urlf2d1a25" id="urlf2d1a25" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="92144" /></p>
+				<input type="hidden" name="comment_post_time" value="1735807248-152.53.39.118" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2025 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-92144")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-92144");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-92144");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

@@ -1,0 +1,2368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_sep2018.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Forum logs for 10 Jun 2017 on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Moving targets for a fast crowd.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-92239"><div class="post" id="post-92239">                    <h1><a href="/2020/forum-logs-for-10-jun-2017/" rel="bookmark" title="Permanent Link to Forum logs for 10 Jun 2017">Forum logs for 10 Jun 2017</a></h1>                        <div class="date">                                     Monday, 16 March, Year 12 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/" title="Posts by "></a>                                                        </div>
+
+                        <div class="entry">
+<table style="font-size:1em;width:"580px;">
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yes. which is not useful. </td>
+<td><font color="gray">[<a id="2293397" href="#2293397">00:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> aye </td>
+<td><font color="gray">[<a id="2293398" href="#2293398">00:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> ben_vulpes: if I </td>
+<td><font color="gray">[<a id="2293399" href="#2293399">00:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> - flip(b,<sup><a href="#footnote_0_92239" id="identifier_0_92239" class="footnote-link footnote-identifier-link" title="i &ast; M_pos) % len(b">i</a></sup>) </td>
+<td><font color="gray">[<a id="2293400" href="#2293400">00:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> + flip(b,<sup><a href="#footnote_1_92239" id="identifier_1_92239" class="footnote-link footnote-identifier-link" title="i+1 &ast; M_pos) % len(b">ii</a></sup>) </td>
+<td><font color="gray">[<a id="2293401" href="#2293401">00:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> then I get the same issue as you </td>
+<td><font color="gray">[<a id="2293402" href="#2293402">00:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> issue? </td>
+<td><font color="gray">[<a id="2293403" href="#2293403">00:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> which is ? </td>
+<td><font color="gray">[<a id="2293404" href="#2293404">00:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> 64 1s and 32 1s result in hashes of all 0s </td>
+<td><font color="gray">[<a id="2293405" href="#2293405">00:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> holy shit what </td>
+<td><font color="gray">[<a id="2293406" href="#2293406">00:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> so let's see some hashes </td>
+<td><font color="gray">[<a id="2293407" href="#2293407">00:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> counterintuitively counting must be from 0 ?! </td>
+<td><font color="gray">[<a id="2293408" href="#2293408">00:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> it wasn't just 64s, there's another element to the pattern </td>
+<td><font color="gray">[<a id="2293409" href="#2293409">00:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ben_vulpes 32/32 64/64 even 4/4 displayed it </td>
+<td><font color="gray">[<a id="2293410" href="#2293410">00:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> not 32/31 or 33 though </td>
+<td><font color="gray">[<a id="2293411" href="#2293411">00:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> any equal length of message and hash? </td>
+<td><font color="gray">[<a id="2293412" href="#2293412">00:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> !!up candi_lustt </td>
+<td><font color="gray">[<a id="2293413" href="#2293413">00:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> candi_lustt: (mpfhf:mpfhf #&ast;11111 5) </td>
+<td><font color="gray">[<a id="2293414" href="#2293414">00:05</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> candi_lustt voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2293415" href="#2293415">00:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>candi_lustt:</b></td>
+<td class="breakup"> mircea_popescu: #&ast;00100 </td>
+<td><font color="gray">[<a id="2293416" href="#2293416">00:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>candi_lustt:</b></td>
+<td class="breakup"> mircea_popescu: log: <a href="http://p.bvulpes.com/pastes/sprPX/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/sprPX/?raw=true</a> </td>
+<td><font color="gray">[<a id="2293417" href="#2293417">00:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> nope. any 2&ast;&ast;x equal </td>
+<td><font color="gray">[<a id="2293418" href="#2293418">00:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> whoa </td>
+<td><font color="gray">[<a id="2293419" href="#2293419">00:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> why </td>
+<td><font color="gray">[<a id="2293420" href="#2293420">00:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i have nfi </td>
+<td><font color="gray">[<a id="2293421" href="#2293421">00:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> asciilifeform: ! </td>
+<td><font color="gray">[<a id="2293422" href="#2293422">00:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> well in the absence of ideas, shall we index from zero? </td>
+<td><font color="gray">[<a id="2293423" href="#2293423">00:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i guerss we must, yes </td>
+<td><font color="gray">[<a id="2293424" href="#2293424">00:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> batshit insanew </td>
+<td><font color="gray">[<a id="2293425" href="#2293425">00:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> I dunno if this makes any difference </td>
+<td><font color="gray">[<a id="2293426" href="#2293426">00:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> but when you have a string of all 1s </td>
+<td><font color="gray">[<a id="2293427" href="#2293427">00:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> there is no rewind, right? </td>
+<td><font color="gray">[<a id="2293428" href="#2293428">00:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> this is perfect example of "too complex for me to understand!" complaint of asciilifeform's re hash design </td>
+<td><font color="gray">[<a id="2293429" href="#2293429">00:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> sina: aha </td>
+<td><font color="gray">[<a id="2293430" href="#2293430">00:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> so the step == M_pos </td>
+<td><font color="gray">[<a id="2293431" href="#2293431">00:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> sina yes </td>
+<td><font color="gray">[<a id="2293432" href="#2293432">00:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> ok, so should I keep my screw implementation as is? </td>
+<td><font color="gray">[<a id="2293433" href="#2293433">00:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> or is this a spec bug </td>
+<td><font color="gray">[<a id="2293434" href="#2293434">00:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yes. </td>
+<td><font color="gray">[<a id="2293435" href="#2293435">00:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> or both :P </td>
+<td><font color="gray">[<a id="2293436" href="#2293436">00:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> my next q is does the iteration run [0, count] or [0, count) </td>
+<td><font color="gray">[<a id="2293437" href="#2293437">00:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i'd expect the latter </td>
+<td><font color="gray">[<a id="2293438" href="#2293438">00:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> sorry I don't grok that syntax diff </td>
+<td><font color="gray">[<a id="2293439" href="#2293439">00:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> does it mean to the final of the array and n-1? </td>
+<td><font color="gray">[<a id="2293440" href="#2293440">00:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> &lt;= vs &lt; </td>
+<td><font color="gray">[<a id="2293441" href="#2293441">00:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> right </td>
+<td><font color="gray">[<a id="2293442" href="#2293442">00:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> eg 0, 1, 2, 3 </td>
+<td><font color="gray">[<a id="2293443" href="#2293443">00:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> ben_vulpes: if you count from 0 do we get same hashy hash? </td>
+<td><font color="gray">[<a id="2293444" href="#2293444">00:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> gimme a second, i'm handling two implementations here </td>
+<td><font color="gray">[<a id="2293445" href="#2293445">00:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> and drinking tea </td>
+<td><font color="gray">[<a id="2293446" href="#2293446">00:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> lol...the 2048 bit hash for GPLv2 was taking a really long time so I killed it to add some print statements. Checked "wc -c LICENSE", it reports ~18,000 chars. I re-ran mpfhf with 32 bits, thinking it'd finish at M_pos ~18,000 </td>
+<td><font color="gray">[<a id="2293447" href="#2293447">00:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> still going, currently at 20893 </td>
+<td><font color="gray">[<a id="2293448" href="#2293448">00:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> wonder what it's doing </td>
+<td><font color="gray">[<a id="2293449" href="#2293449">00:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> oh right, its binary, stupid me </td>
+<td><font color="gray">[<a id="2293450" href="#2293450">00:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> 20893 bits ? </td>
+<td><font color="gray">[<a id="2293451" href="#2293451">00:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> right. so about 1/7 done </td>
+<td><font color="gray">[<a id="2293452" href="#2293452">00:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> this is definitely going to need a system language impl </td>
+<td><font color="gray">[<a id="2293453" href="#2293453">00:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> assuming it's a correct implementation of the spec anyway </td>
+<td><font color="gray">[<a id="2293454" href="#2293454">00:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> that's what we're working on atm! </td>
+<td><font color="gray">[<a id="2293455" href="#2293455">00:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> so far, it seems good </td>
+<td><font color="gray">[<a id="2293456" href="#2293456">00:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> oh man how do i even pass your thing an array of zeros and ones </td>
+<td><font color="gray">[<a id="2293457" href="#2293457">00:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> python, it wants strings </td>
+<td><font color="gray">[<a id="2293458" href="#2293458">00:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> ben_vulpes: M = [0] &ast; 32 </td>
+<td><font color="gray">[<a id="2293459" href="#2293459">00:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> candi_lustt: (mpfhf:mpfhf #&ast;1111 4) </td>
+<td><font color="gray">[<a id="2293460" href="#2293460">00:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>candi_lustt:</b></td>
+<td class="breakup"> ben_vulpes: #&ast;1010 </td>
+<td><font color="gray">[<a id="2293461" href="#2293461">00:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>candi_lustt:</b></td>
+<td class="breakup"> ben_vulpes: log: <a href="http://p.bvulpes.com/pastes/X1F4u/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/X1F4u/?raw=true</a> </td>
+<td><font color="gray">[<a id="2293462" href="#2293462">00:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> sina: what do yer dice say </td>
+<td><font color="gray">[<a id="2293463" href="#2293463">00:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> aha! </td>
+<td><font color="gray">[<a id="2293464" href="#2293464">00:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> candi_lustt: (mpfhf:mpfhf #&ast;11111111111111111111111111111111 64) </td>
+<td><font color="gray">[<a id="2293465" href="#2293465">00:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>candi_lustt:</b></td>
+<td class="breakup"> mircea_popescu: #&ast;0110100011001111010010001111100000000001110001111000001001000001 </td>
+<td><font color="gray">[<a id="2293466" href="#2293466">00:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>candi_lustt:</b></td>
+<td class="breakup"> mircea_popescu: log: <a href="http://p.bvulpes.com/pastes/46Zmr/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/46Zmr/?raw=true</a> </td>
+<td><font color="gray">[<a id="2293467" href="#2293467">00:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> candi_lustt: (mpfhf:mpfhf #&ast;1111111111111111111111111111111111111111111111111111111111111111 64) </td>
+<td><font color="gray">[<a id="2293468" href="#2293468">00:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>candi_lustt:</b></td>
+<td class="breakup"> mircea_popescu: #&ast;0010111010001000101011101000100000110011110111011111001001110010 </td>
+<td><font color="gray">[<a id="2293469" href="#2293469">00:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>candi_lustt:</b></td>
+<td class="breakup"> mircea_popescu: log: <a href="http://p.bvulpes.com/pastes/KIOvW/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/KIOvW/?raw=true</a> </td>
+<td><font color="gray">[<a id="2293470" href="#2293470">00:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> candi_lustt: (mpfhf:mpfhf #&ast;1111111111111111111111111111111111111111111111111111111111111111 128) </td>
+<td><font color="gray">[<a id="2293471" href="#2293471">00:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>candi_lustt:</b></td>
+<td class="breakup"> mircea_popescu: #&ast;01101000010111101000010110001100001011110000110000101110110101111010010101000000011011111010011011110001001100010111101010011100 </td>
+<td><font color="gray">[<a id="2293472" href="#2293472">00:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>candi_lustt:</b></td>
+<td class="breakup"> mircea_popescu: log: <a href="http://p.bvulpes.com/pastes/aodux/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/aodux/?raw=true</a> </td>
+<td><font color="gray">[<a id="2293473" href="#2293473">00:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> candi_lustt: (mpfhf:mpfhf #&ast;11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111 256) </td>
+<td><font color="gray">[<a id="2293474" href="#2293474">00:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>candi_lustt:</b></td>
+<td class="breakup"> mircea_popescu: #&ast;1111111010101111011001101011011111101000101011111101011110010111010011100111000011000101000010111000111011110100100101010011011111010111001011011101010011011101011000100010001000111110000010010011001100011111100000100001010111101111010110000111010101011100 </td>
+<td><font color="gray">[<a id="2293475" href="#2293475">00:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> dude it's blazing fast. </td>
+<td><font color="gray">[<a id="2293476" href="#2293476">00:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>candi_lustt:</b></td>
+<td class="breakup"> mircea_popescu: log: <a href="http://p.bvulpes.com/" target=\'_blank\'>http://p.bvulpes.com/</a> </td>
+<td><font color="gray">[<a id="2293477" href="#2293477">00:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> 1010 </td>
+<td><font color="gray">[<a id="2293478" href="#2293478">00:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> SUSPICIOUS </td>
+<td><font color="gray">[<a id="2293479" href="#2293479">00:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> or is it...auspicious </td>
+<td><font color="gray">[<a id="2293480" href="#2293480">00:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> anyone tell you guys that' you're fucking crazy? :D </td>
+<td><font color="gray">[<a id="2293481" href="#2293481">00:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> sina: what's so crazy? </td>
+<td><font color="gray">[<a id="2293482" href="#2293482">00:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> just, in general </td>
+<td><font color="gray">[<a id="2293483" href="#2293483">00:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> i mean yes, all the time. but what in particular today? </td>
+<td><font color="gray">[<a id="2293484" href="#2293484">00:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> lol i think he had fun </td>
+<td><font color="gray">[<a id="2293485" href="#2293485">00:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> watching this slow ass shit in python is making me want to start rewriting in C right now even though I have done nothing for the last ~24 except write this code, eat pizza and 8h of sleep </td>
+<td><font color="gray">[<a id="2293486" href="#2293486">00:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> stats for the 256-bit hash <a href="http://p.bvulpes.com/pastes/EIXod/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/EIXod/?raw=true</a> </td>
+<td><font color="gray">[<a id="2293487" href="#2293487">00:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> think about it, candi does it over a lisp! </td>
+<td><font color="gray">[<a id="2293488" href="#2293488">00:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> that's on my local machine, not even particularly high powered </td>
+<td><font color="gray">[<a id="2293489" href="#2293489">00:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> 59,893,200 bytes consed wowza </td>
+<td><font color="gray">[<a id="2293490" href="#2293490">00:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> ben_vulpes: how fast can you run it against the GPL in my repo? </td>
+<td><font color="gray">[<a id="2293491" href="#2293491">00:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> sina: gosh i'd have to do real work, turn strings into binary </td>
+<td><font color="gray">[<a id="2293492" href="#2293492">00:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> as if that isn't one line of lisp? </td>
+<td><font color="gray">[<a id="2293493" href="#2293493">00:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; ben_vulpes</b></td>
+<td class="breakup"> snorts </td>
+<td><font color="gray">[<a id="2293494" href="#2293494">00:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> you missed the strings thread, didntcha </td>
+<td><font color="gray">[<a id="2293495" href="#2293495">00:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> you don't understand how this works!!1 </td>
+<td><font color="gray">[<a id="2293496" href="#2293496">00:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> I missed all the tings </td>
+<td><font color="gray">[<a id="2293497" href="#2293497">00:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> sina: eeyyyyy that's the joke i'm making </td>
+<td><font color="gray">[<a id="2293498" href="#2293498">00:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> ok fuck this GPL hashing shit, let's just say, it's slow </td>
+<td><font color="gray">[<a id="2293499" href="#2293499">00:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> lol let it go overnight what. </td>
+<td><font color="gray">[<a id="2293500" href="#2293500">00:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> 16mins to get through ~36000 bits </td>
+<td><font color="gray">[<a id="2293501" href="#2293501">00:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> that's the next step once we got a coupla canonical impls, is to burn it down. </td>
+<td><font color="gray">[<a id="2293502" href="#2293502">00:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> do 64k 64 bit items see how long, 32 birt see how long, 1024 bit see how long etc </td>
+<td><font color="gray">[<a id="2293503" href="#2293503">00:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> do 1 2 4 8 16 etc kb all the way to a mb or so, </td>
+<td><font color="gray">[<a id="2293504" href="#2293504">00:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> it's a decent blog post for someone. </td>
+<td><font color="gray">[<a id="2293505" href="#2293505">00:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> let's validate the canonicality of the impls first? :P </td>
+<td><font color="gray">[<a id="2293506" href="#2293506">00:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ye </td>
+<td><font color="gray">[<a id="2293507" href="#2293507">00:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> sina pick random strings, announce the results, then we do candi and se </td>
+<td><font color="gray">[<a id="2293508" href="#2293508">00:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> e </td>
+<td><font color="gray">[<a id="2293509" href="#2293509">00:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> augh more strings </td>
+<td><font color="gray">[<a id="2293510" href="#2293510">00:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> bitfields! </td>
+<td><font color="gray">[<a id="2293511" href="#2293511">00:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> hehe </td>
+<td><font color="gray">[<a id="2293512" href="#2293512">00:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> if I pick a string I'll include the bitfield for lazy ben_vulpes </td>
+<td><font color="gray">[<a id="2293513" href="#2293513">00:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> or, you know, you could just copy the one line of python required to convert </td>
+<td><font color="gray">[<a id="2293514" href="#2293514">00:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> ¯\_(ツ)_/¯ </td>
+<td><font color="gray">[<a id="2293515" href="#2293515">00:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> not lazy, busy </td>
+<td><font color="gray">[<a id="2293516" href="#2293516">00:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> i put a tool out there for you to use, use it </td>
+<td><font color="gray">[<a id="2293517" href="#2293517">00:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> or we could start with bitfields and you could reverse them? </td>
+<td><font color="gray">[<a id="2293518" href="#2293518">00:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> sure, it's ~1 line of python :P </td>
+<td><font color="gray">[<a id="2293519" href="#2293519">00:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> I WANT TO DO THE GPL THING LEAVE ME LONE </td>
+<td><font color="gray">[<a id="2293520" href="#2293520">00:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> heheh </td>
+<td><font color="gray">[<a id="2293521" href="#2293521">00:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> soz mate, do it, I'm curious </td>
+<td><font color="gray">[<a id="2293522" href="#2293522">00:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> eh, fuck gpl, do some tmsr document. </td>
+<td><font color="gray">[<a id="2293523" href="#2293523">00:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> deedbot contains. or thebitcoin.foundation also. </td>
+<td><font color="gray">[<a id="2293524" href="#2293524">00:37</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://phuctor.nosuchlabs.com/gpgkey/9F30C1806257EBF02EF6C099DB0C5C115DA1DB6AF6BAEB379F492838947F0581" target=\'_blank\'>http://phuctor.nosuchlabs.com/gpgkey/9F30C1806257EBF02EF6C099DB0C5C115DA1DB6AF6BAEB379F492838947F0581</a> &lt;&lt; Recent Phuctorings. - Phuctored: 1408...1173 divides RSA Moduli belonging to '163.164.112.13 (ssh-rsa key from 163.164.112.13 (13-14 June 2016 extraction) for Phuctor import. Ask asciilifeform or framedragger on Freenode, or email fd at mkj dot lt) &lt;ssh...lt&gt; ' (Unknown GB WLS BGE) </font></td>
+<td><font color="gray">[<a id="2293525" href="#2293525">00:38</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://phuctor.nosuchlabs.com/gpgkey/9F30C1806257EBF02EF6C099DB0C5C115DA1DB6AF6BAEB379F492838947F0581" target=\'_blank\'>http://phuctor.nosuchlabs.com/gpgkey/9F30C1806257EBF02EF6C099DB0C5C115DA1DB6AF6BAEB379F492838947F0581</a> &lt;&lt; Recent Phuctorings. - Phuctored: 1508...4783 divides RSA Moduli belonging to '163.164.112.13 (ssh-rsa key from 163.164.112.13 (13-14 June 2016 extraction) for Phuctor import. Ask asciilifeform or framedragger on Freenode, or email fd at mkj dot lt) &lt;ssh...lt&gt; ' (Unknown GB WLS BGE) </font></td>
+<td><font color="gray">[<a id="2293526" href="#2293526">00:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> jeez, nov 8th 2014 </td>
+<td><font color="gray">[<a id="2293527" href="#2293527">00:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> hm ? </td>
+<td><font color="gray">[<a id="2293528" href="#2293528">00:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> that's when you fired the declaration of sovereignty </td>
+<td><font color="gray">[<a id="2293529" href="#2293529">00:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ah ah. soon 3yo huh </td>
+<td><font color="gray">[<a id="2293530" href="#2293530">00:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> nov is a muchly republican month. </td>
+<td><font color="gray">[<a id="2293531" href="#2293531">00:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> the tourny starts on the nov 2nd right? </td>
+<td><font color="gray">[<a id="2293532" href="#2293532">00:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yeh </td>
+<td><font color="gray">[<a id="2293533" href="#2293533">00:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> sweet </td>
+<td><font color="gray">[<a id="2293534" href="#2293534">00:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> &gt; heap exhausted </td>
+<td><font color="gray">[<a id="2293535" href="#2293535">00:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> heh </td>
+<td><font color="gray">[<a id="2293536" href="#2293536">00:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> how long ? </td>
+<td><font color="gray">[<a id="2293537" href="#2293537">00:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> MOAR </td>
+<td><font color="gray">[<a id="2293538" href="#2293538">00:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> oh not </td>
+<td><font color="gray">[<a id="2293539" href="#2293539">00:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> 60s </td>
+<td><font color="gray">[<a id="2293540" href="#2293540">01:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> S = 1kb sorta thing ? </td>
+<td><font color="gray">[<a id="2293541" href="#2293541">01:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> probably including tea-sipping and not watching the debugger </td>
+<td><font color="gray">[<a id="2293542" href="#2293542">01:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> oh nonono </td>
+<td><font color="gray">[<a id="2293543" href="#2293543">01:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> 44808 </td>
+<td><font color="gray">[<a id="2293544" href="#2293544">01:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> doc is 5601 chars long </td>
+<td><font color="gray">[<a id="2293545" href="#2293545">01:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> consing like mad </td>
+<td><font color="gray">[<a id="2293546" href="#2293546">01:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> oh man i get to break out the profiler! </td>
+<td><font color="gray">[<a id="2293547" href="#2293547">01:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> lel </td>
+<td><font color="gray">[<a id="2293548" href="#2293548">01:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> myeah okay logging is expensive, good to know </td>
+<td><font color="gray">[<a id="2293549" href="#2293549">01:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> mircea_popescu: all those consed bytes came from logging </td>
+<td><font color="gray">[<a id="2293550" href="#2293550">01:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ah i c </td>
+<td><font color="gray">[<a id="2293551" href="#2293551">01:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> io super exepensive / instrumentation is expensive </td>
+<td><font color="gray">[<a id="2293552" href="#2293552">01:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> good for debugging though </td>
+<td><font color="gray">[<a id="2293553" href="#2293553">01:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> <a href="http://p.bvulpes.com/pastes/IIaWC/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/IIaWC/?raw=true</a> </td>
+<td><font color="gray">[<a id="2293554" href="#2293554">01:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> some seven hundred odd seconds to hash the declaration </td>
+<td><font color="gray">[<a id="2293555" href="#2293555">01:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> 13 page faults, rly ? </td>
+<td><font color="gray">[<a id="2293556" href="#2293556">01:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> ya, wut? </td>
+<td><font color="gray">[<a id="2293557" href="#2293557">01:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> is that normal ? </td>
+<td><font color="gray">[<a id="2293558" href="#2293558">01:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> i only saw it one other time to night (6 of 'em), and i don't remember before </td>
+<td><font color="gray">[<a id="2293559" href="#2293559">01:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; ben_vulpes</b></td>
+<td class="breakup"> off for a bit </td>
+<td><font color="gray">[<a id="2293560" href="#2293560">01:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> mircea_popescu: still around? </td>
+<td><font color="gray">[<a id="2293561" href="#2293561">02:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ya </td>
+<td><font color="gray">[<a id="2293562" href="#2293562">02:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> mircea_popescu: <a href="http://wotpaste.cascadianhacker.com/pastes/B5Qxd/?raw=true" target=\'_blank\'>http://wotpaste.cascadianhacker.com/pastes/B5Qxd/?raw=true</a> </td>
+<td><font color="gray">[<a id="2293563" href="#2293563">02:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> <a href="https://github.com/sinner-/mpfhf-golang" target=\'_blank\'>https://github.com/sinner-/mpfhf-golang</a> </td>
+<td><font color="gray">[<a id="2293564" href="#2293564">02:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> nice! </td>
+<td><font color="gray">[<a id="2293565" href="#2293565">02:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> so there's a python, a golang and a cl version nao ? </td>
+<td><font color="gray">[<a id="2293566" href="#2293566">02:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> do me a favour sina and ben_vulpes : post a copy of your code on the article. archival. </td>
+<td><font color="gray">[<a id="2293567" href="#2293567">02:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> "on the article" ? </td>
+<td><font color="gray">[<a id="2293568" href="#2293568">02:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="/2017/towards-a-better-hash-function/" target=\'_blank\'>/2017/towards-a-better-hash-function/</a> &lt;&lt; comment </td>
+<td><font color="gray">[<a id="2293569" href="#2293569">02:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> ah right yep </td>
+<td><font color="gray">[<a id="2293570" href="#2293570">02:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> doing so now </td>
+<td><font color="gray">[<a id="2293571" href="#2293571">02:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> mircea_popescu: is there any interest in a tmsr company offering stuff like git hosting etc? </td>
+<td><font color="gray">[<a id="2293572" href="#2293572">02:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> no, because tmsr uses V. </td>
+<td><font color="gray">[<a id="2293573" href="#2293573">02:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> you know about v ? </td>
+<td><font color="gray">[<a id="2293574" href="#2293574">02:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> no </td>
+<td><font color="gray">[<a id="2293575" href="#2293575">02:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ha. didja read the topic ? </td>
+<td><font color="gray">[<a id="2293576" href="#2293576">02:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> mircea_popescu: I pasted the python impl and it mangled my tabbing...I guess I wouldn't care normally but it's going ot be annoying for people to paste that and re-indent, any feature about preserving tabbing in your comment section? </td>
+<td><font color="gray">[<a id="2293577" href="#2293577">02:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> &lt;pre&gt; ? </td>
+<td><font color="gray">[<a id="2293578" href="#2293578">02:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> I'll repost with pre and you can delete the old one </td>
+<td><font color="gray">[<a id="2293579" href="#2293579">02:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> kk </td>
+<td><font color="gray">[<a id="2293580" href="#2293580">02:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> or code was it ? </td>
+<td><font color="gray">[<a id="2293581" href="#2293581">02:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> nope </td>
+<td><font color="gray">[<a id="2293582" href="#2293582">02:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> try both lol, ill keep one </td>
+<td><font color="gray">[<a id="2293583" href="#2293583">02:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> still mangled </td>
+<td><font color="gray">[<a id="2293584" href="#2293584">02:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> kk </td>
+<td><font color="gray">[<a id="2293585" href="#2293585">02:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> mircea_popescu: want me to link to github repos instead? </td>
+<td><font color="gray">[<a id="2293586" href="#2293586">02:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> lessee here </td>
+<td><font color="gray">[<a id="2293587" href="#2293587">02:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> I tried to make a C one but then I remembered I haven't touched anything with pointers in about 15 years </td>
+<td><font color="gray">[<a id="2293588" href="#2293588">02:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> heh all equally mangled. tsk tsk. </td>
+<td><font color="gray">[<a id="2293589" href="#2293589">02:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> golang is pretty fast these days </td>
+<td><font color="gray">[<a id="2293590" href="#2293590">02:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> and I'm not even on the latest ver </td>
+<td><font color="gray">[<a id="2293591" href="#2293591">02:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> so I settled for that </td>
+<td><font color="gray">[<a id="2293592" href="#2293592">02:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yeah came out way ahead of python huh </td>
+<td><font color="gray">[<a id="2293593" href="#2293593">02:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> sina <a href="/2017/towards-a-better-hash-function/#comment-122213" target=\'_blank\'>/2017/towards-a-better-hash-function/#comment-122213</a> </td>
+<td><font color="gray">[<a id="2293594" href="#2293594">02:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> it's pretty much native, and depending on how you write the program it doesn't really need GC </td>
+<td><font color="gray">[<a id="2293595" href="#2293595">02:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> fantastic, tell me how you did it and I'll do the golang one </td>
+<td><font color="gray">[<a id="2293596" href="#2293596">02:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> &lt;pre&gt;. excewpt i think it strips them if you do it, asec </td>
+<td><font color="gray">[<a id="2293597" href="#2293597">02:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> updated againnnn: <a href="http://cascadianhacker.com/an-implementation-of-mircea-popescus-fabulous-hash-function" target=\'_blank\'>http://cascadianhacker.com/an-implementation-of-mircea-popescus-fabulous-hash-function</a> </td>
+<td><font color="gray">[<a id="2293598" href="#2293598">02:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> sina: with repro cases this time :D </td>
+<td><font color="gray">[<a id="2293599" href="#2293599">02:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; ben_vulpes</b></td>
+<td class="breakup"> off again again </td>
+<td><font color="gray">[<a id="2293600" href="#2293600">02:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> mircea_popescu: you can fix this one too <a href="/2017/towards-a-better-hash-function/#comment-122214" target=\'_blank\'>/2017/towards-a-better-hash-function/#comment-122214</a> </td>
+<td><font color="gray">[<a id="2293601" href="#2293601">02:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> yeah, I'm off too </td>
+<td><font color="gray">[<a id="2293602" href="#2293602">02:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> this was fun </td>
+<td><font color="gray">[<a id="2293603" href="#2293603">02:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> mircea_popescu: if you have more fun stuff to code pls let me know </td>
+<td><font color="gray">[<a id="2293604" href="#2293604">02:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> I'm not cool like asciilifeform but I can bang some stuff out </td>
+<td><font color="gray">[<a id="2293605" href="#2293605">02:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; mircea_popescu</b></td>
+<td class="breakup"> is too lazy to add pre to user comments i'll jusrt fix by hand heh </td>
+<td><font color="gray">[<a id="2293606" href="#2293606">02:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> sina : make sure you look into V eh. </td>
+<td><font color="gray">[<a id="2293607" href="#2293607">02:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!rated sina </td>
+<td><font color="gray">[<a id="2293608" href="#2293608">02:52</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> mircea_popescu rated sina 1 at 2017/06/03 05:09:48 &lt;&lt; missed on all the things! </font></td>
+<td><font color="gray">[<a id="2293609" href="#2293609">02:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!rate sina 2 MPFHF canonical implementation. </td>
+<td><font color="gray">[<a id="2293610" href="#2293610">02:52</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Get your OTP: <a href="http://p.bvulpes.com/pastes/tRQbW/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/tRQbW/?raw=true</a> </font></td>
+<td><font color="gray">[<a id="2293611" href="#2293611">02:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!v 98EEDC62094B6E4978458AFEF5836ADFE23C8D58302568110AF6CE2CA7873A9A </td>
+<td><font color="gray">[<a id="2293612" href="#2293612">02:53</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> mircea_popescu updated rating of sina from 1 to 2 &lt;&lt; MPFHF canonical implementation. </font></td>
+<td><font color="gray">[<a id="2293613" href="#2293613">02:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> fuckin lol <a href="/forum-logs-for-07-feb-2016#2020008" target=\'_blank\'>/forum-logs-for-07-feb-2016#2020008</a> </td>
+<td><font color="gray">[<a id="2293614" href="#2293614">08:00</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2016-02-08 00:11 maqp: There is no way your system can defeat targeted SIGINT monitoring attack, where government drives within a few hundred meters and collects signals emitted by your keyboard cable. </font></td>
+<td><font color="gray">[<a id="2293615" href="#2293615">08:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2017-06-10#1668368" target=\'_blank\'>http://btcbase.org/log/2017-06-10#1668368</a> &lt;&lt;&lt; what, some dood struggling for shared basis / an understanding of the world around him. most of the time it involves some flailing about. </td>
+<td><font color="gray">[<a id="2293616" href="#2293616">08:39</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2017-06-10 12:00 sina: fuckin lol <a href="/forum-logs-for-07-feb-2016#2020008" target=\'_blank\'>/forum-logs-for-07-feb-2016#2020008</a> </font></td>
+<td><font color="gray">[<a id="2293617" href="#2293617">08:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2017-06-10#1668370" target=\'_blank\'>http://btcbase.org/log/2017-06-10#1668370</a> &lt;&lt;&lt; mircea_popescu I couldn't help but laugh at someone who is saying everyone should fork ricochet.im and work on it instead, or use OTR or whatever then blurt out that some just-barely-specified software isn't resistant to SIGINT attacks on your keyboard </td>
+<td><font color="gray">[<a id="2293618" href="#2293618">08:52</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2017-06-10 12:39 mircea_popescu: <a href="http://btcbase.org/log/2017-06-10#1668368" target=\'_blank\'>http://btcbase.org/log/2017-06-10#1668368</a> &lt;&lt;&lt; what, some dood struggling for shared basis / an understanding of the world around him. most of the time it involves some flailing about. </font></td>
+<td><font color="gray">[<a id="2293619" href="#2293619">08:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> myeah </td>
+<td><font color="gray">[<a id="2293620" href="#2293620">08:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> pretty sure <a href="https://github.com/maqp/tfc/wiki/Security-design" target=\'_blank\'>https://github.com/maqp/tfc/wiki/Security-design</a> this uses a keyboard... </td>
+<td><font color="gray">[<a id="2293621" href="#2293621">08:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> use wireless keyboard, problem solved :D </td>
+<td><font color="gray">[<a id="2293622" href="#2293622">08:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> SSL EVERYWHERE!!!1 </td>
+<td><font color="gray">[<a id="2293623" href="#2293623">08:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> don't look at me man, I literally am using a 3072-bit DSA El-Gamal key for some reason </td>
+<td><font color="gray">[<a id="2293624" href="#2293624">08:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> lel </td>
+<td><font color="gray">[<a id="2293625" href="#2293625">08:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> at least you didn't lose it, which is 100% more than what cvan be said for eulora players. </td>
+<td><font color="gray">[<a id="2293626" href="#2293626">08:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> thank the lord for gpg/rdiff/duplicity and cheap USB keys </td>
+<td><font color="gray">[<a id="2293627" href="#2293627">08:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> including <a href="http://logs.minigame.bz/2017-05-22.log.html#t23:16:39" target=\'_blank\'>http://logs.minigame.bz/2017-05-22.log.html#t23:16:39</a> (tldr : dood got asked to not come back a year ago over being overexcitable asshat came back year later begged for forgiveness which was granted -- only to discover he had lost his key) </td>
+<td><font color="gray">[<a id="2293628" href="#2293628">08:57</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">lobbesbot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2017-05-22 23:16:39: &lt;Zakorus123&gt; but i really think i should be allowed to come back </font></td>
+<td><font color="gray">[<a id="2293629" href="#2293629">08:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> I just watched Dave Chappelle latest comedy thing, fucking hilarious </td>
+<td><font color="gray">[<a id="2293630" href="#2293630">08:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> o, he still working ? </td>
+<td><font color="gray">[<a id="2293631" href="#2293631">08:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> first gig in 10y he makes jokes about it </td>
+<td><font color="gray">[<a id="2293632" href="#2293632">08:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> "The Age of Spin" it was called. </td>
+<td><font color="gray">[<a id="2293633" href="#2293633">08:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> aha </td>
+<td><font color="gray">[<a id="2293634" href="#2293634">09:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> how many active users does eulora have? </td>
+<td><font color="gray">[<a id="2293635" href="#2293635">09:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> depends on your definition of active. </td>
+<td><font color="gray">[<a id="2293636" href="#2293636">09:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> adds about 4-5k play hours per month </td>
+<td><font color="gray">[<a id="2293637" href="#2293637">09:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> are most players drawn from the general vicinity of this and related chans? or internet randoms too? </td>
+<td><font color="gray">[<a id="2293638" href="#2293638">09:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> so so </td>
+<td><font color="gray">[<a id="2293639" href="#2293639">09:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i mean obv being bitcoin pegged it attracts lots of bitcoin/altcoin folks </td>
+<td><font color="gray">[<a id="2293640" href="#2293640">09:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> interesting </td>
+<td><font color="gray">[<a id="2293641" href="#2293641">09:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> I also had some fun this evening reading teh logs </td>
+<td><font color="gray">[<a id="2293642" href="#2293642">09:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> there you mean ? </td>
+<td><font color="gray">[<a id="2293643" href="#2293643">09:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> no here. gossipd, libsodium/nacl, trump...a few other things I searched </td>
+<td><font color="gray">[<a id="2293644" href="#2293644">09:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> a yea </td>
+<td><font color="gray">[<a id="2293645" href="#2293645">09:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> hilarity all round </td>
+<td><font color="gray">[<a id="2293646" href="#2293646">09:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> there was a younger, more naive time when we seriously wanted someone to condense the logs </td>
+<td><font color="gray">[<a id="2293647" href="#2293647">09:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> it... died. </td>
+<td><font color="gray">[<a id="2293648" href="#2293648">09:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> define condense? </td>
+<td><font color="gray">[<a id="2293649" href="#2293649">09:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> produce a summary of each day so that no lulz are missed </td>
+<td><font color="gray">[<a id="2293650" href="#2293650">09:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> that sounds like a pretty difficult task </td>
+<td><font color="gray">[<a id="2293651" href="#2293651">09:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> short of hiring a "reporter" </td>
+<td><font color="gray">[<a id="2293652" href="#2293652">09:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> its rather impossible. </td>
+<td><font color="gray">[<a id="2293653" href="#2293653">09:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> for one thing, diffrent lulz for different poeople </td>
+<td><font color="gray">[<a id="2293654" href="#2293654">09:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> real news <a href="http://www.abc.net.au/news/2017-06-10/hawaiian-pizza-investor-sam-panopoulos-dies/8607108" target=\'_blank\'>http://www.abc.net.au/news/2017-06-10/hawaiian-pizza-investor-sam-panopoulos-dies/8607108</a> </td>
+<td><font color="gray">[<a id="2293655" href="#2293655">09:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> greek man who invented hawaiian pizza in canada, dead </td>
+<td><font color="gray">[<a id="2293656" href="#2293656">09:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> wasn't he very old ? </td>
+<td><font color="gray">[<a id="2293657" href="#2293657">09:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> he was 83 </td>
+<td><font color="gray">[<a id="2293658" href="#2293658">09:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i recall them trotting him out periodically, "rich man! made by ourdemocracy! you could be next!!1" sorta bs. </td>
+<td><font color="gray">[<a id="2293659" href="#2293659">09:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> oh yeah I saw this <a href="http://btcbase.org/log/2017-06-09#1667584" target=\'_blank\'>http://btcbase.org/log/2017-06-09#1667584</a> </td>
+<td><font color="gray">[<a id="2293660" href="#2293660">09:17</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2017-06-09 08:46 sina: do you know if the src for phuctor is avail? </font></td>
+<td><font color="gray">[<a id="2293661" href="#2293661">09:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> asciilifeform greatest pet hate: people embracing and extinguishing things </td>
+<td><font color="gray">[<a id="2293662" href="#2293662">09:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> oops sorry this one <a href="http://btcbase.org/log/2017-06-09#1667701" target=\'_blank\'>http://btcbase.org/log/2017-06-09#1667701</a> </td>
+<td><font color="gray">[<a id="2293663" href="#2293663">09:18</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2017-06-09 15:11 asciilifeform: <a href="http://btcbase.org/log/2017-06-09#1667584" target=\'_blank\'>http://btcbase.org/log/2017-06-09#1667584</a> &lt;&lt; it is not, and ain't going to be, i'm not especially interested in helping folx to 'embrace and extinguish' it. as far as i'm concerned, 100% of the output is verifiable with the bignum calculator of your choice (e.g. 'bc') and it is no concern of anybody's how it was obtained. </font></td>
+<td><font color="gray">[<a id="2293664" href="#2293664">09:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> possibly one of ~. </td>
+<td><font color="gray">[<a id="2293665" href="#2293665">09:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well, in the particular case of phuctor, he has a solid point. </td>
+<td><font color="gray">[<a id="2293666" href="#2293666">09:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> there's this cloud of "academia" retards who have been pointedly ignoring / not citing it while publishing useless crap on the general topic. </td>
+<td><font color="gray">[<a id="2293667" href="#2293667">09:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> the empire's desire to eat it up is palpable. </td>
+<td><font color="gray">[<a id="2293668" href="#2293668">09:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> starting with <a href="/2015/on-how-the-factored-4096-rsa-keys-story-was-handled-and-what-it-means-to-you" target=\'_blank\'>/2015/on-how-the-factored-4096-rsa-keys-story-was-handled-and-what-it-means-to-you</a> </td>
+<td><font color="gray">[<a id="2293669" href="#2293669">09:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> it's a very interesting topic </td>
+<td><font color="gray">[<a id="2293670" href="#2293670">09:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> I just went down the rabbit hole of links from that one </td>
+<td><font color="gray">[<a id="2293671" href="#2293671">09:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> mirrors neatly how all sorts of dorks have been trying to create exactly the same, "just as good as bitcoin with just a bit of censorship" sort of bs. </td>
+<td><font color="gray">[<a id="2293672" href="#2293672">09:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> which, for the people who were here for the original pgp wars, sounds like the empire never goes to school. </td>
+<td><font color="gray">[<a id="2293673" href="#2293673">09:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> something I have been looking into as well, kind of related in the testing-for-weakness-to-validate-sanity sense, is this program "cbmc" </td>
+<td><font color="gray">[<a id="2293674" href="#2293674">09:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> its a bounded model checker for C, you can use it to verify the correctness of whole programs but since it is a bit slow/brute force approach, normally you only can use it to test critical functions </td>
+<td><font color="gray">[<a id="2293675" href="#2293675">09:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> afaik there's a bunch of these </td>
+<td><font color="gray">[<a id="2293676" href="#2293676">09:50</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://phuctor.nosuchlabs.com/gpgkey/7E067D0421219659A91640D63AEA02CE62DBA55E41E751CD2DB2EDF941EDAFCC" target=\'_blank\'>http://phuctor.nosuchlabs.com/gpgkey/7E067D0421219659A91640D63AEA02CE62DBA55E41E751CD2DB2EDF941EDAFCC</a> &lt;&lt; Recent Phuctorings. - Phuctored: 1661...3409 divides RSA Moduli belonging to '37.218.255.162 (ssh-rsa key from 37.218.255.162 (13-14 June 2016 extraction) for Phuctor import. Ask asciilifeform or framedragger on Freenode, or email fd at mkj dot lt) &lt;ssh...lt&gt; ' (server01.platzer-werbung.de. DE) </font></td>
+<td><font color="gray">[<a id="2293677" href="#2293677">09:52</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://phuctor.nosuchlabs.com/gpgkey/7E067D0421219659A91640D63AEA02CE62DBA55E41E751CD2DB2EDF941EDAFCC" target=\'_blank\'>http://phuctor.nosuchlabs.com/gpgkey/7E067D0421219659A91640D63AEA02CE62DBA55E41E751CD2DB2EDF941EDAFCC</a> &lt;&lt; Recent Phuctorings. - Phuctored: 1450...0303 divides RSA Moduli belonging to '37.218.255.162 (ssh-rsa key from 37.218.255.162 (13-14 June 2016 extraction) for Phuctor import. Ask asciilifeform or framedragger on Freenode, or email fd at mkj dot lt) &lt;ssh...lt&gt; ' (server01.platzer-werbung.de. DE) </font></td>
+<td><font color="gray">[<a id="2293678" href="#2293678">09:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> yes I believe so. it'd be interesting to run them against, for example, important gpg functions or similar </td>
+<td><font color="gray">[<a id="2293679" href="#2293679">09:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> gpg is slated for a rewrite, actually, since it became obvious koch's a dedicated saboteur. </td>
+<td><font color="gray">[<a id="2293680" href="#2293680">09:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; sina</b></td>
+<td class="breakup"> notes to search the logs for koch tomorrow </td>
+<td><font color="gray">[<a id="2293681" href="#2293681">09:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> for now, bedtime, getting late here </td>
+<td><font color="gray">[<a id="2293682" href="#2293682">09:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> good evening </td>
+<td><font color="gray">[<a id="2293683" href="#2293683">09:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> tada </td>
+<td><font color="gray">[<a id="2293684" href="#2293684">09:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> <a href="http://www.anonymousconservative.com/blog/attack-sjw-criticizes-victim-cursing-muslims/" target=\'_blank\'>http://www.anonymousconservative.com/blog/attack-sjw-criticizes-victim-cursing-muslims/</a> </td>
+<td><font color="gray">[<a id="2293685" href="#2293685">09:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> England has no "Great Again" </td>
+<td><font color="gray">[<a id="2293686" href="#2293686">09:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> what'd it need it for. </td>
+<td><font color="gray">[<a id="2293687" href="#2293687">09:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Making life better for Reverse-Indians </td>
+<td><font color="gray">[<a id="2293688" href="#2293688">10:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> heh </td>
+<td><font color="gray">[<a id="2293689" href="#2293689">10:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Those Anglos living under Indian colonial domination </td>
+<td><font color="gray">[<a id="2293690" href="#2293690">10:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> fuck them. </td>
+<td><font color="gray">[<a id="2293691" href="#2293691">10:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> <a href="http://blogs.timesofisrael.com/yes-ashkenazi-jews-including-gal-gadot-are-people-of-color/" target=\'_blank\'>http://blogs.timesofisrael.com/yes-ashkenazi-jews-including-gal-gadot-are-people-of-color/</a> &lt;&lt; No, you can not have your cake </td>
+<td><font color="gray">[<a id="2293692" href="#2293692">10:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> <a href="https://archive.is/hjpv5" target=\'_blank\'>https://archive.is/hjpv5</a> </td>
+<td><font color="gray">[<a id="2293693" href="#2293693">10:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well yes, ashkenazi = us jews = nigger jews. </td>
+<td><font color="gray">[<a id="2293694" href="#2293694">10:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> the euro jews = proper jews = ded. </td>
+<td><font color="gray">[<a id="2293695" href="#2293695">10:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> But still the irony. </td>
+<td><font color="gray">[<a id="2293696" href="#2293696">10:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> what ? that they spent a few centuries passing for white while white ruled the world but now that white got some indescript malaise they'll pass for "something else" ie "of color" ? </td>
+<td><font color="gray">[<a id="2293697" href="#2293697">10:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> I don't think they'll pass. Not to Tyrone and Petrus/ </td>
+<td><font color="gray">[<a id="2293698" href="#2293698">10:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> <a href="https://www.dailystormer.com/boomer-parasites-head-for-ecuador-after-bleeding-america-dry/" target=\'_blank\'>https://www.dailystormer.com/boomer-parasites-head-for-ecuador-after-bleeding-america-dry/</a> </td>
+<td><font color="gray">[<a id="2293699" href="#2293699">10:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> ^ In other hates </td>
+<td><font color="gray">[<a id="2293700" href="#2293700">10:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> it's still not altogether clear tyrone &amp; petrus actually matter in this complex social game. </td>
+<td><font color="gray">[<a id="2293701" href="#2293701">10:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> my money's on "notrly", but hey, mebbe im biased. </td>
+<td><font color="gray">[<a id="2293702" href="#2293702">10:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Well, matter in the sense of being environmental hazards. </td>
+<td><font color="gray">[<a id="2293703" href="#2293703">10:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> on the level of mooks. </td>
+<td><font color="gray">[<a id="2293704" href="#2293704">10:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> ah, well the amount of danger a mook creates depends on what the locals trust em to do </td>
+<td><font color="gray">[<a id="2293705" href="#2293705">10:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> there ios that </td>
+<td><font color="gray">[<a id="2293706" href="#2293706">10:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> You put Jew that passed for white last year on PetrusofColor radar, and Petrus is going to remember because it's what Petrus does instead of being the dogman </td>
+<td><font color="gray">[<a id="2293707" href="#2293707">10:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ya think ? </td>
+<td><font color="gray">[<a id="2293708" href="#2293708">10:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> tends to be a more targeted hazard than "mook was allowed to operate heavy machinery" </td>
+<td><font color="gray">[<a id="2293709" href="#2293709">10:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> <a href="http://www.jameslafond.com/article.php?id=7948&amp;pr=1" target=\'_blank\'>http://www.jameslafond.com/article.php?id=7948&amp;pr=1</a> </td>
+<td><font color="gray">[<a id="2293710" href="#2293710">10:45</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://qntra.net/2017/06/opiate-overdoses-now-leading-cause-of-pre-geriatric-mortality-in-us/" target=\'_blank\'>http://qntra.net/2017/06/opiate-overdoses-now-leading-cause-of-pre-geriatric-mortality-in-us/</a> &lt;&lt; Qntra - Opiate Overdoses Now Leading Cause Of Pre-Geriatric Mortality In US </font></td>
+<td><font color="gray">[<a id="2293711" href="#2293711">10:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> win. </td>
+<td><font color="gray">[<a id="2293712" href="#2293712">10:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> a while back they started trying to prosecute all overdose deaths as manslaughter-by-dealer. getting desperate, obviously. </td>
+<td><font color="gray">[<a id="2293713" href="#2293713">11:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Here in Illinois they inestigate to prosecute as murder by dealer, much progress </td>
+<td><font color="gray">[<a id="2293714" href="#2293714">11:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> &ast;investigate </td>
+<td><font color="gray">[<a id="2293715" href="#2293715">11:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> likely within 5 years dope selling on street will be prosecuted as "attempted murder" with zero CIA traffickers hung </td>
+<td><font color="gray">[<a id="2293716" href="#2293716">11:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> and it still wont do anything </td>
+<td><font color="gray">[<a id="2293717" href="#2293717">11:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> fuck 'em, let the beautiful ratpeople choke in their own vomit, the sooner the empire ends the better. </td>
+<td><font color="gray">[<a id="2293718" href="#2293718">11:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Still, I would like to see the ranking if "complications of being a fat fuck" were consolidated and entered on list. Overdose would likely still win under 25 list, but age where "fat fuck" begins to beat overdose inspires curiosity. </td>
+<td><font color="gray">[<a id="2293719" href="#2293719">11:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Probably between 28 and 36 </td>
+<td><font color="gray">[<a id="2293720" href="#2293720">11:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> interesting q indeed </td>
+<td><font color="gray">[<a id="2293721" href="#2293721">11:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Investigation likely impossible because fat fuck doctors would lie "healthy 600 pound 23 year old" when heart attack, etc </td>
+<td><font color="gray">[<a id="2293722" href="#2293722">11:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> heh </td>
+<td><font color="gray">[<a id="2293723" href="#2293723">11:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Kinda like how US jooz will become people of color when Petrus gets resentful and father's their daughter's children </td>
+<td><font color="gray">[<a id="2293724" href="#2293724">11:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> &ast;too many apostrophe </td>
+<td><font color="gray">[<a id="2293725" href="#2293725">11:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> brb </td>
+<td><font color="gray">[<a id="2293726" href="#2293726">11:37</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="/2017/the-strange-case-of-the-red-stapler-and-other-related-stories/" target=\'_blank\'>/2017/the-strange-case-of-the-red-stapler-and-other-related-stories/</a> &lt;&lt; Trilema - The Strange Case of The Red Stapler and Other Related Stories </font></td>
+<td><font color="gray">[<a id="2293727" href="#2293727">12:47</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://phuctor.nosuchlabs.com/gpgkey/95AD068E858895A7C47AC724798C00D1F803610BB9D9D8F1E5E0335997752505" target=\'_blank\'>http://phuctor.nosuchlabs.com/gpgkey/95AD068E858895A7C47AC724798C00D1F803610BB9D9D8F1E5E0335997752505</a> &lt;&lt; Recent Phuctorings. - Phuctored: 1410...7279 divides RSA Moduli belonging to '124.146.165.141 (ssh-rsa key from 124.146.165.141 (13-14 June 2016 extraction) for Phuctor import. Ask asciilifeform or framedragger on Freenode, or email fd at mkj dot lt) &lt;ssh...lt&gt; ' (st0045.nas981.kobe.nttpc.ne.jp. JP 13) </font></td>
+<td><font color="gray">[<a id="2293728" href="#2293728">13:17</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://phuctor.nosuchlabs.com/gpgkey/95AD068E858895A7C47AC724798C00D1F803610BB9D9D8F1E5E0335997752505" target=\'_blank\'>http://phuctor.nosuchlabs.com/gpgkey/95AD068E858895A7C47AC724798C00D1F803610BB9D9D8F1E5E0335997752505</a> &lt;&lt; Recent Phuctorings. - Phuctored: 1775...6453 divides RSA Moduli belonging to '124.146.165.141 (ssh-rsa key from 124.146.165.141 (13-14 June 2016 extraction) for Phuctor import. Ask asciilifeform or framedragger on Freenode, or email fd at mkj dot lt) &lt;ssh...lt&gt; ' (st0045.nas981.kobe.nttpc.ne.jp. JP 13) </font></td>
+<td><font color="gray">[<a id="2293729" href="#2293729">13:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> !!up eplogos </td>
+<td><font color="gray">[<a id="2293730" href="#2293730">15:02</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> eplogos voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2293731" href="#2293731">15:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> &gt; Con una mentalidad Socialista en progreso &lt;&lt; ahaha sina is this yours? </td>
+<td><font color="gray">[<a id="2293732" href="#2293732">15:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> ah, no, wrong sinner apparently </td>
+<td><font color="gray">[<a id="2293733" href="#2293733">15:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> picked cherries all day </td>
+<td><font color="gray">[<a id="2293734" href="#2293734">15:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> OMG elitist! What about all the not cherry fruits like nectarines and peaches! </td>
+<td><font color="gray">[<a id="2293735" href="#2293735">15:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: only other one we have is figs </td>
+<td><font color="gray">[<a id="2293736" href="#2293736">15:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Oh, there are no figs here. </td>
+<td><font color="gray">[<a id="2293737" href="#2293737">15:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> !~later tell BingoBoingo <a href="http://wotpaste.cascadianhacker.com/pastes/58GKp/?raw=true" target=\'_blank\'>http://wotpaste.cascadianhacker.com/pastes/58GKp/?raw=true</a> </td>
+<td><font color="gray">[<a id="2293738" href="#2293738">15:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>jhvh1:</b></td>
+<td class="breakup"> shinohai: The operation succeeded. </td>
+<td><font color="gray">[<a id="2293739" href="#2293739">15:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> shinohai: Are you sure this is new? Sounds familiar </td>
+<td><font color="gray">[<a id="2293740" href="#2293740">15:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> Maybe so ... I am quite sure the EFF lawsuit mentioned within is recent. The date seems to agree. </td>
+<td><font color="gray">[<a id="2293741" href="#2293741">15:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; shinohai</b></td>
+<td class="breakup"> shrugs </td>
+<td><font color="gray">[<a id="2293742" href="#2293742">15:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> cherries sounds good. is there an abundance of fruit yielding cherry trees near you? </td>
+<td><font color="gray">[<a id="2293743" href="#2293743">15:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> lol alf finallyt found alt-programmer non-office job </td>
+<td><font color="gray">[<a id="2293744" href="#2293744">15:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> temporary farm work!1 </td>
+<td><font color="gray">[<a id="2293745" href="#2293745">15:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mod6: relatives' </td>
+<td><font color="gray">[<a id="2293746" href="#2293746">16:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: not for market, for pie, lol </td>
+<td><font color="gray">[<a id="2293747" href="#2293747">16:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Still woark </td>
+<td><font color="gray">[<a id="2293748" href="#2293748">16:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> lol </td>
+<td><font color="gray">[<a id="2293749" href="#2293749">16:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> in other ghettos, gang of porto ricans down the street is throwing a PARTAY!!!! </td>
+<td><font color="gray">[<a id="2293750" href="#2293750">16:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> you've not seen something like this, 100% 20something dudes in shorts and tshirts looking like bitches in heat won'\t fuck them. </td>
+<td><font color="gray">[<a id="2293751" href="#2293751">16:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> and portorican music is apparently made by an ashkenazi gang of elevator music composers gone rogue. </td>
+<td><font color="gray">[<a id="2293752" href="#2293752">16:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Fucking ashkeNAZIS </td>
+<td><font color="gray">[<a id="2293753" href="#2293753">16:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> cuz they dominate muzak amirite ? lord's of tin alley ? </td>
+<td><font color="gray">[<a id="2293754" href="#2293754">16:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> crapp store lols: <a href="http://archive.is/pxrWl" target=\'_blank\'>http://archive.is/pxrWl</a> </td>
+<td><font color="gray">[<a id="2293755" href="#2293755">16:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!up alex__c </td>
+<td><font color="gray">[<a id="2293756" href="#2293756">17:16</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> alex__c voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2293757" href="#2293757">17:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!up photoelectric </td>
+<td><font color="gray">[<a id="2293758" href="#2293758">17:29</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> photoelectric voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2293759" href="#2293759">17:29</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://cascadianhacker.com/the-best-thing-you-can-do-for-your-career-is-to-take-a-stay-at-home-wife" target=\'_blank\'>http://cascadianhacker.com/the-best-thing-you-can-do-for-your-career-is-to-take-a-stay-at-home-wife</a> &lt;&lt; CH - The best thing you can do for your career is to take a stay-at-home wife </font></td>
+<td><font color="gray">[<a id="2293760" href="#2293760">18:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> <a href="https://www.nytimes.com/2017/06/09/world/europe/ukraine-assassin-russia-putin-amina-okuyeva.html" target=\'_blank\'>https://www.nytimes.com/2017/06/09/world/europe/ukraine-assassin-russia-putin-amina-okuyeva.html</a> </td>
+<td><font color="gray">[<a id="2293761" href="#2293761">19:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> that was a fun read this morning </td>
+<td><font color="gray">[<a id="2293762" href="#2293762">19:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> tldr ? </td>
+<td><font color="gray">[<a id="2293763" href="#2293763">19:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> a ukranian lady and her husband are minor celebs for fighting against the russians in donetsk or wherever, Ukranian press loves em </td>
+<td><font color="gray">[<a id="2293764" href="#2293764">19:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> Chechen assassin poses as Le Monde reporter to try and kill them </td>
+<td><font color="gray">[<a id="2293765" href="#2293765">19:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> and putin is related to this because russian hackers ? </td>
+<td><font color="gray">[<a id="2293766" href="#2293766">19:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> the lady is a badass and has a gun/blod clotting agent, shoots the assassin 4 times after he shoots her husband </td>
+<td><font color="gray">[<a id="2293767" href="#2293767">19:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> o.O </td>
+<td><font color="gray">[<a id="2293768" href="#2293768">19:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> its NYT so Putin will be mentioned in everything, but Ukranian intel says they have no firm evidence it was the Ruskis (in the article)...of course it probably was but that's not the bit of the story that's interesting </td>
+<td><font color="gray">[<a id="2293769" href="#2293769">19:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ya nb story. </td>
+<td><font color="gray">[<a id="2293770" href="#2293770">19:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> this is my fav bit: </td>
+<td><font color="gray">[<a id="2293771" href="#2293771">19:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> As they drove, Mr. Denisultanov-Kurmakayev asked the pair to stop the car for an interview and to sit in the back to receive the gift, which he carried in a festive red cardboard box. </td>
+<td><font color="gray">[<a id="2293772" href="#2293772">19:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> As the couple sat in the back seat of the car, Mr. Denisultanov-Kurmakayev said, “‘Now, here is your gift,’” Ms. Okuyeva said. He opened the box, pulled out a gun and opened fire on Mr. Osmayev. </td>
+<td><font color="gray">[<a id="2293773" href="#2293773">19:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> massive lul, hide the gun in a red box </td>
+<td><font color="gray">[<a id="2293774" href="#2293774">19:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> much tv. </td>
+<td><font color="gray">[<a id="2293775" href="#2293775">19:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> mircea_popescu: do you ever sleep? </td>
+<td><font color="gray">[<a id="2293776" href="#2293776">19:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> depends what you mean by sleep. </td>
+<td><font color="gray">[<a id="2293777" href="#2293777">19:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> sometimes, i wait. </td>
+<td><font color="gray">[<a id="2293778" href="#2293778">19:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> I just mean you're always online </td>
+<td><font color="gray">[<a id="2293779" href="#2293779">19:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> or seem to be </td>
+<td><font color="gray">[<a id="2293780" href="#2293780">19:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> it's a joke! </td>
+<td><font color="gray">[<a id="2293781" href="#2293781">19:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; shinohai</b></td>
+<td class="breakup"> imagines mircea_popescu sleeps like parakeet, with one eye open .... </td>
+<td><font color="gray">[<a id="2293782" href="#2293782">19:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i thought that's like a rabbit </td>
+<td><font color="gray">[<a id="2293783" href="#2293783">19:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> speaking of which, do you know why rabbits sleep with their eyes open ? </td>
+<td><font color="gray">[<a id="2293784" href="#2293784">19:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> y </td>
+<td><font color="gray">[<a id="2293785" href="#2293785">19:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> To keep eye on predators? </td>
+<td><font color="gray">[<a id="2293786" href="#2293786">19:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> only got so much skin. if they try to close their eyes their foreskin retracts. </td>
+<td><font color="gray">[<a id="2293787" href="#2293787">19:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> lmao </td>
+<td><font color="gray">[<a id="2293788" href="#2293788">19:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> O.o </td>
+<td><font color="gray">[<a id="2293789" href="#2293789">19:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> lel </td>
+<td><font color="gray">[<a id="2293790" href="#2293790">19:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>sina:</b></td>
+<td class="breakup"> I demand a reference </td>
+<td><font color="gray">[<a id="2293791" href="#2293791">19:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i read it in the new york times. </td>
+<td><font color="gray">[<a id="2293792" href="#2293792">19:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; sina</b></td>
+<td class="breakup"> falls off chair </td>
+<td><font color="gray">[<a id="2293793" href="#2293793">19:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>shinohai:</b></td>
+<td class="breakup"> ./thread </td>
+<td><font color="gray">[<a id="2293794" href="#2293794">19:24</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://phuctor.nosuchlabs.com/gpgkey/4176ED024FBF368E4C0C44AFD616CB2E7C5DD5A4762091F044381E1170551F40" target=\'_blank\'>http://phuctor.nosuchlabs.com/gpgkey/4176ED024FBF368E4C0C44AFD616CB2E7C5DD5A4762091F044381E1170551F40</a> &lt;&lt; Recent Phuctorings. - Phuctored: 1669...1007 divides RSA Moduli belonging to '81.235.230.56 (ssh-rsa key from 81.235.230.56 (13-14 June 2016 extraction) for Phuctor import. Ask asciilifeform or framedragger on Freenode, or email fd at mkj dot lt) &lt;ssh...lt&gt; ' (81-235-230-56-no78.tbcn.telia.com. SE O) </font></td>
+<td><font color="gray">[<a id="2293795" href="#2293795">22:06</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://phuctor.nosuchlabs.com/gpgkey/4176ED024FBF368E4C0C44AFD616CB2E7C5DD5A4762091F044381E1170551F40" target=\'_blank\'>http://phuctor.nosuchlabs.com/gpgkey/4176ED024FBF368E4C0C44AFD616CB2E7C5DD5A4762091F044381E1170551F40</a> &lt;&lt; Recent Phuctorings. - Phuctored: 1658...3833 divides RSA Moduli belonging to '81.235.230.56 (ssh-rsa key from 81.235.230.56 (13-14 June 2016 extraction) for Phuctor import. Ask asciilifeform or framedragger on Freenode, or email fd at mkj dot lt) &lt;ssh...lt&gt; ' (81-235-230-56-no78.tbcn.telia.com. SE O) </font></td>
+<td><font color="gray">[<a id="2293796" href="#2293796">22:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> !~ticker --market all </td>
+<td><font color="gray">[<a id="2293797" href="#2293797">23:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>jhvh1:</b></td>
+<td class="breakup"> BingoBoingo: Bitstamp BTCUSD last: 2870.97, vol: 9927.44067247 | BTC-E BTCUSD last: 2825.0, vol: 6003.22659 | Bitfinex BTCUSD last: 2813.7, vol: 17696.59304434 | BTCChina BTCUSD last: 2993.643868, vol: 12572.11720000 | Kraken BTCUSD last: 2800.098, vol: 6575.92969603 | Volume-weighted last average: 2866.92963975 </td>
+<td><font color="gray">[<a id="2293798" href="#2293798">23:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> aw shit, I just put all my life savings into ethereum. </td>
+<td><font color="gray">[<a id="2293799" href="#2293799">23:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> pls halp. </td>
+<td><font color="gray">[<a id="2293800" href="#2293800">23:59</a>]</font></td>
+</tr>
+</table>
+&mdash;&mdash;&mdash;<ol class="footnotes"><li id="footnote_0_92239" class="footnote">i &ast; M_pos) % len(b [<a href="#identifier_0_92239" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_1_92239" class="footnote">i+1 &ast; M_pos) % len(b [<a href="#identifier_1_92239" class="footnote-link footnote-back-link">&#8617;</a>]</li></ol>
+              <div>
+                <div class="alignleft">&laquo; <a href="/2020/forum-logs-for-09-jun-2017/">Forum logs for 09 Jun 2017</a></div>
+                <div class="alignright"><a href="/2020/forum-logs-for-11-jun-2017/">Forum logs for 11 Jun 2017</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/logs/" title="View all posts in Logs" rel="category tag">Logs</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2020/forum-logs-for-10-jun-2017/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2020/forum-logs-for-10-jun-2017/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+
+
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authorf2d1a25" id="authorf2d1a25" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emailf2d1a25" id="emailf2d1a25" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urlf2d1a25" id="urlf2d1a25" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="92239" /></p>
+				<input type="hidden" name="comment_post_time" value="1735822814-152.53.39.118" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2025 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-92239")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-92239");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-92239");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

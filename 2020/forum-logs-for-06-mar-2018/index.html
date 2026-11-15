@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_dec2016.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Forum logs for 06 Mar 2018 on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Repressing the female point of view<br />every day since 2008.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-92508"><div class="post" id="post-92508">                    <h1><a href="/2020/forum-logs-for-06-mar-2018/" rel="bookmark" title="Permanent Link to Forum logs for 06 Mar 2018">Forum logs for 06 Mar 2018</a></h1>                        <div class="date">                                     Monday, 16 March, Year 12 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/" title="Posts by "></a>                                                        </div>
+
+                        <div class="entry">
+<table style="font-size:1em;width:"580px;">
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> and in other materia obscura, <a href="http://law.di.unimi.it/software.php#buging" target=\'_blank\'>http://law.di.unimi.it/software.php#buging</a> </td>
+<td><font color="gray">[<a id="2412153" href="#2412153">01:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> ave1, I tried compiling eucrypt &amp; components using your runtime: need support for Interfaces.C (used by keccak/oaep) and Ada.Unchecked_Conversion (used by Serpent) </td>
+<td><font color="gray">[<a id="2412154" href="#2412154">06:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> fwiw the footprint of eucrypt with default runtime is 215K (separate components: mpi 109K bit_keccak 17K keccak 42K rsa 19K serpent 20K - 31K (depending on level of optimisation chosen) </td>
+<td><font color="gray">[<a id="2412155" href="#2412155">06:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> I'm using gprbuild 2016 with gcc 4.9.4, both from adacore </td>
+<td><font color="gray">[<a id="2412156" href="#2412156">06:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> !!v 5741268585B87EBBBEA12E619EB421FC629C369A76F153F5CCB68EFE3348204E </td>
+<td><font color="gray">[<a id="2412157" href="#2412157">06:41</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> diana_coman rated ave1 2 &lt;&lt; useful and clearly reported work on ada &amp; ada+c writes at ave1.org </font></td>
+<td><font color="gray">[<a id="2412158" href="#2412158">06:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> trinque, what do I need to do to add ave1's www to deedbot's list? <a href="http://btcbase.org/log/2018-02-19#1784953" target=\'_blank\'>http://btcbase.org/log/2018-02-19#1784953</a> I really would have liked to have seen <a href="http://ave1.org/2018/sending-arrays-of-octets-between-c-and-ada/" target=\'_blank\'>http://ave1.org/2018/sending-arrays-of-octets-between-c-and-ada/</a> when it was published, last week or did I miss it in the logs somehow? </td>
+<td><font color="gray">[<a id="2412159" href="#2412159">06:52</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-02-19 13:25 diana_coman: also: is ave1's blog in the rss list? I find it quite useful </font></td>
+<td><font color="gray">[<a id="2412160" href="#2412160">06:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>ave1:</b></td>
+<td class="breakup"> diana_coman, I have a version that has both files, but not published yet. It is not hard to make, copy from the runtime dir the files: i-c.ads, i-c.adb (for Interfaces.C) and a-unccon.ads. Then edit i-c.ads and i-c.adb </td>
+<td><font color="gray">[<a id="2412161" href="#2412161">06:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>ave1:</b></td>
+<td class="breakup"> The function versions of To_Ada and To_C need to be removed + exceptions raised </td>
+<td><font color="gray">[<a id="2412162" href="#2412162">06:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>ave1:</b></td>
+<td class="breakup"> Then, smg_serpent self_test procedure needs to be function and raised removed </td>
+<td><font color="gray">[<a id="2412163" href="#2412163">06:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>ave1:</b></td>
+<td class="breakup"> Well, maybe not so easy, I will publish patch (but probably next week) </td>
+<td><font color="gray">[<a id="2412164" href="#2412164">06:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>ave1:</b></td>
+<td class="breakup"> After that, as it turns out, ada still produces some code which is not supported by the zfp lib. I fixed some of this, but this is very much a build - add some code - retry cycle and that will take some time. </td>
+<td><font color="gray">[<a id="2412165" href="#2412165">07:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>ave1:</b></td>
+<td class="breakup"> For example the zfp lib is not really written (at this moment) for a C main program, so 'adafinal' is missing. </td>
+<td><font color="gray">[<a id="2412166" href="#2412166">07:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> ave1, take your time on it just publish when it's ready and I'll give it another go </td>
+<td><font color="gray">[<a id="2412167" href="#2412167">08:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> I am not using To_Ada or To_C so they can be removed, not an issue </td>
+<td><font color="gray">[<a id="2412168" href="#2412168">08:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> as to the serpent_self_test procedure - it can in principle even go away entirely as there is an equivalent test in the tests dir where tests should be anyway the self_test is left mainly because it was in the original, but not crucial in any case </td>
+<td><font color="gray">[<a id="2412169" href="#2412169">08:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> in other sad news, holy shit the <a href="/2018/minigame-smg-january-2018-statement/" target=\'_blank\'>/2018/minigame-smg-january-2018-statement/</a> was utterly broken (and nobody said anything!!!) hence the delay with this month's report. will be publishing a restated version of the jan one too. </td>
+<td><font color="gray">[<a id="2412170" href="#2412170">09:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> diana_coman: you ask. happy to add it. sec </td>
+<td><font color="gray">[<a id="2412171" href="#2412171">09:43</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://qntra.net/2018/03/public-bailout-of-bezo-bungle-continues-in-indiana/" target=\'_blank\'>http://qntra.net/2018/03/public-bailout-of-bezo-bungle-continues-in-indiana/</a> &lt;&lt; Qntra - Public Bailout Of Bezo Bungle Continues In Indiana </font></td>
+<td><font color="gray">[<a id="2412172" href="#2412172">09:54</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://ave1.org/2018/building-gnat-on-musl/" target=\'_blank\'>http://ave1.org/2018/building-gnat-on-musl/</a> &lt;&lt; ave1 - Building GNAT on MUSL </font></td>
+<td><font color="gray">[<a id="2412173" href="#2412173">10:03</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://ave1.org/2018/building-gnat-on-musl-now-with-a-signature/" target=\'_blank\'>http://ave1.org/2018/building-gnat-on-musl-now-with-a-signature/</a> &lt;&lt; ave1 - Building GNAT on MUSL, now with a signature </font></td>
+<td><font color="gray">[<a id="2412174" href="#2412174">10:03</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://ave1.org/2018/on-ffa-chapter-1/" target=\'_blank\'>http://ave1.org/2018/on-ffa-chapter-1/</a> &lt;&lt; ave1 - On FFA Chapter 1 </font></td>
+<td><font color="gray">[<a id="2412175" href="#2412175">10:03</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://ave1.org/2018/gnat-and-pragma-inline_always-a-report/" target=\'_blank\'>http://ave1.org/2018/gnat-and-pragma-inline_always-a-report/</a> &lt;&lt; ave1 - GNAT and Pragma Inline_Always: A report </font></td>
+<td><font color="gray">[<a id="2412176" href="#2412176">10:03</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://ave1.org/2018/mp-wp-a-genesis/" target=\'_blank\'>http://ave1.org/2018/mp-wp-a-genesis/</a> &lt;&lt; ave1 - MP-WP, a genesis </font></td>
+<td><font color="gray">[<a id="2412177" href="#2412177">10:03</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://ave1.org/2018/on-ffa-chapter-2/" target=\'_blank\'>http://ave1.org/2018/on-ffa-chapter-2/</a> &lt;&lt; ave1 - On FFA Chapter 2 </font></td>
+<td><font color="gray">[<a id="2412178" href="#2412178">10:03</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://ave1.org/2018/from-the-proverbial-peanut-gallery/" target=\'_blank\'>http://ave1.org/2018/from-the-proverbial-peanut-gallery/</a> &lt;&lt; ave1 - From the proverbial Peanut Gallery </font></td>
+<td><font color="gray">[<a id="2412179" href="#2412179">10:03</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://ave1.org/2018/gnat-and-zero-foot-print-runtimes/" target=\'_blank\'>http://ave1.org/2018/gnat-and-zero-foot-print-runtimes/</a> &lt;&lt; ave1 - GNAT and Zero Foot Print Runtimes </font></td>
+<td><font color="gray">[<a id="2412180" href="#2412180">10:04</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://ave1.org/2018/sending-arrays-of-octets-between-c-and-ada/" target=\'_blank\'>http://ave1.org/2018/sending-arrays-of-octets-between-c-and-ada/</a> &lt;&lt; ave1 - Sending arrays of octets between C and Ada </font></td>
+<td><font color="gray">[<a id="2412181" href="#2412181">10:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i didn't know non-romanian speakers even knew the word "octet" </td>
+<td><font color="gray">[<a id="2412182" href="#2412182">10:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> where'you from ave1 ?! </td>
+<td><font color="gray">[<a id="2412183" href="#2412183">10:04</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="/2018/minigame-smg-february-2018-statement/" target=\'_blank\'>/2018/minigame-smg-february-2018-statement/</a> &lt;&lt; Trilema - MiniGame (S.MG), February 2018 Statement </font></td>
+<td><font color="gray">[<a id="2412184" href="#2412184">10:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> in other lulz : the people who debuted in porn this year are... 70% male. </td>
+<td><font color="gray">[<a id="2412185" href="#2412185">10:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i expect porn is very much going the way of fashion, or academia : first, faggots get a hold of it, then... nobody would touch it with a ten foot pole. </td>
+<td><font color="gray">[<a id="2412186" href="#2412186">10:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> thanks trinque </td>
+<td><font color="gray">[<a id="2412187" href="#2412187">11:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> yw </td>
+<td><font color="gray">[<a id="2412188" href="#2412188">11:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> has at least a mild hint of bureaucracy flavour associated in head with 'octet' -- the word is mandatory in rfc txt's </td>
+<td><font color="gray">[<a id="2412189" href="#2412189">11:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> leftover from a day when <a href="http://btcbase.org/log/2017-12-29#1760685" target=\'_blank\'>http://btcbase.org/log/2017-12-29#1760685</a> was a lot clearer. </td>
+<td><font color="gray">[<a id="2412190" href="#2412190">12:32</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2017-12-29 15:44 mircea_popescu: but not on "byte" meaning anything other than what it does, which is to say... "how much the machine takes in at a time" </font></td>
+<td><font color="gray">[<a id="2412191" href="#2412191">12:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> as opposed to word (how much is needed to compose a complete address) and so on. </td>
+<td><font color="gray">[<a id="2412192" href="#2412192">12:33</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://qntra.net/2018/03/pantsuit-nashville-mayor-resigns-while-admitting-to-theft/" target=\'_blank\'>http://qntra.net/2018/03/pantsuit-nashville-mayor-resigns-while-admitting-to-theft/</a> &lt;&lt; Qntra - Pantsuit Nashville Mayor Resigns While Admitting To Theft </font></td>
+<td><font color="gray">[<a id="2412193" href="#2412193">13:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> not, notably, CORRUPTION </td>
+<td><font color="gray">[<a id="2412194" href="#2412194">14:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Well, notably </td>
+<td><font color="gray">[<a id="2412195" href="#2412195">14:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> When dem hollywood boys do it "Exploitation!" when pantsuit does it "wage theft" </td>
+<td><font color="gray">[<a id="2412196" href="#2412196">14:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Why no outrage for the poor suffering Sergeant who had to convincingly pretend enthusiasm when banging it out with a bag old enough that she had a mid-20's adult son die from terminal reddit/opiods last year. </td>
+<td><font color="gray">[<a id="2412197" href="#2412197">14:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> you know ? </td>
+<td><font color="gray">[<a id="2412198" href="#2412198">14:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Pretty sure that's actually in the stankred pantsuit texts: Power differential sex abuse. </td>
+<td><font color="gray">[<a id="2412199" href="#2412199">14:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yes but <a href="/2018/memoranda-of-congress/#selection-157.595-159.101" target=\'_blank\'>/2018/memoranda-of-congress/#selection-157.595-159.101</a> </td>
+<td><font color="gray">[<a id="2412200" href="#2412200">14:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> this is the limit where it must stop! </td>
+<td><font color="gray">[<a id="2412201" href="#2412201">14:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> [X<sup><a href="#footnote_0_92508" id="identifier_0_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">i</a></sup>][X<sup><a href="#footnote_1_92508" id="identifier_1_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">ii</a></sup>][X<sup><a href="#footnote_2_92508" id="identifier_2_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">iii</a></sup>] [X<sup><a href="#footnote_3_92508" id="identifier_3_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">iv</a></sup>][X<sup><a href="#footnote_4_92508" id="identifier_4_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">v</a></sup>] [X<sup><a href="#footnote_5_92508" id="identifier_5_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">vi</a></sup>][X<sup><a href="#footnote_6_92508" id="identifier_6_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">vii</a></sup>][X<sup><a href="#footnote_7_92508" id="identifier_7_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">viii</a></sup>][X<sup><a href="#footnote_8_92508" id="identifier_8_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">ix</a></sup>][X<sup><a href="#footnote_9_92508" id="identifier_9_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">x</a></sup>][X<sup><a href="#footnote_10_92508" id="identifier_10_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xi</a></sup>][X<sup><a href="#footnote_11_92508" id="identifier_11_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xii</a></sup>][X<sup><a href="#footnote_12_92508" id="identifier_12_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xiii</a></sup>][X<sup><a href="#footnote_13_92508" id="identifier_13_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xiv</a></sup>][X<sup><a href="#footnote_14_92508" id="identifier_14_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xv</a></sup>] [X<sup><a href="#footnote_15_92508" id="identifier_15_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xvi</a></sup>][X<sup><a href="#footnote_16_92508" id="identifier_16_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xvii</a></sup>][X<sup><a href="#footnote_17_92508" id="identifier_17_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xviii</a></sup>][X<sup><a href="#footnote_18_92508" id="identifier_18_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xix</a></sup>][X<sup><a href="#footnote_19_92508" id="identifier_19_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xx</a></sup>][X<sup><a href="#footnote_20_92508" id="identifier_20_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xxi</a></sup>][X<sup><a href="#footnote_21_92508" id="identifier_21_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xxii</a></sup>] </td>
+<td><font color="gray">[<a id="2412202" href="#2412202">14:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> nice phf. </td>
+<td><font color="gray">[<a id="2412203" href="#2412203">14:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> 2017-02-04 23:23 ec changed the topic of #elliottcable to: a [X<sup><a href="#footnote_22_92508" id="identifier_22_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xxiii</a></sup>][X<sup><a href="#footnote_23_92508" id="identifier_23_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xxiv</a></sup>][X<sup><a href="#footnote_24_92508" id="identifier_24_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xxv</a></sup>] [X<sup><a href="#footnote_25_92508" id="identifier_25_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xxvi</a></sup>][X<sup><a href="#footnote_26_92508" id="identifier_26_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xxvii</a></sup>] [X<sup><a href="#footnote_27_92508" id="identifier_27_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xxviii</a></sup>][X<sup><a href="#footnote_28_92508" id="identifier_28_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xxix</a></sup>][X<sup><a href="#footnote_29_92508" id="identifier_29_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xxx</a></sup>][X<sup><a href="#footnote_30_92508" id="identifier_30_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xxxi</a></sup>][X<sup><a href="#footnote_31_92508" id="identifier_31_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xxxii</a></sup>][X<sup><a href="#footnote_32_92508" id="identifier_32_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xxxiii</a></sup>][X<sup><a href="#footnote_33_92508" id="identifier_33_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xxxiv</a></sup>][X<sup><a href="#footnote_34_92508" id="identifier_34_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xxxv</a></sup>][X<sup><a href="#footnote_35_92508" id="identifier_35_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xxxvi</a></sup>][X<sup><a href="#footnote_36_92508" id="identifier_36_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xxxvii</a></sup>] [X<sup><a href="#footnote_37_92508" id="identifier_37_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xxxviii</a></sup>][X<sup><a href="#footnote_38_92508" id="identifier_38_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xxxix</a></sup>][X<sup><a href="#footnote_39_92508" id="identifier_39_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xl</a></sup>][X<sup><a href="#footnote_40_92508" id="identifier_40_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xli</a></sup>][X<sup><a href="#footnote_41_92508" id="identifier_41_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xlii</a></sup>][X<sup><a href="#footnote_42_92508" id="identifier_42_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xliii</a></sup>][X<sup><a href="#footnote_43_92508" id="identifier_43_92508" class="footnote-link footnote-identifier-link" title="Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed.">xliv</a></sup>] slash s͔̞u͕͙p͙͓e̜̺r̼̦i̼̜o̖̬r̙̙ c̝͉ụ̧͘ḷ̡͙ţ͓̀ || #ELLIOTTCABLE is not about ELLIOTTCABLE </td>
+<td><font color="gray">[<a id="2412204" href="#2412204">14:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Well, one small herd of boxes on its way here. Hopefully this time we've assembled the men and talents necessary to secure and sustain a digital space from which to serve the notices of hanging. </td>
+<td><font color="gray">[<a id="2412205" href="#2412205">14:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> gl! </td>
+<td><font color="gray">[<a id="2412206" href="#2412206">14:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Hoping here that Señor Vulpes arrives intact and ready to deliver good news. </td>
+<td><font color="gray">[<a id="2412207" href="#2412207">14:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>ave1:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-03-06#1787066," target=\'_blank\'>http://btcbase.org/log/2018-03-06#1787066,</a> I'm from and in The Netherlands. </td>
+<td><font color="gray">[<a id="2412208" href="#2412208">15:03</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-03-06 15:04 mircea_popescu: where'you from ave1 ?! </font></td>
+<td><font color="gray">[<a id="2412209" href="#2412209">15:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> cheers. </td>
+<td><font color="gray">[<a id="2412210" href="#2412210">15:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>ave1:</b></td>
+<td class="breakup"> Remembered octets when this came up in the discussion. </td>
+<td><font color="gray">[<a id="2412211" href="#2412211">15:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> meanwhile in other lulz, <a href="https://robek.world/featured/what-is-gnu-social-and-is-mastodon-social-a-twitter-clone/" target=\'_blank\'>https://robek.world/featured/what-is-gnu-social-and-is-mastodon-social-a-twitter-clone/</a> </td>
+<td><font color="gray">[<a id="2412212" href="#2412212">15:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> and for the crit lit / media experts, here's a conundrum : cool it carol, easily the best movie made in the 70s and one of the best movies ever, came out 1970. in 1971, "plaza suite" featuring matthau and various women has a segment dedicated to this anti-carol (mimsy), a dumb murican priss who locks herself in bathroom on her wedding day. the clou of the entire production is made into some schmuck (almost as ugly as rob askw </td>
+<td><font color="gray">[<a id="2412213" href="#2412213">16:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ith, and certainy with the same bad hair) knocking on her door and saying "mimsy ? cool it!" so matthau can lay into them with "he went to college for four years and all he's got is cool it ?!". </td>
+<td><font color="gray">[<a id="2412214" href="#2412214">16:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> now... is this a reference or ain't it ? </td>
+<td><font color="gray">[<a id="2412215" href="#2412215">16:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-03-06#1787095" target=\'_blank\'>http://btcbase.org/log/2018-03-06#1787095</a> &lt;&lt; old noose, <a href="http://btcbase.org/log/2017-04-07#1640230" target=\'_blank\'>http://btcbase.org/log/2017-04-07#1640230</a> , <a href="http://btcbase.org/log/2017-11-23#1742487" target=\'_blank\'>http://btcbase.org/log/2017-11-23#1742487</a> , afaik long dead </td>
+<td><font color="gray">[<a id="2412216" href="#2412216">16:25</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-03-06 20:59 mircea_popescu: meanwhile in other lulz, <a href="https://robek.world/featured/what-is-gnu-social-and-is-mastodon-social-a-twitter-clone/" target=\'_blank\'>https://robek.world/featured/what-is-gnu-social-and-is-mastodon-social-a-twitter-clone/</a> </font></td>
+<td><font color="gray">[<a id="2412217" href="#2412217">16:25</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2017-04-07 19:37 asciilifeform: ben_vulpes: here's an even worse, <a href="https://mastodon.social" target=\'_blank\'>https://mastodon.social</a> </font></td>
+<td><font color="gray">[<a id="2412218" href="#2412218">16:25</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2017-11-23 16:20 phf: re upstack, there's been a resurgence of sorts of gopher protocol, various hipsters spinning up personal websites, etc. whether the resurgence was shortlived or i'm just late to the game, but there's already a community of wreckers (one of them groups is coming from this federated twitter platform, mastodon) discussing all the various ways that they want to "improve" gopher, tls, utf-8, markdown renderer, "minimal subset of html", etc. but at the same </font></td>
+<td><font color="gray">[<a id="2412219" href="#2412219">16:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform got brought up in #picolisp which is why i bothered. </td>
+<td><font color="gray">[<a id="2412220" href="#2412220">16:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; mircea_popescu</b></td>
+<td class="breakup"> is engaged in a review of freenode channels, article to follow. </td>
+<td><font color="gray">[<a id="2412221" href="#2412221">16:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> remembers a lengthy picolisp thread, but either forgot or did not know , that it had own chan </td>
+<td><font color="gray">[<a id="2412222" href="#2412222">16:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> seems kinda social. </td>
+<td><font color="gray">[<a id="2412223" href="#2412223">16:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> meanwhile in ##openfpga, "&lt;mithro&gt; mircea_popescu: symbiflow.github.io -- what I'm spending all my spare time on" </td>
+<td><font color="gray">[<a id="2412224" href="#2412224">16:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="https://irclog.whitequark.org/~h~openfpga/2018-03-06#21488103" target=\'_blank\'>https://irclog.whitequark.org/~h~openfpga/2018-03-06#21488103</a> context. </td>
+<td><font color="gray">[<a id="2412225" href="#2412225">16:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!up nonlinear </td>
+<td><font color="gray">[<a id="2412226" href="#2412226">16:35</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> nonlinear voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2412227" href="#2412227">16:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>nonlinear:</b></td>
+<td class="breakup"> Oh, Hi mircea_popescu just stumbled in here, and reading trilema.com to get a sense </td>
+<td><font color="gray">[<a id="2412228" href="#2412228">16:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> enjoy. </td>
+<td><font color="gray">[<a id="2412229" href="#2412229">16:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> though sense is usually an emergent property of half a year to a year's exploration </td>
+<td><font color="gray">[<a id="2412230" href="#2412230">16:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> meanwhile in #picolisp lulz, <a href="https://devco.re/blog/2018/03/06/exim-off-by-one-RCE-exploiting-CVE-2018-6789-en/" target=\'_blank\'>https://devco.re/blog/2018/03/06/exim-off-by-one-RCE-exploiting-CVE-2018-6789-en/</a> </td>
+<td><font color="gray">[<a id="2412231" href="#2412231">16:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: re the xilinx reversing attempt , <a href="http://btcbase.org/log/2018-01-11#1769036" target=\'_blank\'>http://btcbase.org/log/2018-01-11#1769036</a> &lt;&lt; prev thread </td>
+<td><font color="gray">[<a id="2412232" href="#2412232">16:38</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-01-11 16:49 apeloyee: <a href="http://btcbase.org/log/2018-01-04#1764242" target=\'_blank\'>http://btcbase.org/log/2018-01-04#1764242</a> &lt;&lt; do I understand correctly that there's nowhere to store the result, as there seems to be enough hw adders in an 'ice'?also, it seems that the same authors are trying to reverse some xilinx nao: <a href="https://symbiflow.github.io/" target=\'_blank\'>https://symbiflow.github.io/</a> </font></td>
+<td><font color="gray">[<a id="2412233" href="#2412233">16:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> o hey, it WAS mentioned! </td>
+<td><font color="gray">[<a id="2412234" href="#2412234">16:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>nonlinear:</b></td>
+<td class="breakup"> Yes, that seems about right from what I have seen so far. Exploration is a good term, and enjoyable. </td>
+<td><font color="gray">[<a id="2412235" href="#2412235">16:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> iirc same author as 'icestorm' </td>
+<td><font color="gray">[<a id="2412236" href="#2412236">16:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> aha. goes by mithro i pinged him with it. </td>
+<td><font color="gray">[<a id="2412237" href="#2412237">16:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>nonlinear:</b></td>
+<td class="breakup"> Oh, I hope an opensource flow for Xilinx is achieved. </td>
+<td><font color="gray">[<a id="2412238" href="#2412238">16:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> nonlinear maybe once they're dead. </td>
+<td><font color="gray">[<a id="2412239" href="#2412239">16:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> the seekrit tricky bit , is that if you can't compute an ~exact~ delay path, in nsec, between any point 'a' and 'b' in the fabric, yer tool is ~useless </td>
+<td><font color="gray">[<a id="2412240" href="#2412240">16:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( in lattice's 'ice', the elements are homogeneous, so it was a nonproblem ) </td>
+<td><font color="gray">[<a id="2412241" href="#2412241">16:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ie you must know placement, rather exactly. </td>
+<td><font color="gray">[<a id="2412242" href="#2412242">16:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> aha </td>
+<td><font color="gray">[<a id="2412243" href="#2412243">16:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( and in more 'luxurious' fpga, some components have variable delay depending on how configed , even ) </td>
+<td><font color="gray">[<a id="2412244" href="#2412244">16:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !#s "radxa.com" </td>
+<td><font color="gray">[<a id="2412245" href="#2412245">16:59</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> 0 results for "\"radxa.com\"", <a href="http://btcbase.org/log-search?q=%22radxa.com%22" target=\'_blank\'>http://btcbase.org/log-search?q=%22radxa.com%22</a> </font></td>
+<td><font color="gray">[<a id="2412246" href="#2412246">16:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> apparently this is a thing. </td>
+<td><font color="gray">[<a id="2412247" href="#2412247">16:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://wiki.radxa.com/Home" target=\'_blank\'>http://wiki.radxa.com/Home</a> </td>
+<td><font color="gray">[<a id="2412248" href="#2412248">16:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: 'rockchip' rk series. asciilifeform ported trb to these in 2015. </td>
+<td><font color="gray">[<a id="2412249" href="#2412249">17:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> aha. they have a (dead) freenode chan. </td>
+<td><font color="gray">[<a id="2412250" href="#2412250">17:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> "ARTIQ (Advanced Real-Time Infrastructure for Quantum physics) is a leading-edge" </td>
+<td><font color="gray">[<a id="2412251" href="#2412251">17:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> leading-edge! it's a leading-edge! </td>
+<td><font color="gray">[<a id="2412252" href="#2412252">17:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> !~ticker --market all </td>
+<td><font color="gray">[<a id="2412253" href="#2412253">17:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>jhvh1:</b></td>
+<td class="breakup"> BingoBoingo: Bitstamp BTCUSD last: 10716.89, vol: 14101.07474564 | Bitfinex BTCUSD last: 10719.0, vol: 44379.30953958 | Kraken BTCUSD last: 10731.2, vol: 9893.67637678 | Volume-weighted last average: 10720.3301767 </td>
+<td><font color="gray">[<a id="2412254" href="#2412254">17:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; mircea_popescu</b></td>
+<td class="breakup"> tried to read above-linked rundown of gnu failure at social media erection died about midway through. really, kids too clueless to comprehend how clueless they are writing "the history" of how spurious irc re-implementation went nowhere ? </td>
+<td><font color="gray">[<a id="2412255" href="#2412255">17:30</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="/2018/and-in-other-dead-things/" target=\'_blank\'>/2018/and-in-other-dead-things/</a> &lt;&lt; Trilema - And in other dead things... </font></td>
+<td><font color="gray">[<a id="2412256" href="#2412256">17:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> fuck all social media, i want gossip </td>
+<td><font color="gray">[<a id="2412257" href="#2412257">17:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> eh, i just want performance. they've got this thing now, where they're so desperate for cheap footage, they'll actually dress up athletes like they were people, seat them down in studios and make them talk. </td>
+<td><font color="gray">[<a id="2412258" href="#2412258">17:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> srsly nobody cares what random trained monkey has to say. </td>
+<td><font color="gray">[<a id="2412259" href="#2412259">17:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> strippers are for twerking not for tweeting. </td>
+<td><font color="gray">[<a id="2412260" href="#2412260">17:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> They have even went futher and started dressing up the broken monkeys in suits and moved them from shows about the sports they used to play to hosting the old people and NEET morning shows </td>
+<td><font color="gray">[<a id="2412261" href="#2412261">17:53</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://thewhet.net/2018/03/sede-atlantico/" target=\'_blank\'>http://thewhet.net/2018/03/sede-atlantico/</a> &lt;&lt; The Whet - Sede Atlantico </font></td>
+<td><font color="gray">[<a id="2412262" href="#2412262">17:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; mircea_popescu</b></td>
+<td class="breakup"> ended up laughing ass off at trinque refuelling station once more. </td>
+<td><font color="gray">[<a id="2412263" href="#2412263">18:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> that one cracked me up. </td>
+<td><font color="gray">[<a id="2412264" href="#2412264">18:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Balcony Disco! </td>
+<td><font color="gray">[<a id="2412265" href="#2412265">18:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> they're fuckin hopeless. </td>
+<td><font color="gray">[<a id="2412266" href="#2412266">18:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> government better be issuing more bonds. </td>
+<td><font color="gray">[<a id="2412267" href="#2412267">18:33</a>]</font></td>
+</tr>
+</table>
+&mdash;&mdash;&mdash;<ol class="footnotes"><li id="footnote_0_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_0_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_1_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_1_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_2_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_2_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_3_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_3_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_4_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_4_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_5_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_5_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_6_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_6_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_7_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_7_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_8_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_8_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_9_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_9_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_10_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_10_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_11_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_11_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_12_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_12_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_13_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_13_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_14_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_14_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_15_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_15_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_16_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_16_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_17_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_17_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_18_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_18_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_19_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_19_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_20_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_20_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_21_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_21_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_22_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_22_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_23_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_23_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_24_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_24_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_25_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_25_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_26_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_26_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_27_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_27_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_28_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_28_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_29_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_29_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_30_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_30_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_31_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_31_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_32_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_32_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_33_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_33_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_34_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_34_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_35_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_35_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_36_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_36_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_37_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_37_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_38_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_38_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_39_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_39_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_40_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_40_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_41_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_41_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_42_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_42_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li><li id="footnote_43_92508" class="footnote">Symbolic representation of Mother Goddess / Great Inca / USG's State Corporations has been removed. [<a href="#identifier_43_92508" class="footnote-link footnote-back-link">&#8617;</a>]</li></ol>
+              <div>
+                <div class="alignleft">&laquo; <a href="/2020/forum-logs-for-05-mar-2018/">Forum logs for 05 Mar 2018</a></div>
+                <div class="alignright"><a href="/2020/forum-logs-for-07-mar-2018/">Forum logs for 07 Mar 2018</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/logs/" title="View all posts in Logs" rel="category tag">Logs</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2020/forum-logs-for-06-mar-2018/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2020/forum-logs-for-06-mar-2018/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+
+
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authore8e1dd8" id="authore8e1dd8" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emaile8e1dd8" id="emaile8e1dd8" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urle8e1dd8" id="urle8e1dd8" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="92508" /></p>
+				<input type="hidden" name="comment_post_time" value="1735282974-152.53.39.118" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2024 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-92508")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-92508");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-92508");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_dec2016.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Forum logs for 19 Nov 2018 on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">The fates are cruel an' the chances are slim<br />so grab a good sieve and dig in.<br />~<a href=/2020/nannare/#comment-147503>my elder slavegirl</a>
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-92766"><div class="post" id="post-92766">                    <h1><a href="/2020/forum-logs-for-19-nov-2018/" rel="bookmark" title="Permanent Link to Forum logs for 19 Nov 2018">Forum logs for 19 Nov 2018</a></h1>                        <div class="date">                                     Monday, 16 March, Year 12 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/" title="Posts by "></a>                                                        </div>
+
+                        <div class="entry">
+<table style="font-size:1em;width:"580px;">
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> mod6: why does the net change in pizarro's cash account for august not equal the difference between the sum of incoming and outgoing cash transactions? </td>
+<td><font color="gray">[<a id="2497289" href="#2497289">00:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> BingoBoingo: why does mod6's ledger show a transaction for 0.1 btc to you on august 12th and then back from you on august 17th? it doesn't affect the accounting, but i am perplexed as you both stated that your ledgers in these shared notes contained all of your pizarro transactions with noted exceptions that do not include that transaction. </td>
+<td><font color="gray">[<a id="2497290" href="#2497290">00:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> amend that question to include the detail that &ast;your&ast; submitted ledger does not contain either of those transactions. </td>
+<td><font color="gray">[<a id="2497291" href="#2497291">00:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> asciilifeform, mod6, BingoBoingo: <a href="http://p.bvulpes.com/pastes/tHcxD/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/tHcxD/?raw=true</a> (these missives have not been encrypted, only signed. if any would like to read, please do.) </td>
+<td><font color="gray">[<a id="2497292" href="#2497292">01:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> asciilifeform: i believe this report settles the reported discrepancies. i will have to respond to queries asynchronously, as i'm traveling for the next week. </td>
+<td><font color="gray">[<a id="2497293" href="#2497293">01:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> asciilifeform: i've sketched out a set of tables that could hold all pizarro data accounting data and generate statements the only remaining puzzlers are modeling subscriptions, prepay, and asset depreciation. would you like me to complete the design, put sql to disk and turn this into an accounting spreadsheet for pizarro? </td>
+<td><font color="gray">[<a id="2497294" href="#2497294">02:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> mircea_popescu: i understand that empty genesis (well, it's not precisely empty, there is a manifest file) is suboptimal, however: </td>
+<td><font color="gray">[<a id="2497295" href="#2497295">02:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> 1. x86 and arm trees will diverge pretty much from the start, i can't see how anything useful and complete can be packed into genesis. </td>
+<td><font color="gray">[<a id="2497296" href="#2497296">02:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> 2. i seem to remember but can't find right now a discussion (around time spyked published adalisp) that making such a genesis should be ok. perhaps i am confused about the context of that discussion and did something stupid. </td>
+<td><font color="gray">[<a id="2497297" href="#2497297">02:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> bvt i dunno that it's a huge deal, but maybe dig up the log reference ? </td>
+<td><font color="gray">[<a id="2497298" href="#2497298">05:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i mean, it certainly has the virtue of signalling, "Hey guise, i intend to do this" sorta thing </td>
+<td><font color="gray">[<a id="2497299" href="#2497299">05:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> phf, I wanted to sign your vtools patches but I realised that they are using sha so I don't really know: do you plan to regrind them with keccak? </td>
+<td><font color="gray">[<a id="2497300" href="#2497300">05:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> phf, also, perhaps snarf the V.pl tree from in <a href="http://ossasepia.com/2018/11/13/v-with-vtools-keccak-hashes-and-its-own-tree/" target=\'_blank\'>http://ossasepia.com/2018/11/13/v-with-vtools-keccak-hashes-and-its-own-tree/</a> ? </td>
+<td><font color="gray">[<a id="2497301" href="#2497301">05:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> bvt, while I don't see a big problem per se with an empty genesis, the question for your specific situation is why glue together 2 trees if they diverge right from the start anyway? </td>
+<td><font color="gray">[<a id="2497302" href="#2497302">05:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> something like that. </td>
+<td><font color="gray">[<a id="2497303" href="#2497303">06:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> ok, so the discussion seems to be here: <a href="/forum-logs-for-25-jun-2018#2453982" target=\'_blank\'>/forum-logs-for-25-jun-2018#2453982</a> , and unlike me, spyked did publish the code. </td>
+<td><font color="gray">[<a id="2497304" href="#2497304">06:36</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-06-25 16:40 mircea_popescu: spyked&gt; I think there's great benefit in the ffa chapter-based approach &lt;&lt; that ~started with a genesis~. </font></td>
+<td><font color="gray">[<a id="2497305" href="#2497305">06:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> i want the platform-specific branches to be glued together because API for users should be the same in all of them. so that user can press a branch for aarch64 or x86 without changing anything in his code. </td>
+<td><font color="gray">[<a id="2497306" href="#2497306">06:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> bvt, that sounds like you want to start then the tree with ..the API? otherwise at any rate, the user CAN use the same API with whatever provides it, no? </td>
+<td><font color="gray">[<a id="2497307" href="#2497307">06:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> bvt this is laudable, provided of course it actulaly works out. </td>
+<td><font color="gray">[<a id="2497308" href="#2497308">06:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> experience kinda seems to indicate trying to have the same model for two things is a recipe for tears in this "industry" of apes and aping, but then again... man gotta try. </td>
+<td><font color="gray">[<a id="2497309" href="#2497309">06:50</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://bimbo.club/?p=83" target=\'_blank\'>http://bimbo.club/?p=83</a> &lt;&lt; Bimbo.Club - TMSR Log Summary - 11/05/2018 </font></td>
+<td><font color="gray">[<a id="2497310" href="#2497310">07:38</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="/2018/the-keks-of-all-time/" target=\'_blank\'>/2018/the-keks-of-all-time/</a> &lt;&lt; Trilema - The keks of all time... </font></td>
+<td><font color="gray">[<a id="2497311" href="#2497311">09:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-11-19#1873558" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873558</a> &lt;&lt; got it loox like it is ready to mechanize, ben_vulpes ..? </td>
+<td><font color="gray">[<a id="2497312" href="#2497312">10:16</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-19 06:31 ben_vulpes: asciilifeform, mod6, BingoBoingo: <a href="http://p.bvulpes.com/pastes/tHcxD/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/tHcxD/?raw=true</a> (these missives have not been encrypted, only signed. if any would like to read, please do.) </font></td>
+<td><font color="gray">[<a id="2497313" href="#2497313">10:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-11-19#1873560" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873560</a> &lt;&lt; sounds great, plz </td>
+<td><font color="gray">[<a id="2497314" href="#2497314">10:17</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-19 07:09 ben_vulpes: asciilifeform: i've sketched out a set of tables that could hold all pizarro data accounting data and generate statements the only remaining puzzlers are modeling subscriptions, prepay, and asset depreciation. would you like me to complete the design, put sql to disk and turn this into an accounting spreadsheet for pizarro? </font></td>
+<td><font color="gray">[<a id="2497315" href="#2497315">10:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ben_vulpes: i assumed the worst, that asciilifeform would have to somehow fit whole thing on his already packed conveyor. </td>
+<td><font color="gray">[<a id="2497316" href="#2497316">10:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-11-19#1873561" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873561</a> &lt;&lt; here is where i admit that i dun see wtf is the point of an empty genesis </td>
+<td><font color="gray">[<a id="2497317" href="#2497317">10:18</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-19 07:54 bvt: mircea_popescu: i understand that empty genesis (well, it's not precisely empty, there is a manifest file) is suboptimal, however: </font></td>
+<td><font color="gray">[<a id="2497318" href="#2497318">10:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> genesis, in my conception, oughta at the very least set the flavour of a tree, with ~some~ semblance of a working item </td>
+<td><font color="gray">[<a id="2497319" href="#2497319">10:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( e.g. ffa genesis, is very small, but contained all of the basic fundamental moving parts for simple arithm ) </td>
+<td><font color="gray">[<a id="2497320" href="#2497320">10:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-11-19#1873558" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873558</a> &lt;&lt; Thanks for the audit report ben_vulpes. Looks like you figured out this (<a href="http://btcbase.org/log/2018-11-19#1873555)" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873555)</a> from your report notes. </td>
+<td><font color="gray">[<a id="2497321" href="#2497321">11:33</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-19 06:31 ben_vulpes: asciilifeform, mod6, BingoBoingo: <a href="http://p.bvulpes.com/pastes/tHcxD/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/tHcxD/?raw=true</a> (these missives have not been encrypted, only signed. if any would like to read, please do.) </font></td>
+<td><font color="gray">[<a id="2497322" href="#2497322">11:33</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-19 05:06 ben_vulpes: mod6: why does the net change in pizarro's cash account for august not equal the difference between the sum of incoming and outgoing cash transactions? </font></td>
+<td><font color="gray">[<a id="2497323" href="#2497323">11:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ohai mod6 </td>
+<td><font color="gray">[<a id="2497324" href="#2497324">11:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-11-19#1873556" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873556</a> &lt;&lt; As for this, BingoBoingo began doing a cut-down of the notes file, so more recent editions have not had older-months notes contained. I have went back and found the notes around the 0.1 BTC sent between us from august. Here is that specific snippit: <a href="http://p.bvulpes.com/pastes/CEgRj/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/CEgRj/?raw=true</a> </td>
+<td><font color="gray">[<a id="2497325" href="#2497325">11:35</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-19 05:30 ben_vulpes: BingoBoingo: why does mod6's ledger show a transaction for 0.1 btc to you on august 12th and then back from you on august 17th? it doesn't affect the accounting, but i am perplexed as you both stated that your ledgers in these shared notes contained all of your pizarro transactions with noted exceptions that do not include that transaction. </font></td>
+<td><font color="gray">[<a id="2497326" href="#2497326">11:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> ben_vulpes: In case you are curious, here is the full notes file from the end of august, just for posterity: <a href="http://p.bvulpes.com/pastes/5ZN91/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/5ZN91/?raw=true</a> </td>
+<td><font color="gray">[<a id="2497327" href="#2497327">11:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> I won't speak for BingoBoingo as to why his ledger copy does not show the 0.1 BTC sent from me to him, and then back from him to me. I'll let him speak to that. </td>
+<td><font color="gray">[<a id="2497328" href="#2497328">11:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> Hope this helps. Cheers. </td>
+<td><font color="gray">[<a id="2497329" href="#2497329">11:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> hai asciilifeform, hope all is well </td>
+<td><font color="gray">[<a id="2497330" href="#2497330">11:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-11-18#1873480" target=\'_blank\'>http://btcbase.org/log/2018-11-18#1873480</a> &lt;&lt; this is entirely ok, diana_coman , there is not a burning hurry ( tho i expect that anybody who intends on firing ffa on battlefield will first take the time to properly eat it ) </td>
+<td><font color="gray">[<a id="2497331" href="#2497331">11:37</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-18 20:52 diana_coman: <a href="http://btcbase.org/log/2018-11-18#1873291" target=\'_blank\'>http://btcbase.org/log/2018-11-18#1873291</a> - noted and added to the list though it might still take some time to get up to speed with ffa again </font></td>
+<td><font color="gray">[<a id="2497332" href="#2497332">11:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; mod6</b></td>
+<td class="breakup"> bbl </td>
+<td><font color="gray">[<a id="2497333" href="#2497333">11:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mod6: errything well, ( tho asciilifeform as always during weekdays is knee deep in heathen rubbish ) </td>
+<td><font color="gray">[<a id="2497334" href="#2497334">11:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> tyvm ben_vulpes </td>
+<td><font color="gray">[<a id="2497335" href="#2497335">11:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> mod6: I started my ledger in the Pizarro notes on September 1st. </td>
+<td><font color="gray">[<a id="2497336" href="#2497336">11:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> Ah, ok BingoBoingo. Then that'd be it, since the 0.1 BTC back and forth took place in mid-August. </td>
+<td><font color="gray">[<a id="2497337" href="#2497337">11:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> Thanks. </td>
+<td><font color="gray">[<a id="2497338" href="#2497338">11:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; mod6</b></td>
+<td class="breakup"> bbl </td>
+<td><font color="gray">[<a id="2497339" href="#2497339">11:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Yeah, it was in case of a price swing while getting an SSD order ready </td>
+<td><font color="gray">[<a id="2497340" href="#2497340">11:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> Yeah, makes sense to me. I remember that. </td>
+<td><font color="gray">[<a id="2497341" href="#2497341">11:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> In other news, Qntra comments hooked a wild derp <a href="http://qntra.net/2018/11/forkcoin-that-split-from-bitcoin-now-struck-by-contentious-hardfork/#comment-120500" target=\'_blank\'>http://qntra.net/2018/11/forkcoin-that-split-from-bitcoin-now-struck-by-contentious-hardfork/#comment-120500</a> </td>
+<td><font color="gray">[<a id="2497342" href="#2497342">11:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: ftr i still dun have anything like a working hypothesis re why the miners let segshitness live for as long as it has </td>
+<td><font color="gray">[<a id="2497343" href="#2497343">12:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> tho i think mircea_popescu had one, iirc it was 'they're letting the sow fatten for table', approx </td>
+<td><font color="gray">[<a id="2497344" href="#2497344">12:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> anybody recall whether there's a handy gauge somewhere re just how fat is the sow presently ? ( it ain't particularly hard to calculate , simply add up the coinz presently sitting in 'anyone-spends' ) </td>
+<td><font color="gray">[<a id="2497345" href="#2497345">12:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( ex. thread, <a href="http://btcbase.org/log/2017-08-24#1702787" target=\'_blank\'>http://btcbase.org/log/2017-08-24#1702787</a> ) </td>
+<td><font color="gray">[<a id="2497346" href="#2497346">12:07</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2017-08-24 14:23 mircea_popescu: <a href="http://btcbase.org/log/2017-08-24#1702759" target=\'_blank\'>http://btcbase.org/log/2017-08-24#1702759</a> &lt;&lt; eventually this will necessarily happen, yes. "segwit" transactions are stored on the bitcoin network as "anyone can spend", so eventually miners will unroll the segwit chain. how soon is not easily predicted (which is why the idea is stupid/usg-like, introduces impredictability in the currency) </font></td>
+<td><font color="gray">[<a id="2497347" href="#2497347">12:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( or the earlier <a href="http://btcbase.org/log/2016-11-07#1563526" target=\'_blank\'>http://btcbase.org/log/2016-11-07#1563526</a> , &amp; elsewhere ) </td>
+<td><font color="gray">[<a id="2497348" href="#2497348">12:08</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2016-11-07 18:26 mircea_popescu: well, it slowly builds, until the miners defect. </font></td>
+<td><font color="gray">[<a id="2497349" href="#2497349">12:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> and , moar pertinently, <a href="http://btcbase.org/log/2016-11-07#1563528" target=\'_blank\'>http://btcbase.org/log/2016-11-07#1563528</a> </td>
+<td><font color="gray">[<a id="2497350" href="#2497350">12:08</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2016-11-07 18:27 mircea_popescu: im sure nobody had the sense to create a "total payout to defecting miners" watch, because hey, they're "developers" not thinkers. </font></td>
+<td><font color="gray">[<a id="2497351" href="#2497351">12:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> !#s prikoke </td>
+<td><font color="gray">[<a id="2497352" href="#2497352">12:13</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> 10 results for "prikoke", <a href="http://btcbase.org/log-search?q=prikoke" target=\'_blank\'>http://btcbase.org/log-search?q=prikoke</a> </font></td>
+<td><font color="gray">[<a id="2497353" href="#2497353">12:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ^ oblig. </td>
+<td><font color="gray">[<a id="2497354" href="#2497354">12:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; lobbes</b></td>
+<td class="breakup"> enjoyed &gt;&gt; <a href="http://thetarpit.org/posts/y04/073-prikoke.html" target=\'_blank\'>http://thetarpit.org/posts/y04/073-prikoke.html</a> </td>
+<td><font color="gray">[<a id="2497355" href="#2497355">13:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> lobbes: it's a riff on h. c. andersen ( who prolly lifted it from yet-elsewhere, i dun immediately recall from where ) </td>
+<td><font color="gray">[<a id="2497356" href="#2497356">13:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> prolly tale is as old as pig-keepin'. </td>
+<td><font color="gray">[<a id="2497357" href="#2497357">13:53</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://qntra.net/2018/11/pantsuit-lolsuit-against-russia-stumped-by-sovereign-immunity/" target=\'_blank\'>http://qntra.net/2018/11/pantsuit-lolsuit-against-russia-stumped-by-sovereign-immunity/</a> &lt;&lt; Qntra - Pantsuit Lolsuit Against Russia Stumped By Sovereign Immunity </font></td>
+<td><font color="gray">[<a id="2497358" href="#2497358">14:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: ru foreign ministry, not ministry of justice </td>
+<td><font color="gray">[<a id="2497359" href="#2497359">15:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> or hm, nm, loox like 1 of each </td>
+<td><font color="gray">[<a id="2497360" href="#2497360">15:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> ty fxd </td>
+<td><font color="gray">[<a id="2497361" href="#2497361">15:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> hello </td>
+<td><font color="gray">[<a id="2497362" href="#2497362">15:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-11-19#1873573" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873573</a> &lt;&lt; i will have to think more about vtree organization. if i use api as the foundation for the tree, adding new system calls would cause regrind in this case, the api should be complete from day one. </td>
+<td><font color="gray">[<a id="2497363" href="#2497363">15:45</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-19 11:46 diana_coman: bvt, that sounds like you want to start then the tree with ..the API? otherwise at any rate, the user CAN use the same API with whatever provides it, no? </font></td>
+<td><font color="gray">[<a id="2497364" href="#2497364">15:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> for example, ftruncate is also useful for mmaptron, should it go in? </td>
+<td><font color="gray">[<a id="2497365" href="#2497365">15:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> otoh, if system call asm packages are at the tree foundation, the api uniformity will be enforced by convetion only, and the branches will diverge right after genesis. </td>
+<td><font color="gray">[<a id="2497366" href="#2497366">15:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> bvt, from experience I can tell you that "complete from day one" is not likely to ever happen </td>
+<td><font color="gray">[<a id="2497367" href="#2497367">15:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> basically it's just a way to cause yourself trouble, I wouldn't recommend </td>
+<td><font color="gray">[<a id="2497368" href="#2497368">15:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> the only case in which such a thing makes sense is if it's already a fixed /known /set in stone set </td>
+<td><font color="gray">[<a id="2497369" href="#2497369">15:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> yes, i can definitely see that. scope of the tree must be fixed at the moment of creation. which is not necessarily a bad thing. </td>
+<td><font color="gray">[<a id="2497370" href="#2497370">15:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> anyway, the purpose of V is not to force something onto the user </td>
+<td><font color="gray">[<a id="2497371" href="#2497371">15:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> ftr, i don't expect that i will make this tree without a single regrind </td>
+<td><font color="gray">[<a id="2497372" href="#2497372">15:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-11-19#1873575" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873575</a> &lt;&lt; this is why i'd like to work on struct stat (well, it is also required for mmap): fairly complex structure, which differs across architectures. </td>
+<td><font color="gray">[<a id="2497373" href="#2497373">15:50</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-19 11:50 mircea_popescu: experience kinda seems to indicate trying to have the same model for two things is a recipe for tears in this "industry" of apes and aping, but then again... man gotta try. </font></td>
+<td><font color="gray">[<a id="2497374" href="#2497374">15:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> i hope that for tmsr.os most of these things will become unnecessary lower levels of libc/libada are not the right place to fix the underlying problem. </td>
+<td><font color="gray">[<a id="2497375" href="#2497375">15:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> bvt, precisely because it can't be fully clear in advance I'd suggest to choose the more flexible v-structure rather than something with set in stone requirements (such as API as root of the v tree sort of thing) this is NOT to say or guarantee you won't regrind but simply to not make ~surely needed </td>
+<td><font color="gray">[<a id="2497376" href="#2497376">15:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> regrinds are not evil or anything of the sort but they do have a cost and if you get others to sign your patches, the cost increases since you lose the original signatures basically </td>
+<td><font color="gray">[<a id="2497377" href="#2497377">15:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> so if you are not sure, I'd even keep the trees separately, I still don't quite see the problem with this (the benefit being that it doesn't force you to decide NOW on something you don't yet ...know) </td>
+<td><font color="gray">[<a id="2497378" href="#2497378">15:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> keeping the trees in sync is probably cheaper than regrinding the whole thing anyway and if /when it's not, then...regrind it as a single tree and that's that </td>
+<td><font color="gray">[<a id="2497379" href="#2497379">15:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> i totally agree with all these points. tree diverging after empty genesis is separate enough in my view. </td>
+<td><font color="gray">[<a id="2497380" href="#2497380">15:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-11-19#1873583" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873583</a> &lt;&lt; this is unfortunate, i won't have possibility to work on this code in coming days there will be a vtree stump for ~2 weeks. </td>
+<td><font color="gray">[<a id="2497381" href="#2497381">16:03</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-19 15:18 asciilifeform: <a href="http://btcbase.org/log/2018-11-19#1873561" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873561</a> &lt;&lt; here is where i admit that i dun see wtf is the point of an empty genesis </font></td>
+<td><font color="gray">[<a id="2497382" href="#2497382">16:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> and also i got useful feedback (thanks, diana_coman!) </td>
+<td><font color="gray">[<a id="2497383" href="#2497383">16:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-11-19#1873629" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873629</a> &lt;&lt; waiiiwaaaat ?! </td>
+<td><font color="gray">[<a id="2497384" href="#2497384">16:21</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-19 20:45 bvt: <a href="http://btcbase.org/log/2018-11-19#1873573" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873573</a> &lt;&lt; i will have to think more about vtree organization. if i use api as the foundation for the tree, adding new system calls would cause regrind in this case, the api should be complete from day one. </font></td>
+<td><font color="gray">[<a id="2497385" href="#2497385">16:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> why would it 'cause regrind' ?? </td>
+<td><font color="gray">[<a id="2497386" href="#2497386">16:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i've added all kindsa 'new api' in ffa, but the only regrind was when we took up new hash type for vtrons </td>
+<td><font color="gray">[<a id="2497387" href="#2497387">16:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i suspect bvt fundamentally misunderstood how v mechanics work, oughta review </td>
+<td><font color="gray">[<a id="2497388" href="#2497388">16:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-11-19#1873641" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873641</a> &lt;&lt; entirely agrees with my pov, which is why i had the .c in udp lib ( <a href="http://www.loper-os.org/?p=2557" target=\'_blank\'>http://www.loper-os.org/?p=2557</a> ) instead of five kilometres of 'let's try to parse the c struct of 17 diff cpus in ada' </td>
+<td><font color="gray">[<a id="2497389" href="#2497389">16:23</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-19 20:52 bvt: i hope that for tmsr.os most of these things will become unnecessary lower levels of libc/libada are not the right place to fix the underlying problem. </font></td>
+<td><font color="gray">[<a id="2497390" href="#2497390">16:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> imho the minimal .c glue is actually The Right Thing while we're still stuck on unix </td>
+<td><font color="gray">[<a id="2497391" href="#2497391">16:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> asciilifeform, in my understanding he wanted to cement "common api" hence possibly root since that's the only common part for the 2 trees, hence "regrind" if new (because not in root etc) </td>
+<td><font color="gray">[<a id="2497392" href="#2497392">16:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: consider, if i'd done 'api first' for udp, would have ended up with ~same thing as ave1's hairball, i.e. 'just like gnat.sockets but maybe slightly less sad' </td>
+<td><font color="gray">[<a id="2497393" href="#2497393">16:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> asciilifeform, read on, not as if recommended for the task, no </td>
+<td><font color="gray">[<a id="2497394" href="#2497394">16:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> it is quite impossible to say entirely in advance what api for glue layer on buncha unix garbage, will be, until fully grasped at least the outer surface of said garbage </td>
+<td><font color="gray">[<a id="2497395" href="#2497395">16:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> still eating log </td>
+<td><font color="gray">[<a id="2497396" href="#2497396">16:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> yep </td>
+<td><font color="gray">[<a id="2497397" href="#2497397">16:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-11-19#1873650" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873650</a> &lt;&lt; well, if i do common part (api) first, then diverging system-specific branches, i still could add new functionality on top of &ast;each&ast; of these branches. i don't like this option. </td>
+<td><font color="gray">[<a id="2497398" href="#2497398">16:44</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-19 21:21 asciilifeform: <a href="http://btcbase.org/log/2018-11-19#1873629" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873629</a> &lt;&lt; waiiiwaaaat ?! </font></td>
+<td><font color="gray">[<a id="2497399" href="#2497399">16:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> alternatively, i could add new functions at common tree part if i don't touch any files included in later vpatches (so adding entries to manifest would be not possible). seems like some quite unnatural acrobatics to me. </td>
+<td><font color="gray">[<a id="2497400" href="#2497400">16:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> but i would agree that one's understanding of vtronics is determined by ones toposorter implementation. </td>
+<td><font color="gray">[<a id="2497401" href="#2497401">16:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> bvt: when you absolutely must publish mutually-exclusive variants of a thing, they oughta be v leaves, yes </td>
+<td><font color="gray">[<a id="2497402" href="#2497402">17:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( and if you extend on one such, and want to propagate into the others, then must regrind -- but strictly the piece in question ) </td>
+<td><font color="gray">[<a id="2497403" href="#2497403">17:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> !#s ifdefism </td>
+<td><font color="gray">[<a id="2497404" href="#2497404">17:26</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> 5 results for "ifdefism", <a href="http://btcbase.org/log-search?q=ifdefism" target=\'_blank\'>http://btcbase.org/log-search?q=ifdefism</a> </font></td>
+<td><font color="gray">[<a id="2497405" href="#2497405">17:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ^ the heathen barbarism that goes counter to this formulation, that we're thankfully rid of </td>
+<td><font color="gray">[<a id="2497406" href="#2497406">17:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-11-19#1873666" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873666</a> &lt;&lt; much of what seems to n00bs as 'unnatural acrobatics' in vtronics is in fact the actual and inevitable cost of writing proggies ~honestly~ -- i.e. without pretending, as the heathens do, that 'i only changed this one little thing, whatddayamean it's a new program now' </td>
+<td><font color="gray">[<a id="2497407" href="#2497407">17:30</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-19 21:44 bvt: alternatively, i could add new functions at common tree part if i don't touch any files included in later vpatches (so adding entries to manifest would be not possible). seems like some quite unnatural acrobatics to me. </font></td>
+<td><font color="gray">[<a id="2497408" href="#2497408">17:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> arguably v is a labour-saving device ~specifically for readers~, rather than writers, of programs -- if we were passing signed tarballs around, as we did prior to v, reader would be stuck determining exactly what changed, after manually verifying sig. </td>
+<td><font color="gray">[<a id="2497409" href="#2497409">17:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> v makes it possible to sign a compartmentalized change , so reader is not stuck having to manually diff contents of signed_foo.today.tar.gz against signed_foo.tomorrow.tar.gz to see where the changes were. but what it deliberately does ~not~ do is to enable the pretense ( carried on in git &amp; other heathen abominations ) that a proggy where something semantically upstream of $place were changed, is ~same~ proggy ~but for $place~ . </td>
+<td><font color="gray">[<a id="2497410" href="#2497410">17:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> the 'one little thing' is only 'little' when ~nothing depends on it~ -- i.e. is an extension of a leaf node, graph-theoretically speaking </td>
+<td><font color="gray">[<a id="2497411" href="#2497411">17:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> bvt&gt; <a href="http://btcbase.org/log/2018-11-19#1873650" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873650</a> &lt;&lt; well, if i do common part (api) first, then diverging system-specific branches, i still could add new functionality on top of &ast;each&ast; of these branches. i don't like this option. -&gt; perhaps unsurprisingly, the part that one doesn't like is however actually correct i.e. yes, you'll have to maintain the two separately if they are separate hence my original "they are 2 trees" - because that's </td>
+<td><font color="gray">[<a id="2497412" href="#2497412">17:42</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-19 21:21 asciilifeform: <a href="http://btcbase.org/log/2018-11-19#1873629" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873629</a> &lt;&lt; waiiiwaaaat ?! </font></td>
+<td><font color="gray">[<a id="2497413" href="#2497413">17:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> what they are anyway, until/unless you cement the API </td>
+<td><font color="gray">[<a id="2497414" href="#2497414">17:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> if it is an item which conceivably affects the meaning of other text in unpredictable ways, then the patch must reflect this ( and we get 'reground' code. ) </td>
+<td><font color="gray">[<a id="2497415" href="#2497415">17:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman has it ( i'm expanding pedantically specifically for n00bs, but same point ) </td>
+<td><font color="gray">[<a id="2497416" href="#2497416">17:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> to put it in mircea_popescuine terminology -- the scenario that v makes specifically and rightfully impossible is 'hey, i changed 'wife' to 'dog' in your marriage contract, but yer still just as married, you signed all the downstreams' </td>
+<td><font color="gray">[<a id="2497417" href="#2497417">17:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> bvt: it's in fact exactly the same thing that e.g. bitcoin does -- you cannot go back and flip a bit in block 100, and expect to be on the same chain as other folx, it'll correctly invalidate 101--present from your node's pov ( and your entire existence from other's pov ) </td>
+<td><font color="gray">[<a id="2497418" href="#2497418">17:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> v is just about exactly same thing as bitcoin's chain, with the difference that it seals with manually-crafted operator signatures, rather than 'proof of work' gymnastics </td>
+<td><font color="gray">[<a id="2497419" href="#2497419">18:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> bvt: if you understand why bitcoin does not tolerate 'yes i'm on the same chain as you! except that i flipped a single bit in block 100, and really, honestly, nuffin ever depended on the tx where i flipped it!' -- you will also understand why v does not tolerate this either </td>
+<td><font color="gray">[<a id="2497420" href="#2497420">18:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> the fact that it feels to noobs like 'unnatural acrobatics' is an artifact of writer suddenly having to pay that actual cost of the complexity inflicted on reader. and yes folx whined, just like in ex-ussr folx whined when they started having to pay for mains current . </td>
+<td><font color="gray">[<a id="2497421" href="#2497421">18:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-11-19#1873678" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873678</a> &lt;&lt; what i did not like was following: specifically going for 'api at the tree root' variant, and then bolting on new (platform-independent) apis later. </td>
+<td><font color="gray">[<a id="2497422" href="#2497422">18:13</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-19 22:42 diana_coman: bvt&gt; <a href="http://btcbase.org/log/2018-11-19#1873650" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873650</a> &lt;&lt; well, if i do common part (api) first, then diverging system-specific branches, i still could add new functionality on top of &ast;each&ast; of these branches. i don't like this option. -&gt; perhaps unsurprisingly, the part that one doesn't like is however actually correct i.e. yes, you'll have to maintain the two separately if they are separate hence my original "they are 2 trees" - because that's </font></td>
+<td><font color="gray">[<a id="2497423" href="#2497423">18:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> but i see how this is the correct process, and just a bit more optimized case of what i planned with branches diverging at the genesis (saves reader some labour of reading same vpatches in each branch). and if tree becomes to messy, can regrind. </td>
+<td><font color="gray">[<a id="2497424" href="#2497424">18:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-11-19#1873686" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873686</a> &lt;&lt; this part is crystally clear </td>
+<td><font color="gray">[<a id="2497425" href="#2497425">18:13</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-19 23:03 asciilifeform: bvt: if you understand why bitcoin does not tolerate 'yes i'm on the same chain as you! except that i flipped a single bit in block 100, and really, honestly, nuffin ever depended on the tx where i flipped it!' -- you will also understand why v does not tolerate this either </font></td>
+<td><font color="gray">[<a id="2497426" href="#2497426">18:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> bvt: platform variants belong exclusively in leaves. </td>
+<td><font color="gray">[<a id="2497427" href="#2497427">18:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> so i can e.g. 'press arm64' , 'press x86' </td>
+<td><font color="gray">[<a id="2497428" href="#2497428">18:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> no disagreement/misunderstanding here </td>
+<td><font color="gray">[<a id="2497429" href="#2497429">18:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ok. </td>
+<td><font color="gray">[<a id="2497430" href="#2497430">18:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> and yes it is true that if you write 6 platform variants today, and want to change the common trunk tomorrow, you will need to regrind all 6. but this is 'not a bug, but a feature' </td>
+<td><font color="gray">[<a id="2497431" href="#2497431">18:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> it forced you to proclaim that the 6 are in fact new programs, because you turned a common knob and potentially changed their meanings, of all 6 </td>
+<td><font color="gray">[<a id="2497432" href="#2497432">18:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> &ast;forces </td>
+<td><font color="gray">[<a id="2497433" href="#2497433">18:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> this is the reason why asciilifeform is saving the optional asm subroutines in ffa for ~dead last~ ( per <a href="http://www.loper-os.org/?p=2735" target=\'_blank\'>http://www.loper-os.org/?p=2735</a> proclamation ) rather than given in beginning of series </td>
+<td><font color="gray">[<a id="2497434" href="#2497434">18:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> if i had offered them in beginning, the architecture-specific pressable leaves will be gargantuan in size </td>
+<td><font color="gray">[<a id="2497435" href="#2497435">18:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> and reader would be stuck manually diffing'em, which defeats most of the win from using v vs signed tars etc </td>
+<td><font color="gray">[<a id="2497436" href="#2497436">18:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> given as i'd have to release N almost-completely-identical patches each time i release a chapter </td>
+<td><font color="gray">[<a id="2497437" href="#2497437">18:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; trinque</b></td>
+<td class="breakup"> croaks cheeeeeap coiiiins </td>
+<td><font color="gray">[<a id="2497438" href="#2497438">18:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 20 $ when!111 </td>
+<td><font color="gray">[<a id="2497439" href="#2497439">18:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> i do understand the philosophy behind v (definitely not complaining), but i lack practical experience working with it, so it was useful to get explanations re tree structure. </td>
+<td><font color="gray">[<a id="2497440" href="#2497440">18:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> bvt: you will find, i think, that with experience comes 'ooooh, that's why, it was Right Thing all along' </td>
+<td><font color="gray">[<a id="2497441" href="#2497441">18:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> thanks for discusion, asciilifeform, diana_coman. i'm off to bed. </td>
+<td><font color="gray">[<a id="2497442" href="#2497442">18:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> goodnight bvt </td>
+<td><font color="gray">[<a id="2497443" href="#2497443">18:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> trinque: i admit that i sometimes miss the days when the amt of shit i gave re what the heathen exch rate is, was the size of a hamster's . pizarro is the 1 bone in throat on that score, it runs on heathenbux and consequently sensitive to the weather, like a bad knee </td>
+<td><font color="gray">[<a id="2497444" href="#2497444">18:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'volatility is a tax' or how did mircea_popescu phrase it in the old days. </td>
+<td><font color="gray">[<a id="2497445" href="#2497445">18:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> prolly the only biz that dun have this problem at all, is s.mg, which of oct '18 broadcast reports '8`484.51538878', i.e. capitalized until the sun burns out </td>
+<td><font color="gray">[<a id="2497446" href="#2497446">18:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> even if exch rate moves 2 orders of magnitude erry other tuesday </td>
+<td><font color="gray">[<a id="2497447" href="#2497447">18:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> maybe in the end entire planet will end up as vertically-integrated suppliers for s.mg... </td>
+<td><font color="gray">[<a id="2497448" href="#2497448">18:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( and woe be unto those who dun have what to supply to it.. ) </td>
+<td><font color="gray">[<a id="2497449" href="#2497449">18:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> bbl,meat </td>
+<td><font color="gray">[<a id="2497450" href="#2497450">18:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; trinque</b></td>
+<td class="breakup"> still accumulates when the weather's nice </td>
+<td><font color="gray">[<a id="2497451" href="#2497451">19:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> In local news: <a href="https://www.elobservador.com.uy/nota/-por-que-alan-garcia-eligio-a-uruguay-para-solicitar-el-asilo--20181119131633" target=\'_blank\'>https://www.elobservador.com.uy/nota/-por-que-alan-garcia-eligio-a-uruguay-para-solicitar-el-asilo--20181119131633</a> </td>
+<td><font color="gray">[<a id="2497452" href="#2497452">19:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Also a local news story with a moral "Don't stick your dick in dry old bags kids": <a href="https://www.elobservador.com.uy/nota/un-menor-fue-apunalado-en-su-cuello-por-su-amante-una-mujer-de-50-anos-20181119155554" target=\'_blank\'>https://www.elobservador.com.uy/nota/un-menor-fue-apunalado-en-su-cuello-por-su-amante-una-mujer-de-50-anos-20181119155554</a> </td>
+<td><font color="gray">[<a id="2497453" href="#2497453">19:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> o look at deese logs! </td>
+<td><font color="gray">[<a id="2497454" href="#2497454">21:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://qntra.net/2018/11/forkcoin-that-split-from-bitcoin-now-struck-by-contentious-hardfork/#comment-120500" target=\'_blank\'>http://qntra.net/2018/11/forkcoin-that-split-from-bitcoin-now-struck-by-contentious-hardfork/#comment-120500</a> &lt;&lt; srsly the usg tards are pushing that wright imbecile as their spearhead ? what, nobody thinking left in the "think" fishtanks ?! </td>
+<td><font color="gray">[<a id="2497455" href="#2497455">21:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-11-19#1873621" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873621</a> &lt;&lt; ohohoh check it out, he translated it &amp; made reference point. NICE! </td>
+<td><font color="gray">[<a id="2497456" href="#2497456">21:20</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-19 18:49 lobbes enjoyed &gt;&gt; <a href="http://thetarpit.org/posts/y04/073-prikoke.html" target=\'_blank\'>http://thetarpit.org/posts/y04/073-prikoke.html</a> </font></td>
+<td><font color="gray">[<a id="2497457" href="#2497457">21:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> anyway, mefi because "mefiance" not mephistopheles. </td>
+<td><font color="gray">[<a id="2497458" href="#2497458">21:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-11-19#1873632" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873632</a> &lt;&lt; i confess i entirely dun understand what you think a vtree is/does. none of your statements seem to be either relevant or correct, which... </td>
+<td><font color="gray">[<a id="2497459" href="#2497459">21:24</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-19 20:46 bvt: otoh, if system call asm packages are at the tree foundation, the api uniformity will be enforced by convetion only, and the branches will diverge right after genesis. </font></td>
+<td><font color="gray">[<a id="2497460" href="#2497460">21:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> wb mircea_popescu ! </td>
+<td><font color="gray">[<a id="2497461" href="#2497461">21:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> why ty! </td>
+<td><font color="gray">[<a id="2497462" href="#2497462">21:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-11-19#1873669" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873669</a> &lt;&lt; why, could just patch the others. </td>
+<td><font color="gray">[<a id="2497463" href="#2497463">21:44</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-19 22:24 asciilifeform: ( and if you extend on one such, and want to propagate into the others, then must regrind -- but strictly the piece in question ) </font></td>
+<td><font color="gray">[<a id="2497464" href="#2497464">21:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-11-19#1873675" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873675</a> &lt;&lt; hey, not like you're not still doing it :D </td>
+<td><font color="gray">[<a id="2497465" href="#2497465">21:46</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-19 22:41 asciilifeform: arguably v is a labour-saving device ~specifically for readers~, rather than writers, of programs -- if we were passing signed tarballs around, as we did prior to v, reader would be stuck determining exactly what changed, after manually verifying sig. </font></td>
+<td><font color="gray">[<a id="2497466" href="#2497466">21:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i did sign a tarball fulla regrindolade last wk. but largely so folx know they get what i put in, rather than ball fulla patches + usg gnutar 0day impregnated in flight etc </td>
+<td><font color="gray">[<a id="2497467" href="#2497467">21:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( btw these are imho a luxury. i simply hate having to click 9000 links to get a tree , and assume other folx do also ) </td>
+<td><font color="gray">[<a id="2497468" href="#2497468">21:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i mena <a href="http://btcbase.org/log/2018-11-12#1871429" target=\'_blank\'>http://btcbase.org/log/2018-11-12#1871429</a> ye dorks! </td>
+<td><font color="gray">[<a id="2497469" href="#2497469">21:52</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-12 06:36 BingoBoingo: Kinda why I'm excited about breaking down and killing the legacy notes file </font></td>
+<td><font color="gray">[<a id="2497470" href="#2497470">21:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> aa that was much worse </td>
+<td><font color="gray">[<a id="2497471" href="#2497471">21:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> tarball passed back and forth, nobody even knows what changed, gotta diff, it has all the blessings you describe. </td>
+<td><font color="gray">[<a id="2497472" href="#2497472">21:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: plz lemme know btw if you need any inout from asciilifeform to clean those ughstables </td>
+<td><font color="gray">[<a id="2497473" href="#2497473">21:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> you did this. /smh </td>
+<td><font color="gray">[<a id="2497474" href="#2497474">21:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: was linear tape of changes. </td>
+<td><font color="gray">[<a id="2497475" href="#2497475">21:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i.e. crapola glommed to end erry day. </td>
+<td><font color="gray">[<a id="2497476" href="#2497476">21:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> at least most of the time. </td>
+<td><font color="gray">[<a id="2497477" href="#2497477">21:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> judging by how unsure all participants are as to contents, it seems evident to me it worked exactly like github program, ie "crapola glommed to end erry day and random shit changed deeper inside at impredictable intervals we might remember or not". </td>
+<td><font color="gray">[<a id="2497478" href="#2497478">21:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> nao i hear hypertext exists, lessee if can make less of bowel-loosening horror </td>
+<td><font color="gray">[<a id="2497479" href="#2497479">21:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: nuffin was changed 'inside' on my watch, but seems like there were arithmetical howler at some pt, so i suppose effectively same </td>
+<td><font color="gray">[<a id="2497480" href="#2497480">21:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( record keeping dun do any good if you write down wrong num ) </td>
+<td><font color="gray">[<a id="2497481" href="#2497481">21:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> while we're on subj, mircea_popescu do you think it'd make sense to keep books vtronically? or would it be a case of 'take the rifle to fishing' </td>
+<td><font color="gray">[<a id="2497482" href="#2497482">21:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> seems to me way too much infrastructure for what's still less than a dozen accts with less than a dozen movements / interval in there. but hey, your corp, can't exactly say you don't learn from mistakes, so, if in a position to try things out this is a thing to try like many others. </td>
+<td><font color="gray">[<a id="2497483" href="#2497483">22:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> point was not 'it's too big' </td>
+<td><font color="gray">[<a id="2497484" href="#2497484">22:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> but that vtronic record would make certain classes of ugh, impossible </td>
+<td><font color="gray">[<a id="2497485" href="#2497485">22:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> whether the item being recorded is elephant or mouse size </td>
+<td><font color="gray">[<a id="2497486" href="#2497486">22:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yeah, but because large machinery and no proper domain-restricted walkatrons available, it'd make new classes of ugh available. </td>
+<td><font color="gray">[<a id="2497487" href="#2497487">22:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> also tru </td>
+<td><font color="gray">[<a id="2497488" href="#2497488">22:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> kinda the logic informing my <a href="http://btcbase.org/log/2018-11-11#1871164" target=\'_blank\'>http://btcbase.org/log/2018-11-11#1871164</a> : if you give policeman gun, you now have set of problems resulting from policeman-gun interaction. if you do not give, you do not have. </td>
+<td><font color="gray">[<a id="2497489" href="#2497489">22:16</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-11 16:10 ben_vulpes: and i never used a program because, (again cannot find the log link in reasonable-response time) at one point i was working on a schema for tracking customers and what they were paying for and mircea_popescu said something along the lines of "wtf this is a simple text file and accounting problem" </font></td>
+<td><font color="gray">[<a id="2497490" href="#2497490">22:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i suspect that mircea_popescu is right, esp re 'dun have domain-restricted walker', tech aint there yet </td>
+<td><font color="gray">[<a id="2497491" href="#2497491">22:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> or i suppose construction crew better example. if you issue them pickaxes, you can at the end of the day look at damage "as men with pickaxes could have produced". if you issue backhoe... </td>
+<td><font color="gray">[<a id="2497492" href="#2497492">22:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> but imho a vtronic acct system would rock </td>
+<td><font color="gray">[<a id="2497493" href="#2497493">22:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> certainly well adapted to each opther, problem and solution. v is masterful at truth and accounting is all about numeric truth. so yes, in principle. but it'll take some doing, dunno if you've got the doers rightnao, and seems more pressing fires. </td>
+<td><font color="gray">[<a id="2497494" href="#2497494">22:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> yea </td>
+<td><font color="gray">[<a id="2497495" href="#2497495">22:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> on both pts </td>
+<td><font color="gray">[<a id="2497496" href="#2497496">22:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-11-19#1873704" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873704</a> &lt;&lt; hue, sub 5k! </td>
+<td><font color="gray">[<a id="2497497" href="#2497497">22:27</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-19 23:22 trinque croaks cheeeeeap coiiiins </font></td>
+<td><font color="gray">[<a id="2497498" href="#2497498">22:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-11-19#1873714" target=\'_blank\'>http://btcbase.org/log/2018-11-19#1873714</a> &lt;&lt; that'd be partricularly cool, considering it is a... virtual reality producer </td>
+<td><font color="gray">[<a id="2497499" href="#2497499">22:28</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-19 23:43 asciilifeform: maybe in the end entire planet will end up as vertically-integrated suppliers for s.mg... </font></td>
+<td><font color="gray">[<a id="2497500" href="#2497500">22:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> drop-in replacement for teh dmc ? </td>
+<td><font color="gray">[<a id="2497501" href="#2497501">22:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i hear it bakes some pretty good virtualities , heh </td>
+<td><font color="gray">[<a id="2497502" href="#2497502">22:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> dun presently have time, sadly , to play mud, but if lives to see peacetime would much rather play mircea_popescu's than anybody's </td>
+<td><font color="gray">[<a id="2497503" href="#2497503">22:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> that's nice :) </td>
+<td><font color="gray">[<a id="2497504" href="#2497504">22:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> went as far as building a new box, with 3d card etc, to 'i'ma finally play that thing', then... realized he gotta write a numeric lib </td>
+<td><font color="gray">[<a id="2497505" href="#2497505">22:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> laugh, i ended up giving it to my brother, now it runs neuralnetwork thing for go game move-tree variants, 'what if played x' etc </td>
+<td><font color="gray">[<a id="2497506" href="#2497506">22:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( apparently game did not die under the thrust of alphagoism, but mutated into a kind of motor sport ) </td>
+<td><font color="gray">[<a id="2497507" href="#2497507">22:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> heh </td>
+<td><font color="gray">[<a id="2497508" href="#2497508">22:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-11-20#1873721" target=\'_blank\'>http://btcbase.org/log/2018-11-20#1873721</a> &lt;&lt; ha , here i was thinking that d00d were finally in australian jail.. </td>
+<td><font color="gray">[<a id="2497509" href="#2497509">22:37</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-11-20 02:12 mircea_popescu: <a href="http://qntra.net/2018/11/forkcoin-that-split-from-bitcoin-now-struck-by-contentious-hardfork/#comment-120500" target=\'_blank\'>http://qntra.net/2018/11/forkcoin-that-split-from-bitcoin-now-struck-by-contentious-hardfork/#comment-120500</a> &lt;&lt; srsly the usg tards are pushing that wright imbecile as their spearhead ? what, nobody thinking left in the "think" fishtanks ?! </font></td>
+<td><font color="gray">[<a id="2497510" href="#2497510">22:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> apparently recycled back into circulation from lack of what else to do ? </td>
+<td><font color="gray">[<a id="2497511" href="#2497511">22:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> trinque: is deedbot box under artillery fire or wat </td>
+<td><font color="gray">[<a id="2497512" href="#2497512">22:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i have nfi, it's pretty fucking lulzy though. i mean, there's a long list of these defeateds by "fate", but he's one of the most hysterically humiliated humbugs. </td>
+<td><font color="gray">[<a id="2497513" href="#2497513">22:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 2nd only to gavin, possibly </td>
+<td><font color="gray">[<a id="2497514" href="#2497514">22:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> then again, the menagerie's pretty well stocked... recall the gay for pay tard with delusions of oligarchy ? or those two wrestler morons, 100% retired boxer encephalopathy ? </td>
+<td><font color="gray">[<a id="2497515" href="#2497515">22:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> last i heard those were still 'in biz' </td>
+<td><font color="gray">[<a id="2497516" href="#2497516">22:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> admits, doesn't follow subj in realtime </td>
+<td><font color="gray">[<a id="2497517" href="#2497517">22:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> heh. </td>
+<td><font color="gray">[<a id="2497518" href="#2497518">22:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> iirc those boxers were some hybrid of scammer and scammee , they sank whatever $maxint into goxolade </td>
+<td><font color="gray">[<a id="2497519" href="#2497519">22:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i'm personally waiting for the return of the meni rosenfeld / jonathan ryan owens lulzpair. bitdaytrade, segwit, cash-whatever... what the fuck's the difference. </td>
+<td><font color="gray">[<a id="2497520" href="#2497520">22:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i.e. 'their' coinz are 'theirs' while 'they agree' to further reich interest </td>
+<td><font color="gray">[<a id="2497521" href="#2497521">22:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform in the sense of what, after usg took overt the piggy it declared some clients as principal victims ? </td>
+<td><font color="gray">[<a id="2497522" href="#2497522">22:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> sank my ass. </td>
+<td><font color="gray">[<a id="2497523" href="#2497523">22:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i dun know the specifics supposing simply that retired boxer aint gonna run a node. therefore goxism. </td>
+<td><font color="gray">[<a id="2497524" href="#2497524">22:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> brb,foods </td>
+<td><font color="gray">[<a id="2497525" href="#2497525">22:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> the way british empire intervention worked was that <a href="/2010/general-sir-charles-james-napier-gcb/" target=\'_blank\'>/2010/general-sir-charles-james-napier-gcb/</a> got sent with some army and clear orders to not take singh then he takes singh then some "british merchants" are invented whose "interests were being protected", retroactively. then all this is published back home in the times, and then the empire croaks under the weight of trying to administer afghanistan. </td>
+<td><font color="gray">[<a id="2497526" href="#2497526">22:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> 4 stroke engine. </td>
+<td><font color="gray">[<a id="2497527" href="#2497527">22:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> aaand in today's lulz... <a href="https://duckduckgo.com/?q=Vecine...+nu-nteleg%2C+straine...+nu-nteleg+ce+aveti+cu+mine...&amp;t=ffsb&amp;ia=web" target=\'_blank\'>https://duckduckgo.com/?q=Vecine...+nu-nteleg%2C+straine...+nu-nteleg+ce+aveti+cu+mine...&amp;t=ffsb&amp;ia=web</a> </td>
+<td><font color="gray">[<a id="2497528" href="#2497528">23:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> suffices it for trilema to quote a verse, be it howsoever famous or popular... </td>
+<td><font color="gray">[<a id="2497529" href="#2497529">23:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> <a href="http://p.bvulpes.com/pastes/YSdg7/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/YSdg7/?raw=true</a> &lt;&lt; In local finds, cultural collision </td>
+<td><font color="gray">[<a id="2497530" href="#2497530">23:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> asciilifeform: Will let you know </td>
+<td><font color="gray">[<a id="2497531" href="#2497531">23:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Further downthread <a href="http://p.bvulpes.com/pastes/ElDFJ/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/ElDFJ/?raw=true</a> "Caballos muertos jajajaa la mierdaaa" </td>
+<td><font color="gray">[<a id="2497532" href="#2497532">23:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> asciilifeform: "disconnected by services" would appear to be freenode doing it </td>
+<td><font color="gray">[<a id="2497533" href="#2497533">23:55</a>]</font></td>
+</tr>
+</table>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2020/forum-logs-for-18-nov-2018/">Forum logs for 18 Nov 2018</a></div>
+                <div class="alignright"><a href="/2020/forum-logs-for-20-nov-2018/">Forum logs for 20 Nov 2018</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/logs/" title="View all posts in Logs" rel="category tag">Logs</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2020/forum-logs-for-19-nov-2018/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2020/forum-logs-for-19-nov-2018/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+
+
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authore8e1dd8" id="authore8e1dd8" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emaile8e1dd8" id="emaile8e1dd8" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urle8e1dd8" id="urle8e1dd8" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="92766" /></p>
+				<input type="hidden" name="comment_post_time" value="1735288287-152.53.39.118" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2024 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-92766")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-92766");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-92766");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_dec2016.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Forum logs for 10 Mar 2019 on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Evil broadly consists of people who<br />aren't very good and don't want to get any better.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-92877"><div class="post" id="post-92877">                    <h1><a href="/2020/forum-logs-for-10-mar-2019/" rel="bookmark" title="Permanent Link to Forum logs for 10 Mar 2019">Forum logs for 10 Mar 2019</a></h1>                        <div class="date">                                     Monday, 16 March, Year 12 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/" title="Posts by "></a>                                                        </div>
+
+                        <div class="entry">
+<table style="font-size:1em;width:"580px;">
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> o right the registers. i recall. </td>
+<td><font color="gray">[<a id="2523803" href="#2523803">00:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2019-03-10#1901119" target=\'_blank\'>http://btcbase.org/log/2019-03-10#1901119</a> &lt;&lt; because 8 cubed. </td>
+<td><font color="gray">[<a id="2523804" href="#2523804">00:07</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-03-10 03:21 asciilifeform: <a href="http://btcbase.org/log/2019-03-10#1901103" target=\'_blank\'>http://btcbase.org/log/2019-03-10#1901103</a> &lt;&lt; i cannot resist to bite : why 512 ? </font></td>
+<td><font color="gray">[<a id="2523805" href="#2523805">00:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform so i take it your ideal cpu would actually be simply state machines + registers, no actual ram ? </td>
+<td><font color="gray">[<a id="2523806" href="#2523806">04:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2019-03-09#1901066" target=\'_blank\'>http://btcbase.org/log/2019-03-09#1901066</a> -&gt; I ran those and I got exactly the same genesis.vpatch (i.e. diff on this vs the one obtained from the script itself returned empty) </td>
+<td><font color="gray">[<a id="2523807" href="#2523807">11:09</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-03-09 22:43 trinque: diana_coman, other folks that have cuntooed, can y'all confirm that the paths that ended up in your genesis.vpatch do not in fact exist? I'd like you to reproduce the commands starting at line 114 of scripts/make_portage_tree.sh in your build directories, i.e. cd ~/src/cuntoo/build/cuntoo and then run them, as root </font></td>
+<td><font color="gray">[<a id="2523808" href="#2523808">11:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> onth in unexpected results and assorted ugh: vdiff ends up in stack overflow ran on those </td>
+<td><font color="gray">[<a id="2523809" href="#2523809">11:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> trinque, which are exactly the paths that don't match? since I don't have the original genesis.vpatch I can't really know what to check to look if indeed those paths actually exists or not or wtf </td>
+<td><font color="gray">[<a id="2523810" href="#2523810">11:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform thinking about whart you said, i can't repress the suspicion that maybe the memory model is acrtually profoundly fucked,as a central driver of the whole cs insanity. </td>
+<td><font color="gray">[<a id="2523811" href="#2523811">12:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ie, that structured data should really be much better hardware supported, that memory should include much more processor per storage cell, that in fact memory should look a lot more like trees than the current flat, democratic lines of "all cells are equal" </td>
+<td><font color="gray">[<a id="2523812" href="#2523812">12:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ie, socialism fails yet again, and calling itself "democracy" dun help anything -- flat is fail, no two ways about it. </td>
+<td><font color="gray">[<a id="2523813" href="#2523813">12:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> trinque no deedbot ? </td>
+<td><font color="gray">[<a id="2523814" href="#2523814">12:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2019-03-10#1901145" target=\'_blank\'>http://btcbase.org/log/2019-03-10#1901145</a> &lt;&lt; say this again ?! vdiff blows the stack when processing the two diffs ? </td>
+<td><font color="gray">[<a id="2523815" href="#2523815">12:45</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-03-10 15:10 diana_coman: onth in unexpected results and assorted ugh: vdiff ends up in stack overflow ran on those </font></td>
+<td><font color="gray">[<a id="2523816" href="#2523816">12:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> perhaps the correct republican approach is not to bake cpu, but to ~bake memory~. why even bother with the whole turdpile that's <a href="http://btcbase.org/log/2018-09-25#1854045" target=\'_blank\'>ddr init</a> when could simply have sane ram, and rk with it. </td>
+<td><font color="gray">[<a id="2523817" href="#2523817">13:02</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-09-25 00:39 asciilifeform: the only binball is that coupla kB of ddr ram init thing. </font></td>
+<td><font color="gray">[<a id="2523818" href="#2523818">13:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> make a 18446744073709551616 byte ram arm board, for the keks. </td>
+<td><font color="gray">[<a id="2523819" href="#2523819">13:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> 16 exabytes ftw!!! </td>
+<td><font color="gray">[<a id="2523820" href="#2523820">13:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2019-03-10#1901142" target=\'_blank\'>http://btcbase.org/log/2019-03-10#1901142</a> &lt;&lt; programmable interconnect fabric ( similar to what's sold as fpga ) . iirc i detailed this in old thrd. </td>
+<td><font color="gray">[<a id="2523821" href="#2523821">13:29</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-03-10 08:23 mircea_popescu: asciilifeform so i take it your ideal cpu would actually be simply state machines + registers, no actual ram ? </font></td>
+<td><font color="gray">[<a id="2523822" href="#2523822">13:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2019-03-10#1901147" target=\'_blank\'>http://btcbase.org/log/2019-03-10#1901147</a> &lt;&lt; it indeed is, and in precisely the way described. </td>
+<td><font color="gray">[<a id="2523823" href="#2523823">13:30</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-03-10 16:42 mircea_popescu: asciilifeform thinking about whart you said, i can't repress the suspicion that maybe the memory model is acrtually profoundly fucked,as a central driver of the whole cs insanity. </font></td>
+<td><font color="gray">[<a id="2523824" href="#2523824">13:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2019-03-10#1901148" target=\'_blank\'>http://btcbase.org/log/2019-03-10#1901148</a> &lt;&lt; imho the ( ~homogeneous~ variant of ) fpga is actually the correct model. i.e. you get to stitch it later into however many parallel mechanisms you happen to need on a given occasion. </td>
+<td><font color="gray">[<a id="2523825" href="#2523825">13:31</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-03-10 16:43 mircea_popescu: ie, that structured data should really be much better hardware supported, that memory should include much more processor per storage cell, that in fact memory should look a lot more like trees than the current flat, democratic lines of "all cells are equal" </font></td>
+<td><font color="gray">[<a id="2523826" href="#2523826">13:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2019-03-10#1901153" target=\'_blank\'>http://btcbase.org/log/2019-03-10#1901153</a> &lt;&lt; bake 'pile of reconnectable flipflop' and then you aint gotta ever bake anyffin else again. iirc i detailed this in ancient thread, mircea_popescu barfed ( iirc answered 'why waste so many transistor on interconnects' ) , but can't currently dig up where we had this </td>
+<td><font color="gray">[<a id="2523827" href="#2523827">13:32</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-03-10 17:02 mircea_popescu: perhaps the correct republican approach is not to bake cpu, but to ~bake memory~. why even bother with the whole turdpile that's <a href="http://btcbase.org/log/2018-09-25#1854045" target=\'_blank\'>ddr init</a> when could simply have sane ram, and rk with it. </font></td>
+<td><font color="gray">[<a id="2523828" href="#2523828">13:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2019-03-10#1901140" target=\'_blank\'>http://btcbase.org/log/2019-03-10#1901140</a> &lt;&lt; the down side of 'let's 512b bus' is that most cpu time (where it runs, not counting idles on i/o here) is spent in 'inner loops' where yer counting to e.g. 3. and nao you gotta move 512bits when yer counting to... 3 </td>
+<td><font color="gray">[<a id="2523829" href="#2523829">13:34</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-03-10 05:07 mircea_popescu: <a href="http://btcbase.org/log/2019-03-10#1901119" target=\'_blank\'>http://btcbase.org/log/2019-03-10#1901119</a> &lt;&lt; because 8 cubed. </font></td>
+<td><font color="gray">[<a id="2523830" href="#2523830">13:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> mircea_popescu, yes, vdiff on the 2 genesis.vpatch files overflows the stack while on same machine and same files, diff seems to have no such trouble </td>
+<td><font color="gray">[<a id="2523831" href="#2523831">13:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> phf ^ ? </td>
+<td><font color="gray">[<a id="2523832" href="#2523832">13:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( the style of programming that would appear on ' asciilifeform's ideal cpu ' is best illustrated in <a href="http://btcbase.org/patches/fg-genesis/tree/fg.v" target=\'_blank\'>http://btcbase.org/patches/fg-genesis/tree/fg.v</a> . i.e. all of the independent pieces in fact run in parallel, and in deterministic time, there are no interrupts, no scheduler, etc. ) </td>
+<td><font color="gray">[<a id="2523833" href="#2523833">13:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: we found that vdiff overflows during <a href="http://btcbase.org/log/2018-10-20#1864346" target=\'_blank\'>http://btcbase.org/log/2018-10-20#1864346</a> </td>
+<td><font color="gray">[<a id="2523834" href="#2523834">13:39</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-10-20 01:44 asciilifeform: !Q later tell phf i found today that your keccak-vdiff is unable to eat a 40MB file ( dies politely with stack overflow ) </font></td>
+<td><font color="gray">[<a id="2523835" href="#2523835">13:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> phf promised to fix, but then went on his ill-fated voyage </td>
+<td><font color="gray">[<a id="2523836" href="#2523836">13:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> asciilifeform, ftr this is a 4.7MB file </td>
+<td><font color="gray">[<a id="2523837" href="#2523837">13:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> and yes, I had this idea in my head that "previous problem, was solved" </td>
+<td><font color="gray">[<a id="2523838" href="#2523838">13:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: i do not presently know where is the barf threshold, i suspect it depends on yer stack size </td>
+<td><font color="gray">[<a id="2523839" href="#2523839">13:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i'd like to see phf come back to life and fix. failing this, 1 of us will have to </td>
+<td><font color="gray">[<a id="2523840" href="#2523840">13:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform that was size, this is ??? </td>
+<td><font color="gray">[<a id="2523841" href="#2523841">13:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> diana_coman try it with the megastack size from before, calling tests ? </td>
+<td><font color="gray">[<a id="2523842" href="#2523842">13:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> ulimit -s sez 8192 </td>
+<td><font color="gray">[<a id="2523843" href="#2523843">13:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: iirc it throws whole file on the stack, but then also keccak eats stack </td>
+<td><font color="gray">[<a id="2523844" href="#2523844">13:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> mircea_popescu, this is a different machine, the cuntoo-guinea pig </td>
+<td><font color="gray">[<a id="2523845" href="#2523845">13:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> so hard to say 'on napkin' what mass chokes it </td>
+<td><font color="gray">[<a id="2523846" href="#2523846">13:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> I can give it unlimit stack anyway and see what happens, sure </td>
+<td><font color="gray">[<a id="2523847" href="#2523847">13:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> yep, unlimited stack -&gt; fine </td>
+<td><font color="gray">[<a id="2523848" href="#2523848">13:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> (i.e. it runs, it returns fine, no differences between the files) </td>
+<td><font color="gray">[<a id="2523849" href="#2523849">13:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> !Q later tell phf fughet for nao about <a href="http://btcbase.org/log/2019-03-01#1899897" target=\'_blank\'>http://btcbase.org/log/2019-03-01#1899897</a> , but wouldja pleez fix vdiff ? and tell us what sorta swamp yer stuck in, what wouldja need to get to surface ? </td>
+<td><font color="gray">[<a id="2523850" href="#2523850">13:44</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-03-01 08:57 phf: asciilifeform: give me until end of march to resolve it one way or another, feel free to neg rate me then </font></td>
+<td><font color="gray">[<a id="2523851" href="#2523851">13:44</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">lobbesbot:</font></td>
+<td class="breakup"><font color="gray"> asciilifeform: The operation succeeded. </font></td>
+<td><font color="gray">[<a id="2523852" href="#2523852">13:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: i think he's trapped in some sorta cube hell the squarebracket thing mircea_popescu asked for also not happened yet etc </td>
+<td><font color="gray">[<a id="2523853" href="#2523853">13:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> trinque: deedbot dead ?? </td>
+<td><font color="gray">[<a id="2523854" href="#2523854">13:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> diana_coman: the 'errything on stack' approach has its limits it is why i wrote the mmap thing (currently stuck in limbo , but i'ma have to revive it and fix, cuz ffa 17 also is hitting against this wall, you can't expect to put 100MB on stack, you gotta mmap it </td>
+<td><font color="gray">[<a id="2523855" href="#2523855">13:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i'ma detail, ftr : 'ffacalc' runs 'as fed', i.e. 1 command at a time. but 'peh' , adult version, has support for functions and loops, and therefore requires the 'tape' to exist in memory. so currently i have 'tape can be 1000000 bytes', but this is not acceptable obv. in the long term </td>
+<td><font color="gray">[<a id="2523856" href="#2523856">13:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> so it will have to have the mmap routine. </td>
+<td><font color="gray">[<a id="2523857" href="#2523857">13:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> wonders if phf hung on waiting for asciilifeform to fix the mmap lib </td>
+<td><font color="gray">[<a id="2523858" href="#2523858">13:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mmap is the obv. logical method to handle multi-MB inputs for e.g. vdiff , without introducing heapisms </td>
+<td><font color="gray">[<a id="2523859" href="#2523859">13:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> tho not neccessarily required, in vdiff, the process as i understand it does not actually demand random access to the entire input </td>
+<td><font color="gray">[<a id="2523860" href="#2523860">13:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> diana_coman see, if it is broken code, then it just eats all stack available. but i suspect here code is sound, demand on stack defensibly large. </td>
+<td><font color="gray">[<a id="2523861" href="#2523861">14:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> the whole "low stack by default" thing is a low level "let's stimulate heap usage", in the same exact way the empire of smegma would impose a high import tax on soap. </td>
+<td><font color="gray">[<a id="2523862" href="#2523862">14:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform it's not at all evident vdiff is broken. what'd you have him do ? </td>
+<td><font color="gray">[<a id="2523863" href="#2523863">14:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: ideally, mmap the inputs </td>
+<td><font color="gray">[<a id="2523864" href="#2523864">14:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> mircea_popescu, yes, I don't suspect the code is broken as such but it is a limitation of the approach and I did not really expect bumping into it at 7MB </td>
+<td><font color="gray">[<a id="2523865" href="#2523865">14:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> I don't recall it being discussed in detail (i.e. with numbers for stack size and input size) anywhere and I think it should be, if it stays as it is </td>
+<td><font color="gray">[<a id="2523866" href="#2523866">14:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well, stack by default is small. </td>
+<td><font color="gray">[<a id="2523867" href="#2523867">14:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform imo it is the job of the kernel to expose all available memory (ram, and fucking hell, disk, too, ALL available memory) to me as i fucking want it : stack, cpu registers, heap, whatever it is i wanna call it. </td>
+<td><font color="gray">[<a id="2523868" href="#2523868">14:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ie, yes "ideally mmap it", but not i! it. </td>
+<td><font color="gray">[<a id="2523869" href="#2523869">14:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: kernel ( linus's , that is ) -- exposes. the tricky bit was/is the ada glue. </td>
+<td><font color="gray">[<a id="2523870" href="#2523870">14:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> !#s horsecocks </td>
+<td><font color="gray">[<a id="2523871" href="#2523871">14:17</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> 28 results for "horsecocks", <a href="http://btcbase.org/log-search?q=horsecocks" target=\'_blank\'>http://btcbase.org/log-search?q=horsecocks</a> </font></td>
+<td><font color="gray">[<a id="2523872" href="#2523872">14:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ^ the various drafts of this item </td>
+<td><font color="gray">[<a id="2523873" href="#2523873">14:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> myeah. </td>
+<td><font color="gray">[<a id="2523874" href="#2523874">14:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> asciilifeform: It's march 10th, what is the window for a supply run looking like and what issues appear to be blocking? </td>
+<td><font color="gray">[<a id="2523875" href="#2523875">14:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: currently hands full restarting ffa conveyor however will be ordering irons in next 2 wks, and scheduling flight when the items with least predictable shipment windows are in hand </td>
+<td><font color="gray">[<a id="2523876" href="#2523876">14:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> asciilifeform: Aite. We don't do these very often yet, so getting things in hand trumps getting plane ticket arranged. </td>
+<td><font color="gray">[<a id="2523877" href="#2523877">14:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: i'd ~really~ like to avoid the scenario where i go out with a half-empty crate </td>
+<td><font color="gray">[<a id="2523878" href="#2523878">14:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Right. Half empty crates are for testing new couriers. </td>
+<td><font color="gray">[<a id="2523879" href="#2523879">14:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> can i help you guys with anything ? </td>
+<td><font color="gray">[<a id="2523880" href="#2523880">15:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: possibly you have an iron that wants to go in the crate ? </td>
+<td><font color="gray">[<a id="2523881" href="#2523881">15:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i'm reluctant to do the massive rk thing until we have a semblance of working gnat for arm </td>
+<td><font color="gray">[<a id="2523882" href="#2523882">15:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> that makes sense. </td>
+<td><font color="gray">[<a id="2523883" href="#2523883">15:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i don't really, and besides my/our policy has mostly been to have pizarro own iron, hence the snsa sale etc. </td>
+<td><font color="gray">[<a id="2523884" href="#2523884">15:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> we also host owner-operated iron (e.g. dulap is still snsa and trinque has some, and mod6 ) </td>
+<td><font color="gray">[<a id="2523885" href="#2523885">15:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ^ this goes for other folx! bring out thy irons. </td>
+<td><font color="gray">[<a id="2523886" href="#2523886">15:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> bbl : meat chores </td>
+<td><font color="gray">[<a id="2523887" href="#2523887">15:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> true enough. nevertheless, in my view owning iron helps give pizarro some meat on its bones. </td>
+<td><font color="gray">[<a id="2523888" href="#2523888">15:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2019-03-10#1901176" target=\'_blank\'>http://btcbase.org/log/2019-03-10#1901176</a> &lt;&lt; i'll put it to the top of the stack, i remember fixing it, but never completing the patch. </td>
+<td><font color="gray">[<a id="2523889" href="#2523889">15:44</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-03-10 17:40 asciilifeform: i'd like to see phf come back to life and fix. failing this, 1 of us will have to </font></td>
+<td><font color="gray">[<a id="2523890" href="#2523890">15:44</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">lobbesbot:</font></td>
+<td class="breakup"><font color="gray"> phf: Sent 2 hours ago: &lt;asciilifeform&gt; fughet for nao about <a href="http://btcbase.org/log/2019-03-01#1899897" target=\'_blank\'>http://btcbase.org/log/2019-03-01#1899897</a> , but wouldja pleez fix vdiff ? and tell us what sorta swamp yer stuck in, what wouldja need to get to surface ? </font></td>
+<td><font color="gray">[<a id="2523891" href="#2523891">15:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> &lt;mircea_popescu&gt; true enough. nevertheless, in my view owning iron helps give pizarro some meat on its bones. &lt;&lt; That it does </td>
+<td><font color="gray">[<a id="2523892" href="#2523892">15:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> the problem is that our ada keccak explodes whatever char buffer it gets into an array of octets, which means that, while diff keeps the size of chunks under some particular value, keccak explodes that value x8 </td>
+<td><font color="gray">[<a id="2523893" href="#2523893">15:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> rather not array of octets, but array of bits </td>
+<td><font color="gray">[<a id="2523894" href="#2523894">15:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> diana_coman: <a href="http://p.bvulpes.com/pastes/rWreS/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/rWreS/?raw=true</a> &lt;&lt; here's the diff of your genesis and mine again </td>
+<td><font color="gray">[<a id="2523895" href="#2523895">15:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> you'll notice it thinks your home dir is sitting in the profiles dir, which is mighty strange! maybe it is? </td>
+<td><font color="gray">[<a id="2523896" href="#2523896">15:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2019-03-10#1901200" target=\'_blank\'>http://btcbase.org/log/2019-03-10#1901200</a> &lt;&lt; that is not at all the problem. i can read the file just fine, but as i do i feed chunks of it to keccak. keccak doesn't take char buffers, it wants "bitstream" i.e. arrays of bits, which means whatever char </td>
+<td><font color="gray">[<a id="2523897" href="#2523897">15:56</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-03-10 18:09 asciilifeform: mircea_popescu: ideally, mmap the inputs </font></td>
+<td><font color="gray">[<a id="2523898" href="#2523898">15:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> buffer needs to be converted to 8x bitstream, which is in turn allocated on the stack </td>
+<td><font color="gray">[<a id="2523899" href="#2523899">15:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> there are three possible solutions, a) make sure that stack is arbitrarily large b) feed keccak buffers no larger than some magic size c) rewrite keccak to operate on char arrays directly without the need for bitstream allocation </td>
+<td><font color="gray">[<a id="2523900" href="#2523900">16:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> ksum right now works for any sized file, because it goes the b) route: <a href="http://btcbase.org/patches/vtools_tempfile_standalone_notmp/tree/vtools/src/ksum.adb#L12" target=\'_blank\'>http://btcbase.org/patches/vtools_tempfile_standalone_notmp/tree/vtools/src/ksum.adb#L12</a> </td>
+<td><font color="gray">[<a id="2523901" href="#2523901">16:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> trinque, that's weird fwiw: no, my home dir as far as I can see is &ast;not&ast; in the profiles directory </td>
+<td><font color="gray">[<a id="2523902" href="#2523902">16:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> seems as though there's a dereferenced symlink munged into the path. </td>
+<td><font color="gray">[<a id="2523903" href="#2523903">16:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> trinque, this is probably having to do with the drive being external, connected via USB and how it's mounted, I don't see any other explanation </td>
+<td><font color="gray">[<a id="2523904" href="#2523904">16:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> thing is, my src directory is also a mount on my dev machine. </td>
+<td><font color="gray">[<a id="2523905" href="#2523905">16:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> &lt;+asciilifeform&gt; we also host owner-operated iron (e.g. dulap is still snsa and trinque has some, and mod6 ) &lt;&lt; The Foundation's 2nd box ("lovelace") is with ben_vulpes, currently. He's going to find a home for it in his new area, last we had talked about it. I don't have any machines on-hand that are waiting to go to .uy. However, I might be interested in buying a UY1 style machine from alf... </td>
+<td><font color="gray">[<a id="2523906" href="#2523906">16:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> diana_coman: I'm running again with a vdiff pressed to <a href="http://btcbase.org/patches/vtools_ksum" target=\'_blank\'>http://btcbase.org/patches/vtools_ksum</a> per <a href="http://btcbase.org/log/2018-12-03#1878057" target=\'_blank\'>http://btcbase.org/log/2018-12-03#1878057</a> </td>
+<td><font color="gray">[<a id="2523907" href="#2523907">16:23</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-12-03 21:48 diana_coman: hm, if it's indeed the tmp thing, it might be worth a try to press vtools to current leaf (i.e. vtools_tempfile_standalone or _notmp) and see if that cures it my archive contains pressed vtools to ksum patch only, not further </font></td>
+<td><font color="gray">[<a id="2523908" href="#2523908">16:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> Ok, I'm gonna shutdown the cuntoo box, and boot my original gentoo ssd (where I built cuntoo from). I'll see what I can find out from the genesis.vpatch thing. </td>
+<td><font color="gray">[<a id="2523909" href="#2523909">16:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> trinque, I'm trying here to even &ast;see&ast; this "profiles/" path in any other way than in the vpatch but so far no luck </td>
+<td><font color="gray">[<a id="2523910" href="#2523910">16:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> fwiw a test file created there and vdiffed resulted in no such nonsense </td>
+<td><font color="gray">[<a id="2523911" href="#2523911">16:24</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">feedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://qntra.net/2019/03/french-ophthalmologists-demand-police-rubber-ball-bullet-ban-after-epidemic-of-eye-injuries/" target=\'_blank\'>http://qntra.net/2019/03/french-ophthalmologists-demand-police-rubber-ball-bullet-ban-after-epidemic-of-eye-injuries/</a> &lt;&lt; Qntra -- French Opht...ists Demand Police Rubber Ball Bullet Ban After Epidemic Of Eye Injuries </font></td>
+<td><font color="gray">[<a id="2523912" href="#2523912">16:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> diana_coman: there oughta be a cuntoo/portage dir inside the build dir </td>
+<td><font color="gray">[<a id="2523913" href="#2523913">16:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> this is what's vdiff'd to produce genesis </td>
+<td><font color="gray">[<a id="2523914" href="#2523914">16:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> yes, that one is there but I don't see the path that vdiff seems to see </td>
+<td><font color="gray">[<a id="2523915" href="#2523915">16:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; trinque</b></td>
+<td class="breakup"> will brb, grabbing food real quick </td>
+<td><font color="gray">[<a id="2523916" href="#2523916">16:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> cp -R portage would fail otherwise anyway </td>
+<td><font color="gray">[<a id="2523917" href="#2523917">16:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> right, this is what leads me to believe there's some vdiff bug to discover </td>
+<td><font color="gray">[<a id="2523918" href="#2523918">16:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> ha, wait, there actually IS a b/profiles/home/... </td>
+<td><font color="gray">[<a id="2523919" href="#2523919">16:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> trinque, what should be in the portage/profiles dir? </td>
+<td><font color="gray">[<a id="2523920" href="#2523920">16:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> apparently vdiff is correct after all and there is this thing it sees - it just took me a bit to find it as I thought it was just a misplaced path rather than...the actual thing,huh </td>
+<td><font color="gray">[<a id="2523921" href="#2523921">16:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> phf pretty sure that's the wrong version of it ? iirc there was also a keccak that didn't explode ? diana_coman ? </td>
+<td><font color="gray">[<a id="2523922" href="#2523922">16:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> trinque: i also confirm that under /cuntoo/portage/profiles there is a directory structure that corresponds to my bootstrap environment </td>
+<td><font color="gray">[<a id="2523923" href="#2523923">16:33</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">lobbesbot:</font></td>
+<td class="breakup"><font color="gray"> bvt: Sent 22 hours and 22 minutes ago: &lt;asciilifeform&gt; <a href="http://bvt-trace.net/2019/03/ffa-chapter-9-homework-comba-in-x86_64-assembly/comment-page-1/#comment-12" target=\'_blank\'>http://bvt-trace.net/2019/03/ffa-chapter-9-homework-comba-in-x86_64-assembly/comment-page-1/#comment-12</a> </font></td>
+<td><font color="gray">[<a id="2523924" href="#2523924">16:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> mircea_popescu, when he says "explodes" he means that keccak implementation expects as input a bitstream where each bit is stored in an octet </td>
+<td><font color="gray">[<a id="2523925" href="#2523925">16:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> i.e. there isn't yet a bit-level keccak implemented, no </td>
+<td><font color="gray">[<a id="2523926" href="#2523926">16:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> something like i.e. /cuntoo/portage/profiles/root/cuntoo/build/usr/portage/profiles/features/musl/use.mask </td>
+<td><font color="gray">[<a id="2523927" href="#2523927">16:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ah, i vaguely recalled we had two of them, one bit the other byte. </td>
+<td><font color="gray">[<a id="2523928" href="#2523928">16:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> bvt: you confirm that this exists in your genesis, but is not a valid path? </td>
+<td><font color="gray">[<a id="2523929" href="#2523929">16:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> mircea_popescu, that's at...another level </td>
+<td><font color="gray">[<a id="2523930" href="#2523930">16:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> what ? </td>
+<td><font color="gray">[<a id="2523931" href="#2523931">16:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> i.e. one that physically exists on disk? </td>
+<td><font color="gray">[<a id="2523932" href="#2523932">16:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> i confirm that it is both in genesis and is a valid path. i'm testing live cuntoo though, have no access to bootstrap env currently </td>
+<td><font color="gray">[<a id="2523933" href="#2523933">16:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> i.e. there is really directory structure /cuntoo/portage/profiles/root/cuntoo/build/... </td>
+<td><font color="gray">[<a id="2523934" href="#2523934">16:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> o,0 </td>
+<td><font color="gray">[<a id="2523935" href="#2523935">16:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> this is an interesting clue. I'll be back shortly </td>
+<td><font color="gray">[<a id="2523936" href="#2523936">16:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> but it does but is missing under /usr/portage/... </td>
+<td><font color="gray">[<a id="2523937" href="#2523937">16:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> mircea_popescu, <a href="http://btcbase.org/log/2018-10-12#1860813" target=\'_blank\'>http://btcbase.org/log/2018-10-12#1860813</a> </td>
+<td><font color="gray">[<a id="2523938" href="#2523938">16:38</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-10-12 13:08 diana_coman: asciilifeform, hm, the bit version blows up buffers even more because it uses &ast;internally&ast; arrays of bits as per <a href="http://www.dianacoman.com/2018/02/01/eucrypt-chapter-8-bit-level-keccak-sponge/#selection-51.100-51.594" target=\'_blank\'>http://www.dianacoman.com/2018/02/01/eucrypt-chapter-8-bit-level-keccak-sponge/#selection-51.100-51.594</a> </font></td>
+<td><font color="gray">[<a id="2523939" href="#2523939">16:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> ugh, &ast;but it is missing under... </td>
+<td><font color="gray">[<a id="2523940" href="#2523940">16:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> trinque, bvt put clearly what I was trying to say: here I have the same: the full directory structure inside /cuntoo/portage/profiles </td>
+<td><font color="gray">[<a id="2523941" href="#2523941">16:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> diana_coman do you see the wisdom in implementing a keccak variant that uses <a href="/2018/euloras-communication-protocol-restated/#footnote_7_79596" target=\'_blank\'>eucomms-style fields</a> ? so that something like "hello world" would be passed as 0x01146865 6c6c6f77 6f726c64 </td>
+<td><font color="gray">[<a id="2523942" href="#2523942">16:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> i.e. like this <a href="http://p.bvulpes.com/pastes/k88Le/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/k88Le/?raw=true</a> </td>
+<td><font color="gray">[<a id="2523943" href="#2523943">16:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> mircea_popescu, from keccak's pov there is no meaning to the input so I don't quite see what you mean there </td>
+<td><font color="gray">[<a id="2523944" href="#2523944">16:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> to be clear : i expect that in the regular course of republican work, GB-sized vdiffs will occur -- strictly because we're contemplating confiscating all sort and manner of heathen artefact, and by now bloat is just a synonym for heathen. the "increase stack" fix works ok as a stop-gap, but we can't really 8x everything just for boredom. </td>
+<td><font color="gray">[<a id="2523945" href="#2523945">16:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> diana_coman i mean that instead of keccak receiving array of bits stored in octets, keccak receives (and processes) a eucomms field. </td>
+<td><font color="gray">[<a id="2523946" href="#2523946">16:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> that requires simply a bit-level keccak which requires in turn someone with the time to do the transformation as it were </td>
+<td><font color="gray">[<a id="2523947" href="#2523947">16:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> 0x(01 =&gt; length of 2nd field is 1) (14 =&gt; length of 2nd field is 20) (6865 6c6c6f77 6f726c64 = hello world). </td>
+<td><font color="gray">[<a id="2523948" href="#2523948">16:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!up bflame </td>
+<td><font color="gray">[<a id="2523949" href="#2523949">16:46</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> bflame voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2523950" href="#2523950">16:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> that seems to be at most at reading-chunk-from-file level which is not really related to keccak and not a problem if I understand correctly what phf says specifically on one hand he said <a href="http://btcbase.org/log/2019-03-10#1901225" target=\'_blank\'>http://btcbase.org/log/2019-03-10#1901225</a> and then option c from <a href="http://btcbase.org/log/2019-03-10#1901236" target=\'_blank\'>http://btcbase.org/log/2019-03-10#1901236</a> </td>
+<td><font color="gray">[<a id="2523951" href="#2523951">16:46</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-03-10 19:44 phf: <a href="http://btcbase.org/log/2019-03-10#1901176" target=\'_blank\'>http://btcbase.org/log/2019-03-10#1901176</a> &lt;&lt; i'll put it to the top of the stack, i remember fixing it, but never completing the patch. </font></td>
+<td><font color="gray">[<a id="2523952" href="#2523952">16:46</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-03-10 20:00 phf: there are three possible solutions, a) make sure that stack is arbitrarily large b) feed keccak buffers no larger than some magic size c) rewrite keccak to operate on char arrays directly without the need for bitstream allocation </font></td>
+<td><font color="gray">[<a id="2523953" href="#2523953">16:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> bflame how about you make yourself useful and implement a keccak as discussed ^ then patch diana_coman 's tree with it. </td>
+<td><font color="gray">[<a id="2523954" href="#2523954">16:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> so perhaps the text coding etc would help at chunking-file stage if needed but what is that to do with keccak </td>
+<td><font color="gray">[<a id="2523955" href="#2523955">16:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> diana_coman well, apparently it expects to be called with a bitstream, which is a peculiarly inconvenient datastruct in practice. </td>
+<td><font color="gray">[<a id="2523956" href="#2523956">16:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i really do not wish to see c strings, and i don't perceive char buffer to be different. "bitstream" does not exist. so my thinking is, to henceforth mandate datapassing as such a field. </td>
+<td><font color="gray">[<a id="2523957" href="#2523957">16:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> as a universal c-string / charbuffer replacement. </td>
+<td><font color="gray">[<a id="2523958" href="#2523958">16:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> poor man's tagged data, if you will. </td>
+<td><font color="gray">[<a id="2523959" href="#2523959">16:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> mircea_popescu, what is the gain vs having as input octets or words? </td>
+<td><font color="gray">[<a id="2523960" href="#2523960">16:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> that you always know how large the field is. </td>
+<td><font color="gray">[<a id="2523961" href="#2523961">16:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> what, a number attached? </td>
+<td><font color="gray">[<a id="2523962" href="#2523962">16:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> the ~problem~ with c-strings is that to know how loing it is you must look ~at the end~. </td>
+<td><font color="gray">[<a id="2523963" href="#2523963">16:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> ada doesn't have c-strings anyway </td>
+<td><font color="gray">[<a id="2523964" href="#2523964">16:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> the problem with any other datastruct, such as octets or words, is that you never know how large it is. </td>
+<td><font color="gray">[<a id="2523965" href="#2523965">16:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> the correct solution then seems to be, prefix size. </td>
+<td><font color="gray">[<a id="2523966" href="#2523966">16:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> uhm, no </td>
+<td><font color="gray">[<a id="2523967" href="#2523967">16:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; mircea_popescu</b></td>
+<td class="breakup"> has to go now, but will bbs to continue this. </td>
+<td><font color="gray">[<a id="2523968" href="#2523968">16:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>diana_coman:</b></td>
+<td class="breakup"> k </td>
+<td><font color="gray">[<a id="2523969" href="#2523969">16:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu et al : there are no cstrings in ada, unless one explicitly bakes'em in order to throw to c linked liquishit. all arrays carry their bounds with'em. </td>
+<td><font color="gray">[<a id="2523970" href="#2523970">17:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> also gotta bbl </td>
+<td><font color="gray">[<a id="2523971" href="#2523971">17:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2019-03-09#1901061" target=\'_blank\'>http://btcbase.org/log/2019-03-09#1901061</a> &lt;&lt; iirc there were restriction on what regs can be used as base and index another example of isa ugliness is MOV <a href="http://archive.is/w0IAC#selection-607.0-945.2" target=\'_blank\'>http://archive.is/w0IAC#selection-607.0-945.2</a> </td>
+<td><font color="gray">[<a id="2523972" href="#2523972">17:05</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-03-09 22:35 asciilifeform: btw, bvt , rax etc. ~are~ encoded as 1-8, the iron dun see reg names at all, the classic names are a convention of the asmers and the vendor docs. and imho remains on acct of the asinine x86isms like MUL which use fixed input and output regs, makes'em slightly easier to remember. </font></td>
+<td><font color="gray">[<a id="2523973" href="#2523973">17:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2019-03-09#1901064" target=\'_blank\'>http://btcbase.org/log/2019-03-09#1901064</a> &lt;&lt; well, IMO nvidia's "denver" managed to beat even them. </td>
+<td><font color="gray">[<a id="2523974" href="#2523974">17:06</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-03-09 22:40 asciilifeform: when you build 1 of these things, there's a set of decisions that end up determining shape of whole thing and it so happens that intel made ~all~ of the most retarded possible choices. </font></td>
+<td><font color="gray">[<a id="2523975" href="#2523975">17:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> ('denver' is arm at frontend and vliw inside, dynamic jit tries to continuously improve translation: if you have a loop, the 1st, 100th and 1000th loop iterations can execute totally different vliw code) </td>
+<td><font color="gray">[<a id="2523976" href="#2523976">17:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2019-03-10#1901101" target=\'_blank\'>http://btcbase.org/log/2019-03-10#1901101</a> &lt;&lt; I decided against inline assembly because the asm source is quite large, it's inconvenient to have 100+ lines of asm inline with comments. </td>
+<td><font color="gray">[<a id="2523977" href="#2523977">17:06</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-03-10 02:44 mircea_popescu: <a href="http://bvt-trace.net/2019/03/ffa-chapter-9-homework-comba-in-x86_64-assembly/#selection-15.295-19.176" target=\'_blank\'>http://bvt-trace.net/2019/03/ffa-chapter-9-homework-comba-in-x86_64-assembly/#selection-15.295-19.176</a> &lt;&lt; why this, specifically ? is there no ada asm calling method besides this ? </font></td>
+<td><font color="gray">[<a id="2523978" href="#2523978">17:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> there are Import(Ada,...) and Import(Asm,...), which do the same thing according to the docs (<a href="http://archive.is/XEHW0#selection-17075.0-17109.171)," target=\'_blank\'>http://archive.is/XEHW0#selection-17075.0-17109.171),</a> and I did not manage to find any ABI docs with 'ada calling sequence'. </td>
+<td><font color="gray">[<a id="2523979" href="#2523979">17:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> trinque: Ok, immediately I notice that in my /home/mod6/cuntoo/nomods/cuntoo working directory, from which I ran `./bootstrap.sh -k config/cuntoo-test1 -d /dev/sdb` there is currently nothing in the 'build' directory. </td>
+<td><font color="gray">[<a id="2523980" href="#2523980">17:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> didn't you just say you were going to reboot? </td>
+<td><font color="gray">[<a id="2523981" href="#2523981">17:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> I've looked at the genesis.vpatch that was genereated ( <a href="http://www.mod6.net/cuntoo-blog-2/nomods.genesis.vpatch" target=\'_blank\'>http://www.mod6.net/cuntoo-blog-2/nomods.genesis.vpatch</a> ), and at first glance I don't see these files in their paths. (even if I remove the preceeding 'a/'). </td>
+<td><font color="gray">[<a id="2523982" href="#2523982">17:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> trinque: aha. yeah, powered down, plugged my gentoo SSD back in, and am booted into gentoo where i've built cuntoo. </td>
+<td><font color="gray">[<a id="2523983" href="#2523983">17:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> ok. so what happens to mounts when you reboot </td>
+<td><font color="gray">[<a id="2523984" href="#2523984">17:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> <a href="http://p.bvulpes.com/pastes/CLgnR/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/CLgnR/?raw=true</a> </td>
+<td><font color="gray">[<a id="2523985" href="#2523985">17:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> Is this what you're asking? </td>
+<td><font color="gray">[<a id="2523986" href="#2523986">17:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> no dude, why would the drive still be mounted on the build dir if you rebooted? </td>
+<td><font color="gray">[<a id="2523987" href="#2523987">17:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> I don't know why you find this surprising </td>
+<td><font color="gray">[<a id="2523988" href="#2523988">17:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> Oh, sorry, I guess I wasn't excatly sure what you were asking me to look for, and where. I never had /dev/sdb mounted when I did the bootstrap. </td>
+<td><font color="gray">[<a id="2523989" href="#2523989">17:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> It was just "plugged in" to SATA channel 2. </td>
+<td><font color="gray">[<a id="2523990" href="#2523990">17:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> you didn't read the script either and would otherwise know that it mounted that for you. </td>
+<td><font color="gray">[<a id="2523991" href="#2523991">17:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> Gotcha. </td>
+<td><font color="gray">[<a id="2523992" href="#2523992">17:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> Is there anything else I can check for you while I have your ear? </td>
+<td><font color="gray">[<a id="2523993" href="#2523993">17:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> anyhow, bvt, can I get you to paste an ls -R starting from build/cuntoo ? </td>
+<td><font color="gray">[<a id="2523994" href="#2523994">17:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> I have also posted the entire typescript (47Mb WARNING) of the build to my website: <a href="http://www.mod6.net/cuntoo-blog-2/nomods.cuntoo.build.typescript" target=\'_blank\'>http://www.mod6.net/cuntoo-blog-2/nomods.cuntoo.build.typescript</a> </td>
+<td><font color="gray">[<a id="2523995" href="#2523995">17:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> I also have tar'd up the entire cuntoo build directory, but have not posted it. It's like 1.7G, but will send it somewhere if someone wants it. </td>
+<td><font color="gray">[<a id="2523996" href="#2523996">17:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; mod6</b></td>
+<td class="breakup"> bbl </td>
+<td><font color="gray">[<a id="2523997" href="#2523997">17:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> as i mentioned, currently i can show results only from live cuntoo </td>
+<td><font color="gray">[<a id="2523998" href="#2523998">17:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> ls -R /cuntoo <a href="http://wotpaste.cascadianhacker.com/pastes/hHbuq/?raw=true" target=\'_blank\'>http://wotpaste.cascadianhacker.com/pastes/hHbuq/?raw=true</a> find /cuntoo <a href="http://wotpaste.cascadianhacker.com/pastes/gAtS2/?raw=true" target=\'_blank\'>http://wotpaste.cascadianhacker.com/pastes/gAtS2/?raw=true</a> </td>
+<td><font color="gray">[<a id="2523999" href="#2523999">17:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> /cuntoo/portage/profiles/root/cuntoo &lt;&lt; and you built this in /root/cuntoo eh? </td>
+<td><font color="gray">[<a id="2524000" href="#2524000">17:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> correct, it was a liveusb system </td>
+<td><font color="gray">[<a id="2524001" href="#2524001">17:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> ah for fucks sake, I found it </td>
+<td><font color="gray">[<a id="2524002" href="#2524002">17:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> scripts/make_portage_tree.sh &lt;&lt; line 14, I do string-munging on the path that's specific to my own filesystem layout </td>
+<td><font color="gray">[<a id="2524003" href="#2524003">17:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> shame on me! </td>
+<td><font color="gray">[<a id="2524004" href="#2524004">17:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> bvt: thanks very much for posting this for me! I now know what to fix, back shortly. </td>
+<td><font color="gray">[<a id="2524005" href="#2524005">17:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>bvt:</b></td>
+<td class="breakup"> yw </td>
+<td><font color="gray">[<a id="2524006" href="#2524006">17:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> diana_coman what ended up being the problem then, i'm not getting something here. </td>
+<td><font color="gray">[<a id="2524007" href="#2524007">18:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> bvt i see. </td>
+<td><font color="gray">[<a id="2524008" href="#2524008">18:48</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">feedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://pizarroisp.net/2019/03/10/pizarro-isp-march-10th-update/" target=\'_blank\'>http://pizarroisp.net/2019/03/10/pizarro-isp-march-10th-update/</a> &lt;&lt; PizarroISP -- Pizarro ISP March 10th Update </font></td>
+<td><font color="gray">[<a id="2524009" href="#2524009">19:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> bvt: diana_coman: I wager that if you change line 14 of scripts/make_portage_tree.sh to the following, my sig will verify on the resulting genesis.vpatch : dest=$pdir/profiles/${src#$bdir/usr/portage/profiles/} </td>
+<td><font color="gray">[<a id="2524010" href="#2524010">19:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>trinque:</b></td>
+<td class="breakup"> just running scripts/make_portage_tree.sh again oughta be enough. </td>
+<td><font color="gray">[<a id="2524011" href="#2524011">19:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> trinque nice find. </td>
+<td><font color="gray">[<a id="2524012" href="#2524012">19:49</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">feedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="/2019/antiqua-sanctorum-patrum-or-the-lordship-list-sixth-year/" target=\'_blank\'>/2019/antiqua-sanctorum-patrum-or-the-lordship-list-sixth-year/</a> &lt;&lt; Trilema -- Antiqua Sanctorum Patrum, or -- The Lordship list, sixth year. </font></td>
+<td><font color="gray">[<a id="2524013" href="#2524013">20:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> So in trends, the neon nazis shifted to memeing against Trump in favor of a candidate promising 1000 "dollars" a month </td>
+<td><font color="gray">[<a id="2524014" href="#2524014">22:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>hanbot:</b></td>
+<td class="breakup"> BingoBoingo please reboot me again at your leisure, any time tomorrow or tuesday'd be fine </td>
+<td><font color="gray">[<a id="2524015" href="#2524015">23:21</a>]</font></td>
+</tr>
+</table>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2020/forum-logs-for-09-mar-2019/">Forum logs for 09 Mar 2019</a></div>
+                <div class="alignright"><a href="/2020/forum-logs-for-11-mar-2019/">Forum logs for 11 Mar 2019</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/logs/" title="View all posts in Logs" rel="category tag">Logs</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2020/forum-logs-for-10-mar-2019/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2020/forum-logs-for-10-mar-2019/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+
+
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authore8e1dd8" id="authore8e1dd8" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emaile8e1dd8" id="emaile8e1dd8" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urle8e1dd8" id="urle8e1dd8" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="92877" /></p>
+				<input type="hidden" name="comment_post_time" value="1735301236-152.53.39.118" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2024 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-92877")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-92877");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-92877");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

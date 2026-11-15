@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_dec2016.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Forum logs for 27 Aug 2019 on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Repressing the female point of view<br />every day since 2008.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-93042"><div class="post" id="post-93042">                    <h1><a href="/2020/forum-logs-for-27-aug-2019/" rel="bookmark" title="Permanent Link to Forum logs for 27 Aug 2019">Forum logs for 27 Aug 2019</a></h1>                        <div class="date">                                     Monday, 16 March, Year 12 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/" title="Posts by "></a>                                                        </div>
+
+                        <div class="entry">
+<table style="font-size:1em;width:"580px;">
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> <a href="/forum-logs-for-26-aug-2019#2551173" target=\'_blank\'>/forum-logs-for-26-aug-2019#2551173</a> &lt;&lt; btcbase is a continuation of kako's log, so there's no timestamp divergence. one log stops at dragon, and the other one starts. never the less i don't rely on dates at all: the entirety of log is stored in an array, so kako entry 123 is (aref &ast;log&ast; 123), likewise current log entry 1931379 is at that particular index in array. </td>
+<td><font color="gray">[<a id="2551187" href="#2551187">04:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> fixing an old style link is then cheap e.g. for <a href="http://log.bitcoin-assets.com/?date=16-07-2014#758070" target=\'_blank\'>http://log.bitcoin-assets.com/?date=16-07-2014#758070</a> i parse out 758070, (entryref 758070), then render the url (which is standard url rendering function) which uses whatever date that's stored in the message record, <a href="http://btcbase.org/log/2014-07-16#758070" target=\'_blank\'>http://btcbase.org/log/2014-07-16#758070</a> in this particular case they happen to be the same, but the point is that this is not a regex transform. essentially i do a </td>
+<td><font color="gray">[<a id="2551188" href="#2551188">04:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> "database" lookup by index </td>
+<td><font color="gray">[<a id="2551189" href="#2551189">04:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> phf, wouldja take it to #asciilifeform or whatever already. </td>
+<td><font color="gray">[<a id="2551190" href="#2551190">06:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-08-26#1931343" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-08-26#1931343</a> &lt;&lt; this is terrible but i don't see anything wrong with parsing url by id first, such that log/date#index goes to #index on whatever date it might be, and to /date otherwise. </td>
+<td><font color="gray">[<a id="2551191" href="#2551191">07:09</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-08-26 23:07:47 asciilifeform: the obv. alternative is to actually do a db lookup when printing links, to get the appropriate local date. BUT this means a db lookup per link displayed, i.e. slowdown. </font></td>
+<td><font color="gray">[<a id="2551192" href="#2551192">07:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i have no intention o fforcing anything like "time", because (as per ancient discussion i suspect meanwhole forgotten but which i still remember) fiat time is doomed non-republican construct. </td>
+<td><font color="gray">[<a id="2551193" href="#2551193">07:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> blockheight is the republican timekeeping item, and in the case of logs that's self-evidently line counts. </td>
+<td><font color="gray">[<a id="2551194" href="#2551194">07:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ie, not only im never gonna mandate inca's "ntp", but i'm not even going to make anything like it. </td>
+<td><font color="gray">[<a id="2551195" href="#2551195">07:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-08-26#1931347" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-08-26#1931347</a> &lt;&lt; it'll be a customs nightmare / attention grabber, doesn't seem worthwhile. </td>
+<td><font color="gray">[<a id="2551196" href="#2551196">07:13</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-08-26 23:11:36 asciilifeform: relatedly, imho a future piz cargo oughta include a rubidium clock box. </font></td>
+<td><font color="gray">[<a id="2551197" href="#2551197">07:13</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">feedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="/2019/42nd-street/" target=\'_blank\'>/2019/42nd-street/</a> &lt;&lt; Trilema -- 42nd Street </font></td>
+<td><font color="gray">[<a id="2551198" href="#2551198">07:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931356" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931356</a> &lt;&lt; the main headache is that the segment of a url past the anchor (#) is never sent to server . </td>
+<td><font color="gray">[<a id="2551199" href="#2551199">11:00</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-08-27 07:09:42 mircea_popescu: <a href="http://logs.nosuchlabs.com/log/trilema/2019-08-26#1931343" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-08-26#1931343</a> &lt;&lt; this is terrible but i don't see anything wrong with parsing url by id first, such that log/date#index goes to #index on whatever date it might be, and to /date otherwise. </font></td>
+<td><font color="gray">[<a id="2551200" href="#2551200">11:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> sure it is </td>
+<td><font color="gray">[<a id="2551201" href="#2551201">11:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> nope. </td>
+<td><font color="gray">[<a id="2551202" href="#2551202">11:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> rtfm plz. </td>
+<td><font color="gray">[<a id="2551203" href="#2551203">11:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> noa hat. </td>
+<td><font color="gray">[<a id="2551204" href="#2551204">11:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> if it were , would be trivial </td>
+<td><font color="gray">[<a id="2551205" href="#2551205">11:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> 179.43.&ast;.&ast; - - [27/Aug/2019:08:22:26 -0400] "POST /wp-comments-post.php HTTP/1.0" 500 963 "<a href="/2012/adnotated-words-of-wisdom-on-the-topic-of-online-fraud/#comment-116893"" target=\'_blank\'>/2012/adnotated-words-of-wisdom-on-the-topic-of-online-fraud/#comment-116893"</a> "Mozilla/5.0 (Windows NT 10.0 Win64 x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.62 Safari/537.36" </td>
+<td><font color="gray">[<a id="2551206" href="#2551206">11:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> 5 &lt;&lt; direct quote from my server log. </td>
+<td><font color="gray">[<a id="2551207" href="#2551207">11:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> interesting. spec seems to say they ought not, so i suspect not erry browser sends </td>
+<td><font color="gray">[<a id="2551208" href="#2551208">11:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> not every browser cca 1999 or some shit. by now, you can rely on it. </td>
+<td><font color="gray">[<a id="2551209" href="#2551209">11:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> or hrm that's a refer url mircea_popescu </td>
+<td><font color="gray">[<a id="2551210" href="#2551210">11:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> not a load url </td>
+<td><font color="gray">[<a id="2551211" href="#2551211">11:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> this dun do anyffin for us re problem </td>
+<td><font color="gray">[<a id="2551212" href="#2551212">11:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> eh wtj </td>
+<td><font color="gray">[<a id="2551213" href="#2551213">11:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> tried various browsers, all behave to spec, i.e. none send url-cum-anchor as part of get or post ( ff and chrome do put it in referrer, but it's quite useless for this job, i need a scheme where url entered by hand or otherwise no ref hdr , is valid ) </td>
+<td><font color="gray">[<a id="2551214" href="#2551214">11:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform, seems right you are, wtf. </td>
+<td><font color="gray">[<a id="2551215" href="#2551215">11:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i could've sworn.... </td>
+<td><font color="gray">[<a id="2551216" href="#2551216">11:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ikr. i also thought ! </td>
+<td><font color="gray">[<a id="2551217" href="#2551217">11:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> this becomes quite inconvenient then, end up with duplicate field or wtf. </td>
+<td><font color="gray">[<a id="2551218" href="#2551218">11:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> it'd have to by the ugly-as-arse /log/chan/index#index or sumsuch </td>
+<td><font color="gray">[<a id="2551219" href="#2551219">11:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> unless im missing sumthing </td>
+<td><font color="gray">[<a id="2551220" href="#2551220">11:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> let this sit for a little we think more of it. </td>
+<td><font color="gray">[<a id="2551221" href="#2551221">11:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> hence wai i posed the q. maybe trinque or lobbes , serious wwwists, can crack this one. </td>
+<td><font color="gray">[<a id="2551222" href="#2551222">11:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931361" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931361</a> &lt;&lt; imho clock is a luxury and in foreseeable future i'ma only load essentials into the crates. but the good noose is, rubidium has halflife of ~5e10 yrs and aint setting off any alarms. while cesium clock uses the stable 133 . problem is rather that the buggers are heavy and can't be had , seems, in anyffin smaller than 2U . </td>
+<td><font color="gray">[<a id="2551223" href="#2551223">11:21</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-08-27 07:13:48 mircea_popescu: <a href="http://logs.nosuchlabs.com/log/trilema/2019-08-26#1931347" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-08-26#1931347</a> &lt;&lt; it'll be a customs nightmare / attention grabber, doesn't seem worthwhile. </font></td>
+<td><font color="gray">[<a id="2551224" href="#2551224">11:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( ftr -- clocks look exactly like servers, just with bnc jack and mains , no other plugs ) </td>
+<td><font color="gray">[<a id="2551225" href="#2551225">11:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> oh hm apparently i was wrong re the cheaper rb -- <a href="https://archive.is/6JOsj" target=\'_blank\'>chinese sell ~pocket-sized unit</a> . but still headache, would have to interface it somehow. </td>
+<td><font color="gray">[<a id="2551226" href="#2551226">11:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> my contention 'clock is luxury' is based on thought similar to <a href="http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931360" target=\'_blank\'>mircea_popescu's</a>, i.e. it dun make sense to bother unless yer doing shortwave or similar application where the intervals gotta be utterly fixed or no go entirely </td>
+<td><font color="gray">[<a id="2551227" href="#2551227">11:28</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-08-27 07:12:48 mircea_popescu: ie, not only im never gonna mandate inca's "ntp", but i'm not even going to make anything like it. </font></td>
+<td><font color="gray">[<a id="2551228" href="#2551228">11:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( whereas 'ntpism' , i.e. networked clocks, make sense in 0 case, it's simply riotously dumb idea, packet delay aint deterministic . ntpism is pure inca scamola. ) </td>
+<td><font color="gray">[<a id="2551229" href="#2551229">11:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931353" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931353</a> &lt;&lt; phf yer missing the point , i need so that <a href="http://btcbase.org/log/2014-07-16#758070" target=\'_blank\'>http://btcbase.org/log/2014-07-16#758070</a> AND <a href="http://btcbase.org/log/1945-07-16#758070" target=\'_blank\'>http://btcbase.org/log/1945-07-16#758070</a> go to same thing ! </td>
+<td><font color="gray">[<a id="2551230" href="#2551230">11:35</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-08-27 04:13:06 phf: fixing an old style link is then cheap e.g. for <a href="http://log.bitcoin-assets.com/?date=16-07-2014#758070" target=\'_blank\'>http://log.bitcoin-assets.com/?date=16-07-2014#758070</a> i parse out 758070, (entryref 758070), then render the url (which is standard url rendering function) which uses whatever date that's stored in the message record, <a href="http://btcbase.org/log/2014-07-16#758070" target=\'_blank\'>http://btcbase.org/log/2014-07-16#758070</a> in this particular case they happen to be the same, but the point is that this is not a regex transform. essentially i do a </font></td>
+<td><font color="gray">[<a id="2551231" href="#2551231">11:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> dates gotta be decorative and work correctly while being so, or oughta go entirely. </td>
+<td><font color="gray">[<a id="2551232" href="#2551232">11:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform, more importantly, how do i searc for the string "don't have" ? </td>
+<td><font color="gray">[<a id="2551233" href="#2551233">11:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i specificalty recall describing this situation in munchen whereby i took cab driver all over bars, trying to find some with decent seating, didn't find any, at end dude was like "well, there's no more left on the list, you have to sit here" and i was like "bitch, i dun have to anything" </td>
+<td><font color="gray">[<a id="2551234" href="#2551234">11:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: quoted strings? indeed still gotta bake'em ( see in readme.txt, they're on the listof missing essentials , and errybody grumbles, i'ma do these next ) </td>
+<td><font color="gray">[<a id="2551235" href="#2551235">11:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> cool. </td>
+<td><font color="gray">[<a id="2551236" href="#2551236">11:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> pagination of srch output also </td>
+<td><font color="gray">[<a id="2551237" href="#2551237">11:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> will use same scheme as in phuctor for the latter  </td>
+<td><font color="gray">[<a id="2551238" href="#2551238">11:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> possibly lobbes et al will beat me to it, submit a patch. </td>
+<td><font color="gray">[<a id="2551239" href="#2551239">11:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> was muchly hoping not to end up birthing whole logotron with solely own hands .  </td>
+<td><font color="gray">[<a id="2551240" href="#2551240">11:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/ossasepia/2019-08-26#1000650" target=\'_blank\'>most recent gripe re quotes</a> </td>
+<td><font color="gray">[<a id="2551241" href="#2551241">11:52</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-08-26 14:28:11 shrysr_: thanks asciilifeform and BingoBoingo. also since 'pki' throws up stuff like 'napkin' - is there a way to narrow this down in the search? </font></td>
+<td><font color="gray">[<a id="2551242" href="#2551242">11:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> for thrd-completeness, also painfully missing are back/fwd linkages a la phf, but these need working date/era handling before i even dare to touch the q </td>
+<td><font color="gray">[<a id="2551243" href="#2551243">11:53</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">feedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="/2019/thelastpsychiatristcom-catfish-the-real-danger-of-social-media-adnotated/" target=\'_blank\'>/2019/thelastpsychiatristcom-catfish-the-real-danger-of-social-media-adnotated/</a> &lt;&lt; Trilema -- thel....com - Catfish: The Real Danger Of Social Media. Adnotated. </font></td>
+<td><font color="gray">[<a id="2551244" href="#2551244">13:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: 4th link in note 1 is borked </td>
+<td><font color="gray">[<a id="2551245" href="#2551245">13:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yes, missing the actual link / </td>
+<td><font color="gray">[<a id="2551246" href="#2551246">13:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'masturbated to the same exact theme' in #2 has a 'b' but no terminator </td>
+<td><font color="gray">[<a id="2551247" href="#2551247">13:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> deliberate. cuz it's the keyword, repeats throughot article </td>
+<td><font color="gray">[<a id="2551248" href="#2551248">13:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> dun seem to display the keyword on any of my browser tho </td>
+<td><font color="gray">[<a id="2551249" href="#2551249">13:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( is it meant to ? ) </td>
+<td><font color="gray">[<a id="2551250" href="#2551250">13:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> meanwhile in diana_coman roulette, <a href="http://ossasepia.com/2009/11/15/cine-sunt-eu/" target=\'_blank\'>http://ossasepia.com/2009/11/15/cine-sunt-eu/</a> </td>
+<td><font color="gray">[<a id="2551251" href="#2551251">13:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform, nah, it's not expected to work atm. trying to figure out what i want here. </td>
+<td><font color="gray">[<a id="2551252" href="#2551252">13:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> a. </td>
+<td><font color="gray">[<a id="2551253" href="#2551253">13:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> in #20 'Learn how to turn shit off, what' also borked. </td>
+<td><font color="gray">[<a id="2551254" href="#2551254">13:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> also because missing the link. </td>
+<td><font color="gray">[<a id="2551255" href="#2551255">13:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> do you recall it btw ? </td>
+<td><font color="gray">[<a id="2551256" href="#2551256">13:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> not afaik </td>
+<td><font color="gray">[<a id="2551257" href="#2551257">13:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> there's coupla moar of these, but i'ma leave off, evidently mircea_popescu still fillin'em in </td>
+<td><font color="gray">[<a id="2551258" href="#2551258">13:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; mircea_popescu</b></td>
+<td class="breakup"> prays at the shrine of lost references </td>
+<td><font color="gray">[<a id="2551259" href="#2551259">13:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform, if there's one of those &lt;A href=[word description] broken links, the most useful thing is the link, if known </td>
+<td><font color="gray">[<a id="2551260" href="#2551260">13:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> sometimes i get notion that the hunted item is in mircea_popescu's www, but difficult to test given no search box . </td>
+<td><font color="gray">[<a id="2551261" href="#2551261">13:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> fucking useless even with search box / </td>
+<td><font color="gray">[<a id="2551262" href="#2551262">13:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i dunno wtf i'm going to do here, but it's becoming a serious problem, i'm starting to bump against an objective limit in reality. </td>
+<td><font color="gray">[<a id="2551263" href="#2551263">13:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i spent 60% of the time with that article hunting for references. </td>
+<td><font color="gray">[<a id="2551264" href="#2551264">13:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i don't think i have the stomach for more which is why the publish-with-drescriptions-instead-of-links model, it's the choice of this or not fucking publish at all. </td>
+<td><font color="gray">[<a id="2551265" href="#2551265">13:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> yea makes sense </td>
+<td><font color="gray">[<a id="2551266" href="#2551266">13:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> add to that the FUCKING INSANE tlp being annoying as fuck, i'm having a blogging crisis over here </td>
+<td><font color="gray">[<a id="2551267" href="#2551267">13:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> read maybe 10%, max, of tlp corpus, for this reason. it's just barely digestible to asciilifeform's enzymes. </td>
+<td><font color="gray">[<a id="2551268" href="#2551268">13:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> "i thought he was a great guy, right, so then i moved in with him, and OMFG HE IS INSUFFERABLE </td>
+<td><font color="gray">[<a id="2551269" href="#2551269">13:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> in iirc '09 when asciilifeform 1st encountered tlp , thought 'insufferable, but occasionally emits interesting point by sheer accident' </td>
+<td><font color="gray">[<a id="2551270" href="#2551270">13:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i actually had tlp pegged in my head as a dour, aged, 'feminism'-flavoured chix </td>
+<td><font color="gray">[<a id="2551271" href="#2551271">13:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: speaking of 'starting to bump against an objective limit', it's starting to look like <a href="http://logs.nosuchlabs.com/log/trilema/2019-08-26#1931350" target=\'_blank\'>ethernet switch bulk</a> is the limiting reactant for 'how many rk/similar can pack into box' </td>
+<td><font color="gray">[<a id="2551272" href="#2551272">14:38</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-08-26 23:58:39 asciilifeform: meanwhile in frustrations, for third day digging for a usable <a href="http://logs.nosuchlabs.com/log/pizarro/2019-08-26#1000138" target=\'_blank\'>1u-embeddable GB lan switch for piz</a> , found none </font></td>
+<td><font color="gray">[<a id="2551273" href="#2551273">14:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> 2u niot the end of the word is it ? </td>
+<td><font color="gray">[<a id="2551274" href="#2551274">14:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> well, half the density, i.e. double the transport cost. </td>
+<td><font color="gray">[<a id="2551275" href="#2551275">14:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> huh ? </td>
+<td><font color="gray">[<a id="2551276" href="#2551276">14:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> largest normal-looking suitcase comfortably houses 2u of irons . </td>
+<td><font color="gray">[<a id="2551277" href="#2551277">14:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ah so you got 4u budget ? </td>
+<td><font color="gray">[<a id="2551278" href="#2551278">14:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 1u chassis actually fits 16 rk with comfortable air flow. and their ps. but no GB switch seems to exist, of requisite size, that'd fit inside, even if stripped of own chassis. </td>
+<td><font color="gray">[<a id="2551279" href="#2551279">14:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> aha </td>
+<td><font color="gray">[<a id="2551280" href="#2551280">14:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 4u is the most that can be reliably carried as 'konsoomer luggage' . </td>
+<td><font color="gray">[<a id="2551281" href="#2551281">14:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> so it's like 1k/u transport costs as it is uhh </td>
+<td><font color="gray">[<a id="2551282" href="#2551282">14:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> huh&amp; </td>
+<td><font color="gray">[<a id="2551283" href="#2551283">14:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> moar like 500 / 1u (per last expedition) </td>
+<td><font color="gray">[<a id="2551284" href="#2551284">14:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ah, tickets not that expensive ? </td>
+<td><font color="gray">[<a id="2551285" href="#2551285">14:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: i used 'cattle car class', see. </td>
+<td><font color="gray">[<a id="2551286" href="#2551286">14:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> aha </td>
+<td><font color="gray">[<a id="2551287" href="#2551287">14:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2018-05-01#1807162" target=\'_blank\'>transport costs from 1st exped.</a> , for thrd-completeness. </td>
+<td><font color="gray">[<a id="2551288" href="#2551288">14:50</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-05-01 20:40:40 asciilifeform: !!deed <a href="http://www.loper-os.org/pub/piz_apr_parts.txt" target=\'_blank\'>http://www.loper-os.org/pub/piz_apr_parts.txt</a> </font></td>
+<td><font color="gray">[<a id="2551289" href="#2551289">14:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ^ 560.5 $ per 1u . keep in mind that asciilifeform for 'belt and suspenders' made a lengthier than strictly necessary expedition . ( in fact used all but 1 of the padding days, walking with BingoBoingo to hunt for missing small parts, tuning boxen , etc ) </td>
+<td><font color="gray">[<a id="2551290" href="#2551290">14:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> how much is the material cost per u ? </td>
+<td><font color="gray">[<a id="2551291" href="#2551291">14:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> material ? depends what's in the 1u in question, neh </td>
+<td><font color="gray">[<a id="2551292" href="#2551292">14:53</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> the ones youre taking </td>
+<td><font color="gray">[<a id="2551293" href="#2551293">14:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: the ones for mircea_popescu , are looking to cost 1-1.5 k ($) ea. (still hunting for the exact machines we use, the old seller seems to have vanished) . rk plant will cost ~1k , not counting drives (and switch, which, grrr, not found yet!) for a plant of 16 subunits. the remaining 1u is to be apu1 (4x) , not drawn yet so i daren't say exactly what costs, expect also in vicinity of 1k (sans disk). </td>
+<td><font color="gray">[<a id="2551294" href="#2551294">14:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> might be worth it to put a coupla us in a box, test whether can be taken through ? </td>
+<td><font color="gray">[<a id="2551295" href="#2551295">14:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> at 4u/trip you fill a cabinet each decade </td>
+<td><font color="gray">[<a id="2551296" href="#2551296">14:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: it's a calculable function. 4 'heavy' (32cpu opterons) added up to just 5kg short of the max permitted 'overweight'. anything lighter (e.g. rk plant) poses no pain from mass pov. but the suitcases i (specifically) bought for expeditions, are in fact of max permitted phys. dimensions. (w/ 2 u in ea. + paddings and fixators.) </td>
+<td><font color="gray">[<a id="2551297" href="#2551297">14:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform, you can actually ship an oversized box can't you ? or do usg airlines not sell this ? </td>
+<td><font color="gray">[<a id="2551298" href="#2551298">14:58</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> last time i rtfm'd , 'copa' (the 1 usable co.) permitted over-mass XOR over-dimension . </td>
+<td><font color="gray">[<a id="2551299" href="#2551299">14:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> imo you should ask when you buy tickets </td>
+<td><font color="gray">[<a id="2551300" href="#2551300">14:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> "hey, i also have this one box, can you carry it ?" </td>
+<td><font color="gray">[<a id="2551301" href="#2551301">14:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> funnily enuff i did. ( in fact was uncertain until last moment that the actual 2 crates would fly, the co's www is retarded) </td>
+<td><font color="gray">[<a id="2551302" href="#2551302">15:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i don't mean, your luggage. </td>
+<td><font color="gray">[<a id="2551303" href="#2551303">15:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> well i was 5kg short of the max load, so 3rd box would've had to be &lt;5, even supposing they'd take another 300 and eat it </td>
+<td><font color="gray">[<a id="2551304" href="#2551304">15:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i dunno what this max load is. </td>
+<td><font color="gray">[<a id="2551305" href="#2551305">15:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 100kg. </td>
+<td><font color="gray">[<a id="2551306" href="#2551306">15:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( i.e. ~with~ the surcharge , is what one gets from this vendor ) </td>
+<td><font color="gray">[<a id="2551307" href="#2551307">15:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> anyffing bigger, gets 'cargo' treatment, and full customs orchestra. </td>
+<td><font color="gray">[<a id="2551308" href="#2551308">15:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingostani customs is a circus one could almost write book about. they for instance didn't give a rat's arse re the 1us. but demanded to know why 6x 'high tech!111 omfg'-looking rk's in the carry-on. ( rk pilot plant was assembled on-site, in hotel... ) </td>
+<td><font color="gray">[<a id="2551309" href="#2551309">15:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ben_vulpes , if recall, somehow botched , so that even his 1us ended up weighed and taxed like silver bricks. </td>
+<td><font color="gray">[<a id="2551310" href="#2551310">15:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: 'take decade to fill rack' is less of a problem than seems -- if could fully tenant e.g. 32 rk's or equiv, already pays for entire dc bill. </td>
+<td><font color="gray">[<a id="2551311" href="#2551311">15:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> asciilifeform: The failure in that run was at the US check in counter. There's a max weight on any piece designated "luggage" rather than "cargo", hard limit enforced by baggage handler's work rules </td>
+<td><font color="gray">[<a id="2551312" href="#2551312">15:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: indeed it was. there was a grunt with a scale, weighed and tape-measured each trunk. </td>
+<td><font color="gray">[<a id="2551313" href="#2551313">15:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ic </td>
+<td><font color="gray">[<a id="2551314" href="#2551314">15:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> well, imo getting a lot of gear there asap would be very much beneficial for everyone. </td>
+<td><font color="gray">[<a id="2551315" href="#2551315">15:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> The problems at Customes rose out of impromptu third bag getting left in Brasil, arriving to Uruguay on a different plane than Herr Vulpes </td>
+<td><font color="gray">[<a id="2551316" href="#2551316">15:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: i intend to pack the crates 'to the waterline' , just like last go. </td>
+<td><font color="gray">[<a id="2551317" href="#2551317">15:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: rright, and ended up ~doubling his cost. </td>
+<td><font color="gray">[<a id="2551318" href="#2551318">15:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> asciilifeform, fwiw the story you're telling does not convince me. </td>
+<td><font color="gray">[<a id="2551319" href="#2551319">15:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: hm ? </td>
+<td><font color="gray">[<a id="2551320" href="#2551320">15:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> specifically, have you asked copa if they will carry a box for you. this is not an euphemism for a piece of luggage, it is a straight name for a cardboard fucking box. it is also not related to bv's misadventure with sleeping and routing and w/e. </td>
+<td><font color="gray">[<a id="2551321" href="#2551321">15:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> IF indeed the box is carried, and IF indeed customs want money, you can just abandon it, fo ra fixed cost of whatever you put in it. </td>
+<td><font color="gray">[<a id="2551322" href="#2551322">15:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> this may be a very good deal, seeing how pizarro is eating your bone marrow, at a fixed monthly cost, and you do two trips a year, worth a few u each. </td>
+<td><font color="gray">[<a id="2551323" href="#2551323">15:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: ben ended up with customs pawing ~all~ of his boxes on acct of the excess. </td>
+<td><font color="gray">[<a id="2551324" href="#2551324">15:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> risking a few k to not have to waste another 6 months dithering about how "oh, i guess we should talk to people o hurr durr we have not what to sell" is a genius move, </td>
+<td><font color="gray">[<a id="2551325" href="#2551325">15:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> at least compared to what idiocy passes for business as usual over there. </td>
+<td><font color="gray">[<a id="2551326" href="#2551326">15:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> if it were just a q of 'hey i'ma bring a 3rd and see if they eat it' would happily bring 3rd. but there was in fact a d00d with a scale there, and calculator, adding up box0...boxN and if &gt;100kg then 'nope' </td>
+<td><font color="gray">[<a id="2551327" href="#2551327">15:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> several folx got sent away with 'nope' in the queue. </td>
+<td><font color="gray">[<a id="2551328" href="#2551328">15:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> there where ? </td>
+<td><font color="gray">[<a id="2551329" href="#2551329">15:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> in the usa end, where one goes an' gets the ticket punched. </td>
+<td><font color="gray">[<a id="2551330" href="#2551330">15:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ask coppa if they will carry. </td>
+<td><font color="gray">[<a id="2551331" href="#2551331">15:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i have had them carry in excess of a quarter ton for me. ASIDE from luggage. </td>
+<td><font color="gray">[<a id="2551332" href="#2551332">15:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> if they carry, the dude with ruler is welcome to stuff it, you bought ticket from your airline not from him/ </td>
+<td><font color="gray">[<a id="2551333" href="#2551333">15:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mircea_popescu: what did it cost ? </td>
+<td><font color="gray">[<a id="2551334" href="#2551334">15:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ~60% of what fedex'd have been </td>
+<td><font color="gray">[<a id="2551335" href="#2551335">15:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> otherwise, would have fedex'd. </td>
+<td><font color="gray">[<a id="2551336" href="#2551336">15:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> when i bought ticket, the annoying fucks wouldn't even take prepay of the surcharge when selling ticket, proclaimed 'you pay it at airport' </td>
+<td><font color="gray">[<a id="2551337" href="#2551337">15:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> so buy ticket at airport ? </td>
+<td><font color="gray">[<a id="2551338" href="#2551338">15:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> and pay 2x. </td>
+<td><font color="gray">[<a id="2551339" href="#2551339">15:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i bought month in advance. </td>
+<td><font color="gray">[<a id="2551340" href="#2551340">15:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> possibly dealing with typically ustardian faux thing, where the corner grocery store misrepresents itself as "bank". except "oh, we can't do wires" </td>
+<td><font color="gray">[<a id="2551341" href="#2551341">15:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ah, already bought ? </td>
+<td><font color="gray">[<a id="2551342" href="#2551342">15:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> then none of the foregoingd applies. </td>
+<td><font color="gray">[<a id="2551343" href="#2551343">15:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> not bought yet, can't buy until all irons pass test </td>
+<td><font color="gray">[<a id="2551344" href="#2551344">15:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> otherwise risk ending up sucking own elbow </td>
+<td><font color="gray">[<a id="2551345" href="#2551345">15:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> in that case, ask them/. </td>
+<td><font color="gray">[<a id="2551346" href="#2551346">15:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Important part of cardboard box exercise is likely to mean finding airport with COPA desk asciilifeform checks in at rather than United or whoever doing a codeshare on the to panama link </td>
+<td><font color="gray">[<a id="2551347" href="#2551347">15:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i'ma defo ask, and play the 'phone tag', like last time. but expect similar result. </td>
+<td><font color="gray">[<a id="2551348" href="#2551348">15:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> BingoBoingo, has it. </td>
+<td><font color="gray">[<a id="2551349" href="#2551349">15:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> gotta deal with copa specifically, not with ustardistani interface </td>
+<td><font color="gray">[<a id="2551350" href="#2551350">15:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> May mean reaching out to lobbes or Mocky and setting up a bit of a road trip </td>
+<td><font color="gray">[<a id="2551351" href="#2551351">15:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> btw it dun matter of what the box is made, or that it resembles suitcase (other than possibly for orc customs). the dimensions thing is applied by monkey on the usa end. </td>
+<td><font color="gray">[<a id="2551352" href="#2551352">15:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> btw if e.g. rk plant gets eaten, lose considerably moar than ~1k, there's a great bit of hand-craft involved in making these. </td>
+<td><font color="gray">[<a id="2551353" href="#2551353">15:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> business is all about identifying these things, writing the correct numbers down, and then comparing sums. </td>
+<td><font color="gray">[<a id="2551354" href="#2551354">15:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> well yes. </td>
+<td><font color="gray">[<a id="2551355" href="#2551355">15:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> there's also ' asciilifeform's vacation days ' non-renewable resource involved . </td>
+<td><font color="gray">[<a id="2551356" href="#2551356">15:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( the hero to move boxen instead of asciilifeform , has not yet stood up. ) </td>
+<td><font color="gray">[<a id="2551357" href="#2551357">15:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> where incidentally is Mocky ? </td>
+<td><font color="gray">[<a id="2551358" href="#2551358">15:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931500" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931500</a> &lt;&lt; incidentally i priced 'fexed', their cost is actually comparable to ' asciilifeform-ex ' . problem is that all fedex'd crates end up getting the full orc treatment. </td>
+<td><font color="gray">[<a id="2551359" href="#2551359">15:25</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-08-27 15:15:47 mircea_popescu: ~60% of what fedex'd have been </font></td>
+<td><font color="gray">[<a id="2551360" href="#2551360">15:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> &ast;fedex </td>
+<td><font color="gray">[<a id="2551361" href="#2551361">15:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> aha </td>
+<td><font color="gray">[<a id="2551362" href="#2551362">15:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> re mircea_popescu's quarter tonne -- per last yr's specs , they were formally willing to move up to 150kg -- from anywhere other than usa. </td>
+<td><font color="gray">[<a id="2551363" href="#2551363">15:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> heh </td>
+<td><font color="gray">[<a id="2551364" href="#2551364">15:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'copa' is... interesting co. for instance, return flight got stuck in panama for extra 20min on acct of some fuckwit who couldn't fit his ~box of cakes~ into overhead compartment. </td>
+<td><font color="gray">[<a id="2551365" href="#2551365">15:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( in usa bouncers would come and beat such fella black and blue and throw out of gate. but orcs. ) </td>
+<td><font color="gray">[<a id="2551366" href="#2551366">15:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> the folx i told in meatspace about this, no one believed. 'yer fucking with me' </td>
+<td><font color="gray">[<a id="2551367" href="#2551367">15:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> also oblg. apropos of ye olde <a href="/2014/a-practical-exercise-for-people-who-cant-afford-airfare/" target=\'_blank\'>/2014/a-practical-exercise-for-people-who-cant-afford-airfare/</a> &gt;&gt; all 4 planes were ~half full . </td>
+<td><font color="gray">[<a id="2551368" href="#2551368">15:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> did not complain, got to sleep horizontally... </td>
+<td><font color="gray">[<a id="2551369" href="#2551369">15:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931506" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931506</a> &lt;&lt; us-tardation , if it were ~deterministic~ , would be considerably less headache . but it , sadly, aint. ( for instance asciilifeform never had problem with wire. but that's 0..n, no one knows re n+1... ) </td>
+<td><font color="gray">[<a id="2551370" href="#2551370">15:35</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-08-27 15:16:40 mircea_popescu: possibly dealing with typically ustardian faux thing, where the corner grocery store misrepresents itself as "bank". except "oh, we can't do wires" </font></td>
+<td><font color="gray">[<a id="2551371" href="#2551371">15:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: btw occurs to me , you have a 'copa' counter in BingoBoingostan somewhere. consider inquiring what costs round trip ~from~ BingoBoingostan. it isn't impossible that it'd be cheaper for BingoBoingo to ~pick up~ crates. </td>
+<td><font color="gray">[<a id="2551372" href="#2551372">16:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> not a bad idea at that. you can by round trip from us in uy for that matter </td>
+<td><font color="gray">[<a id="2551373" href="#2551373">16:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; mircea_popescu</b></td>
+<td class="breakup"> does this occasionally, </td>
+<td><font color="gray">[<a id="2551374" href="#2551374">16:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> even if costs ~same, conceivably could work around asciilifeform's major handicap, i.e. that he can only go 1 (w/ 'afterburners' , maybe 2x) / yr on acct of <a href="http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931521" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931521</a> </td>
+<td><font color="gray">[<a id="2551375" href="#2551375">16:21</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-08-27 15:22:15 asciilifeform: there's also ' asciilifeform's vacation days ' non-renewable resource involved . </font></td>
+<td><font color="gray">[<a id="2551376" href="#2551376">16:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo would not have to get hotel, either, could sleep in hammock in asciilifeform's 'nazi sub' </td>
+<td><font color="gray">[<a id="2551377" href="#2551377">16:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> supposing there aint orc-generated bureaucratic problem in re BingoBoingo going into usa for day or 2, may be workable. </td>
+<td><font color="gray">[<a id="2551378" href="#2551378">16:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> (the 1 headache is that BingoBoingo's station would end up unmanned for the interval.) </td>
+<td><font color="gray">[<a id="2551379" href="#2551379">16:24</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Well, second headache is that coming into UY they tend to care more about payloads moved by UY living folks </td>
+<td><font color="gray">[<a id="2551380" href="#2551380">16:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: i dun recall the orcs asking me where i lived. you give'em the usa passport and is all. </td>
+<td><font color="gray">[<a id="2551381" href="#2551381">16:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: iirc you haven't burned yours yet. so oughta work </td>
+<td><font color="gray">[<a id="2551382" href="#2551382">16:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931516" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931516</a> &lt;&lt; ftr, I do have a free room in apartment lordship always welcome as long as I know enough in advance. Though I did some research and it is doubtful if CLT has a copa counter (I could always check on foot to confirm). Loox like closest one may be in Florida </td>
+<td><font color="gray">[<a id="2551383" href="#2551383">16:27</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-08-27 15:18:17 BingoBoingo: May mean reaching out to lobbes or Mocky and setting up a bit of a road trip </font></td>
+<td><font color="gray">[<a id="2551384" href="#2551384">16:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> lobbes: you are where ? </td>
+<td><font color="gray">[<a id="2551385" href="#2551385">16:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> Charlotte, NC (about half hour from airport and halfway from D.C to FL it seems) </td>
+<td><font color="gray">[<a id="2551386" href="#2551386">16:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> afaik the only 'full scale' office of theirs is in fl </td>
+<td><font color="gray">[<a id="2551387" href="#2551387">16:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'miami mecca'(tm) </td>
+<td><font color="gray">[<a id="2551388" href="#2551388">16:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> yeah, looks like miami and LA &gt;&gt; <a href="https://www.copaair.com/en/web/gs/copa-courier-offices" target=\'_blank\'>https://www.copaair.com/en/web/gs/copa-courier-offices</a> </td>
+<td><font color="gray">[<a id="2551389" href="#2551389">16:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> hmm, but wtf, now this says there is an office in the Washington Dulles Airport &gt;&gt; <a href="https://www.copacargo.com/html/user/default.aspx?PageId=5&amp;lang=en" target=\'_blank\'>https://www.copacargo.com/html/user/default.aspx?PageId=5&amp;lang=en</a> </td>
+<td><font color="gray">[<a id="2551390" href="#2551390">16:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; lobbes</b></td>
+<td class="breakup"> has no idea </td>
+<td><font color="gray">[<a id="2551391" href="#2551391">16:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> lobbes: there was 'office' in the bmore airport from which i went. but it was the kind where no one to haggle with, 'here is machine, wouldja like to buy new ticket for 3x what you paid month ago?' 'here we measure the trunks' etc </td>
+<td><font color="gray">[<a id="2551392" href="#2551392">16:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> for all i know, is exactly what is in fl and la also. </td>
+<td><font color="gray">[<a id="2551393" href="#2551393">16:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> yea, hard to ascertain over the interwebz </td>
+<td><font color="gray">[<a id="2551394" href="#2551394">16:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> call em' maybe </td>
+<td><font color="gray">[<a id="2551395" href="#2551395">16:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> in any case, my pad is open if road-trip stop is needed at any point </td>
+<td><font color="gray">[<a id="2551396" href="#2551396">16:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i'ma have to call'em (and specifically that city's, vs the 'national' one) </td>
+<td><font color="gray">[<a id="2551397" href="#2551397">16:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> other potential headache is that they'll happily offer to carry e.g. +100kg aaand it'll end up 'cargo' and get ben_vulpes'd. </td>
+<td><font color="gray">[<a id="2551398" href="#2551398">16:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> so far all i got is 2 experimental data points re expeditions, ben's and mine. </td>
+<td><font color="gray">[<a id="2551399" href="#2551399">16:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> As long as everything has invoices you can present, customs doesn't &ast;have&ast; to be multi-day ordeal </td>
+<td><font color="gray">[<a id="2551400" href="#2551400">16:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: dun matter how many day ordeal, cost will still be 2+x of otherwise. </td>
+<td><font color="gray">[<a id="2551401" href="#2551401">16:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> it'd end up same as if fedex'd. </td>
+<td><font color="gray">[<a id="2551402" href="#2551402">16:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; BingoBoingo</b></td>
+<td class="breakup"> unenthused about returning to US without warships and <a href="/2015/prophylaxis" target=\'_blank\'>"viking hanglider"</a> </td>
+<td><font color="gray">[<a id="2551403" href="#2551403">16:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: hey , i work as full-time canary in that coal mine... </td>
+<td><font color="gray">[<a id="2551404" href="#2551404">16:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> It's not simply existential gasenwagen risk. Its that going to the US involves dealing with all sorts of uniformed monkees on arrival. Every single uniform monkey encountered in the US is an unpleasant experience. </td>
+<td><font color="gray">[<a id="2551405" href="#2551405">16:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Down here, no one hates me for the color of my skin. One of my last memories of the US was the TSA monkeys and the contempt that bled through everything the agent that handled me did. </td>
+<td><font color="gray">[<a id="2551406" href="#2551406">16:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> His skin hate radiated. </td>
+<td><font color="gray">[<a id="2551407" href="#2551407">16:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: i won't dispute that it's quite unpleasant. but will remind, i sit there year-round </td>
+<td><font color="gray">[<a id="2551408" href="#2551408">17:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> fwiw the inspector monkeys in usa , such that i saw in washingtonistan, were harmless, sat and played tetrisen on pnojes </td>
+<td><font color="gray">[<a id="2551409" href="#2551409">17:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> I have trouble understanding how you manage to after having traveled outside the zone. </td>
+<td><font color="gray">[<a id="2551410" href="#2551410">17:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> mostly sad white d00dz , in their 20s, there was no slot at patent office for'em, evidently </td>
+<td><font color="gray">[<a id="2551411" href="#2551411">17:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: i manage to so that to conjure up with what to power asciilifeform's little orchestra, which includes e.g. the expedition and its payload. </td>
+<td><font color="gray">[<a id="2551412" href="#2551412">17:07</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> if i knew how to do this in antarctica -- would do it there. would prefer the company of the penguins to ameri-muppets, verily. </td>
+<td><font color="gray">[<a id="2551413" href="#2551413">17:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> STL Lambert Intl was all ghetto kangz and queenz pissed whitey would dare take a flight in the morning and justifying the TSA being at the Airport at that hour. </td>
+<td><font color="gray">[<a id="2551414" href="#2551414">17:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> interesting. one might naively imagine that bmore port would consist of these -- but it didn't. </td>
+<td><font color="gray">[<a id="2551415" href="#2551415">17:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i suppose they're all manning lafond's shop </td>
+<td><font color="gray">[<a id="2551416" href="#2551416">17:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Meanwhile in local news, the absolute worst thing done by same demographic, different destination: <a href="https://archive.is/7ovs0" target=\'_blank\'>https://archive.is/7ovs0</a> "Eso, después de un paseo por Malvin hoy, en varias plazas ví macumbas con pollos decapitados, frutas por doquier y velas, alguien sabe quién las hace, por qué y si es legal? Dejan todo tirado y a mí me parece sumamente asqueroso" </td>
+<td><font color="gray">[<a id="2551417" href="#2551417">17:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> pollos decapitados ? lol -- vooddists ? </td>
+<td><font color="gray">[<a id="2551418" href="#2551418">17:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Yeah, old black women littering </td>
+<td><font color="gray">[<a id="2551419" href="#2551419">17:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> oh hey loox like i have my notes mixed up -- bmore is from where went to argentina. to BingoBoingo went from dulles (greater washingtonistan) </td>
+<td><font color="gray">[<a id="2551420" href="#2551420">17:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> goes, always , from where cheapest , to the penny </td>
+<td><font color="gray">[<a id="2551421" href="#2551421">17:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> wonders if the folx at <a href="http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931579" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931579</a> are moar 'uppity' on acct of distance from the payola trough mecca </td>
+<td><font color="gray">[<a id="2551422" href="#2551422">17:16</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-08-27 17:09:15 BingoBoingo: STL Lambert Intl was all ghetto kangz and queenz pissed whitey would dare take a flight in the morning and justifying the TSA being at the Airport at that hour. </font></td>
+<td><font color="gray">[<a id="2551423" href="#2551423">17:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i've stood in multi-kilometre queues in ameri-airports. but never yet encountered any of the famous abuses. </td>
+<td><font color="gray">[<a id="2551424" href="#2551424">17:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> the only times had to even haggle, was with orcs in orcistans. </td>
+<td><font color="gray">[<a id="2551425" href="#2551425">17:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> 'esteemed sir inspector, wouldja like to see how this machine worx?' 'get outta my sight' </td>
+<td><font color="gray">[<a id="2551426" href="#2551426">17:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> I don't know where a multi-kilometer line isn't an abuse in itself </td>
+<td><font color="gray">[<a id="2551427" href="#2551427">17:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> as i understand, you get those always, unless you've yer own airplane. </td>
+<td><font color="gray">[<a id="2551428" href="#2551428">17:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> after 1st trip ( mircea_popescu's ro ) , asciilifeform bought that subscription for 'get back in usa w/out line', was worth erry penny </td>
+<td><font color="gray">[<a id="2551429" href="#2551429">17:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> still line to come ~out~ tho. </td>
+<td><font color="gray">[<a id="2551430" href="#2551430">17:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; asciilifeform</b></td>
+<td class="breakup"> previously to mircea_popescu's party in timis, asciilifeform spent 20y not even having occasion to go in airplane anywhere. </td>
+<td><font color="gray">[<a id="2551431" href="#2551431">17:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> ( why? from combination of 'to where to go?' and <a href="http://logs.nosuchlabs.com/log/ossasepia/2019-08-25#1000616" target=\'_blank\'>'when?'</a> ) </td>
+<td><font color="gray">[<a id="2551432" href="#2551432">17:31</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-08-25 18:53:47 asciilifeform: diana_coman: to add a few brush strokes to the picture of usa -- and perhaps already you knew -- 1) most folx get ~0 'vacation'. they nominally get '2 wks' but is reserved in practice for illness 2) are paid just enuff to stay alive (and locate themselves within vicinity of the mines) , 2-3 missed weeks of pay means destitution . </font></td>
+<td><font color="gray">[<a id="2551433" href="#2551433">17:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo re <a href="http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931572" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931572</a> &lt;&lt; i suspect exaggerated. even when i went to heart of lafondistan, 'darkest africa', when attempted to buy dilapidated building -- went into where the orcs were, their <a href="http://logs.nosuchlabs.com/log/trilema/2016-07-03#1495968" target=\'_blank\'>'food depot'</a> even, and no one put knife in, no one even spat in asciilifeform's face or even could be aroused to utter insult </td>
+<td><font color="gray">[<a id="2551434" href="#2551434">17:36</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-08-27 16:57:51 BingoBoingo: His skin hate radiated. </font></td>
+<td><font color="gray">[<a id="2551435" href="#2551435">17:36</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2016-07-03 14:15:17 asciilifeform: if you can call 'food depot' etc. living. </font></td>
+<td><font color="gray">[<a id="2551436" href="#2551436">17:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> the poor zeks gave much moar impression of being ~tired~ of life, rather than belligerent . </td>
+<td><font color="gray">[<a id="2551437" href="#2551437">17:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> iirc mircea_popescu had even moar picturesque story, where not only not insulted but had excellent rapport w/ entire bus fulla these , and they all asked for him to become their che guevara </td>
+<td><font color="gray">[<a id="2551438" href="#2551438">17:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> asciilifeform: up through mid-Obama I dealing even with the uniformed sort could be very pleasant. </td>
+<td><font color="gray">[<a id="2551439" href="#2551439">17:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> BingoBoingo: i dunno how many of these folx at any given time even know who is on the iron throne. </td>
+<td><font color="gray">[<a id="2551440" href="#2551440">17:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> they live in entirely parallel universe, the 1 described in mircea_popescu's 'the tide dollar' piece. </td>
+<td><font color="gray">[<a id="2551441" href="#2551441">17:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> I remember for about 4 years or so I lived in an apartment literally on the "other side of the railroad tracks" (this was back in northern Ohio I've bounced around the country). It was predominantly darker skinned folk, and I am a super-white ginger. Never had a single issue everyone was friendly towards me. One time the entire parking lot was "robbed" all cars broken into but mine was passed over </td>
+<td><font color="gray">[<a id="2551442" href="#2551442">21:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> somehow. </td>
+<td><font color="gray">[<a id="2551443" href="#2551443">21:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> Hell, at one point I even played guitar in the local all-black church. The only thing that made me uncomfortable about that was the fact that I have 0 belief in a god, and that the damn band leader would never give me the song list no matter how much I asked. Always had to improvise. </td>
+<td><font color="gray">[<a id="2551444" href="#2551444">21:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> !!up shrysr </td>
+<td><font color="gray">[<a id="2551445" href="#2551445">21:36</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> shrysr voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2551446" href="#2551446">21:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> I used to fly a lot too, tho, and regardless of the skin color the TSA monkeys were always unpleasant to deal with. I would always feel raped by the time I was done getting through the lines complete with my pants falling down and holding my shoes while running for my flight. </td>
+<td><font color="gray">[<a id="2551447" href="#2551447">21:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> lobbes: different rapes for different folx, i suspect. asciilifeform for instance 'feels raped' much moar greatly by the tax collector, than by the ceremonial funnel where one is to put shoes at bushized airport. </td>
+<td><font color="gray">[<a id="2551448" href="#2551448">22:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> incidentally, i agree w/ mircea_popescu re 'airport strippings have ~popular~ support in usa' but not with his hypothesis re why ( sumthing with 'cuckism' ). instead i suspect it's an idjit stab at 'class warfare' , the ~90% of usa that can't afford to ride in an airplane delights in hearing 'them snooty fucks in suits' getting stripped </td>
+<td><font color="gray">[<a id="2551449" href="#2551449">22:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2017-06-19#1672306" target=\'_blank\'>see also e.g.</a> </td>
+<td><font color="gray">[<a id="2551450" href="#2551450">22:41</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2017-06-19 13:21:57 asciilifeform: 'недобитый kulak dekulakized!' newz at 11 </font></td>
+<td><font color="gray">[<a id="2551451" href="#2551451">22:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> or see also <a href="/2014/in-which-you-become-grain/?b=Not&amp;e=likes#select" target=\'_blank\'> mircea_popescu's 'buffett's tax' </a> piece . </td>
+<td><font color="gray">[<a id="2551452" href="#2551452">22:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> i.e. where 'class war!111' fuckwits in usa cheered at 'raise tax rate' until then find ~themselves~ expected to pay same % as buffett would pay if he were to ever pay at all </td>
+<td><font color="gray">[<a id="2551453" href="#2551453">22:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> unlike expert entomologists like mircea_popescu , trinque , et al, i dun have much contact with the 'illiterate 20yos' set, but enuff to know that they somehow think 'rich' is what their employed older brothers , parents, are, they have no concept of the real thing even in head </td>
+<td><font color="gray">[<a id="2551454" href="#2551454">22:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> so idjits go, 'tax the rich!111', buffett : 'yes, yes, tax the rich', while he cackles 'all the way to bank' </td>
+<td><font color="gray">[<a id="2551455" href="#2551455">22:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> the old reds had a point when wrote 'you cannot disassemble the master's house with the master's tools' or what was it. </td>
+<td><font color="gray">[<a id="2551456" href="#2551456">22:57</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> My impression of the TSA was welfare folks pissed they had to show up somewhere and do some motions to get their dole </td>
+<td><font color="gray">[<a id="2551457" href="#2551457">23:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931614" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931614</a> &lt;&lt; oya the "occupy butt street" idjits I went to school with back in the day got hard-ons at "taxing those rich bastards who dare to create industry" </td>
+<td><font color="gray">[<a id="2551458" href="#2551458">23:13</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-08-27 22:40:47 asciilifeform: incidentally, i agree w/ mircea_popescu re 'airport strippings have ~popular~ support in usa' but not with his hypothesis re why ( sumthing with 'cuckism' ). instead i suspect it's an idjit stab at 'class warfare' , the ~90% of usa that can't afford to ride in an airplane delights in hearing 'them snooty fucks in suits' getting stripped </font></td>
+<td><font color="gray">[<a id="2551459" href="#2551459">23:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> amusingly, to this day, however I'll always dress in a suit for air travel. After enough experimenting I discovered that indeed I get better treatment when I do (often am addressed with 'sir' than when in jeanz and t-shirt, get moar attention from the attendants etc). Why? Because the airlines &ast;know&ast; that a huge % of their business comes from... repeat business travelers! Can't kill industry </td>
+<td><font color="gray">[<a id="2551460" href="#2551460">23:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> but these beasts, as BingoBoingo points, are different items from the TSA monkeys who are mostly the welfare folx </td>
+<td><font color="gray">[<a id="2551461" href="#2551461">23:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> lobbes: even ill-fitting suit that'd look at home on a defrocked ex-maffs prof turned hobo, worx a++ wonders in airport. </td>
+<td><font color="gray">[<a id="2551462" href="#2551462">23:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931623" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931623</a> &lt;&lt; the rage aint even misplaced -- 0 of the folx alive presently, king or slave, had ~anyffin to do with 'create industry'. futile rage, is all. </td>
+<td><font color="gray">[<a id="2551463" href="#2551463">23:25</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-08-27 23:13:14 lobbes: <a href="http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931614" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931614</a> &lt;&lt; oya the "occupy butt street" idjits I went to school with back in the day got hard-ons at "taxing those rich bastards who dare to create industry" </font></td>
+<td><font color="gray">[<a id="2551464" href="#2551464">23:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> for futile rage of farm animal, convenient victim doll will be given. in 1940 same raging plebes wanted 'gas rothchild'. instead gassed shoemakers who used to fix their shoes, tailor who usedto fix their coat. rothchild unscathed, richer than ever. </td>
+<td><font color="gray">[<a id="2551465" href="#2551465">23:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> <a href="http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931622" target=\'_blank\'>http://logs.nosuchlabs.com/log/trilema/2019-08-27#1931622</a> &lt;&lt; starvation wage in combination with utterly, screamingly pointless work, will do that </td>
+<td><font color="gray">[<a id="2551466" href="#2551466">23:34</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-08-27 23:09:35 BingoBoingo: My impression of the TSA was welfare folks pissed they had to show up somewhere and do some motions to get their dole </font></td>
+<td><font color="gray">[<a id="2551467" href="#2551467">23:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>asciilifeform:</b></td>
+<td class="breakup"> meanwhile, <a href="http://logs.nosuchlabs.com/log/pizarro/2019-08-27#1000155" target=\'_blank\'>folx queued for piz</a> even. </td>
+<td><font color="gray">[<a id="2551468" href="#2551468">23:45</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-08-27 18:54:53 thimbronion: FYI if you get more rockchips in I will lease one. </font></td>
+<td><font color="gray">[<a id="2551469" href="#2551469">23:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> In other news, I just applied the suggested html comments bug fix from diana_coman to blog &gt;&gt; <a href="http://blog.lobbesblog.com/2019/08/on-relationships-or-how-pretense-kills/comment-page-1/#comment-76" target=\'_blank\'>http://blog.lobbesblog.com/2019/08/on-relationships-or-how-pretense-kills/comment-page-1/#comment-76</a> </td>
+<td><font color="gray">[<a id="2551470" href="#2551470">23:46</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> seems to be working fine, but plox anyone to let me know if oddities </td>
+<td><font color="gray">[<a id="2551471" href="#2551471">23:47</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> and ty hanbot for the authoring the fix! </td>
+<td><font color="gray">[<a id="2551472" href="#2551472">23:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> I noticed that the test comment went through much quicker, so perhaps this also was the potential bug <a href="http://logs.nosuchlabs.com/log/trilema/2019-08-26#1931282" target=\'_blank\'>mp encountered</a> </td>
+<td><font color="gray">[<a id="2551473" href="#2551473">23:52</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">snsabot:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2019-08-26 17:49:51 mircea_popescu: lobbes, incidentally, your blog takes an ungodly amt of time to take a comment. must be some kinda bug somewheres. </font></td>
+<td><font color="gray">[<a id="2551474" href="#2551474">23:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> hanbot's patch removed a query to a table that did not exist in my mysql database, so perhaps this was the cause of the lag time will tell I guess </td>
+<td><font color="gray">[<a id="2551475" href="#2551475">23:52</a>]</font></td>
+</tr>
+<tr>
+<td><b>lobbes:</b></td>
+<td class="breakup"> now to get proper server-side selection working </td>
+<td><font color="gray">[<a id="2551476" href="#2551476">23:53</a>]</font></td>
+</tr>
+</table>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2020/forum-logs-for-26-aug-2019/">Forum logs for 26 Aug 2019</a></div>
+                <div class="alignright"><a href="/2020/forum-logs-for-28-aug-2019/">Forum logs for 28 Aug 2019</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/logs/" title="View all posts in Logs" rel="category tag">Logs</a>,  <a href="/category/zsilnic/" title="View all posts in Zsilnic" rel="category tag">Zsilnic</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2020/forum-logs-for-27-aug-2019/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2020/forum-logs-for-27-aug-2019/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+
+
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authore8e1dd8" id="authore8e1dd8" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emaile8e1dd8" id="emaile8e1dd8" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urle8e1dd8" id="urle8e1dd8" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="93042" /></p>
+				<input type="hidden" name="comment_post_time" value="1735283708-152.53.39.118" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2024 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-93042")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-93042");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-93042");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

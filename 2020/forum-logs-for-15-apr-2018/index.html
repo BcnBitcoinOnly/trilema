@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_dec2016.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Forum logs for 15 Apr 2018 on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Joe Bidden Reales<br />La Al Paispcelea Congres!
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-92548"><div class="post" id="post-92548">                    <h1><a href="/2020/forum-logs-for-15-apr-2018/" rel="bookmark" title="Permanent Link to Forum logs for 15 Apr 2018">Forum logs for 15 Apr 2018</a></h1>                        <div class="date">                                     Monday, 16 March, Year 12 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/" title="Posts by "></a>                                                        </div>
+
+                        <div class="entry">
+<table style="font-size:1em;width:"580px;">
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> mircea_popescu: i must be thick, or whoever packaged it for gentoo did some inscrutable 'simplification' as a vanilla apache install over here came with none of the conveniences i expected to see a la a2ensite or sites_enabled/disabled, adding Include /path/to/vhosts.d/&ast;.conf caused serverwide barfage </td>
+<td><font color="gray">[<a id="2424094" href="#2424094">00:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> mircea_popescu: i haven't put major time into this particular burr, but it is on my conveyor and i don't expect it to be a major pita or be seen by anyone but me </td>
+<td><font color="gray">[<a id="2424095" href="#2424095">00:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i have never used apache under gentoo, generally most webservers run on centos or else debian straight. </td>
+<td><font color="gray">[<a id="2424096" href="#2424096">00:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> ben_vulpes: you're possibly missing relevant LoadModule commands, if somebody was stripping things down, that's the first place i'd look </td>
+<td><font color="gray">[<a id="2424097" href="#2424097">00:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> but i don't even know wtf is /vhosts.d/ </td>
+<td><font color="gray">[<a id="2424098" href="#2424098">00:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> what's wrong with /home/username/blabla </td>
+<td><font color="gray">[<a id="2424099" href="#2424099">00:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ah, you're stuck not having more ips than users huh. </td>
+<td><font color="gray">[<a id="2424100" href="#2424100">00:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> Include vhosts.d/&ast;.conf should not barf however you don't need a "path to", as it already runs from the directory above that, as part of the main config. </td>
+<td><font color="gray">[<a id="2424101" href="#2424101">00:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> no i take it back, it's loading everything in vhosts.d </td>
+<td><font color="gray">[<a id="2424102" href="#2424102">00:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> thanks for questioning, mircea_popescu </td>
+<td><font color="gray">[<a id="2424103" href="#2424103">00:10</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yw </td>
+<td><font color="gray">[<a id="2424104" href="#2424104">00:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> hanbot / everyone : speaking of patches for mp-wp, here's something i'd dearly love : a MASS uploader. so you don't have to upload files one by one in the webinterface. </td>
+<td><font color="gray">[<a id="2424105" href="#2424105">00:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> minimal extension of extant item required. </td>
+<td><font color="gray">[<a id="2424106" href="#2424106">00:19</a>]</font></td>
+</tr>
+<tr>
+<td><b>hanbot:</b></td>
+<td class="breakup"> yeah that'd be nice huh. </td>
+<td><font color="gray">[<a id="2424107" href="#2424107">00:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> mhm. </td>
+<td><font color="gray">[<a id="2424108" href="#2424108">00:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>&ast; hanbot</b></td>
+<td class="breakup"> has zero js leetpoints but if it can do one, s'gotta do &gt; 1 eh? will look. </td>
+<td><font color="gray">[<a id="2424109" href="#2424109">00:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yes, see how you can get that form to take a range. </td>
+<td><font color="gray">[<a id="2424110" href="#2424110">00:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> &lt;form enctype="multipart/form-data" method="post" action="<a href="/wp-admin/media-upload.php?type=image&amp;#038tab=type&amp;#038post_id=55232"" target=\'_blank\'>/wp-admin/media-upload.php?type=image&amp;#038tab=type&amp;#038post_id=55232"</a> class="media-upload-form type-form validate" id="image-form"&gt; &lt;&lt; that item. </td>
+<td><font color="gray">[<a id="2424111" href="#2424111">00:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> there, that's another nine of 'em. </td>
+<td><font color="gray">[<a id="2424112" href="#2424112">00:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> in other news, record bw burnage on trilema these past 3 days, but srsly what is bw even for. </td>
+<td><font color="gray">[<a id="2424113" href="#2424113">00:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!rated ckang </td>
+<td><font color="gray">[<a id="2424114" href="#2424114">00:38</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> mircea_popescu rated ckang 2 at 2018/04/12 16:37:51 &lt;&lt; diplomatic agent o.O </font></td>
+<td><font color="gray">[<a id="2424115" href="#2424115">00:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i did rate him! phf he actually got the whole wireguard thing started <a href="/forum-logs-for-11-apr-2018#2420623" target=\'_blank\'>/forum-logs-for-11-apr-2018#2420623</a> </td>
+<td><font color="gray">[<a id="2424116" href="#2424116">00:39</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-04-11 04:05 ckang: sorta related, but what do you think about this.. <a href="https://www.wireguard.com/papers/wireguard-formal-verification.pdf" target=\'_blank\'>https://www.wireguard.com/papers/wireguard-formal-verification.pdf</a> </font></td>
+<td><font color="gray">[<a id="2424117" href="#2424117">00:39</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-04-15#1799493" target=\'_blank\'>http://btcbase.org/log/2018-04-15#1799493</a> &lt;&lt; this is not how it works. apache runs as "nobody", files get permission of user. if they execute, they execute with user's permission set. </td>
+<td><font color="gray">[<a id="2424118" href="#2424118">00:42</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-04-15 03:53 ben_vulpes: i'm kinda a little puckered about using the apache worker model i'm going to have to set up something that lets folks upload content </font></td>
+<td><font color="gray">[<a id="2424119" href="#2424119">00:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> ("nobody" is an actual concept in this stack of experimential onions technology, yes.) </td>
+<td><font color="gray">[<a id="2424120" href="#2424120">00:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!up Courtneyxd </td>
+<td><font color="gray">[<a id="2424121" href="#2424121">01:12</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Courtneyxd voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2424122" href="#2424122">01:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>Courtneyxd:</b></td>
+<td class="breakup"> Who wants to see my boobies </td>
+<td><font color="gray">[<a id="2424123" href="#2424123">01:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> mircea_popescu: ^ </td>
+<td><font color="gray">[<a id="2424124" href="#2424124">01:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> mircea_popescu: you around? </td>
+<td><font color="gray">[<a id="2424125" href="#2424125">01:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> is it me, or did his linecount/tit actually increase ? </td>
+<td><font color="gray">[<a id="2424126" href="#2424126">01:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> Courtneyxd, a592c178. half hour. </td>
+<td><font color="gray">[<a id="2424127" href="#2424127">01:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>Courtneyxd:</b></td>
+<td class="breakup"> Okay give me a minute </td>
+<td><font color="gray">[<a id="2424128" href="#2424128">01:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> literally, half hour. </td>
+<td><font color="gray">[<a id="2424129" href="#2424129">01:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>Courtneyxd:</b></td>
+<td class="breakup"> !!register <a href="http://p.bvulpes.com/pastes/poxzj/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/poxzj/?raw=true</a> </td>
+<td><font color="gray">[<a id="2424130" href="#2424130">01:30</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> 9259D37BF9E4A944F4485E91BBF962B502C85769 registered as Courtneyxd. </font></td>
+<td><font color="gray">[<a id="2424131" href="#2424131">01:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>Courtneyxd:</b></td>
+<td class="breakup"> <a href="https://i.imgur.com/BWPaPyz.jpg" target=\'_blank\'>https://i.imgur.com/BWPaPyz.jpg</a> </td>
+<td><font color="gray">[<a id="2424132" href="#2424132">01:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!pay Courtneyxd 0.02 </td>
+<td><font color="gray">[<a id="2424133" href="#2424133">01:37</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Get your OTP: <a href="http://p.bvulpes.com/pastes/wHDSa/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/wHDSa/?raw=true</a> </font></td>
+<td><font color="gray">[<a id="2424134" href="#2424134">01:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>Courtneyxd:</b></td>
+<td class="breakup"> Thank you!!! </td>
+<td><font color="gray">[<a id="2424135" href="#2424135">01:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> soo... what do you do for a living ? </td>
+<td><font color="gray">[<a id="2424136" href="#2424136">01:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>Courtneyxd:</b></td>
+<td class="breakup"> hair stylist </td>
+<td><font color="gray">[<a id="2424137" href="#2424137">01:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> is it fun ? </td>
+<td><font color="gray">[<a id="2424138" href="#2424138">01:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> heh\ </td>
+<td><font color="gray">[<a id="2424139" href="#2424139">01:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!up Courtneyxd </td>
+<td><font color="gray">[<a id="2424140" href="#2424140">01:42</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Courtneyxd voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2424141" href="#2424141">01:42</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!up jaxxie </td>
+<td><font color="gray">[<a id="2424142" href="#2424142">01:43</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> jaxxie voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2424143" href="#2424143">01:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>Courtneyxd:</b></td>
+<td class="breakup"> I love it!!! </td>
+<td><font color="gray">[<a id="2424144" href="#2424144">01:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>jaxxie:</b></td>
+<td class="breakup"> hi </td>
+<td><font color="gray">[<a id="2424145" href="#2424145">01:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>jaxxie:</b></td>
+<td class="breakup"> here 4 pic </td>
+<td><font color="gray">[<a id="2424146" href="#2424146">01:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> jaxxie, dc6f7590. you got half hour. </td>
+<td><font color="gray">[<a id="2424147" href="#2424147">01:43</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> Courtneyxd, is it true that gay men are better hairstylists than women ? </td>
+<td><font color="gray">[<a id="2424148" href="#2424148">01:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>Courtneyxd:</b></td>
+<td class="breakup"> sometimes </td>
+<td><font color="gray">[<a id="2424149" href="#2424149">01:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>Courtneyxd:</b></td>
+<td class="breakup"> i have known few </td>
+<td><font color="gray">[<a id="2424150" href="#2424150">01:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> in other news, someone's maintaining a list of all the chans : <a href="http://ircgrep.arza.us/list.log" target=\'_blank\'>http://ircgrep.arza.us/list.log</a> </td>
+<td><font color="gray">[<a id="2424151" href="#2424151">02:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!up Courtneyxd </td>
+<td><font color="gray">[<a id="2424152" href="#2424152">02:44</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Courtneyxd voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2424153" href="#2424153">02:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>Courtneyxd:</b></td>
+<td class="breakup"> hey </td>
+<td><font color="gray">[<a id="2424154" href="#2424154">02:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>Courtneyxd:</b></td>
+<td class="breakup"> I am checking with !!balance and it is not showing </td>
+<td><font color="gray">[<a id="2424155" href="#2424155">02:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>Courtneyxd:</b></td>
+<td class="breakup"> 0.0 </td>
+<td><font color="gray">[<a id="2424156" href="#2424156">02:45</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!up BethanyC </td>
+<td><font color="gray">[<a id="2424157" href="#2424157">02:50</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> BethanyC voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2424158" href="#2424158">02:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>BethanyC:</b></td>
+<td class="breakup"> titty pics? </td>
+<td><font color="gray">[<a id="2424159" href="#2424159">02:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> Courtneyxd, can take a while. </td>
+<td><font color="gray">[<a id="2424160" href="#2424160">03:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> BethanyC, b1f4f729. half hour. </td>
+<td><font color="gray">[<a id="2424161" href="#2424161">03:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!up roxann3 </td>
+<td><font color="gray">[<a id="2424162" href="#2424162">03:02</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> roxann3 voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2424163" href="#2424163">03:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>BethanyC:</b></td>
+<td class="breakup"> can I show my tits for money? </td>
+<td><font color="gray">[<a id="2424164" href="#2424164">03:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yes. did you read up on how this works ? </td>
+<td><font color="gray">[<a id="2424165" href="#2424165">03:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>BethanyC:</b></td>
+<td class="breakup"> Yes douchebag is walking me through the process </td>
+<td><font color="gray">[<a id="2424166" href="#2424166">03:05</a>]</font></td>
+</tr>
+<tr>
+<td><b>BethanyC:</b></td>
+<td class="breakup"> he is helping me generate the key right now </td>
+<td><font color="gray">[<a id="2424167" href="#2424167">03:06</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> aite then. </td>
+<td><font color="gray">[<a id="2424168" href="#2424168">03:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>BethanyC:</b></td>
+<td class="breakup"> ok </td>
+<td><font color="gray">[<a id="2424169" href="#2424169">03:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>BethanyC:</b></td>
+<td class="breakup"> whats the code? </td>
+<td><font color="gray">[<a id="2424170" href="#2424170">03:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> mircea_popescu: she's ready </td>
+<td><font color="gray">[<a id="2424171" href="#2424171">03:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!up BethanyC </td>
+<td><font color="gray">[<a id="2424172" href="#2424172">03:21</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> BethanyC voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2424173" href="#2424173">03:21</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-04-15#1799576" target=\'_blank\'>http://btcbase.org/log/2018-04-15#1799576</a> </td>
+<td><font color="gray">[<a id="2424174" href="#2424174">03:22</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-04-15 07:02 mircea_popescu: BethanyC, b1f4f729. half hour. </font></td>
+<td><font color="gray">[<a id="2424175" href="#2424175">03:22</a>]</font></td>
+</tr>
+<tr>
+<td><b>BethanyC:</b></td>
+<td class="breakup"> okay! </td>
+<td><font color="gray">[<a id="2424176" href="#2424176">03:23</a>]</font></td>
+</tr>
+<tr>
+<td><b>BethanyC:</b></td>
+<td class="breakup"> `<a href="https://i.imgur.com/EMgnQxk.jpg" target=\'_blank\'>https://i.imgur.com/EMgnQxk.jpg</a> </td>
+<td><font color="gray">[<a id="2424177" href="#2424177">03:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!key BethanyC </td>
+<td><font color="gray">[<a id="2424178" href="#2424178">03:34</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Not registered. </font></td>
+<td><font color="gray">[<a id="2424179" href="#2424179">03:34</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> let me get her registered </td>
+<td><font color="gray">[<a id="2424180" href="#2424180">03:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>BethanyC:</b></td>
+<td class="breakup"> !!register <a href="http://p.bvulpes.com/pastes/Ny0pF/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/Ny0pF/?raw=true</a> </td>
+<td><font color="gray">[<a id="2424181" href="#2424181">03:35</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> 2623A53EB214FC16F9913BE846BEED2034A6B341 registered as BethanyC. </font></td>
+<td><font color="gray">[<a id="2424182" href="#2424182">03:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> BethanyC, you missed an f. </td>
+<td><font color="gray">[<a id="2424183" href="#2424183">03:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>BethanyC:</b></td>
+<td class="breakup"> ill fix that and resend </td>
+<td><font color="gray">[<a id="2424184" href="#2424184">03:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!up Andria </td>
+<td><font color="gray">[<a id="2424185" href="#2424185">03:51</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Andria voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2424186" href="#2424186">03:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>Andria:</b></td>
+<td class="breakup"> im here to show my tits </td>
+<td><font color="gray">[<a id="2424187" href="#2424187">03:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> mircea_popescu: ^ </td>
+<td><font color="gray">[<a id="2424188" href="#2424188">03:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> Andria, 180cd5a3. you got half hour. </td>
+<td><font color="gray">[<a id="2424189" href="#2424189">03:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>Andria:</b></td>
+<td class="breakup"> okay! </td>
+<td><font color="gray">[<a id="2424190" href="#2424190">03:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>Andria:</b></td>
+<td class="breakup"> <a href="https://i.imgur.com/5IhVC85.jpg" target=\'_blank\'>https://i.imgur.com/5IhVC85.jpg</a> </td>
+<td><font color="gray">[<a id="2424191" href="#2424191">04:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> let me get her registered </td>
+<td><font color="gray">[<a id="2424192" href="#2424192">04:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> cool. </td>
+<td><font color="gray">[<a id="2424193" href="#2424193">04:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> so what do you do for a living, Andria </td>
+<td><font color="gray">[<a id="2424194" href="#2424194">04:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>Andria:</b></td>
+<td class="breakup"> im a prostitute </td>
+<td><font color="gray">[<a id="2424195" href="#2424195">04:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> how do you like it ? </td>
+<td><font color="gray">[<a id="2424196" href="#2424196">04:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>Andria:</b></td>
+<td class="breakup"> i love sex and it pays well i love being a sex worker </td>
+<td><font color="gray">[<a id="2424197" href="#2424197">04:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> hey, more power to you. </td>
+<td><font color="gray">[<a id="2424198" href="#2424198">04:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>Andria:</b></td>
+<td class="breakup"> !!register <a href="http://p.bvulpes.com/pastes/tPcGv/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/tPcGv/?raw=true</a> </td>
+<td><font color="gray">[<a id="2424199" href="#2424199">04:15</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> 9052D19381CEBFE6005AB5DD43E7205352D2058D registered as Andria. </font></td>
+<td><font color="gray">[<a id="2424200" href="#2424200">04:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> got her registered </td>
+<td><font color="gray">[<a id="2424201" href="#2424201">04:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!pay Andria 0.02 </td>
+<td><font color="gray">[<a id="2424202" href="#2424202">04:16</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Get your OTP: <a href="http://p.bvulpes.com/pastes/A9iR9/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/A9iR9/?raw=true</a> </font></td>
+<td><font color="gray">[<a id="2424203" href="#2424203">04:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!up BethanyC </td>
+<td><font color="gray">[<a id="2424204" href="#2424204">04:30</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> BethanyC voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2424205" href="#2424205">04:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> She said she fixed the code </td>
+<td><font color="gray">[<a id="2424206" href="#2424206">04:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> but then sent me the same picture </td>
+<td><font color="gray">[<a id="2424207" href="#2424207">04:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> so im tryimg to get a hold of her </td>
+<td><font color="gray">[<a id="2424208" href="#2424208">04:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> to tell her she accidently resent the same photo </td>
+<td><font color="gray">[<a id="2424209" href="#2424209">04:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!up Samanthaaa </td>
+<td><font color="gray">[<a id="2424210" href="#2424210">04:35</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Samanthaaa voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2424211" href="#2424211">04:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>Samanthaaa:</b></td>
+<td class="breakup"> im here to show my tits </td>
+<td><font color="gray">[<a id="2424212" href="#2424212">04:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> Samanthaaa, c8221262. half hour. </td>
+<td><font color="gray">[<a id="2424213" href="#2424213">04:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>Samanthaaa:</b></td>
+<td class="breakup"> alright </td>
+<td><font color="gray">[<a id="2424214" href="#2424214">04:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>BethanyC:</b></td>
+<td class="breakup"> ok </td>
+<td><font color="gray">[<a id="2424215" href="#2424215">04:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>Samanthaaa:</b></td>
+<td class="breakup"> <a href="https://i.imgur.com/cs5vSvn.jpg" target=\'_blank\'>https://i.imgur.com/cs5vSvn.jpg</a> </td>
+<td><font color="gray">[<a id="2424216" href="#2424216">04:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> gonna get her pgp setup </td>
+<td><font color="gray">[<a id="2424217" href="#2424217">04:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> Samanthaaa, what happened to your head ? </td>
+<td><font color="gray">[<a id="2424218" href="#2424218">04:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>Samanthaaa:</b></td>
+<td class="breakup"> what do you mean? </td>
+<td><font color="gray">[<a id="2424219" href="#2424219">05:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>Samanthaaa:</b></td>
+<td class="breakup"> !!register <a href="http://p.bvulpes.com/pastes/Kkb86/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/Kkb86/?raw=true</a> </td>
+<td><font color="gray">[<a id="2424220" href="#2424220">05:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> you've got something on the right temple ? like side of your head ? </td>
+<td><font color="gray">[<a id="2424221" href="#2424221">05:04</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> C2A903B0DBD573B73626B009A85CD54545572414 registered as Samanthaaa. </font></td>
+<td><font color="gray">[<a id="2424222" href="#2424222">05:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>Samanthaaa:</b></td>
+<td class="breakup"> thats a piece of my hair </td>
+<td><font color="gray">[<a id="2424223" href="#2424223">05:04</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!up Samanthaaa </td>
+<td><font color="gray">[<a id="2424224" href="#2424224">05:08</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Samanthaaa voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2424225" href="#2424225">05:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>Samanthaaa:</b></td>
+<td class="breakup"> is that okay though? </td>
+<td><font color="gray">[<a id="2424226" href="#2424226">05:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yea. </td>
+<td><font color="gray">[<a id="2424227" href="#2424227">05:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> !!pay Samanthaaa 0.02 </td>
+<td><font color="gray">[<a id="2424228" href="#2424228">05:12</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!up Courtneyxd </td>
+<td><font color="gray">[<a id="2424229" href="#2424229">05:12</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Courtneyxd voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2424230" href="#2424230">05:13</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Get your OTP: <a href="http://p.bvulpes.com/pastes/OIOhW/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/OIOhW/?raw=true</a> </font></td>
+<td><font color="gray">[<a id="2424231" href="#2424231">05:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>Courtneyxd:</b></td>
+<td class="breakup"> hey when I do !!balance it is not showing </td>
+<td><font color="gray">[<a id="2424232" href="#2424232">05:13</a>]</font></td>
+</tr>
+<tr>
+<td><b>Courtneyxd:</b></td>
+<td class="breakup"> douchebag said it usually only takes 5 to ten minutes but it has been a long while and still nothing xc </td>
+<td><font color="gray">[<a id="2424233" href="#2424233">05:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> Courtneyxd, patience is a virtue! </td>
+<td><font color="gray">[<a id="2424234" href="#2424234">05:15</a>]</font></td>
+</tr>
+<tr>
+<td><b>Courtneyxd:</b></td>
+<td class="breakup"> okay so I just need to keep waiting </td>
+<td><font color="gray">[<a id="2424235" href="#2424235">05:17</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> yeah don't stress, it'll be there. </td>
+<td><font color="gray">[<a id="2424236" href="#2424236">05:18</a>]</font></td>
+</tr>
+<tr>
+<td><b>Courtneyxd:</b></td>
+<td class="breakup"> okay then </td>
+<td><font color="gray">[<a id="2424237" href="#2424237">05:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!up BethanyC </td>
+<td><font color="gray">[<a id="2424238" href="#2424238">05:26</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> BethanyC voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2424239" href="#2424239">05:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>BethanyC:</b></td>
+<td class="breakup"> <a href="https://i.imgur.com/GPnOUXq.jpg" target=\'_blank\'>https://i.imgur.com/GPnOUXq.jpg</a> </td>
+<td><font color="gray">[<a id="2424240" href="#2424240">05:26</a>]</font></td>
+</tr>
+<tr>
+<td><b>mircea_popescu:</b></td>
+<td class="breakup"> i can't read that / </td>
+<td><font color="gray">[<a id="2424241" href="#2424241">05:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> she's a crackhead </td>
+<td><font color="gray">[<a id="2424242" href="#2424242">05:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> here she's going to retry </td>
+<td><font color="gray">[<a id="2424243" href="#2424243">05:37</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!up Hannahcx </td>
+<td><font color="gray">[<a id="2424244" href="#2424244">05:51</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> Hannahcx voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2424245" href="#2424245">05:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>Hannahcx:</b></td>
+<td class="breakup"> I have tits ^.^ </td>
+<td><font color="gray">[<a id="2424246" href="#2424246">05:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> mircea_popescu: ^ </td>
+<td><font color="gray">[<a id="2424247" href="#2424247">05:51</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> !!up BethanyC </td>
+<td><font color="gray">[<a id="2424248" href="#2424248">06:00</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> BethanyC voiced for 30 minutes. </font></td>
+<td><font color="gray">[<a id="2424249" href="#2424249">06:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>Hannahcx:</b></td>
+<td class="breakup"> <a href="https://i.imgur.com/hkVOdKH.jpg" target=\'_blank\'>https://i.imgur.com/hkVOdKH.jpg</a> </td>
+<td><font color="gray">[<a id="2424250" href="#2424250">06:00</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> wrong window dumbass </td>
+<td><font color="gray">[<a id="2424251" href="#2424251">06:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>BethanyC:</b></td>
+<td class="breakup"> <a href="https://i.imgur.com/hkVOdKH.jpg" target=\'_blank\'>https://i.imgur.com/hkVOdKH.jpg</a> </td>
+<td><font color="gray">[<a id="2424252" href="#2424252">06:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> about damn time </td>
+<td><font color="gray">[<a id="2424253" href="#2424253">06:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> mircea_popescu: I got this slut to do it the right way finally </td>
+<td><font color="gray">[<a id="2424254" href="#2424254">06:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> mircea_popescu: You around </td>
+<td><font color="gray">[<a id="2424255" href="#2424255">07:48</a>]</font></td>
+</tr>
+<tr>
+<td><b>ascii_lander:</b></td>
+<td class="breakup"> !Q later tell BingoBoingo plox to gpggram the coords , i fell asleep before writing'em down and lost. presently off to breakfast, then will look. </td>
+<td><font color="gray">[<a id="2424256" href="#2424256">08:02</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">lobbesbot:</font></td>
+<td class="breakup"><font color="gray"> ascii_lander: The operation succeeded. </font></td>
+<td><font color="gray">[<a id="2424257" href="#2424257">08:02</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> !Q later tell ascii_lander <a href="http://p.bvulpes.com/pastes/49SyH/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/49SyH/?raw=true</a> </td>
+<td><font color="gray">[<a id="2424258" href="#2424258">08:11</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">lobbesbot:</font></td>
+<td class="breakup"><font color="gray"> BingoBoingo: The operation succeeded. </font></td>
+<td><font color="gray">[<a id="2424259" href="#2424259">08:11</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">lobbesbot:</font></td>
+<td class="breakup"><font color="gray"> BingoBoingo: Sent 8 minutes ago: &lt;ascii_lander&gt; plox to gpggram the coords , i fell asleep before writing'em down and lost. presently off to breakfast, then will look. </font></td>
+<td><font color="gray">[<a id="2424260" href="#2424260">08:11</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">deedbot:</font></td>
+<td class="breakup"><font color="gray"> <a href="http://danielpbarron.com/2018/male-chauvinist/" target=\'_blank\'>http://danielpbarron.com/2018/male-chauvinist/</a> &lt;&lt; Daniel P. Barron - Male Chauvinist </font></td>
+<td><font color="gray">[<a id="2424261" href="#2424261">10:33</a>]</font></td>
+</tr>
+<tr>
+<td><b>danielpbarron:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-04-15#1799329" target=\'_blank\'>http://btcbase.org/log/2018-04-15#1799329</a> &lt;&lt; he's available now for a few hours otherwise, another day </td>
+<td><font color="gray">[<a id="2424262" href="#2424262">11:44</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-04-15 00:09 mircea_popescu: in other news : darwin fish, of fabled atruechurch group, agreed to do a q/a session for a coupla hours tomorrow / next week sometime. </font></td>
+<td><font color="gray">[<a id="2424263" href="#2424263">11:44</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">lobbesbot:</font></td>
+<td class="breakup"><font color="gray"> danielpbarron: Sent 15 hours and 3 minutes ago: &lt;BingoBoingo&gt; You have a comment in cue </font></td>
+<td><font color="gray">[<a id="2424264" href="#2424264">11:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> mp is on? </td>
+<td><font color="gray">[<a id="2424265" href="#2424265">11:54</a>]</font></td>
+</tr>
+<tr>
+<td><b>danielpbarron:</b></td>
+<td class="breakup"> not yet </td>
+<td><font color="gray">[<a id="2424266" href="#2424266">11:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> ah </td>
+<td><font color="gray">[<a id="2424267" href="#2424267">11:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>hanbot:</b></td>
+<td class="breakup"> <a href="http://btcbase.org/log/2018-04-15#1799616" target=\'_blank\'>http://btcbase.org/log/2018-04-15#1799616</a> look douchebag, for every girl you bring in here there's like 10+ lines of bs from you. i've got nothing against you personally, but you're littering the logs with noise --it's annoying as fuck, and if you keep at it i'll end up negrating you. </td>
+<td><font color="gray">[<a id="2424268" href="#2424268">14:44</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> Logged on 2018-04-15 08:16 douchebag: got her registered </font></td>
+<td><font color="gray">[<a id="2424269" href="#2424269">14:44</a>]</font></td>
+</tr>
+<tr>
+<td><b>mod6:</b></td>
+<td class="breakup"> jesus christ, 1 foot of snow in the last 24 hours, and it isn't even stopping. </td>
+<td><font color="gray">[<a id="2424270" href="#2424270">14:49</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> hanbot: what do you mean 10 lines of bs </td>
+<td><font color="gray">[<a id="2424271" href="#2424271">15:16</a>]</font></td>
+</tr>
+<tr>
+<td><b>hanbot:</b></td>
+<td class="breakup"> look at the log where i linked it, for example. the girl registers, the bot confirms she's registered, ---you announce that you got her registered---. a few lines down you've got four lines to announce that there's a problem with a picture, after the picture's been posted. how many times yesterday did you ping mircea_popescu and then do it ---again--- to ask if he's around? etc. </td>
+<td><font color="gray">[<a id="2424272" href="#2424272">15:20</a>]</font></td>
+</tr>
+<tr>
+<td><b>hanbot:</b></td>
+<td class="breakup"> i get that most irc channels and chat venues in general encourage this constant stream of self-evident, redundant, low-content chatter, but #trilema doesn't come close to most. there are people trying to communicate and get shit done here, and while you and your titprovisioning are quite welcome, the noise overhead is not. </td>
+<td><font color="gray">[<a id="2424273" href="#2424273">15:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>hanbot:</b></td>
+<td class="breakup"> !#s snr </td>
+<td><font color="gray">[<a id="2424274" href="#2424274">15:28</a>]</font></td>
+</tr>
+<tr>
+<td><font color="gray">a111:</font></td>
+<td class="breakup"><font color="gray"> 100 results for "snr", <a href="http://btcbase.org/log-search?q=snr" target=\'_blank\'>http://btcbase.org/log-search?q=snr</a> </font></td>
+<td><font color="gray">[<a id="2424275" href="#2424275">15:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>hanbot:</b></td>
+<td class="breakup"> ^ see also. make sense? </td>
+<td><font color="gray">[<a id="2424276" href="#2424276">15:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>douchebag:</b></td>
+<td class="breakup"> hanbot: I only asked because someone joined as mircea_popescu but I wasn't sure if it was really him due to his name getting switched to guest. I'll be less noisy when bringing women in here. </td>
+<td><font color="gray">[<a id="2424277" href="#2424277">15:29</a>]</font></td>
+</tr>
+<tr>
+<td><b>hanbot:</b></td>
+<td class="breakup"> cool </td>
+<td><font color="gray">[<a id="2424278" href="#2424278">15:30</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> hardfork hijinks <a href="https://github.com/5chdn/EIPs/blob/a5-eip-999/EIPS/eip-999.md" target=\'_blank\'>https://github.com/5chdn/EIPs/blob/a5-eip-999/EIPS/eip-999.md</a> </td>
+<td><font color="gray">[<a id="2424279" href="#2424279">16:50</a>]</font></td>
+</tr>
+<tr>
+<td><b>esthlos:</b></td>
+<td class="breakup"> Trying to set up mp-wp on php-mysql interaction. Can anyone help me proceed? <a href="http://p.bvulpes.com/pastes/HMc6z/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/HMc6z/?raw=true</a> </td>
+<td><font color="gray">[<a id="2424280" href="#2424280">17:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>esthlos:</b></td>
+<td class="breakup"> Specifically, my php sees mysqli my no mysql. Maybe I need to downgrade? </td>
+<td><font color="gray">[<a id="2424281" href="#2424281">17:56</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> esthlos: mysqli appears to be a force pushed buggy replacement for original php mysql driver (the usual "deprecated!!1" tricks, while missing features and introducing creative bugs) </td>
+<td><font color="gray">[<a id="2424282" href="#2424282">18:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> but, on debian at least, php5-mysql comes with both mysql.so and mysqli.so </td>
+<td><font color="gray">[<a id="2424283" href="#2424283">18:25</a>]</font></td>
+</tr>
+<tr>
+<td><b>phf:</b></td>
+<td class="breakup"> so you might just be using some kind of "modern" distribution, that forces modern extensions on you. downgrade with extreme prejudice advised. </td>
+<td><font color="gray">[<a id="2424284" href="#2424284">18:27</a>]</font></td>
+</tr>
+<tr>
+<td><b>esthlos:</b></td>
+<td class="breakup"> yes, it's the latest gentoo nonsense. </td>
+<td><font color="gray">[<a id="2424285" href="#2424285">18:28</a>]</font></td>
+</tr>
+<tr>
+<td><b>esthlos:</b></td>
+<td class="breakup"> there's not even a mysql use flag, just mysqli and PDO </td>
+<td><font color="gray">[<a id="2424286" href="#2424286">18:31</a>]</font></td>
+</tr>
+<tr>
+<td><b>esthlos:</b></td>
+<td class="breakup"> (for php) </td>
+<td><font color="gray">[<a id="2424287" href="#2424287">18:32</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> esthlos: i see mysql and msqli flags for dev-lang/php-7.1.15 and just the mysql flag for dev-lang/php-5.6.34 </td>
+<td><font color="gray">[<a id="2424288" href="#2424288">18:35</a>]</font></td>
+</tr>
+<tr>
+<td><b>esthlos:</b></td>
+<td class="breakup"> ben_vulpes: are you sure you're not misreading the mssql flag? <a href="https://packages.gentoo.org/packages/dev-lang/php" target=\'_blank\'>https://packages.gentoo.org/packages/dev-lang/php</a> </td>
+<td><font color="gray">[<a id="2424289" href="#2424289">18:36</a>]</font></td>
+</tr>
+<tr>
+<td><b>esthlos:</b></td>
+<td class="breakup"> ah you're right, it's a recent removal </td>
+<td><font color="gray">[<a id="2424290" href="#2424290">18:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> esthlos: 7.1.15 has mssql in addition! <a href="http://p.bvulpes.com/pastes/OxsNy/?raw=true" target=\'_blank\'>http://p.bvulpes.com/pastes/OxsNy/?raw=true</a> </td>
+<td><font color="gray">[<a id="2424291" href="#2424291">18:38</a>]</font></td>
+</tr>
+<tr>
+<td><b>esthlos:</b></td>
+<td class="breakup"> double backtrack: the packages.gentoo website is just retarded: <a href="https://gitweb.gentoo.org/repo/gentoo.git/tree/dev-lang/php/php-7.2.4.ebuild" target=\'_blank\'>https://gitweb.gentoo.org/repo/gentoo.git/tree/dev-lang/php/php-7.2.4.ebuild</a> </td>
+<td><font color="gray">[<a id="2424292" href="#2424292">18:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> So, I don't want to spoil alf adventures in Uruguay, but... He loves the cheese here </td>
+<td><font color="gray">[<a id="2424293" href="#2424293">21:40</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> And the Rockchips, kinda look like art... </td>
+<td><font color="gray">[<a id="2424294" href="#2424294">21:41</a>]</font></td>
+</tr>
+<tr>
+<td><b>ben_vulpes:</b></td>
+<td class="breakup"> piiiiics </td>
+<td><font color="gray">[<a id="2424295" href="#2424295">21:59</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> In not so much time, all will be revealed </td>
+<td><font color="gray">[<a id="2424296" href="#2424296">22:01</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Alf spent roughly the entire day looking through his camera. Often at other cameras </td>
+<td><font color="gray">[<a id="2424297" href="#2424297">22:03</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Long time no see </td>
+<td><font color="gray">[<a id="2424298" href="#2424298">22:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Sup mats </td>
+<td><font color="gray">[<a id="2424299" href="#2424299">22:08</a>]</font></td>
+</tr>
+<tr>
+<td><b>mats:</b></td>
+<td class="breakup"> nm, been following along in my voice absence </td>
+<td><font color="gray">[<a id="2424300" href="#2424300">22:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>BingoBoingo:</b></td>
+<td class="breakup"> Want to fly to Uruguay, drop off some boxes? </td>
+<td><font color="gray">[<a id="2424301" href="#2424301">22:09</a>]</font></td>
+</tr>
+<tr>
+<td><b>mats:</b></td>
+<td class="breakup"> sounds like a task for a lord </td>
+<td><font color="gray">[<a id="2424302" href="#2424302">22:11</a>]</font></td>
+</tr>
+<tr>
+<td><b>mats:</b></td>
+<td class="breakup"> i have four fgs if pizarro needs a few more though </td>
+<td><font color="gray">[<a id="2424303" href="#2424303">22:14</a>]</font></td>
+</tr>
+<tr>
+<td><b>hanbot:</b></td>
+<td class="breakup"> module </td>
+<td><font color="gray">[<a id="2424304" href="#2424304">23:55</a>]</font></td>
+</tr>
+<tr>
+<td><b>hanbot:</b></td>
+<td class="breakup"> heh. </td>
+<td><font color="gray">[<a id="2424305" href="#2424305">23:56</a>]</font></td>
+</tr>
+</table>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2020/forum-logs-for-14-apr-2018/">Forum logs for 14 Apr 2018</a></div>
+                <div class="alignright"><a href="/2020/forum-logs-for-16-apr-2018/">Forum logs for 16 Apr 2018</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/logs/" title="View all posts in Logs" rel="category tag">Logs</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2020/forum-logs-for-15-apr-2018/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2020/forum-logs-for-15-apr-2018/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+
+
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authore8e1dd8" id="authore8e1dd8" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emaile8e1dd8" id="emaile8e1dd8" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urle8e1dd8" id="urle8e1dd8" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="92548" /></p>
+				<input type="hidden" name="comment_post_time" value="1735305297-152.53.39.118" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2024 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-92548")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-92548");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-92548");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>
