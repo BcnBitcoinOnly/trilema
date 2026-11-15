@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_apr2020.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Nor de etichete on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Mediocrity is not a lack of intelligence.<br />Mediocrity is intelligence entirely dedicated to self-preservation.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-32384"><div class="post" id="post-32384">                    <h1><a href="/2012/nor-de-etichete/" rel="bookmark" title="Permanent Link to Nor de etichete">Nor de etichete</a></h1>                        <div class="date">                                     Friday, 20 January, Year 4 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p>Ieri s-a intimplat catastrofa. Inevitabilul s-a produs. La ce sa te si astepti pina la urma - oricit de catastrofic sa fie, odata ce-i inevitabil... asta este, se intimpla.</p>
+<p>Despre ce vorbesc ? Pai uite, la inceputurile blogului cind doream sa-mi gasesc un articol mergeam direct dupa titlu, ca-i stiam titlul, momentul exact al scrierii, ce haine purtam, ce haine nu purtau fetele, cum era vremea afara, daca era ceva in cuptor, chestii. Cu trecerea lunilor care s-au transformat in ani chestia asta a devenit imposibila, da' nu-i problema ca <a href="/2009/cautare-pe-blog/">Google indexeaza</a> 100% Trilema<sup><a href="#footnote_0_32384" id="identifier_0_32384" class="footnote-link footnote-identifier-link" title="`URLs submitted 5,025 URLs in web index 5,018` deci tehnic vorbind 99,86%, da-n fine, cine stie ce-or fi alea 7 ca mi-i lene sa caut.">i</a></sup> asa ca se poate gasi absolut orice cu minim efort, si da rezultate mult mai bune decit cine stie ce <a href="/2010/cautare-pe-blog-editia-a-2-a/">rahaturi de script</a>.</p>
+<p>Cu aglomerarea anilor problemele s-au agravat. In general imi gaseam ce aveam lipsa in secunde sau un minut doua, da' uneori cite-un articol mai afurisit nu voia dom'le sa iasa la suprafata nicicum - nu reuseam sa-mi amintesc nimic actionabil. In cursul anului trecut am petrecut de doua sau de trei ori o ora incheiata cautind, da-n cele din urma am gasit. Victorie. </p>
+<p>Ieri am petrecut mai bine de-o ora, aproape doua, cautind, pina cind m-am lasat pagubas. Nici acum nu stiu care dracu'-i articolul de-l cautam eu. Trist. </p>
+<p>Asa ca ce mi-am zis in capul meu de fier ? Bai frate, poate haterii astia nepriceputeni de comentatori precit si restul lumii (care-i ceva mai mica decit prima categorie, sper ca-i clar) or fi avind dreptate ?! Poate totusi... ar fi o idee sa fac ceva gen search, nor de etichete, alea ? </p>
+<p>Vedeti ca sunt capabil ? VEDETI ??? </p>
+<p>Noa, si ca prim pas in orice incercare posibila de clasificare automata a textelor m-am apucat sa scriu cod care sa-mi extraga indecsii de cuvinte, pe criteriul ca vedem noi pe urma ce facem cu ei. Hai sa parcurgem impreuna codul. </p>
+<ul>
+$nconnection = mysql_connect("localhost:3306", $db_user, $db_pass );<br />
+mysql_select_db($db_name, $nconnection);
+</ul>
+<p>Adica, ne conectam la baza de date,</p>
+<ul>
+$query = 'SELECT post_content, ID, post_name, YEAR(post_date), post_title FROM posts<br />
+WHERE post_status = "publish" AND post_title NOT LIKE "Rezultat%" AND post_title NOT LIKE "Wikilea%"' ;<br />
+$record=mysql_query($query);</ul>
+<p>Din care alegem continutul, ID-ul, numele, anul si titlul fiecarui articol care-i publicat si-al carui titlul nu incepe nici cu "Rezultat" nici cu "Wikilea", ca sa reusim astfel sa ne incadram in 32 Mb de memorie pentru ca din ceva motiv daca modific php.conf pe server asta nu-mi mareste limita de memorie la scripturi si mi-i lene sa ma bag in mataria configuratiilor pentru atita lucru.</p>
+<ul>
+while ($row = mysql_fetch_array($record, MYSQL_NUM)) {</p>
+<p>$words = explode(" ", strtolower(preg_replace('/[^a-zA-Z ]/', '', strip_tags(str_replace("-"," ",$row[0])))));</p>
+<p>$check = "";<br />
+foreach ($words as $w) if (&#40;strlen(trim($w)) > 4) &#038;& (!(isset($check[trim($w)])))) {<br />
+  $words_glob[trim($w)] .= $row[1].", ";<br />
+  $check[trim($w)]++;<br />
+}
+</ul>
+<p>Aici e mai complicat. Deci, intr-o variabila punem o lista a tuturor entitatilor despartite prin spatii din ce-a ramas dupa ce-am ales doar literele si spatiile din ce-a ramas dupa ce-am scos tagurile html din ce-a ramas dupa ce-am inlocuit trasura de unire cu un spatiu (ca sa nu ne iasa ce-a un fel de cea si acesta-i un acestai) in continutul articolelor. Cred ca se intelege.</p>
+<p>Dupa care initializam o lista, si apoi pentru fiecare cuvint daca-i format din mai mult de patru litere si nu exista-n lista respectiva atunci il adaugam la ea (ca sa nu-l numaram de doua ori) si-n plus il mai adaugam si dupa cheie intr-o lista care tine ID-urile articolelor. </p>
+<p>Pe scurt obtinem la pasul asta o uriasa lista dupa cuvinte-n care se regasesc toate id-urile articolelor de pe Trilema.</p>
+<ul>
+$urls[$row[1]] = "/".$row[3]."/".$row[2];<br />
+$titles[$row[1]] = $row[4];<br />
+}
+</ul>
+<p>Aici compunem url-urile articolelor be baza numelui lor si anului aparitiei intr-o lista ordonata dupa ID-uri, si apoi compunem titlurile intr-o lista idem. Chestiile astea ne vor servi mai tirziu, la formatare. Si cu asta am incheiat parcurgerea continutului articolului curent, putem trece la urmatorul.</p>
+<ul>ksort ($words_glob);</ul>
+<p>Sortam lista cuvintelor dupa cuvintele respective, de la A la Z.</p>
+<ul>
+foreach ($words_glob as $wdg => $val) if &#40;(count(explode(", ",$val)) > 2)&#038;&($wdg[0]==trim($_GET["lit"]))) {<br />
+	echo $wdg, " => ";<br />
+	foreach (explode(", ",$val) as $v) { echo "&lt;a href=",$urls[$v],">",$titles[$v], "&lt;/a> "; $ocnt++; }<br />
+	echo "&lt;br />&lt;br />\n";<br />
+ 	$wcnt++;<br />
+}</ul>
+<p>Pentru fiecare cuvint din lista luam in considerare daca apare in mai mult de doua articole si daca incepe cu litera pe care-am specificat-o in url prin ?lit=x. Daca da atunci il tiparim cu niste formatari asa fel cit sa iasa frumos cu link-uri la articolele unde apare. </p>
+<ul>echo "&lt;strong>Totaluri : ", $wcnt, " cuvinte, ", $ocnt, " ocurente.&lt;/strong>";</ul>
+<p>Mai tiparim o linie cu numarul de cuvinte si numarul de articole in care apar ele fiecare, si gata.</p>
+<p>Ce ne rezulta de-aici ? O. Vai. Vai, vai.</p>
+<ul>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_a.html>trilema_litera_a</a> (3`769 cuvinte, 66`405 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_b.html>trilema_litera_b</a> (1`796 cuvinte, 17`583 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_c.html>trilema_litera_c</a> (5`086 cuvinte, 73`381 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_d.html>trilema_litera_d</a> (2`740 cuvinte, 43`206 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_e.html>trilema_litera_e</a> (1`617 cuvinte, 21`923 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_f.html>trilema_litera_f</a> (1`895 cuvinte, 29`033 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_g.html>trilema_litera_g</a> (1`204 cuvinte, 14`070 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_h.html>trilema_litera_h</a> (534 cuvinte, 3`473 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_i.html>trilema_litera_i</a> (3`811 cuvinte, 54`383 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_j.html>trilema_litera_j</a> (340 cuvinte, 3`764 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_k.html>trilema_litera_k</a> (122 cuvinte, 708 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_l.html>trilema_litera_l</a> (1`201 cuvinte, 17`969 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_m.html>trilema_litera_m</a> (2`634 cuvinte, 35`348 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_n.html>trilema_litera_n</a> (1`756 cuvinte, 23`848 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_o.html>trilema_litera_o</a> (1091 cuvinte, 19`730 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_p.html>trilema_litera_p</a> (4`571 cuvinte, 79`554 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_q.html>trilema_litera_q</a> (28 cuvinte, 136 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_r.html>trilema_litera_r</a> (2`362 cuvinte, 30`915 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_s.html>trilema_litera_s</a> (4`371 cuvinte, 59`036 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_t.html>trilema_litera_t</a> (2`178 cuvinte, 31`852 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_u.html>trilema_litera_u</a> (636 cuvinte, 9`407 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_v.html>trilema_litera_v</a> (1`169 cuvinte, 18`528 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_w.html>trilema_litera_w</a> (197 cuvinte, 1`489 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_x.html>trilema_litera_x</a> (12 cuvinte, 59 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_y.html>trilema_litera_y</a> (26 cuvinte, 198 ocurente).</li>
+<li><a href=/wp-content/uploads/2012/01/trilema_litera_z.html>trilema_litera_z</a> (286 cuvinte, 2`927 ocurente).</li>
+</ul>
+<p>Si-acum ce facem ? Unde pun 45`432 de cuvinte-ntr-un nor de etichete si cum si cui si la ce ar servi el ? 60 de Mb de crosreferinte, ce facem cu ele ? Cui dracu' i-ar putea servi si la ce ? </p>
+<p>Per final, singurul rezultat al acestei dimineti este ca acum avem dovezi ceva mai bune ca nu, n-aveau nici un fel de dreptate comentatorii respectivi, si nu, nu exista solutie mai buna decit Google pentru problema asta. Plus eventual observatia subsidiara ca uite dom'le, stiati ca in limba romana litera C urmata de P si la mica distanta S sunt cele mai importante initiale ? Banuiesc ca nu stiati, dat fiind ca nu am cunostiinta sa se mai fi facut studiile astea altundeva, si dat fiind ca aici au fost publicate intiia oara da, oricine le foloseste ulterior <strong>are obligatia</strong> sa citeze aceasta sursa. Chiar daca se considera pe sine un special, un deosebit si e de parere ca "<a href="//fain/literatura/concurs-de-poezie-ortodoxa-serafim/">oricum se putea gindi si el atita lucru</a>". </p>
+<p>Ca-n strainatate, ce sa mai.</p>
+<p>UPDATE : Cititorii nostri mai bine informati decit noi ne atrag atentia ca exista cel putin un studiu (<a href="http://www.sepln.org/revistaSEPLN/revista/26/vlad.pdf">Adriana Vlad, Adrian Mitrea, Mihai Mitrea</a>), efectuat pe ~43 de milioane de caractere - in principal traduceri din Stoljenitin si scrieri de Radu Anton Roman.</p>
+&mdash;&mdash;&mdash;<ol class="footnotes"><li id="footnote_0_32384" class="footnote">"URLs submitted 5,025 URLs in web index 5,018" deci tehnic vorbind 99,86%, da-n fine, cine stie ce-or fi alea 7 ca mi-i lene sa caut. [<a href="#identifier_0_32384" class="footnote-link footnote-back-link">&#8617;</a>]</li></ol>
+              <div>
+                <div class="alignleft">&laquo; <a href="/2012/la-control-x/">La control - X</a></div>
+                <div class="alignright"><a href="/2012/isteria-ca-substitut-de-valoare/">Isteria ca substitut de valoare</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/meta-psihoza/" title="View all posts in Meta psihoza" rel="category tag">Meta psihoza</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2012/nor-de-etichete/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2012/nor-de-etichete/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>22 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-76670" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-76670" title="">Friday, 20 January 2012</a>
+							</div>
+						<blockquote><p>[...] ca sa reusim astfel sa ne incadram in 32 Mb de memorie pentru ca din ceva motiv daca modific php.conf pe server asta nu-mi mareste limita de memorie la scripturi si mi-i lene sa ma bag in mataria configuratiilor pentru atita lucru.</p></blockquote>
+<p>Meh, dă-l în mă-sa de PHP, folosește mai bine altceva pentru prelucrarea bazelor de date. Se pare că <a href="http://www.dogon.myzen.co.uk/APL/Papers/MySQL.htm#Using%20a%20MySQL%20Database%20from%20Dyalog%20APL" >APL</a> știe să lucreze cu MySQL, asta presupunând că nu vrei să scoți tot conținut web. Eu aș folosi tot Haskell, da' acum fiecare după preferințe.</p>
+						</li>
+
+										<li id="comment-76671" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-76671" title="">Friday, 20 January 2012</a>
+							</div>
+						<p>Da' n-am inteles de ce ? Io-s foarte multumit de lamp, pe bune acuma.</p>
+						</li>
+
+										<li id="comment-76672" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-76672" title="">Friday, 20 January 2012</a>
+							</div>
+						<p>A, nu zic, lampu-i bun pentru servire de conținut pe web, dar baza de date o poți prelucra la fel de bine și separat, fără să te lovești limitările aferente. Iei un limbaj cu o bibliotecă pentru MySQL și te conectezi la fel de bine și îți faci treaba cu cât spațiu vrei tu, separat de PHP.</p>
+<p>De fapt nu-s sigur, dar s-ar putea să meargă să rulezi inclusiv script-ul PHP direct din shell și să nu ai limitările alea, adică limitele de memorie să fie doar pentru ce vine prin mod_php de la Apache. Dar n-am cercetat pe temă, pur și simplu am preferat să lucrez cu altceva pentru a prelucra cantități mari de date pe loc.</p>
+						</li>
+
+										<li id="comment-76673" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-76673" title="">Friday, 20 January 2012</a>
+							</div>
+						<p>Pai evident ca ar merge, da' chiar nu vad utilitatea. Cu ce te-ar ajuta sa ai si cuvintele din wikileaks adaugate la socoteala ? Mie-mi pare c-ar dauna mai degraba.</p>
+						</li>
+
+										<li id="comment-76674" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-76674" title="">Friday, 20 January 2012</a>
+							</div>
+						<p>Probabil, dar în cazul general tu poate vrei să folosești 100MB de memorie pentru a prelucra date, sau 1GB. Sau poate vrei să folosești un algoritm care merge foarte prost ca spațiu, dar se mișcă brici în ceea ce privește timpul de rulare. Limitarea de la PHP/Apache a fost pusă din motive de securitate, deci nu îi văd rostul în condițiile în care tu știi că rulezi cod sigur. Iar dacă apelezi php direct din shell știi sigur că nu ajungi să faci buffer overflow în Apache când prelucrezi date mari, că ăsta ar cam fi riscul principal.</p>
+						</li>
+
+										<li id="comment-76675" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-76675" title="">Friday, 20 January 2012</a>
+							</div>
+						<p>Mei da... hm. Deci, eu am scris codul asta in mai putin timp decit mi-a luat sa-l traduc in limbaj natural pentru cititorii de limbaj natural. Si ca sa te enervez si mai mult : desi am calculator ieri de exemplu am facut determinari <em>cu rigla de calcul</em>! Ca mi-o fost mai la indemina, desi in cazul general... </p>
+<p>Si-n subsidiar, daca scriam in lisp ce publicam dinsus ?</p>
+						</li>
+
+										<li id="comment-76676" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-76676" title="">Friday, 20 January 2012</a>
+							</div>
+						<p>E ok, ai folosit rigla de calcul pentru că îți era mai la îndemână, cam ăsta fiind cuvântul cheie. Mie personal mi-ar fi cel puțin la fel ușor să fac ssh pe server și să dau php /path/to/script pentru un script privat oarecare față de a-l rula din browser.</p>
+<p>Și în plus mi-ar fi mai ușor să scriu script-ul în Haskell decât în PHP, da' asta pentru că programez mai des în primul decât în al doilea, chit că primul nu-i așa bine documentat. Drept urmare, eu unul aș înțelege ceva mai ușor un program scris în Lisp decât același program în PHP, pentru că Lisp are sintaxa foarte curată, pe când PHP parcă a împrumutat prea mult de la Perl. Sau poate că-i de la mine, nu știu.</p>
+						</li>
+
+										<li id="comment-76677" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-76677" title="">Friday, 20 January 2012</a>
+							</div>
+						<p>E mai safe sa nu faci ssh. Eu nu tin minte cind am facut ultima oara ssh in root, da posibil sa nu fi fost in 2011. Ca mnoa, daca nu e nevoie ? Ce, rulezi din browser, sau may exact </p>
+<blockquote><p>for i in {a..z}; do echo "wget <a href="/wdcnt.php?lit=$i">/wdcnt.php?lit=$i</a> -O trilema_litera_$i.html"; done</p></blockquote>
+<p>Mare chestie, stii.</p>
+<p>Aia cu sintaxa curata... io am invatat sa programez mai serios pe C. Parfois savoir toucher l'ordinateur a mains sales fait toute la difference.</p>
+						</li>
+
+										<li id="comment-76678" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-76678" title="">Friday, 20 January 2012</a>
+							</div>
+						<blockquote><p>E mai safe sa nu faci ssh.</p></blockquote>
+<p>Ecslipcă. Te referi că atunci când apelezi codul PHP de fapt rulezi ca utilizator neprivilegiat? Păi și eu fac ssh tot ca utilizator neprivilegiat, de fapt am contul de root dezactivat. E fix aceeași chestie doar că în loc să trec prin Apache, trec prin openssh. Ba de fapt nu-i fix, dacă ținem cont de faptul că sesiunea ssh mai e și securizată.</p>
+						</li>
+
+										<li id="comment-76679" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">10</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-76679" title="">Friday, 20 January 2012</a>
+							</div>
+						<p>A, pai am gindit ca tu zici sa faci ssh ca root.</p>
+						</li>
+
+										<li id="comment-76680" class="commentbody"><div class="commenthead"><img alt='Lotus`s avatar' src='http://life-is-good.eu/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">11</div>
+								<span class="authorlink"><a href='http://life-is-good.eu/' class='url'>Lotus</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-76680" title="">Friday, 20 January 2012</a>
+							</div>
+						<p>Mei, ce înseamnă că C şi P sunt cele mai importante litere româneşti? Cum defineşti asta, prin faptul că ele prefixează cel mai mare număr de cuvinte pe care le-ai folosit tu pe Trilema?</p>
+<p>Eu când eram mic am citit ceva carte de aventuri sau poliţistă, nu-i mai ştiu numele, dar îmi aduc aminte că la un moment dat era vorba despre spargerea unui cod pentru descifrarea hărţii unei comori. Şi zicea acolo autorul (prin vocea personajului principal) ceva despre frecvenţa literelor, ca de exemplu binecunoscutul fapt că-n engleză vocalele a şi e apar mult mai des decât litera y în cuvinte. Cred că şi-n română e la fel. Este vorba de numărul de apariţii ale unei litere indiferent de poziţia ei în cuvânt.</p>
+<p>La fel, sunt convins că cei care scriu cod pentru criptare / spart parole / etc au o idee mult mai bună decât tine despre această "importanţă" (de fapt frecvenţă) a literelor şi cunosc mult mai multe paternuri.</p>
+<p>By the way, în copilărie comunicam cu un prieten cifrat. Poreclele din generală ni le cifram. Iar cu ceva ani în urmă am făcut un progrămel care adăuga diacritice într-o titrare fără. Funcţiona interactiv dar învăţa tot mai mult, acumulând cuvintele parcurse şi deciziile operatorului într-un dicţionar şi bazându-şi deciziile proprii pe frecvenţa anumitor cuvinte cu diacritice versus fără. Exemplu cuvântul "uşa" apare mult mai des decât "usa" sau "uţa" şi programul învăţa asta, sugerându-mi sau făcând apoi automat înlocuirile. L-am abandonat după ce am găsit altele mai bune şi titrări câte vrei pe net.</p>
+<p>Încă îl mai am. Îmi pui link? Sau le pui link celor care chiar s-au ocupat cu aşa ceva?</p>
+						</li>
+
+										<li id="comment-76681" class="commentbody"><div class="commenthead"><img alt='Lotus`s avatar' src='http://life-is-good.eu/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">12</div>
+								<span class="authorlink"><a href='http://life-is-good.eu/' class='url'>Lotus</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-76681" title="">Friday, 20 January 2012</a>
+							</div>
+						<p>La o căutare rapidă pe net:</p>
+<p>"Jetoanele poarta cate o litera si un indice. Acest indice arata cate puncte valoreaza litera respectiva in calculul punctajului care desemneaza in final pe castigator. Sunt 98 de jetoane cu litere si doua jetoane "albe" (jokerii). Cei doi jokeri pot fi folositi in locul oricarei litere, avand insa valoarea zero in calculul punctajului. Semnificatia jokerului din cadrul cuvantului in care s-a depus, se pastreaza in tot restul jocului. Iata si frecventa literelor folosite in acest joc adaptat pentru limba romana:</p>
+<p>                A1= 11    buc.; B9= 2; C1= 5; D2= 4; E1= 9; F8= 2.; G9= 2; H10 = 1; I1 = 10; J10= 1; L1= 4; M4= 3; N1= 6; O1= 5; P2= 4; R1= 7; S1= 5; T1= 7; U1= 6; V8= 2; Z10= 1; X10= 1; Joli= 2"</p>
+<p><a href="http://www.scritube.com/gradinita/joc/Scrabble-regulament-de-joc831552021.php" >sursa</a></p>
+<p>Na, aveam dreptate cu a şi e. Se pare că mai este şi i. Confirmare suplimentară pe <a href="http://ro.wikipedia.org/wiki/Fi%C8%99ier:Frecven%C5%A3a_literelor_rom%C3%A2n%C4%83.png" >wiki</a>.</p>
+						</li>
+
+										<li id="comment-76682" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">13</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-76682" title="">Friday, 20 January 2012</a>
+							</div>
+						<p>Pai da, in sensul ala, ca-s initiale. Uite ca ele trei impreuna string o treime din toate ocurentele. Deci daca te leaga cineva si tre' sa ghicesti initiala unui cuvint romanesc (mai lung de patru litere) ca sa scapi incearca in ordine C, P, S. </p>
+<p>Este si-n romana la fel, cu deosebirea ca romanii sunt niste putori infecte, care de exemplu nici azi n-au facut <a href=/2010/flesch-kincaid/ >Flesch-Kincaid</a>. E clar ca nu-i totuna daca vorbim de initiala, finala sau in interiorul cuvintului pe motiv de vocale. Si ca sa-ti faci o idee, CTO-ul de la Polimedia, care nu-i vorbitoare nativa de limba romana da' o aude de citiva ani a raspuns corect ca anume C e cea mai frecventa si S a doua (de fapt intre P si S diferentele is minime). Ca sa vezi ce inseamna o minte de criptograf de elita.</p>
+<p>Si chiar e deplasat sa-ti inchipui ca io-s asa, un fel de roman mediu, genu' de om cu care te-ai putea intilni tu pe strada. </p>
+<p>Da si tu un link la programel.</p>
+<p>La a doua : citatul corect e <a href=http://www.sepln.org/revistaSEPLN/revista/26/vlad.pdf >aici</a>. Prostia cu nustiuce jetoane e deosebit de irelevanta.</p>
+						</li>
+
+										<li id="comment-76683" class="commentbody"><div class="commenthead"><img alt='Lotus`s avatar' src='http://life-is-good.eu/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">14</div>
+								<span class="authorlink"><a href='http://life-is-good.eu/' class='url'>Lotus</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-76683" title="">Friday, 20 January 2012</a>
+							</div>
+						<p>Da nici nu cred că aveam net pe vremea aia. Era o întrebare retorică vizavi de pretenţia ta de link pentru aşa ceva.</p>
+						</li>
+
+										<li id="comment-76684" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">15</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-76684" title="">Friday, 20 January 2012</a>
+							</div>
+						<p>Pai retorica nu era, ci mai degraba absurda. Care-i pasul urmator, ai inventat fermoarul da' ai omis sa publici ?</p>
+						</li>
+
+										<li id="comment-76688" class="commentbody"><div class="commenthead"><img alt='Freud`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">16</div>
+								<span class="authorlink">Freud<img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-76688" title="">Friday, 20 January 2012</a>
+							</div>
+						<p>Pfoai de mine iar noi suntem latini, ce incidenta de e, a, o si i avem. M-au spart aia ce sursa de texte au bagat ei, acolo in appendix. Deci tocmai au demostrat ca traducatorii editurii folosesc literele alea frecvent in traduceri.</p>
+<p>Cel mai frecvent e p. P de la par-egzample, pula, pizda, prost, picior, pumn, putoare, porc, plecat etc.</p>
+<p>Alte idei dinastea de pulitehnica mai aveti? Io aveam o prietena tembela rau, dar fata stia chimie si fizica astea(lol masa e chimista si profesoara universitara) care a trimis nu stiu ce text de cacat, il retin partial de memorie, la un proiect dinasta NASA pentru summer camp la copii. Fata a luat ceva premiu si a intrat in chestia aia de vara cu o mizerie de text, ceva gen ca visa un fel de sistem gps la metrou cu o alarma care sa le aduca aminte celor cu alzaimer care-i ruta spre casa. Chestiile astea existau deja de coispe timp, asemenea smartphoneului sau un simplu aparat gps, wifi e acum chiar si la metrou in romania precum in strainatate si e semnal oricum de obicei, iara pe porcaria de gps poti programa o ruta si poti da chiar sa-ti indice traseul verbal, si chiar te atentioneaza cand o iei pe unde nu trebuie, recalculand ruta. Sensibilisme de genul evrei gazati si negri saraci, cacamas sa ma cac cu alzaimerul ei.</p>
+<p>Pula mea nu stiu cum de nu m-am facut eu geniu pana acuma. O fi milostivul si bunul dumnezeu cu planuri extra pentru mine.</p>
+						</li>
+
+										<li id="comment-76689" class="commentbody"><div class="commenthead"><img alt='Freud`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">17</div>
+								<span class="authorlink">Freud<img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-76689" title="">Friday, 20 January 2012</a>
+							</div>
+						<p>*oricum n-ai nevoie de o conexiune daca ai deja descarcate hartile in telefon sau aparat.</p>
+						</li>
+
+										<li id="comment-76690" class="commentbody"><div class="commenthead"><img alt='Lotus`s avatar' src='http://life-is-good.eu/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">18</div>
+								<span class="authorlink"><a href='http://life-is-good.eu/' class='url'>Lotus</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-76690" title="">Friday, 20 January 2012</a>
+							</div>
+						<p>Nu l-am inventat eu. L-au inventat alţii. Tocmai că eu n-am pretenţia asta.</p>
+						</li>
+
+										<li id="comment-76692" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">19</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-76692" title="">Friday, 20 January 2012</a>
+							</div>
+						<p>@<b>Freud</b> Mei stii ce ? Hai ca tot esti tu incepator in ale internetilor si relevantei, hai sa-ti dau ceva de facut. Uite, pe puncte : </p>
+<ol>
+<li>Mergi frumusel si aduna tu toate textele de Caragiale intr-un singur mare fisier. Le iei cu copy-paste sau cum, da' sa fie toate.</li>
+<li>Uploadeaza fisierul pe server, adapteaza programul de-aici asa fel incit sa-ti numere cuvintele (sau mai era unul care numara cuvinte gata facut, tot pe-aici, daca ala iti convine mai mult)</li>
+<li>Pune rezultatele in Open Office si fa niste histograme (si aia e explicata pe undeva pe-aici)</li>
+<li>Publica toate datele astea frumos intr-un articol, care va fi primul tau articol documentat si relevant</li>
+</ol>
+<p>Hai, spor.</p>
+<p>@<b>Lotus</b> Foarte bine, nici n-ai avea de ce s-o ai. Spre deosebire de, spre exemplu, mine.</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+				<li class="trackbody" id="comment-136926">
+					<div class='trackhead'>
+						<div class="commentcount">20</div>
+						<span class="authorlink"><a href='/2012/isteria-ca-substitut-de-valoare?b=cuvintul%20%22us&amp;e=de%200#select' class='url'>Isteria ca substitut de valoare on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-136926" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] cuvintul "uslas*". In articolul citat (1800 de cuvinte) apare de doua ori. Pe Trilema (vreo trei milioane de cuvinte) apare de 0 [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-136933">
+					<div class='trackhead'>
+						<div class="commentcount">21</div>
+						<span class="authorlink"><a href='/2012/ebooks-de-la-unibuc?b=un%20om%20inteli&amp;e=a%20ca#select' class='url'>Ebooks de la Unibuc on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-136933" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] un om inteligent si educat ? Sunt sigur ca nu. Pur si simplu, mi-ar place sa pot fi contrazis (cum imi place ori de cite ori sunt contrazis in convingerile astea triste, chiar daca se intimpla rar de tot) dar nutresc ferma convingerea ca [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-137115">
+					<div class='trackhead'>
+						<div class="commentcount">22</div>
+						<span class="authorlink"><a href='/2012/extractie-din-wordpresscom?b=minte%20ca%20nu%20&amp;e=arat#select' class='url'>Extractie din wordpress.com on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-137115" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] minte ca nu demult am publicat un articol cu norul de etichete de-aici, plingindu-ma ca nu foloseste la nimic pina la urma ? Ei, ca sa vezi chestie : e adevarat [...]</p>
+				</li>
+
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="author5107c12" id="author5107c12" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email5107c12" id="email5107c12" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="url5107c12" id="url5107c12" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="32384" /></p>
+				<input type="hidden" name="comment_post_time" value="1786338740-3.41.188.35" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2026 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-32384")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-32384");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-32384");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_mar2021.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Rand() si mt_rand() on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">Evil broadly consists of people who<br />aren't very good and don't want to get any better.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-41576"><div class="post" id="post-41576">                    <h1><a href="/2012/rand-si-mt_rand/" rel="bookmark" title="Permanent Link to Rand() si mt_rand()">Rand() si mt_rand()</a></h1>                        <div class="date">                                     Thursday, 09 August, Year 4 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p>Rand() este generatorul de numere "<a href="/2012/internetul-acest-sistem-cvasi-entropic-producator-de-conversatii-intimplatoare/">aleatoare</a>". Mt_rand() este un generator teoretic ceva mai bun, bazat pe abstractia numita Mersene Twister (de unde si mt_ acela), chestie asupra careia <a href="http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/ARTICLES/mt.ps">va documentati</a> daca sunteti curiosi.</p>
+<p>Prin documentatia implementarii in php apare <a href="http://www.php.net/manual/en/function.mt-rand.php#107738">urmatoarea alegatie</a> :</p>
+<blockquote><p>Taking example from a note above i wanted to spot out the big difference between rand and mt_rand when producing images using randomness as noise.</p>
+<p>for example this is a comparation between rand and mt_rand on a 400x400 pixel png: </p>
+<p><a href="http://oi43.tinypic.com/vwtppl.jpg" rel="nofollow"><img src="/wp-content/uploads/2012/08/mt_rand-rand.jpg" alt="mt_rand-rand" title="mt_rand-rand" width="520" height="260" class="aligncenter size-full wp-image-41577" /></a>
+</p></blockquote>
+<p>Asa cum se poate vedea, imaginea din stinga-i mult prea regulata pentru a se putea considera fie si-un inceput de implementare a unei functii aleatorii. Cit or fi de imposibila generarea de numere aleatoare prin procedee numerice, totusi ce se vede acolo-i mult sub limita cea mai de jos. </p>
+<p>Chestia m-a frapat, asa ca m-am apucat ca omu' de stiinta s-o verific, scriind in acest scop doua programele : </p>
+<p><strong>I. rand.php</strong></p>
+<blockquote><p>&lt;?</p>
+<p>header ('Content-Type: image/png');<br />
+$im = @imagecreatetruecolor(560,560) or die('You sir are a pickle!');</p>
+<p>$red = imagecolorallocate ($im , 255 , 0 ,0);<br />
+$blue = imagecolorallocate ($im , 0,0,255);</p>
+<p>for ($i = 0; $i <= 560; $i++) {<br />
+for ($j = 0; $j <= 560; $j++) {</p>
+<p>if (rand(0,1) == 1) imagesetpixel ($im, $i, $j, $red);<br />
+else imagesetpixel ($im, $i, $j, $blue);</p>
+<p>}<br />
+}</p>
+<p>imagepng($im);<br />
+imagedestroy($im);</p>
+<p>?></p></blockquote>
+<p>Rezultatul : </p>
+<p><a href="/wp-content/uploads/2012/08/mt_rand-rand-1.png"><img src="/wp-content/uploads/2012/08/mt_rand-rand-1.png" alt="mt_rand-rand-1" title="mt_rand-rand-1" width="560" height="560" class="aligncenter size-full wp-image-41584" /></a></p>
+<p><strong>II. mt_rand.php</strong></p>
+<blockquote><p>&lt;?</p>
+<p>header ('Content-Type: image/png');<br />
+$im = @imagecreatetruecolor(560,560) or die('You sir are a pickle!');</p>
+<p>$red = imagecolorallocate ($im , 255 , 0 ,0);<br />
+$blue = imagecolorallocate ($im , 0,0,255);</p>
+<p>for ($i = 0; $i <= 560; $i++) {<br />
+for ($j = 0; $j <= 560; $j++) {</p>
+<p>if (mt_rand(0,1) == 1) imagesetpixel ($im, $i, $j, $red);<br />
+else imagesetpixel ($im, $i, $j, $blue);</p>
+<p>}<br />
+}</p>
+<p>imagepng($im);<br />
+imagedestroy($im);</p>
+<p>?></p></blockquote>
+<p>Rezultatul : </p>
+<p><a href="/wp-content/uploads/2012/08/mt_rand-rand-2.png"><img src="/wp-content/uploads/2012/08/mt_rand-rand-2.png" alt="mt_rand-rand-2" title="mt_rand-rand-2" width="560" height="560" class="aligncenter size-full wp-image-41585" /></a></p>
+<p>Dupa cum puteti constata nu apar variatii semnificative, in tot cazul nu-i ceva comparabil cu ce sustine cetateanul. Am rulat chestia de mai multe ori, nu par sa apara diferente. E adevarat ca am folosit alt cod decit cel propus de el, dar pe de-o parte matematic vorbind se poate demonstra ca cele doua-s omoloage si in plus am incercat si codul lui fara sa rezulte nenorocirea aia din partea stinga.</p>
+<p>Asa ca am ramas cumva confuz, eu eram ferm convins ca rand() e o solutie proasta, si cind colo se dovedeste ca nu-i pina la urma chiar asa de proasta. O fi strict chestiune de implementare concreta a rand() pe sistemul pe care-am testat ? E posibil (la rigoare e posibil ca rand() sa fie un alias pentru mt_rand() pina la urma) da' mi-e mult prea mult sa ma apuc sa instalez sisteme diferite ca sa verific atita lucru. </p>
+<p>Totusi, daca cineva are dispozitia de-a face o proba, sunt curios de rezultate.</p>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2012/balanta-adica-stejarul/">Balanta, adica Stejarul</a></div>
+                <div class="alignright"><a href="/2012/frankie-and-johnny/">Frankie and Johnny</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/aicmf/" title="View all posts in AICMF" rel="category tag">AICMF</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2012/rand-si-mt_rand/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2012/rand-si-mt_rand/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>9 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-87603" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-87603" title="">Thursday, 9 August 2012</a>
+							</div>
+						<p>Mă uit diseară pe implementare și îți zic exact, da' momentan pot să speculez în felul următor: rand() ia random seed-ul din /dev/random sau /dev/urandom (mai degrabă din al doilea că e non-blocant) și eventual îl mai prelucrează un pic, după care aruncă rezultatul. mt_rand() face cam aceeași chestie pentru seed, atâta doar că folosește poliloghia cu Mersenne Twister pentru prelucrare.</p>
+<p>Acu' dacă device driver-ul care implementează /dev/urandom folosește și el tot un soi Mersenne Twister în spate - sau și mai bine, dacă are metode suficient de bune de a genera entropie -, rezultatele nu prea au cum să difere. Aici justificarea ar fi că dacă eu îmi dezactivez rețeaua, mouse-ul și altele (surse generatoare de întreruperi pentru procesor), calitatea generatorului aleator din sistemul de operare o să scadă semnificativ, fiindcă astea-s sursele de entropie folosite de /dev/random. Pe de altă parte dacă am o placă de rețea gigabit și în general multe dispozitive care generează multă informație, rand()-ul chior s-ar putea să ajungă la același nivel de calitate cu mt_rand().</p>
+<p>Chestia depinde evident și de implementarea propriu-zisă din kernel, însă mă îndoiesc că <a href="http://lxr.linux.no/linux+v3.5/drivers/char/random.c" >driver-ul</a> s-a schimbat fundamental în timp.</p>
+						</li>
+
+										<li id="comment-87604" class="commentbody"><div class="commenthead"><img alt='Alex`s avatar' src='http://daimon.me/blog/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink"><a href='http://daimon.me/blog/' class='url'>Alex</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-87604" title="">Thursday, 9 August 2012</a>
+							</div>
+						<blockquote><p>the differences reduce when reducing the pixels of the image.. infact for a 100x100 pixel image the noise produced from the rand function is much more realistic than how it is for a 400x400 image: <a href="http://oi39.tinypic.com/5k0row.jpg">http://oi39.tinypic.com/5k0row.jpg</a></p></blockquote>
+<p>Ce citezi tu is opiniile lui X si Y, si deci cine zici ca-i acest "cyrax21 at gmail dot com" de-i luasesi de buna faza cu imaginea de 400px ? Cand chiar el zice imediat dupa ca rezultatele is neconsistente cand se schimba dimensiunile?</p>
+						</li>
+
+										<li id="comment-87609" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-87609" title="">Thursday, 9 August 2012</a>
+							</div>
+						<p>@<b>spyked</b> Aia suspectez si eu, exact. MT a fost o mare chestie prin 1999 sau cind, am ramas toti cu gura cascata (nu intr-un mod asa de diferit fata de cum am ramas - cel putin eu - cu gura cascata la bitcoin, aparent e ceva-n zona cripto care atrage mintile capabile sa te lase cu gura cascata), am impresia ca are atitia fani incit nu se mai poate pune problema sa fi ramas implementari de generatoare de numere aleatoare care sa nu fi fost rescrise sa includa MT. </p>
+<p>Nu m-ar mira sa fi fost rescris chiar random.c cindva in ultimii 10 ani, dat fiind ca iti amintesti mai vechea discutie cu "nu pot dom'le lasa puletii nimic in pace".</p>
+<p>Pe de alta parte teoria cu marea cantitate de entropie poate fi si ea valida pentru ca eu am rulat codul pe-un monstru. Ar fi bun de verificat pe ceva tableta scoasa din retea da' n-am la ora actuala lamp instalat pe nimic de-astea. Totusi... 250k cereri in sub 1 secunda, cam cit dracu' de intreruperi trebuia sa genereze ala ?! </p>
+<p>@<b>Alex</b> Mei, stiintele au asupra umanioarelor urmatorul avantaj semnificativ : e foarte simplu sa verificam orice sustinere stiintifica, cum se vede dinsus. Ca atare in stiinte nu conteaza "cine-i" ala ce sustine ceva. Aia conteaza la filosofie, de exemplu, unde nu te poti sui in autobuz sa faci doua statii pina-n ousia unde sa verifici divinitatea la coaie, are par sau are pene cum zice asta ?!</p>
+						</li>
+
+										<li id="comment-87639" class="commentbody"><div class="commenthead"><img alt='anon`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink">anon<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-87639" title="">Thursday, 9 August 2012</a>
+							</div>
+						<p>Neah am verificat si eu tot la fel imi ies si mie. Cine stie ce minuni a facut tipul de pe php.net.</p>
+						</li>
+
+										<li id="comment-87649" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-87649" title="">Thursday, 9 August 2012</a>
+							</div>
+						<p>Am dat o privire peste implementarea de PHP din <a href="http://www.php.net/git.php" >depozit</a> și rand()-ul de acolo îl apelează pe cel din C, care în principiu depinde de compilator, dar pe gcc sub Linux 100% accesează /dev/urandom. Cu toată tendențiozitatea o spun, io bănuiesc că individul de a postat aia rula PHP pe Windows, despre care nu știu nimic da' tind să cred (cu toată hatereala, cum ziceam) că aia-i sursa problemei. Aștept cu un interes ca un utilizator de Windoză să confirme sau să infirme teoria.</p>
+<blockquote><p>Nu m-ar mira sa fi fost rescris chiar random.c cindva in ultimii 10 ani, dat fiind ca iti amintesti mai vechea discutie cu “nu pot dom’le lasa puletii nimic in pace”.</p></blockquote>
+<p>E foarte posibil, da' cel puțin în ultimii șase ani nu pare a fi nimic semnificativ. M-am uitat pe un fork de kernel făcut acum câteva luni și cel mai mare patch în fișierul respectiv era unul de-al lui Torvalds de prin 2006, care modifica un comportament legat de rețea sau ceva asemănător. Individul de pe php.net a publicat observația în martie, când ar fi putut rula Linux 3.0, 3.2 sau în cel mai extrem caz 3.4, asta dacă nu cumva într-adevăr s-a apucat să testeze pe vreo distribuție antică, ceea ce s-ar lega de unele detalii cum ar fi scheduler-ul (care se activează și el la întreruperi de timer) folosit, care a fost rescris la un moment dat.</p>
+<blockquote><p>Totusi… 250k cereri in sub 1 secunda, cam cit dracu’ de intreruperi trebuia sa genereze ala ?!</p></blockquote>
+<p>Aici e discuție destul de lungă. Dispozitivele de rețea sunt printre puținele care pot genera un număr de întreruperi atât de mare încât să dea sistemul peste cap (prin stack overflow-uri în kernel sau alte dubiozități). Driverele de gigabit ethernet sigur recurg la fetch-uri adiționale pentru a limita numărul de întreruperi.</p>
+						</li>
+
+										<li id="comment-87650" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-87650" title="">Thursday, 9 August 2012</a>
+							</div>
+						<blockquote><p>Cu toată tendențiozitatea o spun, io bănuiesc că individul de a postat aia rula PHP pe Windows, despre care nu știu nimic da’ tind să cred (cu toată hatereala, cum ziceam) că aia-i sursa problemei. Aștept cu un interes ca un utilizator de Windoză să confirme sau să infirme teoria.</p></blockquote>
+<p>Ahahaha deci cit de sec pina in final :D</p>
+<p>Apropo de ultima chestie, ce zici tu e valid da' totusi mi se pare ca pentru nevoile discutiei curente putem cadea de acord ca numarul e totusi prea mare.</p>
+						</li>
+
+										<li id="comment-87653" class="commentbody"><div class="commenthead"><img alt='Morom3t3`s avatar' src='http://morom3t3.wordpress.com/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink"><a href='http://morom3t3.wordpress.com/' class='url'>Morom3t3</a></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-87653" title="">Thursday, 9 August 2012</a>
+							</div>
+						<p>Mirceo, o sa-ti fut amiralul in cur, cum ii place!<br />
+Numai sa strang karma, sa pot posta.</p>
+<p>Al drac', retard!</p>
+						</li>
+
+										<li id="comment-87654" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-87654" title="">Thursday, 9 August 2012</a>
+							</div>
+						<p>Apai hai sa-ti dau noa.</p>
+						</li>
+
+										<li id="comment-92862" class="commentbody"><div class="commenthead"><img alt='Rontaitorul`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink">Rontaitorul</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-92862" title="">Monday, 22 April 2013</a>
+							</div>
+						<p>Frumos postul..pacat de injurii.</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="author97cc3dd" id="author97cc3dd" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email97cc3dd" id="email97cc3dd" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="url97cc3dd" id="url97cc3dd" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="41576" /></p>
+				<input type="hidden" name="comment_post_time" value="1759953169-18.97.14.90" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2025 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-41576")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-41576");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-41576");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>

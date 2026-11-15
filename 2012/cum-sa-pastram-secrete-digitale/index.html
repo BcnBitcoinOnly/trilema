@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Cache-control" content="private,max-age:9800">
+	<meta name="description" content="Planet Earth's most widely read blog." /> 
+	<meta name="robots" content="index,follow,noarchive" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<link rel="stylesheet" href="/wp-content/themes/trilema/style.css" type="text/css" media="screen" />
+
+<style type="text/css">  body {      	background: #fff url('/wp-content/themes/trilema/images/bg_ian2009.jpg') no-repeat center top; }  </style>
+
+	<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="/feed/atom/" />
+	<link rel="alternate" type="application/rss+xml" title="Trilema RSS Feed" href="/feed/" />
+	<link rel="pingback" href="/xmlrpc.php" />
+		<title>Cum sa pastram secrete digitale ? on Trilema - A blog by Mircea Popescu.</title>
+	<style type="text/css">
+						ol.footnotes li {list-style-type:lower-roman;}
+						ol.footnotes{font-size:0.8em; color:#000000;}		</style>
+<script language="JavaScript" type="text/javascript">
+if (top.location != self.location) top.location = self.location;
+</script>
+
+	
+</head>
+<body>
+
+
+<div id="base">
+	<div id="mask_head_ie"></div>
+	<div id="base2">
+		<div id="header">
+			<div id="blogtitle"><a href="/">Trilema</a></div>
+			<div id="subtitle">The world’s greatest erotica writer.<br /><a href=/2019/i-own-erotica-like-zeus-owns-olympus/>By far</a>.
+</div>
+
+
+
+			
+
+		</div>
+		<div id="mask_foot"></div>
+		<div id="container">
+<div id="content">        <div class="spacer"></div>             <span id="shash-35003"><div class="post" id="post-35003">                    <h1><a href="/2012/cum-sa-pastram-secrete-digitale/" rel="bookmark" title="Permanent Link to Cum sa pastram secrete digitale ?">Cum sa pastram secrete digitale ?</a></h1>                        <div class="date">                                     Monday, 12 March, Year 4 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
+
+                        <div class="entry">
+<p>Articolul asta se construieste pe ideea ca rulati <a href="/2011/de-fapt-de-ce-nu-folositi-voi-linux/">linux</a>, ca de exemplu <a href="/2011/ubuntu-si-micile-lui-avantaje-astazi-calculatorul/">ubuntu</a> (da' pentru nevoile articolului de fata cam oricare alta varianta e la fel de buna). </p>
+<p>Daca nu rulati linux e din capul locului cert, garantat si indiscutabil ca nu veti putea folosi nici Internetul nici computerul proprietate personala. Ca regula generala vorbim, sigur ca pe ici-pe colo puteti gasi exceptii si eventual cu foarte mult efort aproape ca reusiti sa le folositi la cite ceva. Da-n general si per total vorbind, nu. Asa ca, daca nu rulati linux... ce pot sa spun, poate ca exista un paleativ palid si aproximativ si pentru cvasi-sistemul dumneavoastra. Nu bag mina in foc si mi-i lene sa caut, da' poate daca aveti noroc gasiti ceva, cine stie.</p>
+<p>Revenind la subiect : in practica pastrarea secretului digital incepe si se sfirseste cu o chestie numita GNU PG (Privacy Guard), care-i o implementare a PGP (Pretty Good Privacy). Modelul matematic pe care se bazeaza ea e tot criptografia cu chei asimetrice de care-am mai discutat cu ocazia <a href="/2011/ce-este-bitcoin/">bitcoinilor</a>, asa ca nu mai revenim, ne focalizam pe chestii practice azi. </p>
+<p>Prima miscare pe care aveti a o face este </p>
+<blockquote><p>gpg --gen-key</p></blockquote>
+<p>Asta va genera o noua cheie (care va fi probabil si prima dumneavoastra cheie digitala - felicitari!). Principala decizie pe care o aveti in fata cu aceasta ocazie e daca sa folositi o cheie permanenta sau una care expira intr-un an. Avantajul de-a folosi o cheie care expira intr-un an este ca daca faceti timpenii ca incepator nu le veti regreta peste un deceniu-doua, si ca puteti folosi o cheie mai scurta (rezultind mesaje si semnaturi mai scurte de asemenea). Dezavantajul e bineinteles ca expira. Cum preferati si va convine mai bine. Daca faceti cheia sa expire intr-un an setati-o de 1024 octeti, daca o faceti permanenta setati-o de 4096. In toate cazurile doriti o pereche RSA and RSA (deci optiunea #1, cea oricum selectata din oficiu). </p>
+<p>Aici programul va lua o scurta pauza, in care va incerca sa colecteze entropie. Chestia asta poate dura si-un sfert de ceas, nu-l bagati in seama, vedeti-va de treburi pina-i gata. </p>
+<p>De departe cea mai importanta chestiune in toata afacerea e ceea ce gpg numeste "passphrase", adica parola care va ingaduie sa va accesati cheia secreta. E o idee buna sa folositi ceva cu litere mari si mici, cifre si simboluri. G6kel{v!Qr0 e un exemplu de parola buna. Ana9are0mere e un exemplu de <a href="/2011/cam-cea-mai-prost-aleasa-parola-din-toate-timpurile/">parola idioata</a>. </p>
+<p>Si-acum sunteti gata. Ce puteti face cu aceasta noua jucarie ? </p>
+<p><strong>I. Puteti semna si verifica semnaturi.</strong> Daca dati comanda </p>
+<blockquote><p>gpg --clearsign</p></blockquote>
+<p>gpg va cere parola. O introduceti, apasati enter, apoi scrieti un mesaj (nu va lasati confuzati de faptul ca "nu se intimpla nimic" - se intimpla). Cind ati terminat apasati ctrl-d (de doua ori). Asta-i tot, obtineti astfel un text semnat, imprejurare pe care oricine o poate verifica, indiscutabil si neunivoc. Stiti toate povestile alea cu vai, semnatura falsa, plastografie, etc ? Ei, sunt trecut din colb de cronici, de cind cu gpg nu se mai poate asa ceva.</p>
+<blockquote><p>-----BEGIN PGP SIGNED MESSAGE-----<br />
+Hash: SHA1</p>
+<p>Salut! Asta e un mesaj semnat. Oricine doreste poate sa se asigure ca intr-adevar a fost scris de mine.<br />
+-----BEGIN PGP SIGNATURE-----<br />
+Version: GnuPG v1.4.10 (GNU/Linux)</p>
+<p>iQIcBAEBAgAGBQJPXeNkAAoJEIpzbw4vt7RSqT4QALKRTfdtudigsZjjc+dc2RG+<br />
+u0fFQp6ZDx1iuDmgfB+VvEiu19c/ivdmoJpN73B95bz2IMbXGD4lslwkkM9WNNKI<br />
+SU/XrvTMSg7CvIbBqAEJDpKOwfz0SMFucjgotBX6dQ+ydc9cTFX0veBj6pRmn02D<br />
+D+aQM27DTwV2clm3v72vKi+GpsXRFEGueB+zD1CnIQB5obHNRbFqEVfIVTpfWUaV<br />
+/46wLoIC8XJq+QhM/DLN/kAdb+vIAAVwriG4rNWP8BDAk22kGLIHy4DXe1+W5cSg<br />
+JJc/F8qh0yQIByUXpEvdkqvKFGo2j7QN4iA7dP0wNzBqIRvz+QMt7PERNpuanNjV<br />
+M+NqP/MbGtL9odlyInPA6t/w6ZG2AtlEriqehKssJ63tDLaJPcIKM0wfpzd/7W1e<br />
+U5gHZSvXlbRzkdK91GXma1idsdGs6zN6jeFCm0pDy3ruUnwojwCvS/8w7KM5dsxK<br />
+OZNuJQqpLtOQqFUbrJm4/nGhKthdnGG2Lqf6WyrivmRt7CocThdFWeoMQYYC9G25<br />
+wxCbezxgwuLOsgjBj6vt3hv+6T2XiqxkGkbIBoWhrsFrX26Dhwu0AcU08rixIjUt<br />
+Rg8dhDm9RdHUgZbLIiPax35Em2cY/rtAu2ZYnFT8Cj4HNsdWCD0GH1LpKOrakgRe<br />
+MRU4U8IsbftPIAxqXce2<br />
+=1RGY<br />
+-----END PGP SIGNATURE-----</p></blockquote>
+<p>Daca doriti sa verificati ca intr-adevar textul a fost semnat de mine luati bucata de mai sus cu copy-paste (toata) si apoi rulati </p>
+<blockquote><p>gpg --verify</p></blockquote>
+<p>Dati paste, apasati ctrl-d si gpg va raspunde : </p>
+<blockquote><p>gpg: Signature made Mon 12 Mar 2012 01:52:04 PM EET using RSA key ID 2FB7B452<br />
+gpg: Good signature from "Mircea Popescu [...]</p></blockquote>
+<p>Aceasta functionalitate e deja suficient cistig cit sa justifice tot efortul : faptul ca puteti semna si verifica semnaturi e extrem de important. De fapt aceasta abilitate face distinctia intre om si animal in ce priveste sfera comertului : cei care au autoritatea sa semneze si discernamintul sa recunoasca semnaturile valide sunt negustorii. Restul sunt iobagii.</p>
+<p>Asta nu inseamna ca ne oprim aici.</p>
+<p><strong>II. Puteti cripta si decripta.</strong> Ce ? Orice. Daca aveti cheia publica a cuiva, puteti cripta un text asa incit doar el (sau ma rog, oricine are cheia privata) sa poata decripta. Daca cineva va cunoaste cheia publica va poate trimite mesaje pe care nu le poate citi nimeni altcineva. </p>
+<p>Chestia asta are aplicatii foarte adinci, sa zicem ca un tip locuieste intr-o casa cu sase fete (<a href="/2010/care-sunt-iq-tau/">minim</a>, am zis!) : Ioana, Elena, Marina, Sorina, Simina si Corina. Daca vrea sa mearga Luni cu Ioana in parc si Joi cu Simina la film cum procedeaza ? </p>
+<p>O solutie ar fi sa cripteze "Hai Luni in parc" cu cheia Ioanei si "Hai Joi la film" cu cheia Siminei, dupa care sa puna rezultatele pe masa din bucatarie. Pentru ca <em>numai Simina</em> va fi capabila sa decripteze mesajul cu "Hai Joi la film". Ioana nu. Ioana va fi capabila sa decripteze ala cu hai Luni in parc si doar atit. Iar Corina, sarmana, nu va putea citi nimic din toate astea, lipsindu-i cheile. </p>
+<p>Este ca-i o idee promitatoare ? Noa dara.</p>
+
+              <div>
+                <div class="alignleft">&laquo; <a href="/2012/de-vinzare-botosei-nefolositi/">De vinzare : botosei, nefolositi.</a></div>
+                <div class="alignright"><a href="/2012/mpex-al-doilea-exchange-pentru-actiuni-denominate-in-btc/">MPEx, al doilea exchange pentru actiuni denominate in BTC</a> &raquo;</div>
+              </div>
+
+<div class="clear"></div>
+                                                    </div>
+                  <div class="info">
+                             </span><span class="category">Category: <a href="/category/trilenciclopedia/" title="View all posts in Trilenciclopedia" rel="category tag">Trilenciclopedia</a></span>
+   </div>
+                   <div class="info_bot"></div>
+            </div>
+          <div id="postmetadata">
+                        Comments feed : <a href='/2012/cum-sa-pastram-secrete-digitale/feed/'>RSS 2.0</a>.                                             Leave your own <a href="#respond">comment</a> below, or send a <a href="/2012/cum-sa-pastram-secrete-digitale/trackback/" rel="trackback">trackback</a>.                                   </div>
+  
+<!-- You can start editing here. -->
+		<p class="commenttitle"><a name="comments"></a>26 Responses</p>
+		
+		<ol class="commentlist">
+									<li id="comment-79834" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">1</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79834" title="">Monday, 12 March 2012</a>
+							</div>
+						<blockquote><p>Daca nu rulati linux e din capul locului cert, garantat si indiscutabil ca nu veti putea folosi nici Internetul nici computerul proprietate personala. Ca regula generala vorbim, sigur ca pe ici-pe colo puteti gasi exceptii si eventual cu foarte mult efort aproape ca reusiti sa le folositi la cite ceva.</p></blockquote>
+<p>Moamă câta hateru' pe Micro$$oft și succesul lor. GPG se poate folosi destul de lejer <a href="http://www.gpg4win.org/" >și pe Windows</a>, asta ca să nu mai vorbim de FreeBSD, OpenBSD și alte comunități de cururi deștepte care se cred numărul unu în materie de securitate.</p>
+<p>În plus există extensie GPG pentru Firefox (FireGPG îi zice), iar eu de exemplu folosesc GPG pentru autentificare pe e-mail folosind mutt și aș putea să-l folosesc și pentru semnături da' îmi e lene. Și mi se pare o idee mult mai bună decât tot sistemul cu CA-uri și PKI, da' cumva nu e prea adoptat pe site-uri web.</p>
+						</li>
+
+										<li id="comment-79837" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">2</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79837" title="">Monday, 12 March 2012</a>
+							</div>
+						<p>Hatesc, deci traiesc!</p>
+<p>Apropo de ultima fraza : si mie, si respectiv ia vezi urmatoru' articol ca ti-a pica falca.</p>
+						</li>
+
+										<li id="comment-79839" class="commentbody"><div class="commenthead"><img alt='Freud`s avatar' src='http://vexare.tk/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">3</div>
+								<span class="authorlink"><a href='http://vexare.tk' class='url'>Freud</a><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79839" title="">Monday, 12 March 2012</a>
+							</div>
+						<p>Un hater adevarat nu foloseste el saas, gnome, chestii. Wget si citim interneti pe mail, uploadam fisiere pe blog prin ftp, eventual ssh cu 7 proxiuri, chestii.</p>
+						</li>
+
+										<li id="comment-79840" class="commentbody"><div class="commenthead"><img alt='krossfire`s avatar' src='http://www.krossfire.ro/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">4</div>
+								<span class="authorlink"><a href='http://www.krossfire.ro' class='url'>krossfire</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79840" title="">Monday, 12 March 2012</a>
+							</div>
+						<p>Lasand la o parte hatereala pe Microsoft si Apple, am un laptop mai hodorogit pe care l-am trecut pe ultimul Ubuntu (in sfarsit interfata Gnome a reusit sa nu ma mai enerveze). It bred new life into the little guy!</p>
+						</li>
+
+										<li id="comment-79841" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">5</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79841" title="">Monday, 12 March 2012</a>
+							</div>
+						<p>@<b>Freud</b> Asa ? </p>
+<p>@<b>krossfire</b> :)</p>
+						</li>
+
+										<li id="comment-79842" class="commentbody"><div class="commenthead"><img alt='Cristian`s avatar' src='http://ciupicri.github.io/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">6</div>
+								<span class="authorlink"><a href='http://ciupicri.github.io/' class='url'>Cristian</a><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79842" title="">Monday, 12 March 2012</a>
+							</div>
+						<p>Le păstrăm pe partiții criptate cu sistemul LUKS. Permite utilizarea atât a mai multor algoritmi: AES, blowfish, twofish etc, cât și a mai multor moduri: ECB (criptare chioară), CBC (înlănțuită) etc.</p>
+<p>Cei care-s pe Windows pot utiliza <a href='http://www.freeotfe.org/' >FreeOTFE</a>. inb4 TrueCrypt e dubios.</p>
+						</li>
+
+										<li id="comment-79843" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">7</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79843" title="">Monday, 12 March 2012</a>
+							</div>
+						<p>Bun da' astea-s probleme de criptarea stocarii. Noi discutam de criptarea comunicarii.</p>
+						</li>
+
+										<li id="comment-79847" class="commentbody"><div class="commenthead"><img alt='A`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">8</div>
+								<span class="authorlink">A<img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79847" title="">Monday, 12 March 2012</a>
+							</div>
+						<p>In calculatorul meu se ascunde e multe secrete, asa ca am sa-mi bag inb4 truecrypt sa fac o partitie daia ascunsa z:// sa nu-mi fure ungurii manelele.</p>
+						</li>
+
+										<li id="comment-79848" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">9</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79848" title="">Monday, 12 March 2012</a>
+							</div>
+						<p>Sa moara dujmaniiiiii tau.</p>
+						</li>
+
+										<li id="comment-79849" class="commentbody"><div class="commenthead"><img alt='Freud`s avatar' src='http://vexare.tk/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">10</div>
+								<span class="authorlink"><a href='http://vexare.tk' class='url'>Freud</a><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79849" title="">Monday, 12 March 2012</a>
+							</div>
+						<p>Mdeci ma bajeti haxori am si gio ho nelamurire. Deci futut-am o partitie cu fedora pe ea, pentru ca am instalat windows, ramanand fara grub.</p>
+<p>Faza e ca nu vreau sa o formatez ca am acolo niste bookmarks si alte chestii, la care jewdos nu monteaza ext4 ca de ce sa puna ei support pentru competenta.</p>
+<p>Deci cum fac eu sa-mi booteze iar aia de fedora, partitia(sgd nu-mi merge)?</p>
+						</li>
+
+										<li id="comment-79850" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">11</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79850" title="">Monday, 12 March 2012</a>
+							</div>
+						<p>Pai repui grub.</p>
+						</li>
+
+										<li id="comment-79851" class="commentbody"><div class="commenthead"><img alt='Garfield`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">12</div>
+								<span class="authorlink">Garfield</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79851" title="">Monday, 12 March 2012</a>
+							</div>
+						<p>Windows XP ii cunoscut ca nu recunoaste partitiile de linux si nu ofera suport pt. ele. Tu ce ai incercat sa pui?</p>
+						</li>
+
+										<li id="comment-79852" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">13</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79852" title="">Monday, 12 March 2012</a>
+							</div>
+						<p>Mda.</p>
+						</li>
+
+										<li id="comment-79853" class="commentbody"><div class="commenthead"><img alt='Balaurul`s avatar' src='/default_avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">14</div>
+								<span class="authorlink">Balaurul</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79853" title="">Monday, 12 March 2012</a>
+							</div>
+						<p>Bun articolul, da' sincer o sa astept cu interes sa iasa si (aplauze) articolul pentru Osx, ca altceva nu mi-am permis si simt ca o sa am mare nevoie sa pitesc diverse</p>
+						</li>
+
+										<li id="comment-79854" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">15</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79854" title="">Monday, 12 March 2012</a>
+							</div>
+						<p>Da' cum adica nu ti-ai permis ca n-am pricipit ? Asta-i gratis.</p>
+						</li>
+
+										<li id="comment-79857" class="commentbody"><div class="commenthead"><img alt='Freud`s avatar' src='http://vexare.tk/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">16</div>
+								<span class="authorlink"><a href='http://vexare.tk' class='url'>Freud</a><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79857" title="">Monday, 12 March 2012</a>
+							</div>
+						<p>Ho ca nici vista, 7, cacat8, etc. Meh mai lunga povestea. Aveam xp pe triple-boot cu fedora si mandriva pwp si am zis sa pun si eu consumer preview 8 ala sa vad ce stie sa faca, si s-a gandit el sa-mi scrie mbr fara sa anunte, ca uitasem ca are boala asta.</p>
+<p>Da' am rezolvat cu supergrubdisk pana la urma, cu meniul <a href="https://contentmgmt.quinstreet.com/imagesvr_ce/linuxplanet/GrubDisk2.jpg" >ala de cacat</a>.</p>
+						</li>
+
+										<li id="comment-79858" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">17</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79858" title="">Monday, 12 March 2012</a>
+							</div>
+						<p>Lmao sa nu uiti sa instalezi si-un CP/M pe undeva. Sa fie.</p>
+						</li>
+
+										<li id="comment-79861" class="commentbody"><div class="commenthead"><img alt='Freud`s avatar' src='http://vexare.tk/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">18</div>
+								<span class="authorlink"><a href='http://vexare.tk' class='url'>Freud</a><img src="/wp-content/themes/trilema/images/insigna-trol.png" class="insigna" alt="insigna de trol" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-1k.png" class="insigna" alt="insigna pentru 1000 de comentarii" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79861" title="">Monday, 12 March 2012</a>
+							</div>
+						<p>Ba sa stii ca-s jeleu ca n-am avut si eu o dracie daia e 8 biti si 512 kb memorie sau cat venea. Star Trek, Star Wars, comics, apar atare, sega, etc.</p>
+						</li>
+
+										<li id="comment-79862" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">19</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79862" title="">Monday, 12 March 2012</a>
+							</div>
+						<p>64kb, infidelule. Din care 48k accesibili pentru programe, infidelule. Sa vezi acolo optimizari de date, infidelule.</p>
+						</li>
+
+										<li id="comment-79863" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">20</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79863" title="">Monday, 12 March 2012</a>
+							</div>
+						<p>48k e beton. Eu acum vreo doi ani programam un microcontroller cu 16k memorie de program și 1k RAM (arhitectură Harvard, deh). Să vezi acolo optimizări statice să bagi cât mai multe rahaturi în cod și distracție mare când se dădea peste cap stiva.</p>
+<p>Also, circuitul era home-made, deci de multe ori n-aveam cum să-mi dau seama dacă-i bug hardware sau am scris eu cod greșit. Și când te gândești că există <a href="http://www.tinyos.net/" >sisteme de operare</a> pentru drăciile alea.</p>
+						</li>
+
+										<li id="comment-79864" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">21</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79864" title="">Monday, 12 March 2012</a>
+							</div>
+						<p>Apuca-te de facut asic-uri pentru minerit apropo. E o meserie de viitor. Foarte de viitor.</p>
+						</li>
+
+										<li id="comment-79865" class="commentbody"><div class="commenthead"><img alt='spyked`s avatar' src='http://lucian.mogosanu.ro/bricks/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">22</div>
+								<span class="authorlink"><a href='http://lucian.mogosanu.ro/bricks' class='url'>spyked</a><img src="/wp-content/themes/trilema/images/insigna-printre-primii.png" class="insigna" alt="insigna de prim sosit" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-educat.png" class="insigna" alt="insigna de cetatean educat" height=10 width=24 /><img src="/wp-content/themes/trilema/images/insigna-tech.png" class="insigna" alt="insigna de tehnolog" height=10 width=24 /></span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79865" title="">Monday, 12 March 2012</a>
+							</div>
+						<p>Este, dar momentan văd că se obțin performanțe destul de bune în domeniu și cu plăci video, în principiu pentru că GPU-urile sunt de fapt mașini masiv paralele de calcul. Deci asta-i soluția ieftină cum ar veni.</p>
+						</li>
+
+										<li id="comment-79866" class="adminbody"><div class="adminhead"><img alt='Mircea Popescu`s avatar' src='/avatar.png' class='avatar avatar-32 photo' height='32' width='32' />								<div class="commentcount">23</div>
+								<span class="authorlink">Mircea Popescu</span>&nbsp;								<span class=""></span>
+													<br />
+								<a class="commentlink" href="#comment-79866" title="">Monday, 12 March 2012</a>
+							</div>
+						<p>Asta era solutia ieftina, din 2010 pina vara trecuta. Asculta-ma ce-ti zic ca nu vorbesc prostii, BFL vinde niste cacaturi cu 600 de dolari bucata si 6-12 saptamini liste de asteptare. Am impresia ca daca-ti pui mintea ai putea face de-alea si tu.</p>
+						</li>
+
+						</ol>
+
+
+
+	<ol class="commentlist">
+				<li class="trackbody" id="comment-137528">
+					<div class='trackhead'>
+						<div class="commentcount">24</div>
+						<span class="authorlink"><a href='/2012/mpex-al-doilea-exchange-pentru-actiuni-denominate-in-btc?b=SWIFT%20ati%20au&amp;e=eave#select' class='url'>MPEx, al doilea exchange pentru actiuni denominate in BTC on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-137528" title="">Monday, 6 January 2020</a>
+					</div>
+					<p>[...] SWIFT ati auzit da' de FIX n-ati auzit ? Pai daca nu aveti bani... [&#8617;]Vedeti articolul despre secrete digitale daca toate astea seamana a chineza [&#8617;]   Category: MPEx     Comments feed : RSS 2.0. Leave [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-138707">
+					<div class='trackhead'>
+						<div class="commentcount">25</div>
+						<span class="authorlink"><a href='/2012/cdo-adica-collateralized-debt-obligation-pe-btc-adica-bitcoin?b=Verificarea%20&amp;e=olo.#select' class='url'>CDO, adica Collateralized Debt Obligation, pe BTC, adica bitcoin on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-138707" title="">Tuesday, 7 January 2020</a>
+					</div>
+					<p>[...] Verificarea semnaturii nu functioneaza, bineinteles, pentru ca retardatii mintali de la "code is poetry"i au ei asa impresia ca-i o idee buna nu doar sa inlocuiasca diverse caractere cu diverse alte caractere, da' si s-o faca in asa fel incit sa n-ai ce-i face daca nu esti dispus sa le rescrii tot codul (cel prost scris). Ca solutie paleativa puteti vedea originalul si verifica acolo. [...]</p>
+				</li>
+
+				<li class="trackbody" id="comment-138894">
+					<div class='trackhead'>
+						<div class="commentcount">26</div>
+						<span class="authorlink"><a href='/2012/deci-piata-financiara-bine?b=ca%20iata%20noua&amp;e=si-s#select' class='url'>Deci piata financiara, bine ? on Trilema - A blog by Mircea Popescu.</a></span>&nbsp;(via Pingback)						<span class=""></span>
+						<br />
+						<a class="commentlink" href="#comment-138894" title="">Tuesday, 7 January 2020</a>
+					</div>
+					<p>[...] ca iata noua economie in toata splendoarea ei. Avem gpg deci putem semna, avem bitcoin deci putem tranzactiona. Astea doua elemente impreuna rezolva complet problema, si-s [...]</p>
+				</li>
+
+	</ol>
+
+
+		<strong id="respond">Add your cents!</strong>
+ <small>&raquo; <br /><ul>If this is your first comment, it will wait to be approved. This usually takes a few hours. Subsequent comments are not delayed.</ul></small>
+			<form action="/wp-comments-post.php" method="post" id="commentform">
+	
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+					<p><input type="text" name="authord8ad676" id="authord8ad676" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="emaild8ad676" id="emaild8ad676" value="" size="22" tabindex="2" />
+						<label for="email"><small>E-Mail
+</small></label></p>
+					<p><input type="text" name="urld8ad676" id="urld8ad676" value="" size="22" tabindex="3" />
+
+						<label for="url"><small>Website (optional)</small></label></p>
+
+<!--<p><small><strong>XHTML:</strong> You can use these tags:&nbsp;&lt;a href=&quot;&quot; title=&quot;&quot;&gt; &lt;abbr title=&quot;&quot;&gt; &lt;acronym title=&quot;&quot;&gt; &lt;b&gt; &lt;blockquote cite=&quot;&quot;&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=&quot;&quot;&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=&quot;&quot;&gt; &lt;strike&gt; &lt;strong&gt; </small></p>-->
+
+<!--- This is just a decoy ;)
+
+<p><input type="text" name="author" id="author" value="" size="22" tabindex="1" />
+						<label for="author"><small>Name&nbsp;(required)</small></label></p>
+					<p><input type="text" name="email" id="email" value="" size="22" tabindex="2" />
+
+						<label for="email"><small>E-Mail (will not be published , required)</small></label></p>
+					<p><input type="text" name="url" id="url" value="http://pest" size="22" tabindex="3" />
+
+-->
+
+				<p><textarea name="comment" id="comment" cols="60" rows="12" tabindex="4"></textarea></p>
+				<p><input name="submit" type="submit" id="submit" tabindex="5" value="Send" />
+				<input type="hidden" name="comment_post_ID" value="35003" /></p>
+				<input type="hidden" name="comment_post_time" value="1768847529-18.97.9.169" /></p>
+
+				
+			</form>
+  		</div><div id="sidebar">
+        <div id="sidebar_top"></div>
+        <div id="sidebar1">
+                <ul>
+         
+
+<ul>
+                        <h5>Recent Comments</h5>
+      <ul>
+      	<li><a href=/2011/ce-am-pierdut-si-voi-n-ati-avut/#comment-165319 >Mircea Popescu</a> It's baaaaack!!!</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165310 >Mircea Popescu</a> Well, it's a both-ways tower defense, you build the pathway and the op...</li>
+	<li><a href=/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/#comment-165307 >Diana Coman</a>  the game went offline (it does that after five or so minutes of inactivity...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165303 >Mircea Popescu</a> Ahahaha. If we met back when I was still in that line I'd have totally...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165302 >pletzalcoatl</a> You were thinking a pallid Danny DeVito in a purple crushed velvet suit...</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165300 >Mircea Popescu</a> You're not fooling anyone, you know.</li>
+	<li><a href=/2019/forum-logs-for-05-nov-2015/#comment-165297 >Tyrone White</a> What's up to all</li>
+	<li><a href=/2021/hoe-jokes/#comment-165274 >Mircea Popescu</a> &updated.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165253 >Mircea Popescu</a> PS. s/undertaker/liquidator/ on re-read. Nfi what I was thinking.</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165251 >Mircea Popescu</a> Meh. More nudes less obscure software packages, I don't watsup or w/e.</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165250 >Mircea Popescu</a> Obscure TV actor, plenty of those. (I didn't, for instance, review the...</li>
+	<li><a href=/2021/the-apprenticeship-of-duddy-kravitz/#comment-165239 >CarpraC</a> Since this post brought up ancient actors, their experience and quality, what...</li>
+	<li><a href=/2016/lxs-ninxs/#comment-165227 >temptease</a> call me whatsapp +79910404425</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165222 >Mircea Popescu</a> Heh. Never heard of it. (I however have heard of that kinda posturing,...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165221 >Anon</a> I don't know, some kind of "help you with your finances" scam/online...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165220 >Mircea Popescu</a> No fucking idea, what is it ?</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165219 >Anon</a> In the same line, what is Intuit?</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165218 >Mircea Popescu</a> Heh. Nothing lasts forever, and the "independent woman" least of all.</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165217 >Mircea Popescu</a> Wtf is this inane nonsense! Oh, I get it, artificially interesting...</li>
+	<li><a href=/2020/kitty-freipurr-von-meow-and-other-tales-of-bring-your-own-adventure-to-tamarindo/#comment-165216 >lexy229</a> &gt; how exactly did you figure out what to do to have your avatar show up by...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165214 >anon</a> Have a laugh Description Planet Earth's most widely read blog.... Read More Tim...</li>
+	<li><a href=/2020/trilema-altogether-no-longer-showing/#comment-165212 >Mircea Popescu</a> Heh, the yearly problems of last year's. What a life.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165102 >Mircea Popescu</a> Really, it's top100-ish pretty much everywhere.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165101 >anon</a> #117 in Russia too.</li>
+	<li><a href=/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/#comment-165100 >Joshue</a> Meanwhile when it comes to being famous in Gibraltar...</li>
+      </ul>
+   
+
+        <br />
+</ul>
+        </div>
+                <div id="sidebar2">
+                <ul>
+                        <li><h5>Recent Articles</h5><ul>
+                	<li><a href='/2021/n-i-meaning-h-went-to-m-and/' title='N &#038; I (meaning H) went to M and...'>N &#038; I (meaning H) went to M and...</a></li>
+	<li><a href='/2021/royal-revolt-ii-complete-strategy-guide-also-by-very-far-the-best-on-the-internet/' title='Royal Revolt II complete strategy guide, also by very far the best on the Internet.'>Royal Revolt II complete strategy guide, also by very far the best on the Internet.</a></li>
+	<li><a href='/2021/laltra-meta-del-cielo/' title='L&#039;altra metà del cielo'>L'altra metà del cielo</a></li>
+	<li><a href='/2021/hoe-jokes/' title='Hoe Jokes'>Hoe Jokes</a></li>
+	<li><a href='/2021/the-apprenticeship-of-duddy-kravitz/' title='The Apprenticeship of Duddy Kravitz'>The Apprenticeship of Duddy Kravitz</a></li>
+	<li><a href='/2021/moe-jokes/' title='Moe Jokes'>Moe Jokes</a></li>
+	<li><a href='/2021/joe-jokes/' title='Joe Jokes'>Joe Jokes</a></li>
+	<li><a href='/2021/carried-away/' title='Carried Away'>Carried Away</a></li>
+	<li><a href='/2021/the-value-of-subhuman-life-and-other-non-themes-of-scummy-preoccupation/' title='The value of subhuman life, and other non-themes of scummy preoccupation'>The value of subhuman life, and other non-themes of scummy preoccupation</a></li>
+	<li><a href='/2021/have-you-ever-read-les-liaisons-dangereuses/' title='Have you ever read Les Liaisons dangereuses ?'>Have you ever read Les Liaisons dangereuses ?</a></li>
+	<li><a href='/2021/royal-revolt-ii-kicks-ass/' title='Royal Revolt II Kicks Ass!'>Royal Revolt II Kicks Ass!</a></li>
+	<li><a href='/2021/on-being-female-and-being-a-woman/' title='On being female, and being a woman.'>On being female, and being a woman.</a></li>
+	<li><a href='/2021/il-gatto-mammone/' title='Il gatto mammone'>Il gatto mammone</a></li>
+	<li><a href='/2021/hey-bitches-smell-my-armpits/' title='Hey bitches! Smell my armpits!'>Hey bitches! Smell my armpits!</a></li>
+	<li><a href='/2021/shield-for-murder/' title='Shield for murder'>Shield for murder</a></li>
+	<li><a href='/2021/moral-myopia/' title='Moral myopia'>Moral myopia</a></li>
+	<li><a href='/2021/amarcord/' title='Amarcord'>Amarcord</a></li>
+	<li><a href='/2021/la-minorenne/' title='La minorenne'>La minorenne</a></li>
+	<li><a href='/2021/the-deplorable-generation/' title='The deplorable generation'>The deplorable generation</a></li>
+	<li><a href='/2021/breaking-usg-president-belect-pidden-announces-plans-to-sign-epochal-factaltering-change-footnote-executive-history/' title='BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!'>BREAKING : USG President-Belect Pidden Announces Plans To Sign Epochal Factaltering Change Footnote Executive History!</a></li>
+</ul></li>
+                
+
+        
+<li class="pagenav"><h5>Pages</h5><ul><li class="page_item page-item-220"><a href="/archives-categories/" title="Archives &#038; Categories">Archives &#038; Categories</a></li>
+<li class="page_item page-item-34333"><a href="/contact-pgp/" title="Contact ; PGP">Contact ; PGP</a></li>
+<li class="page_item page-item-181"><a href="/copyright-notice/" title="Copyright Notice">Copyright Notice</a></li>
+<li class="page_item page-item-62578"><a href="/eulora-shop/" title="Eulora Shop">Eulora Shop</a></li>
+<li class="page_item page-item-94098"><a href="/in-the-press/" title="In the press">In the press</a></li>
+<li class="page_item page-item-39332"><a href="/thesaurus-vocabulary/" title="Thesaurus &#038; Vocabulary">Thesaurus &#038; Vocabulary</a></li>
+</ul></li>
+<h5>Say NO! to platforms</h5>      
+<center><a href=/2019/no-platforms/><img src=/wp-content/uploads/2019/08/no-facebook.png></img></a></center>
+
+                                                        </ul>
+        </div>
+
+        <div id="sidebar_bot">
+</div>
+
+<div id="banners">
+
+</div>
+</div>
+		</div>		
+<div id="footer">			
+<a href="/feed/" title="RSS Feed"><img src="/wp-content/themes/trilema/images/rss.jpg" alt="Subscribe RSS" class="rss"/>
+</a>		
+Copyright &copy; 2008 - 
+2026 for all text and images.			
+<br /> 
+Trilema is. Everything else's just hearsay. 
+
+
+</div>	
+</div>
+</div>
+
+	
+<script type="text/javascript">function findPos(obj) {
+  var curtop = 0;
+  while (obj && obj.offsetParent) {
+    curtop += obj.offsetTop; // todo: + webkit-transform
+    obj = obj.offsetParent;
+  }
+  return curtop;
+}
+var artificial = null;
+var prevhash = "";
+function scrollToHash() {
+  if (document.location.hash.replace(/^#/, "")==prevhash.replace(/^#/, ""))
+    return;
+  prevhash = document.location.hash;
+  if (document.location.hash.match(/#selection-[0-9.]+%/)) {
+    var p = parseFloat(document.location.hash.substring(1));
+    if (0 < p && p < 100 /*&& p%5 != 0*/) {
+      var content = document.getElementById("shash-35003")
+      var y = findPos(content) + (content.offsetHeight)*p/100;
+      window.scrollTo(0, y-16);
+    }
+  }
+
+  var adr = document.location.hash.match(/#selection-(\d+).(\d+)-(\d+).(\d+)/);
+  if (adr) {
+    var pos=0,begin=null,end=null;
+    function recur(e) {
+      if (e.nodeType==1) pos = (pos&~1)+2;
+      if (e.nodeType==3) pos = pos|1;
+      if (pos==adr[1]) begin=[e, adr[2]];
+      if (pos==adr[3]) end  =[e, adr[4]];
+      for (var i=0; i<e.childNodes.length; i++)
+        recur(e.childNodes[i]);
+      if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+        pos = (pos&~1)+2;
+    }
+    // remove old "artificial" span if any
+    if (artificial) {
+      artificial.previousSibling.data += artificial.childNodes[0].data;
+      artificial.parentNode.removeChild(artificial);
+    }
+    var content = document.getElementById("shash-35003");
+    recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+    if (begin!=null && end!=null) {
+      // scroll to selection
+      if (begin[0].nodeType==3) {
+        var text = document.createTextNode(begin[0].data.substr(0, begin[1]));
+        artificial = document.createElement("SPAN");
+        artificial.appendChild(document.createTextNode(begin[0].data.substr(begin[1])));
+
+        begin[0].parentNode.insertBefore(text, begin[0]);
+        begin[0].parentNode.replaceChild(artificial, begin[0]);
+
+        if (end[0]===begin[0])
+          end = [artificial.childNodes[0], end[1]-begin[1]];
+        begin = [artificial.childNodes[0], 0];
+        /* window.scrollTo(0, findPos(artificial)-8); */ artificial.scrollIntoView(true);
+      } else if (begin[0].nodeType==1) {
+        /* window.scrollTo(0, findPos(begin[0])-8);   */ begin[0].scrollIntoView(true);
+      }
+
+      if (window.getSelection) {
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        var range = document.createRange();
+        range.setStart(begin[0], begin[1]);
+        range.setEnd  (  end[0],   end[1]);
+        sel.addRange(range);
+      } else if (document.selection) { // IE
+      }
+    }
+  }
+}
+window.onhashchange = scrollToHash;
+var initScrollToHashDone = false;
+function initScrollToHash() {
+  if (!initScrollToHashDone) {
+    initScrollToHashDone = true;
+    scrollToHash();
+  }
+}
+window.onload = initScrollToHash;
+setTimeout(initScrollToHash, 500); /* onload can be delayed by counter code */
+
+//document.onselectionchange = /* only webkit has working document.onselectionchange */
+document.onmousedown = document.onmouseup = function(e) {
+  var newhash = "";
+  if (window.getSelection) {
+    var sel=window.getSelection();
+    if (!sel.isCollapsed) {
+      var pos=0,begin=[0,0],end=[0,0];
+      var range=sel.getRangeAt(0);
+      function recur(e) {
+        if (e===artificial) {
+          if (range.startContainer===e.childNodes[0]) begin=[pos, e.previousSibling.data.length+range.startOffset];
+          if (range.endContainer  ===e.childNodes[0]) end  =[pos, e.previousSibling.data.length+range.endOffset ];
+        } else {
+          if (e.nodeType==1) pos = (pos&~1)+2;
+          if (e.nodeType==3) pos = pos|1;
+          if (range.startContainer===e) begin=[pos, range.startOffset];
+          if (range.endContainer  ===e) end  =[pos, range.endOffset ];
+          for (var i=0; i<e.childNodes.length; i++)
+            recur(e.childNodes[i]);
+          if (e.childNodes.length>0 && e.lastChild.nodeType==3)
+            pos = (pos&~1)+2;
+        }
+      }
+
+      var content = document.getElementById("shash-35003");
+      recur(content.childNodes[content.childNodes[0].nodeType==3 ? 1 : 0]);
+      if (begin[0]>0 && end[0]>0) {
+        newhash = "selection-"+begin[0]+"."+begin[1]+"-"+end[0]+"."+end[1];
+      }
+    }
+  } else if (document.selection) { // IE
+  }
+
+  try {
+    var oldhash = location.hash.replace(/^#/, "");
+    if (oldhash != newhash) {
+      prevhash = newhash; /* avoid firing window.onhashchange and scrolling */
+      if (history.replaceState)
+        history.replaceState('', document.title, newhash=="" ? window.location.pathname : '#'+newhash);
+      else
+        location.hash = newhash;
+    }
+  } catch(e) {
+  }
+};
+</script></body></html>
