@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 # Download missing wp-content/uploads assets for all posts in a month.
-# Usage: ./utils/recover-month-assets.sh YYYY/MM
+# Usage: ./utils/recover-assets.sh [--count] YYYY/MM
 set -euo pipefail
+
+COUNT_ONLY=false
+if [[ "${1:-}" == "--count" ]]; then
+    COUNT_ONLY=true
+    shift
+fi
 
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 DOMAIN="http://trilema.com"
@@ -49,7 +55,7 @@ extract_assets() {
 }
 
 if [[ $# -lt 1 ]]; then
-    echo "Usage: $0 YYYY/MM" >&2
+    echo "Usage: $0 [--count] YYYY/MM" >&2
     exit 1
 fi
 
@@ -93,41 +99,47 @@ for slug in $post_slugs; do
     echo "$slug: ${#missing[@]} missing assets"
     (( total_missing += ${#missing[@]} ))
 
-    i=0
-    for asset_path in "${missing[@]}"; do
-        (( i++ )) || true
-        local_path="$REPO$asset_path"
-        mkdir -p "$(dirname "$local_path")"
+    if ! $COUNT_ONLY; then
+        i=0
+        for asset_path in "${missing[@]}"; do
+            (( i++ )) || true
+            local_path="$REPO$asset_path"
+            mkdir -p "$(dirname "$local_path")"
 
-        info "[$i/${#missing[@]}] downloading $asset_path"
-        sleep "$SLEEP_BETWEEN"
-        asset_url="https://web.archive.org/web/2id_/$DOMAIN$asset_path"
-        if wbm_fetch "$asset_url" "$local_path"; then
-            (( total_downloaded++ )) || true
-        else
-            # Fallback: query CDX for older snapshots
-            info "  latest failed, querying CDX..."
+            info "[$i/${#missing[@]}] downloading $asset_path"
             sleep "$SLEEP_BETWEEN"
-            got_it=false
-            while IFS= read -r ts; do
-                [[ -z "$ts" ]] && continue
-                info "  trying snapshot $ts"
-                sleep "$SLEEP_BETWEEN"
-                if wbm_fetch "https://web.archive.org/web/${ts}id_/$DOMAIN$asset_path" "$local_path"; then
-                    got_it=true
-                    break
-                fi
-            done < <(cdx_timestamps "$asset_path")
-
-            if $got_it; then
+            asset_url="https://web.archive.org/web/2id_/$DOMAIN$asset_path"
+            if wbm_fetch "$asset_url" "$local_path"; then
                 (( total_downloaded++ )) || true
             else
-                info "MISS $asset_path"
-                rm -f "$local_path"
-                (( total_failed++ )) || true
+                # Fallback: query CDX for older snapshots
+                info "  latest failed, querying CDX..."
+                sleep "$SLEEP_BETWEEN"
+                got_it=false
+                while IFS= read -r ts; do
+                    [[ -z "$ts" ]] && continue
+                    info "  trying snapshot $ts"
+                    sleep "$SLEEP_BETWEEN"
+                    if wbm_fetch "https://web.archive.org/web/${ts}id_/$DOMAIN$asset_path" "$local_path"; then
+                        got_it=true
+                        break
+                    fi
+                done < <(cdx_timestamps "$asset_path")
+
+                if $got_it; then
+                    (( total_downloaded++ )) || true
+                else
+                    info "MISS $asset_path"
+                    rm -f "$local_path"
+                    (( total_failed++ )) || true
+                fi
             fi
-        fi
-    done
+        done
+    fi
 done
 
-echo "Done: $total_missing missing, $total_downloaded downloaded, $total_failed failed"
+if $COUNT_ONLY; then
+    echo "Total missing assets: $total_missing"
+else
+    echo "Done: $total_missing missing, $total_downloaded downloaded, $total_failed failed"
+fi
