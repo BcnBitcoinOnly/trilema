@@ -1,13 +1,14 @@
 :80 {
 	root * /srv/trilema
 
-	# Don't serve project files
-	@project path /Caddyfile /compose.yml /README.md
-	respond @project 404
+	# Don't serve extraneous files
+	@rejects path /.github /utils /_headers /_ignores /_redirects /Caddyfile /compose.yml /README.md
+	respond @rejects 404
 
+	# Main page I browse while working on the archive, remove redirect if not wanted
 	redir / /archives-categories/ temporary
 
-	try_files {path} {path}/ {path}/index.html
+	try_files {path} {path}/index.html
 	file_server
 
 	handle_errors {
