@@ -14,15 +14,19 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          fetch-depth: 1
+          fetch-depth: 0
+      - run: |
+          sudo curl -o /usr/lib/git-core/git-restore-mtime https://raw.githubusercontent.com/MestreLion/git-tools/refs/tags/v2025.08/git-restore-mtime
+          sudo chmod +x /usr/lib/git-core/git-restore-mtime
+          git restore-mtime wp-content
       - run: |
           aws s3 sync wp-content/ "s3://${R2_BUCKET}/wp-content/" \
             --endpoint-url "https://${CF_ACCOUNT_ID}.r2.cloudflarestorage.com" \
             --cache-control "public, max-age=43210, immutable" \
-            --delete
+            --delete \
+            --no-progress
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: auto
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
           R2_BUCKET: ${{ secrets.R2_BUCKET }}
