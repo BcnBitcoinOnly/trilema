@@ -1,0 +1,83 @@
+rg> oh man
+<a5m0> MBS, we need to find a better market, none of our stuff sells :(
+<rg> this pen just just got interesting
+<MBS> lol
+<rg> so they have this box, its a stock CentOS box
+<rg> no outgoing enabled @ router level
+<rg> so i didnt have an interactive shell, just the PHP shell i got from owning their MySQL pw
+<rg> and using PHP admin
+<rg> er
+* coyo has quit (Quit: Heaven isnt a place, Bartleby, it's being with people who love you.)
+<rg> phpmyadmin to cahnge the joomla admin pw
+<rg> then i uploaded a backdoor plugin
+<rg> so i ran this exploit, changed its shellcode to redirect 443/tcp to localhost:22
+<rg> from a certain src ip
+<rg> so i can ssh in, done, echo'd in a key im root now with a full ssh
+<rg> AND
+<MBS> would love to sell this code on amazon, but would have a slight loss after shipping, not to mention amazons huge cut
+<rg> i found that i can bind other IP's on the network
+* StewieMcFluffy_ (~Stewie@gateway/tor-sasl/stewiemcfluffy) has joined #bitcoin-otc
+<rg> ones that arent so firewalled
+<rg> :)
+<rg> firewall fails once again.
+<rg> security: 1
+<rg> firewall: 0
+<charlierlee> ;;ident charlierlee
+<gribble> Nick 'charlierlee', with hostmask 'charlierlee!~gagecolto@gateway/tor-sasl/gagecolton', is identified as user charlierlee, with GPG key id 8BDA7ABE18034912, and key fingerprint 627DAD9C7059A08C2CB00BF78BDA7ABE18034912.
+<mircea_popescu> mmm
+<mircea_popescu> seems it has little to do with firewall
+<mircea_popescu> it's the bind being left open that's the problem
+<a5m0> you should pentest that big wall at 4.90
+* StewieMcFluffy has quit (Ping timeout: 276 seconds)
+* sfantu (~sfantu@89.123.101.155) has joined #bitcoin-otc
+<mircea_popescu> there's something i don't quite grasp about btc market. 2 examples : 
+* nelisky (~nelisky@unaffiliated/nelisky-/x-0749711) has joined #bitcoin-otc
+<mircea_popescu> 1. people complained about my spreads being too wide. i said hey, you just say that, but if you could put your money in the middle you stuill wouldn't. people;'d say o no, for sure would. i added short sell. nobody went in the middle.
+<mircea_popescu> and i  forget what  the 2nd example is, but in the same vein
+<mircea_popescu> seems market is still rather inefficient
+<MBS> rg, sounds like their firewall was fail in the first place
+<rg> well
+<rg> people who hide behind a fw are dumb
+<rg> firewalls should be a last line of defence
+<MBS> even allowing you to access phpmyadmin was a mistake
+<MBS> rg, well firewalls can be effective
+<a5m0> phpmyadmin is a mistake
+<rg> even if they didnt have PhpMyAdmin
+<rg> they were fucked anyway
+<MBS> oh, port scanning, nullrouted
+<MBS> oh, trying to access port 22, nullrouted
+<rg> but they did have good passwords
+<MBS> oh, trying several nonexistant suspicous urls, nullrouted
+<rg> i will give them that
+<rg> i cant wait to submit this!!
+<MBS> how did you crack their passwords?
+<MBS> oh wait was it the mysql 4.1 password from earlier?
+<rg> with a cracker.. :P
+<rg> no
+<rg> i forgot to chekc something
+<MBS> oh, lol
+<rg> they had their webroot world read
+<rg> i just read it from the config.php
+<rg> but it wasnt world-writable which was a shame
+<MBS> lol
+<rg> otherwise i woulda just wrote the shell from phpmyadmin but it wasnt so i had to add a fake joomla plugin
+<MBS> so how did you get to the config.php?
+* kish is now known as KillJohnMcCain
+<MBS> back when i was working on my site which is now canceled, only accessable ports were pretty much HTTP, SSL HTTP, and a few email ones if you werent on my IP
+<rg> oh
+<rg> i leveraged this all from a simple SQL injection
+<rg> and some poor configurations
+<rg> thats how i do
+<mircea_popescu> rg : wanna own mine ? :D
+<rg> i think i already tries
+<rg> tried*
+<mircea_popescu> didn't get too far ?
+<rg> your site suffers some simplicity
+<rg> from*&
+<rg> which exempts you from being owned
+<rg> as your site doesnt use any new technologies
+<mircea_popescu> myea.
+<mircea_popescu> i know, im a sucker.
+<draco49> mircea_popescu, you simpleton!
+<rg> well im really proud of myself
+<rg> these dudes are gonna be pissed when they wake up
