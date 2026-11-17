@@ -31,6 +31,14 @@ Browse it at http://localhost
 Install Caddy on your server and use the Caddyfile provided with this repo,
 adjusting as needed.
 
+
+### Known lost resources
+
+* /wp-content/themes/trilema/ad2.png
+* /wp-content/themes/trilema/images/bg_apr.jpg
+* /wp-content/themes/trilema/images/bg_july.jpg
+* /wp-content/themes/trilema/images/bg_oct.jpg
+
 Original README.md follows:
 
 ---
