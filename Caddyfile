@@ -1,14 +1,19 @@
 :80 {
 	root * /srv/trilema
 
-	# Don't serve extraneous files
-	@rejects path /.github /utils /_headers /_ignores /_redirects /Caddyfile /compose.yml /README.md
-	respond @rejects 404
+	header Cache-Control "public, max-age=86400, immutable"
 
 	# Main page I browse while working on the archive, remove redirect if not wanted
 	redir / /archives-categories/ temporary
 
-	try_files {path} {path}/index.html
+	# Don't serve extraneous files
+	@rejects path /.git /.github /utils /_headers /_ignores /_redirects /Caddyfile /compose.yml /README.md
+	respond @rejects 404
+
+	@logs path /forum-logs-*
+	try_files @logs /2019{path} /2019{path}/ /2020{path} /2020{path}/
+
+	try_files {path} {path}/
 	file_server
 
 	handle_errors {
