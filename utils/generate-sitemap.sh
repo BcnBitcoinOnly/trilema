@@ -10,7 +10,7 @@ cat > "$OUT" <<'HEADER'
 HEADER
 
 find . -name 'index.html' -not -path './.git/*' -not -path './.tokensave/*' \
-    -not -path '*/feed/*' -not -path '*/trackback/*' \
+    -not -path '*/feed/*' -not -path '*/trackback/*' -not -path '*/web/*' \
     | sed 's|^\./||; s|/index\.html$|/|; s|^index\.html$||' \
     | sort \
     | while IFS= read -r path; do
