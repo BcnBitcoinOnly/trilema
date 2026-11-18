@@ -38,6 +38,12 @@ adjusting as needed.
 * /wp-content/themes/trilema/images/bg_apr.jpg
 * /wp-content/themes/trilema/images/bg_july.jpg
 * /wp-content/themes/trilema/images/bg_oct.jpg
+* /wp-content/uploads/2015/12/bitbet-intake-nov-2015.png
+* /wp-content/uploads/2015/12/juan-iliesco-560x746.jpg
+* /wp-content/uploads/2015/12/juan-iliesco.jpg
+* /wp-content/uploads/2015/12/tumblr_njeogaq6wf1u5qv2bo1_1280.jpg
+* /wp-content/uploads/2019/10/schlob-6.jpg
+* /wp-content/uploads/tlpimages/images/
 
 Original README.md follows:
 
