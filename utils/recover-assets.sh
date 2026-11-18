@@ -55,21 +55,30 @@ extract_assets() {
 }
 
 if [[ $# -lt 1 ]]; then
-    echo "Usage: $0 [--count] YYYY/MM" >&2
+    echo "Usage: $0 [--count] YYYY/MM | YYYY" >&2
     exit 1
 fi
 
 path="$1"
 year="${path%%/*}"
-month_page="$REPO/$path/index.html"
 
-if [[ ! -f "$month_page" ]]; then
-    echo "ABORT: $month_page does not exist" >&2
-    exit 1
+if [[ "$path" == */* ]]; then
+    # YYYY/MM mode: get slugs from month index page
+    month_page="$REPO/$path/index.html"
+    if [[ ! -f "$month_page" ]]; then
+        echo "ABORT: $month_page does not exist" >&2
+        exit 1
+    fi
+    post_slugs=$(grep -oP '<div class="title"><a href="\K/'"$year"'/[^"]+' "$month_page")
+else
+    # YYYY mode: find articles directly on disk
+    if [[ ! -d "$REPO/$year" ]]; then
+        echo "ABORT: $REPO/$year does not exist" >&2
+        exit 1
+    fi
+    post_slugs=$(find "$REPO/$year" -mindepth 2 -name 'index.html' -not -path '*/feed/*' \
+        -printf "/$year/%P\n" | sed 's|/index.html$||')
 fi
-
-# Get post slugs from the month index
-post_slugs=$(grep -oP '<div class="title"><a href="\K/'"$year"'/[^"]+' "$month_page")
 
 total_missing=0
 total_downloaded=0
