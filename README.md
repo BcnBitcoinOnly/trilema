@@ -1,9 +1,32 @@
-## 1ma fork of Trilema archive
+## BcnBitcoinOnly fork of Trilema archive
 
 ### Branches
 
 * `main`: original archive from 2021 made by [@BullishNode](https://github.com/BullishNode)
-* `master`: extra commits to clean up duplicate content and serve the site nicely with Caddy and Cloudflare Pages
+* `master`: extra missing content and cleaned up up HTML to serve the site nicely with Caddy and Cloudflare Pages
+
+| Known permanently lost resources                                  |
+|-------------------------------------------------------------------|
+| `/2016/`                                                          |
+| `/2017/`                                                          |
+| `/2018/`                                                          |
+| `/2020/`                                                          |
+| `/2021/`                                                          |
+| `/wp-content/themes/trilema/ad2.png`                              |
+| `/wp-content/themes/trilema/images/bg_apr.jpg`                    |
+| `/wp-content/themes/trilema/images/bg_july.jpg`                   |
+| `/wp-content/themes/trilema/images/bg_oct.jpg`                    |
+| `/wp-content/uploads/2015/12/bitbet-intake-nov-2015.png`          |
+| `/wp-content/uploads/2015/12/juan-iliesco-560x746.jpg`            |
+| `/wp-content/uploads/2015/12/juan-iliesco.jpg`                    |
+| `/wp-content/uploads/2015/12/tumblr_njeogaq6wf1u5qv2bo1_1280.jpg` |
+| `/wp-content/uploads/2019/10/schlob-6.jpg`                        |
+| `/wp-content/uploads/tlpimages/images/`                           |
+
+| Files that are too big for GitHub (>100 MB)             |
+|---------------------------------------------------------|
+| `wp-content/uploads/2012/02/iepurasul-sacrificat-2.avi` |
+
 
 ### Cloudflare Mirror
 
@@ -26,24 +49,10 @@ docker compose up -d
 
 Browse it at http://localhost
 
-#### Host a private copy
+#### Host your own private copy
 
 Install Caddy on your server and use the Caddyfile provided with this repo,
 adjusting as needed.
-
-
-### Known lost resources
-
-* /wp-content/themes/trilema/ad2.png
-* /wp-content/themes/trilema/images/bg_apr.jpg
-* /wp-content/themes/trilema/images/bg_july.jpg
-* /wp-content/themes/trilema/images/bg_oct.jpg
-* /wp-content/uploads/2015/12/bitbet-intake-nov-2015.png
-* /wp-content/uploads/2015/12/juan-iliesco-560x746.jpg
-* /wp-content/uploads/2015/12/juan-iliesco.jpg
-* /wp-content/uploads/2015/12/tumblr_njeogaq6wf1u5qv2bo1_1280.jpg
-* /wp-content/uploads/2019/10/schlob-6.jpg
-* /wp-content/uploads/tlpimages/images/
 
 Original README.md follows:
 
