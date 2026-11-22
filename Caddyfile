@@ -10,9 +10,6 @@
 	@rejects path /.git /.github /utils /_headers /_ignores /_redirects /Caddyfile /compose.yml /README.md
 	respond @rejects 404
 
-	@logs path /forum-logs-*
-	try_files @logs /2019{path} /2019{path}/ /2020{path} /2020{path}/
-
 	try_files {path} {path}/
 	file_server
 
