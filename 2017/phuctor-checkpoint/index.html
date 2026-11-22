@@ -46,7 +46,7 @@ if (top.location != self.location) top.location = self.location;
 <div id="content">        <div class="spacer"></div>             <span id="shash-72343"><div class="post" id="post-72343">                    <h1><a href="/2017/phuctor-checkpoint/" rel="bookmark" title="Permanent Link to Phuctor checkpoint">Phuctor checkpoint</a></h1>                        <div class="date">                                     Friday, 07 April, Year 9 d.Tr.&nbsp;|&nbsp;Author: <a href="/author/admin/" title="Posts by Mircea Popescu">Mircea Popescu</a>                                                        </div>
 
                         <div class="entry">
-<p>Because <a href="/forum-logs-for-06-apr-2017#2264235">reasons</a>, here's a snapshot of the interesting stuff in <a href="http://phuctor.nosuchlabs.com/">Phuctor</a> today : </p>
+<p>Because <a href="/2020/forum-logs-for-06-apr-2017#2264235">reasons</a>, here's a snapshot of the interesting stuff in <a href="http://phuctor.nosuchlabs.com/">Phuctor</a> today : </p>
 <blockquote><p>Submissions: 8`223`355 ; Known Moduli: 5`782`106  ; Moduli Waiting for Test: 1`921 ; Submissions with One or More Duplicate Modulus: 239`328 ; Moduli with Obvious Brain-Damage: 822`426<sup><a href="#footnote_0_72343" id="identifier_0_72343" class="footnote-link footnote-identifier-link" title="TEN percent!">i</a></sup>; Moduli Broken: <strong>1`409</strong>.</p></blockquote>
 <p>And now for the details : <A href=/wp-content/uploads/2017/04/phuctor_snapshot.html>phuctor_snapshot.html</a></p>
 <p>Note : all the IPs listed as users come from the same 13-14 June 2016 extraction of ssh keys by Framedragger.</p>
@@ -59,7 +59,7 @@ if (top.location != self.location) top.location = self.location;
 <ul>
 <li>If using MySql, always use MyIsam, it's practically unsinkable. If it does somehow get corrupted (which is almost always because you killed the process while it was <em>writing</em>), <strong>do not panic</strong>.</li>
 <p>
-<li>Check and make sure the partition MySql stores data on has enough space (often - <a href="/forum-logs-for-06-apr-2017#2264497">it doesn't</a>, which may make you panic). </li>
+<li>Check and make sure the partition MySql stores data on has enough space (often - <a href="/2020/forum-logs-for-06-apr-2017#2264497">it doesn't</a>, which may make you panic). </li>
 <p>
 <li>Run myisamchk --key_buffer_size=64M --myisam_sort_buffer_size=64M --read_buffer_size=1M --write_buffer_size=1M table_name.MYI ; expect about a minute per GB ; good idea to also make copies. If the index is divorced from the datafile, re-run the above with switch -r. This <em>will</em> fix it.</li>
 <p>

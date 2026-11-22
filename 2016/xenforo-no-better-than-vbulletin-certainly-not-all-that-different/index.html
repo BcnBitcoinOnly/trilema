@@ -63,7 +63,7 @@ remember=1&#038;cookie_check=1&#038;_xfToken=&#038;redirect=https%3A%2F%2Fxenfor
 munity%2F" "https://xenforo.com/community/login/"</pre>
 </blockquote>
 <p>Above, the vBulletin login method, consisting of passing md5 (yes!) redundant (plain and utf8!) hashes of the password. Below, the xenforo method of passing... the paintext password. What's your preference, between md5 - thoroughly cracked a decade ago - and plaintext ? </p>
-<p>They both result in the same single cookie being set, of course ; but the revered bbsessionhash as unique session identifier has been renamed to xf_session. That's pretty much it, and the notion that a court somewhere bought into <a href="/forum-logs-for-18-may-2016#2094443">the theory</a> xenforo's anything but copy/pasted vBulletin is so ridiculous as could have come only only out of a court somewhere.</p>
+<p>They both result in the same single cookie being set, of course ; but the revered bbsessionhash as unique session identifier has been renamed to xf_session. That's pretty much it, and the notion that a court somewhere bought into <a href="/2020/forum-logs-for-18-may-2016#2094443">the theory</a> xenforo's anything but copy/pasted vBulletin is so ridiculous as could have come only only out of a court somewhere.</p>
 <p>Moving on, enumeration of userspace works on entirely novel lines now : </p>
 <blockquote><p>for i in {129996..1}; do curl -v -o /dev/null "https://xenforo.com/community/members/sublimelinter.$i/" 2>&#038;1 | grep "Loca" >> hurr.txt; done</p></blockquote>
 <p>Because aren't they fucking cool, putting the name in there, it'd almost have worked as a spacing method. Except it doesn't, and consequently </p>
